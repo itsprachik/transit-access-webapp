@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>My Mapbox App</title>
+        <title>Transit Access</title>
         <meta name="description" content="A Next.js app with Mapbox" />
         <link rel="icon" href="/favicon.ico" />
 
