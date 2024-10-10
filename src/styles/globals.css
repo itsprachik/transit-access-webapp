@@ -1,9 +1,90 @@
-.onclick-popup.mapboxgl-popup.mapboxgl-popup-anchor-bottom{
-  width: 700px !important;
-  max-width: 700px !important;
-  position: fixed !important;
-  left: 50% !important;
-  bottom: 0 !important;
-  transform: translateX(-50%) !important;
+body { 
+  margin: 0; 
+  padding: 0; 
+}
+#map { 
+  position: absolute; 
+  top: 0; 
+  bottom: 0; 
+  width: 100%; 
 }
 
+/* Custom styles for the click popup */
+.onclick-popup.mapboxgl-popup.mapboxgl-popup-anchor-bottom {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  width: 90vw !important; /* Full width for mobile */
+  max-width: 90vw !important; /* Full width for mobile */
+  position: fixed !important;
+  left: 50% !important;
+  bottom: 1% !important;
+  top: auto;
+  transform: translateX(-50%) !important;
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Prevent content overflow */
+  padding: 10px; /* Extra padding for cleaner spacing */
+  background-color: rgba(255, 255, 255, 0.7); /* Slightly more opaque for bottom popup */
+  backdrop-filter: blur(10px); /* Stronger blur for bottom popup */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); /* Soft shadow */
+  color: #333;
+  max-height: 80vh; /* Ensure the popup doesn't exceed the viewport height */
+  overflow-y: auto; /* Enable vertical scroll if content overflows */
+}
+
+/* Ensure image spans full width */
+.onclick-popup img {
+  border-radius: 5px; /* Round image corners */
+  margin-top: 10px;
+  width: 100%; /* Image spans full width */
+  max-height: 50vh; /* Limit image height to prevent excessive height */
+  object-fit: cover; /* Ensure the image maintains aspect ratio */
+}
+
+/* Responsive adjustments for larger screens (like desktop) */
+@media (min-width: 768px) {
+  .onclick-popup.mapboxgl-popup.mapboxgl-popup-anchor-bottom {
+    width: 70vw !important; /* 70% width for tablets and above */
+    max-width: 1000px !important; /* Max width for larger screens */
+    top: 15%; /* Popup is centered higher on larger screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .onclick-popup.mapboxgl-popup.mapboxgl-popup-anchor-bottom {
+    width: 60vw !important; /* 60% width for larger screens */
+  }
+}
+
+.onclick-popup .mapboxgl-popup-content {
+  position: relative !important;
+  background: rgba(250, 250, 250, 0.0) !important;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0%) !important;
+  padding: 10px 10px 15px;
+  pointer-events: auto;
+}
+
+.onclick-popup p {
+  font-family: 'Roboto', sans-serif; /* Use Roboto for secondary text */
+  margin: 5px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 1% !important;
+}
+
+.onclick-popup strong {
+  display: block;
+  margin-bottom: 1% !important;
+  color: #111;
+  font-size: 18px; /* Slightly larger font for titles */
+}
+
+/* Additional hover effects */
+.onhover-popup .mapboxgl-popup-content {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  border-radius: 5px; /* Round corners */
+  background-color: rgba(255, 255, 255, 1);
+}
