@@ -2,18 +2,43 @@ import { useEffect, useRef, useState } from "react";
 import ReactDOMServer from "react-dom/server";
 import mapboxgl from "mapbox-gl";
 import { fetchOutages } from "@/api/fetchOutages";
-import getElevatorOutages, { getUpcomingOutages } from "@/utils/dataUtils";
-//import checkmarkIcon from "@/checkmark-icon1.png";
-//import xIcon from "@/x-icon1.png";
+import { getElevatorOutages, getUpcomingOutages } from "@/utils/dataUtils";
+import dotenv from "dotenv";
+import { AccessibleIcon, ElevatorOutIcon } from "./icons";
+import Image from "next/image";
+import { createRoot } from 'react-dom/client';
+import ElevatorPopup from "./ElevatorPopup";
 
-mapboxgl.accessToken = "pk.eyJ1Ijoiam9lbGFhcm9uIiwiYSI6ImNsbmRpaWlkbDA0ZHEya21rNnVqd2t0MDgifQ.tWei82YsyHOpERaAUq_Vuw";
-const apiKey = "ASkxmeY00iaYfGsMHzoQM33a1QFLyX3V3g43xV6E"; // Replace with your actual API key
+
+// Load environment variables
+dotenv.config();
+
+mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
+const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+
 
 export default function Map() {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [elOutages, setElOutages] = useState([]);
+  const [outElevatorNos, setOutElevatorNos] = useState([]);
   const [upcomingOutages, setUpcomingOutages] = useState([]);
+
+  // Popup for station info
+  const popupHover = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false,
+    className: "onhover-popup", // hover-popup css class
+  });
+
+  const onClickPopupRef = useRef(
+    new mapboxgl.Popup({
+      anchor: "bottom",
+      className: "onclick-popup",
+      closeButton: true,
+      closeOnClick: true,
+    })
+  );
 
   // Initializing your map here ensures that Mapbox GL JS will not try to render a map before React creates the element that contains the map.
   useEffect(() => {
@@ -32,79 +57,65 @@ export default function Map() {
       });
 
       // Add navigation controls
-            // Zoom and bearing control
-            const zoomControl = new mapboxgl.NavigationControl();
-            map.current.addControl(zoomControl, 'bottom-left'); // Add the control to the top-right corner of the map
+      // Zoom and bearing control
+      const zoomControl = new mapboxgl.NavigationControl();
+      map.current.addControl(zoomControl, "bottom-left"); // Add the control to the top-right corner of the map
 
-             // GeoLocate
-             const geolocateControl = new mapboxgl.GeolocateControl({
-              positionOptions: {
-                  enableHighAccuracy: true
-              },
-              trackUserLocation: true,
-              showUserHeading: true
-          });
-          map.current.addControl(geolocateControl, 'bottom-right');
-
+      // GeoLocate
+      const geolocateControl = new mapboxgl.GeolocateControl({
+        positionOptions: {
+          enableHighAccuracy: true,
+        },
+        trackUserLocation: true,
+        showUserHeading: true,
+      });
+      map.current.addControl(geolocateControl, "bottom-right");
 
       // Load custom icons (checkmark and X)
-    map.current.on("style.load", () => {
-      map.current.loadImage('./symbols/checkmark-icon1a.png', (error, image) => {
-        if (error) throw error;
-        map.current.addImage('checkmark-icon', image);
-      });
+      map.current.on("style.load", () => {
+        map.current.loadImage(
+          "./symbols/checkmark-icon1a.png",
+          (error, image) => {
+            if (error) throw error;
+            map.current.addImage("checkmark-icon", image);
+          }
+        );
 
-      map.current.loadImage('./symbols/x-icon1a.png', (error, image) => {
-        if (error) throw error;
-        map.current.addImage('x-icon', image);
-      });
+        map.current.loadImage("./symbols/x-icon1a.png", (error, image) => {
+          if (error) throw error;
+          map.current.addImage("x-icon", image);
+        });
 
-      map.current.addSource("outage-data", {
-        type: "geojson",
-        data: "/elevatorOutagesDataset.geojson",
-        dynamic: true,
-        generateId: true,
-      });
+        map.current.addSource("outage-data", {
+          type: "geojson",
+          data: "/elevatorOutagesDataset.geojson",
+          dynamic: true,
+          generateId: true,
+        });
 
-      // Add outage layer with icons based on isBroken property
-      map.current.addLayer({
-        id: "outages",
-        source: "outage-data",
-        type: "symbol", // Using symbol type for icon display
-        layout: {
-          "icon-image": [
-            "case",
-            ["==", ["get", "isBroken"], false], // If elevator is working
-            "checkmark-icon", // Use checkmark icon
-            ["==", ["get", "isBroken"], true], // If elevator is broken
-            "x-icon", // Use X icon
-            "checkmark-icon", // Default to checkmark icon in case of missing data
-          ],
-          "icon-size": 0.15,
-          "icon-anchor": "bottom",
-          "icon-offset": [0, -50],
-          "icon-allow-overlap": true,
-          //"icon-rotate": 0, // Ensure icons are not rotated
-          
-        },
-      });
+        // Add outage layer with icons based on isBroken property
+        map.current.addLayer({
+          id: "outages",
+          source: "outage-data",
+          type: "symbol", // Using symbol type for icon display
+          layout: {
+            "icon-image": [
+              "case",
+              ["==", ["get", "isBroken"], false], // If elevator is working
+              "checkmark-icon", // Use checkmark icon
+              ["==", ["get", "isBroken"], true], // If elevator is broken
+              "x-icon", // Use X icon
+              "checkmark-icon", // Default to checkmark icon in case of missing data
+            ],
+            "icon-size": 0.15,
+            "icon-anchor": "bottom",
+            "icon-offset": [0, -50],
+            "icon-allow-overlap": true,
+            //"icon-rotate": 0, // Ensure icons are not rotated
+          },
+        });
 
         let hoveredFeatureId = null;
-
-        // Popup for station info
-        const popupHover = new mapboxgl.Popup({
-          closeButton: false,
-          closeOnClick: false,
-          className: "onhover-popup", // hover-popup css class
-        });
-
-        const popupClick = new mapboxgl.Popup({
-          
-          anchor: "bottom",
-          className: "onclick-popup",
-          closeButton: true,
-          closeOnClick: true,
-        });
 
         // On hover event
         map.current?.on("mousemove", "transit-elevators", (e) => {
@@ -131,7 +142,6 @@ export default function Map() {
             );
 
             // Display popup with image and information about the station
-         //   console.log(e.features);
             const feature = e.features[0];
             const coordinates = e.features[0].geometry.coordinates.slice();
             const description = feature.properties.description;
@@ -170,7 +180,6 @@ export default function Map() {
         //  Click event to display pop-up ***
         map.current?.on("click", "transit-elevators", (e) => {
           if (e.features.length > 0) {
-            console.log(e.features);
             const feature = e.features[0];
             const coordinates = e.features[0].geometry.coordinates.slice();
             const description = feature.properties.description;
@@ -178,20 +187,31 @@ export default function Map() {
             const title = feature.properties.title;
             const linesServed = feature.properties.linesServed;
             const elevatorno = feature.properties.elevatorno;
+            let icon = "";
             while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
               coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
             }
+            outElevatorNos.includes(elevatorno)
+              ? (icon = true)
+              : (icon = false);
 
-            popupClick
+            const popupDiv = document.createElement("div");
+            document.body.appendChild(popupDiv); // Ensure it's added to the DOM
+            const root = createRoot(popupDiv)
+
+            root.render(
+              <ElevatorPopup
+                title={title}
+                description={description}
+                imageUrl={imageUrl}
+                elevatorno={elevatorno}
+                linesServed={linesServed}
+                icon={icon}
+              />
+            );
+            onClickPopupRef.current
               .setLngLat(coordinates)
-              .setHTML(
-                `<strong>${title} </strong>
-                <p>${elevatorno}</p>
-                 <img src= "${imageUrl}" alt="Image Desc" style="width:100%;"/>
-                 <p>${description}</p>
-                 <p><strong>Lines Served</strong></p>
-                 <p>${linesServed}</p>`
-              )
+              .setDOMContent(popupDiv)
               .addTo(map.current);
           }
         });
@@ -209,8 +229,7 @@ export default function Map() {
   }, []);
 
   useEffect(() => {
-    let features = getElevatorOutages(elOutages);
-    
+    let features = getElevatorOutages(elOutages, setOutElevatorNos);
     // Map onload event
     map.current.on("load", () => {
       map.current.getSource("outage-data").updateData({
@@ -218,7 +237,6 @@ export default function Map() {
         features: features,
       });
     });
-    
 
     // Clean up function
     // return () => {
@@ -230,7 +248,7 @@ export default function Map() {
   useEffect(() => {
     const upcomingOutageFeatures = getUpcomingOutages(elOutages);
     setUpcomingOutages(upcomingOutageFeatures);
-    console.log("Upcoming Elevator Outages:", upcomingOutageFeatures);
+    // console.log("Upcoming Elevator Outages:", upcomingOutageFeatures);
   }, [elOutages]);
 
   //if (loading) return <p>Loading...</p>;

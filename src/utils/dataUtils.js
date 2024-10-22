@@ -5,10 +5,12 @@ dataUtils is used to filter existing arrays and elevator data
 import { elevatorCoordinates } from "./elevatorOutageGeometry";
 
 // Function to filter out Escalators and Upcoming outages from the outageArray response
-export default function getElevatorOutages(outageArray) {
+export function getElevatorOutages(outageArray, setOutElevatorNos) {
   const features = [];
-  outageArray.forEach((equip) => {
+  let outElevatorNoArray = [];
+  outageArray?.forEach((equip) => {
     if (equip.equipmenttype == "EL" && equip.isupcomingoutage == "N") {
+      outElevatorNoArray.push(equip.equipment);
       let obj = {
         type: "Feature",
         id: equip.equipment,
@@ -25,7 +27,9 @@ export default function getElevatorOutages(outageArray) {
           : null,
       };
       features.push(obj);
-    }
+    } 
+    console.log(outElevatorNoArray)
+    setOutElevatorNos(outElevatorNoArray)
   });
   return features;
 }
@@ -33,7 +37,7 @@ export default function getElevatorOutages(outageArray) {
 // Function to highlight all upcoming outages
 export function getUpcomingOutages(outageArray) {
   const upcomingOutages = [];
-  outageArray.forEach((equip) => {
+  outageArray?.forEach((equip) => {
     if (equip.equipmenttype == "EL" && equip.isupcomingoutage == "Y") {
       let obj = {
         type: "Feature",
