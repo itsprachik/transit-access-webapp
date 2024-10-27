@@ -245,7 +245,6 @@ export default function Map() {
   useEffect(() => {
     const upcomingOutageFeatures = getUpcomingOutages(elOutages);
     setUpcomingOutages(upcomingOutageFeatures);
-    // console.log("Upcoming Elevator Outages:", upcomingOutageFeatures);
   }, [elOutages]);
 
   //if (loading) return <p>Loading...</p>;
