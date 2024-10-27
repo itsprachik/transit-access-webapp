@@ -1,21 +1,18 @@
 import { useEffect, useRef, useState } from "react";
-import ReactDOMServer from "react-dom/server";
 import mapboxgl from "mapbox-gl";
 import { fetchOutages } from "@/api/fetchOutages";
 import { getElevatorOutages, getUpcomingOutages } from "@/utils/dataUtils";
 import dotenv from "dotenv";
-import { AccessibleIcon, ElevatorOutIcon } from "./icons";
-import Image from "next/image";
-import { createRoot } from 'react-dom/client';
-import ElevatorPopup from "./ElevatorPopup";
-
+import { createRoot } from "react-dom/client";
+import ElevatorPopup, {
+  OnHoverElevatorPopup,
+} from "./ElevatorPopup/ElevatorPopup";
 
 // Load environment variables
 dotenv.config();
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-
 
 export default function Map() {
   const mapContainer = useRef(null);
@@ -25,11 +22,13 @@ export default function Map() {
   const [upcomingOutages, setUpcomingOutages] = useState([]);
 
   // Popup for station info
-  const popupHover = new mapboxgl.Popup({
-    closeButton: false,
-    closeOnClick: false,
-    className: "onhover-popup", // hover-popup css class
-  });
+  const onHoverPopupRef = useRef(
+    new mapboxgl.Popup({
+      closeButton: false,
+      closeOnClick: false,
+      className: "onhover-popup", // hover-popup css class
+    })
+  );
 
   const onClickPopupRef = useRef(
     new mapboxgl.Popup({
@@ -148,16 +147,18 @@ export default function Map() {
             const imageUrl = feature.properties.image;
             const title = feature.properties.title;
             const linesServed = feature.properties.linesServed;
+            const lines = linesServed.split("/");
             while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
               coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
             }
 
-            popupHover
+            const popupDiv = document.createElement("div");
+            document.body.appendChild(popupDiv); // Ensure it's added to the DOM
+            const root = createRoot(popupDiv);
+            root.render(<OnHoverElevatorPopup linesServed={linesServed} />);
+            onHoverPopupRef.current
               .setLngLat(coordinates)
-              .setHTML(
-                `<p><strong>Lines Served</strong></p>
-                 <p>${linesServed}</p>`
-              )
+              .setDOMContent(popupDiv)
               .addTo(map.current);
           }
         });
@@ -174,11 +175,12 @@ export default function Map() {
             );
           }
           hoveredFeatureId = null;
-          popupHover.remove();
+          onHoverPopupRef.current.remove();
         });
 
         //  Click event to display pop-up ***
         map.current?.on("click", "transit-elevators", (e) => {
+          console.log("on click");
           if (e.features.length > 0) {
             const feature = e.features[0];
             const coordinates = e.features[0].geometry.coordinates.slice();
@@ -187,18 +189,13 @@ export default function Map() {
             const title = feature.properties.title;
             const linesServed = feature.properties.linesServed;
             const elevatorno = feature.properties.elevatorno;
-            let icon = "";
+            let icon = true;
             while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
               coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
             }
-            outElevatorNos.includes(elevatorno)
-              ? (icon = true)
-              : (icon = false);
-
             const popupDiv = document.createElement("div");
             document.body.appendChild(popupDiv); // Ensure it's added to the DOM
-            const root = createRoot(popupDiv)
-
+            const root = createRoot(popupDiv);
             root.render(
               <ElevatorPopup
                 title={title}

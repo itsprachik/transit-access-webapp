@@ -7,10 +7,9 @@ import { elevatorCoordinates } from "./elevatorOutageGeometry";
 // Function to filter out Escalators and Upcoming outages from the outageArray response
 export function getElevatorOutages(outageArray, setOutElevatorNos) {
   const features = [];
-  let outElevatorNoArray = [];
+  const outElevatorNoArray = [];
   outageArray?.forEach((equip) => {
     if (equip.equipmenttype == "EL" && equip.isupcomingoutage == "N") {
-      outElevatorNoArray.push(equip.equipment);
       let obj = {
         type: "Feature",
         id: equip.equipment,
@@ -26,11 +25,12 @@ export function getElevatorOutages(outageArray, setOutElevatorNos) {
             }
           : null,
       };
+      outElevatorNoArray.push(equip.equipment);
       features.push(obj);
     } 
-    console.log(outElevatorNoArray)
     setOutElevatorNos(outElevatorNoArray)
-  });
+  }
+);
   return features;
 }
 
