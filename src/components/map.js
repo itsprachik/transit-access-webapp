@@ -249,7 +249,6 @@ export default function Map() {
 
   //if (loading) return <p>Loading...</p>;
   //if (error) return <p>Error: {error}</p>;
-
   return (
     <div
       style={{ height: "100vh" }} // remove in-line style from here, use tailwind or make a css module
