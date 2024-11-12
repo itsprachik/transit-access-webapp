@@ -1,7 +1,7 @@
 import json
 
 # Load the GeoJSON data from the file
-with open('custom_dataset.json') as f:
+with open('updated_dataset.json') as f:
     geojson = json.load(f)
 
 # Initialize an empty list to store the transformed data
