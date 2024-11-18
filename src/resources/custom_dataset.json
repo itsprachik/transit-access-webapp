@@ -4,29 +4,29 @@
       "type": "Feature",
       "properties": {
         "isRedundant": "0",
-        "stationAbbr": "A41/R29", 
-        "route": "A C F", 
-        "complexID": "636", 
-        "indiegogo": "0", 
+        "stationAbbr": "A41/R29",
+        "route": "A C F",
+        "complexID": "636",
+        "indiegogo": "0",
         "stationID": "174",
-        "system": "nyc_mta", 
-        "elevatorno": "EL708", 
-        "linesServed": "A/C/F", 
-        "title": "Jay St-MetroTech", 
+        "system": "nyc_mta",
+        "elevatorno": "EL708",
+        "linesServed": "A/C/F",
+        "title": "Jay St-MetroTech",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Jay-Metro_EL706.jpg",
         "alternativeRoute": "If you are on the mezzanine: Use the elevator on the other side of the mezzanine then either: Take a Manhattan-bound A or C to Fulton St and transfer across the platform to a Brooklyn-bound A or C. Or, take a Manhattan-bound F to Broadway-Lafayette and use elevators to transfer to a Brooklyn-bound F. If you are on the Brooklyn-bound A/C/F platform: Take a Euclid Av-bound A or C to Utica Av and either: Use elevators to transfer to a Manhattan-bound A or C to Jay St-MetroTech. Or, use the elevator to exit the station and take a Downtown Brooklyn-bound B25 bus (Fulton St and Malcolm X Blvd) to Fulton St and Jay St. Or, take a Coney Island-bound F to Church Av and use elevators to transfer to a Manhattan-bound F to Jay St-MetroTech.",
-        "shortdescription": "Mezzanine to Brooklyn-bound A/C/F", 
-        "ada": "1", 
-        "isBroken": "" 
+        "description": "Mezzanine to Brooklyn-bound A/C/F",
+        "ada": "1",
+        "isBroken": ""
       },
-      "geometry": {  
+      "geometry": {
         "coordinates": [
           -73.987733,
           40.693076
         ],
-        "type": "Point" 
+        "type": "Point"
       },
-      "id": "00f096e29a58d82dbeacbd7357263841" 
+      "id": "00f096e29a58d82dbeacbd7357263841"
     },
     {
       "type": "Feature",
@@ -751,12 +751,13 @@
         "alternativeRoute": "If you are on the upper mezzanine: Take an uptown 1 to 59 St-Columbus Circle and use elevators to transfer to a downtown 1 to Times Sq-42 St. Or, exit station and take a downtown M7 or M20 bus to 34 St-Penn Station. If you are on the downtown 1/2/3 platform: Take a downtown 2 or 3 to 34 St-Penn Station and use elevators to transfer to an uptown 2 or 3 to Times Sq-42 St. Or, take a downtown 1, 2 or 3 to 34 St-Penn Station. Exit station and take the M20 or M34A SBS (8 Av between 34 St and 35 St) to 41 St. Times Sq-42 St is one block north. If you are on the lower mezzanine: Exit station and take an eastbound M42 bus to Grand Central-42 St for 7. If you are on the 7 platform: Take an uptown 7 to Grand Central-42 St. Exit station and take a westbound M42 bus (42 St between Park Av and Lexington Av) to Broadway.",
         "description": "Mezzanine to 7 & downtown 1/2/3",
         "ada": "1",
-        "isBroken": ""
+        "isBroken": "",
+        "directionLabel": "1/2/3 downtown, 7 uptown & downtown"
       },
       "geometry": {
         "coordinates": [
           -73.986036,
-          40.755298
+          40.75531
         ],
         "type": "Point"
       },
@@ -1426,6 +1427,36 @@
     {
       "type": "Feature",
       "properties": {
+        "isRedundant": "0",
+        "stationAbbr": "A06",
+        "route": "A",
+        "complexID": 146,
+        "indiegogo": "0",
+        "isStreet": "true",
+        "stationID": 146,
+        "system": "nyc_mta",
+        "elevatorno": "EL517",
+        "linesServed": "A",
+        "directionLabel": "uptown",
+        "title": "181 St",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/181-A_EL517.jpg",
+        "alternativeRoute": "If you’re on the platform: Take an Inwood-207 St-bound A to Inwood-207 St. Then, stay on the train or transfer across the platform for the next Downtown and Brooklyn-bound A to 181st St. If you’re on the mezzanine: Use EL518 to take a Downtown and Brooklyn-bound A to 175 St. Then, transfer across the platform to an Inwood-207 St-bound A.",
+        "description": "Mezzanine to uptown platform",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.937429,
+          40.852929
+        ],
+        "type": "Point"
+      },
+      "id": "15465f94f57feec4150a90a527c0143c"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "isRedundant": "",
         "stationAbbr": "DELN_1",
         "route": "",
@@ -1814,7 +1845,7 @@
         "elevatorno": "EL405",
         "linesServed": "F",
         "title": "21 St-Queensbridge",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/21st-Queensbridge_EL405.jpg",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/21-Queensbridge_EL405.jpg",
         "alternativeRoute": "If you are on the street: Take an Astoria-bound Q102 (41st Av and 21st St) to Queens Plaza South and 27 St.  Then transfer to a Jackson Heights-bound Q32 (Queens Plaza South and 28 St) to the Jackson Hts-Roosevelt Av E/F/M/R/7 Station. If you are on the mezzanine: Use elevator to take a Jamaica-bound F to the Jackson Hts.  Use elevators to exit station and take a Midtown-bound Q32 (Roosevelt Av and 74 St) to Queens Plaza North and 27 St.  Then transfer to a Roosevelt Island-bound Q102 at the same stop and travel to 21st St and 41st Av.",
         "description": "Street to mezzanine",
         "ada": "1",
@@ -1842,7 +1873,7 @@
         "elevatorno": "EL407",
         "linesServed": "F",
         "title": "21 St-Queensbridge",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/21st-Queensbridge_EL405.jpg",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/21-Queensbridge_EL405.jpg",
         "alternativeRoute": "If you are on the mezzanine: Use elevator to take a Manhattan-bound F to Roosevelt Island.  Then use elevators to take a Jamaica-bound F. If you are on the platform: Take a Jamaica-bound F to Jackson Hts-Roosevelt Av.  Then use elevators to transfer to a Manhattan-bound F to 21 St-Queensbridge.",
         "description": "Mezzanine to Jamaica-bound platform",
         "ada": "1",
@@ -1870,7 +1901,7 @@
         "elevatorno": "EL406",
         "linesServed": "F",
         "title": "21 St-Queensbridge",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/21st-Queensbridge_EL405.jpg",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/21-Queensbridge_EL405.jpg",
         "alternativeRoute": "If you are on the mezzanine: Use elevator to take a Jamaica-bound F to the Jackson Hts-Roosevelt Av.  Then use elevators to transfer to a Manhattan-bound F.   If you are on the platform: Take a Manhattan-bound F to Roosevelt Island.   Use elevators to take a Jamaica-bound F to 21 St-Queensbridge F Station.",
         "description": "Mezzanine to Manhattan-bound platform",
         "ada": "1",
@@ -2867,6 +2898,35 @@
       "type": "Feature",
       "properties": {
         "isRedundant": "0",
+        "stationAbbr": "G29/L10",
+        "route": "G L",
+        "complexID": "629",
+        "indiegogo": "0",
+        "stationID": "121/285",
+        "system": "nyc_mta",
+        "elevatorno": "EL780",
+        "linesServed": "G",
+        "directionLabel": "queens",
+        "title": "Metropolitan Av",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/MetropolitanAv-G_EL779.jpg",
+        "alternativeRoute": "If you are on the mezzanine: Use elevator EL779 to exit the station. Then, either: Travel east on Metropolitan Av to Graham Av and take a Greenpoint-bound B43 bus to Manhattan Av and Greenpoint Av. Use the elevator (EL763) to access Greenpoint Av (G) station. Or, travel one block west to Lorimer St and take a Manhattan-bound L to Bedford Av. Then, transfer to a Long Island City-bound B62 bus (Bedford Av and North 5 St) to Manhattan Av and Greenpoint Av. Use the elevator (EL763) to access Greenpoint Av (G) station. If you are on the platform: Take a Court Sq-bound G to Greenpoint Av. Then, either: Transfer to a Church Av-bound G back to Metropolitan Av and use elevators to exit the station. Or, use elevators to exit the station and take a Lefferts Gardens-bound B43 bus (Manhattan Av and Calyer St) to Graham Av and Metropolitan Av. Travel west on Metropolitan Av to Union Av.",
+        "description": "Mezzanine to Queens-bound platform",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.950551,
+          40.712884
+        ],
+        "type": "Point"
+      },
+      "id": "3ad1f4786ea8a80323aee62b47f00929"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
         "stationAbbr": "17873",
         "route": "T",
         "complexID": "",
@@ -3022,7 +3082,8 @@
         "alternativeRoute": "If you are on the mezzanine: Take an uptown N, Q, R or W to 34 St-Herald Sq and use elevators to transfer to a downtown N, Q, R or W. Or, exit station and take a westbound M14A or M14D bus to 14 St and 6 Av and transfer to a northbound M7 or M55 bus to 34 St-Herald Sq. If you are on the platform: Take a downtown R or W to City Hall, see agent to cross the platform and transfer to an uptown R or W to 14 St-Union Sq.",
         "description": "Mezzanine to downtown N/Q/R/W",
         "ada": "1",
-        "isBroken": ""
+        "isBroken": "",
+        "directionLabel": "downtown"
       },
       "geometry": {
         "coordinates": [
@@ -3051,7 +3112,8 @@
         "alternativeRoute": "If you are on the mezzanine: Take a downtown R or W to City Hall, see agent to cross the platform and transfer to an uptown R or W to 14 St-Union Sq. Or, exit station and take a westbound M14A or M14D bus to 14 St and 6 Av and transfer to a northbound M7 or M55 bus to 34 St-Herald Sq. If you are on the platform: Take an uptown N, Q, R or W to 34 St-Herald Sq and use elevators to transfer to a downtown N, Q, R or W to 14 St-Union Sq.",
         "description": "Mezzanine to uptown N/Q/R/W",
         "ada": "1",
-        "isBroken": ""
+        "isBroken": "",
+        "directionLabel": "uptown"
       },
       "geometry": {
         "coordinates": [
@@ -3080,7 +3142,8 @@
         "alternativeRoute": "If you are on the mezzanine: Exit through the faregate at the opposite end of the mezzanine and use the elevator to exit the station. Then, for 8 Av, take an M14A or M14D bus to 8 Av. Or, for Brooklyn-bound L, take an M14A or M14D bus to 1 Av. If you are on the platform: Take a Brooklyn-bound L to 1 Av. Then exit station and take an westbound M14A or M14D bus (E 14 St and 1 Av) to 4 Av.",
         "description": "Mezzanine to L platform",
         "ada": "1",
-        "isBroken": ""
+        "isBroken": "",
+        "directionLabel": "uptown & downtown"
       },
       "geometry": {
         "coordinates": [
@@ -4005,6 +4068,37 @@
         "type": "Point"
       },
       "id": "4f585dcdc3bfe9081900d2298bb688f5"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "notes": "",
+        "isRedundant": "0",
+        "stationAbbr": "116/229",
+        "route": "F/M/L/1/2/3",
+        "complexID": "601",
+        "indiegogo": 0,
+        "isStreet": "false",
+        "stationID": "D19/L02",
+        "system": "nyc_mta",
+        "elevatorno": "EL609",
+        "linesServed": "L",
+        "directionLabel": "uptown & downtown",
+        "title": "14th St/6th Av",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/14_EL611.jpg",
+        "alternativeRoute": "If you are on the L mezzanine: Use nearby elevator EL-611 to exit the station. Then, take a Lower East Side-bound M14A or M14D bus to Irving Pl. Then, cross 14 St and use the elevator entrance to 14 St-Union Sq Station. If you are on the L platform: Take a Canarsie-bound L to 14 St-Union Sq. Then, use elevators to exit the station and take an Abingdon Sq-bound M14A or Chelsea Piers-bound M14D bus to 6 Av.",
+        "description": "Lower mezzanine to L platform",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.995733,
+          40.737409
+        ],
+        "type": "Point"
+      },
+      "id": "5279a1b43f32fb73c373b6b5a252eac9"
     },
     {
       "type": "Feature",
@@ -5461,6 +5555,36 @@
         "type": "Point"
       },
       "id": "65266bc054e843f739c0898f6d13845b"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "notes": "",
+        "isRedundant": "0",
+        "stationAbbr": "116/229",
+        "route": "F/M/L/1/2/3",
+        "complexID": "601",
+        "indiegogo": 0,
+        "isStreet": "true",
+        "stationID": "D19/L02",
+        "system": "nyc_mta",
+        "elevatorno": "EL611",
+        "linesServed": "F/M/L",
+        "title": "14th St/6th Av",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/14_EL611.jpg",
+        "alternativeRoute": "If you are on the street: For L service, take a Lower East Side-bound M14A or M14D bus to Irving Pl. Then, cross 14 St and use the elevator entrance to 14 St-Union Sq Station. For F/M service, proceed to 15 St and board a 44 St-bound M55 bus or go to 16 St and board a Harlem-147 St-bound M7 bus. Then, take either bus to 34 St and use the elevator entrance to 34 St-Herald Sq Station. If you are on the F/M uptown mezzanine: Take an uptown F or M train to 34 St-Herald Sq. Then, use elevators to transfer to a downtown NQR or W to 14 St-Union Sq. Then, use elevators to exit the station and take an Abingdon Sq-bound M14A or Chelsea Piers-bound M14D bus to 6 Av. If you are on the L mezzanine: Use nearby elevator EL-609 and take a Canarsie-bound L to 14 St-Union Sq. Then, use elevators to exit the station and take an Abingdon Sq-bound M14A or Chelsea Piers-bound M14D bus to 6 Av.",
+        "description": "PARTIALLY ACCESSIBLE STATION. F/M uptown only. L fully accessible. 123 not accessible. Street to mezzanine",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.996538,
+          40.737352
+        ],
+        "type": "Point"
+      },
+      "id": "660c36f3c1163344d4cb70b5ef1ecf6c"
     },
     {
       "type": "Feature",
@@ -7084,12 +7208,13 @@
         "alternativeRoute": "If you are on the mezzanine: Take a downtown NQR or W to 34-Herald Sq and use elevators to transfer to an uptown NQR or W to Times Sq-42 St.  Or, exit station and take a downtown M7 or M20 bus to 34 St/7 Av. 34 St-Herald Sq is one block east.  If you are on the platform: Take an uptown Q to 72 St and transfer across the platform to a downtown Q to Times Sq-42 St. Or, take an uptown N, R or W to 49 St. Exit station and take an M7, M20, or M104 bus (7 Av between 49 St and 50 St) to 41 St.",
         "description": "Mezzanine to uptown N/Q/R/W",
         "ada": "1",
-        "isBroken": ""
+        "isBroken": "",
+        "directionLabel": "uptown"
       },
       "geometry": {
         "coordinates": [
-          -73.986814,
-          40.755469
+          -73.986822,
+          40.755454
         ],
         "type": "Point"
       },
@@ -7442,6 +7567,35 @@
       "type": "Feature",
       "properties": {
         "isRedundant": "0",
+        "stationAbbr": "G29/L10",
+        "route": "G L",
+        "complexID": "629",
+        "indiegogo": "0",
+        "isStreet": "true",
+        "stationID": "121/285",
+        "system": "nyc_mta",
+        "elevatorno": "EL779",
+        "linesServed": "G",
+        "title": "Metropolitan Av",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/MetropolitanAv-G_EL779.jpg",
+        "alternativeRoute": "If you are on the street: Travel east on Metropolitan Av to Graham Av and take a Greenpoint-bound B43 bus to Manhattan Av and Greenpoint Av. Use the elevator (EL763) to access Greenpoint Av (G) station. Or, travel one block west to Lorimer St and take a Manhattan-bound L to Bedford Av. Then, transfer to a Long Island City-bound B62 bus (Bedford Av and North 5 St) to Manhattan Av and Greenpoint Av. Use the elevator (EL763) to access Greenpoint Av (G) station. If you are in the mezzanine: Take a Court Sq-bound G to Greenpoint Av. Then, exit the station and take a Lefferts Gardens-bound B43 bus (Manhattan Av and Calyer St) to Graham Av and Metropolitan Av. Travel west on Metropolitan Av to Union Av.",
+        "description": "Street to mezzanine. PASSAGEWAY BETWEEN G AND L NOT FULLY ACCESSIBLE. L eastbound connected via steep ramp. For L westbound, exit the station and re-enter at Lorimer.",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.951431,
+          40.713241
+        ],
+        "type": "Point"
+      },
+      "id": "87d32320fae05ae5fb9c91577710f681"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
         "stationAbbr": "127/725/902/A27/R16",
         "route": "A C E N Q R W 1 2 3 7 S",
         "complexID": "611",
@@ -7456,12 +7610,13 @@
         "alternativeRoute": "If you are on the mezzanine: Take a downtown NQR or W to 34-Herald Sq and use elevators to transfer to an uptown NQR or W to Times Sq-42 St.  Or, exit station and take a downtown M7 or M20 bus to 34 St/7 Av. 34 St-Herald Sq is one block east.  If you are on the platform: Take an uptown Q to 72 St and transfer across the platform to a downtown Q to Times Sq-42 St. Or, take an uptown N, R or W to 49 St. Exit station and take an M7, M20, or M104 bus (7 Av between 49 St and 50 St) to 41 St.",
         "description": "Mezzanine to downtown N/Q/R/W",
         "ada": "1",
-        "isBroken": ""
+        "isBroken": "",
+        "directionLabel": "downtown"
       },
       "geometry": {
         "coordinates": [
-          -73.986837,
-          40.75542
+          -73.986898,
+          40.755336
         ],
         "type": "Point"
       },
@@ -7845,6 +8000,35 @@
     {
       "type": "Feature",
       "properties": {
+        "isRedundant": "0",
+        "stationAbbr": "G29/L10",
+        "route": "G L",
+        "complexID": "629",
+        "indiegogo": "0",
+        "stationID": "121/285",
+        "system": "nyc_mta",
+        "elevatorno": "EL778",
+        "linesServed": "L",
+        "directionLabel": "canarsie",
+        "title": "Lorimer St",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Lorimer_EL776.jpg",
+        "alternativeRoute": "If you are on the mezzanine: Use nearby elevator EL777 to take a Manhattan-bound L to Bedford Av and transfer across the platform for a Canarsie-bound L. Or, exit the station and take a Rego Park-bound Q59 bus (Metropolitan Av and Rodney St) to Grand St and Bushwick Av. Elevator access (EL786) to Canarsie-bound service at Grand St L is located on the NE corner. If you are on the platform: Take a Canarsie-bound L to Grand St and use the elevator to exit the station. Then either: Cross Bushwick Av to use the elevator (EL785) for Manhattan-bound service back to Lorimer St. Or, take a Williamsburg-bound Q59 bus (north side of Grand St west of Bushwick Av) to Metropolitan Av and Macri Sq.",
+        "description": "Mezzanine to Canarsie-bound platform",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.948491,
+          40.713567
+        ],
+        "type": "Point"
+      },
+      "id": "93f1da7465d9224e6c0be6ad9004f716"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "isRedundant": "",
         "stationAbbr": "place_UCTY",
         "route": "",
@@ -8192,6 +8376,35 @@
     {
       "type": "Feature",
       "properties": {
+        "isRedundant": "0",
+        "stationAbbr": "G29/L10",
+        "route": "G L",
+        "complexID": "629",
+        "indiegogo": "0",
+        "isStreet": "true",
+        "stationID": "121/285",
+        "system": "nyc_mta",
+        "elevatorno": "EL776",
+        "linesServed": "L",
+        "title": "Lorimer St",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Lorimer_EL776.jpg",
+        "alternativeRoute": "The closest accessible L station is Bedford Av. Travel west on Metropolitan Av to Meeker Av. Take Meeker Av to North 7 St and travel four blocks west to Bedford Av. The elevator (EL359) is located at the NE corner. Or, for Canarsie-bound service, take a Rego Park-bound Q59 bus (Metropolitan Av and Rodney St) to Grand St and Bushwick Av. Elevator access to Canarsie-bound service at Grand St L (EL786) is located on the NE corner, elevator access (EL785) to Manhattan-bound L is located on the NW corner. If you are on the mezzanine: Take a Manhattan-bound L to Bedford Av and use the elevators to exit the station. Travel east on North 7 St to Meeker Av. Take Meeker Av to Metropolitan Av, and Metropolitan Av to Lorimer St. Or, take a Canarsie-bound L to Grand St and use the elevator to exit the station. Then, take a Williamsburg-bound Q59 bus (north side of Grand St west of Bushwick Av) to Metropolitan Av and Macri Sq.",
+        "description": "Street to mezzanine. PASSAGEWAY BETWEEN L AND G NOT FULLY ACCESSIBLE. G connected via steep ramp from eastbound L. If coming from L westbound, exit the station and re-enter at Metropolitan Av.",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.949457,
+          40.71425
+        ],
+        "type": "Point"
+      },
+      "id": "970d3aa59570ca58ea49fa24dcfbc4f6"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "isRedundant": "1",
         "stationAbbr": "MLBR",
         "route": "R Y",
@@ -8414,6 +8627,35 @@
         "type": "Point"
       },
       "id": "9cec6d4d0ac8b12947a96b9114405976"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "stationAbbr": "G29/L10",
+        "route": "G L",
+        "complexID": "629",
+        "indiegogo": "0",
+        "stationID": "121/285",
+        "system": "nyc_mta",
+        "elevatorno": "EL781",
+        "linesServed": "G",
+        "directionLabel": "church av",
+        "title": "Metropolitan Av",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/MetropolitanAv-G_EL779.jpg",
+        "alternativeRoute": "If you are on the mezzanine: Use elevator EL779 to exit the station. Then, either: Travel east on Metropolitan Av to Graham Av and take a Greenpoint-bound B43 bus to Manhattan Av and Greenpoint Av. Use the elevator (EL763) to access Greenpoint Av (G) station. Or, travel one block west to Lorimer St and take a Manhattan-bound L to Bedford Av. Then, transfer to a Long Island City-bound B62 bus (Bedford Av and North 5 St) to Manhattan Av and Greenpoint Av. Use the elevator (EL763) to access Greenpoint Av (G) station. If you are on the platform: Take a Court Sq-bound G to Greenpoint Av. Then, either: Transfer to a Church Av-bound G back to Metropolitan Av and use elevators to exit the station. Or, use elevators to exit the station and take a Lefferts Gardens-bound B43 bus (Manhattan Av and Calyer St) to Graham Av and Metropolitan Av. Travel west on Metropolitan Av to Union Av.",
+        "description": "Mezzanine to Church Av-bound platform",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.950529,
+          40.712688
+        ],
+        "type": "Point"
+      },
+      "id": "9e2103120215359770779ce4967f9a1c"
     },
     {
       "type": "Feature",
@@ -8957,6 +9199,37 @@
         "type": "Point"
       },
       "id": "b11c3e9fcee4473d55d921b1b72cf8b8"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "notes": "",
+        "isRedundant": "0",
+        "stationAbbr": "116/229",
+        "route": "F/M/L/1/2/3",
+        "complexID": "601",
+        "indiegogo": 0,
+        "isStreet": "false",
+        "stationID": "D19/L02",
+        "system": "nyc_mta",
+        "elevatorno": "EL614",
+        "linesServed": "F/M",
+        "directionLabel": "uptown",
+        "title": "14th St/6th Av",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/14_EL611.jpg",
+        "alternativeRoute": "If you are on the street: For L service, take a Lower East Side-bound M14A or M14D bus to Irving Pl. Then, cross 14 St and use the elevator entrance to 14 St-Union Sq Station. For F/M service, proceed to 15 St and board a 44 St-bound M55 bus or go to 16 St and board a Harlem-147 St-bound M7 bus. Then, take either bus to 34 St and use the elevator entrance to 34 St-Herald Sq Station. If you are on the F/M uptown mezzanine: Take an uptown F or M train to 34 St-Herald Sq. Then, use elevators to transfer to a downtown NQR or W to 14 St-Union Sq. Then, use elevators to exit the station and take an Abingdon Sq-bound M14A or Chelsea Piers-bound M14D bus to 6 Av. If you are on the L mezzanine: Use nearby elevator EL-609 and take a Canarsie-bound L to 14 St-Union Sq. Then, use elevators to exit the station and take an Abingdon Sq-bound M14A or Chelsea Piers-bound M14D bus to 6 Av.",
+        "description": "Mezzanine to upown F/M platform",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.99583,
+          40.737279
+        ],
+        "type": "Point"
+      },
+      "id": "b207a29709aa945c0ba961192348fb94"
     },
     {
       "type": "Feature",
@@ -9890,12 +10163,13 @@
         "alternativeRoute": "If you are on the upper mezzanine: Take a downtown 2 or 3 to 34 St-Penn Station. Transfer across platform to an uptown 2 or 3 to Times Sq-42 St. Or, exit station and take an M20 or M104 bus (8 Av) to 59 St-Columbus Circle. If you are on the platform: Take an uptown 1, 2 or 3 to 72 St and use elevators to transfer to a downtown 1, 2, or 3 to Times Sq-42 St. Or, take an uptown 1 to 59 St-Columbus Circle. Exit station and take the M7, M20, or M104 bus (Broadway between 60 St and 61 St) to 41 St. Times Sq-42 St is one block north.",
         "description": "Mezzanine to uptown 1/2/3",
         "ada": "1",
-        "isBroken": ""
+        "isBroken": "",
+        "directionLabel": "uptown"
       },
       "geometry": {
         "coordinates": [
-          -73.986111,
-          40.755239
+          -73.986119,
+          40.755208
         ],
         "type": "Point"
       },
@@ -11247,6 +11521,35 @@
       "type": "Feature",
       "properties": {
         "isRedundant": "0",
+        "stationAbbr": "G29/L10",
+        "route": "G L",
+        "complexID": "629",
+        "indiegogo": "0",
+        "stationID": "121/285",
+        "system": "nyc_mta",
+        "elevatorno": "EL777",
+        "linesServed": "L",
+        "directionLabel": "manhattan",
+        "title": "Lorimer St",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Lorimer_EL776.jpg",
+        "alternativeRoute": "If you are on the mezzanine: Take a Canarsie-bound L to Grand St and use the elevator to exit the station. Cross Bushwick Av to use the elevator (EL785) for Manhattan-bound service. Or, exit the station and travel to Bedford Av (L). Travel west on Metropolitan Av to Meeker Av. Take Meeker Av to North 7 St and travel four blocks west to Bedford Av. Use elevator EL359 at the northeast corner to access Bedford Av (L) station. If you are on the platform: Take a Manhattan-bound L to Bedford Av. Then either: Transfer across the platform to a Canarsie-bound L to Lorimer St. Or, exit the station and travel east on North 7 St to Meeker Av. Take Meeker Av to Metropolitan Av, and Metropolitan Av to Lorimer St.",
+        "description": "Mezzanine to Manhattan-bound platform",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.948534,
+          40.713778
+        ],
+        "type": "Point"
+      },
+      "id": "dfc7bbf8010eee34338685d23132344d"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
         "stationAbbr": "WOAK",
         "route": "R Y G B",
         "complexID": "",
@@ -12447,6 +12750,36 @@
         "type": "Point"
       },
       "id": "fbf837fda7f90e2177c4977414c34dad"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "stationAbbr": "A06",
+        "route": "A",
+        "complexID": 146,
+        "indiegogo": "0",
+        "isStreet": "true",
+        "stationID": 146,
+        "system": "nyc_mta",
+        "elevatorno": "EL518",
+        "linesServed": "A",
+        "directionLabel": "downtown",
+        "title": "181 St",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/181-A_EL517.jpg",
+        "alternativeRoute": "If you’re on the platform: Take a Downtown and Brooklyn-bound A to 175 St. Then, transfer across the platform to an Inwood-207 St-bound A. If you’re on the mezzanine: Use EL517 to take an Inwood-207 St-bound A to Inwood-207 St. Then, stay on the train or transfer across the platform for the next Downtown and Brooklyn-bound A to 181st St. ",
+        "description": "Mezzanine to downtown platform",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.937057,
+          40.852883
+        ],
+        "type": "Point"
+      },
+      "id": "fc2ec00136ec250bbcf1f5fcd22fedca"
     },
     {
       "type": "Feature",
