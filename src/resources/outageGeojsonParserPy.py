@@ -1,7 +1,7 @@
 import json
 
 # Load the GeoJSON data from the file
-with open('updated_dataset.json') as f:
+with open('custom_dataset.json') as f:
     geojson = json.load(f)
 
 # Initialize an empty list to store the transformed data
@@ -37,7 +37,7 @@ outage_geojson = {
 }
 
 # Write the transformed data to a file
-with open('elevatorOutagesDataset.geojson', 'w') as f:
+with open('../assets/elevatorOutagesDataset.geojson', 'w') as f:
     json.dump(outage_geojson, f, indent=2)
     
 # Write geometry json data to a file

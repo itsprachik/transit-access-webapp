@@ -7,6 +7,7 @@ import { createRoot } from "react-dom/client";
 import ElevatorPopup, {
   OnHoverElevatorPopup,
 } from "./ElevatorPopup/ElevatorPopup";
+import outageGeojson from '../assets/elevatorOutagesDataset.geojson'
 
 // Load environment variables
 dotenv.config();
@@ -87,7 +88,7 @@ export default function Map() {
 
         map.current.addSource("outage-data", {
           type: "geojson",
-          data: "/elevatorOutagesDataset.geojson",
+          data: outageGeojson,
           dynamic: true,
           generateId: true,
         });
