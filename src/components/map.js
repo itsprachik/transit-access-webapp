@@ -7,7 +7,7 @@ import { createRoot } from "react-dom/client";
 import ElevatorPopup, {
   OnHoverElevatorPopup,
 } from "./ElevatorPopup/ElevatorPopup";
-import outageGeojson from '../assets/elevatorOutagesDataset.geojson'
+import outageGeojson from '../resources/elevatorOutagesDataset.geojson'
 
 // Load environment variables
 dotenv.config();
@@ -52,9 +52,17 @@ export default function Map() {
       map.current = new mapboxgl.Map({
         container: mapContainer.current,
         style: "mapbox://styles/joelaaron/clndls6cm07rp01mae34gd2oo",
-        center: [-74.006, 40.7128], // NYC
-        zoom: 15,
+        center: [-73.98585978055912, 40.75983589200632], // NYC
+        zoom: 14,
       });
+
+      /* temp dev function to output coords of center as you drag
+      map.current.on("move", () => {
+        const center = map.current.getCenter();
+        console.log(`Center Coordinates: Longitude: ${center.lng}, Latitude: ${center.lat}`);
+      });
+      */
+
 
       // Add navigation controls
       // Zoom and bearing control
@@ -92,6 +100,67 @@ export default function Map() {
           dynamic: true,
           generateId: true,
         });
+/*
+        // SUBWAY LINES
+        // Array of subway line layer names
+        const subwayLineLayers = [
+          "mta-subwaylines-123",
+          "mta-subwaylines-456",
+          "mta-subwaylines-nqrw",
+          "mta-subwaylines-ace",
+          "mta-subwaylines-bdfm",
+          "mta-subwaylines-jz",
+          "mta-subwaylines-l",
+          "mta-subwaylines-g",
+          "mta-subwaylines-7",
+          "mta-subwaylines-s",
+        ];
+        map.current.on('load', () => {
+          // Add the subway source
+          map.current.addSource('subway-lines', {
+            type: 'vector',
+            url: 'mapbox://joelaaron.cm5kh33pk0nno1umnguq9iybf-0yey6'  // Replace with your actual source URL
+          });
+        
+          // Add each subway line layer
+          subwayLineLayers.forEach((layer) => {
+            map.current.addLayer({
+              id: layer,
+              type: 'line',
+              source: 'composite',
+              'source-layer': 'mta_subwaylines', // Specify which source-layer this should refer to
+              paint: {
+                'line-color': '#cccccc',
+                'line-width': 1,
+              }
+            });
+        
+            // Add click event listener for each layer
+            map.current.on('click', layer, () => {
+              highlightLine(layer);
+            });
+          });
+        });
+        
+        // Highlight function for the clicked layer
+        function highlightLine(clickedLayer) {
+          subwayLineLayers.forEach((layer) => {
+            map.current.setPaintProperty(
+              layer,
+              "line-color",
+              layer === clickedLayer ? "#ff0000" : "#cccccc" // Highlight clicked layer, fade others
+            );
+        
+            map.current.setPaintProperty(
+              layer,
+              "line-width",
+              layer === clickedLayer ? 4 : 1 // Thicker line for clicked layer
+            );
+          });
+        }
+        
+*/
+
 
         // Add outage layer with icons based on isBroken property
         map.current.addLayer({
@@ -107,15 +176,36 @@ export default function Map() {
               "x-icon", // Use X icon
               "checkmark-icon", // Default to checkmark icon in case of missing data
             ],
-            "icon-size": 0.15,
+            "icon-size": [
+                "interpolate",
+                ["linear"],
+                ["zoom"],
+                10,
+                0.12,
+                15,
+                0.14,
+                19,
+                .15
+          ],
             "icon-anchor": "bottom",
             "icon-offset": [0, -50],
             "icon-allow-overlap": true,
+            "symbol-sort-key": 3,
             //"icon-rotate": 0, // Ensure icons are not rotated
           },
+          before: "transit-elevators" // Ensure this layer is added below the elevator layer
         });
 
         let hoveredFeatureId = null;
+
+        map.current.on('load', function() {
+          map.current.setLayoutProperty('transit-elevators', 'visibility', 'visible');
+        });
+        
+        map.current.on('zoom', function() {
+          map.current.setLayoutProperty('transit-elevators', 'visibility', 'visible');
+        });
+        
 
         // On hover event
         map.current?.on("mousemove", "transit-elevators", (e) => {
@@ -181,7 +271,7 @@ export default function Map() {
 
         //  Click event to display pop-up ***
         map.current?.on("click", "transit-elevators", (e) => {
-          console.log("on click");
+        //  console.log("on click");
           if (e.features.length > 0) {
             const feature = e.features[0];
             const coordinates = e.features[0].geometry.coordinates.slice();
@@ -213,6 +303,12 @@ export default function Map() {
               .addTo(map.current);
           }
         });
+
+        map.current.on('load', function () {
+          // Ensure transit-elevators is always on top of outage layer
+          map.current.moveLayer("outages", "transit-elevators");
+        });
+        
       });
     }
 
