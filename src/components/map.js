@@ -94,14 +94,14 @@ export default function Map() {
           map.current.addImage("x-icon", image);
         });
 
-        map.current.addSource("outage-data", {
+         map.current.addSource("outage-data", {
           type: "geojson",
           data: outageGeojson,
           dynamic: true,
           generateId: true,
         });
 /*
-        // SUBWAY LINES
+         // SUBWAY LINES
         // Array of subway line layer names
         const subwayLineLayers = [
           "mta-subwaylines-123",
