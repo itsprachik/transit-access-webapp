@@ -93,7 +93,6 @@ export default function Map() {
           generateId: true,
         });
 
-
         // Add outage layer with icons based on isBroken property
         map.current.addLayer({
           id: "outages",
@@ -103,29 +102,66 @@ export default function Map() {
             "icon-image": [
               "case",
               ["==", ["get", "isBroken"], false], // If elevator is working
-              "checkmark-icon", // Use checkmark icon
+              "liftgood", // Use checkmark icon
               ["==", ["get", "isBroken"], true], // If elevator is broken
-              "x-icon", // Use X icon
-              "checkmark-icon", // Default to checkmark icon in case of missing data
+              "liftbad", // Use X icon
+              "liftgood", // Default to checkmark icon in case of missing data
             ],
             "icon-size": [
                 "interpolate",
                 ["linear"],
                 ["zoom"],
                 10,
-                0.12,
+                0.7,
                 15,
-                0.14,
+                0.9,
                 19,
-                .15
+                1
           ],
-            "icon-anchor": "bottom",
-            "icon-offset": [0, -50],
+            "icon-anchor": "center",
+            "icon-offset": [0, -20],
             "icon-allow-overlap": true,
-            "symbol-sort-key": 3,
+            "icon-padding": 2,
+            "symbol-z-order": "auto",
+            "symbol-sort-key": 1,
+
+            "text-size": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    0,
+                    10,
+                    22,
+                    10
+                ],
+                "text-radial-offset": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    0,
+                    1.2,
+                    17,
+                    2
+                ],
+
+                "text-padding": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    0,
+                    0,
+                    15,
+                    0,
+                    16,
+                    2
+                ],
+                "text-offset": [1.5, 0],
             //"icon-rotate": 0, // Ensure icons are not rotated
           },
-          before: "transit-elevators" // Ensure this layer is added below the elevator layer
+          
+       //   "paint": {"icon-translate": [0, -30]},
+         // before: "transit-elevators" // Ensure this layer is added below the elevator layer
+         sprite: 'mapbox://sprites/joelaaron/clndls6cm07rp01mae34gd2oo/ehu96mappgo0oqnlwfjrnz4ta' // Replace with your actual sprite URL
         });
 
         let hoveredFeatureId = null;
