@@ -7,7 +7,7 @@ import { createRoot } from "react-dom/client";
 import ElevatorPopup, {
   OnHoverElevatorPopup,
 } from "./ElevatorPopup/ElevatorPopup";
-import outageGeojson from '../assets/elevatorOutagesDataset.geojson'
+import outageGeojson from '../resources/elevatorOutagesDataset.geojson'
 
 // Load environment variables
 dotenv.config();
@@ -52,8 +52,8 @@ export default function Map() {
       map.current = new mapboxgl.Map({
         container: mapContainer.current,
         style: "mapbox://styles/joelaaron/clndls6cm07rp01mae34gd2oo",
-        center: [-74.006, 40.7128], // NYC
-        zoom: 15,
+        center: [-73.98585978055912, 40.75983589200632], // NYC
+        zoom: 14,
       });
 
       // Add navigation controls
@@ -86,12 +86,13 @@ export default function Map() {
           map.current.addImage("x-icon", image);
         });
 
-        map.current.addSource("outage-data", {
+         map.current.addSource("outage-data", {
           type: "geojson",
           data: outageGeojson,
           dynamic: true,
           generateId: true,
         });
+
 
         // Add outage layer with icons based on isBroken property
         map.current.addLayer({
@@ -107,15 +108,36 @@ export default function Map() {
               "x-icon", // Use X icon
               "checkmark-icon", // Default to checkmark icon in case of missing data
             ],
-            "icon-size": 0.15,
+            "icon-size": [
+                "interpolate",
+                ["linear"],
+                ["zoom"],
+                10,
+                0.12,
+                15,
+                0.14,
+                19,
+                .15
+          ],
             "icon-anchor": "bottom",
             "icon-offset": [0, -50],
             "icon-allow-overlap": true,
+            "symbol-sort-key": 3,
             //"icon-rotate": 0, // Ensure icons are not rotated
           },
+          before: "transit-elevators" // Ensure this layer is added below the elevator layer
         });
 
         let hoveredFeatureId = null;
+
+        map.current.on('load', function() {
+          map.current.setLayoutProperty('transit-elevators', 'visibility', 'visible');
+        });
+        
+        map.current.on('zoom', function() {
+          map.current.setLayoutProperty('transit-elevators', 'visibility', 'visible');
+        });
+        
 
         // On hover event
         map.current?.on("mousemove", "transit-elevators", (e) => {
@@ -181,7 +203,6 @@ export default function Map() {
 
         //  Click event to display pop-up ***
         map.current?.on("click", "transit-elevators", (e) => {
-          console.log("on click");
           if (e.features.length > 0) {
             const feature = e.features[0];
             const coordinates = e.features[0].geometry.coordinates.slice();
@@ -213,6 +234,12 @@ export default function Map() {
               .addTo(map.current);
           }
         });
+
+        map.current.on('load', function () {
+          // Ensure transit-elevators is always on top of outage layer
+          map.current.moveLayer("outages", "transit-elevators");
+        });
+        
       });
     }
 

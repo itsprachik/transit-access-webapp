@@ -885,11 +885,13 @@
         "route": "E M 6",
         "complexID": "612",
         "indiegogo": "0",
+        "description_extra": "This elevator gets you from the downtown 6 trains to the underpass that leads you to uptown 6 trains and E/M trains",
         "stationID": "275",
         "system": "nyc_mta",
         "elevatorno": "EL202",
         "note": "stationAbbr was F11",
         "linesServed": "6",
+        "directionLabel": "6 both directions, E/M both directions",
         "title": "51 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/53-Lex_EL203X.jpg",
         "alternativeRoute": "If you are on the downtown 6 platform: Take a downtown 6 to Grand Central-42 St and then either: Use elevators to transfer to an uptown 6 to 51 St. Or, exit station and board an M101 LTD, M102, or M103 bus (3 Av between 42 and 43 St) to 50 St. Proceed west to Lexington Av. If you are on the underpass: Use elevators to exit station and take a downtown M102 or M103 (Lexington Av & E 53 St) to Lexington Av and 42nd St for 42nd St-Grand Central Station.    Or, use elevator at other end of underpass to take uptown 6 to 125th Street. Use elevators to transfer to downtown 6.",
@@ -914,11 +916,13 @@
         "route": "E M 6",
         "complexID": "612",
         "indiegogo": "0",
+        "description_extra": "This elevator gets you from the 6 fare gates (mezzanine) to an underpass that leads to downtown 6 trains",
         "stationID": "275",
         "system": "nyc_mta",
         "elevatorno": "EL201",
         "note": "stationAbbr was F11",
         "linesServed": "6",
+        "directionLabel": "downtown",
         "title": "51 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/53-Lex_EL203X.jpg",
         "alternativeRoute": "If you are on the mezzanine: Take an uptown 6 to 125th Street.  Then use elevators to transfer to downtown 6. Or, exit faregate and use elevator to exit station and take a downtown M102 or M103 (Lexington Av & E 53 St) to Lexington Av and E 42nd St for 42 St-Grand Central Station.  If you are on the underpass: Take a downtown 6 to Grand Central-42 St then either: Use elevators to transfer to an uptown 6. Or, exit station and take an M101 LTD, M102, or M103 bus (3 Av between 42 St and 43 St) to 50 St. Proceed west to Lexington Av.",
@@ -1169,6 +1173,37 @@
     {
       "type": "Feature",
       "properties": {
+        "notes": "",
+        "isRedundant": "0",
+        "stationAbbr": "132/D19/L02",
+        "route": "F/M/L/1/2/3",
+        "complexID": "601",
+        "indiegogo": 0,
+        "description_extra": "This elevator gets you from the 1/2/3 fare gates (mezzanine) to 1/2/3 downtown trains",
+        "stationID": "116/229/322",
+        "system": "nyc_mta",
+        "elevatorno": "EL617",
+        "linesServed": "1/2/3",
+        "directionLabel": "downtown",
+        "title": "14th St/7th Av",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/14_EL617.jpg",
+        "alternativeRoute": "If you are on the mezzanine: Take an uptown 1/2/3 to 34 St - Penn Station and transfer to a downtown 1/2/3 to 14 St. If you are on the platform: Take a downtown 1/2/3 train to Chambers St and transfer to an uptown 1/2/3 to 14 St.",
+        "description": "Mezzanine to downtown platform",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.999509,
+          40.738185
+        ],
+        "type": "Point"
+      },
+      "id": "0bcf5647112b37df242945c4ec035346"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "isRedundant": "0",
         "stationAbbr": "15730",
         "route": "M K S",
@@ -1212,7 +1247,8 @@
         "alternativeRoute": "If you are on the mezzanine:\\nTake a Manhattan-bound F to Jay St-MetroTech Station. Then, use elevators to transfer to a Coney Island-bound F train.\\n\\nIf you are on the platform: \\nTake a Coney Island-bound F or Church Av-bound G train to Church Av and use elevators to transfer to the Manhattan and Queens-bound platform for service to 7 Av.",
         "description": "Mezzanine to Church Av-bound platform",
         "ada": "1",
-        "isBroken": ""
+        "isBroken": "",
+        "directionLabel": "church av"
       },
       "geometry": {
         "coordinates": [
@@ -1654,6 +1690,37 @@
         "type": "Point"
       },
       "id": "1b15397ef3af603b9c150004d685925d"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "notes": "",
+        "isRedundant": "1",
+        "stationAbbr": "132/D19/L02",
+        "route": "F/M/L/1/2/3",
+        "complexID": "601",
+        "indiegogo": 0,
+        "description_extra": "This elevator gets you from the L fare gates (lower mezzanine) to L trains in both directions",
+        "stationID": "116/229/322",
+        "system": "nyc_mta",
+        "elevatorno": "EL610",
+        "linesServed": "L",
+        "directionLabel": "westbound & eastbound",
+        "title": "14th St/6th Av",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/14_EL610.jpg",
+        "alternativeRoute": "If you are on the L platform: Use EL609 (follow signage for uptown F/M) and EL611 to exit the station. For 1/2/3 and downtown F/M, cross 6 Av and re-enter the station using EL612.\\n\\nIf you are on the lower mezzanine: Exit the station. Cross 6 Av and use EL611 to re-enter the station for L service.",
+        "description": "Lower mezzanine to L platform",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.996242,
+          40.737565
+        ],
+        "type": "Point"
+      },
+      "id": "1c06f59132e7dd51ce0ae564c0274a21"
     },
     {
       "type": "Feature",
@@ -2183,6 +2250,36 @@
       "type": "Feature",
       "properties": {
         "isRedundant": "0",
+        "stationAbbr": "628",
+        "route": "6",
+        "complexID": "399",
+        "indiegogo": "0",
+        "isStreet": "true",
+        "description_extra": "This elevator gets you from the street to the fare gates (mezzanine)",
+        "stationID": "399",
+        "system": "nyc_mta",
+        "elevatorno": "EL286",
+        "linesServed": "6",
+        "title": "68 St-Hunter College",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/68Hunter_EL286.jpg",
+        "alternativeRoute": "If you are on the street: Take a City Hall-bound M103 or East Village-bound M102 bus to Lexington Av and E 52 St. Then, proceed to 51 St Station for 6 service. If you are on the mezzanine: Take a Bronx-bound 6 to 86 St. Then, exit the station and take a City Hall-bound M103 or East Village-bound M101/M102 bus to Lexington Av and E 68 St.",
+        "description": "Street to mezzanine",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.963875,
+          40.767823
+        ],
+        "type": "Point"
+      },
+      "id": "23b93ab942b60e347b7370e33d45b569"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
         "stationAbbr": "19TH",
         "route": "R Y O",
         "complexID": "",
@@ -2607,6 +2704,37 @@
         "type": "Point"
       },
       "id": "2fab7cbc0abe1c17e10fae63322985ba"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "notes": "",
+        "isRedundant": "0",
+        "stationAbbr": "132/D19/L02",
+        "route": "F/M/L/1/2/3",
+        "complexID": "601",
+        "indiegogo": 0,
+        "description_extra": "This elevator gets you from the F/M downtown fare gates (mezzanine) to F/M downtown trains",
+        "stationID": "116/229/322",
+        "system": "nyc_mta",
+        "elevatorno": "EL613",
+        "linesServed": "F/M",
+        "directionLabel": "uptown",
+        "title": "14th St/6th Av",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/14-FM_EL612.jpg",
+        "alternativeRoute": "If you are on the platform: Take a downtown F/M to W 4 St - Washington Sq and transfer to an uptown F/M to 14 St.\n\nIf you are on the F/M downtown mezzanine: Exit the station. Cross 6 Av and re-enter the station via EL611 for L, uptown F/M, and 1/2/3.  For downtown F/M, take an uptown F/M to 34 St - Herald Sq and transfer to downtown service.",
+        "description": "Mezzanine to downtown F/M platform",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.997031,
+          40.737738
+        ],
+        "type": "Point"
+      },
+      "id": "30bbfb2d00d90f3ec21ee738891b70c0"
     },
     {
       "type": "Feature",
@@ -3555,6 +3683,38 @@
     {
       "type": "Feature",
       "properties": {
+        "notes": "",
+        "isRedundant": 1,
+        "stationAbbr": "132/D19/L02",
+        "route": "F/M/L/1/2/3",
+        "complexID": "601",
+        "indiegogo": 0,
+        "isStreet": "true",
+        "description_extra": "This elevator gets you from the street to the F/M downtown fare gates (mezzanine), and to the L fare gates (lower mezzanine). Connects underground to the 1/2/3 lines at 7 Av.",
+        "stationID": "116/229/322",
+        "system": "nyc_mta",
+        "elevatorno": "EL612",
+        "linesServed": "F/M/L",
+        "directionLabel": "F/M downtown, L both directions",
+        "title": "14th St/6th Av downtown",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/14-FM_EL612.jpg",
+        "alternativeRoute": "If you are on the lower mezzanine: Use nearby EL610 to access L platform. Then, use EL609 (follow signage for uptown F/M) and EL611 to exit the station. For downtown F/M, take an uptown F/M to 34 St - Herald Sq and transfer to downtown service.Or, use the passageway towards the 1/2/3 and exit the station via EL615.If you are on the F/M downtown mezzanine: Take a downtown F/M to W 4 St - Washington Sq and transfer to an uptown F/M to 14 St. If you are on the street: Cross 6 Av and re-enter the station via EL611 for L, uptown F/M, and 1/2/3. For downtown F/M, take an uptown F/M to 34 St - Herald Sq and transfer to downtown service.",
+        "description": "Street to mezzanine",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.997167,
+          40.737579
+        ],
+        "type": "Point"
+      },
+      "id": "473aab907671049e833d4c4e498c60f4"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "isRedundant": "0",
         "stationAbbr": "D35",
         "route": "B Q",
@@ -4073,20 +4233,20 @@
       "type": "Feature",
       "properties": {
         "notes": "",
-        "isRedundant": "0",
-        "stationAbbr": "116/229",
+        "isRedundant": "1",
+        "stationAbbr": "132/D19/L02",
         "route": "F/M/L/1/2/3",
         "complexID": "601",
         "indiegogo": 0,
-        "isStreet": "false",
-        "stationID": "D19/L02",
+        "description_extra": "This elevator gets you from the L fare gates (lower mezzanine) to L trains in both directions",
+        "stationID": "116/229/322",
         "system": "nyc_mta",
         "elevatorno": "EL609",
         "linesServed": "L",
-        "directionLabel": "uptown & downtown",
+        "directionLabel": "westbound & eastbound",
         "title": "14th St/6th Av",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/14_EL611.jpg",
-        "alternativeRoute": "If you are on the L mezzanine: Use nearby elevator EL-611 to exit the station. Then, take a Lower East Side-bound M14A or M14D bus to Irving Pl. Then, cross 14 St and use the elevator entrance to 14 St-Union Sq Station. If you are on the L platform: Take a Canarsie-bound L to 14 St-Union Sq. Then, use elevators to exit the station and take an Abingdon Sq-bound M14A or Chelsea Piers-bound M14D bus to 6 Av.",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/14_EL609.jpg",
+        "alternativeRoute": "If you are on the lower mezzanine: Exit the station. Cross 6 Av and use EL612 to re-enter the station for L service. If you are on the L platform: Use EL610 (follow signage for 1/2/3 and downtown F/M) and EL612 to exit the station. For uptown F/M, take a downtown F/M to W 4 St - Washington Sq and transfer to an uptown F/M.",
         "description": "Lower mezzanine to L platform",
         "ada": "1",
         "isBroken": ""
@@ -5561,26 +5721,28 @@
       "properties": {
         "notes": "",
         "isRedundant": "0",
-        "stationAbbr": "116/229",
+        "stationAbbr": "132/D19/L02",
         "route": "F/M/L/1/2/3",
         "complexID": "601",
         "indiegogo": 0,
         "isStreet": "true",
-        "stationID": "D19/L02",
+        "description_extra": "This elevator gets you from the street to the F/M uptown fare gates (mezzanine), and to the L fare gates (lower mezzanine). Connects undergroud to the 1/2/3 lines at 7 Av.",
+        "stationID": "116/229/322",
         "system": "nyc_mta",
         "elevatorno": "EL611",
         "linesServed": "F/M/L",
-        "title": "14th St/6th Av",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/14_EL611.jpg",
-        "alternativeRoute": "If you are on the street: For L service, take a Lower East Side-bound M14A or M14D bus to Irving Pl. Then, cross 14 St and use the elevator entrance to 14 St-Union Sq Station. For F/M service, proceed to 15 St and board a 44 St-bound M55 bus or go to 16 St and board a Harlem-147 St-bound M7 bus. Then, take either bus to 34 St and use the elevator entrance to 34 St-Herald Sq Station. If you are on the F/M uptown mezzanine: Take an uptown F or M train to 34 St-Herald Sq. Then, use elevators to transfer to a downtown NQR or W to 14 St-Union Sq. Then, use elevators to exit the station and take an Abingdon Sq-bound M14A or Chelsea Piers-bound M14D bus to 6 Av. If you are on the L mezzanine: Use nearby elevator EL-609 and take a Canarsie-bound L to 14 St-Union Sq. Then, use elevators to exit the station and take an Abingdon Sq-bound M14A or Chelsea Piers-bound M14D bus to 6 Av.",
-        "description": "PARTIALLY ACCESSIBLE STATION. F/M uptown only. L fully accessible. 123 not accessible. Street to mezzanine",
+        "directionLabel": "F/M uptown, L both directions",
+        "title": "14th St/6th Av uptown",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/14-FM_EL611.jpg",
+        "alternativeRoute": "If you are on the street: Cross 6 Av and re-enter the station via EL612 for L, 1/2/3, and downtown F/M.  For uptown F/M service, proceed to 16 St and take a Harlem 147 St-bound M7 to 34 St to access the 34 St - Herald Sq station. If you are on the F/M uptown mezzanine: Take an uptown F/M to 34 St-Herald Sq station. Then, transfer to a downtown F/M to 14 St. If you are on the L lower mezzanine: Use nearby EL609 to access L platform. Then, use EL610 (follow signage for 1/2/3 and downtown F/M) and EL612 to exit the station. For uptown F/M, proceed to 16 St and take a Harlem 147 St-bound M7 to 34 St to access the 34 St - Herald Sq station.",
+        "description": "Street to mezzanine",
         "ada": "1",
         "isBroken": ""
       },
       "geometry": {
         "coordinates": [
-          -73.996538,
-          40.737352
+          -73.996565,
+          40.737332
         ],
         "type": "Point"
       },
@@ -5757,6 +5919,36 @@
         "type": "Point"
       },
       "id": "69d3ee3ee97ec21d1398ebd1eaefa062"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "stationAbbr": 718,
+        "route": "N W 7",
+        "complexID": 461,
+        "indiegogo": "0",
+        "isStreet": "true",
+        "description_extra": "This elevator gets you from the street to the fare gates (mezzanine)",
+        "stationID": 461,
+        "system": "nyc_mta",
+        "elevatorno": "EL478",
+        "linesServed": "N/W/7",
+        "title": "Queensboro Plaza",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/QueensboroPlaza_EL478.jpg",
+        "alternativeRoute": "If you are on the overpass level: Re-enter the station and take a Manhattan-bound 7 to the nearby Court Sq station. Exit the station and proceed north along 23 St to Queens Plaza. If you are at street level: Proceed south along 23 St to the Court Sq station for access to 7 service.",
+        "description": "Street to mezzanine",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.94044,
+          40.750384
+        ],
+        "type": "Point"
+      },
+      "id": "6a984309787c18d9bb87c2a039270376"
     },
     {
       "type": "Feature",
@@ -7552,7 +7744,8 @@
         "alternativeRoute": "If you are on the mezzanine: \\nTake a Coney Island-bound F or Church Av-bound G train to Church Av and use elevators to transfer to the Manhattan and Queens-bound platform. \\n\\nIf you are on the platform: \\nTake a Manhattan-bound F train to Jay St-MetroTech station. Then, use elevators to transfer to a Coney Island-bound F train to 7 Av. \\nOr, \\nTake a Queens-bound G train to Greenpoint Av station. Then, use elevators to transfer to a Church Av-bound G to 7 Av.",
         "description": "Mezzanine to Manhattan and Queens-bound platform",
         "ada": "1",
-        "isBroken": ""
+        "isBroken": "",
+        "directionLabel": "manhattan and queens"
       },
       "geometry": {
         "coordinates": [
@@ -8154,7 +8347,7 @@
         "system": "nyc_mta",
         "elevatorno": "EL239",
         "linesServed": "1/2/3",
-        "title": "72 St",
+        "title": "72 St uptown",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/72-Broadway.jpg",
         "alternativeRoute": "If you are on the street:  Take a downtown 1 to 66 St-Lincoln Center. Use elevator to exit station. Cross Broadway and then either:  Re-enter station and take an uptown 1. Take an uptown M5, M7 or M104 (Broadway & 66 St).  Or, take a downtown 1 to 59th St-Columbus Circle.  Use elevators to transfer to an uptown 1  via the uptown A/B/C/D platform.  If you are on the platform:  Take an uptown 1, 2 or 3  to 96 St. Then either:  Use elevators to transfer to a downtown 1, 2 or 3  to 72 St.  Or, use elevators to exit station and take downtown M104 (Broadway & 97 St) to 72 St.",
         "description": "Street to uptown platform",
@@ -8328,7 +8521,7 @@
         "system": "nyc_mta",
         "elevatorno": "EL240",
         "linesServed": "1/2/3",
-        "title": "72 St",
+        "title": "72 St downtown",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/72-Broadway.jpg",
         "alternativeRoute": "If you are on the street: Take an uptown 1, 2 or 3  to 96 St.  Then either: Use elevators to transfer to a downtown 1, 2 or 3.  Or, use elevators to exit station and take downtown M104 (Broadway & 96 St).  If you are on the platform: Take a downtown 1 to 66 St-Lincoln Center. Use elevator to exit station. Cross Broadway and then either: Re-enter station and take an uptown 1. Take an uptown M5, M7 or M104 (Broadway & 66 St) to 72 St. Or, take a downtown 1  to 59 St-Columbus Circle. Use elevators on the uptown A/B/C/D platform to transfer to an uptown 1 to 72 St.",
         "description": "Street to downtown platform",
@@ -8429,6 +8622,36 @@
         "type": "Point"
       },
       "id": "97e3a95489d52091abe4c7e24ea8e5d1"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "stationAbbr": "628",
+        "route": "6",
+        "complexID": "399",
+        "indiegogo": "0",
+        "description_extra": "This elevator gets you from the fare gates (mezzanine) to the uptown 6 trains",
+        "stationID": "399",
+        "system": "nyc_mta",
+        "elevatorno": "EL285",
+        "linesServed": "6",
+        "directionLabel": "uptown and Bronx",
+        "title": "68 St-Hunter College",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/68Hunter_EL285.jpg",
+        "alternativeRoute": "If you are on the street: Take a City Hall-bound M103 or East Village-bound M102 bus to Lexington Av and E 52 St. Then, proceed to 51 St Station for 6 service. If you are on the mezzanine: Take a Bronx-bound 6 to 86 St. Then, exit the station and take a City Hall-bound M103 or East Village-bound M101/M102 bus to Lexington Av and E 68 St.",
+        "description": "Mezzanine to uptown platform",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.963249,
+          40.767946
+        ],
+        "type": "Point"
+      },
+      "id": "992871c5eb513fcc021e6484617202e1"
     },
     {
       "type": "Feature",
@@ -9205,19 +9428,19 @@
       "properties": {
         "notes": "",
         "isRedundant": "0",
-        "stationAbbr": "116/229",
+        "stationAbbr": "132/D19/L02",
         "route": "F/M/L/1/2/3",
         "complexID": "601",
         "indiegogo": 0,
-        "isStreet": "false",
-        "stationID": "D19/L02",
+        "description_extra": "This elevator gets you from the F/M uptown fare gates (mezzanine) to F/M uptown trains",
+        "stationID": "116/229/322",
         "system": "nyc_mta",
         "elevatorno": "EL614",
         "linesServed": "F/M",
         "directionLabel": "uptown",
         "title": "14th St/6th Av",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/14_EL611.jpg",
-        "alternativeRoute": "If you are on the street: For L service, take a Lower East Side-bound M14A or M14D bus to Irving Pl. Then, cross 14 St and use the elevator entrance to 14 St-Union Sq Station. For F/M service, proceed to 15 St and board a 44 St-bound M55 bus or go to 16 St and board a Harlem-147 St-bound M7 bus. Then, take either bus to 34 St and use the elevator entrance to 34 St-Herald Sq Station. If you are on the F/M uptown mezzanine: Take an uptown F or M train to 34 St-Herald Sq. Then, use elevators to transfer to a downtown NQR or W to 14 St-Union Sq. Then, use elevators to exit the station and take an Abingdon Sq-bound M14A or Chelsea Piers-bound M14D bus to 6 Av. If you are on the L mezzanine: Use nearby elevator EL-609 and take a Canarsie-bound L to 14 St-Union Sq. Then, use elevators to exit the station and take an Abingdon Sq-bound M14A or Chelsea Piers-bound M14D bus to 6 Av.",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/14-FM_EL611.jpg",
+        "alternativeRoute": "If you are on the F/M uptown mezzanine: Exit the station. Then, proceed to 16 St and take a Harlem 147 St-bound M7 to 34 St to access the 34 St - Herald Sq station. If you are on the F/M uptown platform: Take an uptown F/M to Herald Sq and transfer to a downtown F/M to 14 St.",
         "description": "Mezzanine to upown F/M platform",
         "ada": "1",
         "isBroken": ""
@@ -9979,6 +10202,37 @@
     {
       "type": "Feature",
       "properties": {
+        "notes": "",
+        "isRedundant": "0",
+        "stationAbbr": "132/D19/L02",
+        "route": "F/M/L/1/2/3",
+        "complexID": "601",
+        "indiegogo": 0,
+        "description_extra": "This elevator gets you from the 1/2/3 fare gates (mezzanine) to 1/2/3 uptown trains",
+        "stationID": "116/229/322",
+        "system": "nyc_mta",
+        "elevatorno": "EL616",
+        "linesServed": "1/2/3",
+        "directionLabel": "uptown",
+        "title": "14th St/7th Av",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/14_EL616.jpg",
+        "alternativeRoute": "If you are on the mezzanine: Take a downtown 1/2/3 to Chambers St and transfer to an uptown 1/2/3. \n\nIf you are on the platform: Take an uptown 1/2/3 to 34 St - Penn Station and transfer to a downtown 1/2/3 to 14 St.",
+        "description": "Mezzanine to uptown platform",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.999574,
+          40.738087
+        ],
+        "type": "Point"
+      },
+      "id": "c075d873653f50f3cb44503ff9d66e90"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "isRedundant": "0",
         "stationAbbr": "H15",
         "route": "A S",
@@ -10562,7 +10816,8 @@
         "alternativeRoute": "If you are on the mezzanine: Use the elevator at the other end of the mezzanine to take a Manhattan-bound E or M to Lexington Av/53 St. Then transfer across the platform to a Queens-bound E or M to Queens Plaza. If you are on the Queens-bound platform:  Take a Jamaica Center-bound E or Forest Hills-bound M or R to Jackson Hts-Roosevelt Av, then either: Use elevators to transfer to a Manhattan-bound E, M or R to Queens Plaza. Or, use elevators to exit the station and take a Midtown Manhattan-bound Q32 bus (Roosevelt Av and 74 St) to Queens Blvd and Queens Plaza East.",
         "description": "Mezzanine to Queens-bound platform",
         "ada": "1",
-        "isBroken": ""
+        "isBroken": "",
+        "directionLabel": "queens"
       },
       "geometry": {
         "coordinates": [
@@ -10590,7 +10845,8 @@
         "alternativeRoute": "If you are on the mezzanine:  Use the elevator at the other end of the mezzanine to take a Jamaica Center-bound E or Forest Hills-bound M or R to Jackson Hts-Roosevelt Av. Then use elevators to transfer to a Manhattan-bound E, M or R. If you are on the Manhattan-bound platform: Take a Manhattan-bound E or M to Lexington Av/53 St. Then transfer across the platform to a Queens-bound E or M to Queens Plaza.",
         "description": "Mezzanine to Manhattan-bound platform",
         "ada": "1",
-        "isBroken": ""
+        "isBroken": "",
+        "directionLabel": "manhattan"
       },
       "geometry": {
         "coordinates": [
@@ -10713,6 +10969,36 @@
         "type": "Point"
       },
       "id": "cabf88c507ef25fb442758e08b94f989"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "stationAbbr": "628",
+        "route": "6",
+        "complexID": "399",
+        "indiegogo": "0",
+        "description_extra": "This elevator gets you from the fare gates (mezzanine) to the downtown 6 trains",
+        "stationID": "399",
+        "system": "nyc_mta",
+        "elevatorno": "EL284",
+        "linesServed": "6",
+        "directionLabel": "downtown",
+        "title": "68 St-Hunter College",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/68Hunter_EL285.jpg",
+        "alternativeRoute": "If you are on the street: Exit the station and take a City Hall-bound M103 or East Village-bound M102 bus to Lexington Av and E 52 St. Then, proceed to 51 St Station for 6 service. If you are on the platform: Take a Brooklyn Bridge-City Hall-bound 6 to 51 St. Then, transfer to a Bronx-bound 6 to 68 St-Hunter College.",
+        "description": "Mezzanine to downtown platform",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.963325,
+          40.767839
+        ],
+        "type": "Point"
+      },
+      "id": "cb1abf1d87213555c8f91113867c3893"
     },
     {
       "type": "Feature",
@@ -10983,7 +11269,7 @@
         "system": "nyc_mta",
         "elevatorno": "EL145",
         "linesServed": "1/2/3",
-        "title": "96 St",
+        "title": "96 St downtown",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/96-Broadway.jpg",
         "alternativeRoute": "If you are on the street:  Take an uptown 2 or 3 to 135 St. Use the elevator to exit the station and cross Lenox Av. Re-enter the station using the elevator and take a downtown 2 or 3. Or, take an uptown 3 to the terminal at Harlem-148 St. Remain on the train or wait at the platform for a downtown 3. Or, take a downtown M104 bus to 72 St for 1/2/3 service. If you are on the platform: Take a downtown 1, 2 or 3 to 72 St. Then either: Use elevators to transfer to an uptown 1, 2 or 3 to 96 St. Or, use the elevator to exit the station and take an uptown M104 bus (Broadway and W 73 St) to 96 St.",
         "description": "Street to downtown platform",
@@ -11012,7 +11298,7 @@
         "system": "nyc_mta",
         "elevatorno": "EL146",
         "linesServed": "1/2/3",
-        "title": "96 St",
+        "title": "96 St uptown",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/96-Broadway.jpg",
         "alternativeRoute": "If you are on the street:  Take a downtown 1, 2 or 3 to 72 St and use elevators to transfer to an uptown 1, 2 or 3. Or, take a downtown M104 bus to 72 St for 1/2/3 service. If you are on the platform: Take an uptown 2 or 3 to 135 St. Use the elevator to exit the station and cross Lenox Av. Re-enter the station using the elevator and take a downtown 2 or 3 to 96 St. Or, take an uptown 3 to the terminal at Harlem-148 St. Remain on the train or wait at the platform for a downtown 3 to 96 St. Or, take an uptown 2 or 3 to 135 St. Use the elevator to exit the station and take a downtown M7 bus to 97 St and Columbus Av. Proceed to 96 St to transfer to a westbound M96 or M106 bus to Broadway.",
         "description": "Street to uptown platform",
@@ -11506,7 +11792,8 @@
         "alternativeRoute": "If you are on the street: \\nCross 9 St and take a Kensington-bound B67 or B69 bus to McDonald Ave and Albemarle Rd or Church Ave for access to the Church Av F/G station. Proceed to the accessible entrance to Church Av, located on the west side of McDonald Ave, between Albemarle Ave and Church Ave. \\n\\nIf you are on the mezzanine: \\nSee a station agent to re-enter through the faregate and take a Church Av-bound F or G train to Church Av. Then, exit the station and take a Williamsburg-bound B67 or Downtown Brooklyn-bound B69 bus to 7 Ave and 9 St.",
         "description": "Street to mezzanine",
         "ada": "1",
-        "isBroken": ""
+        "isBroken": "",
+        "isStreet": "true"
       },
       "geometry": {
         "coordinates": [
@@ -11675,7 +11962,7 @@
         "system": "nyc_mta",
         "elevatorno": "EL238",
         "linesServed": "1",
-        "title": "66 St-Lincoln Center",
+        "title": "66 St-Lincoln Center downtown",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/66_EL238.jpg",
         "alternativeRoute": "If you are on the street:  Cross Broadway and use the elevator to take an uptown 1 to 72 St. Use elevators to transfer to a downtown 1. Or, take a downtown M5 LTD or M104 bus (Broadway and 66 St) to 59 St-Columbus Circle A/C/B/D/1. If you are on the platform: Take a downtown 1 to 59 St-Columbus Circle, then either: Use elevators to transfer to an uptown 1 to 66 St-Lincoln Center. Or, use elevators to exit the station and take an uptown M5 LTD, M7 or M104 bus (Broadway and W 61 St) to 66 St.",
         "description": "Street to downtown platform",
@@ -11704,7 +11991,7 @@
         "system": "nyc_mta",
         "elevatorno": "EL237",
         "linesServed": "1",
-        "title": "66 St-Lincoln Center",
+        "title": "66 St-Lincoln Center uptown",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/66_EL237.jpg",
         "alternativeRoute": "If you are on the street: Cross Broadway to take a downtown 1 to 59 St-Columbus Circle. Use elevators to transfer to an uptown 1. Or, take an uptown M5, M7, or M104 bus (66 St and Broadway) to 72 St. Enter 72 St 1/2/3 at Broadway and 72 St. If you are on the platform: Take an uptown 1 to 72 St, then either: Use elevators to transfer to a downtown 1 to 66 St-Lincoln Center. Or, use elevators to exit the station and take a downtown M5 or M104 bus (Broadway and 72 St) to 66 St and Broadway.",
         "description": "Street to uptown platform",
@@ -12013,6 +12300,36 @@
       "type": "Feature",
       "properties": {
         "isRedundant": "0",
+        "stationAbbr": 718,
+        "route": "N W 7",
+        "complexID": 461,
+        "indiegogo": "0",
+        "description_extra": "This elevator gets you to the fare gates (mezzanine), Manhattan-bound trains (lower platform), and Queens-bound trains (upper platform) trains.",
+        "stationID": 461,
+        "system": "nyc_mta",
+        "elevatorno": "EL479",
+        "linesServed": "N/W/7",
+        "directionLabel": "manhattan and queens",
+        "title": "Queensboro Plaza",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/QueensboroPlaza_EL479.jpg",
+        "alternativeRoute": "If you are on the overpass level: Re-enter the station and take a Manhattan-bound 7 to the nearby Court Sq station. Exit the station and proceed north along 23 St to Queens Plaza. If you are at street level: Proceed south along 23 St to the Court Sq station for access to 7 service.",
+        "description": "Mezzanine to upper and lower platforms",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.940408,
+          40.750256
+        ],
+        "type": "Point"
+      },
+      "id": "e8a93a1bfb60c289ac55ef3d27709d54"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
         "stationAbbr": "EMBR",
         "route": "S R Y G B",
         "complexID": "",
@@ -12065,6 +12382,37 @@
         "type": "Point"
       },
       "id": "e9d234408f4f6283c67ab63f1fc61df8"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "notes": "",
+        "isRedundant": 1,
+        "stationAbbr": "132/D19/L02",
+        "route": "F/M/L/1/2/3",
+        "complexID": "601",
+        "indiegogo": 0,
+        "isStreet": "true",
+        "description_extra": "This elevator gets you from the street to the 1/2/3 fare gates (mezzanine). Connects underground to F/M/L lines at 6 Av.",
+        "stationID": "116/229/322",
+        "system": "nyc_mta",
+        "elevatorno": "EL615",
+        "linesServed": "1/2/3",
+        "title": "14th St/7th Av",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/14-123_EL615.jpg",
+        "alternativeRoute": "If you are on the street: Proceed one avenue east to 6 Av and re-enter the station using EL612 (NW corner of 14 St and 6 Av). Use passageway for access to 1/2/3. If you are in the mezzanine: Use passageway towards L/F/M to exit via EL612. Proceed one avenue west to 7 Av. ",
+        "description": "Street to mezzanine",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.999958,
+          40.738578
+        ],
+        "type": "Point"
+      },
+      "id": "ebed56f22bde297410cb9603fb2381ec"
     },
     {
       "type": "Feature",
