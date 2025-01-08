@@ -56,14 +56,6 @@ export default function Map() {
         zoom: 14,
       });
 
-      /* temp dev function to output coords of center as you drag
-      map.current.on("move", () => {
-        const center = map.current.getCenter();
-        console.log(`Center Coordinates: Longitude: ${center.lng}, Latitude: ${center.lat}`);
-      });
-      */
-
-
       // Add navigation controls
       // Zoom and bearing control
       const zoomControl = new mapboxgl.NavigationControl();
@@ -100,66 +92,6 @@ export default function Map() {
           dynamic: true,
           generateId: true,
         });
-/*
-         // SUBWAY LINES
-        // Array of subway line layer names
-        const subwayLineLayers = [
-          "mta-subwaylines-123",
-          "mta-subwaylines-456",
-          "mta-subwaylines-nqrw",
-          "mta-subwaylines-ace",
-          "mta-subwaylines-bdfm",
-          "mta-subwaylines-jz",
-          "mta-subwaylines-l",
-          "mta-subwaylines-g",
-          "mta-subwaylines-7",
-          "mta-subwaylines-s",
-        ];
-        map.current.on('load', () => {
-          // Add the subway source
-          map.current.addSource('subway-lines', {
-            type: 'vector',
-            url: 'mapbox://joelaaron.cm5kh33pk0nno1umnguq9iybf-0yey6'  // Replace with your actual source URL
-          });
-        
-          // Add each subway line layer
-          subwayLineLayers.forEach((layer) => {
-            map.current.addLayer({
-              id: layer,
-              type: 'line',
-              source: 'composite',
-              'source-layer': 'mta_subwaylines', // Specify which source-layer this should refer to
-              paint: {
-                'line-color': '#cccccc',
-                'line-width': 1,
-              }
-            });
-        
-            // Add click event listener for each layer
-            map.current.on('click', layer, () => {
-              highlightLine(layer);
-            });
-          });
-        });
-        
-        // Highlight function for the clicked layer
-        function highlightLine(clickedLayer) {
-          subwayLineLayers.forEach((layer) => {
-            map.current.setPaintProperty(
-              layer,
-              "line-color",
-              layer === clickedLayer ? "#ff0000" : "#cccccc" // Highlight clicked layer, fade others
-            );
-        
-            map.current.setPaintProperty(
-              layer,
-              "line-width",
-              layer === clickedLayer ? 4 : 1 // Thicker line for clicked layer
-            );
-          });
-        }
-        
-*/
 
 
         // Add outage layer with icons based on isBroken property
@@ -271,7 +203,6 @@ export default function Map() {
 
         //  Click event to display pop-up ***
         map.current?.on("click", "transit-elevators", (e) => {
-        //  console.log("on click");
           if (e.features.length > 0) {
             const feature = e.features[0];
             const coordinates = e.features[0].geometry.coordinates.slice();
