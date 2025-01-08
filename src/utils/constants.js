@@ -1,4 +1,4 @@
-import { A, B, C, D, E, F, G, J, L, Line1, Line2, Line3, Line4, Line5, Line6, Line7, M, N, Q, R, S, W, Z } from "@/components/icons/MtaLineIcons";
+import { A, B, C, D, E, F, G, J, L, Line1, Line2, Line3, Line4, Line5, Line6, Line7, M, N, Q, R, S, W, Z, SIR } from "@/components/icons/MtaLineIcons";
 
 export const MTA_SUBWAY_LINE_ICONS = {
     1:  <Line1 />,
@@ -23,6 +23,7 @@ export const MTA_SUBWAY_LINE_ICONS = {
     R: <R />,
     S: <S />,
     W: <W />,
-    Z: <Z />
+    Z: <Z />,
+    SIR: <SIR />
 
 }
