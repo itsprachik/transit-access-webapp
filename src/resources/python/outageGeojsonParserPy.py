@@ -1,7 +1,12 @@
 import json
 
+# file paths
+INPUT_DATASET = "../custom_dataset.json"
+INPUT_OUTAGE_DATASET = '../../resources/elevatorOutagesDataset.geojson'
+OUTPUT_DATASET = '../elevatorOutageGeometry.json'
+
 # Load the GeoJSON data from the file
-with open('custom_dataset.json') as f:
+with open(INPUT_DATASET) as f:
     geojson = json.load(f)
 
 # Initialize an empty list to store the transformed data
@@ -37,9 +42,11 @@ outage_geojson = {
 }
 
 # Write the transformed data to a file
-with open('../assets/elevatorOutagesDataset.geojson', 'w') as f:
+with open(INPUT_OUTAGE_DATASET, 'w') as f:
     json.dump(outage_geojson, f, indent=2)
     
 # Write geometry json data to a file
-with open('elevatorOutageGeometry.json', 'w') as f:
+with open(OUTPUT_DATASET, 'w') as f:
     json.dump(outage_geometry_json, f, indent=2)
+
+print(f"Generated {len(outage_features)} features and saved to {OUTPUT_DATASET}")

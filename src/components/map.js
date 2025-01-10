@@ -7,7 +7,8 @@ import { createRoot } from "react-dom/client";
 import ElevatorPopup, {
   OnHoverElevatorPopup,
 } from "./ElevatorPopup/ElevatorPopup";
-import outageGeojson from '../resources/elevatorOutagesDataset.geojson'
+import outageGeojson from '../resources/elevatorOutagesDataset.geojson';
+import mapboxStyle from '@/styles/mapbox-style.json';
 
 // Load environment variables
 dotenv.config();
@@ -51,10 +52,11 @@ export default function Map() {
     if (!map.current) {
       map.current = new mapboxgl.Map({
         container: mapContainer.current,
-        style: "mapbox://styles/joelaaron/clndls6cm07rp01mae34gd2oo",
-        center: [-73.98585978055912, 40.75983589200632], // NYC
-        zoom: 14,
+        style: mapboxStyle,
+        center: [-73.98365318925187, 40.7583063693059], // NYC
+        zoom: 13,
       });
+
 
       // Add navigation controls
       // Zoom and bearing control
