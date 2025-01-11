@@ -118,9 +118,10 @@
                         "directionLabel_up",
                         "directionLabel_down",
                         "mta-subway-stations-inaccessible",
-                        "mta-subway-stations-accessible",
                         "mta-subway-stations-icon2",
-                        "transit-elevators"
+                        "mta-subway-stations-accessible",
+                        "transit-elevators",
+                        "elevator-to-station-connectors"
                     ]
                 }
             ],
@@ -251,10 +252,10 @@
                 }
             }
         },
-        "mapbox:thumb": "data:image/webp;base64,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",
+        "mapbox:thumb": "data:image/webp;base64,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",
         "mapbox:autocomposite": true,
         "mapbox:sdk-support": {
-            "js": "3.5.0",
+            "js": "3.8.0",
             "android": "latest",
             "ios": "latest"
         },
@@ -352,8 +353,8 @@
             }
         }
     },
-    "center": [-73.98606013701624, 40.75506090546966],
-    "zoom": 17.34670538229733,
+    "center": [-73.98867072798117, 40.73487389633709],
+    "zoom": 18.36094422941479,
     "bearing": 0,
     "pitch": 0,
     "terrain": {"source": "mapbox-dem"},
@@ -372,11 +373,11 @@
             "tileSize": 512
         },
         "composite": {
-            "url": "mapbox://mapbox.mapbox-streets-v8,mapbox.mapbox-terrain-v2,joelaaron.test-sf,joelaaron.clndm6gme0tz02bp74z629y3l-6q3qv,joelaaron.cloxfre7w01j31tl6pnggr5re-8h8nf,joelaaron.cly1qfom57x3y1noc7moxiiu4-1x1n4,joelaaron.cm5kh33pk0nno1umnguq9iybf-0yey6",
+            "url": "mapbox://mapbox.mapbox-streets-v8,mapbox.mapbox-terrain-v2,joelaaron.test-sf,joelaaron.clndm6gme0tz02bp74z629y3l-6q3qv,joelaaron.cloxfre7w01j31tl6pnggr5re-8h8nf,joelaaron.cly1qfom57x3y1noc7moxiiu4-1x1n4,joelaaron.cm5kh33pk0nno1umnguq9iybf-0yey6,joelaaron.cm5onyuyh16nz1pqi1akbp4ky-28sqt",
             "type": "vector"
         }
     },
-    "sprite": "mapbox://sprites/joelaaron/clndls6cm07rp01mae34gd2oo/chfs9zomjam6roasl0dn65mg8",
+    "sprite": "mapbox://sprites/joelaaron/clndls6cm07rp01mae34gd2oo/d5th21x8n1zk4miy4ianpi4z3",
     "glyphs": "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
     "projection": {"name": "globe"},
     "layers": [
@@ -3843,7 +3844,6 @@
                     14,
                     3
                 ],
-                "line-dasharray": [1, 2],
                 "line-opacity": 0.8
             }
         },
@@ -11788,20 +11788,46 @@
                 "text-radial-offset": 1
             },
             "paint": {
-                "text-opacity": [
-                    "interpolate",
-                    ["linear"],
-                    ["zoom"],
-                    0,
-                    0,
-                    13,
-                    0,
-                    14,
-                    1
-                ],
+                "text-opacity": ["step", ["zoom"], 0, 13, 0, 14, 1],
                 "text-halo-color": "#ffffff",
                 "text-halo-width": 50,
                 "text-halo-blur": 50
+            }
+        },
+        {
+            "id": "mta-subway-stations-icon2",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "mta_subway_stations_all",
+            "filter": ["match", ["get", "ada"], ["0"], true, false],
+            "layout": {
+                "text-size": 10,
+                "text-radial-offset": 1,
+                "icon-offset": [10, 10],
+                "icon-image": "Accessible=False",
+                "icon-anchor": "top-left",
+                "text-font": ["Montserrat Regular", "Arial Unicode MS Regular"],
+                "icon-size": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    13,
+                    0,
+                    14,
+                    0.5,
+                    22,
+                    1.3
+                ],
+                "text-anchor": "left",
+                "icon-padding": 0,
+                "icon-ignore-placement": true
+            },
+            "paint": {
+                "text-opacity": ["step", ["zoom"], 0, 13, 0, 14, 1],
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 50,
+                "text-halo-blur": 50,
+                "icon-opacity": ["step", ["zoom"], 0, 13, 0, 14, 0.56]
             }
         },
         {
@@ -11833,66 +11859,11 @@
                 "text-radial-offset": 1
             },
             "paint": {
-                "text-opacity": [
-                    "interpolate",
-                    ["linear"],
-                    ["zoom"],
-                    0,
-                    0,
-                    13,
-                    0,
-                    14,
-                    1
-                ],
-                "text-halo-color": "#ffffff",
-                "text-halo-width": 50,
-                "text-halo-blur": 50
-            }
-        },
-        {
-            "id": "mta-subway-stations-icon2",
-            "type": "symbol",
-            "source": "composite",
-            "source-layer": "mta_subway_stations_all",
-            "filter": ["match", ["get", "ada"], ["0"], true, false],
-            "layout": {
-                "text-size": 10,
-                "text-radial-offset": 1,
-                "icon-offset": [20, 10],
-                "icon-image": "Accessible=False",
-                "icon-anchor": "top-left",
-                "text-font": ["Montserrat Regular", "Arial Unicode MS Regular"],
-                "icon-size": [
-                    "interpolate",
-                    ["linear"],
-                    ["zoom"],
-                    13,
-                    0,
-                    14,
-                    0.5,
-                    22,
-                    1.3
-                ],
-                "text-anchor": "left",
-                "icon-padding": 0,
-                "icon-ignore-placement": true
-            },
-            "paint": {
-                "text-opacity": [
-                    "interpolate",
-                    ["linear"],
-                    ["zoom"],
-                    0,
-                    0,
-                    13,
-                    0,
-                    14,
-                    1
-                ],
+                "text-opacity": ["step", ["zoom"], 0, 15, 0, 16, 1],
                 "text-halo-color": "#ffffff",
                 "text-halo-width": 50,
                 "text-halo-blur": 50,
-                "icon-opacity": 0.56
+                "icon-opacity": ["step", ["zoom"], 0, 13, 0, 14, 1]
             }
         },
         {
@@ -11969,20 +11940,17 @@
                     [
                         "case",
                         ["match", ["get", "isStreet"], ["true"], true, false],
-                        [
-                            "to-string",
-                            ["concat", ["get", "title"], " (street elevator)"]
-                        ],
+                        ["to-string", ["get", "title"]],
                         ""
                     ],
-                    17,
+                    16,
                     [
                         "match",
                         ["get", "isStreet"],
                         ["true"],
                         [
                             "to-string",
-                            ["concat", ["get", "title"], "( street elevator)"]
+                            ["concat", ["get", "title"], " (street elevator)"]
                         ],
                         [
                             "to-string",
@@ -12009,10 +11977,26 @@
                 "icon-translate": [0, 0],
                 "symbol-z-offset": 0
             }
+        },
+        {
+            "id": "elevator-to-station-connectors",
+            "type": "line",
+            "source": "composite",
+            "source-layer": "elevator_to_station_connectors",
+            "layout": {},
+            "paint": {
+                "line-dasharray": [4, 4],
+                "line-color": "#212121",
+                "line-width": 1,
+                "line-gap-width": 0,
+                "line-occlusion-opacity": 0,
+                "line-blur": 0,
+                "line-opacity": ["step", ["zoom"], 0, 15, 0, 16, 1]
+            }
         }
     ],
     "created": "2023-10-05T20:01:26.566Z",
-    "modified": "2025-01-09T00:43:05.519Z",
+    "modified": "2025-01-10T23:05:58.541Z",
     "id": "clndls6cm07rp01mae34gd2oo",
     "owner": "joelaaron",
     "visibility": "private",
