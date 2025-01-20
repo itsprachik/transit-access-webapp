@@ -7,7 +7,9 @@ import { createRoot } from "react-dom/client";
 import ElevatorPopup, {
   OnHoverElevatorPopup,
 } from "./ElevatorPopup/ElevatorPopup";
-import outageGeojson from '../resources/elevatorOutagesDataset.geojson'
+import outageGeojson from '../resources/elevatorOutagesDataset.geojson';
+import mapboxStyle from '@/styles/mapbox-style.json';
+let icon = true;
 
 // Load environment variables
 dotenv.config();
@@ -51,10 +53,11 @@ export default function Map() {
     if (!map.current) {
       map.current = new mapboxgl.Map({
         container: mapContainer.current,
-        style: "mapbox://styles/joelaaron/clndls6cm07rp01mae34gd2oo",
-        center: [-73.98585978055912, 40.75983589200632], // NYC
-        zoom: 14,
+        style: mapboxStyle,
+        center: [-73.98365318925187, 40.7583063693059], // NYC
+        zoom: 13,
       });
+
 
       // Add navigation controls
       // Zoom and bearing control
@@ -119,6 +122,7 @@ export default function Map() {
                 1
           ],
             "icon-anchor": "center",
+        //    "text-anchor": "right",
             "icon-offset": [0, -20],
             "icon-allow-overlap": true,
             "icon-padding": 2,
@@ -247,7 +251,8 @@ export default function Map() {
             const title = feature.properties.title;
             const linesServed = feature.properties.linesServed;
             const elevatorno = feature.properties.elevatorno;
-            let icon = true;
+            icon = true;
+
             while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
               coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
             }
