@@ -304,8 +304,6 @@ export default function Map() {
       });
     });
 
-//    console.log(getElevatorOutages(elOutages, setOutElevatorNos));
-
     // Clean up function
     // return () => {
     //   second;
