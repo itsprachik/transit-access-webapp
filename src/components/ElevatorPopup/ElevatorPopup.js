@@ -15,9 +15,10 @@ export default function ElevatorPopup({
     <>
       <div>
         {/* {icon ? <AccessibleIcon /> : <ElevatorOutIcon />} */}
-        <strong>{title} </strong>
-        {/* <p>{elevatorno}</p> */}
+        <strong>{elevatorno} </strong>
+        <p>{title}</p>
         <img src={imageUrl} alt="Image Desc"></img>
+        {/* <p>{elevatorno}</p>*/}
         <p>{description}</p>
         <p>
           <strong>Lines Served</strong>

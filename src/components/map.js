@@ -9,6 +9,7 @@ import ElevatorPopup, {
 } from "./ElevatorPopup/ElevatorPopup";
 import outageGeojson from '../resources/elevatorOutagesDataset.geojson';
 import mapboxStyle from '@/styles/mapbox-style.json';
+let icon = true;
 
 // Load environment variables
 dotenv.config();
@@ -121,6 +122,7 @@ export default function Map() {
                 1
           ],
             "icon-anchor": "center",
+        //    "text-anchor": "right",
             "icon-offset": [0, -20],
             "icon-allow-overlap": true,
             "icon-padding": 2,
@@ -249,7 +251,8 @@ export default function Map() {
             const title = feature.properties.title;
             const linesServed = feature.properties.linesServed;
             const elevatorno = feature.properties.elevatorno;
-            let icon = true;
+            icon = true;
+
             while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
               coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
             }
@@ -300,6 +303,8 @@ export default function Map() {
         features: features,
       });
     });
+
+//    console.log(getElevatorOutages(elOutages, setOutElevatorNos));
 
     // Clean up function
     // return () => {

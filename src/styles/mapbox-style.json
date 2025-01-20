@@ -1,12 +1,12 @@
 {
     "version": 8,
-    "name": "Where's the Damn Elevator",
+    "name": "Transit Access (dev)",
     "metadata": {
         "mapbox:type": "default",
         "mapbox:variation": "monochrome-light-v1",
         "mapbox:uiParadigm": "layers",
         "mapbox:decompiler": {
-            "id": "clndls6cm07rp01mae34gd2oo",
+            "id": "cm5sr6vct00a601s0eurkg40h",
             "componentVersion": "18.0.0",
             "strata": [
                 {
@@ -39,7 +39,6 @@
                         "C2",
                         "test-sf-route",
                         "route-names",
-                        "nyc-transit-elevators",
                         "mta-subwaylines-all",
                         "mta-subwaylines-7",
                         "mta-subwaylines-S",
@@ -118,9 +117,13 @@
                         "directionLabel_up",
                         "directionLabel_down",
                         "mta-subway-stations-inaccessible",
-                        "mta-subway-stations-icon2",
-                        "mta-subway-stations-accessible",
+                        "mta-subway-stations-inaccessible-icon2",
+                        "platform-elevators-label copy 3",
+                        "platform-elevators-label-1237",
+                        "platform-elevators-label-1237 copy",
+                        "platform-elevators-label-123",
                         "transit-elevators",
+                        "mta-subway-stations-accessible",
                         "elevator-to-station-connectors"
                     ]
                 }
@@ -252,7 +255,7 @@
                 }
             }
         },
-        "mapbox:thumb": "data:image/webp;base64,UklGRpgGAABXRUJQVlA4WAoAAAAgAAAAOwAAOwAASUNDUMgBAAAAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADZWUDhMqQQAAC87wA4Az4GobRvNmzT+nA7WPa/HgUAQQvxf5RiBIIT4v8qx+VfYtg3SMe+O8+8WzAYAoFsQc3/fbN4jqSsQFQiIKP+4YkO8AJBobXvbJou9N3Q6QsjYJF7I/G7v/8qk//t+yVxBRP8hSpJUt6GsHHYEHOzj+AaR2TnnnHPOHVcx0mhgnB/WTURWfz+LiMjJOWek2cnUQhacogTI4MDvhUm0E48P6aPZ91aWcXLO2IOmeKKozwFTmaGzPaaOzhQ7Pp2N+zyd+duBszgJdh7yOD3NAGcj0pQbftfHSqJdBMY+PG7wwuidG0TyidjzzZ0RG2Pziocf0gvaoTWOQUQ0p4N1Ru08h7QNIxamnnAQrrFtuSkY8AKgomeQT6LQeCadGsCCVfIfSqjB9BCQdfD4wNS8AFApbrgGnHraFXcOiRDwQxhF1lMc+AhoOoO3BliPiKkxjY/euXaeh1XWE0zNUxq8PQms0cXt9u7q+urewHIYKEM/isTeiIkEJutHHRPvQ3d7d3d7dcvpTJ4ORoeLLJ5wMOgHGembD1sUyWlaKqTd4biwiJFIgXybSD8iTQfuhAHxMBLtY8yiy7wt6FZHt6hNhZNYp+q0zhbxXFrnC3HZ1A1E5NHQtHIOo8kG0Msck2itp9c8j0rLTE98Yelcg0Q+EKEQtcwjPRrTLnSuNJ5VyZrG/xdgQSjUXQy70HkwoipR01MwI9IAtpVMzGpqfilNfcZ2JlUS1EakQ8Vs0mOQFiOYpyLDVmbaqKGecFpydhaX9XDT6UCCpKsNrAA3B0xqaJBm3wMx6dg3HaNZ6kaoo8qYbifsdDxxTr5gSkEjHszRdHWcb0WwEtQYLcTYsnQJSBFYasjPBEvVhdGyFUDbWCLXB0uWFlgG1BTZfLL4IOqz2P3g2coyw1ldSbcFw+8sOpra+Pz65bt3Hz4B1CbDoym+u5srP+sScJKmkXx/8/L1pxdvrxRq1EeqPWQLhtfetdNMUfndNMYX7z1KXF0OwSJbsMRnqGCwefvh8uzJq3cvPhF7EGq2hSOJj5dI/C74yNWnz1+/ffh8g1Cb1YM4CiZQjOBEVVVUXQ5sgU2ldSdjiZVSyxeIio5VPWxbMOiY/QfdKK1S8TH1wWChaOn/Y2YquFGug/s6I4MFx47RgyqzHHc1uqgQWDom/ahjiGbj7lYoufn/6ozewCHuGvvj9dc37z84169Qu8w7EhWpXe3i/Nmr86ffwBxhTb4j5YFQpHa+FEIIYDVwuQKwyMf5HlT1TtFQIBq2AEv5PbFU+ICOqYQgWJHUVXh2yMIQXzI0NdeQRAYG3b/9+PG6spUKH9j54LoINe+Ag16+eP6l7jELH+gWKgGoSwWNYP2P76sWL7MSDGQL/6MlzXNcrCqAtqD3570yFC5eXaEK6NmnO39dxyx8HOcS5vkqAbD5XZTeRAZgUnlreDVMHrzHtVT6Ddw4qkwFO/FYrwL1J7hxVGWV7zoo6b5SBTpWpT/UZfUHPiqSpatRgUXHShDu9ZYB02RDKNORPTkfZeWXw09VJFX7UKMCuiBU/ay7+f2LmmGhdB1k3fa17a/m9O/Xb2MNNQQWDKugljgOAA==",
+        "mapbox:thumb": "data:image/webp;base64,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",
         "mapbox:autocomposite": true,
         "mapbox:sdk-support": {
             "js": "3.8.0",
@@ -334,6 +337,10 @@
                 "name": "directionLabels",
                 "collapsed": false
             },
+            "3e0bdac57de2c827a92f8732f26c5d61": {
+                "name": "platforn elevator labels",
+                "collapsed": false
+            },
             "Walking, cycling, etc., surface": {
                 "name": "Walking, cycling, etc., surface",
                 "collapsed": false
@@ -353,8 +360,8 @@
             }
         }
     },
-    "center": [-73.98867072798117, 40.73487389633709],
-    "zoom": 18.36094422941479,
+    "center": [-73.99008375944719, 40.75012165433799],
+    "zoom": 17.0889410216291,
     "bearing": 0,
     "pitch": 0,
     "terrain": {"source": "mapbox-dem"},
@@ -373,11 +380,11 @@
             "tileSize": 512
         },
         "composite": {
-            "url": "mapbox://mapbox.mapbox-streets-v8,mapbox.mapbox-terrain-v2,joelaaron.test-sf,joelaaron.clndm6gme0tz02bp74z629y3l-6q3qv,joelaaron.cloxfre7w01j31tl6pnggr5re-8h8nf,joelaaron.cly1qfom57x3y1noc7moxiiu4-1x1n4,joelaaron.cm5kh33pk0nno1umnguq9iybf-0yey6,joelaaron.cm5onyuyh16nz1pqi1akbp4ky-28sqt",
+            "url": "mapbox://mapbox.mapbox-streets-v8,mapbox.mapbox-terrain-v2,joelaaron.test-sf,joelaaron.clndm6gme0tz02bp74z629y3l-6q3qv,joelaaron.cly1qfom57x3y1noc7moxiiu4-1x1n4,joelaaron.cm5kh33pk0nno1umnguq9iybf-0yey6,joelaaron.cm5onyuyh16nz1pqi1akbp4ky-28sqt,joelaaron.cm62nbi3i1qk61ntmujfucl6p-7oxnc",
             "type": "vector"
         }
     },
-    "sprite": "mapbox://sprites/joelaaron/clndls6cm07rp01mae34gd2oo/d5th21x8n1zk4miy4ianpi4z3",
+    "sprite": "mapbox://sprites/joelaaron/cm5sr6vct00a601s0eurkg40h/c2vdbk3zvzxxibud1rmp3mzeo",
     "glyphs": "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
     "projection": {"name": "globe"},
     "layers": [
@@ -3634,46 +3641,6 @@
             }
         },
         {
-            "id": "nyc-transit-elevators",
-            "type": "symbol",
-            "source": "composite",
-            "source-layer": "nyc_transit_elevators",
-            "layout": {
-                "text-size": [
-                    "interpolate",
-                    ["linear"],
-                    ["zoom"],
-                    0,
-                    10,
-                    22,
-                    10
-                ],
-                "icon-image": [
-                    "match",
-                    ["get", "isBroken"],
-                    ["true", "'true'"],
-                    "broken",
-                    "elevator"
-                ],
-                "text-font": [
-                    "Montserrat SemiBold",
-                    "Arial Unicode MS Regular"
-                ],
-                "text-justify": "left",
-                "visibility": "none",
-                "text-offset": [1.5, 0],
-                "icon-size": 0.05,
-                "text-anchor": "left",
-                "text-field": ["to-string", ["get", "title"]],
-                "text-max-width": 15
-            },
-            "paint": {
-                "text-color": "#de91cd",
-                "text-halo-width": 5,
-                "text-halo-blur": 5
-            }
-        },
-        {
             "id": "mta-subwaylines-all",
             "type": "line",
             "metadata": {"mapbox:group": "94d71b5970cc6ab6d2672e0b1c28dcbd"},
@@ -4352,7 +4319,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["G"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -4365,13 +4331,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [20, 0],
                 "icon-image": "g",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -4383,10 +4347,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -4454,9 +4415,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -4469,7 +4428,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["L"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -4483,13 +4441,11 @@
                 "icon-offset": [0, 0],
                 "icon-image": "l",
                 "icon-rotation-alignment": "viewport",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -4501,10 +4457,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -4572,9 +4525,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -4587,7 +4538,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["S"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -4601,13 +4551,11 @@
                 "icon-offset": [0, 0],
                 "icon-image": "s",
                 "icon-rotation-alignment": "viewport",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -4619,10 +4567,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -4690,9 +4635,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -4705,7 +4648,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["J-Z"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -4718,13 +4660,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [-10, 0],
                 "icon-image": "j",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -4736,10 +4676,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -4807,9 +4744,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -4822,7 +4757,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["J-Z"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -4835,13 +4769,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [10, 0],
                 "icon-image": "z",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -4853,10 +4785,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -4924,9 +4853,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -4939,7 +4866,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["7"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -4953,12 +4879,10 @@
                 "icon-offset": [0, 0],
                 "icon-image": "7",
                 "icon-rotation-alignment": "viewport",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -4970,10 +4894,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -5041,9 +4962,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -5056,7 +4975,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["A"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -5070,13 +4988,11 @@
                 "icon-offset": [0, 0],
                 "icon-image": "a",
                 "icon-rotation-alignment": "viewport",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -5088,10 +5004,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -5159,9 +5072,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -5174,7 +5085,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["E"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -5188,13 +5098,11 @@
                 "icon-offset": [0, 0],
                 "icon-image": "e",
                 "icon-rotation-alignment": "viewport",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -5206,10 +5114,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -5277,9 +5182,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -5292,7 +5195,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["A-C"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -5305,14 +5207,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [-10, 0],
                 "icon-image": "a",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
-                "icon-rotate": 0,
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -5324,10 +5223,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -5395,9 +5291,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -5410,7 +5304,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["A-C"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -5423,14 +5316,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [10, 0],
                 "icon-image": "c",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
-                "icon-rotate": 0,
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -5442,10 +5332,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -5513,9 +5400,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -5528,7 +5413,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["A-C-E"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -5541,14 +5425,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [50, 0],
                 "icon-image": "a",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
-                "icon-rotate": 0,
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -5560,10 +5441,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -5631,9 +5509,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -5646,7 +5522,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["A-C-E"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -5659,13 +5534,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [70, 0],
                 "icon-image": "c",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -5677,10 +5550,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -5748,9 +5618,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -5763,7 +5631,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["A-C-E"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -5776,13 +5643,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [90, 0],
                 "icon-image": "e",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -5794,10 +5659,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -5865,9 +5727,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -5880,7 +5740,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["6"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -5894,13 +5753,11 @@
                 "icon-offset": [0, 0],
                 "icon-image": "6",
                 "icon-rotation-alignment": "viewport",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -5912,10 +5769,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -5983,9 +5837,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -5998,7 +5850,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["5"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -6012,13 +5863,11 @@
                 "icon-offset": [0, 0],
                 "icon-image": "5",
                 "icon-rotation-alignment": "viewport",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -6030,10 +5879,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -6101,9 +5947,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -6116,7 +5960,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["4"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -6130,13 +5973,11 @@
                 "icon-offset": [0, 0],
                 "icon-image": "4",
                 "icon-rotation-alignment": "viewport",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -6148,10 +5989,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -6219,9 +6057,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -6234,7 +6070,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["4-5"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -6247,13 +6082,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [-10, 0],
                 "icon-image": "4",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -6265,10 +6098,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -6336,9 +6166,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -6351,7 +6179,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["4-5"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -6364,13 +6191,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [10, 0],
                 "icon-image": "5",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -6382,10 +6207,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -6453,9 +6275,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -6468,7 +6288,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["4-5-6"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -6481,13 +6300,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [-20, 0],
                 "icon-image": "4",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -6499,10 +6316,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -6570,9 +6384,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -6585,7 +6397,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["4-5-6"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -6598,13 +6409,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [0, 0],
                 "icon-image": "5",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -6616,10 +6425,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -6687,9 +6493,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -6702,7 +6506,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["4-5-6"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -6715,13 +6518,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [20, 0],
                 "icon-image": "6",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -6733,10 +6534,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -6804,9 +6602,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -6819,7 +6615,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["3"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -6833,13 +6628,11 @@
                 "icon-offset": [0, 0],
                 "icon-image": "3",
                 "icon-rotation-alignment": "viewport",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -6851,10 +6644,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -6922,9 +6712,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -6937,7 +6725,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["2"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -6951,13 +6738,11 @@
                 "icon-offset": [0, 0],
                 "icon-image": "2",
                 "icon-rotation-alignment": "viewport",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -6969,10 +6754,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -7040,9 +6822,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -7055,7 +6835,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["1"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -7069,13 +6848,11 @@
                 "icon-offset": [0, 0],
                 "icon-image": "1",
                 "icon-rotation-alignment": "viewport",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -7087,10 +6864,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -7158,9 +6932,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -7173,7 +6945,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["2-3"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -7186,13 +6957,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [-10, 0],
                 "icon-image": "2",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -7204,10 +6973,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -7275,9 +7041,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -7290,7 +7054,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["2-3"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -7303,13 +7066,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [10, 0],
                 "icon-image": "3",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -7321,10 +7082,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -7392,9 +7150,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -7407,7 +7163,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["1-2-3"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -7420,13 +7175,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [10, 0],
                 "icon-image": "1",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -7438,10 +7191,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -7509,9 +7259,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -7524,7 +7272,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["1-2-3"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -7537,13 +7284,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [30, 0],
                 "icon-image": "2",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -7555,10 +7300,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -7626,9 +7368,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -7641,7 +7381,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["1-2-3"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -7654,13 +7393,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [50, 0],
                 "icon-image": "3",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -7672,10 +7409,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -7743,9 +7477,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -7758,7 +7490,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["M"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -7771,13 +7502,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [0, 0],
                 "icon-image": "m",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line-center",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -7789,10 +7518,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -7860,9 +7586,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -7875,7 +7599,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["F"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -7889,14 +7612,11 @@
                 "icon-offset": [0, 0],
                 "icon-image": "f",
                 "icon-rotation-alignment": "viewport",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
-                "icon-rotate": 0,
                 "symbol-placement": "line-center",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -7908,10 +7628,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -7979,9 +7696,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -7994,7 +7709,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["D"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -8008,13 +7722,11 @@
                 "icon-offset": [0, 0],
                 "icon-image": "d",
                 "icon-rotation-alignment": "viewport",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -8026,10 +7738,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -8097,9 +7806,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -8112,7 +7819,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["B"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -8126,13 +7832,11 @@
                 "icon-offset": [0, 0],
                 "icon-image": "b",
                 "icon-rotation-alignment": "viewport",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -8144,10 +7848,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -8215,9 +7916,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -8230,7 +7929,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["F-M"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -8243,13 +7941,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [-10, 0],
                 "icon-image": "f",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -8261,10 +7957,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -8332,9 +8025,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -8347,7 +8038,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["F-M"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -8360,13 +8050,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [10, 0],
                 "icon-image": "m",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -8378,10 +8066,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -8449,9 +8134,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -8464,7 +8147,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["B-D"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -8477,13 +8159,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [50, 0],
                 "icon-image": "b",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -8495,10 +8175,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -8566,9 +8243,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -8581,7 +8256,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["B-D"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -8594,13 +8268,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [70, 0],
                 "icon-image": "d",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -8612,10 +8284,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -8683,9 +8352,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -8698,7 +8365,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["B-D-F-M"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -8711,13 +8377,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [-30, 0],
                 "icon-image": "b",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -8729,10 +8393,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -8800,9 +8461,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -8815,7 +8474,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["B-D-F-M"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -8828,13 +8486,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [-10, 0],
                 "icon-image": "d",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -8846,10 +8502,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -8917,9 +8570,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -8932,7 +8583,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["B-D-F-M"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -8945,13 +8595,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [10, 0],
                 "icon-image": "f",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -8963,10 +8611,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -9034,9 +8679,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -9049,7 +8692,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["B-D-F-M"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -9062,13 +8704,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [30, 0],
                 "icon-image": "m",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -9080,10 +8720,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -9151,9 +8788,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -9166,7 +8801,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["R"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -9180,13 +8814,11 @@
                 "icon-offset": [0, 0],
                 "icon-image": "r",
                 "icon-rotation-alignment": "viewport",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -9198,10 +8830,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -9269,9 +8898,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -9284,7 +8911,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["Q"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -9298,13 +8924,11 @@
                 "icon-offset": [0, 0],
                 "icon-image": "q",
                 "icon-rotation-alignment": "viewport",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -9316,10 +8940,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -9387,9 +9008,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -9402,7 +9021,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["N"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -9416,13 +9034,11 @@
                 "icon-offset": [0, 0],
                 "icon-image": "n",
                 "icon-rotation-alignment": "viewport",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -9434,10 +9050,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -9505,9 +9118,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -9520,7 +9131,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["R-W"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -9533,13 +9143,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [-10, 0],
                 "icon-image": "r",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -9551,10 +9159,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -9622,9 +9227,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -9637,7 +9240,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["R-W"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -9650,13 +9252,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [10, 0],
                 "icon-image": "w",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -9668,10 +9268,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -9739,9 +9336,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -9754,7 +9349,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["N-W"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -9767,13 +9361,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [-10, 0],
                 "icon-image": "n",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -9785,10 +9377,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -9856,9 +9445,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -9871,7 +9458,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["N-W"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -9884,13 +9470,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [10, 0],
                 "icon-image": "w",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -9902,10 +9486,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -9973,9 +9554,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -9988,7 +9567,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["N-R"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -10001,13 +9579,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [-10, 0],
                 "icon-image": "n",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -10019,10 +9595,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -10090,9 +9663,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -10105,7 +9676,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["N-R"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -10118,13 +9688,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [10, 0],
                 "icon-image": "r",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -10136,10 +9704,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -10207,9 +9772,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -10222,7 +9785,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["N-Q"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -10235,13 +9797,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [-10, 0],
                 "icon-image": "n",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -10253,10 +9813,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -10324,9 +9881,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -10339,7 +9894,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["N-Q"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -10352,13 +9906,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [10, 0],
                 "icon-image": "q",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -10370,10 +9922,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -10441,9 +9990,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -10456,7 +10003,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["N-R-W"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -10469,13 +10015,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [-20, 0],
                 "icon-image": "n",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -10487,10 +10031,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -10558,9 +10099,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -10573,7 +10112,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["N-R-W"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -10586,13 +10124,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [0, 0],
                 "icon-image": "r",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -10604,10 +10140,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -10675,9 +10208,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -10690,7 +10221,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["N-R-W"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -10703,13 +10233,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [20, 0],
                 "icon-image": "w",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -10721,10 +10249,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -10792,9 +10317,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -10807,7 +10330,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["N-Q-R"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -10820,13 +10342,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [0, 0],
                 "icon-image": "n",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -10838,10 +10358,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -10909,9 +10426,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -10924,7 +10439,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["N-Q-R"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -10937,13 +10451,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [-10, 0],
                 "icon-image": "q",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -10955,10 +10467,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -11026,9 +10535,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -11041,7 +10548,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["N-Q-R"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -11054,13 +10560,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [10, 0],
                 "icon-image": "r",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -11072,10 +10576,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -11143,9 +10644,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -11158,7 +10657,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["N-Q-R-W"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -11171,13 +10669,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [50, 0],
                 "icon-image": "n",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -11189,10 +10685,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -11260,9 +10753,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -11275,7 +10766,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["N-Q-R-W"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -11288,13 +10778,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [70, 0],
                 "icon-image": "q",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -11306,10 +10794,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -11377,9 +10862,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -11392,7 +10875,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["N-Q-R-W"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -11405,13 +10887,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [90, 0],
                 "icon-image": "r",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -11423,10 +10903,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -11494,9 +10971,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -11509,7 +10984,6 @@
             "source-layer": "mta_subwaylines",
             "filter": ["match", ["get", "name"], ["N-Q-R-W"], true, false],
             "layout": {
-                "text-line-height": 1.2,
                 "text-size": [
                     "interpolate",
                     ["linear"],
@@ -11522,13 +10996,11 @@
                 "icon-size-scale-range": [0.1, 1],
                 "icon-offset": [110, 0],
                 "icon-image": "w",
-                "symbol-spacing": 250,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
                 "symbol-placement": "line",
-                "text-padding": 2,
                 "icon-size": [
                     "interpolate",
                     ["linear"],
@@ -11540,10 +11012,7 @@
                     17,
                     0.7
                 ],
-                "text-rotate": 0,
-                "text-letter-spacing": 0,
                 "icon-padding": 0,
-                "text-max-width": 10,
                 "icon-ignore-placement": true
             },
             "paint": {
@@ -11611,9 +11080,7 @@
                     "hsl(0, 0%, 0%)"
                 ],
                 "text-halo-width": 1,
-                "text-halo-blur": 0,
                 "text-color": "hsl(0, 0%, 100%)",
-                "text-occlusion-opacity": 0,
                 "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
                 "icon-translate": [0, 0]
             }
@@ -11795,7 +11262,7 @@
             }
         },
         {
-            "id": "mta-subway-stations-icon2",
+            "id": "mta-subway-stations-inaccessible-icon2",
             "type": "symbol",
             "source": "composite",
             "source-layer": "mta_subway_stations_all",
@@ -11804,7 +11271,7 @@
                 "text-size": 10,
                 "text-radial-offset": 1,
                 "icon-offset": [10, 10],
-                "icon-image": "Accessible=False",
+                "icon-image": "not-accessible",
                 "icon-anchor": "top-left",
                 "text-font": ["Montserrat Regular", "Arial Unicode MS Regular"],
                 "icon-size": [
@@ -11831,39 +11298,96 @@
             }
         },
         {
-            "id": "mta-subway-stations-accessible",
+            "id": "platform-elevators-label copy 3",
             "type": "symbol",
+            "metadata": {"mapbox:group": "3e0bdac57de2c827a92f8732f26c5d61"},
             "source": "composite",
-            "source-layer": "mta_subway_stations_all",
-            "filter": ["match", ["get", "ada"], ["2", "1"], true, false],
+            "source-layer": "transit_elevators",
             "layout": {
-                "text-field": ["to-string", ["get", "stop_name"]],
-                "icon-image": "border-dot-13",
-                "icon-size": [
-                    "interpolate",
-                    ["linear"],
-                    ["zoom"],
-                    13,
-                    0,
-                    14,
-                    1,
-                    22,
-                    3
+                "icon-image": [
+                    "match",
+                    ["get", "linesServed"],
+                    ["N/Q/R/W"],
+                    "w",
+                    ""
                 ],
-                "text-font": [
-                    "Montserrat SemiBold",
-                    "Arial Unicode MS Regular"
-                ],
-                "text-size": 10,
-                "text-anchor": "left",
-                "text-radial-offset": 1
+                "icon-size": 0.6,
+                "icon-anchor": "bottom",
+                "icon-allow-overlap": true
             },
             "paint": {
-                "text-opacity": ["step", ["zoom"], 0, 15, 0, 16, 1],
-                "text-halo-color": "#ffffff",
-                "text-halo-width": 50,
-                "text-halo-blur": 50,
-                "icon-opacity": ["step", ["zoom"], 0, 13, 0, 14, 1]
+                "icon-opacity": ["step", ["zoom"], 0, 15, 0, 16, 1],
+                "icon-translate": [20, -20]
+            }
+        },
+        {
+            "id": "platform-elevators-label-1237",
+            "type": "symbol",
+            "metadata": {"mapbox:group": "3e0bdac57de2c827a92f8732f26c5d61"},
+            "source": "composite",
+            "source-layer": "transit_elevators",
+            "layout": {
+                "icon-image": [
+                    "match",
+                    ["get", "linesServed"],
+                    ["4/5/6"],
+                    "1237",
+                    ""
+                ],
+                "icon-size": 0.4,
+                "icon-anchor": "bottom-left",
+                "icon-allow-overlap": true
+            },
+            "paint": {
+                "icon-opacity": ["step", ["zoom"], 0, 17, 0, 18, 1],
+                "icon-translate": [20, -20]
+            }
+        },
+        {
+            "id": "platform-elevators-label-1237 copy",
+            "type": "symbol",
+            "metadata": {"mapbox:group": "3e0bdac57de2c827a92f8732f26c5d61"},
+            "source": "composite",
+            "source-layer": "transit_elevators",
+            "layout": {
+                "icon-image": [
+                    "match",
+                    ["get", "linesServed"],
+                    ["1/2/3/7"],
+                    "1237",
+                    ""
+                ],
+                "icon-size": 0.4,
+                "icon-anchor": "bottom-left",
+                "icon-allow-overlap": true
+            },
+            "paint": {
+                "icon-opacity": ["step", ["zoom"], 0, 17, 0, 18, 1],
+                "icon-translate": [20, -20]
+            }
+        },
+        {
+            "id": "platform-elevators-label-123",
+            "type": "symbol",
+            "metadata": {"mapbox:group": "3e0bdac57de2c827a92f8732f26c5d61"},
+            "source": "composite",
+            "source-layer": "transit_elevators",
+            "layout": {
+                "icon-image": [
+                    "match",
+                    ["get", "linesServed"],
+                    ["1/2/3", "1/2/3/LIRR"],
+                    "123",
+                    ""
+                ],
+                "icon-size": 0.4,
+                "icon-anchor": "bottom-left",
+                "icon-offset": [0, 0],
+                "icon-allow-overlap": true
+            },
+            "paint": {
+                "icon-opacity": ["step", ["zoom"], 0, 17, 0, 18, 1],
+                "icon-translate": [20, -20]
             }
         },
         {
@@ -11871,7 +11395,7 @@
             "type": "symbol",
             "metadata": {"mapbox:featureStateHandler": {}},
             "source": "composite",
-            "source-layer": "transit_elevators",
+            "source-layer": "nyc_transit_elevators",
             "layout": {
                 "text-optional": true,
                 "text-size": [
@@ -11883,24 +11407,22 @@
                     22,
                     10
                 ],
-                "text-radial-offset": [
-                    "interpolate",
-                    ["linear"],
-                    ["zoom"],
-                    0,
-                    1.2,
-                    17,
-                    2
-                ],
                 "icon-size-scale-range": [0.7, 2],
                 "text-allow-overlap": ["step", ["zoom"], false, 18, true],
                 "symbol-sort-key": 2,
                 "symbol-z-order": "source",
+                "icon-offset": [0, 0],
                 "icon-image": [
                     "case",
-                    ["match", ["get", "ada"], ["0"], true, false],
+                    ["==", ["get", "ada"], "0"],
                     "Accessible=False",
-                    ["match", ["get", "isStreet"], ["true"], true, false],
+                    [
+                        "all",
+                        ["==", ["get", "isStreet"], "true"],
+                        ["==", ["get", "elevatorno"], "ramp"]
+                    ],
+                    "ramp",
+                    ["==", ["get", "isStreet"], "true"],
                     "Elevator",
                     ""
                 ],
@@ -11921,17 +11443,50 @@
                     16,
                     2
                 ],
-                "text-offset": [1.5, 0],
+                "text-offset": [0, 0],
                 "icon-size": [
                     "interpolate",
                     ["linear"],
                     ["zoom"],
                     10,
-                    0.7,
+                    [
+                        "case",
+                        [
+                            "match",
+                            ["get", "elevatorno"],
+                            ["", "ramp"],
+                            false,
+                            true
+                        ],
+                        0.7,
+                        0.5
+                    ],
                     15,
-                    0.9,
+                    [
+                        "case",
+                        [
+                            "match",
+                            ["get", "elevatorno"],
+                            ["", "ramp"],
+                            false,
+                            true
+                        ],
+                        0.9,
+                        0.6
+                    ],
                     19,
-                    1
+                    [
+                        "case",
+                        [
+                            "match",
+                            ["get", "elevatorno"],
+                            ["", "ramp"],
+                            false,
+                            true
+                        ],
+                        1,
+                        0.8
+                    ]
                 ],
                 "text-anchor": "left",
                 "text-field": [
@@ -11939,43 +11494,114 @@
                     ["zoom"],
                     [
                         "case",
-                        ["match", ["get", "isStreet"], ["true"], true, false],
-                        ["to-string", ["get", "title"]],
+                        [
+                            "all",
+                            ["==", ["get", "isStreet"], "true"],
+                            ["==", ["get", "elevatorno"], "ramp"]
+                        ],
+                        [
+                            "to-string",
+                            ["concat", "Ramp (", ["get", "title"], ")"]
+                        ],
+                        ["==", ["get", "isStreet"], "true"],
+                        [
+                            "to-string",
+                            [
+                                "concat",
+                                "Street Elevator (",
+                                ["get", "title"],
+                                ")"
+                            ]
+                        ],
                         ""
                     ],
                     16,
                     [
-                        "match",
-                        ["get", "isStreet"],
-                        ["true"],
+                        "case",
+                        [
+                            "all",
+                            ["==", ["get", "isStreet"], "true"],
+                            ["==", ["get", "elevatorno"], "ramp"]
+                        ],
                         [
                             "to-string",
-                            ["concat", ["get", "title"], " (street elevator)"]
+                            ["concat", "Ramp (", ["get", "title"], ")"]
+                        ],
+                        ["==", ["get", "isStreet"], "true"],
+                        [
+                            "to-string",
+                            [
+                                "concat",
+                                "Street Elevator (",
+                                ["get", "title"],
+                                ")"
+                            ]
                         ],
                         [
                             "to-string",
                             [
                                 "concat",
-                                ["get", "linesServed"],
-                                " ",
+                                "Platform Elevator (",
                                 ["get", "directionLabel"],
-                                " (platform elevator)"
+                                ["get", "linesServed"],
+                                ")"
                             ]
                         ]
                     ]
-                ],
-                "icon-padding": 2
+                ]
             },
             "paint": {
                 "text-color": "#303030",
-                "text-occlusion-opacity": 0,
-                "text-translate": [0, 0],
+                "icon-translate-anchor": "viewport",
+                "text-opacity": [
+                    "step",
+                    ["zoom"],
+                    0,
+                    15,
+                    ["match", ["get", "isStreet"], ["true"], 1, 0],
+                    17,
+                    1
+                ],
+                "text-translate": [20, 0],
                 "text-halo-color": "#ffffff",
                 "text-halo-width": 50,
-                "icon-occlusion-opacity": 0,
+                "icon-opacity": ["step", ["zoom"], 0, 14, 0, 15, 1],
                 "text-halo-blur": 59,
-                "icon-translate": [0, 0],
-                "symbol-z-offset": 0
+                "icon-translate": [0, 0]
+            }
+        },
+        {
+            "id": "mta-subway-stations-accessible",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "mta_subway_stations_all",
+            "filter": ["match", ["get", "ada"], ["2", "1"], true, false],
+            "layout": {
+                "text-field": ["to-string", ["get", "stop_name"]],
+                "icon-image": "Accessible=True",
+                "icon-size": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    10,
+                    0.5,
+                    15,
+                    0.7,
+                    19,
+                    1
+                ],
+                "text-font": [
+                    "Montserrat SemiBold",
+                    "Arial Unicode MS Regular"
+                ],
+                "text-size": 10,
+                "text-anchor": "left",
+                "text-radial-offset": 1
+            },
+            "paint": {
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 50,
+                "text-halo-blur": 50
             }
         },
         {
@@ -11983,21 +11609,16 @@
             "type": "line",
             "source": "composite",
             "source-layer": "elevator_to_station_connectors",
-            "layout": {},
             "paint": {
                 "line-dasharray": [4, 4],
                 "line-color": "#212121",
-                "line-width": 1,
-                "line-gap-width": 0,
-                "line-occlusion-opacity": 0,
-                "line-blur": 0,
                 "line-opacity": ["step", ["zoom"], 0, 15, 0, 16, 1]
             }
         }
     ],
-    "created": "2023-10-05T20:01:26.566Z",
-    "modified": "2025-01-10T23:05:58.541Z",
-    "id": "clndls6cm07rp01mae34gd2oo",
+    "created": "2025-01-11T22:24:04.926Z",
+    "modified": "2025-01-18T20:45:54.350Z",
+    "id": "cm5sr6vct00a601s0eurkg40h",
     "owner": "joelaaron",
     "visibility": "private",
     "protected": false,
