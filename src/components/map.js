@@ -53,7 +53,7 @@ export default function Map() {
     if (!map.current) {
       map.current = new mapboxgl.Map({
         container: mapContainer.current,
-        style: mapboxStyle,
+        style: "mapbox://styles/joelaaron/clndls6cm07rp01mae34gd2oo",
         center: [-73.98365318925187, 40.7583063693059], // NYC
         zoom: 13,
       });
@@ -302,12 +302,15 @@ export default function Map() {
         type: "FeatureCollection",
         features: features,
       });
+      return;
     });
 
-    // Clean up function
-    // return () => {
-    //   second;
-    // };
+    if (map.current?.isStyleLoaded()) {
+      map?.current?.getSource("outage-data")?.updateData({
+        type: "FeatureCollection",
+        features: features,
+      });
+    }
   }, [elOutages]);
 
   // list upcoming outages
