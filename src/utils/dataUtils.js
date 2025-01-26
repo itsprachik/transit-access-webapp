@@ -3,7 +3,6 @@ dataUtils is used to filter existing arrays and elevator data
 */
 
 import { elevatorCoordinates } from "./elevatorOutageGeometry";
-import { elevatorOutageDataset } from "../assets/elevatorOutagesDataset";
 
 // Function to filter out Escalators and Upcoming outages from the outageArray response
 // export function setOutElevatorNumbers(outageArray, setOutElevatorNos) {
