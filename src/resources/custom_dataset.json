@@ -12,6 +12,7 @@
         "system": "nyc_mta",
         "elevatorno": "EL708",
         "linesServed": "A/C/F",
+        "directionLabel": "brooklyn (south)",
         "title": "Jay St-MetroTech",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Jay-Metro_EL706.jpg",
         "alternativeRoute": "If you are on the mezzanine: Use the elevator on the other side of the mezzanine then either: Take a Manhattan-bound A or C to Fulton St and transfer across the platform to a Brooklyn-bound A or C. Or, take a Manhattan-bound F to Broadway-Lafayette and use elevators to transfer to a Brooklyn-bound F. If you are on the Brooklyn-bound A/C/F platform: Take a Euclid Av-bound A or C to Utica Av and either: Use elevators to transfer to a Manhattan-bound A or C to Jay St-MetroTech. Or, use the elevator to exit the station and take a Downtown Brooklyn-bound B25 bus (Fulton St and Malcolm X Blvd) to Fulton St and Jay St. Or, take a Coney Island-bound F to Church Av and use elevators to transfer to a Manhattan-bound F to Jay St-MetroTech.",
@@ -21,8 +22,8 @@
       },
       "geometry": {
         "coordinates": [
-          -73.987733,
-          40.693076
+          -73.987818,
+          40.692575
         ],
         "type": "Point"
       },
@@ -40,6 +41,7 @@
         "system": "nyc_mta",
         "elevatorno": "EL707",
         "linesServed": "A/C/F",
+        "directionLabel": "manhattan (north)",
         "title": "Jay St-MetroTech",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Jay-Metro_EL706.jpg",
         "alternativeRoute": "If you are on the mezzanine: Use the elevator on the other side of the mezzanine then either: Take a Euclid Av-bound A or C to Utica Av and use elevators to transfer to a Manhattan-bound A or C. Or, take a Coney Island-bound F to Church Av and use elevators to transfer to a Manhattan-bound F. If you are on the Manhattan-bound A/C/F platform: Take a Manhattan-bound A or C to Fulton St. Transfer across the platform to a Brooklyn-bound A or C to Jay St-MetroTech.",
@@ -50,7 +52,7 @@
       "geometry": {
         "coordinates": [
           -73.987818,
-          40.692668
+          40.692676
         ],
         "type": "Point"
       },
@@ -68,7 +70,7 @@
         "stationID": "174",
         "system": "nyc_mta",
         "elevatorno": "EL706",
-        "linesServed": "A/C/F",
+        "linesServed": "A/C/F/R",
         "title": "Jay St-MetroTech",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Jay-Metro_EL706.jpg",
         "alternativeRoute": "If you are on the street: Take a Ridgewood-bound B38 bus (Fulton St and Hoyt St) to Fulton St and Flatbush Av Extension. Then proceed north to DeKalb Av station for R service. For A/C/F, take a Manhattan-bound R from DeKalb Av to Jay St-MetroTech and use elevators to transfer. If you are on the mezzanine: See a station agent to re-enter through the faregate and use the elevator to take a Bay Ridge-bound R to DeKalb Av. Then use elevators to exit the station and take a Downtown Brooklyn-bound B38 bus to Fulton St and Jay St.",
@@ -106,8 +108,8 @@
       },
       "geometry": {
         "coordinates": [
-          -73.987831,
-          40.692743
+          -73.987818,
+          40.692776
         ],
         "type": "Point"
       },
@@ -746,13 +748,13 @@
         "elevatorno": "EL232",
         "note": "stationAbbr was 725",
         "linesServed": "1/2/3/7",
+        "directionLabel": "1/2/3 downtown, 7 both directions",
         "title": "Times Sq-42 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/42TS_EL619.jpg",
         "alternativeRoute": "If you are on the upper mezzanine: Take an uptown 1 to 59 St-Columbus Circle and use elevators to transfer to a downtown 1 to Times Sq-42 St. Or, exit station and take a downtown M7 or M20 bus to 34 St-Penn Station. If you are on the downtown 1/2/3 platform: Take a downtown 2 or 3 to 34 St-Penn Station and use elevators to transfer to an uptown 2 or 3 to Times Sq-42 St. Or, take a downtown 1, 2 or 3 to 34 St-Penn Station. Exit station and take the M20 or M34A SBS (8 Av between 34 St and 35 St) to 41 St. Times Sq-42 St is one block north. If you are on the lower mezzanine: Exit station and take an eastbound M42 bus to Grand Central-42 St for 7. If you are on the 7 platform: Take an uptown 7 to Grand Central-42 St. Exit station and take a westbound M42 bus (42 St between Park Av and Lexington Av) to Broadway.",
         "description": "Mezzanine to 7 & downtown 1/2/3",
         "ada": "1",
-        "isBroken": "",
-        "directionLabel": "1/2/3 downtown, 7 uptown & downtown"
+        "isBroken": ""
       },
       "geometry": {
         "coordinates": [
@@ -824,43 +826,17 @@
       "type": "Feature",
       "properties": {
         "isRedundant": "0",
-        "stationAbbr": "MLBR",
-        "route": "R Y",
-        "complexID": "",
-        "isStreet": "false",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "R/Y",
-        "title": "Millbrae Platform Elevator #2",
-        "image": "",
-        "alternativeRoute": "",
-        "description": "Not often used. It'll put you on the wrong side of the tracks.",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.386454,
-          37.600237
-        ],
-        "type": "Point"
-      },
-      "id": "064bcae431f164a7170f37ffeae2b7b7"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "0",
         "stationAbbr": "630/F11",
         "route": "E M 6",
         "complexID": "612",
         "indiegogo": "0",
+        "description_extra": "This elevator gets you from the fare gates (mezzanine) to E/M trains in both directions",
         "stationID": "275",
         "system": "nyc_mta",
         "elevatorno": "EL245",
         "note": "stationAbbr was F11",
         "linesServed": "E/M",
+        "directionLabel": "both directions",
         "title": "Lexington Av/53 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/53-Lex_EL203X.jpg",
         "alternativeRoute": "If you are on the mezzanine: For M, take the elevator to access the downtown 6 and transfer via elevators at Bleecker St to Broadway-Lafayette St B, D, F, M. Or, exit station and take a West Side-bound M50 bus (E 49 St and Lexington Av) to 6 Av for the B, F, M or to 8 Av for downtown C, E. Note: 50 St C, E station is accessible for downtown service only. For uptown E service, take a downtown C or E and transfer via elevators at 42 St/Port Authority. If you are on the E/M platform: Take a downtown M to 47-50 Sts- Rockefeller Ctr. Exit station and take an M50 bus (50 St between 6 Av and 5 Av) to Lexington Av. Or, take a downtown E to 50 St. Exit station and take an M50 bus (50 St between 8 Av and 7 Av) to Lexington Av.",
@@ -891,7 +867,7 @@
         "elevatorno": "EL202",
         "note": "stationAbbr was F11",
         "linesServed": "6",
-        "directionLabel": "6 both directions, E/M both directions",
+        "directionLabel": "both directions",
         "title": "51 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/53-Lex_EL203X.jpg",
         "alternativeRoute": "If you are on the downtown 6 platform: Take a downtown 6 to Grand Central-42 St and then either: Use elevators to transfer to an uptown 6 to 51 St. Or, exit station and board an M101 LTD, M102, or M103 bus (3 Av between 42 and 43 St) to 50 St. Proceed west to Lexington Av. If you are on the underpass: Use elevators to exit station and take a downtown M102 or M103 (Lexington Av & E 53 St) to Lexington Av and 42nd St for 42nd St-Grand Central Station.    Or, use elevator at other end of underpass to take uptown 6 to 125th Street. Use elevators to transfer to downtown 6.",
@@ -1025,34 +1001,6 @@
         "type": "Point"
       },
       "id": "091e1e1e9f3b942bc2466ad09ddcdcf8"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "0",
-        "stationAbbr": "15419",
-        "route": "N J M K S",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_muni",
-        "elevatorno": "",
-        "linesServed": "N/J/M/K/S",
-        "title": "Van Ness Street Elevator (MUNI)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/muni/vanness_street.jpg",
-        "alternativeRoute": "",
-        "description": "Street <-> Concourse. Easy to miss. Narrow. Right by All Star cafe on Van Ness",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.419498,
-          37.775252
-        ],
-        "type": "Point"
-      },
-      "id": "0973277a02ed10582299649eed3e8d84"
     },
     {
       "type": "Feature",
@@ -1205,35 +1153,6 @@
       "type": "Feature",
       "properties": {
         "isRedundant": "0",
-        "stationAbbr": "15730",
-        "route": "M K S",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_muni",
-        "elevatorno": "",
-        "linesServed": "M/K/S",
-        "image2": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/muni/foresthill_platform.jpg",
-        "title": "Forest Hill platform elevator (MUNI, northbound)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/muni/foresthill_street.jpg",
-        "alternativeRoute": "",
-        "description": "K-M-S. Enter station using the ramp to the left of the stairs. Platform elevators inside.",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.459226,
-          37.748049
-        ],
-        "type": "Point"
-      },
-      "id": "0c36609ac6876210c66113f62c6a3e82"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "0",
         "stationAbbr": "F24",
         "route": "F G",
         "complexID": "240",
@@ -1242,13 +1161,13 @@
         "system": "nyc_mta",
         "elevatorno": "EL784",
         "linesServed": "F/G",
+        "directionLabel": "church av (south)",
         "title": "7 Av",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/7Av-FG_EL782.jpg",
         "alternativeRoute": "If you are on the mezzanine:\\nTake a Manhattan-bound F to Jay St-MetroTech Station. Then, use elevators to transfer to a Coney Island-bound F train.\\n\\nIf you are on the platform: \\nTake a Coney Island-bound F or Church Av-bound G train to Church Av and use elevators to transfer to the Manhattan and Queens-bound platform for service to 7 Av.",
         "description": "Mezzanine to Church Av-bound platform",
         "ada": "1",
-        "isBroken": "",
-        "directionLabel": "church av"
+        "isBroken": ""
       },
       "geometry": {
         "coordinates": [
@@ -1258,34 +1177,6 @@
         "type": "Point"
       },
       "id": "0e574d627742d317faa0e236cd80a0ab"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "0",
-        "stationAbbr": "17876",
-        "route": "T",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_muni",
-        "elevatorno": "",
-        "linesServed": "T",
-        "title": "Chinatown Rose-Pak Street Elevator (MUNI)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/muni/chinatownrosepak_street.jpg",
-        "alternativeRoute": "",
-        "description": "T. Street <-> Concourse. T line only",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.40807,
-          37.79479
-        ],
-        "type": "Point"
-      },
-      "id": "0f2adbeb2f5946a642bd8b882bce7d6c"
     },
     {
       "type": "Feature",
@@ -1354,11 +1245,12 @@
         "complexID": "610",
         "indiegogo": "0",
         "isStreet": "true",
+        "description_extra": "This elevator gets you from the street to the fare gates (mezzanine). S via passageway",
         "stationID": "465",
         "system": "nyc_mta",
         "elevatorno": "EL204",
         "note": "stationAbbr was 723",
-        "linesServed": "4/5/6/7",
+        "linesServed": "4/5/6/7/S",
         "title": "Grand Central-42 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/42GrandCentral_EL204.jpg",
         "alternativeRoute": "If you are on the street: Proceed to E. 42nd Street and Lexington Avenue and use elevator to enter station.  If you are on the mezzanine: See a station agent to re-enter faregate and proceed to other side of mezzanine. Exit through faregate and use elevator to exit station.",
@@ -1469,6 +1361,7 @@
         "complexID": 146,
         "indiegogo": "0",
         "isStreet": "true",
+        "description_extra": "This elevator gets you from the fare gates (mezzanine) to uptown A trains",
         "stationID": 146,
         "system": "nyc_mta",
         "elevatorno": "EL517",
@@ -1493,44 +1386,18 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "",
-        "stationAbbr": "DELN_1",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : Station entrance (North)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Station entrance (North)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.317023,
-          37.925323
-        ],
-        "type": "Point"
-      },
-      "id": "1606a18ea75b3ac2b9d5edd98a9187a5"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "isRedundant": "0",
         "stationAbbr": "631/723/901",
         "route": "4 5 6 7 S",
         "complexID": "610",
         "indiegogo": "0",
+        "description_extra": "This elevator gets you from the fare gates (mezzanine) to uptown 4/5/6 trains",
         "stationID": "465",
         "system": "nyc_mta",
         "elevatorno": "EL206",
         "note": "stationAbbr was 901",
         "linesServed": "4/5/6",
+        "directionLabel": "uptown",
         "title": "Grand Central-42 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/42GrandCentral_EL608X.jpg",
         "alternativeRoute": "If you are on the mezzanine: Use elevator to take a downtown 6 to Bleecker St. Use elevators to transfer to uptown 6. Or, take a downtown 6 to 23rd St.  Exit faregate and use elevator to exit station.  Cross street, use elevator and enter faregate to take an uptown 6.  If you are on the platform: Take an uptown 6 to 51 St then either: Use elevators to transfer to a downtown 6 to Grand Central-42 St. Or, take an M101 LTD, M102, or M103 bus (corner of Lexington Av and 50 St) to Lexington Av/42 St. Grand Central-42 St is one block north.",
@@ -1540,8 +1407,8 @@
       },
       "geometry": {
         "coordinates": [
-          -73.977193,
-          40.752846
+          -73.977377,
+          40.752854
         ],
         "type": "Point"
       },
@@ -1671,7 +1538,7 @@
         "complexID": "318",
         "indiegogo": "0",
         "isStreet": "true",
-        "stationID": "318",
+        "stationID": 128,
         "system": "nyc_mta",
         "elevatorno": "EL34X",
         "linesServed": "1/2/3/LIRR",
@@ -1705,7 +1572,7 @@
         "system": "nyc_mta",
         "elevatorno": "EL610",
         "linesServed": "L",
-        "directionLabel": "westbound & eastbound",
+        "directionLabel": "both directions",
         "title": "14th St/6th Av",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/14_EL610.jpg",
         "alternativeRoute": "If you are on the L platform: Use EL609 (follow signage for uptown F/M) and EL611 to exit the station. For 1/2/3 and downtown F/M, cross 6 Av and re-enter the station using EL612.\\n\\nIf you are on the lower mezzanine: Exit the station. Cross 6 Av and use EL611 to re-enter the station for L service.",
@@ -1731,6 +1598,7 @@
         "route": "E M G 7",
         "complexID": "606",
         "indiegogo": "0",
+        "description_extra": "This elevator gets you from the fare gates (mezzanine) to G trains in both directions",
         "stationID": "281",
         "system": "nyc_mta",
         "elevatorno": "EL469",
@@ -1761,14 +1629,15 @@
         "complexID": "606",
         "indiegogo": "0",
         "isStreet": "true",
+        "description_extra": "Street to mezzanine, Jackson & 23rd. To 7, and also access to G Mezzanine.",
         "stationID": "281",
         "system": "nyc_mta",
         "elevatorno": "EL446",
-        "linesServed": "7",
+        "linesServed": "7/G",
         "title": "Court Sq",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/CourtSq_EL446.jpg",
         "alternativeRoute": "If you are on the street:  Take a Queens Plaza-bound B62  (Jackson Av and Davis St) to 28 St and Queens Plaza South. Then, transfer to a Jackson Hts-bound Q32 to Roosevelt Av and 61 St for the 61 St-Woodside 7 station.  If you are on the mezzanine:  See a station agent to re-enter faregate and use elevator to take a Flushing-bound 7 to 61 St-Woodside. Use elevators to exit station and take a Manhattan-bound Q32  (Roosevelt Av and 61 St) to Queens Plaza North and 29 St. Then transfer to a Brooklyn-bound B62 (Jackson Av and 42 Rd) to Jackson Av and 45 Av.",
-        "description": "Street to mezzanine, Jackson & 23rd. To 7, and also access to G Mezzanine.",
+        "description": "Street to mezzanine",
         "ada": "1",
         "isBroken": ""
       },
@@ -1790,10 +1659,12 @@
         "route": "E M G 7",
         "complexID": "606",
         "indiegogo": "0",
+        "description_extra": "This elevator gets you from the fare gates (mezzanine) to Manhattan-bound 7 trains",
         "stationID": "281",
         "system": "nyc_mta",
         "elevatorno": "EL447",
         "linesServed": "7",
+        "directionLabel": "manhattan (west)",
         "title": "Court Sq",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/CourtSq_EL446.jpg",
         "alternativeRoute": "If you are on the mezzanine:  Take a Flushing-bound 7 to 61 St-Woodside. Use elevators to transfer to a Manhattan-bound 7. If you are on the platform: Take a Manhattan-bound 7 to Grand Central-42 St. Then transfer across the platform to a Flushing-bound 7 to Court Sq.",
@@ -1809,34 +1680,6 @@
         "type": "Point"
       },
       "id": "1d73a366c47e10daf7ff331715e6606g"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "place_ANTC",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Antioch",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -121.780346,
-          37.995373
-        ],
-        "type": "Point"
-      },
-      "id": "1ded48d5f1fe98b11833abe7bce85d2e"
     },
     {
       "type": "Feature",
@@ -1897,6 +1740,34 @@
         "type": "Point"
       },
       "id": "1ec9ba16245d5283d50a593ddd49c35e"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "stationAbbr": "A06",
+        "route": "A",
+        "complexID": 146,
+        "indiegogo": "0",
+        "stationID": 146,
+        "system": "nyc_mta",
+        "elevatorno": "EL117",
+        "linesServed": "A",
+        "title": "181 St",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/181-A_EL517.jpg",
+        "alternativeRoute": "Use an adjacent elevator",
+        "description": "Upper to lower mezzanine",
+        "ada": "1",
+        "isBroken": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.936991,
+          40.85238
+        ],
+        "type": "Point"
+      },
+      "id": "1f6505b0ca553cd33c09f2c78037c276"
     },
     {
       "type": "Feature",
@@ -2280,34 +2151,6 @@
       "type": "Feature",
       "properties": {
         "isRedundant": "0",
-        "stationAbbr": "19TH",
-        "route": "R Y O",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "R/Y/O",
-        "title": "19th St. Street Elevator",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/19th_street.jpg",
-        "alternativeRoute": "",
-        "description": "Street <-> Concourse. Hidden from view a little. It's across the street (Broadway) from the green 'Patient ID Center' sign.",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.269299,
-          37.807059
-        ],
-        "type": "Point"
-      },
-      "id": "24eeca61e20bcf198ccc56f2840ebcad"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "0",
         "stationAbbr": "217",
         "route": "2 5",
         "complexID": "430",
@@ -2480,34 +2323,6 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "",
-        "stationAbbr": "BERY_1",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit: Station entrance",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Station entrance",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -121.874458,
-          37.368488
-        ],
-        "type": "Point"
-      },
-      "id": "2c33707900f3f59c752ebf480f3dc782"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "isRedundant": "0",
         "stationAbbr": "L26",
         "route": "L",
@@ -2561,62 +2376,6 @@
         "type": "Point"
       },
       "id": "2c63a99c3d868ab9bab85127584c8257"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "PCTR_1",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit: Station entrance (South) ",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Station entrance (South)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -121.889298,
-          38.016905
-        ],
-        "type": "Point"
-      },
-      "id": "2c94d69cb09c8978bc34b54c439ba285"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "LAKE",
-        "route": "O G B",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "O/G/B",
-        "title": "Enter/Exit : Oak Street @ 8th Street (SW)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Oak Street @ 8th Street (SW)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.265574,
-          37.797109
-        ],
-        "type": "Point"
-      },
-      "id": "2e125db0692c5937e1aa3fac384df48a"
     },
     {
       "type": "Feature",
@@ -2719,7 +2478,7 @@
         "system": "nyc_mta",
         "elevatorno": "EL613",
         "linesServed": "F/M",
-        "directionLabel": "uptown",
+        "directionLabel": "downtown",
         "title": "14th St/6th Av",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/14-FM_EL612.jpg",
         "alternativeRoute": "If you are on the platform: Take a downtown F/M to W 4 St - Washington Sq and transfer to an uptown F/M to 14 St.\n\nIf you are on the F/M downtown mezzanine: Exit the station. Cross 6 Av and re-enter the station via EL611 for L, uptown F/M, and 1/2/3.  For downtown F/M, take an uptown F/M to 34 St - Herald Sq and transfer to downtown service.",
@@ -2792,34 +2551,6 @@
         "type": "Point"
       },
       "id": "3295894ba880a53cc506a8186e4ac3cf"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "SHAY_3",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : Station entrance (East)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Station entrance (East)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.056826,
-          37.634562
-        ],
-        "type": "Point"
-      },
-      "id": "32fd43da92d7d55516a46d0a63d2a327"
     },
     {
       "type": "Feature",
@@ -2907,62 +2638,6 @@
         "type": "Point"
       },
       "id": "34139a7459f6e6569b9764370ccec9b4"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "LAKE_2",
-        "route": "O G B",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "O/G/B",
-        "title": "Enter/Exit : Oak Street @ 8th Street (SE)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Oak Street @ 8th Street (SE)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.265151,
-          37.797067
-        ],
-        "type": "Point"
-      },
-      "id": "36c27ee955ab59c6d45d432cb7fe471b"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "place_SANL",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "San Leandro",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.16074,
-          37.721784
-        ],
-        "type": "Point"
-      },
-      "id": "3785221d566580d954ab026acf992a42"
     },
     {
       "type": "Feature",
@@ -3055,90 +2730,6 @@
       "type": "Feature",
       "properties": {
         "isRedundant": "0",
-        "stationAbbr": "17873",
-        "route": "T",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_muni",
-        "elevatorno": "",
-        "linesServed": "T",
-        "title": "Yerba Buena Street Elevator (MUNI)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/muni/yerbabuena_street.jpg",
-        "alternativeRoute": "",
-        "description": "T Street <-> Concourse. Nicely placed and easy to find.",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.401485,
-          37.782223
-        ],
-        "type": "Point"
-      },
-      "id": "3ce6c9ff3cf0cb826bc0b1c7a3d4a62a"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "COLS_1",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : Station entrance (South)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Station entrance (South)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.197226,
-          37.753823
-        ],
-        "type": "Point"
-      },
-      "id": "3cf0eea3ebe51ae0cc04a4dd8283315f"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "1",
-        "stationAbbr": "BALB",
-        "route": "R Y G B",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "R/Y/G/B",
-        "title": "Balboa Park Street Elevator",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/balboapark_street.jpg",
-        "alternativeRoute": "",
-        "description": "Street <-> Concourse <-> Platform. One elevator for all levels. Stop at Concourse to tag in.",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.447602,
-          37.721245
-        ],
-        "type": "Point"
-      },
-      "id": "3da7a3dff75e9eb2dff347f38d8e15ef"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "0",
         "stationAbbr": "Q05",
         "route": "Q",
         "complexID": "475",
@@ -3201,17 +2792,18 @@
         "route": "L N Q R W 4 5 6",
         "complexID": "602",
         "indiegogo": "0",
+        "description_extra": "This elevator gets you from the fare gates (mezzanine) to downtown N/Q/R/W trains",
         "stationID": "117",
         "system": "nyc_mta",
         "elevatorno": "EL220",
         "linesServed": "N/Q/R/W",
+        "directionLabel": "downtown",
         "title": "14 St-Union Sq",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/14_UnionSquare_EL217.jpg",
         "alternativeRoute": "If you are on the mezzanine: Take an uptown N, Q, R or W to 34 St-Herald Sq and use elevators to transfer to a downtown N, Q, R or W. Or, exit station and take a westbound M14A or M14D bus to 14 St and 6 Av and transfer to a northbound M7 or M55 bus to 34 St-Herald Sq. If you are on the platform: Take a downtown R or W to City Hall, see agent to cross the platform and transfer to an uptown R or W to 14 St-Union Sq.",
         "description": "Mezzanine to downtown N/Q/R/W",
         "ada": "1",
-        "isBroken": "",
-        "directionLabel": "downtown"
+        "isBroken": ""
       },
       "geometry": {
         "coordinates": [
@@ -3231,17 +2823,18 @@
         "route": "L N Q R W 4 5 6",
         "complexID": "602",
         "indiegogo": "0",
+        "description_extra": "This elevator gets you from the fare gates (mezzanine) to uptown N/Q/R/W trains",
         "stationID": "117",
         "system": "nyc_mta",
         "elevatorno": "EL219",
         "linesServed": "N/Q/R/W",
+        "directionLabel": "uptown",
         "title": "14 St-Union Sq",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/14_UnionSquare_EL217.jpg",
         "alternativeRoute": "If you are on the mezzanine: Take a downtown R or W to City Hall, see agent to cross the platform and transfer to an uptown R or W to 14 St-Union Sq. Or, exit station and take a westbound M14A or M14D bus to 14 St and 6 Av and transfer to a northbound M7 or M55 bus to 34 St-Herald Sq. If you are on the platform: Take an uptown N, Q, R or W to 34 St-Herald Sq and use elevators to transfer to a downtown N, Q, R or W to 14 St-Union Sq.",
         "description": "Mezzanine to uptown N/Q/R/W",
         "ada": "1",
-        "isBroken": "",
-        "directionLabel": "uptown"
+        "isBroken": ""
       },
       "geometry": {
         "coordinates": [
@@ -3261,17 +2854,18 @@
         "route": "L N Q R W 4 5 6",
         "complexID": "602",
         "indiegogo": "0",
+        "description_extra": "This elevator gets you from the fare gates (mezzanine) to L trains",
         "stationID": "117",
         "system": "nyc_mta",
         "elevatorno": "EL218",
         "linesServed": "L",
+        "directionLabel": "both directions",
         "title": "14 St-Union Sq",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/14_UnionSquare_EL217.jpg",
         "alternativeRoute": "If you are on the mezzanine: Exit through the faregate at the opposite end of the mezzanine and use the elevator to exit the station. Then, for 8 Av, take an M14A or M14D bus to 8 Av. Or, for Brooklyn-bound L, take an M14A or M14D bus to 1 Av. If you are on the platform: Take a Brooklyn-bound L to 1 Av. Then exit station and take an westbound M14A or M14D bus (E 14 St and 1 Av) to 4 Av.",
         "description": "Mezzanine to L platform",
         "ada": "1",
-        "isBroken": "",
-        "directionLabel": "uptown & downtown"
+        "isBroken": ""
       },
       "geometry": {
         "coordinates": [
@@ -3456,34 +3050,6 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "",
-        "stationAbbr": "FTVL_3",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : Station entrance (South)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Station entrance (South)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.22437,
-          37.774847
-        ],
-        "type": "Point"
-      },
-      "id": "42710e43eedc42e7b98bfa5b7ce2122d"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "isRedundant": "0",
         "stationAbbr": "L08",
         "route": "L",
@@ -3655,34 +3221,6 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "",
-        "stationAbbr": "COLS_4",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : Oakland Airport Connector entrance",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Oakland Airport Connector entrance",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.195766,
-          37.752789
-        ],
-        "type": "Point"
-      },
-      "id": "46db9e37ff177817bbb8b70448236094"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "notes": "",
         "isRedundant": 1,
         "stationAbbr": "132/D19/L02",
@@ -3696,7 +3234,7 @@
         "elevatorno": "EL612",
         "linesServed": "F/M/L",
         "directionLabel": "F/M downtown, L both directions",
-        "title": "14th St/6th Av downtown",
+        "title": "14th St/6th Av",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/14-FM_EL612.jpg",
         "alternativeRoute": "If you are on the lower mezzanine: Use nearby EL610 to access L platform. Then, use EL609 (follow signage for uptown F/M) and EL611 to exit the station. For downtown F/M, take an uptown F/M to 34 St - Herald Sq and transfer to downtown service.Or, use the passageway towards the 1/2/3 and exit the station via EL615.If you are on the F/M downtown mezzanine: Take a downtown F/M to W 4 St - Washington Sq and transfer to an uptown F/M to 14 St. If you are on the street: Cross 6 Av and re-enter the station via EL611 for L, uptown F/M, and 1/2/3. For downtown F/M, take an uptown F/M to 34 St - Herald Sq and transfer to downtown service.",
         "description": "Street to mezzanine",
@@ -3974,34 +3512,6 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "",
-        "stationAbbr": "place_RICH",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Richmond",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.353047,
-          37.936758
-        ],
-        "type": "Point"
-      },
-      "id": "4c9992cd53010b01d2f389feac7cb1e6"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "isRedundant": "0",
         "stationAbbr": "D26",
         "route": "B Q S",
@@ -4243,7 +3753,7 @@
         "system": "nyc_mta",
         "elevatorno": "EL609",
         "linesServed": "L",
-        "directionLabel": "westbound & eastbound",
+        "directionLabel": "both directions",
         "title": "14th St/6th Av",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/14_EL609.jpg",
         "alternativeRoute": "If you are on the lower mezzanine: Exit the station. Cross 6 Av and use EL612 to re-enter the station for L service. If you are on the L platform: Use EL610 (follow signage for 1/2/3 and downtown F/M) and EL612 to exit the station. For uptown F/M, take a downtown F/M to W 4 St - Washington Sq and transfer to an uptown F/M.",
@@ -4667,35 +4177,6 @@
       "type": "Feature",
       "properties": {
         "isRedundant": "0",
-        "stationAbbr": "CIVC",
-        "route": "R Y G B S",
-        "complexID": "",
-        "indiegogo": "0",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart, sf_muni",
-        "elevatorno": "",
-        "linesServed": "T/R/Y/G/B/S",
-        "title": "Civic Street Elevator",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/civic_street.jpg",
-        "alternativeRoute": "",
-        "description": "Street <-> Concourse",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.413289,
-          37.780038
-        ],
-        "type": "Point"
-      },
-      "id": "5748ba838093ae7328207385b30ceddf"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "0",
         "stationAbbr": "A07",
         "route": "A",
         "complexID": "147",
@@ -4748,34 +4229,6 @@
         "type": "Point"
       },
       "id": "581e3892c1559b886ebebff070d40cf4"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "ASHB_1",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : Pedestrian station entrance (WEST)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Pedestrian station entrance",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.269977,
-          37.853056
-        ],
-        "type": "Point"
-      },
-      "id": "587e6563a61601b016f73ae1bcdfc1ca"
     },
     {
       "type": "Feature",
@@ -4980,34 +4433,6 @@
       "type": "Feature",
       "properties": {
         "isRedundant": "0",
-        "stationAbbr": "MLBR",
-        "route": "R Y",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "R/Y",
-        "title": "Millbrae Platform Elevator",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/millbrae_platform1.jpg",
-        "alternativeRoute": "",
-        "description": "Concourse <-> Platform. Usually only this side is used for BART. Don't use the other platform elevator (marked)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.386938,
-          37.60031
-        ],
-        "type": "Point"
-      },
-      "id": "5ca82188237c4dc6dc2fc2360795bf3d"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "0",
         "stationAbbr": "G08",
         "route": "E F M R",
         "complexID": "261",
@@ -5088,34 +4513,6 @@
         "type": "Point"
       },
       "id": "5d076c8112d87a7ad56169b647b2aafe"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "0",
-        "stationAbbr": "24TH",
-        "route": "R Y G B",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "R/Y/G/B",
-        "title": "24th St. Mission Street Elevator",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/24th_street.jpg",
-        "alternativeRoute": "",
-        "description": "Street <-> Concourse",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.41824,
-          37.752606
-        ],
-        "type": "Point"
-      },
-      "id": "5dbd58f6dd5435bb3f3975dae0f0dc29"
     },
     {
       "type": "Feature",
@@ -5352,10 +4749,12 @@
         "route": "A C E L",
         "complexID": "618",
         "indiegogo": "0",
+        "description_extra": "This elevator gets you from the fare gates (mezzanine) to uptown A/C/E trains",
         "stationID": "166",
         "system": "nyc_mta",
         "elevatorno": "EL223",
         "linesServed": "A/C/E",
+        "directionLabel": "uptown",
         "title": "14 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/14_EL221.jpg",
         "alternativeRoute": "If you are on the mezzanine: Take a downtown A, C or E to W 4 St and use ramps to transfer to an uptown A, C or E. If you are on the uptown A/C/E platform: Take an uptown A to 34 St-Penn Station and transfer across the platform to a downtown A to 14 St.",
@@ -5381,10 +4780,12 @@
         "route": "A C E L",
         "complexID": "618",
         "indiegogo": "0",
+        "description_extra": "This elevator gets you from the fare gates (mezzanine) to downtown A/C/E trains",
         "stationID": "166",
         "system": "nyc_mta",
         "elevatorno": "EL222",
         "linesServed": "A/C/E",
+        "directionLabel": "downtown",
         "title": "14 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/14_EL221.jpg",
         "alternativeRoute": "If you are on the mezzanine:  Take an uptown A to 34 St-Penn Station and transfer across the platform to a downtown A. Or, exit through the faregates and use the elevator to exit the station. Then take a Lincoln Center-bound M20 bus to 34 St-Penn Station for downtown A, C or E service. If you are on the downtown A/C/E platform: Take a downtown A, C or E to W 4 St and use ramps to transfer to an uptown A, C or E to 14 St.",
@@ -5411,6 +4812,7 @@
         "complexID": "618",
         "indiegogo": "0",
         "isStreet": "true",
+        "description_extra": "This elevator gets you from the street to the fare gates (mezzanine)",
         "stationID": "166",
         "system": "nyc_mta",
         "elevatorno": "EL221",
@@ -5520,119 +4922,6 @@
       "type": "Feature",
       "properties": {
         "isRedundant": "1",
-        "stationAbbr": "12TH",
-        "route": "R Y O",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "R/Y/O",
-        "title": "12th St. Street Elevator (Broadway)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/12th_street_broadway.jpg",
-        "alternativeRoute": "",
-        "description": "Street <-> Concourse. This one is very close to the platform elevator.",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.272459,
-          37.802674
-        ],
-        "type": "Point"
-      },
-      "id": "63f8c57ae0ee10a8724a75ae7f60476c"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "0",
-        "stationAbbr": "GLEN",
-        "route": "R Y G B",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "R/Y/G/B",
-        "title": "Glen Park Platform Elevator",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/glenpark_entrance.jpg",
-        "alternativeRoute": "",
-        "description": "Concourse <-> Platform. Station is ramped",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.433931,
-          37.732961
-        ],
-        "type": "Point"
-      },
-      "id": "641d6921b674a0029c56d9e7b26d2c72"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "place_DUBL",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Dublin / Pleasanton",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -121.899229,
-          37.701646
-        ],
-        "type": "Point"
-      },
-      "id": "6458c97c7e6f02b56726354eaf0599f3"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "1",
-        "stationAbbr": "17874",
-        "route": "T R Y G B",
-        "complexID": "",
-        "indiegogo": "0",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart, sf_muni",
-        "elevatorno": "",
-        "linesServed": "T/R/Y/G/B",
-        "title": "Union Square Elevator - right (MUNI)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/muni/unionsquare_street.jpg",
-        "alternativeRoute": "",
-        "description": "T. Street <-> Concourse. Connects underground to Powell Street.",
-        "ada": "",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.407,
-          37.787665
-        ],
-        "type": "Point"
-      },
-      "id": "648e79f95546e762def8b8ae94a3c083"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "1",
         "stationAbbr": "228/229/418/A38/E01/M22/R25",
         "route": "A C E J R W 2 3 4 5 Z",
         "complexID": "628",
@@ -5732,7 +5021,7 @@
         "elevatorno": "EL611",
         "linesServed": "F/M/L",
         "directionLabel": "F/M uptown, L both directions",
-        "title": "14th St/6th Av uptown",
+        "title": "14th St/6th Av",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/14-FM_EL611.jpg",
         "alternativeRoute": "If you are on the street: Cross 6 Av and re-enter the station via EL612 for L, 1/2/3, and downtown F/M.  For uptown F/M service, proceed to 16 St and take a Harlem 147 St-bound M7 to 34 St to access the 34 St - Herald Sq station. If you are on the F/M uptown mezzanine: Take an uptown F/M to 34 St-Herald Sq station. Then, transfer to a downtown F/M to 14 St. If you are on the L lower mezzanine: Use nearby EL609 to access L platform. Then, use EL610 (follow signage for 1/2/3 and downtown F/M) and EL612 to exit the station. For uptown F/M, proceed to 16 St and take a Harlem 147 St-bound M7 to 34 St to access the 34 St - Herald Sq station.",
         "description": "Street to mezzanine",
@@ -5747,35 +5036,6 @@
         "type": "Point"
       },
       "id": "660c36f3c1163344d4cb70b5ef1ecf6c"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "1",
-        "stationAbbr": "17874",
-        "route": "T R Y G B",
-        "complexID": "",
-        "indiegogo": "0",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart, sf_muni",
-        "elevatorno": "",
-        "linesServed": "T/R/Y/G/B",
-        "title": "Union Square Elevator - left (MUNI)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/muni/unionsquare_street.jpg",
-        "alternativeRoute": "",
-        "description": "T. Street <-> Concourse. Connects underground to Powell Street.",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.407063,
-          37.787658
-        ],
-        "type": "Point"
-      },
-      "id": "6640ed1d38e7efb2fc8543600d36b310"
     },
     {
       "type": "Feature",
@@ -5895,34 +5155,6 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "",
-        "stationAbbr": "CONC_2",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : West entrance",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "West entrance",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.029393,
-          37.97358
-        ],
-        "type": "Point"
-      },
-      "id": "69d3ee3ee97ec21d1398ebd1eaefa062"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "isRedundant": "0",
         "stationAbbr": 718,
         "route": "N W 7",
@@ -5953,30 +5185,30 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "",
-        "stationAbbr": "LAFY_1",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : Station entrance (North)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Station entrance (North)",
+        "isRedundant": "0",
+        "stationAbbr": "A06",
+        "route": "A",
+        "complexID": 146,
+        "indiegogo": "0",
+        "stationID": 146,
+        "system": "nyc_mta",
+        "elevatorno": "EL118",
+        "linesServed": "A",
+        "title": "181 St",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/181-A_EL517.jpg",
+        "alternativeRoute": "Use an adjacent elevator",
+        "description": "Upper to lower mezzanine",
         "ada": "1",
-        "isBroken": "false"
+        "isBroken": ""
       },
       "geometry": {
         "coordinates": [
-          -122.124526,
-          37.892849
+          -73.936991,
+          40.85248
         ],
         "type": "Point"
       },
-      "id": "6de61e2d238a13e61d765df4cb8479b9"
+      "id": "7050c62ad17cf04135ac944bb14993a3"
     },
     {
       "type": "Feature",
@@ -5987,10 +5219,12 @@
         "complexID": "119",
         "indiegogo": "0",
         "isStreet": "true",
+        "description_extra": "This elevator gets you from the street to 8 Av L trains",
         "stationID": "119",
         "system": "nyc_mta",
         "elevatorno": "EL292",
         "linesServed": "L",
+        "directionLabel": "8 Av (west)",
         "title": "1 Av",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/1Av_EL292.jpg",
         "alternativeRoute": "If you are on the street: Take a West Side-bound M14A SBS or M14D SBS (E 14 St and 1 Av) to 4 Av for Union Sq-14 St station. Then use elevators for 8 Av-bound L service. If you are on the platform: Take an 8 Av-bound L to Union Sq-14 St. Then either: transfer across the platform to a Canarsie-bound L train to 1 Av. Or, use elevators to exit station and take an M14A SBSS or M14D SBS to 1 Av.",
@@ -6017,10 +5251,12 @@
         "complexID": "119",
         "indiegogo": "0",
         "isStreet": "true",
+        "description_extra": "This elevator gets you from the street to Brooklyn-bound L trains",
         "stationID": "119",
         "system": "nyc_mta",
         "elevatorno": "EL293",
         "linesServed": "L",
+        "directionLabel": "brooklyn (east)",
         "title": "1 Av",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/1Av_EL292.jpg",
         "alternativeRoute": "If you are on the street: Take a westbound M14A SBS or M14D SBS (E 14 St and 1 Av) to 4 Av for Union Sq-14 St station. Then use elevators for Canarsie-bound L service. If you are on the platform: Take a Canarsie-bound L to Bedford Av. Then transfer across the platform to an 8 Av-bound L to 1 Av.",
@@ -6501,34 +5737,6 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "",
-        "stationAbbr": "place_WARM",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Warm Springs / South Fremont",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -121.939395,
-          37.502285
-        ],
-        "type": "Point"
-      },
-      "id": "74ed1f404af67f25b115b89457f1a37c"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "isRedundant": "0",
         "stationAbbr": "R41",
         "route": "N R",
@@ -6731,35 +5939,6 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "",
-        "stationAbbr": "15730",
-        "route": "M K S",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_muni",
-        "elevatorno": "",
-        "linesServed": "M/K/S",
-        "image2": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/muni/foresthill_platform.jpg",
-        "title": "Forest Hill platform elevator (MUNI, southbound)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/muni/foresthill_street.jpg",
-        "alternativeRoute": "",
-        "description": "K-M-S. Enter station using the ramp to the left of the stairs. Platform elevators inside.",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.459116,
-          37.747963
-        ],
-        "type": "Point"
-      },
-      "id": "7b9d0c4c6e0c092b97e33de922b536a7"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "isRedundant": "1",
         "stationAbbr": "B08",
         "route": "F Q",
@@ -6958,34 +6137,6 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "",
-        "stationAbbr": "LAFY_2",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : Station entrance (South)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Station entrance (South)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.124652,
-          37.893535
-        ],
-        "type": "Point"
-      },
-      "id": "7c7f884fc9419e838a112e807a23f2db"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "stationAbbr": "L29",
         "route": "L",
         "complexID": "138",
@@ -7020,7 +6171,7 @@
         "route": "M L",
         "complexID": "630",
         "indiegogo": "0",
-        "stationID": "112",
+        "stationID": "128",
         "system": "nyc_mta",
         "elevatorno": "EL397",
         "linesServed": "L",
@@ -7050,7 +6201,7 @@
         "complexID": "630",
         "indiegogo": "0",
         "isStreet": "true",
-        "stationID": "112",
+        "stationID": "128",
         "system": "nyc_mta",
         "elevatorno": "EL396",
         "linesServed": "M/L",
@@ -7069,62 +6220,6 @@
         "type": "Point"
       },
       "id": "80c6c20f582e7a19db4c391d789cfb51"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "0",
-        "stationAbbr": "DALY",
-        "route": "R Y G B",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "R/Y/G/B",
-        "title": "Daly City Platform Elevator #1",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/dalycity_entrance.jpg",
-        "alternativeRoute": "",
-        "description": "Concourse <-> Platform. Station itself is ramped and accessible.",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.468966,
-          37.706099
-        ],
-        "type": "Point"
-      },
-      "id": "8143b1119a6c3b8a25d4dd3bb163bc3f"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "COLS_2",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : Station entrance (North)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Station entrance (North)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.196777,
-          37.753998
-        ],
-        "type": "Point"
-      },
-      "id": "823f6c00c2a932d60e680233d4879076"
     },
     {
       "type": "Feature",
@@ -7243,11 +6338,11 @@
       "type": "Feature",
       "properties": {
         "isRedundant": "0",
-        "stationAbbr": "128",
+        "stationAbbr": 128,
         "route": "1 2 3 LIRR",
-        "complexID": "318",
+        "complexID": 318,
         "indiegogo": "0",
-        "stationID": "318",
+        "stationID": 128,
         "system": "nyc_mta",
         "elevatorno": "EL215",
         "linesServed": "2/3",
@@ -7271,11 +6366,11 @@
       "type": "Feature",
       "properties": {
         "isRedundant": "0",
-        "stationAbbr": "128",
+        "stationAbbr": 128,
         "route": "1 2 3 LIRR",
-        "complexID": "318",
+        "complexID": 318,
         "indiegogo": "0",
-        "stationID": "318",
+        "stationID": 128,
         "system": "nyc_mta",
         "elevatorno": "EL214",
         "linesServed": "1",
@@ -7299,11 +6394,11 @@
       "type": "Feature",
       "properties": {
         "isRedundant": "0",
-        "stationAbbr": "128",
+        "stationAbbr": 128,
         "route": "1 2 3 LIRR",
-        "complexID": "318",
+        "complexID": 318,
         "indiegogo": "0",
-        "stationID": "318",
+        "stationID": 128,
         "system": "nyc_mta",
         "elevatorno": "EL216",
         "linesServed": "1",
@@ -7327,12 +6422,12 @@
       "type": "Feature",
       "properties": {
         "isRedundant": "1",
-        "stationAbbr": "128",
+        "stationAbbr": 128,
         "route": "1 2 3 LIRR",
-        "complexID": "318",
+        "complexID": 318,
         "indiegogo": "0",
         "isStreet": "true",
-        "stationID": "318",
+        "stationID": 128,
         "system": "nyc_mta",
         "elevatorno": "EL618",
         "linesServed": "1/2/3/LIRR",
@@ -7395,13 +6490,13 @@
         "elevatorno": "EL230",
         "note": "stationAbbr was 902",
         "linesServed": "N/Q/R/W",
+        "directionLabel": "uptown",
         "title": "Times Sq-42 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/42TS_EL619.jpg",
         "alternativeRoute": "If you are on the mezzanine: Take a downtown NQR or W to 34-Herald Sq and use elevators to transfer to an uptown NQR or W to Times Sq-42 St.  Or, exit station and take a downtown M7 or M20 bus to 34 St/7 Av. 34 St-Herald Sq is one block east.  If you are on the platform: Take an uptown Q to 72 St and transfer across the platform to a downtown Q to Times Sq-42 St. Or, take an uptown N, R or W to 49 St. Exit station and take an M7, M20, or M104 bus (7 Av between 49 St and 50 St) to 41 St.",
         "description": "Mezzanine to uptown N/Q/R/W",
         "ada": "1",
-        "isBroken": "",
-        "directionLabel": "uptown"
+        "isBroken": ""
       },
       "geometry": {
         "coordinates": [
@@ -7592,6 +6687,7 @@
         "complexID": "602",
         "indiegogo": "0",
         "isStreet": "true",
+        "description_extra": "This elevator gets you from the street to the fare gates (mezzanine)",
         "stationID": "15",
         "system": "nyc_mta",
         "elevatorno": "EL217",
@@ -7739,13 +6835,13 @@
         "system": "nyc_mta",
         "elevatorno": "EL783",
         "linesServed": "F/G",
+        "directionLabel": "manhattan & queens (north)",
         "title": "7 Av",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/7Av-FG_EL782.jpg",
         "alternativeRoute": "If you are on the mezzanine: \\nTake a Coney Island-bound F or Church Av-bound G train to Church Av and use elevators to transfer to the Manhattan and Queens-bound platform. \\n\\nIf you are on the platform: \\nTake a Manhattan-bound F train to Jay St-MetroTech station. Then, use elevators to transfer to a Coney Island-bound F train to 7 Av. \\nOr, \\nTake a Queens-bound G train to Greenpoint Av station. Then, use elevators to transfer to a Church Av-bound G to 7 Av.",
         "description": "Mezzanine to Manhattan and Queens-bound platform",
         "ada": "1",
-        "isBroken": "",
-        "directionLabel": "manhattan and queens"
+        "isBroken": ""
       },
       "geometry": {
         "coordinates": [
@@ -7798,13 +6894,13 @@
         "elevatorno": "EL229",
         "note": "stationAbbr was R16",
         "linesServed": "N/Q/R/W",
+        "directionLabel": "downtown",
         "title": "Times Sq-42 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/42TS_EL619.jpg",
         "alternativeRoute": "If you are on the mezzanine: Take a downtown NQR or W to 34-Herald Sq and use elevators to transfer to an uptown NQR or W to Times Sq-42 St.  Or, exit station and take a downtown M7 or M20 bus to 34 St/7 Av. 34 St-Herald Sq is one block east.  If you are on the platform: Take an uptown Q to 72 St and transfer across the platform to a downtown Q to Times Sq-42 St. Or, take an uptown N, R or W to 49 St. Exit station and take an M7, M20, or M104 bus (7 Av between 49 St and 50 St) to 41 St.",
         "description": "Mezzanine to downtown N/Q/R/W",
         "ada": "1",
-        "isBroken": "",
-        "directionLabel": "downtown"
+        "isBroken": ""
       },
       "geometry": {
         "coordinates": [
@@ -7933,30 +7029,30 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "",
-        "stationAbbr": "place_ORIN",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Orinda",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "",
+        "isRedundant": "0",
+        "stationAbbr": "A06",
+        "route": "A",
+        "complexID": 146,
+        "indiegogo": "0",
+        "stationID": 146,
+        "system": "nyc_mta",
+        "elevatorno": "EL119",
+        "linesServed": "A",
+        "title": "181 St",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/181-A_EL517.jpg",
+        "alternativeRoute": "Use an adjacent elevator",
+        "description": "Upper to lower mezzanine",
         "ada": "1",
-        "isBroken": "false"
+        "isBroken": ""
       },
       "geometry": {
         "coordinates": [
-          -122.183667,
-          37.878481
+          -73.936991,
+          40.85258
         ],
         "type": "Point"
       },
-      "id": "8b95203a707e064b1d5886862fa253c0"
+      "id": "8b1b6589281bf425ff0363d7bb2b610a"
     },
     {
       "type": "Feature",
@@ -8202,7 +7298,7 @@
         "system": "nyc_mta",
         "elevatorno": "EL778",
         "linesServed": "L",
-        "directionLabel": "canarsie",
+        "directionLabel": "canarsie (south)",
         "title": "Lorimer St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Lorimer_EL776.jpg",
         "alternativeRoute": "If you are on the mezzanine: Use nearby elevator EL777 to take a Manhattan-bound L to Bedford Av and transfer across the platform for a Canarsie-bound L. Or, exit the station and take a Rego Park-bound Q59 bus (Metropolitan Av and Rodney St) to Grand St and Bushwick Av. Elevator access (EL786) to Canarsie-bound service at Grand St L is located on the NE corner. If you are on the platform: Take a Canarsie-bound L to Grand St and use the elevator to exit the station. Then either: Cross Bushwick Av to use the elevator (EL785) for Manhattan-bound service back to Lorimer St. Or, take a Williamsburg-bound Q59 bus (north side of Grand St west of Bushwick Av) to Metropolitan Av and Macri Sq.",
@@ -8218,34 +7314,6 @@
         "type": "Point"
       },
       "id": "93f1da7465d9224e6c0be6ad9004f716"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "place_UCTY",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Union City",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.017248,
-          37.590735
-        ],
-        "type": "Point"
-      },
-      "id": "9421646dbaee53ef50b59d9515e81a7c"
     },
     {
       "type": "Feature",
@@ -8309,34 +7377,6 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "",
-        "stationAbbr": "place_NBRK",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "North Berkeley",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.283523,
-          37.874005
-        ],
-        "type": "Point"
-      },
-      "id": "9641b86154fe9d0c2a6e04e7d1d10996"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "isRedundant": "0",
         "stationAbbr": "123",
         "route": "1 2 3",
@@ -8347,7 +7387,7 @@
         "system": "nyc_mta",
         "elevatorno": "EL239",
         "linesServed": "1/2/3",
-        "title": "72 St uptown",
+        "title": "72 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/72-Broadway.jpg",
         "alternativeRoute": "If you are on the street:  Take a downtown 1 to 66 St-Lincoln Center. Use elevator to exit station. Cross Broadway and then either:  Re-enter station and take an uptown 1. Take an uptown M5, M7 or M104 (Broadway & 66 St).  Or, take a downtown 1 to 59th St-Columbus Circle.  Use elevators to transfer to an uptown 1  via the uptown A/B/C/D platform.  If you are on the platform:  Take an uptown 1, 2 or 3  to 96 St. Then either:  Use elevators to transfer to a downtown 1, 2 or 3  to 72 St.  Or, use elevators to exit station and take downtown M104 (Broadway & 97 St) to 72 St.",
         "description": "Street to uptown platform",
@@ -8521,7 +7561,7 @@
         "system": "nyc_mta",
         "elevatorno": "EL240",
         "linesServed": "1/2/3",
-        "title": "72 St downtown",
+        "title": "72 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/72-Broadway.jpg",
         "alternativeRoute": "If you are on the street: Take an uptown 1, 2 or 3  to 96 St.  Then either: Use elevators to transfer to a downtown 1, 2 or 3.  Or, use elevators to exit station and take downtown M104 (Broadway & 96 St).  If you are on the platform: Take a downtown 1 to 66 St-Lincoln Center. Use elevator to exit station. Cross Broadway and then either: Re-enter station and take an uptown 1. Take an uptown M5, M7 or M104 (Broadway & 66 St) to 72 St. Or, take a downtown 1  to 59 St-Columbus Circle. Use elevators on the uptown A/B/C/D platform to transfer to an uptown 1 to 72 St.",
         "description": "Street to downtown platform",
@@ -8598,34 +7638,6 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "1",
-        "stationAbbr": "MLBR",
-        "route": "R Y",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "R/Y",
-        "title": "Millbrae Street Elevator",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/millbrae_street2.jpg",
-        "alternativeRoute": "",
-        "description": "Street <-> Concourse. Accessible from the parking lot away from the Caltrain side.",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.386389,
-          37.600331
-        ],
-        "type": "Point"
-      },
-      "id": "97e3a95489d52091abe4c7e24ea8e5d1"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "isRedundant": "0",
         "stationAbbr": "628",
         "route": "6",
@@ -8636,7 +7648,7 @@
         "system": "nyc_mta",
         "elevatorno": "EL285",
         "linesServed": "6",
-        "directionLabel": "uptown and Bronx",
+        "directionLabel": "uptown & bronx",
         "title": "68 St-Hunter College",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/68Hunter_EL285.jpg",
         "alternativeRoute": "If you are on the street: Take a City Hall-bound M103 or East Village-bound M102 bus to Lexington Av and E 52 St. Then, proceed to 51 St Station for 6 service. If you are on the mezzanine: Take a Bronx-bound 6 to 86 St. Then, exit the station and take a City Hall-bound M103 or East Village-bound M101/M102 bus to Lexington Av and E 68 St.",
@@ -8741,62 +7753,6 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "",
-        "stationAbbr": "FRMT_2",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : Station entrance (South)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Station entrance (South)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -121.976701,
-          37.557397
-        ],
-        "type": "Point"
-      },
-      "id": "9b4423dcd46b096035526dfc5e77e049"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "0",
-        "stationAbbr": "16TH",
-        "route": "R Y G B",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "R/Y/G/B",
-        "title": "16th St. Mission Street Elevator",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/16th_street.jpg",
-        "alternativeRoute": "",
-        "description": "Street <-> Concourse",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.419452,
-          37.765401
-        ],
-        "type": "Point"
-      },
-      "id": "9c01f97e37d05a90b64f19f16a9698e4"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "isRedundant": "0",
         "stationAbbr": "A65",
         "route": "A",
@@ -8863,7 +7819,7 @@
         "system": "nyc_mta",
         "elevatorno": "EL781",
         "linesServed": "G",
-        "directionLabel": "church av",
+        "directionLabel": "church av (south)",
         "title": "Metropolitan Av",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/MetropolitanAv-G_EL779.jpg",
         "alternativeRoute": "If you are on the mezzanine: Use elevator EL779 to exit the station. Then, either: Travel east on Metropolitan Av to Graham Av and take a Greenpoint-bound B43 bus to Manhattan Av and Greenpoint Av. Use the elevator (EL763) to access Greenpoint Av (G) station. Or, travel one block west to Lorimer St and take a Manhattan-bound L to Bedford Av. Then, transfer to a Long Island City-bound B62 bus (Bedford Av and North 5 St) to Manhattan Av and Greenpoint Av. Use the elevator (EL763) to access Greenpoint Av (G) station. If you are on the platform: Take a Court Sq-bound G to Greenpoint Av. Then, either: Transfer to a Church Av-bound G back to Metropolitan Av and use elevators to exit the station. Or, use elevators to exit the station and take a Lefferts Gardens-bound B43 bus (Manhattan Av and Calyer St) to Graham Av and Metropolitan Av. Travel west on Metropolitan Av to Union Av.",
@@ -8964,63 +7920,6 @@
         "type": "Point"
       },
       "id": "a5b3ea5099dcc4a98e04c5d688e0c4df"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "DELN_2",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : Station entrance (South)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Station entrance (South)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.316747,
-          37.924976
-        ],
-        "type": "Point"
-      },
-      "id": "a62cac0df903645bd2bb80749e133299"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "0",
-        "stationAbbr": "MONT",
-        "route": "S R Y G B",
-        "complexID": "",
-        "indiegogo": "0",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart, sf_muni",
-        "elevatorno": "",
-        "linesServed": "S/R/Y/G/B",
-        "title": "Montgomery Street Elevator",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/montgomery_street.jpg",
-        "alternativeRoute": "",
-        "description": "Street <-> Concourse",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.400546,
-          37.79007
-        ],
-        "type": "Point"
-      },
-      "id": "a664dbf01a34363380c84c2a7f3b9976"
     },
     {
       "type": "Feature",
@@ -9227,62 +8126,6 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "",
-        "stationAbbr": "DBRK_4",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : Shattuck Ave @ Addison Street (East)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Shattuck Ave @ Addison Street (East)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.268129,
-          37.871009
-        ],
-        "type": "Point"
-      },
-      "id": "a9782d61cdbc0df958e43082fcb6f395"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "BAYF_2",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : Pedestrian underpass (NW)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Pedestrian underpass (NW)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.12646,
-          37.697079
-        ],
-        "type": "Point"
-      },
-      "id": "ac2221b988062086feb1b4b87040f3c4"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "isRedundant": "0",
         "stationAbbr": "626",
         "route": "4 5 6",
@@ -9366,62 +8209,6 @@
         "type": "Point"
       },
       "id": "af01fbf8809483122c9c4505da535642"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "LAKE_4",
-        "route": "O G B",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "O/G/B",
-        "title": "Enter/Exit : 8th Street @ Fallon St (East)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Oak Street@8th St €",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.264276,
-          37.796765
-        ],
-        "type": "Point"
-      },
-      "id": "b070c9cee2b1e614f50b169bfaa4e097"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "0",
-        "stationAbbr": "WOAK",
-        "route": "R Y G B",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "R/Y/G/B",
-        "title": "West Oakland Street (SF-bound)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/westoakland_westbound.jpg",
-        "alternativeRoute": "",
-        "description": "Elevator is through the fare gates, which you can get to from the ramp. One elevator gets you to the platform.",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.295199,
-          37.804806
-        ],
-        "type": "Point"
-      },
-      "id": "b11c3e9fcee4473d55d921b1b72cf8b8"
     },
     {
       "type": "Feature",
@@ -9831,62 +8618,6 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "",
-        "stationAbbr": "WCRK_1",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit: Station entrance",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Station entrance",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.067623,
-          37.905566
-        ],
-        "type": "Point"
-      },
-      "id": "b5d43221463b25d644c669087f3c1db7"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "0",
-        "stationAbbr": "SBRN",
-        "route": "R Y",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "R/Y",
-        "title": "San Bruno Platform Elevator",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/sanbruno_street.jpg",
-        "alternativeRoute": "",
-        "description": "Concourse <-> Platform. Station entrance is accessible",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.416226,
-          37.637762
-        ],
-        "type": "Point"
-      },
-      "id": "b63a8969980895d35b7f3f121f5f5447"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "notes": "stationAbbr was S01",
         "isRedundant": "0",
         "stationAbbr": "A45/S01",
@@ -9946,44 +8677,18 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "1",
-        "stationAbbr": "12TH",
-        "route": "R Y O",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "R/Y/O",
-        "title": "12th St. Street Elevator (Ogawa Plaza)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/12th_street_ogawaplaza_CLOSER.jpg",
-        "alternativeRoute": "",
-        "description": "Street <-> Concourse. This one is far away from the platform elevator (across the whole station).",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.271167,
-          37.804426
-        ],
-        "type": "Point"
-      },
-      "id": "b7fb40ef115795dad510415918f1d9cf"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "notes": "stationAbbr was M21",
         "isRedundant": "0",
         "stationAbbr": "640/M21",
-        "route": "J 4 5 6 Z",
+        "route": "J Z 4 5 6",
         "complexID": "622",
         "indiegogo": "0",
+        "description_extra": "This elevator gets you from the fare gates to Broad St-bound J/Z trains",
         "stationID": "105",
         "system": "nyc_mta",
         "elevatorno": "EL743",
         "linesServed": "J/Z",
+        "directionLabel": "broad st (downtown)",
         "title": "Chambers St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/CityHall_EL314.jpg",
         "alternativeRoute": "If you are on the mezzanine: Proceed down the passageway and use elevator to take a downtown 4 or 5 to Fulton St station. If you are on the platform: Take a Broad St-bound J or Z train to Fulton St station, then either: Use elevators to transfer to a Jamaica-bound J or Z to Chambers St. Or, use elevators to transfer to an uptown 4 or 5 to Brooklyn Bridge-City Hall.",
@@ -9993,8 +8698,8 @@
       },
       "geometry": {
         "coordinates": [
-          -74.003439,
-          40.713201
+          -74.004405,
+          40.713008
         ],
         "type": "Point"
       },
@@ -10006,13 +8711,15 @@
         "notes": "stationAbbr was M21",
         "isRedundant": "0",
         "stationAbbr": "640/M21",
-        "route": "J 4 5 6 Z",
+        "route": "J Z 4 5 6",
         "complexID": "622",
         "indiegogo": "0",
+        "description_extra": "This elevator gets you from the fare gates to Brooklyn-bound J/Z trains",
         "stationID": "105",
         "system": "nyc_mta",
         "elevatorno": "EL742",
         "linesServed": "J/Z",
+        "directionLabel": "brooklyn (uptown)",
         "title": "Chambers St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/CityHall_EL314.jpg",
         "alternativeRoute": "If you are on the mezzanine: Use elevator to take a Broad St-boud J or Z train to Fulton St station. Then, use elevators to transfer to a Jamaica-bound J or Z. Or, proceed down the passageway and use elevator to take a downtown 4 or 5 to Fulton St station. Then, use elevators to transfer to a Jamaica-bound J or Z. If you are on the platform: Take a Jamaica-bound J or Z train to Marcy Av and use elevators to transfer to a Manhattan-bound J or Z train to Chambers St.",
@@ -10022,8 +8729,8 @@
       },
       "geometry": {
         "coordinates": [
-          -74.005248,
-          40.713164
+          -74.004467,
+          40.712934
         ],
         "type": "Point"
       },
@@ -10113,62 +8820,6 @@
         "type": "Point"
       },
       "id": "ba2ef7b3acabadcaceda73fc4b89750c"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "CONC_1",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : East entrance",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "East entrance",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.029093,
-          37.973601
-        ],
-        "type": "Point"
-      },
-      "id": "bdc3207cee3f91c88bb1069fd43b062b"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "place_HAYW",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Hayward",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.086958,
-          37.669699
-        ],
-        "type": "Point"
-      },
-      "id": "bdf601853cf4a80fde7fbfb172c498a3"
     },
     {
       "type": "Feature",
@@ -10374,34 +9025,6 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "",
-        "stationAbbr": "place_WDUB",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "West Dublin / Pleasanton",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -121.928277,
-          37.699721
-        ],
-        "type": "Point"
-      },
-      "id": "c5238b0eeafb6a56af9c4b7cf0dc3dc0"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "isRedundant": "0",
         "stationAbbr": "127/725/902/A27/R16",
         "route": "A C E N Q R W 1 2 3 7 S",
@@ -10412,13 +9035,13 @@
         "elevatorno": "EL233",
         "note": "stationAbbr was 127",
         "linesServed": "1/2/3",
+        "directionLabel": "uptown",
         "title": "Times Sq-42 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/42TS_EL619.jpg",
         "alternativeRoute": "If you are on the upper mezzanine: Take a downtown 2 or 3 to 34 St-Penn Station. Transfer across platform to an uptown 2 or 3 to Times Sq-42 St. Or, exit station and take an M20 or M104 bus (8 Av) to 59 St-Columbus Circle. If you are on the platform: Take an uptown 1, 2 or 3 to 72 St and use elevators to transfer to a downtown 1, 2, or 3 to Times Sq-42 St. Or, take an uptown 1 to 59 St-Columbus Circle. Exit station and take the M7, M20, or M104 bus (Broadway between 60 St and 61 St) to 41 St. Times Sq-42 St is one block north.",
         "description": "Mezzanine to uptown 1/2/3",
         "ada": "1",
-        "isBroken": "",
-        "directionLabel": "uptown"
+        "isBroken": ""
       },
       "geometry": {
         "coordinates": [
@@ -10432,44 +9055,18 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "",
-        "stationAbbr": "BAYF_1",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : Pedestrian underpass (SW)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Pedestrian underpass (SW)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.126976,
-          37.696868
-        ],
-        "type": "Point"
-      },
-      "id": "c7ef890bd97fa66c45a1ed4720f75cd9"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "isRedundant": "0",
         "stationAbbr": "631/723/901",
         "route": "4 5 6 7 S",
         "complexID": "610",
         "indiegogo": "0",
+        "description_extra": "This elevator gets you from the fare gates (mezzanine) to downtown 4/5/6 trains",
         "stationID": "465",
         "system": "nyc_mta",
         "elevatorno": "EL205",
         "note": "stationAbbr was 631",
         "linesServed": "4/5/6",
+        "directionLabel": "downtown",
         "title": "Grand Central-42 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/42GrandCentral_EL608X.jpg",
         "alternativeRoute": "If you are on the mezzanine: Take an uptown 6 to 51 St and use elevators to transfer to a downtown 6 to Grand Central-42 St. If you are on the platform: Take a downtown 6 to 28 St. Use elevator to exit station and take an uptown M1, M2, or M3 (Madison Av & E 28 St) to Madison Av and E. 43rd St. Or, take a downtown 6 to 23 St. Use elevator to exit station and cross Park Avenue.  Use elevator to re-enter station and take an uptown 6 to Grand Central-42 St.",
@@ -10479,8 +9076,8 @@
       },
       "geometry": {
         "coordinates": [
-          -73.976873,
-          40.752884
+          -73.977154,
+          40.752752
         ],
         "type": "Point"
       },
@@ -10489,15 +9086,17 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "1",
+        "isRedundant": "0",
         "stationAbbr": "631/723/901",
         "route": "4 5 6 7 S",
         "complexID": "610",
         "indiegogo": "0",
+        "description_extra": "This elevator gets you from the fare gates (mezzanine) to the Shuttle to Times Square. Connection to other trains via passageway",
         "stationID": "465",
         "system": "nyc_mta",
         "elevatorno": "EL607X",
-        "linesServed": "6",
+        "linesServed": "S",
+        "directionLabel": "to Times Square (west)",
         "title": "Grand Central-42 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/42GrandCentral_EL608X.jpg",
         "alternativeRoute": "",
@@ -10523,10 +9122,11 @@
         "complexID": "610",
         "indiegogo": "0",
         "isStreet": "true",
+        "description_extra": "This elevator gets you from the street to the fare gates (mezzanine)",
         "stationID": "465",
         "system": "nyc_mta",
         "elevatorno": "EL608X",
-        "linesServed": "S",
+        "linesServed": "4/5/6/7/S",
         "title": "Grand Central-42 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/42GrandCentral_EL608X.jpg",
         "alternativeRoute": "",
@@ -10555,7 +9155,7 @@
         "stationID": "465",
         "system": "nyc_mta",
         "elevatorno": "EL296",
-        "linesServed": "S",
+        "linesServed": "4/5/6/7/S",
         "title": "Grand Central-42 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/42GrandCentral_EL296.jpg",
         "alternativeRoute": "If you are on the street: Proceed to E. 42nd Street between Lexington Av and Madison Av and use elevator near Grand Central Terminal to enter the subway station. If you are on the mezzanine: See a station agent to re-enter faregate and proceed across mezzanine toward Grand Centeral Terminal. Exit opposite faregate and use elevator to exit the station.",
@@ -10580,10 +9180,12 @@
         "route": "4 5 6 7 S",
         "complexID": "610",
         "indiegogo": "0",
+        "description_extra": "This elevator gets you from the fare gates (mezzanine) to 7 trains",
         "stationID": "465",
         "system": "nyc_mta",
         "elevatorno": "EL244",
         "linesServed": "7",
+        "directionLabel": "both directions",
         "title": "Grand Central-42 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/42GrandCentral_EL608X.jpg",
         "alternativeRoute": "If you are on the mezzanine: Exit the station and take an M42 bus (42 St and Broadway) to Times Square. If you are on the platform: Take a 34 St-Hudson Yards-bound 7 to Times Sq-42 St. Exit station and take an eastbound M42 bus (42 St and Broadway) to Lexington Av.",
@@ -10599,34 +9201,6 @@
         "type": "Point"
       },
       "id": "c7f85afbd3cf045b590a277ac4ece10e"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "CAST_1",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : Station entrance",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Station entrance",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.075931,
-          37.691351
-        ],
-        "type": "Point"
-      },
-      "id": "c87c1a988557e92b565ddabe23814766"
     },
     {
       "type": "Feature",
@@ -10811,13 +9385,13 @@
         "system": "nyc_mta",
         "elevatorno": "EL430",
         "linesServed": "E/M/R",
+        "directionLabel": "queens (east)",
         "title": "Queens Plaza",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/QueensPlaza_EL428.jpg",
         "alternativeRoute": "If you are on the mezzanine: Use the elevator at the other end of the mezzanine to take a Manhattan-bound E or M to Lexington Av/53 St. Then transfer across the platform to a Queens-bound E or M to Queens Plaza. If you are on the Queens-bound platform:  Take a Jamaica Center-bound E or Forest Hills-bound M or R to Jackson Hts-Roosevelt Av, then either: Use elevators to transfer to a Manhattan-bound E, M or R to Queens Plaza. Or, use elevators to exit the station and take a Midtown Manhattan-bound Q32 bus (Roosevelt Av and 74 St) to Queens Blvd and Queens Plaza East.",
         "description": "Mezzanine to Queens-bound platform",
         "ada": "1",
-        "isBroken": "",
-        "directionLabel": "queens"
+        "isBroken": ""
       },
       "geometry": {
         "coordinates": [
@@ -10840,13 +9414,13 @@
         "system": "nyc_mta",
         "elevatorno": "EL429",
         "linesServed": "E/M/R",
+        "directionLabel": "manhattan (west)",
         "title": "Queens Plaza",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/QueensPlaza_EL428.jpg",
         "alternativeRoute": "If you are on the mezzanine:  Use the elevator at the other end of the mezzanine to take a Jamaica Center-bound E or Forest Hills-bound M or R to Jackson Hts-Roosevelt Av. Then use elevators to transfer to a Manhattan-bound E, M or R. If you are on the Manhattan-bound platform: Take a Manhattan-bound E or M to Lexington Av/53 St. Then transfer across the platform to a Queens-bound E or M to Queens Plaza.",
         "description": "Mezzanine to Manhattan-bound platform",
         "ada": "1",
-        "isBroken": "",
-        "directionLabel": "manhattan"
+        "isBroken": ""
       },
       "geometry": {
         "coordinates": [
@@ -11269,7 +9843,7 @@
         "system": "nyc_mta",
         "elevatorno": "EL145",
         "linesServed": "1/2/3",
-        "title": "96 St downtown",
+        "title": "96 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/96-Broadway.jpg",
         "alternativeRoute": "If you are on the street:  Take an uptown 2 or 3 to 135 St. Use the elevator to exit the station and cross Lenox Av. Re-enter the station using the elevator and take a downtown 2 or 3. Or, take an uptown 3 to the terminal at Harlem-148 St. Remain on the train or wait at the platform for a downtown 3. Or, take a downtown M104 bus to 72 St for 1/2/3 service. If you are on the platform: Take a downtown 1, 2 or 3 to 72 St. Then either: Use elevators to transfer to an uptown 1, 2 or 3 to 96 St. Or, use the elevator to exit the station and take an uptown M104 bus (Broadway and W 73 St) to 96 St.",
         "description": "Street to downtown platform",
@@ -11298,7 +9872,7 @@
         "system": "nyc_mta",
         "elevatorno": "EL146",
         "linesServed": "1/2/3",
-        "title": "96 St uptown",
+        "title": "96 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/96-Broadway.jpg",
         "alternativeRoute": "If you are on the street:  Take a downtown 1, 2 or 3 to 72 St and use elevators to transfer to an uptown 1, 2 or 3. Or, take a downtown M104 bus to 72 St for 1/2/3 service. If you are on the platform: Take an uptown 2 or 3 to 135 St. Use the elevator to exit the station and cross Lenox Av. Re-enter the station using the elevator and take a downtown 2 or 3 to 96 St. Or, take an uptown 3 to the terminal at Harlem-148 St. Remain on the train or wait at the platform for a downtown 3 to 96 St. Or, take an uptown 2 or 3 to 135 St. Use the elevator to exit the station and take a downtown M7 bus to 97 St and Columbus Av. Proceed to 96 St to transfer to a westbound M96 or M106 bus to Broadway.",
         "description": "Street to uptown platform",
@@ -11464,90 +10038,6 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "",
-        "stationAbbr": "MLPT_1",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit: Station entrance",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Station entrance",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -121.890683,
-          37.410155
-        ],
-        "type": "Point"
-      },
-      "id": "d62fef89e2bc436e1c74004eadba8030"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "NCON_1",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit: Station entrance (South East) ",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Station entrance (South East)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.024392,
-          38.003106
-        ],
-        "type": "Point"
-      },
-      "id": "d6a00b0878bd0448867007b2cf96fcb3"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "0",
-        "stationAbbr": "SFIA",
-        "route": "R Y",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "R/Y",
-        "title": "SF International Airport",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Connects to SFO Airtrain",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.392665,
-          37.615911
-        ],
-        "type": "Point"
-      },
-      "id": "d6c5acc2d5ad131da9b80a308e02f259"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "isRedundant": "0",
         "stationAbbr": "S03",
         "route": "S",
@@ -11573,63 +10063,6 @@
         "type": "Point"
       },
       "id": "d96f028eae3084ac1e73b497d321a471"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "1",
-        "stationAbbr": "POWL",
-        "route": "T S R Y G B",
-        "complexID": "",
-        "indiegogo": "0",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart, sf_muni",
-        "elevatorno": "",
-        "linesServed": "T/S/R/Y/G/B",
-        "title": "Powell Station Elevator (in Westfield mall)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/powell_entrance_westfield.jpg",
-        "alternativeRoute": "",
-        "description": "Take mall elevator down to lowest level",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.406996,
-          37.784465
-        ],
-        "type": "Point"
-      },
-      "id": "da13ea9a2a511ef4587013c4bd0b0066"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "0",
-        "stationAbbr": "MCAR",
-        "route": "R Y O",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "R/Y/O",
-        "title": "MacArthur Street Elevator",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Elevator is within station",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.267105,
-          37.828803
-        ],
-        "type": "Point"
-      },
-      "id": "dad5c67c0fe46b8141ea7c94fe366aee"
     },
     {
       "type": "Feature",
@@ -11750,39 +10183,12 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "",
-        "stationAbbr": "DBRK_1",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : Shattuck Ave @ Allston Way (West)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Shattuck Ave @ Allston Way (West)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.268173,
-          37.869492
-        ],
-        "type": "Point"
-      },
-      "id": "dcbc0abb2abf2bc7e374ae8ce63669bf"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "isRedundant": "0",
         "stationAbbr": "F24",
         "route": "F G",
         "complexID": "240",
         "indiegogo": "0",
+        "isStreet": "true",
         "stationID": "240",
         "system": "nyc_mta",
         "elevatorno": "EL782",
@@ -11792,8 +10198,7 @@
         "alternativeRoute": "If you are on the street: \\nCross 9 St and take a Kensington-bound B67 or B69 bus to McDonald Ave and Albemarle Rd or Church Ave for access to the Church Av F/G station. Proceed to the accessible entrance to Church Av, located on the west side of McDonald Ave, between Albemarle Ave and Church Ave. \\n\\nIf you are on the mezzanine: \\nSee a station agent to re-enter through the faregate and take a Church Av-bound F or G train to Church Av. Then, exit the station and take a Williamsburg-bound B67 or Downtown Brooklyn-bound B69 bus to 7 Ave and 9 St.",
         "description": "Street to mezzanine",
         "ada": "1",
-        "isBroken": "",
-        "isStreet": "true"
+        "isBroken": ""
       },
       "geometry": {
         "coordinates": [
@@ -11836,46 +10241,19 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "0",
-        "stationAbbr": "WOAK",
-        "route": "R Y G B",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "R/Y/G/B",
-        "title": "West Oakland Street (East Bay-bound)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/westoakland_eastbound.jpg",
-        "alternativeRoute": "",
-        "description": "Elevator is through the fare gates, which you can get to from the ramp. One elevator gets you to the platform.",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.295093,
-          37.804965
-        ],
-        "type": "Point"
-      },
-      "id": "e0b649d04ee3bf1e0eb79658673be995"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "notes": "stationAbbr was 640",
         "isRedundant": "0",
         "stationAbbr": "640/M21",
-        "route": "J 4 5 6 Z",
+        "route": "J Z 4 5 6",
         "complexID": "622",
         "indiegogo": "0",
         "isStreet": "true",
+        "description_extra": "This elevator gets you from the street to the fare gates (mezzanine). Entrance for 4/5/6 and J/Z lines",
         "stationID": "411",
         "system": "nyc_mta",
         "elevatorno": "EL314",
-        "linesServed": "J/4/5/6/Z",
-        "title": "Brooklyn Bridge-City Hall",
+        "linesServed": "J/Z/4/5/6",
+        "title": "Brooklyn Bridge-City Hall & Chambers",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/CityHall_EL314.jpg",
         "alternativeRoute": "If you are on the street: Take a downtown M55 (Broadway & Warren St) to Cortlandt St. Proceed 1 block north to Fulton St 2345ACJZ Station. If you are on the mezzanine: Take an uptown 6 to Canal St. Use elevator to exit station and take a downtown M55 (Broadway and Walker St) to Warren St.",
         "description": "Street to mezzanine",
@@ -11897,13 +10275,15 @@
         "notes": "stationAbbr was 640",
         "isRedundant": "0",
         "stationAbbr": "640/M21",
-        "route": "J 4 5 6 Z",
+        "route": "J Z 4 5 6",
         "complexID": "622",
         "indiegogo": "0",
+        "description_extra": "This elevator gets you from the fare gates to uptown 4/5/6 trains",
         "stationID": "411",
         "system": "nyc_mta",
         "elevatorno": "EL316",
-        "linesServed": "J/4/5/6/Z",
+        "linesServed": "J/Z/4/5/6",
+        "directionLabel": "uptown",
         "title": "Brooklyn Bridge-City Hall",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/CityHall_EL314.jpg",
         "alternativeRoute": "If you are on the mezzanine:  Use elevator to take a downtown 4 or 5 to Fulton St. Then use elevators to transfer to an uptown 4 or 5.  Or, use elevator to exit staton and take a downtown M55 (Broadway and Warren St) to Cortlandt St. Proceed 1 block north to Fulton St Station.  If you are on the platform:  Take an uptown 6 to Bleecker St. Then use elevators to transfer to a downtown 6 to Brooklyn Bridge-City Hall.  Or, take an uptown 6 to Canal St. Use elevator to exit station and take a downtown M55 (Broadway and Walker St) to Chambers St. Proceed one block east to Centre Street.",
@@ -11926,13 +10306,15 @@
         "notes": "stationAbbr was 640",
         "isRedundant": "0",
         "stationAbbr": "640/M21",
-        "route": "J 4 5 6 Z",
+        "route": "J Z 4 5 6",
         "complexID": "622",
         "indiegogo": "0",
+        "description_extra": "This elevator gets you from the fare gates to downtown 4/5/6 trains",
         "stationID": "411",
         "system": "nyc_mta",
         "elevatorno": "EL315",
-        "linesServed": "J/4/5/6/Z",
+        "linesServed": "J/Z/4/5/6",
+        "directionLabel": "downtown",
         "title": "Brooklyn Bridge-City Hall",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/CityHall_EL314.jpg",
         "alternativeRoute": "If you are on the mezzanine: Use elevator to take an uptown 6 to Bleecker St. Then use elevators to transfer to a downtown 6. Transfer across the platform at Brooklyn Bridge-City Hall for downtown and Brooklyn 45 service. Or, use elevator to exit station and take a downtown M55 (Broadway and Warren St) to Cortlandt St.  Proceed 1 block north to Fulton St ACJZ2345 Station. If you are on the platform: Take a downtown 45 Fulton St. Then either: Use elevators to transfer to an uptown 45 to Brooklyn Bridge-City Hall. Or, use  elevators to exit station and take an uptown M55 (Church St and Vesey St) to Chambers St.",
@@ -11962,7 +10344,7 @@
         "system": "nyc_mta",
         "elevatorno": "EL238",
         "linesServed": "1",
-        "title": "66 St-Lincoln Center downtown",
+        "title": "66 St-Lincoln Center",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/66_EL238.jpg",
         "alternativeRoute": "If you are on the street:  Cross Broadway and use the elevator to take an uptown 1 to 72 St. Use elevators to transfer to a downtown 1. Or, take a downtown M5 LTD or M104 bus (Broadway and 66 St) to 59 St-Columbus Circle A/C/B/D/1. If you are on the platform: Take a downtown 1 to 59 St-Columbus Circle, then either: Use elevators to transfer to an uptown 1 to 66 St-Lincoln Center. Or, use elevators to exit the station and take an uptown M5 LTD, M7 or M104 bus (Broadway and W 61 St) to 66 St.",
         "description": "Street to downtown platform",
@@ -11991,7 +10373,7 @@
         "system": "nyc_mta",
         "elevatorno": "EL237",
         "linesServed": "1",
-        "title": "66 St-Lincoln Center uptown",
+        "title": "66 St-Lincoln Center",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/66_EL237.jpg",
         "alternativeRoute": "If you are on the street: Cross Broadway to take a downtown 1 to 59 St-Columbus Circle. Use elevators to transfer to an uptown 1. Or, take an uptown M5, M7, or M104 bus (66 St and Broadway) to 72 St. Enter 72 St 1/2/3 at Broadway and 72 St. If you are on the platform: Take an uptown 1 to 72 St, then either: Use elevators to transfer to a downtown 1 to 66 St-Lincoln Center. Or, use elevators to exit the station and take a downtown M5 or M104 bus (Broadway and 72 St) to 66 St and Broadway.",
         "description": "Street to uptown platform",
@@ -12064,62 +10446,6 @@
         "type": "Point"
       },
       "id": "e3da3c0836087c0bcda8115fbe2cdf75"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "1",
-        "stationAbbr": "MLBR",
-        "route": "R Y",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "R/Y",
-        "title": "Millbrae Street Elevator",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/millbrae_street1.jpg",
-        "alternativeRoute": "",
-        "description": "Street <-> Concourse. Next to Caltrain tracks, if you're coming in on the El Camino Real side.",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.387225,
-          37.59993
-        ],
-        "type": "Point"
-      },
-      "id": "e4a658b1a64f77fd74173cbb92a97999"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "0",
-        "stationAbbr": "DALY",
-        "route": "R Y G B",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "R/Y/G/B",
-        "title": "Daly City Platform Elevator #2",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/dalycity_entrance.jpg",
-        "alternativeRoute": "",
-        "description": "Concourse <-> Platform. Station itself is ramped and accessible.",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.469108,
-          37.706174
-        ],
-        "type": "Point"
-      },
-      "id": "e598870372a316d6f385fbce73cba70d"
     },
     {
       "type": "Feature",
@@ -12309,7 +10635,7 @@
         "system": "nyc_mta",
         "elevatorno": "EL479",
         "linesServed": "N/W/7",
-        "directionLabel": "manhattan and queens",
+        "directionLabel": "both directions",
         "title": "Queensboro Plaza",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/QueensboroPlaza_EL479.jpg",
         "alternativeRoute": "If you are on the overpass level: Re-enter the station and take a Manhattan-bound 7 to the nearby Court Sq station. Exit the station and proceed north along 23 St to Queens Plaza. If you are at street level: Proceed south along 23 St to the Court Sq station for access to 7 service.",
@@ -12325,63 +10651,6 @@
         "type": "Point"
       },
       "id": "e8a93a1bfb60c289ac55ef3d27709d54"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "0",
-        "stationAbbr": "EMBR",
-        "route": "S R Y G B",
-        "complexID": "",
-        "indiegogo": "0",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart, sf_muni",
-        "elevatorno": "",
-        "linesServed": "S/R/Y/G/B",
-        "title": "Embarcadero Street Elevator",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/embarcadero_street.jpg",
-        "alternativeRoute": "",
-        "description": "Street <-> Concourse",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.396787,
-          37.793043
-        ],
-        "type": "Point"
-      },
-      "id": "e93f6afe94ae073003520975060ae31a"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "DBRK_3",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : Shattuck Ave @ Addison Street (West)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Shattuck Ave @ Addison Street (West)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.268361,
-          37.871002
-        ],
-        "type": "Point"
-      },
-      "id": "e9d234408f4f6283c67ab63f1fc61df8"
     },
     {
       "type": "Feature",
@@ -12423,10 +10692,12 @@
         "route": "A C E L",
         "complexID": "618",
         "indiegogo": 1,
+        "description_extra": "This elevator gets you from the fare gates (mezzanine) to L trains. Terminal L stop.",
         "stationID": "115",
         "system": "nyc_mta",
         "elevatorno": "EL224",
         "linesServed": "L",
+        "directionLabel": "1 Av (east)",
         "title": "14th St/8 Av",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/14_EL221.jpg",
         "alternativeRoute": "If you are on the mezzanine: Use the elevator at the other end of this level to exit the station. Then take a Lower East Side-bound M14A bus or M14D bus to Irving Pl for 14 St-Union Sq L Station. If you are on the L platform: Take a Brooklyn-bound L to 14 St-Union Sq. Use elevators to exit the station and take an Abingdon Sq-bound M14A bus or Chelsea Piers-bound M14D bus (14 St and Irving Pl) to 8 Av.",
@@ -12442,35 +10713,6 @@
         "type": "Point"
       },
       "id": "ebee4d64bcb33057ab54f54931edc1c8"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "1",
-        "stationAbbr": "POWL",
-        "route": "T S R Y G B",
-        "complexID": "",
-        "indiegogo": "0",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart, sf_muni",
-        "elevatorno": "",
-        "linesServed": "T/S/R/Y/G/B",
-        "title": "Powell Street Elevator",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/powell_street.jpg",
-        "alternativeRoute": "",
-        "description": "Street <-> Concourse",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.406347,
-          37.785554
-        ],
-        "type": "Point"
-      },
-      "id": "ec56a19c39d6628f9471f8d86f2c3d39"
     },
     {
       "type": "Feature",
@@ -12505,128 +10747,18 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "",
-        "stationAbbr": "PITT_1",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : Station entrance (South)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Station entrance (South)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -121.94515,
-          38.018244
-        ],
-        "type": "Point"
-      },
-      "id": "eced92c1f48aa448f4bb58f6a6db7261"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "place_PLZA",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "El Cerrito Plaza",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.29892,
-          37.90261
-        ],
-        "type": "Point"
-      },
-      "id": "ee869748f39f17a7dae82e96b69e9097"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "DBRK_2",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : Shattuck Ave @ Allston Way (East)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Shattuck Ave @ Allston Way (East)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.267754,
-          37.869703
-        ],
-        "type": "Point"
-      },
-      "id": "ef59f8db86c15ff120b9a8062aae8ecc"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "FTVL_2",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : Station entrance (North)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Station entrance (North)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.224196,
-          37.775038
-        ],
-        "type": "Point"
-      },
-      "id": "f05d0485f28fc2454a957e470109bfbb"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "notes": "stationAbbr was G22",
         "isRedundant": "0",
         "stationAbbr": "719/F09/G22",
         "route": "E M G 7",
         "complexID": "606",
         "indiegogo": "0",
+        "description_extra": "This elevator gets you from the fare gates (mezzanine) to Flushing-bound 7 trains",
         "stationID": "281",
         "system": "nyc_mta",
         "elevatorno": "EL445X",
         "linesServed": "7",
+        "directionLabel": "flushing (east)",
         "title": "Court Sq",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/CourtSq_EL446.jpg",
         "alternativeRoute": "If you are on the 7 mezzanine: Take a Manhattan-bound 7 to Grand Central-42 St. Use elevators to transfer to a Flushing-bound 7. If you are on the platform: Take Flushing-bound 7 to 61 St-Woodside. Then either: Use elevators to transfer to a Manhattan-bound 7 to Court Sq. Or, use elevators to exit station and take a Manhattan-bound Q32 (Roosevelt Av and 61 St) to Queens Plaza North and 29 St. Then transfer to a Brooklyn-bound B62 (Jackson Av and 42 Rd) to Jackson Av and 45 Av.",
@@ -12642,34 +10774,6 @@
         "type": "Point"
       },
       "id": "f17b1a95be24219f9a864926637e9d93"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "0",
-        "stationAbbr": "SSAN",
-        "route": "R Y",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "R/Y",
-        "title": "South San Francisco Platform Elevator",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/southsf_entrance.jpg",
-        "alternativeRoute": "",
-        "description": "Concourse <-> Platform. Station entrance is accessible",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.442912,
-          37.663551
-        ],
-        "type": "Point"
-      },
-      "id": "f18c9d0cc12ec2a969eae28c5228b8ae"
     },
     {
       "type": "Feature",
@@ -12788,62 +10892,6 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "",
-        "stationAbbr": "LAKE_3",
-        "route": "O G B",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "O/G/B",
-        "title": "Enter/Exit : Oak Street @ 9th Street (NE)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Oak Street @ 9th Street (NE)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.264819,
-          37.797384
-        ],
-        "type": "Point"
-      },
-      "id": "f42ad3d50fb136b068a6e4a616070562"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "FRMT_1",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit : Station entrance (North)",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Station entrance (North)",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -121.976412,
-          37.557508
-        ],
-        "type": "Point"
-      },
-      "id": "f5bbb6005c7d6835dfba6cfea9429c1d"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "notes": "stationAbbr was R29",
         "isRedundant": "0",
         "stationAbbr": "A41/R29",
@@ -12858,7 +10906,7 @@
         "title": "Jay St-MetroTech",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Jay-Metro_EL327X.jpg",
         "alternativeRoute": "Alt route not available for this elevator. Please use TripPlanner for latest information.",
-        "description": "NOT ACCESSIBLE. Street to R mezzanine. The R is not accessible here.",
+        "description": "NOT ACCESSIBLE. Street to R mezzanine. Access R train via the other entrance.",
         "ada": "0",
         "isBroken": ""
       },
@@ -12900,34 +10948,6 @@
         "type": "Point"
       },
       "id": "f62bc99aa89f99f7bbd15877fad5651c"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "",
-        "stationAbbr": "place_ROCK",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Rockridge",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.251235,
-          37.844755
-        ],
-        "type": "Point"
-      },
-      "id": "f9a85db9cc2c4836632ed69fafbf4b39"
     },
     {
       "type": "Feature",
@@ -13108,6 +11128,7 @@
         "complexID": 146,
         "indiegogo": "0",
         "isStreet": "true",
+        "description_extra": "This elevator gets you from the fare gates (mezzanine) to downtown A trains",
         "stationID": 146,
         "system": "nyc_mta",
         "elevatorno": "EL518",
@@ -13132,34 +11153,6 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "",
-        "stationAbbr": "PHIL_1",
-        "route": "",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "",
-        "title": "Enter/Exit: Station entrance",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/",
-        "alternativeRoute": "",
-        "description": "Station entrance",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.056026,
-          37.928407
-        ],
-        "type": "Point"
-      },
-      "id": "fc8d9c472aa027a3366552b40828f295"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "notes": "stationAbbr was F09",
         "isRedundant": "0",
         "stationAbbr": "719/F09/G22",
@@ -13167,15 +11160,17 @@
         "complexID": "606",
         "indiegogo": "0",
         "isStreet": "true",
+        "description_extra": "PARTIALLY ACCESSIBLE STATION. This elevator gets you from the street to Manhattan-bound E/M trains.",
         "stationID": "274",
         "system": "nyc_mta",
         "elevatorno": "EL482X",
         "linesServed": "E/M",
+        "directionLabel": "manhattan (west)",
         "title": "Court Sq-23 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/CourtSq-23_EL482X.jpg",
-        "alternativeroute": "Street to Manhattan-bound platform. E/M only accessible in Manhattan direction, until mid-2024.",
-        "description": "2",
-        "ada": "2",
+        "alternativeroute": "If you are on the street: Take a LI City-bound Q67 bus (44 Driver and 23 St) to 28 St and Queens Plaza South. Then, proceed to Jackson Av and use elevator to enter Queens Plaza station for Manhattan-bound E/M service. If you are on the platform: Take a Manhattan-bound E or M to Lexington Av/53 St and transfer across the platform to a Forest Hills-bound E or M to Queens Plaza. Then, use elevators to exit station and take a Middle Village-bound Q67 bus (Jackson Av and 42 Road) to 44 Drive and 23 St.",
+        "description": "Street to Manhattan-bound platform",
+        "ada": 2,
         "isBroken": ""
       },
       "geometry": {
@@ -13186,34 +11181,6 @@
         "type": "Point"
       },
       "id": "fefbe0d189d752f676334eabb77aaa2e"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "isRedundant": "0",
-        "stationAbbr": "COLM",
-        "route": "R Y",
-        "complexID": "",
-        "isStreet": "true",
-        "stationID": "",
-        "system": "sf_bart",
-        "elevatorno": "",
-        "linesServed": "R/Y",
-        "title": "Colma Platform Elevator",
-        "image": "https://wheresthedamnelevator.com/assets/images/sanfrancisco/bart/colma_entrance.jpg",
-        "alternativeRoute": "",
-        "description": "Concourse <-> Platform. Station is accessible",
-        "ada": "1",
-        "isBroken": "false"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.466246,
-          37.684737
-        ],
-        "type": "Point"
-      },
-      "id": "ff3f29870aa93d32325ad344d325d6f2"
     }
   ],
   "type": "FeatureCollection"

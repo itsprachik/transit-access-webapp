@@ -2,7 +2,7 @@ import json
 
 # file paths
 INPUT_DATASET = "../custom_dataset.json"
-INPUT_OUTAGE_DATASET = '../../resources/elevatorOutagesDataset.geojson'
+INPUT_OUTAGE_DATASET = '../elevatorOutagesDataset.geojson'
 OUTPUT_DATASET = '../elevatorOutageGeometry.json'
 
 # Load the GeoJSON data from the file

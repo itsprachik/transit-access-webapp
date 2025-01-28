@@ -9,8 +9,8 @@
       },
       "geometry": {
         "coordinates": [
-          -73.987733,
-          40.693076
+          -73.987818,
+          40.692575
         ],
         "type": "Point"
       }
@@ -25,7 +25,7 @@
       "geometry": {
         "coordinates": [
           -73.987818,
-          40.692668
+          40.692676
         ],
         "type": "Point"
       }
@@ -54,8 +54,8 @@
       },
       "geometry": {
         "coordinates": [
-          -73.987831,
-          40.692743
+          -73.987818,
+          40.692776
         ],
         "type": "Point"
       }
@@ -729,8 +729,8 @@
       },
       "geometry": {
         "coordinates": [
-          -73.977193,
-          40.752846
+          -73.977377,
+          40.752854
         ],
         "type": "Point"
       }
@@ -896,6 +896,21 @@
         "coordinates": [
           -74.0108,
           40.712266
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "EL117",
+      "properties": {
+        "elevatorno": "EL117",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.936991,
+          40.85238
         ],
         "type": "Point"
       }
@@ -2627,6 +2642,21 @@
     },
     {
       "type": "Feature",
+      "id": "EL118",
+      "properties": {
+        "elevatorno": "EL118",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.936991,
+          40.85248
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "EL292",
       "properties": {
         "elevatorno": "EL292",
@@ -3557,6 +3587,21 @@
     },
     {
       "type": "Feature",
+      "id": "EL119",
+      "properties": {
+        "elevatorno": "EL119",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.936991,
+          40.85258
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "EL412",
       "properties": {
         "elevatorno": "EL412",
@@ -4344,8 +4389,8 @@
       },
       "geometry": {
         "coordinates": [
-          -74.003439,
-          40.713201
+          -74.004405,
+          40.713008
         ],
         "type": "Point"
       }
@@ -4359,8 +4404,8 @@
       },
       "geometry": {
         "coordinates": [
-          -74.005248,
-          40.713164
+          -74.004467,
+          40.712934
         ],
         "type": "Point"
       }
@@ -4539,8 +4584,8 @@
       },
       "geometry": {
         "coordinates": [
-          -73.976873,
-          40.752884
+          -73.977154,
+          40.752752
         ],
         "type": "Point"
       }
