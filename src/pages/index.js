@@ -1,8 +1,7 @@
 /* eslint-disable @next/next/no-sync-scripts */
 import Head from 'next/head';
 import 'mapbox-gl/dist/mapbox-gl.css';
-// import Map2 from '@/components/Map2';
-import Map from '@/components/map';
+import MtaMap from '@/components/MtaMap/MtaMap';
 
 export default function Home() {
   return (
@@ -13,8 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Map />
-        {/* <Map2 /> */}
+        <MtaMap />
       </main>
     </div>
   );
