@@ -17,6 +17,10 @@ dotenv.config();
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
+    /**
+     * @deprecated since version 1.0.0. Use MtaMap instead.
+     */
+
 export default function Map() {
   const mapContainer = useRef(null);
   const mapRef = useRef(null);
