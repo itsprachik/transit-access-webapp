@@ -76,6 +76,7 @@ const MtaMap = () => {
     getOutages();
     //Initialize Map
     initializeMtaMap(mapRef, mapContainer);
+
     mapRef.current?.on("load", () => {
       mapRef.current.setLayoutProperty(
         "transit-elevators",
@@ -89,6 +90,7 @@ const MtaMap = () => {
       }
       // Add outage layer with icons based on isBroken property
       mapRef.current.addLayer(currentOutageProps);
+      mapRef.current.moveLayer("outages", "transit-elevators");
 
       // On hover event
       mapRef.current?.on("mousemove", "transit-elevators", (e) => {
