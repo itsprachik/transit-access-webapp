@@ -1,0 +1,121 @@
+[
+  "step",
+  ["zoom"],
+  [
+    "case",
+    [
+      "match",
+      ["get", "isStreet"],
+      ["true"],
+      true,
+      false
+    ],
+    [
+      "to-string",
+      [
+        "concat",
+        "Street Elevator (",
+        ["get", "title"],
+        ")"
+      ]
+    ],
+    ""
+  ],
+  16,
+  [
+    "match",
+    ["get", "isStreet"],
+    ["true"],
+    [
+      "to-string",
+      [
+        "concat",
+        "Street Elevator (",
+        ["get", "title"],
+        ")"
+      ]
+    ],
+    [
+      "to-string",
+      [
+        "concat",
+        "Platform Elevator (",
+        [
+          "get",
+          "directionLabel"
+        ],
+        ")"
+      ]
+    ]
+  ]
+]
+
+
+=========NEW=========
+
+[
+  "step",
+  ["zoom"],
+  [
+    "case",
+  
+    ["all", ["==", ["get", "isStreet"], "true"], ["==", ["get", "elevatorno"], "ramp"]],
+    [
+      "to-string",
+      [
+        "concat",
+        "Ramp (",
+        ["get", "title"],
+        ")"
+      ]
+    ],
+  
+    ["==", ["get", "isStreet"], "true"],
+    [
+      "to-string",
+      [
+        "concat",
+        "Street Elevator (",
+        ["get", "title"],
+        ")"
+      ]
+    ],
+  
+    ""
+  ],
+  16,
+  [
+    "case",
+  
+    ["all", ["==", ["get", "isStreet"], "true"], ["==", ["get", "elevatorno"], "ramp"]],
+    [
+      "to-string",
+      [
+        "concat",
+        "Ramp (",
+        ["get", "title"],
+        ")"
+      ]
+    ],
+  
+    ["==", ["get", "isStreet"], true],
+    [
+      "to-string",
+      [
+        "concat",
+        "Street Elevator (",
+        ["get", "title"],
+        ")"
+      ]
+    ],
+      [
+      "to-string",
+      [
+        "concat",
+        "Platform Elevator (",
+        ["get", "directionLabel"],
+        ")"
+      ]
+    ]
+  ]
+]

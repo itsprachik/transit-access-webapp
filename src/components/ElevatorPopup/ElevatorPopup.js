@@ -9,6 +9,7 @@ export default function ElevatorPopup({
   description,
   linesServed,
   icon,
+  returntoservice,
 }) {
   const lines = linesServed.split("/");
   return (
@@ -17,6 +18,11 @@ export default function ElevatorPopup({
         {/* {icon ? <AccessibleIcon /> : <ElevatorOutIcon />} */}
         <strong>{elevatorno} </strong>
         <p>{title}</p>
+        {returntoservice && (
+          <p>
+            <strong>Estimated Return to Service:</strong> {returntoservice}
+          </p>
+        )}
         <img src={imageUrl} alt="Image Desc"></img>
         {/* <p>{elevatorno}</p>*/}
         <p>{description}</p>

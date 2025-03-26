@@ -1,7 +1,9 @@
+import mapStyle from "@/styles/mapbox-style.json"; 
+
 export const getMtaMapOptions = (container) => {
    return ({
     container: container,
-    style: "mapbox://styles/joelaaron/clndls6cm07rp01mae34gd2oo",
+    style: mapStyle,
     center: [-73.98365318925187, 40.7583063693059], // NYC
     zoom: 13,
    })

@@ -9,6 +9,7 @@ import {
 import { outageSourceOptions } from "./mtaMapOptions";
 import { currentOutageProps } from "./layers/CurrentOutages/currentOutagesProps";
 import { handleMouseLeave, handleMouseMove, handleOnClick, initializeMtaMap } from "./handlerFunctions";
+import { doesStationHaveOutage, getStationsWithOutages } from "@/utils/dataUtils";
 
 // Load environment variables
 dotenv.config();
@@ -50,6 +51,7 @@ const MtaMap = () => {
     }
     // Fetch outages on component mount
     getOutages();
+
     //Initialize Map
     initializeMtaMap(mapRef, mapContainer);
 
@@ -60,6 +62,7 @@ const MtaMap = () => {
         "visible"
       );
       mapRef.current.addSource("outage-data", outageSourceOptions);
+
 
       if (elevOut.length > 0) {
         updateOutageLayer(elevOut, mapRef);
@@ -103,9 +106,19 @@ const MtaMap = () => {
 
   useEffect(() => {
     if (elevatorOutages.length > 0) {
-      updateOutageLayer(elevatorOutages, mapRef);
+      const stationsWithOutages = getStationsWithOutages(elevatorOutages);
+  
+      // Draw a warning sign for stations with ANY elevator outage
+      Object.entries(stationsWithOutages).forEach(([stationID, hasOutage]) => {
+        if (hasOutage) {
+          console.log(`⚠️ Station ${stationID} has an outage`); //temp
+          // TODO: Add layer with outage symbol on map
+        }
+      });
     }
   }, [elevatorOutages]);
+
+  
 
   return (
     <div
