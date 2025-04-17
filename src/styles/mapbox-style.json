@@ -11594,6 +11594,7 @@
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
+                "icon-allow-overlap" : true,
                 "text-size": 10,
                 "text-anchor": "left",
                 "text-radial-offset": 1

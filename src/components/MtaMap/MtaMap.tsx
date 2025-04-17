@@ -5,11 +5,12 @@ import dotenv from "dotenv";
 import {
   getOutElevatorNumbers,
   updateOutageLayer,
+  updateStationOutageLayer,
 } from "./layers/CurrentOutages/handlerFunctions";
 import { outageSourceOptions } from "./mtaMapOptions";
-import { currentOutageProps } from "./layers/CurrentOutages/currentOutagesProps";
+import { currentOutageProps, stationOutageProps } from "./layers/CurrentOutages/currentOutagesProps";
 import { handleMouseLeave, handleMouseMove, handleOnClick, initializeMtaMap } from "./handlerFunctions";
-import { doesStationHaveOutage, getStationsWithOutages } from "@/utils/dataUtils";
+import { doesStationHaveOutage, getStationsWithOutages, getStationOutageArray } from "@/utils/dataUtils";
 
 // Load environment variables
 dotenv.config();
@@ -21,7 +22,9 @@ const MtaMap = () => {
   const mapRef = useRef();
   const mapContainer = useRef();
   let elevOut = [];
+  let stationOut = [];
   const [elevatorOutages, setElevatorOutages] = useState([]);
+  const [stationOutages, setStationOutages] = useState([]);
   let hoveredFeatureId = null;
 
   // Popup for station info
@@ -48,6 +51,7 @@ const MtaMap = () => {
       elevOut = data;
       setElevatorOutages(data);
       getOutElevatorNumbers(elevOut);
+      
     }
     // Fetch outages on component mount
     getOutages();
@@ -62,6 +66,7 @@ const MtaMap = () => {
         "visible"
       );
       mapRef.current.addSource("outage-data", outageSourceOptions);
+      mapRef.current.addSource("station-outage-data", outageSourceOptions);
 
 
       if (elevOut.length > 0) {
@@ -70,6 +75,8 @@ const MtaMap = () => {
       // Add outage layer with icons based on isBroken property
       mapRef.current.addLayer(currentOutageProps);
       mapRef.current.moveLayer("outages", "transit-elevators");
+      mapRef.current.addLayer(stationOutageProps);
+      mapRef.current.moveLayer("stationOutages", "transit-elevators");
 
       // On hover event
       mapRef.current?.on("mousemove", "transit-elevators", (e) => {
@@ -106,17 +113,14 @@ const MtaMap = () => {
 
   useEffect(() => {
     if (elevatorOutages.length > 0) {
-      const stationsWithOutages = getStationsWithOutages(elevatorOutages);
-  
-      // Draw a warning sign for stations with ANY elevator outage
-      Object.entries(stationsWithOutages).forEach(([stationID, hasOutage]) => {
-        if (hasOutage) {
-          console.log(`⚠️ Station ${stationID} has an outage`); //temp
-          // TODO: Add layer with outage symbol on map
-        }
-      });
+     stationOut = getStationOutageArray(elevatorOutages);
+     setStationOutages(stationOut);
+
+     if (stationOut.length > 0) {
+      updateStationOutageLayer(stationOut, mapRef);
     }
-  }, [elevatorOutages]);
+  }
+}, [elevatorOutages]);
 
   
 

@@ -3,6 +3,7 @@ dataUtils is used to filter existing arrays and elevator data
 */
 
 import { elevatorCoordinates } from "./elevatorOutageGeometry";
+import { stationCoordinates } from "./accessibleStationGeometry";
 import customDataset from "@/resources/custom_dataset.json"; 
 
 // Function to filter out Escalators and Upcoming outages from the outageArray response
@@ -73,21 +74,38 @@ export function getOutageLayerFeatures(outElevatorNoArray) {
   return features;
 }
 
+export function getStationOutageLayerFeatures(outStationArray) {
+  const features = [];
+  console.log("outStationArray (dataUtils.js): " + JSON.stringify(outStationArray, null, 2));
+  for (const [stationNo, geometry] of Object.entries(stationCoordinates)) {
+    const cleanStationNo = stationNo.trim(); // Trim spaces from station number
+
+    const isProblem = outStationArray.some(
+      (station) => station.trim() === cleanStationNo
+    );
+
+    let obj = {
+      type: "Feature",
+      id: cleanStationNo,
+      properties: {
+        station_id: cleanStationNo,
+        isProblem,
+      },
+      geometry: geometry
+        ? {
+            coordinates: geometry,
+            type: "Point",
+          }
+        : null,
+    };
+    features.push(obj);
+  //  console.log(JSON.stringify(outStationArray, null, 2));
+  }
+  return features;
+}
+
 // checks to see if there is any outage in a station.
-export const doesStationHaveOutage = (stationID, elevatorOutages) => {
-  if (!elevatorOutages || elevatorOutages.length === 0) {
-    return false; // No outages
-  }
-
-  // Access the GeoJSON features array or default to empty array
-  const datasetArray = Array.isArray(customDataset.features) 
-    ? customDataset.features 
-    : [];
-
-  if (!datasetArray || datasetArray.length === 0) {
-    console.warn("customDataset is empty or invalid.");
-    return false;
-  }
+export const doesStationHaveOutage = (stationID, elevatorOutages, datasetArray) => {
 
   // Find all elevator numbers at the given stationID
   const elevatorsAtStation = datasetArray
@@ -101,7 +119,7 @@ export const doesStationHaveOutage = (stationID, elevatorOutages) => {
   // Check if any elevator matching this stationID is out of service
   return elevatorOutages.some((elevator) =>
     elevatorsAtStation.includes(elevator.equipment.trim()) &&
-    elevator.isupcomingoutage === "N"
+    elevator.isupcomingoutage === "N" && elevator.equipmenttype === "EL"
   );
 };
 
@@ -128,7 +146,7 @@ export const getStationsWithOutages = (elevatorOutages) => {
     const stationID = station.properties?.stationID;
 
     if (stationID) {
-      const isOut = doesStationHaveOutage(stationID, elevatorOutages);
+      const isOut = doesStationHaveOutage(stationID, elevatorOutages, datasetArray);
 
       // Store the result in the map
       stationsWithOutages[stationID] = isOut;
@@ -137,3 +155,13 @@ export const getStationsWithOutages = (elevatorOutages) => {
 
   return stationsWithOutages;
 };
+
+export const getStationOutageArray = (elevatorOutages) => {
+  const stationOut = getStationsWithOutages(elevatorOutages);
+  return Object.entries(stationOut)
+    .filter(([_, hasOutage]) => hasOutage)
+    .map(([stationID]) => stationID);
+};
+
+
+// TO DO: rewrite python script to export a function that returns the same array, instead of writing a file called accessibleStationGeometry

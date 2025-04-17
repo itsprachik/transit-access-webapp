@@ -36,19 +36,19 @@ export const stationOutageProps = {
   layout: {
     "icon-image": [
       "case",
-      ["==", ["get", "isBroken"], false], // If elevator is working
+      ["==", ["get", "isProblem"], false], // If elevator is working
       "liftgood", // Use checkmark icon
-      ["==", ["get", "isBroken"], true], // If elevator is broken
-      "liftbad", // Use X icon
+      ["==", ["get", "isProblem"], true], // If elevator is broken
+      "warn", // Use X icon
       "liftgood", // Default to checkmark icon in case of missing data
     ],
-    "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0, 14, 0, 15, 0.9, 19, 1],
+    "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.8, 14, 0.8, 15, 0, 19, 0],
     "icon-anchor": "center",
     "icon-offset": [0, -20],
     "icon-allow-overlap": true,
     "icon-padding": 2,
     "symbol-z-order": "auto",
-    "symbol-sort-key": 1,
+    "symbol-sort-key": 2,
 
     "text-size": ["interpolate", ["linear"], ["zoom"], 0, 10, 22, 10],
     "text-radial-offset": ["interpolate", ["linear"], ["zoom"], 0, 1.2, 17, 2],

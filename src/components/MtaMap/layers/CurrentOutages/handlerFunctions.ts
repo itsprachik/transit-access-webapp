@@ -1,4 +1,4 @@
-import { getOutageLayerFeatures } from "@/utils/dataUtils";
+import { getOutageLayerFeatures, getStationOutageLayerFeatures } from "@/utils/dataUtils";
 
 export const getOutElevatorNumbers = (elOutages: any[]) => {
   const outElevatorNoArray = [];
@@ -20,4 +20,38 @@ export const updateOutageLayer = (data: any[], mapRef: { current: { getSource: (
     type: "FeatureCollection",
     features: features,
   });
+};
+
+
+/* same functions, for stations instead of elevators */
+/*
+export const getOutStations = (stationOutages: any[]) => {
+  const outStationArray = [];
+  if (stationOutages.length !== 0) {
+    stationOutages?.forEach((equip: { equipmenttype: string; isupcomingoutage: string; equipment: any; }) => {
+    //  if (equip.equipmenttype == "EL" && equip.isupcomingoutage == "N") {
+        outStationArray.push(equip.equipment);
+  //    }
+    });
+    return outStationArray;
+  }
+};*/
+
+export const updateStationOutageLayer = (
+  stationOutageArray: string[],
+  mapRef: { current: { getSource: (arg0: string) => any; }; }
+) => {
+  const features = getStationOutageLayerFeatures(stationOutageArray);
+
+  const geojson = {
+    type: "FeatureCollection",
+    features: features,
+  };
+
+  const geojsonSource = mapRef.current?.getSource("station-outage-data");
+  if (geojsonSource) {
+    geojsonSource.setData(geojson);
+  } else {
+    console.warn("station-outage-data source not found");
+  }
 };
