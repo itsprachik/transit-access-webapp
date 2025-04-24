@@ -51,6 +51,9 @@ const MtaMap = () => {
       elevOut = data;
       setElevatorOutages(data);
       getOutElevatorNumbers(elevOut);
+
+      stationOut = getStationOutageArray(data);
+      setStationOutages(stationOut);
       
     }
     // Fetch outages on component mount
@@ -71,7 +74,9 @@ const MtaMap = () => {
 
       if (elevOut.length > 0) {
         updateOutageLayer(elevOut, mapRef);
+        updateStationOutageLayer(stationOut, mapRef);
       }
+
       // Add outage layer with icons based on isBroken property
       mapRef.current.addLayer(currentOutageProps);
       mapRef.current.moveLayer("outages", "transit-elevators");
@@ -96,6 +101,28 @@ const MtaMap = () => {
         );
       });
 
+      // zoom into station
+      const zoomToFeature = (e) => {
+        if (!e.features || e.features.length === 0) return;
+      
+        const feature = e.features[0];
+        const coordinates = feature.geometry?.coordinates;
+      
+        if (!coordinates || coordinates.length !== 2) return;
+      
+        mapRef.current.flyTo({
+          center: coordinates,
+          zoom: 19,
+          speed: 1.2,
+          curve: 1,
+        });
+      };
+      
+      mapRef.current?.on("click", "stationOutages", zoomToFeature);
+      mapRef.current?.on("click", "mta-subway-stations-accessible", zoomToFeature);
+      
+      
+
       //  Click event to display pop-up ***
       mapRef.current?.on("click", "transit-elevators", (e) => {
         handleOnClick(e, onClickPopupRef, mapRef);
@@ -110,19 +137,6 @@ const MtaMap = () => {
       mapRef.current.remove();
     };
   }, []);
-
-  useEffect(() => {
-    if (elevatorOutages.length > 0) {
-     stationOut = getStationOutageArray(elevatorOutages);
-     setStationOutages(stationOut);
-
-     if (stationOut.length > 0) {
-      updateStationOutageLayer(stationOut, mapRef);
-    }
-  }
-}, [elevatorOutages]);
-
-  
 
   return (
     <div

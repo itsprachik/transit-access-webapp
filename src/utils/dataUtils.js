@@ -76,7 +76,6 @@ export function getOutageLayerFeatures(outElevatorNoArray) {
 
 export function getStationOutageLayerFeatures(outStationArray) {
   const features = [];
-  console.log("outStationArray (dataUtils.js): " + JSON.stringify(outStationArray, null, 2));
   for (const [stationNo, geometry] of Object.entries(stationCoordinates)) {
     const cleanStationNo = stationNo.trim(); // Trim spaces from station number
 
@@ -162,6 +161,35 @@ export const getStationOutageArray = (elevatorOutages) => {
     .filter(([_, hasOutage]) => hasOutage)
     .map(([stationID]) => stationID);
 };
+
+// returns the average coordinates for the stations + elevators
+/*export function getAverageElevatorCoords(stationID: string, datasetArray: any[]) {
+  // Get elevators at the given station
+  const elevatorsAtStation = datasetArray.filter(
+    (item) => item.properties.stationID === stationID
+  );
+
+  if (elevatorsAtStation.length === 0) {
+    console.warn(`No elevators found for station: ${stationID}`);
+    return null;
+  }
+
+  // Sum coordinates
+  let totalLng = 0;
+  let totalLat = 0;
+
+  elevatorsAtStation.forEach((item) => {
+    const [lng, lat] = item.geometry.coordinates;
+    totalLng += lng;
+    totalLat += lat;
+  });
+
+  const averageLng = totalLng / elevatorsAtStation.length;
+  const averageLat = totalLat / elevatorsAtStation.length;
+
+  return [averageLng, averageLat];
+}
+*/
 
 
 // TO DO: rewrite python script to export a function that returns the same array, instead of writing a file called accessibleStationGeometry

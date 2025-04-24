@@ -255,7 +255,7 @@
                 }
             }
         },
-        "mapbox:thumb": "data:image/webp;base64,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",
+        "mapbox:thumb": "data:image/webp;base64,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",
         "mapbox:autocomposite": true,
         "mapbox:sdk-support": {
             "js": "3.8.0",
@@ -360,8 +360,8 @@
             }
         }
     },
-    "center": [-73.99008375944719, 40.75012165433799],
-    "zoom": 17.0889410216291,
+    "center": [-73.97647988900955, 40.753191994477476],
+    "zoom": 18.098318351397968,
     "bearing": 0,
     "pitch": 0,
     "terrain": {"source": "mapbox-dem"},
@@ -384,7 +384,7 @@
             "type": "vector"
         }
     },
-    "sprite": "mapbox://sprites/joelaaron/cm5sr6vct00a601s0eurkg40h/c2vdbk3zvzxxibud1rmp3mzeo",
+    "sprite": "mapbox://sprites/joelaaron/cm5sr6vct00a601s0eurkg40h/4k1xksky5kxfmtshut7wp6anx",
     "glyphs": "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
     "projection": {"name": "globe"},
     "layers": [
@@ -11090,11 +11090,17 @@
             "type": "symbol",
             "metadata": {"mapbox:group": "46ab087309933d46fa54604ebcae7b56"},
             "source": "composite",
-            "source-layer": "transit_elevators",
+            "source-layer": "nyc_transit_elevators",
             "filter": [
                 "match",
                 ["get", "directionLabel"],
-                ["brooklyn", "eastbound"],
+                [
+                    "brooklyn",
+                    "eastbound",
+                    "queens (east)",
+                    "brooklyn (east)",
+                    "1 Av (east)"
+                ],
                 true,
                 false
             ],
@@ -11112,19 +11118,19 @@
                     ]
                 ],
                 "icon-rotate": 180,
-                "icon-offset": [0, 10],
+                "icon-offset": [0, 0],
                 "icon-allow-overlap": true,
                 "icon-padding": 0,
                 "icon-ignore-placement": true
             },
-            "paint": {"icon-translate": [5, 0]}
+            "paint": {"icon-translate": [0, 0]}
         },
         {
             "id": "directionLabel_west",
             "type": "symbol",
             "metadata": {"mapbox:group": "46ab087309933d46fa54604ebcae7b56"},
             "source": "composite",
-            "source-layer": "transit_elevators",
+            "source-layer": "nyc_transit_elevators",
             "filter": [
                 "match",
                 ["get", "directionLabel"],
@@ -11132,7 +11138,10 @@
                     "manhattan",
                     "manhattan and queens",
                     "to Times Square",
-                    "8 Av"
+                    "8 Av",
+                    "manhattan (west)",
+                    "8 Av (west)",
+                    "to Times Square (west)"
                 ],
                 true,
                 false
@@ -11151,19 +11160,19 @@
                     ]
                 ],
                 "icon-rotate": 180,
-                "icon-offset": [0, 10],
+                "icon-offset": [0, 0],
                 "icon-allow-overlap": true,
                 "icon-padding": 0,
                 "icon-ignore-placement": true
             },
-            "paint": {"icon-translate": [5, 0]}
+            "paint": {"icon-translate": [0, 0]}
         },
         {
             "id": "directionLabel_up",
             "type": "symbol",
             "metadata": {"mapbox:group": "46ab087309933d46fa54604ebcae7b56"},
             "source": "composite",
-            "source-layer": "transit_elevators",
+            "source-layer": "nyc_transit_elevators",
             "filter": [
                 "match",
                 ["get", "directionLabel"],
@@ -11172,7 +11181,9 @@
                     "uptown",
                     "uptown and Bronx",
                     "queens",
-                    "canarsie"
+                    "canarsie",
+                    "brooklyn (uptown)",
+                    "uptown & bronx"
                 ],
                 true,
                 false
@@ -11196,14 +11207,14 @@
                 "icon-padding": 0,
                 "icon-ignore-placement": true
             },
-            "paint": {"icon-translate": [5, 0]}
+            "paint": {"icon-translate": [0, 0]}
         },
         {
             "id": "directionLabel_down",
             "type": "symbol",
             "metadata": {"mapbox:group": "46ab087309933d46fa54604ebcae7b56"},
             "source": "composite",
-            "source-layer": "transit_elevators",
+            "source-layer": "nyc_transit_elevators",
             "filter": [
                 "match",
                 ["get", "directionLabel"],
@@ -11211,7 +11222,10 @@
                     "downtown",
                     "F/M downtown, L both directions",
                     "church av",
-                    "1/2/3 downtown, 7 uptown & downtown"
+                    "1/2/3 downtown, 7 uptown & downtown",
+                    "broad st (downtown)",
+                    "canarsie (south)",
+                    "church av (south)"
                 ],
                 true,
                 false
@@ -11224,7 +11238,7 @@
                 "icon-padding": 0,
                 "icon-ignore-placement": true
             },
-            "paint": {"icon-translate": [5, 0]}
+            "paint": {"icon-translate": [0, 0]}
         },
         {
             "id": "mta-subway-stations-inaccessible",
@@ -11408,7 +11422,7 @@
                     10
                 ],
                 "icon-size-scale-range": [0.7, 2],
-                "text-allow-overlap": ["step", ["zoom"], false, 18, true],
+                "text-allow-overlap": ["step", ["zoom"], false, 21, true],
                 "symbol-sort-key": 2,
                 "symbol-z-order": "source",
                 "icon-offset": [0, 0],
@@ -11424,7 +11438,7 @@
                     "ramp",
                     ["==", ["get", "isStreet"], "true"],
                     "Elevator",
-                    ""
+                    "elevatorInverted"
                 ],
                 "text-font": [
                     "Montserrat SemiBold",
@@ -11557,15 +11571,15 @@
                     "step",
                     ["zoom"],
                     0,
-                    15,
-                    ["match", ["get", "isStreet"], ["true"], 1, 0],
                     17,
+                    ["match", ["get", "isStreet"], ["true"], 1, 0],
+                    18,
                     1
                 ],
                 "text-translate": [20, 0],
                 "text-halo-color": "#ffffff",
                 "text-halo-width": 50,
-                "icon-opacity": ["step", ["zoom"], 0, 14, 0, 15, 1],
+                "icon-opacity": ["step", ["zoom"], 0, 16, 0, 17, 1],
                 "text-halo-blur": 59,
                 "icon-translate": [0, 0]
             }
@@ -11577,24 +11591,30 @@
             "source-layer": "mta_subway_stations_all",
             "filter": ["match", ["get", "ada"], ["2", "1"], true, false],
             "layout": {
+                "text-optional": true,
                 "text-field": ["to-string", ["get", "stop_name"]],
-                "icon-image": "Accessible=True",
+                "icon-image": [
+                    "step",
+                    ["zoom"],
+                    "accessibleStation",
+                    17,
+                    "Accessible=True"
+                ],
                 "icon-size": [
                     "interpolate",
                     ["linear"],
                     ["zoom"],
                     10,
-                    0.5,
+                    0.4,
                     15,
-                    0.7,
+                    0.6,
                     19,
-                    1
+                    0.8
                 ],
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
-                "icon-allow-overlap" : true,
                 "text-size": 10,
                 "text-anchor": "left",
                 "text-radial-offset": 1
@@ -11613,12 +11633,12 @@
             "paint": {
                 "line-dasharray": [4, 4],
                 "line-color": "#212121",
-                "line-opacity": ["step", ["zoom"], 0, 15, 0, 16, 1]
+                "line-opacity": ["step", ["zoom"], 0, 16, 0, 17, 1]
             }
         }
     ],
     "created": "2025-01-11T22:24:04.926Z",
-    "modified": "2025-01-18T20:45:54.350Z",
+    "modified": "2025-04-24T19:56:15.276Z",
     "id": "cm5sr6vct00a601s0eurkg40h",
     "owner": "joelaaron",
     "visibility": "private",

@@ -11,7 +11,7 @@ export const currentOutageProps = {
       "liftbad", // Use X icon
       "liftgood", // Default to checkmark icon in case of missing data
     ],
-    "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0, 14, 0, 15, 0.9, 19, 1],
+    "icon-size": ["interpolate", ["linear"], ["zoom"], 16, 0, 17, 0.9, 19, 1],
     "icon-anchor": "center",
     "icon-offset": [0, -20],
     "icon-allow-overlap": true,
@@ -24,27 +24,29 @@ export const currentOutageProps = {
 
     "text-padding": ["interpolate", ["linear"], ["zoom"], 0, 0, 15, 0, 16, 2],
     "text-offset": [1.5, 0],
-  },
-  sprite:
-    "mapbox://sprites/joelaaron/clndls6cm07rp01mae34gd2oo/ehu96mappgo0oqnlwfjrnz4ta", // Replace with your actual sprite URL
+  }
+//  sprite:
+   // "mapbox://sprites/joelaaron/clndls6cm07rp01mae34gd2oo/ehu96mappgo0oqnlwfjrnz4ta", // Sprite URL
 };
 
 export const stationOutageProps = {
   id: "stationOutages",
   source: "station-outage-data",
-  type: "symbol", // Using symbol type for icon display
+  type: "symbol",
   layout: {
     "icon-image": [
       "case",
       ["==", ["get", "isProblem"], false], // If elevator is working
       "liftgood", // Use checkmark icon
       ["==", ["get", "isProblem"], true], // If elevator is broken
-      "warn", // Use X icon
-      "liftgood", // Default to checkmark icon in case of missing data
+      "warn", // Use warning icon
+      ["==", ["get", "isOut"], true], // If all elevators are out
+      "liftbad", // Use X icon
+      "", // Default to nothing in case of missing data
     ],
-    "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.8, 14, 0.8, 15, 0, 19, 0],
+    "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.8, 17, 0.8, 18, 0],
     "icon-anchor": "center",
-    "icon-offset": [0, -20],
+    "icon-offset": [0, -15],
     "icon-allow-overlap": true,
     "icon-padding": 2,
     "symbol-z-order": "auto",
@@ -55,7 +57,7 @@ export const stationOutageProps = {
 
     "text-padding": ["interpolate", ["linear"], ["zoom"], 0, 0, 15, 0, 16, 2],
     "text-offset": [1.5, 0],
-  },
-  sprite:
-    "mapbox://sprites/joelaaron/clndls6cm07rp01mae34gd2oo/ehu96mappgo0oqnlwfjrnz4ta", // Replace with your actual sprite URL
+  }
+  //sprite:
+   // "mapbox://sprites/joelaaron/clndls6cm07rp01mae34gd2oo/ehu96mappgo0oqnlwfjrnz4ta", // Sprite URL
 };
