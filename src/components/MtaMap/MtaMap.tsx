@@ -10,7 +10,7 @@ import {
 import { outageSourceOptions } from "./mtaMapOptions";
 import { currentOutageProps, stationOutageProps } from "./layers/CurrentOutages/currentOutagesProps";
 import { handleMouseLeave, handleMouseMove, handleOnClick, initializeMtaMap } from "./handlerFunctions";
-import { doesStationHaveOutage, getStationsWithOutages, getStationOutageArray } from "@/utils/dataUtils";
+import { getStationOutageArray } from "@/utils/dataUtils";
 
 // Load environment variables
 dotenv.config();
@@ -79,7 +79,9 @@ const MtaMap = () => {
 
       // Add outage layer with icons based on isBroken property
       mapRef.current.addLayer(currentOutageProps);
+      // Moves transit elevators layer so it's not hidden by outage layer
       mapRef.current.moveLayer("outages", "transit-elevators");
+
       mapRef.current.addLayer(stationOutageProps);
       mapRef.current.moveLayer("stationOutages", "transit-elevators");
 
@@ -148,5 +150,3 @@ const MtaMap = () => {
 };
 
 export default MtaMap;
-
-

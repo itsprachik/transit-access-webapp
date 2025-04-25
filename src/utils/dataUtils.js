@@ -76,12 +76,16 @@ export function getOutageLayerFeatures(outElevatorNoArray) {
 
 export function getStationOutageLayerFeatures(outStationArray) {
   const features = [];
+
   for (const [stationNo, geometry] of Object.entries(stationCoordinates)) {
     const cleanStationNo = stationNo.trim(); // Trim spaces from station number
 
-    const isProblem = outStationArray.some(
-      (station) => station.trim() === cleanStationNo
+     const outageData = outStationArray.find(
+      (station) => station.stationID?.trim?.() === cleanStationNo
     );
+
+    const isProblem = outageData?.isProblem || false;
+    const isOut = outageData?.isOut || false;
 
     let obj = {
       type: "Feature",
@@ -89,6 +93,7 @@ export function getStationOutageLayerFeatures(outStationArray) {
       properties: {
         station_id: cleanStationNo,
         isProblem,
+        isOut,
       },
       geometry: geometry
         ? {
@@ -98,8 +103,8 @@ export function getStationOutageLayerFeatures(outStationArray) {
         : null,
     };
     features.push(obj);
-  //  console.log(JSON.stringify(outStationArray, null, 2));
   }
+
   return features;
 }
 
@@ -129,11 +134,11 @@ export const getStationsWithOutages = (elevatorOutages) => {
     return {};
   }
 
-  const datasetArray = Array.isArray(customDataset.features)
+  const elevatorFeatures = Array.isArray(customDataset.features)
     ? customDataset.features
     : [];
 
-  if (!datasetArray || datasetArray.length === 0) {
+  if (!elevatorFeatures || elevatorFeatures.length === 0) {
     console.warn("customDataset is empty or invalid.");
     return {};
   }
@@ -141,14 +146,25 @@ export const getStationsWithOutages = (elevatorOutages) => {
   const stationsWithOutages = {};
 
   // Loop through all stations and check for outages
-  datasetArray.forEach((station) => {
+  elevatorFeatures.forEach((station) => {
     const stationID = station.properties?.stationID;
 
     if (stationID) {
-      const isOut = doesStationHaveOutage(stationID, elevatorOutages, datasetArray);
+      const elevatorsAtStation = elevatorFeatures
+        .filter((item) => item.properties.stationID === stationID)
+        .map((item) => item.properties.elevatorno.trim());
 
-      // Store the result in the map
-      stationsWithOutages[stationID] = isOut;
+      const outElevators = elevatorOutages.filter(
+        (elevator) =>
+          elevatorsAtStation.includes(elevator.equipment?.trim?.()) &&
+          elevator.isupcomingoutage === "N" &&
+          elevator.equipmenttype === "EL"
+      );
+
+      const isProblem = outElevators.length > 0;
+      const isOut = isProblem && outElevators.length === elevatorsAtStation.length;
+
+      stationsWithOutages[stationID] = { isProblem, isOut };
     }
   });
 
@@ -156,11 +172,15 @@ export const getStationsWithOutages = (elevatorOutages) => {
 };
 
 export const getStationOutageArray = (elevatorOutages) => {
-  const stationOut = getStationsWithOutages(elevatorOutages);
-  return Object.entries(stationOut)
-    .filter(([_, hasOutage]) => hasOutage)
-    .map(([stationID]) => stationID);
+  const stationsMap = getStationsWithOutages(elevatorOutages);
+  return Object.entries(stationsMap)
+    .filter(([_, data]) => data.isProblem)
+    .map(([stationID, data]) => ({
+      stationID: stationID.trim?.(),
+      ...data,
+    }));
 };
+
 
 // returns the average coordinates for the stations + elevators
 /*export function getAverageElevatorCoords(stationID: string, datasetArray: any[]) {
