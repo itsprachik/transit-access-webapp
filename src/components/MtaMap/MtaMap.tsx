@@ -8,8 +8,17 @@ import {
   updateStationOutageLayer,
 } from "./layers/CurrentOutages/handlerFunctions";
 import { outageSourceOptions } from "./mtaMapOptions";
-import { currentOutageProps, stationOutageProps } from "./layers/CurrentOutages/currentOutagesProps";
-import { handleMouseLeave, handleMouseMove, handleOnClick, initializeMtaMap } from "./handlerFunctions";
+import {
+  currentOutageProps,
+  stationOutageProps,
+  animationProps,
+} from "./layers/CurrentOutages/currentOutagesProps";
+import {
+  handleMouseLeave,
+  handleMouseMove,
+  handleOnClick,
+  initializeMtaMap,
+} from "./handlerFunctions";
 import { getStationOutageArray } from "@/utils/dataUtils";
 
 // Load environment variables
@@ -25,6 +34,7 @@ const MtaMap = () => {
   let stationOut = [];
   const [elevatorOutages, setElevatorOutages] = useState([]);
   const [stationOutages, setStationOutages] = useState([]);
+  const [zoomLevel, setZoomLevel] = useState(13);
   let hoveredFeatureId = null;
 
   // Popup for station info
@@ -54,7 +64,6 @@ const MtaMap = () => {
 
       stationOut = getStationOutageArray(data);
       setStationOutages(stationOut);
-      
     }
     // Fetch outages on component mount
     getOutages();
@@ -71,7 +80,6 @@ const MtaMap = () => {
       mapRef.current.addSource("outage-data", outageSourceOptions);
       mapRef.current.addSource("station-outage-data", outageSourceOptions);
 
-
       if (elevOut.length > 0) {
         updateOutageLayer(elevOut, mapRef);
         updateStationOutageLayer(stationOut, mapRef);
@@ -80,38 +88,50 @@ const MtaMap = () => {
       // Add outage layer with icons based on isBroken property
       mapRef.current.addLayer(currentOutageProps);
       // Moves transit elevators layer so it's not hidden by outage layer
-      mapRef.current.moveLayer("outages", "transit-elevators");
+      //  mapRef.current.moveLayer("outages", "transit-elevators");
 
       mapRef.current.addLayer(stationOutageProps);
       mapRef.current.moveLayer("stationOutages", "transit-elevators");
 
+      // Track zoom level
+      mapRef.current.on("zoom", () => {
+        const zoom = mapRef.current.getZoom();
+        setZoomLevel(zoom);
+      });
+
       // On hover event
       mapRef.current?.on("mousemove", "transit-elevators", (e) => {
-        hoveredFeatureId = handleMouseMove(
-          e,
-          hoveredFeatureId,
-          mapRef,
-          onHoverPopupRef
-        );
+        const currentZoom = mapRef.current.getZoom();
+        if (currentZoom > 17) {
+          hoveredFeatureId = handleMouseMove(
+            e,
+            hoveredFeatureId,
+            mapRef,
+            onHoverPopupRef
+          );
+        }
       });
 
       mapRef.current?.on("mouseleave", "transit-elevators", (e) => {
-        hoveredFeatureId = handleMouseLeave(
-          hoveredFeatureId,
-          mapRef,
-          onHoverPopupRef
-        );
+        const currentZoom = mapRef.current.getZoom();
+        if (currentZoom > 17) {
+          hoveredFeatureId = handleMouseLeave(
+            hoveredFeatureId,
+            mapRef,
+            onHoverPopupRef
+          );
+        }
       });
 
       // zoom into station
       const zoomToFeature = (e) => {
         if (!e.features || e.features.length === 0) return;
-      
+
         const feature = e.features[0];
         const coordinates = feature.geometry?.coordinates;
-      
+
         if (!coordinates || coordinates.length !== 2) return;
-      
+
         mapRef.current.flyTo({
           center: coordinates,
           zoom: 19,
@@ -119,15 +139,20 @@ const MtaMap = () => {
           curve: 1,
         });
       };
-      
+
       mapRef.current?.on("click", "stationOutages", zoomToFeature);
-      mapRef.current?.on("click", "mta-subway-stations-accessible", zoomToFeature);
-      
-      
+      mapRef.current?.on(
+        "click",
+        "mta-subway-stations-accessible",
+        zoomToFeature
+      );
 
       //  Click event to display pop-up ***
       mapRef.current?.on("click", "transit-elevators", (e) => {
-        handleOnClick(e, onClickPopupRef, mapRef);
+        const currentZoom = mapRef.current.getZoom();
+        if (currentZoom > 17) {
+          handleOnClick(e, onClickPopupRef, mapRef);
+        }
       });
     });
 
@@ -141,11 +166,29 @@ const MtaMap = () => {
   }, []);
 
   return (
-    <div
-      style={{ height: "100vh" }} // remove in-line style from here, use tailwind or make a css module
-      ref={mapContainer}
-      className="map-container"
-    />
+    <div style={{ position: "relative", height: "100vh" }}>
+      <div
+        ref={mapContainer}
+        className="map-container"
+        style={{ width: "100%", height: "100%" }}
+      />
+
+      {zoomLevel > 16 && (
+        <button
+          className="map-reset-button"
+          onClick={() =>
+            mapRef.current?.flyTo({
+              center: [-73.98365318925187, 40.7583063693059],
+              zoom: 13,
+              speed: 1.2,
+              curve: 1,
+            })
+          }
+        >
+          Return to Map
+        </button>
+      )}
+    </div>
   );
 };
 

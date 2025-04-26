@@ -108,25 +108,6 @@ export function getStationOutageLayerFeatures(outStationArray) {
   return features;
 }
 
-// checks to see if there is any outage in a station.
-export const doesStationHaveOutage = (stationID, elevatorOutages, datasetArray) => {
-
-  // Find all elevator numbers at the given stationID
-  const elevatorsAtStation = datasetArray
-    .filter((item) => item.properties.stationID === stationID)
-    .map((item) => item.properties.elevatorno);
-
-  if (elevatorsAtStation.length === 0) {
-    console.warn(`No elevators found for stationID: ${stationID}`);
-    return false;
-  }
-  // Check if any elevator matching this stationID is out of service
-  return elevatorOutages.some((elevator) =>
-    elevatorsAtStation.includes(elevator.equipment.trim()) &&
-    elevator.isupcomingoutage === "N" && elevator.equipmenttype === "EL"
-  );
-};
-
 // returns array of all stations with outages
 export const getStationsWithOutages = (elevatorOutages) => {
   if (!elevatorOutages || elevatorOutages.length === 0) {

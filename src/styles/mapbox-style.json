@@ -11423,7 +11423,7 @@
                 ],
                 "icon-size-scale-range": [0.7, 2],
                 "text-allow-overlap": ["step", ["zoom"], false, 21, true],
-                "symbol-sort-key": 2,
+                "symbol-sort-key": 30,
                 "symbol-z-order": "source",
                 "icon-offset": [0, 0],
                 "icon-image": [
