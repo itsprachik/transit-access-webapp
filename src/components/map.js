@@ -1,3 +1,6 @@
+/**
+ * @deprecated since version 1.0.0. Use MtaMap instead.
+ */
 import { useEffect, useRef, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import { fetchOutages } from "@/api/fetchOutages";
@@ -16,10 +19,6 @@ dotenv.config();
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-
-    /**
-     * @deprecated since version 1.0.0. Use MtaMap instead.
-     */
 
 export default function Map() {
   const mapContainer = useRef(null);
@@ -74,7 +73,7 @@ export default function Map() {
       let data = await fetchOutages(apiKey);
       elevOut = data;
       setElevatorOutages(data);
-      getOutElevatorNumbers(elevOut)
+      getOutElevatorNumbers(elevOut);
     }
 
     // Ensure mapContainer is available
@@ -126,7 +125,7 @@ export default function Map() {
           generateId: true,
         });
         if (elevOut.length > 0) {
-          updateOutageLayer(elevOut)
+          updateOutageLayer(elevOut);
         }
 
         // Add outage layer with icons based on isBroken property
