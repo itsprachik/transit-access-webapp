@@ -20,7 +20,8 @@ import {
   initializeMtaMap,
 } from "./handlerFunctions";
 import { getStationOutageArray } from "@/utils/dataUtils";
-
+import SearchBar from "../SearchBar/SearchBar";
+import * as stationData from "@/resources/mta_subway_stations_all.json";
 // Load environment variables
 dotenv.config();
 
@@ -28,8 +29,8 @@ mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
 const MtaMap = () => {
-  const mapRef = useRef();
-  const mapContainer = useRef();
+  const mapRef = useRef(null);
+  const mapContainer = useRef(null);
   let elevOut = [];
   let stationOut = [];
   const [elevatorOutages, setElevatorOutages] = useState([]);
@@ -166,29 +167,32 @@ const MtaMap = () => {
   }, []);
 
   return (
-    <div style={{ position: "relative", height: "100vh" }}>
-      <div
-        ref={mapContainer}
-        className="map-container"
-        style={{ width: "100%", height: "100%" }}
-      />
+    <>
+      <SearchBar data={stationData} map={mapRef.current} />
+      <div style={{ position: "relative", height: "100vh" }}>
+        <div
+          ref={mapContainer}
+          className="map-container"
+          style={{ width: "100%", height: "100%" }}
+        />
 
-      {zoomLevel > 16 && (
-        <button
-          className="map-reset-button"
-          onClick={() =>
-            mapRef.current?.flyTo({
-              center: [-73.98365318925187, 40.7583063693059],
-              zoom: 13,
-              speed: 1.2,
-              curve: 1,
-            })
-          }
-        >
-          Return to Map
-        </button>
-      )}
-    </div>
+        {zoomLevel > 16 && (
+          <button
+            className="map-reset-button"
+            onClick={() =>
+              mapRef.current?.flyTo({
+                center: [-73.98365318925187, 40.7583063693059],
+                zoom: 13,
+                speed: 1.2,
+                curve: 1,
+              })
+            }
+          >
+            Return to Map
+          </button>
+        )}
+      </div>
+    </>
   );
 };
 

@@ -47,8 +47,7 @@ export function handleOnClick(e: any, onClickPopupRef: any, mapRef: any) {
         imageUrl={imageUrl}
         elevatorno={elevatorno}
         linesServed={linesServed}
-        icon={true}
-      />
+             />
     );
     onClickPopupRef.current
       .setLngLat(coordinates)
