@@ -1,8 +1,8 @@
 import React, { useState, useEffect, ReactElement } from "react";
 import Select, { components } from "react-select";
-import mapboxgl from "mapbox-gl";
-import { IconType } from "react-icons";
-import { MTA_SUBWAY_LINE_ICONS } from "@/utils/constants";
+import { MTA_SUBWAY_LINE_ICONS_SMALL } from "@/utils/constants";
+import { AccessibleIconWhite } from "../icons";
+import styled from "styled-components";
 
 interface SearchBarProps {
   data: MtaStationData;
@@ -16,11 +16,23 @@ const getLinesServedIcons = (lines: string[]) => {
         <span
           alt-text={l[index]}
           key={index}
-          style={{ height: "14px", width: "14px" }}
+          style={{ height: "4px !important", width: "4px !important" }}
         >
-          {MTA_SUBWAY_LINE_ICONS[l]}
+          {MTA_SUBWAY_LINE_ICONS_SMALL[l]}
         </span>
       ))}
+    </>
+  );
+};
+
+const getAdaIcon = (ada: string) => {
+  return (
+    <>
+      {ada != "0" && (
+        <span style={{ paddingLeft: "10px" }}>
+          <AccessibleIconWhite />
+        </span>
+      )}
     </>
   );
 };
@@ -28,6 +40,7 @@ const getLinesServedIcons = (lines: string[]) => {
 const addLinesServedIconsToStationData = (stationData, linesServed) => {
   stationData.forEach((station) => {
     station.icon = getLinesServedIcons(linesServed[station.complex_id]);
+    station.ada = getAdaIcon(station.ada);
   });
 
   return stationData;
@@ -36,10 +49,27 @@ const addLinesServedIconsToStationData = (stationData, linesServed) => {
 const { Option } = components;
 const CustomSelectOption = (props) => (
   <Option {...props}>
-    {props.data.label}
+    <div style={{ display: "flex", alignItems: "center" }}>
+      {props.data.label}
+      {props.data.ada}
+    </div>
+
+    <div />
     {props.data.icon}
   </Option>
 );
+
+const StyledDiv = styled.div`
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 300px;
+  z-index: 1000;
+  font-family: Arial, sans-serif;
+  @media (max-width: 768px) {
+    max-width: 230px;
+  }
+`;
 
 const SearchBar: React.FC<SearchBarProps> = ({ data, map }) => {
   const [options, setOptions] = useState<
@@ -65,6 +95,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ data, map }) => {
           station_id: feature.properties.station_id,
           stop_name: feature.properties.stop_name,
           complex_id: complex_id,
+          ada: feature.properties.ada,
         });
       }
       if (complex_id in linesServed && linesServed[complex_id]) {
@@ -87,6 +118,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ data, map }) => {
         label: st.stop_name,
         value: st.station_id,
         icon: st.icon,
+        ada: st.ada,
       }))
     );
   }, [data]);
@@ -103,27 +135,20 @@ const SearchBar: React.FC<SearchBarProps> = ({ data, map }) => {
     const center: [number, number] = selectedStation[0].geometry.coordinates;
 
     // Move the map to the new location
-    map.flyTo({ center, zoom: 17 });
+    map.flyTo({ center, zoom: 19 });
   };
 
   return (
-    <div
-      style={{
-        position: "absolute",
-        top: 10,
-        left: 10,
-        width: 300,
-        zIndex: 1000,
-        fontFamily: "arial",
-      }}
-    >
+    <StyledDiv>
       <Select
+        instanceId="select-box"
         options={options}
+        isClearable
         components={{ Option: CustomSelectOption }}
         onChange={handleSelect}
         placeholder="Search for a station"
       />
-    </div>
+    </StyledDiv>
   );
 };
 

@@ -16,8 +16,8 @@ export default function ElevatorPopup({
     <>
       <div>
         {/* {icon ? <AccessibleIcon /> : <ElevatorOutIcon />} */}
-        <strong>{elevatorno} </strong>
-        <p>{title}</p>
+        <strong>{title} </strong>
+        <p>{elevatorno}</p>
         {returntoservice && (
           <p>
             <strong>Estimated Return to Service:</strong> {returntoservice}

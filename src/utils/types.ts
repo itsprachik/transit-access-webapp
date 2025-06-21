@@ -50,7 +50,7 @@ type MtaStationFeature = {
     line: string | undefined;
     ada_northbound: string | undefined;
     north_direction_label: string | undefined;
-    ada: string | undefined;
+    ada: string | undefined ;
     upgrade_in_progress?: string | undefined;
     upgrade_date?: string | undefined;
     [key: string]: any;
