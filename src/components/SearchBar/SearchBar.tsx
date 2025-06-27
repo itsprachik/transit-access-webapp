@@ -12,7 +12,7 @@ interface SearchBarProps {
 const getLinesServedIcons = (lines: string[]) => {
   return (
     <>
-      {lines.map((l: string | number, index: number) => (
+      {lines?.map((l: string | number, index: number) => (
         <span
           alt-text={l[index]}
           key={index}
@@ -37,9 +37,9 @@ const getAdaIcon = (ada: string) => {
   );
 };
 
-const addLinesServedIconsToStationData = (stationData, linesServed) => {
+const getIcons = (stationData, linesServed) => {
   stationData.forEach((station) => {
-    station.icon = getLinesServedIcons(linesServed[station.complex_id]);
+    station.icon = getLinesServedIcons(linesServed[station.station_id]);
     station.ada = getAdaIcon(station.ada);
   });
 
@@ -80,36 +80,24 @@ const SearchBar: React.FC<SearchBarProps> = ({ data, map }) => {
   useEffect(() => {
     // Extract unique station names for the search dropdown based on tbeir complex ids
     const stationData = [];
-    const linesServed: { [key: number]: string[] } = {};
+    const linesServed: { [key: string]: string[] } = {};
     data.features.forEach((feature) => {
+      const station_id = feature.properties.station_id;
       const complex_id = feature.properties.complex_id;
       const lines = feature.properties.daytime_routes.split(" ");
-      console.log(complex_id, lines);
-
-      if (
-        !stationData.find(
-          (obj) => obj.complex_id === feature.properties.complex_id
-        )
-      ) {
-        stationData.push({
-          station_id: feature.properties.station_id,
-          stop_name: feature.properties.stop_name,
-          complex_id: complex_id,
-          ada: feature.properties.ada,
-        });
-      }
-      if (complex_id in linesServed && linesServed[complex_id]) {
-        let temp = linesServed[complex_id].concat(lines);
-
-        linesServed[complex_id] = temp;
-      } else {
-        linesServed[complex_id] = lines;
-      }
+      stationData.push({
+        station_id: feature.properties.station_id,
+        stop_name: feature.properties.stop_name,
+        complex_id: complex_id,
+        ada: feature.properties.ada,
+        line: feature.properties.line
+      });
+      linesServed[station_id] = lines;
     });
     const sortedStationData = stationData.sort((a, b) =>
       a.stop_name.localeCompare(b.stop_name)
     );
-    const stationDataWithLinesServedIcons = addLinesServedIconsToStationData(
+    const stationDataWithLinesServedIcons = getIcons(
       sortedStationData,
       linesServed
     );
