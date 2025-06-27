@@ -4,6 +4,7 @@ body > div:first-child,
 div#__next,
 div#__next > div {
   height: 100%;
+  margin: 0;
 }
 
 #root {
