@@ -1,7 +1,7 @@
-/* eslint-disable @next/next/no-sync-scripts */
 import Head from 'next/head';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import MtaMap from '@/components/MtaMap/MtaMap';
+
 
 export default function Home() {
   return (
@@ -11,9 +11,9 @@ export default function Home() {
         <meta name="description" content="A real-time elevator map" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+     
         <MtaMap />
-      </main>
+   
     </div>
   );
 }

@@ -22,6 +22,7 @@ import {
 import { getStationOutageArray } from "@/utils/dataUtils";
 import SearchBar from "../SearchBar/SearchBar";
 import * as stationData from "@/resources/mta_subway_stations_all.json";
+
 // Load environment variables
 dotenv.config();
 
@@ -169,11 +170,10 @@ const MtaMap = () => {
   return (
     <>
       <SearchBar data={stationData} map={mapRef.current} />
-      <div style={{ position: "relative", height: "100vh" }}>
         <div
           ref={mapContainer}
+          id="map-container"
           className="map-container"
-          style={{ width: "100%", height: "100%" }}
         />
 
         {zoomLevel > 16 && (
@@ -191,7 +191,7 @@ const MtaMap = () => {
             Return to Map
           </button>
         )}
-      </div>
+      {/* </div> */}
     </>
   );
 };
