@@ -4,8 +4,8 @@ const AccessibleIconWhite = ({size = 24}) => {
       id="Layer_1"
       xmlns="http://www.w3.org/2000/svg"
       version="1.1"
-      width={size}
-      height={size}
+      width="16"
+      height="16"
       viewBox="0 0 24 24"
     >
       <defs />

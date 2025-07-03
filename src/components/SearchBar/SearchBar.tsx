@@ -33,9 +33,9 @@ const getAdaIcon = (ada: string) => {
   return (
     <>
       {ada != "0" && (
-        <span style={{ paddingLeft: "10px" }}>
+        <>
           <AccessibleIconWhite />
-        </span>
+        </>
       )}
     </>
   );
@@ -50,12 +50,24 @@ const getIcons = (stationData, linesServed) => {
   return stationData;
 };
 
+const parseLine =  (line: string) => {
+  const l = line.split('-')
+  console.log(l)
+}
+
 const { Option } = components;
 const CustomSelectOption = (props) => (
   <Option {...props}>
-    <div style={{ display: "flex", alignItems: "center" }}>
-      {props.data.label}
+    <div style={{ display: "flex", alignItems: "anchor-center",  }}>
+      <span style={{ fontSize: "14px", fontWeight: "600", color: "#00000", marginRight: "8px" }}>
+        {props.data.stop_name}
+      </span>
+      <span style={{ fontSize: "14px", fontWeight: "400", color: "#00051580" }}>
+        {props.data.line}
+      </span>
+      <span style={{marginLeft: "6px"}}>
       {props.data.ada}
+      </span>
     </div>
 
     <div />
@@ -63,15 +75,15 @@ const CustomSelectOption = (props) => (
   </Option>
 );
 
-const StyledDiv = styled.div`
-  position: absolute;
+const StyledSelect = styled(Select)`
+  position: absolute !important;
   top: 10px;
   left: 10px;
-  width: 300px;
+  width: 344px;
   z-index: 1000;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   @media (max-width: 768px) {
-    max-width: 230px;
+    max-width: 270px;
   }
 `;
 
@@ -93,17 +105,22 @@ const SearchBar: React.FC<SearchBarProps> = ({
       const station_id = feature.properties.station_id;
       const complex_id = feature.properties.complex_id;
       const lines = feature.properties.daytime_routes.split(" ");
+      parseLine(feature.properties.line)
       stationData.push({
         station_id: feature.properties.station_id,
         stop_name: feature.properties.stop_name,
         complex_id: complex_id,
         ada: feature.properties.ada,
         line: feature.properties.line,
+        label: feature.properties.stop_name.concat(
+          " ",
+          feature.properties.line
+        ),
       });
       linesServed[station_id] = lines;
     });
     const sortedStationData = stationData.sort((a, b) =>
-      a.stop_name.localeCompare(b.stop_name)
+      a.label.localeCompare(b.label)
     );
     const stationDataWithLinesServedIcons = getIcons(
       sortedStationData,
@@ -115,6 +132,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
         value: st.station_id,
         icon: st.icon,
         ada: st.ada,
+        stop_name: st.stop_name,
+        line: st.line,
       }))
     );
   }, [data]);
@@ -173,16 +192,17 @@ const SearchBar: React.FC<SearchBarProps> = ({
   };
 
   return (
-    <StyledDiv>
-      <Select
+    // <StyledDiv>
+      <StyledSelect
         instanceId="select-box"
         options={options}
         isClearable
         components={{ Option: CustomSelectOption }}
         onChange={handleSelect}
+        menuIsOpen={true}
         placeholder="Search for a station"
       />
-    </StyledDiv>
+    // </StyledDiv>
   );
 };
 
