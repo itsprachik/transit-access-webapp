@@ -1,46 +1,46 @@
-import { getOutageLayerFeatures, getStationOutageLayerFeatures } from "@/utils/dataUtils";
+import { getOutageLayerFeatures, getStationOutageLayerFeatures, getComplexOutageLayerFeatures } from "@/utils/dataUtils";
 
-export const getOutElevatorNumbers = (elOutages: any[]) => {
-  const outElevatorNoArray = [];
+export const getOutElevatorData = (elOutages: any[]) => {
+  const outElevatorData = [];
+
   if (elOutages.length !== 0) {
-    elOutages?.forEach((equip: { equipmenttype: string; isupcomingoutage: string; equipment: any; }) => {
-      if (equip.equipmenttype == "EL" && equip.isupcomingoutage == "N") {
-        outElevatorNoArray.push(equip.equipment);
+    elOutages.forEach(
+      (equip: {
+        equipmenttype: string;
+        isupcomingoutage: string;
+        equipment: string;
+        estimatedreturntoservice: string;
+      }) => {
+        if (equip.equipmenttype === "EL" && equip.isupcomingoutage === "N") {
+          outElevatorData.push({
+            elevatorNo: equip.equipment.trim(),
+            estimatedReturn: equip.estimatedreturntoservice?.trim() || null,
+          });
+        }
       }
-    });
-    return outElevatorNoArray;
+    );
   }
+
+  return outElevatorData;
 };
 
-export const updateOutageLayer = (data: any[], mapRef: { current: { getSource: (arg0: string) => any; }; }) => {
-  const outageElevatorNos = getOutElevatorNumbers(data);
+export const updateOutageLayer = (data: any[], mapRef: { getSource: (arg0: string) => any; } ) => {
+  console.log("🔄 Updating outage layer with", data.length, "items");
+  const outageElevatorNos = getOutElevatorData(data);
   const features = getOutageLayerFeatures(outageElevatorNos);
-  const geojsonSource = mapRef.current?.getSource("outage-data");
+
+  const geojsonSource = mapRef?.getSource("outage-data");
   geojsonSource?.setData({
     type: "FeatureCollection",
     features: features,
   });
 };
 
-
-/* same functions, for stations instead of elevators */
-/*
-export const getOutStations = (stationOutages: any[]) => {
-  const outStationArray = [];
-  if (stationOutages.length !== 0) {
-    stationOutages?.forEach((equip: { equipmenttype: string; isupcomingoutage: string; equipment: any; }) => {
-    //  if (equip.equipmenttype == "EL" && equip.isupcomingoutage == "N") {
-        outStationArray.push(equip.equipment);
-  //    }
-    });
-    return outStationArray;
-  }
-};*/
-
 export const updateStationOutageLayer = (
   stationOutageArray: string[],
-  mapRef: { current: { getSource: (arg0: string) => any; }; }
+  mapRef: { getSource: (arg0: string) => any; }
 ) => {
+  console.log("🔄 Updating station outage layer with", stationOutageArray.length, "items");
   const features = getStationOutageLayerFeatures(stationOutageArray);
 
   const geojson = {
@@ -48,10 +48,30 @@ export const updateStationOutageLayer = (
     features: features,
   };
 
-  const geojsonSource = mapRef.current?.getSource("station-outage-data");
+  const geojsonSource = mapRef?.getSource("station-outage-data");
   if (geojsonSource) {
     geojsonSource.setData(geojson);
   } else {
     console.warn("station-outage-data source not found");
+  }
+};
+
+export const updateStationComplexLayer = (
+  stationOutageArray: string[],
+  mapRef: { getSource: (arg0: string) => any; }
+) => {
+  console.log("🔄 Updating complex layer with", stationOutageArray.length, "items");
+  const features = getComplexOutageLayerFeatures(stationOutageArray);
+
+  const geojson = {
+    type: "FeatureCollection",
+    features: features,
+  };
+
+  const geojsonSource = mapRef?.getSource("station-complexes");
+  if (geojsonSource) {
+    geojsonSource.setData(geojson);
+  } else {
+    console.warn("station-complex-data source not found");
   }
 };

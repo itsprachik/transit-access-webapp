@@ -1,0 +1,123 @@
+.
+├── README.md
+├── jsconfig.json
+├── next-env.d.ts
+├── next.config.mjs
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── public
+│   ├── error_24dp_FF2C2C.png
+│   ├── favicon.ico
+│   ├── next.svg
+│   ├── symbols
+│   │   ├── Accessible=True.svg
+│   │   ├── AccessibleIcon.svg
+│   │   ├── Elevator.svg
+│   │   ├── ElevatorOutIcon.svg
+│   │   ├── OLD
+│   │   │   ├── checkmark-icon1.png
+│   │   │   ├── checkmark-icon1a.png
+│   │   │   ├── checkmark-icon2.png
+│   │   │   ├── checkmark-icon2a.png
+│   │   │   ├── x-icon1.png
+│   │   │   ├── x-icon1a.png
+│   │   │   ├── x-icon2.png
+│   │   │   └── x-icon2a.jpg
+│   │   ├── accessibleStation.svg
+│   │   ├── elevatorInverted.svg
+│   │   ├── liftbad.svg
+│   │   ├── liftgood.svg
+│   │   ├── not-accessible.svg
+│   │   ├── ramp.svg
+│   │   └── warn.svg
+│   └── vercel.svg
+├── src
+│   ├── api
+│   │   ├── fetchOutages.js
+│   │   └── mapboxApis.js
+│   ├── assets
+│   │   ├── elevatorOutagesDataset.geojson
+│   │   └── elevatorOutagesDataset.json
+│   ├── components
+│   │   ├── ElevatorInverted.svg
+│   │   ├── ElevatorPopup
+│   │   │   ├── ElevatorPopup.tsx
+│   │   │   └── elevator-popup.module.css
+│   │   ├── MtaMap
+│   │   │   ├── MtaMap.tsx
+│   │   │   ├── handlerFunctions.tsx
+│   │   │   ├── layers
+│   │   │   └── mtaMapOptions.ts
+│   │   ├── SearchBar
+│   │   │   └── SearchBar.tsx
+│   │   ├── StationPopup
+│   │   │   ├── ElevatorCard.tsx
+│   │   │   ├── StationPopup.tsx
+│   │   │   └── station-popup.module.css
+│   │   ├── icons
+│   │   │   ├── AccessibleIcon.js
+│   │   │   ├── AccessibleIconBW.js
+│   │   │   ├── AccessibleIconWhite.js
+│   │   │   ├── AccessibleLeft.svg
+│   │   │   ├── AccessibleRight.svg
+│   │   │   ├── ElevatorInverted.js
+│   │   │   ├── ElevatorOutIcon.js
+│   │   │   ├── LiftBad.js
+│   │   │   ├── LiftGood.js
+│   │   │   ├── MtaLineIcons.js
+│   │   │   ├── MtaLineIconsSmall.js
+│   │   │   ├── WarnIcon.js
+│   │   │   └── index.js
+│   │   └── map.js
+│   ├── custom_dataset_7.14.25.json
+│   ├── pages
+│   │   ├── _app.js
+│   │   ├── _document.tsx
+│   │   └── index.js
+│   ├── resources
+│   │   ├── ComplexGeometry.geojson
+│   │   ├── ComplexGeometry.json
+│   │   ├── accessibleStationGeometry.geojson
+│   │   ├── accessibleStationGeometry.json
+│   │   ├── complexes.txt
+│   │   ├── custom_dataset.json
+│   │   ├── elevatorOutageGeometry.json
+│   │   ├── elevatorOutagesDataset.geojson
+│   │   ├── mta_subway_complexes.geojson
+│   │   ├── mta_subway_stations_all.json
+│   │   ├── mta_subway_stations_and_complexes.csv
+│   │   ├── python
+│   │   │   ├── convertComplexCSVToJSON.py
+│   │   │   ├── elevatorToComplexConnector.py
+│   │   │   ├── elevatorToStationConnector.py
+│   │   │   ├── outageGeojsonParserPy.py
+│   │   │   ├── repositionPlatformElevators.py
+│   │   │   ├── repositionPlatformElevators2.py
+│   │   │   ├── updateData.py
+│   │   │   ├── writeComplexCoords.py
+│   │   │   └── writeStationCoords.py
+│   │   ├── street_to_complex_lines.geojson
+│   │   ├── street_to_station_lines.geojson
+│   │   └── updateImages.py
+│   ├── styles
+│   │   ├── globals.css
+│   │   ├── mapbox-style.json
+│   │   └── symbols
+│   │       ├── checkmark-icon1.png
+│   │       ├── checkmark-icon2.png
+│   │       ├── x-icon1.png
+│   │       └── x-icon2.png
+│   └── utils
+│       ├── ComplexGeometry.js
+│       ├── accessibleStationGeometry.js
+│       ├── constants.js
+│       ├── dataUtils.js
+│       ├── elevatorOutageGeometry.js
+│       ├── stationGeometry.js
+│       └── types.ts
+├── structure.txt
+├── tailwind.config.js
+└── tsconfig.json
+
+20 directories, 101 files

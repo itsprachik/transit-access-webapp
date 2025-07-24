@@ -1,9 +1,13 @@
-const liftView = 16;
-const offsetDistance = -20;
+// naming convention: file is plural, export is singular.
+// import runs into ts type problems when they're the same (unconfirmed but suspected)
+
+const elevatorView = 16;
+const offsetDistance = -22;
 
 export const currentOutageProps = {
   id: "outages",
   source: "outage-data",
+  filter: ["==", ["get", "isStreet"], true], // hide platform elevators on map
   type: "symbol", // Using symbol type for icon display
   layout: {
     "icon-image": [
@@ -15,15 +19,18 @@ export const currentOutageProps = {
       "liftgood", // Default to checkmark icon in case of missing data
     ],
     
-    "icon-opacity": ["step", ["zoom"], 0, liftView, 1],
-    "icon-size": ["interpolate", ["linear"], ["zoom"], liftView, 0, liftView + 1, 0.8, liftView + 2, 0.9],
+    paint: {
+      "icon-opacity": ["step", ["zoom"], 0, elevatorView-1, 1],
+    },
+    
+    "icon-size": ["step", ["zoom"], 0, elevatorView-1, 0.9],
     "icon-anchor": "center",
     "icon-offset": [0, offsetDistance],
-    "icon-allow-overlap": true,
+    "icon-allow-overlap": ["step", ["zoom"], false, elevatorView, true],
     "icon-ignore-placement": true,
     "icon-padding": 2,
     "symbol-z-order": "source",
-    "symbol-sort-key": 10,
+    "symbol-sort-key": 2,
 
     "text-size": ["interpolate", ["linear"], ["zoom"], 0, 10, 22, 10],
     "text-radial-offset": ["interpolate", ["linear"], ["zoom"], 0, 1.2, 17, 2],
@@ -50,13 +57,16 @@ export const stationOutageProps = {
       "warn", // Use warning icon
       "", // Default to nothing in case of missing data
     ],
-    "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.7, 17, 0.9, 18, 0],
+    paint: {
+      "icon-opacity": ["step", ["zoom"], 1, elevatorView, 0],
+    },
+    "icon-size": ["interpolate", ["linear"], ["zoom"], elevatorView-2, 0.75, elevatorView-1, 0.8, elevatorView+1, 0],
     "icon-anchor": "center",
     "icon-offset": [0, offsetDistance],
-    "icon-allow-overlap": true,
-    "icon-padding": 2,
+    "icon-allow-overlap": ["step", ["zoom"], true, elevatorView, false],
+    "icon-padding": 0,
     "symbol-z-order": "source",
-    "symbol-sort-key": 20,
+    "symbol-sort-key": 3,
 
     "text-size": ["interpolate", ["linear"], ["zoom"], 0, 10, 22, 10],
     "text-radial-offset": ["interpolate", ["linear"], ["zoom"], 0, 1.2, 17, 2],

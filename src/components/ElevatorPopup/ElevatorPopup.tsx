@@ -1,42 +1,71 @@
 import React from "react";
-import { AccessibleIcon, ElevatorOutIcon } from "../icons";
+import {
+  AccessibleIcon,
+  ElevatorOutIcon,
+  WarnIcon,
+  LiftBad,
+  LiftGood,
+} from "../icons";
 import { MTA_SUBWAY_LINE_ICONS } from "@/utils/constants";
+import styles from "./elevator-popup.module.css";
 
 interface ElevatorPopupProps {
   title: string;
   elevatorno: string;
   imageUrl: string;
-  description: string;
+  description_custom: string;
   linesServed: string;
-  returntoservice?: string;
+  estimatedreturntoservice: string;
+  directionLabel: string;
+  isStreet: string;
 }
 
 const ElevatorPopup: React.FC<ElevatorPopupProps> = ({
   title,
   elevatorno,
   imageUrl,
-  description,
+  description_custom,
   linesServed,
-  returntoservice,
+  estimatedreturntoservice,
+  directionLabel,
+  isStreet,
 }) => {
   const lines = linesServed.split("/");
 
   return (
+    
     <div>
-      <strong>{title}</strong>
-      <p>{elevatorno}</p>
+      <div className={styles["popup"]}>
+      <span className={styles["gray-text"]}>{elevatorno}</span>
+      <span className={styles.subtitle}>Street Elevator {" "}
+        <span className={styles.title}>{title} {directionLabel && ` (${directionLabel})`}</span>
+      </span>
 
-      {returntoservice && (
-        <p>
-          <strong>Estimated Return to Service:</strong> {returntoservice}
-        </p>
+      {estimatedreturntoservice ? (
+  <div className={`${styles["elevator-service"]} ${styles["elevator-service-bad"]}`}>
+    <LiftBad fill="#111" />
+    <span className={styles.statusText}>
+      <span>Out of service until</span>
+      <span className={styles.eta}>{estimatedreturntoservice}</span>
+    </span>
+  </div>
+      ) : (
+        <div
+          className={`${styles["elevator-service"]} ${styles["elevator-service-good"]}`}
+        >
+          <LiftGood fill="#111" />
+          <span>In service</span>
+        </div>
       )}
 
+      <div className={styles["description"]}>
+        <span>{description_custom}</span>
+      </div>
+
       <img src={imageUrl} alt="Elevator at station" />
-      <p>{description}</p>
 
       <p>
-        <strong>Lines Served</strong>
+        <span className={styles["subtitle"]}>Lines Served</span>
       </p>
       <div>
         {lines.map((line, index) => (
@@ -45,6 +74,7 @@ const ElevatorPopup: React.FC<ElevatorPopupProps> = ({
           </span>
         ))}
       </div>
+    </div>
     </div>
   );
 };

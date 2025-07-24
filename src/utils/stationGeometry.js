@@ -1,4 +1,4 @@
-export const stationCoordinates = {
+export const stationGeometry = {
   "1": [
     -73.912034,
     40.775036

@@ -2,7 +2,7 @@ import json
 
 # File paths
 CUSTOM_DATASET_FILE = "../custom_dataset.json"
-MTA_STATIONS_FILE = "../mta_subway_stations.geojson"
+MTA_STATIONS_FILE = "../mta_subway_stations_all.json"
 OUTPUT_FILE = "../street_to_station_lines.geojson"
 
 # Load datasets
@@ -22,15 +22,30 @@ stations_lookup = {
 lines = []
 
 for feature in custom_data["features"]:
-    # Check if the feature is a street elevator and the system is 'nyc_mta'
-    if feature["properties"].get("isStreet") and feature["properties"].get("system") == "nyc_mta":
-        station_id = feature["properties"].get("stationID")
+    # Check if the feature is a street elevator and the system is 'nyc_mta' or 'nyc_sir'
+    if feature["properties"].get("isStreet") and (
+        feature["properties"].get("system") in {"nyc_mta", "nyc_sir"}
+    ):
+        # Use stationID_near if available, otherwise fall back to stationID
+        raw_station_ids = feature["properties"].get("stationID_near") or feature["properties"].get("stationID")
         title = feature["properties"].get("title")
         elevatorno = feature["properties"].get("elevatorno")
-        if station_id in stations_lookup:
-            street_elevator_coords = feature["geometry"]["coordinates"]
+
+        if not raw_station_ids:
+            continue
+
+        # Handle multiple IDs separated by "/"
+        station_ids = [s.strip() for s in str(raw_station_ids).split("/")]
+
+        street_elevator_coords = feature["geometry"]["coordinates"]
+
+        for station_id in station_ids:
+            if station_id not in stations_lookup:
+                continue
+
             station_coords = stations_lookup[station_id]
-            # Create a LineString feature
+            side = "left" if street_elevator_coords[0] < station_coords[0] else "right"
+
             lines.append({
                 "type": "Feature",
                 "geometry": {
@@ -40,7 +55,8 @@ for feature in custom_data["features"]:
                 "properties": {
                     "station_id": station_id,
                     "elevator_no": elevatorno,
-                    "station_name": title
+                    "station_name": title,
+                    "side": side
                 }
             })
 
@@ -54,4 +70,4 @@ output_geojson = {
 with open(OUTPUT_FILE, "w") as f:
     json.dump(output_geojson, f, indent=2)
 
-print(f"Generated {len(lines)} LineString features and saved to {OUTPUT_FILE}")
+print(f"\n**[5] STREET ELEVATOR LINES**:\n✅ Generated {len(lines)} LineString features and saved to {OUTPUT_FILE}")
