@@ -5,7 +5,7 @@ input_file = "../mta_subway_complexes.geojson"        # complex stations, given 
 
 output_geojson = "../ComplexGeometry.geojson"         # filtered GeoJSON
 output_json = "../ComplexGeometry.json"        # compact JSON format
-output_js = "../../utils/ComplexGeometry.js"          # JavaScript file in ../../utils
+output_js = "../../utils/ComplexGeometry.ts"          # JavaScript file in ../../utils
 
 # Load the GeoJSON file
 with open(input_file, "r") as f:
@@ -49,7 +49,7 @@ with open(output_json, "w") as f:
     json.dump(compact_data, f, indent=2)
 
 # Save the compact JSON as a JavaScript const
-js_content = f"export const complexCoordinates = {json.dumps(compact_data, indent=2)};\n\nexport default complexCoordinates;"
+js_content = f"export const complexCoordinates: Record<string, [number, number]> = {json.dumps(compact_data, indent=2)};\n\nexport default complexCoordinates;"
 
 with open(output_js, "w") as f:
     f.write(js_content)

@@ -3,42 +3,9 @@ import Select, { components } from "react-select";
 import { MTA_SUBWAY_LINE_ICONS_SMALL } from "@/utils/constants";
 import { AccessibleIconWhite } from "../icons";
 import styled from "styled-components";
-import {
-  getAverageElevatorCoordinates
-} from "@/utils/dataUtils";
+import { getAverageElevatorCoordinates } from "@/utils/dataUtils";
 import customDataset from "@/resources/custom_dataset.json";
-//import { GeoJSONFeature } from "mapbox-gl";
-
-import { Feature, FeatureCollection, Point } from "geojson";
-
-// 1. Define the properties of each station feature
-export interface MtaStationProperties {
-  station_id: string;
-  complex_id: string;
-  stop_name: string;
-  line: string;
-  daytime_routes: string;
-  division: string;
-  structure: string;
-  ada: string;
-  ada_notes: string | null;
-  ada_northbound: string;
-  ada_southbound: string;
-  north_direction_label: string;
-  south_direction_label: string;
-  gtfs_stop_id: string;
-  gtfs_longitude: string;
-  gtfs_latitude: string;
-  cbd: string;
-  borough: string;
-}
-
-// 2. Define a Feature with these properties and Point geometry
-export type MtaStationFeature = Feature<Point, MtaStationProperties>;
-
-// 3. Define the FeatureCollection
-export type MtaStationData = FeatureCollection<Point, MtaStationProperties>;
-
+import { MtaStationFeature, MtaStationData } from "@/utils/types";
 
 interface SearchBarProps {
   data: MtaStationData;
@@ -102,13 +69,17 @@ const StyledDiv = styled.div`
   left: 10px;
   width: 300px;
   z-index: 1000;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   @media (max-width: 768px) {
     max-width: 230px;
   }
 `;
 
-const SearchBar: React.FC<SearchBarProps> = ({ data, map, onStationSelect }) => {
+const SearchBar: React.FC<SearchBarProps> = ({
+  data,
+  map,
+  onStationSelect,
+}) => {
   const [options, setOptions] = useState<
     { label: string; value: string; icon: ReactElement }[]
   >([]);
@@ -127,7 +98,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ data, map, onStationSelect }) => 
         stop_name: feature.properties.stop_name,
         complex_id: complex_id,
         ada: feature.properties.ada,
-        line: feature.properties.line
+        line: feature.properties.line,
       });
       linesServed[station_id] = lines;
     });
@@ -164,7 +135,6 @@ const SearchBar: React.FC<SearchBarProps> = ({ data, map, onStationSelect }) => 
       selected.layer = { id: "mta-subway-stations-all" };
       onStationSelect(selectedStation[0]);
     }
-//    const center: [number, number] = selectedStation[0].geometry.coordinates;
     const station_id = selectedStation[0].properties.station_id;
     const complex_id = selectedStation[0].properties.complex_id;
     const isAccessible = selectedStation[0].properties.ada;
@@ -172,13 +142,27 @@ const SearchBar: React.FC<SearchBarProps> = ({ data, map, onStationSelect }) => 
     let center: [number, number];
     let popupFlag = null;
 
-    if (isAccessible !="0") {
-      const coords = getAverageElevatorCoordinates(customDataset.features, complex_id);
-      center = coords?.bounds ?? selectedStation[0].geometry.coordinates;
+    if (isAccessible !== "0") {
+      const coords = getAverageElevatorCoordinates(
+        customDataset.features,
+        complex_id
+      );
+
+      if (
+        coords?.bounds &&
+        Array.isArray(coords.bounds) &&
+        coords.bounds.length === 2 &&
+        typeof coords.bounds[0] === "number" &&
+        typeof coords.bounds[1] === "number"
+      ) {
+        center = coords.bounds.getCenter().toArray() as [number, number];
+      }
+
       popupFlag = true;
     } else {
-      center = selectedStation[0].geometry.coordinates;
+      center = selectedStation[0].geometry.coordinates as [number, number];
       popupFlag = true;
+
       map.flyTo({
         center: center,
         zoom: 15,
@@ -186,8 +170,6 @@ const SearchBar: React.FC<SearchBarProps> = ({ data, map, onStationSelect }) => 
         speed: 1.8,
       });
     }
-    // Move the map to the new location
-   // flyIn(map, center, isAccessible, popupFlag);
   };
 
   return (
@@ -205,24 +187,3 @@ const SearchBar: React.FC<SearchBarProps> = ({ data, map, onStationSelect }) => 
 };
 
 export default SearchBar;
-
-// averaging logic to add back in for complex ids, probably move out to utils functions
-// const stationElevators = data.features.filter(
-//   (feature) => feature.properties.stop_name === selected.value
-// );
-
-// if (stationElevators.length === 0) return;
-
-// // Compute center point
-// const avgCoords = stationElevators.reduce(
-//   (acc, feature) => {
-//     acc[0] += feature.geometry.coordinates[0];
-//     acc[1] += feature.geometry.coordinates[1];
-//     return acc;
-//   },
-//   [0, 0] as [number, number]
-// );
-// const center: [number, number] = [
-//   avgCoords[0] / stationElevators.length,
-//   avgCoords[1] / stationElevators.length,
-// ];

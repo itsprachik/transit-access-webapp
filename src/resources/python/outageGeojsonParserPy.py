@@ -4,7 +4,7 @@ import json
 INPUT_DATASET = "../custom_dataset.json"
 INPUT_OUTAGE_DATASET = '../elevatorOutagesDataset.geojson'
 OUTPUT_DATASET = '../elevatorOutageGeometry.json'
-OUTPUT_JS = "../../utils/elevatorOutageGeometry.js"          # JavaScript file in ../../utils
+OUTPUT_JS = "../../utils/elevatorOutageGeometry.ts"          # TypeScript file in ../../utils
 
 # Load the GeoJSON data from the file
 with open(INPUT_DATASET) as f:
@@ -51,7 +51,7 @@ with open(OUTPUT_DATASET, 'w') as f:
     json.dump(outage_geometry_json, f, indent=2)
 
 # Save the compact JSON as a JavaScript const
-js_content = f"export const elevatorCoordinates = {json.dumps(outage_geometry_json, indent=2)}"
+js_content = f"export const elevatorCoordinates: Record<string, [number, number]> = {json.dumps(outage_geometry_json, indent=2)}"
 
 with open(OUTPUT_JS, "w") as f:
     f.write(js_content)

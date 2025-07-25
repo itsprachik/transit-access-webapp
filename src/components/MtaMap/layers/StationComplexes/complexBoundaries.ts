@@ -25,9 +25,9 @@ export function getDynamicPadding(coordsArray, mapZoom) {
   
   
 
-export function getComplexBoundaryGeoJSON(zoom) {
-  const features = [];
-  const complexGroups = {};
+export function getComplexBoundaryGeoJSON(zoom: number) {
+  const features: any[] = [];
+  const complexGroups: Record<string, [number, number][]> = {};
 
   // First pass: group street elevators by complexID
   customDataset.features.forEach((feature) => {
@@ -41,15 +41,15 @@ export function getComplexBoundaryGeoJSON(zoom) {
       complexGroups[complexID] = [];
     }
 
-    // Always add complex-level coordinate from ComplexGeometry (later), but add street elevators now
+    // add street elevators
     if (isStreet) {
-      complexGroups[complexID].push(coords);
+      complexGroups[complexID].push(coords as [number, number]);
     }
   });
 
   // Second pass: build GeoJSON for each complex
   Object.entries(complexGroups).forEach(([complexID, coordsArray]) => {
-    const fallbackCoord = complexCoordinates[complexID];
+    const fallbackCoord = complexCoordinates[complexID] as [number, number];
     if (
       (!Array.isArray(coordsArray) || coordsArray.length === 0) &&
       (!Array.isArray(fallbackCoord) || fallbackCoord.length !== 2)
@@ -72,7 +72,7 @@ export function getComplexBoundaryGeoJSON(zoom) {
 
     if (coordsArray.length >= 2) {
       bounds = coordsArray.reduce(
-        (acc, coord) => acc.extend(coord),
+        (expand, coord) => expand.extend(coord),
         new mapboxgl.LngLatBounds(coordsArray[0], coordsArray[0])
       );
 

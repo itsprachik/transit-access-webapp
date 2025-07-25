@@ -1,4 +1,4 @@
-export const stationGeometry = {
+export const stationGeometry: Record<string, [number, number]> = {
   "1": [
     -73.912034,
     40.775036

@@ -1,4 +1,4 @@
-export const stationCoordinates = {
+export const stationCoordinates: Record<string, [number, number]> = {
   "2": [
     -73.917843,
     40.770258

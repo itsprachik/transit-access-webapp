@@ -1,4 +1,4 @@
-export const elevatorCoordinates = {
+export const elevatorCoordinates: Record<string, [number, number]> = {
   "EL708": [
     -73.986642,
     40.692059

@@ -2,7 +2,7 @@
 import mapboxgl from "mapbox-gl";
 import { getMtaMapOptions } from "./mtaMapOptions";
 import React from "react";
-import { createRoot } from "react-dom/client";
+import { createRoot, type Root } from "react-dom/client";
 import { format, parse } from "date-fns";
 
 // DATASETS

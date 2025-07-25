@@ -1,4 +1,4 @@
-export const complexCoordinates = {
+export const complexCoordinates: Record<string, [number, number]> = {
   "398": [
     -73.959874,
     40.77362

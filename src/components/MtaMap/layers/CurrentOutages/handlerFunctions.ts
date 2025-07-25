@@ -25,7 +25,7 @@ export const getOutElevatorData = (elOutages: any[]) => {
 };
 
 export const updateOutageLayer = (data: any[], mapRef: { getSource: (arg0: string) => any; } ) => {
-  console.log("🔄 Updating outage layer with", data.length, "items");
+
   const outageElevatorNos = getOutElevatorData(data);
   const features = getOutageLayerFeatures(outageElevatorNos);
 
@@ -40,7 +40,7 @@ export const updateStationOutageLayer = (
   stationOutageArray: string[],
   mapRef: { getSource: (arg0: string) => any; }
 ) => {
-  console.log("🔄 Updating station outage layer with", stationOutageArray.length, "items");
+
   const features = getStationOutageLayerFeatures(stationOutageArray);
 
   const geojson = {
@@ -60,7 +60,7 @@ export const updateStationComplexLayer = (
   stationOutageArray: string[],
   mapRef: { getSource: (arg0: string) => any; }
 ) => {
-  console.log("🔄 Updating complex layer with", stationOutageArray.length, "items");
+
   const features = getComplexOutageLayerFeatures(stationOutageArray);
 
   const geojson = {

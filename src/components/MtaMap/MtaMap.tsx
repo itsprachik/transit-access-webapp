@@ -35,7 +35,9 @@ import {
   makeElevatorMap,
 } from "@/utils/dataUtils";
 import SearchBar from "../SearchBar/SearchBar";
-import * as stationData from "@/resources/mta_subway_stations_all.json";
+import { MtaStationData } from "@/utils/types";
+import rawData from "@/resources/mta_subway_stations_all.json";
+const stationData = rawData as MtaStationData;
 
 // Load environment variables
 dotenv.config();
@@ -77,7 +79,7 @@ const MtaMap = () => {
     if (map?.isStyleLoaded() && elevatorRawDataRef.current) {
       updateOutageLayer(elevatorRawDataRef.current, map);
     }
-  }, [elevatorRawDataState]);  
+  }, [elevatorRawDataState]);
 
   // track station data state change
   useEffect(() => {
@@ -94,8 +96,7 @@ const MtaMap = () => {
         setZoomLevel(zoom);
       });
     }
-
-  },[zoomLevel]);
+  }, [zoomLevel]);
 
   function getLatestElevatorData() {
     return elevatorDataRef.current;
@@ -248,41 +249,7 @@ const MtaMap = () => {
       mapRef.current.on("zoom", () => {
         const zoom = mapRef.current.getZoom();
         setZoomLevel(zoom);
-      }
-    )
-
-    /* ******** CLICK AND TOUCH EVENTS ******** */
-      // On hover event
-      // mapRef.current?.on("mousemove", "transit-elevators", (e) => {
-      //   const currentZoom = mapRef.current.getZoom();
-
-      //   // Block clicks at low zoom levels
-      //   if (currentZoom <= 15) return;
-
-      //   if (currentZoom > 15) {
-      //     hoveredFeatureId = handleMouseMove(
-      //       e,
-      //       hoveredFeatureId,
-      //       mapRef.current,
-      //       onHoverPopupRef
-      //     );
-      //   }
-      // });
-
-      // mapRef.current?.on("mouseleave", "transit-elevators", (e) => {
-      //   const currentZoom = mapRef.current.getZoom();
-
-      //   // Block clicks at low zoom levels
-      //   if (currentZoom <= 15) return;
-
-      //   if (currentZoom > 15) {
-      //     hoveredFeatureId = handleMouseLeave(
-      //       hoveredFeatureId,
-      //       mapRef.current,
-      //       onHoverPopupRef
-      //     );
-      //   }
-      // });
+      });
 
       mapRef.current?.on("click", "stationOutages", (e) => {
         e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
@@ -298,7 +265,6 @@ const MtaMap = () => {
           show3DToggle,
           setShow3DToggle
         );
-
       });
 
       mapRef.current?.on("click", "mta-subway-stations-accessible", (e) => {
@@ -348,26 +314,26 @@ const MtaMap = () => {
           setZoomLevel(zoom);
         });
       });
-              //  Click event to display elevator pop-up
+      //  Click event to display elevator pop-up
       mapRef.current?.on("click", "transit-elevators", (e) => {
         if (!stationView) return; // if we're not in stationView, don't talk to me
 
         const zoom = mapRef.current?.getZoom?.() || 0;
         if (zoom < 15) return;
 
-          e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
-          handleOnClick(
-            e,
-            onClickPopupRef,
-            mapRef.current,
-            getLatestElevatorData(),
-            stationView,
-            setStationView,
-            elevatorView,
-            setElevatorView,
-            show3DToggle,
-            setShow3DToggle
-          );
+        e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
+        handleOnClick(
+          e,
+          onClickPopupRef,
+          mapRef.current,
+          getLatestElevatorData(),
+          stationView,
+          setStationView,
+          elevatorView,
+          setElevatorView,
+          show3DToggle,
+          setShow3DToggle
+        );
       });
 
       mapRef.current?.on("click", "outages", (e) => {
@@ -436,7 +402,6 @@ const MtaMap = () => {
             cleanUpPopups();
             const center = setMapCenter();
             const bearing = setManhattanTilt();
-            console.log("Leaving Station View", stationView);
             setStationView(null);
             setElevatorView(null);
 

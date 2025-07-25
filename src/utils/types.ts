@@ -1,3 +1,6 @@
+import { geometry } from "@turf/turf";
+import { FeatureCollection, Feature, Point } from "geojson";
+
 type ElevatorFeature = {
   type: string;
   properties: {
@@ -16,6 +19,7 @@ type ElevatorFeature = {
     alternativeRoute?: string | undefined;
     description: string | undefined;
     ada: string | undefined;
+    isOverpass: string | undefined;
     isBroken: string | undefined;
     [key: string]: any;
   };
@@ -30,38 +34,27 @@ type ElevatorData = {
   features: ElevatorFeature[];
 };
 
-type MtaStationFeature = {
-  type: string;
-  properties: {
-    ada_notes: null | undefined | string;
-    daytime_routes: string | undefined;
-    south_direction_label: string | undefined;
-    cbd: string | undefined;
-    station_id: string | undefined;
-    stop_name: string | undefined;
-    gtfs_longitude: string | undefined;
-    complex_id: string | undefined;
-    borough: string | undefined;
-    division: string | undefined;
-    gtfs_latitude: string | undefined;
-    ada_southbound: string | undefined;
-    structure: string | undefined;
-    gtfs_stop_id: string | undefined;
-    line: string | undefined;
-    ada_northbound: string | undefined;
-    north_direction_label: string | undefined;
-    ada: string | undefined ;
-    upgrade_in_progress?: string | undefined;
-    upgrade_date?: string | undefined;
-    [key: string]: any;
-  };
-  geometry: {
-    coordinates: [number, number] | any;
-    type: string | undefined;
-  };
-  id: string | undefined;
-};
+export interface MtaStationProperties {
+  station_id: string;
+  complex_id: string;
+  stop_name: string;
+  line: string;
+  daytime_routes: string;
+  division: string;
+  structure: string;
+  ada: string;
+  ada_notes: string | null;
+  ada_northbound: string;
+  ada_southbound: string;
+  north_direction_label: string;
+  south_direction_label: string;
+  gtfs_stop_id: string;
+  gtfs_longitude: string;
+  gtfs_latitude: string;
+  cbd: string;
+  borough: string;
+}; 
 
-type MtaStationData = {
-  features: MtaStationFeature[];
-};
+export type MtaStationFeature = Feature<Point, MtaStationProperties>;
+
+export type MtaStationData = FeatureCollection<Point, MtaStationProperties>;

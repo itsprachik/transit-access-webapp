@@ -22,19 +22,6 @@ import {
 } from "@/utils/elevatorIndexUtils";
 let elevatorIndex = [];
 
-// Function to filter out Escalators and Upcoming outages from the outageArray response
-// export function setOutElevatorNumbers(outageArray, setOutElevatorNos) {
-//   const features = [];
-//   const outElevatorNoArray = [];
-//   outageArray?.forEach((equip) => {
-//     if (equip.equipmenttype == "EL" && equip.isupcomingoutage == "N") {
-//       outElevatorNoArray.push(equip.equipment);
-//     }
-//     setOutElevatorNos(outElevatorNoArray);
-//   });
-//   // return features;
-// }
-
 // Function to highlight all upcoming outages
 export function getUpcomingOutages(outageArray) {
   const upcomingOutages = [];
@@ -114,7 +101,7 @@ export function getOutageLayerFeatures(outElevatorData) {
 }
 
 // The following functions make it easy to find an elevator attached to a given station
-///////////////
+/* ************************************************************************** */
 export function makeElevatorMap() {
   elevatorIndex = buildElevatorIndex(customDataset.features);
   return elevatorIndex;
@@ -137,7 +124,7 @@ export function getComplexIDByElevatorNo(elevatorNo) {
   return elevator?.properties?.complexID;
 }
 
-///////////////
+/* ************************************************************************** */
 
 // when going between stations and complexes, the complex has to inherit a concatenated version of routes and ADA
 export function concatenateRoutes(stationIDs, stationsDataset) {
@@ -825,5 +812,3 @@ export function lookAtElevator(
     essential: true,
   });
 }
-
-// TO DO: rewrite python script to export a function that returns the same array, instead of writing a file called accessibleStationGeometry
