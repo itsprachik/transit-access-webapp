@@ -50,6 +50,7 @@
                         "mta-subwaylines-nqrw",
                         "mta-subwaylines-ace",
                         "mta-subwaylines-123",
+                        "mta-sir-lines",
                         "mta-subwaylines-labels-g",
                         "mta-subwaylines-labels-l",
                         "mta-subwaylines-labels-s",
@@ -112,6 +113,7 @@
                         "mta-subwaylines-labels-nqrw copy",
                         "mta-subwaylines-labels-nqrw copy 1",
                         "mta-subwaylines-labels-nqrw copy 2",
+                        "mta-sir-lines-label",
                         "directionLabel_east",
                         "directionLabel_west",
                         "directionLabel_up",
@@ -122,9 +124,13 @@
                         "platform-elevators-label-1237",
                         "platform-elevators-label-1237 copy",
                         "platform-elevators-label-123",
+                        "elevator-to-complex-connectors text",
+                        "elevator-to-station-connectors text",
                         "transit-elevators",
+                        "mta-subway-complexes-accessible",
                         "mta-subway-stations-accessible",
-                        "elevator-to-station-connectors"
+                        "elevator-to-complex-connectors",
+                        "elevator-to-station-connectors copy"
                     ]
                 }
             ],
@@ -175,6 +181,11 @@
                     "ferry-aerialway-label": {"layout": {"visibility": "none"}},
                     "road-rail": {"layout": {"visibility": "none"}},
                     "bridge-rail-tracks": {"layout": {"visibility": "none"}}
+                },
+                "buildings": {
+                    "building-extrusion": {
+                        "paint": {"fill-extrusion-vertical-scale": 1}
+                    }
                 }
             },
             "components": {
@@ -250,12 +261,12 @@
                     "colorBase": "hsl(220, 0%, 100%)",
                     "houseNumbers": false,
                     "underground": true,
-                    "buildingStyle": "2D",
-                    "buildingExtrusionOpacity": 0.7
+                    "buildingStyle": "3D",
+                    "buildingExtrusionOpacity": 0.2
                 }
             }
         },
-        "mapbox:thumb": "data:image/webp;base64,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",
+        "mapbox:thumb": "data:image/webp;base64,UklGRs4RAABXRUJQVlA4WAoAAAAgAAAAOwAAOwAASUNDUMgBAAAAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADZWUDhM3w8AAC87wA4ADXUhov8BX9o2KZJk29YvomhmTkFjTGbmFsx7htbMRs3r2YPRgMnMPBMqwt2NFETkGY9XIyjZtq1GcvYHKaRQppnttls0AQ/Ak65JGLvuMmRVCD/QkSTJkSRpoqqePYwhedz9/y/7gAP8gu4CmRGhwG0bZbxjhi9sNBjDU/F8YWQj8saViYLgUO4YI4EvjCSMTACAFQEYQsPILCQ6RCdBTBiOwDeAADCUgKJM+x2n4VkIdDwVh5FRJozEJ5gnmBsR0CicOaBsCA2mIwADODKKAQwlQiRAoiHMKJFCAAwEZqaWdE5DmPhMwjFROXLFMwASmcJChgk0dogDihIBYENRGGAAQFQqgYxyIWMIIOC4kagsOBghgeMO82YQiWfuGI4zYIUBABxZEHaYhQEj0GE8lQ7DJO5EADAMQSAS33BmYMFDEGAlwIAEmDmy/v5h/f9lgA5wODIrJwjQAAB4zmzsKMxEwKh4jJkMECoKAEBQgAI+UDKNR9OI/+UEKHgGGuVa//jq/S999xdhLDArncZI587GCQAeRqDhKAwo4M5IBABCAYaiAArFeiqNQsjtPZShpyIQTOUMUyBe2EjQfv/oV3/Ep90gRoAj4akoEwsJQ2CAo6IEBAUAz4DRGHj0QekAi8VCoVBKjRMhljiM4biWVLdYwzWVTuE7ECsbO0Ikpvr0xbcrjkDihjFwRwlUCOFOJQMiRMNDGITDIBYEBlgAQKeMI1zzfn+4luN29iDmlnLL5yS21KguAhiMoGReUCrxnBTrQqACPphhDhCFCgCFAtFQhM5IoqEIHkapZBiFOo0FqfbctnnruUks8ZzLvGM9OBbCpKU6YeftYSoJYYfJOBJWg+ZN6RxRKsaAEFgxHJ6VznfYABMF4Z2ByoGKUXG8UmGAa8kt29hdrINCLaTFsJ3c08dKLU3Zcg9ljtyWx/Q4PJ2diEIU8nEjN2WEUTqd7+DofLDgOSGAZxhPRGm8YKw84TFuGBcUQyCU630PPV+vuQ+9t0jb5Xv65UGhLNMW16O1JS3neR+OmzESAFQqEa1ZUhUIB6OcAQJgHBniiOHY6ACG2GAYR0OoTIzcYBwdy81y20P5oXMO+1Vk6Ynb0KFzjem8ayhWY43lOrTXl2clQigKIfB2uWkIROaOA1SEA0ziwAFDuOIBFUIZUCrCnSsgMgEmCjvG7f5YealRAk0tvXlpDZ/qcTv3oXUEbnF/esvrWQAZT8dBjBg9FAfRIBigKF8YODBCMOBMYYD5yoBHAIGVEwsjwOgoxn3eNxlj1Z4I5XDdh57z/cGxruM4rWeJqEbLDfiyFGKHKQwEsF5+2gSGMRwAFC4QFcIBAOEYUWY2XvFsMMwzK44RpXCFQShSI4VyrlHQ1OI5W26Smytz7LkMTUuEFst9n9YDGMBoMITvELSgoACPQ4kYdyYiAfCttcxMnCkAYqSzsPIK6HhGlPfnN2mZH8cUSh/7mlsZh+Zq592H9rbfNRZtsdwGWvqWBjCIToSx7Qr3TfEIgpBpACA0LgBCIAwAwMJKhgHChuOFwI1AINBvYwr1GgtP29ZzKAvb2esq03aP9a3FPG3DemjPZd6f/v80AzxAUFZ+oCXOeaMjCMrERqLCCCMAGO+c8QDQuAMijs7KxkhmhckAjmWbdvBWFnq61O7Tltdjr5Fevz6mrQ89nHcry+btaTvRJQyGME4Qtl1Y9gwAFdAxlE5iZeFA4IMJT2Fn5AYAhTOKw5hgiMpOYF4eJLkn9+yhpOBwrXbbxrKuqX5nO8PQca05eM/9R18+FyqGoTCGL2E1PAAYDaEDPAkmslFweDIgceQbCg6wscHceCZhDLxwY48llbWPI9SQUHpqJMe6emofY+9ynzY5py/rOG0/tB7MgGI0KgOgnTPetwVHRBnIrHQmGMfEjYDCbAQ8QsdjAGPFcEQMBRgUfPP0birr9DgsFm7ZUy2plWkbzhlCed7Oeey5RVdarMf1MBQGJIiGvxbRqRDEmYFKxyBAQvgBmBXDqBAr35/6x7l2hvjKd1BmHP9zf6RUl9zex34+bsutjGM4rp7bp9vQFu9jP+wXWsrz29PrZyHgAIJh2D7/7NX73/j+75VII2J0lJGZnYjHMIzEigGM7w/fgxuBO68A0NiGtuV2IpdF3X3o87wdj3vNveU287zf660v18Jt5HO6lp0d4AgEdj79+v8PfPnzigMEKpVOJUIwHWGjcMETqQDDwwgAAOMDB2NsGOv9YYqrgS5d85vlUXO/3jbJ7fA40nporq/r8enp3bHn2/+fgAcYRoPxHN95O3zxnUAwQqSjEIpRMJRAYWeEERwARDYAAMSNH0EBK7fbyD2HANc89LxPWxlHuFa5dVfjY962WH/w5XNRno8rl7COAKBDeBYO+x2GZqkqFSFTyRA7BBEZaWw4BmaUyggBAowCQMcBmM+soVhqxxpU1tZSlW3o1EIj6skt69Abbt6Xlj/yePUaDQcDGgVH7oQtVcaTIXYcTIMBgQQx4HlhpTBgVCKAyKwA4DB2HJWx58t27NNuLS78z31vucVrWiiuhAYayrRdX4f+3fW0GoJHAEYFGPWccew7G8QbjgGwIYw8dhSRadx4w5NZmSAMh+Nx/dyJKIk1FH/eOTdJ1efm6tJQEEACd80eq/V8W18fXYfwBDoR4diTtnsIDGJBMRTAdHYGEowiDBQyO4GBI4kd4xGtMI2KUgmpGmPLL8vDxZqPKbKFIj01FlxreX73Ky+fW6cYRmdj5zswtN3hvhkKOGIABXgClZkJwtimna851PVMxzAcOw0P4WAEpgOICeLUM9QouffcwjXT2IEEeyjackn1pazpuO84PIICEpXcQo+1kRA8SiMBBAcwiIBBHPezDON92m/n/UMtAjsOT6JjMJEN4FCIE4yrAWoqrgVAh4CVkFver/8Zx4+/fjVmzniMncYEWFoeclPunOjsRDrMQmak4wHGBojXjf203P912p/284ynsOLwKA5GAMyOQ3JLZTXycb/+83GZ923ajJ5q3O//vo23/XZldp5hFCPTUVzLlioYUQBjAKIRMBoBh7HgMGYaw3mBNj+I03qcg53IjPCttZUBoawaa801nRNM24ngfn+s827BpcYPv3kVBI+hLEQCjnsol8AwVjI7YEYZARXPCKFUwErBAAZvx1MofXn7l2Gj8/qpYGTGcDAKuGAQ1CKekwEGuuPj6KnOy+P1cUiLDzwHhA2mIxgsZ8BEotDxJEDFM9HwGMKJdxyJjQ4A2rOtr6dYj/N+z/1Y5pmdP65vPx3WH8XrBOHpAKA8DjBf4/Ly3HmnccZjeFY8jrnGOZQO4QABB2MIBBM4QCgdBxMY2ZkRDtyJoMXzftbcb9O+Hlfv+VvxGuQCIIxHbxyNiGIkDOGEsuFxPFHhEj5VjwcQQgMwnYjwuGUJowOIzsAzM4ryRGeDyhz28x7r53H8ZkptwRQKGbDS8QiZO52Bx7DcKDARw63X/ufHC0pnJxDx7CSAsDHAEMoOEznjGagYI595wROoFBxoMe3nOo5B8XXF6/57XrpjMGEQCnEARAqeCYUhhE7nv3/89/mzbyvAc0RYOONQFE/C6HQ8xsoJRhFAZmFkolOIRCoE4P18QlJdpsePpPanfQgbFUIJjHgUcMYQjlSIQvn78//+8M/l068LGUJxnFghdjw7SuYrb+w0DnQc4BsarxwAHcVT8ewkMkcMqZH3439z/6PnEVN1NSqNDADMQmeC8WwQHseU6099+ydyc3gMoBAVhhAyhc6A4RA2MsKdAnjnRIIpLHgyinDCUUi848tMj6fddkk17ye1WPiTtv1AyF8Jd4OJGCcCnpX4OMfboFwXmI6HqDgYA2Q8BwRjI3CmcCfgGfCcaCjfwBzYqTgOMMqd/6RieAYc93H7+d/K8N41gJ6eC4HOSmXsScdaW0z3DaEYhlAIRBLERCNCKA6PoVQmMobheAGAjUpk5cQzoMIozAs/hvLEY9VN713b2wOhTPu50RlwNdq1SheOtU39hGNDcNzwTAgMYAgACEKZmfkBAAHAJ34QR2WGCDzO6IxQAI1GIkIYlYCb0h+XT21e3vk3L7edhbnGOPbGv/X6vT5+L9wGoShnlMZEgQk4CEAYwpXEygBjbDzBgMQzHwhPEI9zTok4mAvAMAbA2pPO5XpSzzLt9YNvhuPydRUaf6V9r3ZgeAyhARLESGcnUEkwysqJAgM6C0dOCIQx8Ebh8YoTPvHMjcQrHkKQsvoVQj3maRo7mTsXlnHsqbXjWlr8WriNv+bEGx6BYIyOo5MgIgQwhESksBMQjArzBUKYISYI5pkrlSsTDYVo57zXTEOL8ygEZjofnDDG837nMG4IjvtJPWcYxfAEQIdQCgce8QsRImIsFF7pOCpP3IgMCBnPwM4O8MycSJRj7sFpHgsrGxONZ8Djmk374bnPD24x7udGI2EoTKCwcgY8UkY2HB6mcKBTAB8IB444DMXoXAEZhgnUazHD2I0RIZN4xjAMx0Jg48JpffVUb8u7WGY6rhXCAQgGdBKAMJTEkUrDOMBkvvCBAO58cIFxKJ4LdzIrb1AnJfI8FHDliSMFAigdhTEOAIVqnB7Plvt9eTec13bNKxUHsTEzkWCUjR3wBNgRBghHxXh0pBBhQOKJmQlHfZx5Ho/X8syBjFIwAg0i4nncrL7M4+O5jxuWd4ft4BYF4Y3KI4Ox8IYBBoiG4DnxDYHECcFQOg5Hx3FAriU1HiPp2VEIwlMRAkoAKN96AuXzAuu0a6zH7dCeG44BjyKsJCIGoQAPmBCUwAHgcLxzxIgwC5V6zmHZOwZBDMwYhgKIQgQEDAMAgwAAjPsJ7vd3rsdhOxTGEDqVEwAIDKEQkZHMAQaAlcIXRjzGD3G/VsoVMEql0jEWMkYgMrFzAigNx2MHPYzj+rRYr8s7V+Z+XK84OgOdQsRhPJrveeaxkheAsTFyBl06Zn7aFcIQgBEIdAIdBjgIg2A6DkdlJRAgAKAW58fzFitNex16vOYz70RAJcBsODKgoMyccVwxDCNzgSmPMy97BTg8B4BgEIYBKp0DhkFEhE5CKRQcEQ8AndbiZT/3cVyXd359XdhpJBrEiGEQhHJhQ3lmpkGMEFKWltAAgJWEBzge8SCgfKsCR6IDBoRCIeMgAk907LxPj+c1t/9K7QfqOrAhRASPoiiJRiDBnFE+4SDqPvPTLoCND34QgSEIAhigMgIEQnAYhhEQiJEOAwiCWQnsHMsCn3M3+YNlCRsOhQHACMy8c8HBvJBo281DVYDyzgtEQ0kwDCMQDodiVDxA2UkYDtAxhABhCB3mgzeuHMsMsV6Xd6GucT8bOx6mwgwc6cwIJxLopAbnJoAbEQ8QBgzh8U8yKgwRMRSDeHxPIoLw2H0jKxOAybgWp8ezpXZd3g3nFa9ZUAAA",
         "mapbox:autocomposite": true,
         "mapbox:sdk-support": {
             "js": "3.8.0",
@@ -364,7 +375,8 @@
     "zoom": 18.098318351397968,
     "bearing": 0,
     "pitch": 0,
-    "terrain": {"source": "mapbox-dem"},
+    "lights": [],
+    "terrain": {"source": "mapbox-dem", "exaggeration": 0},
     "fog": {
         "range": [-1, 10],
         "color": "hsl(0, 0%, 100%)",
@@ -380,11 +392,11 @@
             "tileSize": 512
         },
         "composite": {
-            "url": "mapbox://mapbox.mapbox-streets-v8,mapbox.mapbox-terrain-v2,joelaaron.test-sf,joelaaron.clndm6gme0tz02bp74z629y3l-6q3qv,joelaaron.cly1qfom57x3y1noc7moxiiu4-1x1n4,joelaaron.cm5kh33pk0nno1umnguq9iybf-0yey6,joelaaron.cm5onyuyh16nz1pqi1akbp4ky-28sqt,joelaaron.cm62nbi3i1qk61ntmujfucl6p-7oxnc",
+            "url": "mapbox://mapbox.mapbox-streets-v8,mapbox.mapbox-terrain-v2,joelaaron.test-sf,joelaaron.clndm6gme0tz02bp74z629y3l-6q3qv,joelaaron.cly1qfom57x3y1noc7moxiiu4-1x1n4,joelaaron.cm5kh33pk0nno1umnguq9iybf-0yey6,joelaaron.cm5onyuyh16nz1pqi1akbp4ky-28sqt,joelaaron.cm62nbi3i1qk61ntmujfucl6p-7oxnc,joelaaron.cm5mtltj91zo81oojfo3y4xel-9l5s2,joelaaron.cmcx0lv3x13nv1nqm02dxhdoc-7m7dk,joelaaron.cmd2jh6pr6vr61opdkkkjaafp-1jiyt,joelaaron.cmctc0r3l1f2j1pqge4ykole4-4z4rq",
             "type": "vector"
         }
     },
-    "sprite": "mapbox://sprites/joelaaron/cm5sr6vct00a601s0eurkg40h/4k1xksky5kxfmtshut7wp6anx",
+    "sprite": "mapbox://sprites/joelaaron/cm5sr6vct00a601s0eurkg40h/7nh88jjk8j9djvl6zgnuivn3b",
     "glyphs": "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
     "projection": {"name": "globe"},
     "layers": [
@@ -751,36 +763,6 @@
                     11,
                     1
                 ]
-            }
-        },
-        {
-            "id": "building",
-            "type": "fill",
-            "metadata": {
-                "mapbox:featureComponent": "buildings",
-                "mapbox:group": "Buildings, built"
-            },
-            "source": "composite",
-            "source-layer": "building",
-            "minzoom": 15,
-            "filter": [
-                "all",
-                ["!=", ["get", "type"], "building:part"],
-                ["==", ["get", "underground"], "false"]
-            ],
-            "layout": {},
-            "paint": {
-                "fill-color": "hsl(220, 0%, 93%)",
-                "fill-opacity": [
-                    "interpolate",
-                    ["linear"],
-                    ["zoom"],
-                    15,
-                    0,
-                    16,
-                    1
-                ],
-                "fill-outline-color": "hsla(220, 0%, 80%, 0.8)"
             }
         },
         {
@@ -2127,6 +2109,33 @@
                     0,
                     14,
                     1
+                ]
+            }
+        },
+        {
+            "id": "building-extrusion",
+            "type": "fill-extrusion",
+            "metadata": {
+                "mapbox:featureComponent": "buildings",
+                "mapbox:group": "Buildings, extruded"
+            },
+            "source": "composite",
+            "source-layer": "building",
+            "minzoom": 15,
+            "filter": ["==", ["get", "extrude"], "true"],
+            "layout": {},
+            "paint": {
+                "fill-extrusion-color": "hsl(220, 0%, 93%)",
+                "fill-extrusion-height": ["get", "height"],
+                "fill-extrusion-base": ["get", "min_height"],
+                "fill-extrusion-opacity": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    15,
+                    0,
+                    16,
+                    0.2
                 ]
             }
         },
@@ -3754,7 +3763,7 @@
                     14,
                     3
                 ],
-                "line-opacity": 0.8
+                "line-opacity": ["step", ["zoom"], 1, 16, 0.3]
             }
         },
         {
@@ -3811,7 +3820,7 @@
                     14,
                     3
                 ],
-                "line-opacity": 0.8
+                "line-opacity": ["step", ["zoom"], 1, 16, 0.3]
             }
         },
         {
@@ -3868,7 +3877,7 @@
                     14,
                     3
                 ],
-                "line-opacity": 0.8
+                "line-opacity": ["step", ["zoom"], 1, 16, 0.3]
             }
         },
         {
@@ -3925,7 +3934,7 @@
                     14,
                     3
                 ],
-                "line-opacity": 0.8
+                "line-opacity": ["step", ["zoom"], 1, 16, 0.3]
             }
         },
         {
@@ -3982,7 +3991,7 @@
                     14,
                     3
                 ],
-                "line-opacity": 0.8
+                "line-opacity": ["step", ["zoom"], 1, 16, 0.3]
             }
         },
         {
@@ -4045,7 +4054,7 @@
                     14,
                     3
                 ],
-                "line-opacity": 0.8
+                "line-opacity": ["step", ["zoom"], 1, 16, 0.3]
             }
         },
         {
@@ -4108,7 +4117,7 @@
                     14,
                     3
                 ],
-                "line-opacity": 0.8
+                "line-opacity": ["step", ["zoom"], 1, 16, 0.3]
             }
         },
         {
@@ -4182,7 +4191,7 @@
                     14,
                     3
                 ],
-                "line-opacity": 0.8
+                "line-opacity": ["step", ["zoom"], 1, 16, 0.3]
             }
         },
         {
@@ -4245,7 +4254,7 @@
                     14,
                     3
                 ],
-                "line-opacity": 0.8
+                "line-opacity": ["step", ["zoom"], 1, 16, 0.3]
             }
         },
         {
@@ -4308,7 +4317,37 @@
                     14,
                     3
                 ],
-                "line-opacity": 0.8
+                "line-opacity": ["step", ["zoom"], 1, 16, 0.3]
+            }
+        },
+        {
+            "id": "mta-sir-lines",
+            "type": "line",
+            "metadata": {"mapbox:group": "94d71b5970cc6ab6d2672e0b1c28dcbd"},
+            "source": "composite",
+            "source-layer": "mta_sir_lines",
+            "filter": ["match", ["get", "name"], ["SIR"], true, false],
+            "layout": {"line-join": "round", "line-cap": "round"},
+            "paint": {
+                "line-color": "#0078c6",
+                "line-width": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    11,
+                    2,
+                    14,
+                    3
+                ],
+                "line-opacity": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    0,
+                    0.8,
+                    16,
+                    0.3
+                ]
             }
         },
         {
@@ -4416,7 +4455,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -4526,7 +4565,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -4636,7 +4675,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -4745,7 +4784,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -4854,7 +4893,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -4963,7 +5002,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -5073,7 +5112,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -5183,7 +5222,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -5292,7 +5331,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -5401,7 +5440,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -5510,7 +5549,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -5619,7 +5658,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -5728,7 +5767,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -5838,7 +5877,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -5948,7 +5987,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -6058,7 +6097,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -6167,7 +6206,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -6276,7 +6315,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -6385,7 +6424,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -6494,7 +6533,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -6603,7 +6642,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -6713,7 +6752,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -6823,7 +6862,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -6933,7 +6972,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -7042,7 +7081,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -7151,7 +7190,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -7260,7 +7299,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -7369,7 +7408,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -7478,7 +7517,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -7587,7 +7626,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -7697,7 +7736,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -7807,7 +7846,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -7917,7 +7956,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -8026,7 +8065,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -8135,7 +8174,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -8244,7 +8283,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -8353,7 +8392,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -8462,7 +8501,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -8571,7 +8610,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -8680,7 +8719,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -8789,7 +8828,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -8899,7 +8938,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -9009,7 +9048,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -9119,7 +9158,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -9228,7 +9267,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -9337,7 +9376,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -9446,7 +9485,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -9555,7 +9594,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -9664,7 +9703,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -9773,7 +9812,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -9882,7 +9921,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -9991,7 +10030,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -10100,7 +10139,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -10209,7 +10248,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -10318,7 +10357,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -10427,7 +10466,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -10536,7 +10575,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -10645,7 +10684,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -10754,7 +10793,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -10863,7 +10902,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -10972,7 +11011,7 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
             }
         },
@@ -11081,8 +11120,37 @@
                 ],
                 "text-halo-width": 1,
                 "text-color": "hsl(0, 0%, 100%)",
-                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8],
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6],
                 "icon-translate": [0, 0]
+            }
+        },
+        {
+            "id": "mta-sir-lines-label",
+            "type": "symbol",
+            "metadata": {"mapbox:group": "3b4fd09e7643794a668fc8911626e3ca"},
+            "source": "composite",
+            "source-layer": "mta_sir_lines",
+            "filter": ["match", ["get", "name"], ["SIR"], true, false],
+            "layout": {
+                "icon-image": "sir",
+                "symbol-placement": "line",
+                "icon-ignore-placement": true,
+                "icon-padding": 0,
+                "icon-size": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    0,
+                    0,
+                    11,
+                    0.5,
+                    17,
+                    0.9
+                ],
+                "icon-size-scale-range": [0.8, 2]
+            },
+            "paint": {
+                "icon-opacity": ["step", ["zoom"], 0, 12, 0, 13, 0.8, 16, 0.6]
             }
         },
         {
@@ -11121,7 +11189,8 @@
                 "icon-offset": [0, 0],
                 "icon-allow-overlap": true,
                 "icon-padding": 0,
-                "icon-ignore-placement": true
+                "icon-ignore-placement": true,
+                "visibility": "none"
             },
             "paint": {"icon-translate": [0, 0]}
         },
@@ -11163,7 +11232,8 @@
                 "icon-offset": [0, 0],
                 "icon-allow-overlap": true,
                 "icon-padding": 0,
-                "icon-ignore-placement": true
+                "icon-ignore-placement": true,
+                "visibility": "none"
             },
             "paint": {"icon-translate": [0, 0]}
         },
@@ -11205,7 +11275,8 @@
                 "icon-offset": [0, 10],
                 "icon-allow-overlap": true,
                 "icon-padding": 0,
-                "icon-ignore-placement": true
+                "icon-ignore-placement": true,
+                "visibility": "none"
             },
             "paint": {"icon-translate": [0, 0]}
         },
@@ -11236,7 +11307,8 @@
                 "icon-offset": [0, -10],
                 "icon-allow-overlap": true,
                 "icon-padding": 0,
-                "icon-ignore-placement": true
+                "icon-ignore-placement": true,
+                "visibility": "none"
             },
             "paint": {"icon-translate": [0, 0]}
         },
@@ -11247,7 +11319,22 @@
             "source-layer": "mta_subway_stations_all",
             "filter": ["match", ["get", "ada"], ["0"], true, false],
             "layout": {
-                "text-field": ["to-string", ["get", "stop_name"]],
+                "text-field": [
+                    "step",
+                    ["zoom"],
+                    ["to-string", ["get", "stop_name"]],
+                    16,
+                    [
+                        "to-string",
+                        [
+                            "concat",
+                            ["get", "stop_name"],
+                            " (",
+                            ["get", "daytime_routes"],
+                            ")"
+                        ]
+                    ]
+                ],
                 "icon-image": "dot-11",
                 "icon-size": [
                     "interpolate",
@@ -11266,13 +11353,15 @@
                 ],
                 "text-size": 8,
                 "text-anchor": "left",
-                "text-radial-offset": 1
+                "text-radial-offset": 1,
+                "text-max-width": 8
             },
             "paint": {
-                "text-opacity": ["step", ["zoom"], 0, 13, 0, 14, 1],
+                "text-opacity": ["step", ["zoom"], 0, 13, 0, 14, 1, 16, 0.3],
                 "text-halo-color": "#ffffff",
                 "text-halo-width": 50,
-                "text-halo-blur": 50
+                "text-halo-blur": 50,
+                "icon-opacity": ["step", ["zoom"], 1, 16, 0.3]
             }
         },
         {
@@ -11308,7 +11397,7 @@
                 "text-halo-color": "#ffffff",
                 "text-halo-width": 50,
                 "text-halo-blur": 50,
-                "icon-opacity": ["step", ["zoom"], 0, 13, 0, 14, 0.56]
+                "icon-opacity": ["step", ["zoom"], 0, 13, 0, 14, 0.56, 16, 0.3]
             }
         },
         {
@@ -11327,7 +11416,8 @@
                 ],
                 "icon-size": 0.6,
                 "icon-anchor": "bottom",
-                "icon-allow-overlap": true
+                "icon-allow-overlap": true,
+                "visibility": "none"
             },
             "paint": {
                 "icon-opacity": ["step", ["zoom"], 0, 15, 0, 16, 1],
@@ -11350,7 +11440,8 @@
                 ],
                 "icon-size": 0.4,
                 "icon-anchor": "bottom-left",
-                "icon-allow-overlap": true
+                "icon-allow-overlap": true,
+                "visibility": "none"
             },
             "paint": {
                 "icon-opacity": ["step", ["zoom"], 0, 17, 0, 18, 1],
@@ -11373,7 +11464,8 @@
                 ],
                 "icon-size": 0.4,
                 "icon-anchor": "bottom-left",
-                "icon-allow-overlap": true
+                "icon-allow-overlap": true,
+                "visibility": "none"
             },
             "paint": {
                 "icon-opacity": ["step", ["zoom"], 0, 17, 0, 18, 1],
@@ -11395,13 +11487,127 @@
                     ""
                 ],
                 "icon-size": 0.4,
-                "icon-anchor": "bottom-left",
                 "icon-offset": [0, 0],
-                "icon-allow-overlap": true
+                "icon-allow-overlap": true,
+                "icon-anchor": "bottom-left",
+                "visibility": "none"
             },
             "paint": {
                 "icon-opacity": ["step", ["zoom"], 0, 17, 0, 18, 1],
-                "icon-translate": [20, -20]
+                "icon-translate": [0, 0]
+            }
+        },
+        {
+            "id": "elevator-to-complex-connectors text",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "elevator_to_complex_line_connect",
+            "layout": {
+                "text-optional": true,
+                "text-size": 8,
+                "icon-offset": [
+                    "match",
+                    ["get", "side"],
+                    ["right"],
+                    ["literal", [0, 0]],
+                    ["left"],
+                    ["literal", [0, 0]],
+                    ["literal", [10, -10]]
+                ],
+                "icon-image": [
+                    "case",
+                    [
+                        "any",
+                        ["==", ["get", "ada"], 0],
+                        ["==", ["get", "ada"], "0"]
+                    ],
+                    "",
+                    [
+                        "match",
+                        ["get", "side"],
+                        ["right"],
+                        "AccessibleRight",
+                        "AccessibleLeft"
+                    ]
+                ],
+                "symbol-spacing": 300,
+                "text-font": ["Montserrat Bold", "Arial Unicode MS Regular"],
+                "icon-rotate": ["match", ["get", "side"], ["right"], 185, -10],
+                "symbol-placement": "line-center",
+                "text-padding": 0,
+                "text-offset": [0, -0.7],
+                "icon-size": 1.2,
+                "text-letter-spacing": 0.5,
+                "icon-padding": 0
+            },
+            "paint": {
+                "text-translate": [0, 0],
+                "text-opacity": ["step", ["zoom"], 0, 15, 0, 16, 1],
+                "icon-opacity": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    0,
+                    0,
+                    14,
+                    0,
+                    15,
+                    1
+                ],
+                "text-halo-color": "#ffffff"
+            }
+        },
+        {
+            "id": "elevator-to-station-connectors text",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "elevator_to_station_connectors",
+            "layout": {
+                "text-optional": true,
+                "text-size": 8,
+                "icon-offset": [
+                    "match",
+                    ["get", "side"],
+                    ["right"],
+                    ["literal", [0, 0]],
+                    ["left"],
+                    ["literal", [0, 0]],
+                    ["literal", [10, -10]]
+                ],
+                "icon-image": [
+                    "match",
+                    ["get", "side"],
+                    ["right"],
+                    "AccessibleRight",
+                    "AccessibleLeft"
+                ],
+                "symbol-spacing": 300,
+                "text-font": ["Montserrat Bold", "Arial Unicode MS Regular"],
+                "icon-rotate": ["match", ["get", "side"], ["right"], 185, -10],
+                "symbol-placement": "line-center",
+                "text-padding": 0,
+                "visibility": "none",
+                "text-offset": [0, -0.7],
+                "icon-size": 1.5,
+                "text-letter-spacing": 0.5,
+                "icon-padding": 0,
+                "icon-ignore-placement": true
+            },
+            "paint": {
+                "text-translate": [0, 0],
+                "text-opacity": ["step", ["zoom"], 0, 15, 0, 16, 1],
+                "icon-opacity": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    0,
+                    0,
+                    16,
+                    0,
+                    17,
+                    1
+                ],
+                "text-halo-color": "#ffffff"
             }
         },
         {
@@ -11409,7 +11615,8 @@
             "type": "symbol",
             "metadata": {"mapbox:featureStateHandler": {}},
             "source": "composite",
-            "source-layer": "nyc_transit_elevators",
+            "source-layer": "nyc_transit_elevators_dev",
+            "filter": ["match", ["get", "isStreet"], ["true"], true, false],
             "layout": {
                 "text-optional": true,
                 "text-size": [
@@ -11421,15 +11628,20 @@
                     22,
                     10
                 ],
+                "text-radial-offset": 1.5,
                 "icon-size-scale-range": [0.7, 2],
-                "text-allow-overlap": ["step", ["zoom"], false, 21, true],
-                "symbol-sort-key": 30,
+                "symbol-sort-key": 2,
                 "symbol-z-order": "source",
+                "text-variable-anchor": ["top", "right", "left"],
                 "icon-offset": [0, 0],
                 "icon-image": [
                     "case",
-                    ["==", ["get", "ada"], "0"],
-                    "Accessible=False",
+                    [
+                        "any",
+                        ["==", ["get", "ada"], 0],
+                        ["==", ["get", "ada"], "0"]
+                    ],
+                    "elevator-not-accessible",
                     [
                         "all",
                         ["==", ["get", "isStreet"], "true"],
@@ -11440,6 +11652,7 @@
                     "Elevator",
                     "elevatorInverted"
                 ],
+                "symbol-avoid-edges": true,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
@@ -11475,7 +11688,7 @@
                         0.7,
                         0.5
                     ],
-                    15,
+                    14,
                     [
                         "case",
                         [
@@ -11488,7 +11701,7 @@
                         0.9,
                         0.6
                     ],
-                    19,
+                    17,
                     [
                         "case",
                         [
@@ -11504,64 +11717,50 @@
                 ],
                 "text-anchor": "left",
                 "text-field": [
-                    "step",
-                    ["zoom"],
+                    "case",
                     [
-                        "case",
-                        [
-                            "all",
-                            ["==", ["get", "isStreet"], "true"],
-                            ["==", ["get", "elevatorno"], "ramp"]
-                        ],
-                        [
-                            "to-string",
-                            ["concat", "Ramp (", ["get", "title"], ")"]
-                        ],
+                        "all",
                         ["==", ["get", "isStreet"], "true"],
-                        [
-                            "to-string",
-                            [
-                                "concat",
-                                "Street Elevator (",
-                                ["get", "title"],
-                                ")"
-                            ]
-                        ],
-                        ""
+                        ["==", ["get", "elevatorno"], "ramp"],
+                        ["has", "directionLabel"],
+                        ["!=", ["get", "directionLabel"], ""]
                     ],
-                    16,
+                    ["concat", "Ramp (", ["get", "directionLabel"], ")"],
                     [
-                        "case",
-                        [
-                            "all",
-                            ["==", ["get", "isStreet"], "true"],
-                            ["==", ["get", "elevatorno"], "ramp"]
-                        ],
-                        [
-                            "to-string",
-                            ["concat", "Ramp (", ["get", "title"], ")"]
-                        ],
+                        "all",
                         ["==", ["get", "isStreet"], "true"],
-                        [
-                            "to-string",
-                            [
-                                "concat",
-                                "Street Elevator (",
-                                ["get", "title"],
-                                ")"
-                            ]
-                        ],
-                        [
-                            "to-string",
-                            [
-                                "concat",
-                                "Platform Elevator (",
-                                ["get", "directionLabel"],
-                                ["get", "linesServed"],
-                                ")"
-                            ]
-                        ]
+                        ["==", ["get", "elevatorno"], "ramp"]
+                    ],
+                    "Ramp",
+                    [
+                        "all",
+                        ["==", ["get", "isStreet"], "true"],
+                        ["has", "directionLabel"],
+                        ["!=", ["get", "directionLabel"], ""]
+                    ],
+                    [
+                        "concat",
+                        "Street Elevator (",
+                        ["get", "directionLabel"],
+                        ")"
+                    ],
+                    ["==", ["get", "isStreet"], "true"],
+                    "Street Elevator",
+                    [
+                        "concat",
+                        "Elevator to ",
+                        ["get", "linesServed"],
+                        " trains (",
+                        ["get", "directionLabel"],
+                        ")"
                     ]
+                ],
+                "text-max-width": [
+                    "match",
+                    ["get", "isStreet"],
+                    ["true"],
+                    10,
+                    15
                 ]
             },
             "paint": {
@@ -11571,17 +11770,75 @@
                     "step",
                     ["zoom"],
                     0,
-                    17,
+                    15,
                     ["match", ["get", "isStreet"], ["true"], 1, 0],
-                    18,
+                    16,
                     1
                 ],
-                "text-translate": [20, 0],
+                "text-translate": [0, 0],
                 "text-halo-color": "#ffffff",
                 "text-halo-width": 50,
-                "icon-opacity": ["step", ["zoom"], 0, 16, 0, 17, 1],
+                "icon-opacity": ["step", ["zoom"], 0, 14, 0, 15, 1],
                 "text-halo-blur": 59,
                 "icon-translate": [0, 0]
+            }
+        },
+        {
+            "id": "mta-subway-complexes-accessible",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "mta_complexes",
+            "filter": ["match", ["get", "ada"], ["2", "1"], true, false],
+            "layout": {
+                "text-optional": true,
+                "text-size": 10,
+                "text-radial-offset": 1,
+                "text-allow-overlap": true,
+                "text-variable-anchor": ["bottom", "right", "top", "left"],
+                "icon-image": [
+                    "step",
+                    ["zoom"],
+                    "accessibleStation",
+                    16,
+                    "border-dot-13-blue"
+                ],
+                "text-font": [
+                    "Montserrat SemiBold",
+                    "Arial Unicode MS Regular"
+                ],
+                "icon-allow-overlap": true,
+                "visibility": "none",
+                "icon-size": [
+                    "step",
+                    ["zoom"],
+                    0.5,
+                    10,
+                    0.5,
+                    11,
+                    0.6,
+                    12,
+                    0.6,
+                    15,
+                    0.7,
+                    16,
+                    1.5
+                ],
+                "text-anchor": ["step", ["zoom"], "left", 17, "top"],
+                "text-field": ["to-string", ["get", "name"]]
+            },
+            "paint": {
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 50,
+                "text-halo-blur": 50,
+                "text-translate": [
+                    "step",
+                    ["zoom"],
+                    ["literal", [0, 0]],
+                    17,
+                    ["literal", [0, 5]]
+                ],
+                "text-opacity": ["step", ["zoom"], 0, 15, 1],
+                "icon-opacity": ["step", ["zoom"], 0, 16, 1]
             }
         },
         {
@@ -11592,53 +11849,83 @@
             "filter": ["match", ["get", "ada"], ["2", "1"], true, false],
             "layout": {
                 "text-optional": true,
-                "text-field": ["to-string", ["get", "stop_name"]],
+                "text-size": 10,
+                "text-radial-offset": 1,
                 "icon-image": [
                     "step",
                     ["zoom"],
                     "accessibleStation",
-                    17,
-                    "Accessible=True"
-                ],
-                "icon-size": [
-                    "interpolate",
-                    ["linear"],
-                    ["zoom"],
-                    10,
-                    0.4,
                     15,
-                    0.6,
-                    19,
-                    0.8
+                    "border-dot-13"
                 ],
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
                 ],
-                "text-size": 10,
-                "text-anchor": "left",
-                "text-radial-offset": 1
+                "icon-size": [
+                    "step",
+                    ["zoom"],
+                    0.5,
+                    10,
+                    0.5,
+                    11,
+                    0.6,
+                    12,
+                    0.6,
+                    15,
+                    0.7,
+                    16,
+                    1.5
+                ],
+                "text-anchor": ["step", ["zoom"], "left", 17, "top"],
+                "text-field": ["to-string", ["get", "stop_name"]]
             },
             "paint": {
                 "text-halo-color": "#ffffff",
                 "text-halo-width": 50,
-                "text-halo-blur": 50
+                "text-halo-blur": 50,
+                "text-translate": [
+                    "step",
+                    ["zoom"],
+                    ["literal", [0, 0]],
+                    17,
+                    ["literal", [0, 5]]
+                ],
+                "text-opacity": ["step", ["zoom"], 1, 15, 0],
+                "icon-opacity": ["step", ["zoom"], 1, 15, 0]
             }
         },
         {
-            "id": "elevator-to-station-connectors",
+            "id": "elevator-to-complex-connectors",
+            "type": "line",
+            "source": "composite",
+            "source-layer": "elevator_to_complex_line_connect",
+            "paint": {
+                "line-dasharray": [4, 8],
+                "line-color": [
+                    "case",
+                    ["match", ["get", "ada"], ["0"], false, true],
+                    "#878787",
+                    "rgba(200, 0, 0, 0.5)"
+                ],
+                "line-opacity": ["step", ["zoom"], 0, 14, 0, 15, 1]
+            }
+        },
+        {
+            "id": "elevator-to-station-connectors copy",
             "type": "line",
             "source": "composite",
             "source-layer": "elevator_to_station_connectors",
+            "layout": {"visibility": "none"},
             "paint": {
-                "line-dasharray": [4, 4],
-                "line-color": "#212121",
-                "line-opacity": ["step", ["zoom"], 0, 16, 0, 17, 1]
+                "line-dasharray": [4, 8],
+                "line-color": "#878787",
+                "line-opacity": ["step", ["zoom"], 0, 15, 0, 16, 1]
             }
         }
     ],
     "created": "2025-01-11T22:24:04.926Z",
-    "modified": "2025-04-24T19:56:15.276Z",
+    "modified": "2025-07-21T08:27:55.533Z",
     "id": "cm5sr6vct00a601s0eurkg40h",
     "owner": "joelaaron",
     "visibility": "private",

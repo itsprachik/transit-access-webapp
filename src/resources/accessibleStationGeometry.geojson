@@ -277,6 +277,19 @@
     {
       "type": "Feature",
       "properties": {
+        "station_id": "83"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.851576,
+          40.693879
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "station_id": "98"
       },
       "geometry": {
@@ -776,8 +789,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.835254,
-          40.672369
+          -73.835919,
+          40.672097
         ]
       }
     },
@@ -1051,6 +1064,19 @@
         "coordinates": [
           -73.891338,
           40.746644
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "269"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.906006,
+          40.752885
         ]
       }
     },
@@ -1441,6 +1467,19 @@
         "coordinates": [
           -73.828121,
           40.852462
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "363"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.842952,
+          40.839892
         ]
       }
     },

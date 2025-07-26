@@ -1,0 +1,76 @@
+station_id, line, complex_id, name
+
+11, N/Q/R/W, 611, Times Sq-42 St,
+12, N/Q/R/W, 607, 34 St Herald Sq,
+15, N/Q/R/W, 602, 14 St-Union Sq,
+21, R/W, 624, Cortlandt,
+25, R, 636, Jay St-MetroTech,
+27, D/N/R, 617, Atlantic Av-Barclays Ctr,
+
+40, B/Q, 617, Atlantic Av-Barclays Ctr,
+63, D, 615, 62 St,
+73, N, 615, New Utrecht Av,
+
+105, 4/5/6, 622, Brooklyn Bridge-City Hall/Chambers,
+106, 4/5, 628, Fulton St,
+
+112, M, 630, Myrtle-Wycoffs Avs,
+
+115, 618, L, 8 Av,
+116, L, 601, 6 Av,
+117, L, 602, 14 St-Union Sq,
+121, L, 629, Lorimer St,
+128, L, 630, Myrtle-Wycoffs Avs,
+
+139, S, 627, Franklin Av,
+
+148, A/C, 605, 168 St,
+161, A/C/B/D, 614, 59 St-Columbus Circle,
+163, A/C/E, 611, Times Sq-42 St/42 St-Port Authority Bus Terminal,
+166, A/C/E, 618, 14 St,
+171, E, 624, World Trade Center,
+172, A/C, 628, Fulton St,
+174, A/C/F, 636, Jay St-MetroTech,
+178, C, 627, Franklin Av,
+
+219, B/D, 604, 161 St-Yankee Stadium,
+227, B/D/F/M, 607, 34 St Herald Sq,
+229, F/M, 601, 14 St,
+230, B/D/F/M, 619, Broadway-Lafayette,
+267, E/F/M/R, 616, Jackson Hts-Roosevelt Av,
+274, E/M, 606, Court Sq-23 St,
+275, E/M, 612, Lexington Av/51-53 Sts,
+
+281, G, 606, Court Sq-23 St,
+285, G, 629, Metropolitan Av,
+
+302, 1, 605, 168 St,
+315, 1, 614, 59 St-Columbus Circle,
+317, 1/2/3, 611, Times Sq-42 St,
+322, 1/2/3, 601, 14 St,
+328, 1, 328, WTC Cortlandt,
+330, 1, 635, South Ferry,
+332, 2/3, 628, Fulton St,
+335, 2/3, 620, Borough Hall,
+
+338, 2/3/4/5, 617, Atlantic Av-Barclays Ctr,
+
+389, 4, 604, 161 St-Yankee Stadium,
+401, 6, 612, 51 St,
+402, 4/5/6, 610, Grand Central-42 St,
+406, 4/5/6, 602, 14 St-Union Sq,
+408, 6, 619, Bleecker St,
+410, 6, 623, Canal St,
+
+411, J/Z, 622, Brooklyn Bridge-City Hall/Chambers,
+412, J/Z, 628, Fulton St,
+
+415, 4/5, 620, Borough Hall,
+
+454, 7, 616, 74 St-Broadway,
+462, 7, 606, Court Sq-23 St,
+465, 7, 610, Grand Central-42 St,
+467, 7, 611, Times Sq-42 St,
+
+468, S, 611, Times Sq-42 St
+469, S, 610, Grand Central-42 St

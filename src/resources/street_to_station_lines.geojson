@@ -11,6 +11,28 @@
             40.692355
           ],
           [
+            -73.985942,
+            40.69218
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "25",
+        "elevator_no": "EL706",
+        "station_name": "Jay St-MetroTech",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.987472,
+            40.692355
+          ],
+          [
             -73.987342,
             40.692338
           ]
@@ -19,7 +41,30 @@
       "properties": {
         "station_id": "174",
         "elevator_no": "EL706",
-        "station_name": "Jay St-MetroTech"
+        "station_name": "Jay St-MetroTech",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.988163,
+            40.749622
+          ],
+          [
+            -73.98795,
+            40.749567
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "12",
+        "elevator_no": "EL213",
+        "station_name": "34 St-Herald Sq",
+        "side": "left"
       }
     },
     {
@@ -40,7 +85,8 @@
       "properties": {
         "station_id": "227",
         "elevator_no": "EL213",
-        "station_name": "34 St-Herald Sq"
+        "station_name": "34 St-Herald Sq",
+        "side": "left"
       }
     },
     {
@@ -61,7 +107,8 @@
       "properties": {
         "station_id": "198",
         "elevator_no": "EL490X",
-        "station_name": "Howard Beach-JFK Airport"
+        "station_name": "Howard Beach-JFK Airport",
+        "side": "left"
       }
     },
     {
@@ -82,7 +129,52 @@
       "properties": {
         "station_id": "198",
         "elevator_no": "EL491X",
-        "station_name": "Howard Beach-JFK Airport"
+        "station_name": "Howard Beach-JFK Airport",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.00921,
+            40.710482
+          ],
+          [
+            -74.007582,
+            40.710374
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "106",
+        "elevator_no": "EL717X",
+        "station_name": "Fulton St",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.009169,
+            40.71052
+          ],
+          [
+            -74.007582,
+            40.710374
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "106",
+        "elevator_no": "EL718X",
+        "station_name": "Fulton St",
+        "side": "left"
       }
     },
     {
@@ -103,7 +195,8 @@
       "properties": {
         "station_id": "382",
         "elevator_no": "EL186",
-        "station_name": "Fordham Rd"
+        "station_name": "Fordham Rd",
+        "side": "left"
       }
     },
     {
@@ -124,7 +217,8 @@
       "properties": {
         "station_id": "392",
         "elevator_no": "EL125",
-        "station_name": "125 St"
+        "station_name": "125 St",
+        "side": "right"
       }
     },
     {
@@ -145,7 +239,8 @@
       "properties": {
         "station_id": "404",
         "elevator_no": "EL279X",
-        "station_name": "28 St"
+        "station_name": "28 St",
+        "side": "left"
       }
     },
     {
@@ -166,7 +261,8 @@
       "properties": {
         "station_id": "373",
         "elevator_no": "EL515",
-        "station_name": "E 149 St"
+        "station_name": "E 149 St",
+        "side": "left"
       }
     },
     {
@@ -187,7 +283,8 @@
       "properties": {
         "station_id": "373",
         "elevator_no": "EL516",
-        "station_name": "E 149 St"
+        "station_name": "E 149 St",
+        "side": "left"
       }
     },
     {
@@ -208,7 +305,8 @@
       "properties": {
         "station_id": "444",
         "elevator_no": "EL198",
-        "station_name": "Gun Hill Rd-Dyre Ave"
+        "station_name": "Gun Hill Rd-Dyre Ave",
+        "side": "right"
       }
     },
     {
@@ -229,7 +327,8 @@
       "properties": {
         "station_id": "444",
         "elevator_no": "EL199",
-        "station_name": "Gun Hill Rd-Dyre Ave"
+        "station_name": "Gun Hill Rd-Dyre Ave",
+        "side": "right"
       }
     },
     {
@@ -250,7 +349,8 @@
       "properties": {
         "station_id": "421",
         "elevator_no": "EL183",
-        "station_name": "Gun Hill Rd-White Plains Rd line"
+        "station_name": "Gun Hill Rd-White Plains Rd line",
+        "side": "left"
       }
     },
     {
@@ -271,7 +371,8 @@
       "properties": {
         "station_id": "421",
         "elevator_no": "EL182",
-        "station_name": "Gun Hill Rd-White Plains Rd line"
+        "station_name": "Gun Hill Rd-White Plains Rd line",
+        "side": "left"
       }
     },
     {
@@ -292,7 +393,8 @@
       "properties": {
         "station_id": "434",
         "elevator_no": "EL129",
-        "station_name": "3 Av-149 St"
+        "station_name": "3 Av-149 St",
+        "side": "left"
       }
     },
     {
@@ -313,7 +415,8 @@
       "properties": {
         "station_id": "434",
         "elevator_no": "EL130",
-        "station_name": "3 Av-149 St"
+        "station_name": "3 Av-149 St",
+        "side": "left"
       }
     },
     {
@@ -326,15 +429,16 @@
             40.752079
           ],
           [
-            -73.976041,
-            40.751431
+            -73.976848,
+            40.751776
           ]
         ]
       },
       "properties": {
-        "station_id": "465",
+        "station_id": "402",
         "elevator_no": "EL204",
-        "station_name": "Grand Central-42 St"
+        "station_name": "Grand Central-42 St",
+        "side": "left"
       }
     },
     {
@@ -355,7 +459,30 @@
       "properties": {
         "station_id": "424",
         "elevator_no": "EL136",
-        "station_name": "Pelham Pkwy"
+        "station_name": "Pelham Pkwy",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.937429,
+            40.852929
+          ],
+          [
+            -73.937969,
+            40.851695
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "146",
+        "elevator_no": "EL517",
+        "station_name": "181 St",
+        "side": "right"
       }
     },
     {
@@ -376,7 +503,30 @@
       "properties": {
         "station_id": "172",
         "elevator_no": "EL722",
-        "station_name": "Fulton St"
+        "station_name": "Fulton St",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.007435,
+            40.710138
+          ],
+          [
+            -74.009509,
+            40.710368
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "412",
+        "elevator_no": "EL722",
+        "station_name": "Fulton St",
+        "side": "right"
       }
     },
     {
@@ -397,7 +547,8 @@
       "properties": {
         "station_id": "341",
         "elevator_no": "EL755",
-        "station_name": "Eastern Pkwy-Brooklyn Museum"
+        "station_name": "Eastern Pkwy-Brooklyn Museum",
+        "side": "left"
       }
     },
     {
@@ -418,7 +569,8 @@
       "properties": {
         "station_id": "318",
         "elevator_no": "EL34X",
-        "station_name": "34 St-Penn Station"
+        "station_name": "34 St-Penn Station",
+        "side": "left"
       }
     },
     {
@@ -439,7 +591,30 @@
       "properties": {
         "station_id": "281",
         "elevator_no": "EL446",
-        "station_name": "Court Sq"
+        "station_name": "Court Sq",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.945405,
+            40.746135
+          ],
+          [
+            -73.945264,
+            40.747023
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "462",
+        "elevator_no": "EL446",
+        "station_name": "Court Sq",
+        "side": "left"
       }
     },
     {
@@ -460,7 +635,8 @@
       "properties": {
         "station_id": "171",
         "elevator_no": "EL326",
-        "station_name": "World Trade Center"
+        "station_name": "World Trade Center",
+        "side": "right"
       }
     },
     {
@@ -481,7 +657,8 @@
       "properties": {
         "station_id": "171",
         "elevator_no": "EL23X",
-        "station_name": "World Trade Center"
+        "station_name": "World Trade Center",
+        "side": "left"
       }
     },
     {
@@ -502,7 +679,8 @@
       "properties": {
         "station_id": "221",
         "elevator_no": "EL405",
-        "station_name": "21 St-Queensbridge"
+        "station_name": "21 St-Queensbridge",
+        "side": "right"
       }
     },
     {
@@ -523,7 +701,8 @@
       "properties": {
         "station_id": "58",
         "elevator_no": "ramp",
-        "station_name": "Coney Island-Stillwell Av"
+        "station_name": "Coney Island-Stillwell Av",
+        "side": "left"
       }
     },
     {
@@ -536,15 +715,16 @@
             40.685088
           ],
           [
-            -73.97881,
-            40.683666
+            -73.977666,
+            40.684359
           ]
         ]
       },
       "properties": {
-        "station_id": "27",
+        "station_id": "338",
         "elevator_no": "EL300X",
-        "station_name": "Atlantic Av-Barclays Ctr"
+        "station_name": "Atlantic Av-Barclays Ctr",
+        "side": "right"
       }
     },
     {
@@ -557,15 +737,16 @@
             40.685092
           ],
           [
-            -73.97881,
-            40.683666
+            -73.977666,
+            40.684359
           ]
         ]
       },
       "properties": {
-        "station_id": "27",
+        "station_id": "338",
         "elevator_no": "EL737X",
-        "station_name": "Atlantic Av-Barclays Ctr"
+        "station_name": "Atlantic Av-Barclays Ctr",
+        "side": "right"
       }
     },
     {
@@ -586,7 +767,8 @@
       "properties": {
         "station_id": "399",
         "elevator_no": "EL286",
-        "station_name": "68 St-Hunter College"
+        "station_name": "68 St-Hunter College",
+        "side": "left"
       }
     },
     {
@@ -607,7 +789,8 @@
       "properties": {
         "station_id": "430",
         "elevator_no": "EL128",
-        "station_name": "Simpson St"
+        "station_name": "Simpson St",
+        "side": "right"
       }
     },
     {
@@ -628,7 +811,8 @@
       "properties": {
         "station_id": "430",
         "elevator_no": "EL127",
-        "station_name": "Simpson St"
+        "station_name": "Simpson St",
+        "side": "right"
       }
     },
     {
@@ -649,7 +833,8 @@
       "properties": {
         "station_id": "162",
         "elevator_no": "EL207X",
-        "station_name": "50 St"
+        "station_name": "50 St",
+        "side": "left"
       }
     },
     {
@@ -670,7 +855,8 @@
       "properties": {
         "station_id": "405",
         "elevator_no": "EL298",
-        "station_name": "23 St"
+        "station_name": "23 St",
+        "side": "right"
       }
     },
     {
@@ -691,7 +877,8 @@
       "properties": {
         "station_id": "405",
         "elevator_no": "EL299",
-        "station_name": "23 St"
+        "station_name": "23 St",
+        "side": "right"
       }
     },
     {
@@ -712,7 +899,8 @@
       "properties": {
         "station_id": "135",
         "elevator_no": "EL771",
-        "station_name": "Livonia Av"
+        "station_name": "Livonia Av",
+        "side": "right"
       }
     },
     {
@@ -733,7 +921,8 @@
       "properties": {
         "station_id": "410",
         "elevator_no": "EL324",
-        "station_name": "Canal St"
+        "station_name": "Canal St",
+        "side": "right"
       }
     },
     {
@@ -754,7 +943,8 @@
       "properties": {
         "station_id": "410",
         "elevator_no": "EL325",
-        "station_name": "Canal St"
+        "station_name": "Canal St",
+        "side": "left"
       }
     },
     {
@@ -775,7 +965,30 @@
       "properties": {
         "station_id": "12",
         "elevator_no": "EL200X",
-        "station_name": "34 St-Herald Sq"
+        "station_name": "34 St-Herald Sq",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.988734,
+            40.748769
+          ],
+          [
+            -73.987823,
+            40.749719
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "227",
+        "elevator_no": "EL200X",
+        "station_name": "34 St-Herald Sq",
+        "side": "left"
       }
     },
     {
@@ -796,7 +1009,8 @@
       "properties": {
         "station_id": "360",
         "elevator_no": "EL121",
-        "station_name": "Pelham Bay Park"
+        "station_name": "Pelham Bay Park",
+        "side": "right"
       }
     },
     {
@@ -817,7 +1031,8 @@
       "properties": {
         "station_id": "101",
         "elevator_no": "EL391",
-        "station_name": "Marcy Av"
+        "station_name": "Marcy Av",
+        "side": "left"
       }
     },
     {
@@ -838,7 +1053,8 @@
       "properties": {
         "station_id": "101",
         "elevator_no": "EL392",
-        "station_name": "Marcy Av"
+        "station_name": "Marcy Av",
+        "side": "left"
       }
     },
     {
@@ -859,7 +1075,8 @@
       "properties": {
         "station_id": "204",
         "elevator_no": "EL480",
-        "station_name": "Beach 67 St"
+        "station_name": "Beach 67 St",
+        "side": "right"
       }
     },
     {
@@ -880,7 +1097,8 @@
       "properties": {
         "station_id": "438",
         "elevator_no": "EL180",
-        "station_name": "135 St"
+        "station_name": "135 St",
+        "side": "right"
       }
     },
     {
@@ -901,7 +1119,8 @@
       "properties": {
         "station_id": "438",
         "elevator_no": "EL181",
-        "station_name": "135 St"
+        "station_name": "135 St",
+        "side": "left"
       }
     },
     {
@@ -922,7 +1141,8 @@
       "properties": {
         "station_id": "475",
         "elevator_no": "EL248",
-        "station_name": "96 St"
+        "station_name": "96 St",
+        "side": "left"
       }
     },
     {
@@ -943,7 +1163,8 @@
       "properties": {
         "station_id": "181",
         "elevator_no": "EL344",
-        "station_name": "Utica Av"
+        "station_name": "Utica Av",
+        "side": "right"
       }
     },
     {
@@ -964,7 +1185,30 @@
       "properties": {
         "station_id": "280",
         "elevator_no": "EL409",
-        "station_name": "Jamaica-Van Wyck"
+        "station_name": "Jamaica-Van Wyck",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.072855,
+            40.643979
+          ],
+          [
+            -74.073643,
+            40.643748
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "501",
+        "elevator_no": "elevatorno not listed in system",
+        "station_name": "St George",
+        "side": "right"
       }
     },
     {
@@ -985,7 +1229,8 @@
       "properties": {
         "station_id": "120",
         "elevator_no": "EL359",
-        "station_name": "Bedford Av"
+        "station_name": "Bedford Av",
+        "side": "left"
       }
     },
     {
@@ -1006,7 +1251,8 @@
       "properties": {
         "station_id": "188",
         "elevator_no": "EL341",
-        "station_name": "Euclid Av"
+        "station_name": "Euclid Av",
+        "side": "right"
       }
     },
     {
@@ -1027,7 +1273,52 @@
       "properties": {
         "station_id": "58",
         "elevator_no": "ramp",
-        "station_name": "Coney Island-Stillwell Av"
+        "station_name": "Coney Island-Stillwell Av",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.997167,
+            40.737579
+          ],
+          [
+            -73.996786,
+            40.737335
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "116",
+        "elevator_no": "EL612",
+        "station_name": "14th St/6th Av",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.997167,
+            40.737579
+          ],
+          [
+            -73.996209,
+            40.738228
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "229",
+        "elevator_no": "EL612",
+        "station_name": "14th St/6th Av",
+        "side": "left"
       }
     },
     {
@@ -1048,7 +1339,8 @@
       "properties": {
         "station_id": "51",
         "elevator_no": "EL760",
-        "station_name": "Kings Hwy"
+        "station_name": "Kings Hwy",
+        "side": "left"
       }
     },
     {
@@ -1069,7 +1361,8 @@
       "properties": {
         "station_id": "51",
         "elevator_no": "EL761",
-        "station_name": "Kings Hwy"
+        "station_name": "Kings Hwy",
+        "side": "left"
       }
     },
     {
@@ -1090,7 +1383,8 @@
       "properties": {
         "station_id": "48",
         "elevator_no": "ramp",
-        "station_name": "Avenue H"
+        "station_name": "Avenue H",
+        "side": "left"
       }
     },
     {
@@ -1111,7 +1405,8 @@
       "properties": {
         "station_id": "10",
         "elevator_no": "EL268X",
-        "station_name": "49 St"
+        "station_name": "49 St",
+        "side": "right"
       }
     },
     {
@@ -1132,7 +1427,8 @@
       "properties": {
         "station_id": "371",
         "elevator_no": "EL195",
-        "station_name": "Hunts Point Av"
+        "station_name": "Hunts Point Av",
+        "side": "left"
       }
     },
     {
@@ -1153,7 +1449,8 @@
       "properties": {
         "station_id": "299",
         "elevator_no": "EL178",
-        "station_name": "Dyckman St"
+        "station_name": "Dyckman St",
+        "side": "right"
       }
     },
     {
@@ -1174,7 +1471,8 @@
       "properties": {
         "station_id": "299",
         "elevator_no": "EL179",
-        "station_name": "Dyckman St"
+        "station_name": "Dyckman St",
+        "side": "right"
       }
     },
     {
@@ -1195,7 +1493,8 @@
       "properties": {
         "station_id": "42",
         "elevator_no": "EL382",
-        "station_name": "Prospect Park"
+        "station_name": "Prospect Park",
+        "side": "right"
       }
     },
     {
@@ -1216,7 +1515,8 @@
       "properties": {
         "station_id": "42",
         "elevator_no": "EL383",
-        "station_name": "Prospect Park"
+        "station_name": "Prospect Park",
+        "side": "right"
       }
     },
     {
@@ -1237,7 +1537,8 @@
       "properties": {
         "station_id": "336",
         "elevator_no": "EL744X",
-        "station_name": "Hoyt St"
+        "station_name": "Hoyt St",
+        "side": "left"
       }
     },
     {
@@ -1258,7 +1559,8 @@
       "properties": {
         "station_id": "175",
         "elevator_no": "EL747X",
-        "station_name": "Hoyt-Schermerhorn"
+        "station_name": "Hoyt-Schermerhorn",
+        "side": "left"
       }
     },
     {
@@ -1279,7 +1581,8 @@
       "properties": {
         "station_id": "225",
         "elevator_no": "EL234",
-        "station_name": "47-50 Sts-Rockefeller Ctr"
+        "station_name": "47-50 Sts-Rockefeller Ctr",
+        "side": "right"
       }
     },
     {
@@ -1292,15 +1595,60 @@
             40.709564
           ],
           [
-            -74.007582,
-            40.710374
+            -74.007691,
+            40.710197
           ]
         ]
       },
       "properties": {
-        "station_id": "106",
+        "station_id": "172",
         "elevator_no": "EL723",
-        "station_name": "Fulton St"
+        "station_name": "Fulton St",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.006594,
+            40.709564
+          ],
+          [
+            -74.006571,
+            40.709416
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "332",
+        "elevator_no": "EL723",
+        "station_name": "Fulton St",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.011058,
+            40.711251
+          ],
+          [
+            -74.011029,
+            40.710668
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "21",
+        "elevator_no": "EL18X",
+        "station_name": "Cortlandt St",
+        "side": "left"
       }
     },
     {
@@ -1313,15 +1661,16 @@
             40.711823
           ],
           [
-            -74.011029,
-            40.710668
+            -74.012188,
+            40.711835
           ]
         ]
       },
       "properties": {
-        "station_id": "21",
+        "station_id": "328",
         "elevator_no": "EL14X",
-        "station_name": "WTC Cortlandt"
+        "station_name": "WTC Cortlandt",
+        "side": "right"
       }
     },
     {
@@ -1342,7 +1691,8 @@
       "properties": {
         "station_id": "328",
         "elevator_no": "EL736",
-        "station_name": "WTC Cortlandt"
+        "station_name": "WTC Cortlandt",
+        "side": "left"
       }
     },
     {
@@ -1363,7 +1713,8 @@
       "properties": {
         "station_id": "426",
         "elevator_no": "EL159",
-        "station_name": "E 180 St"
+        "station_name": "E 180 St",
+        "side": "right"
       }
     },
     {
@@ -1384,7 +1735,8 @@
       "properties": {
         "station_id": "426",
         "elevator_no": "EL160",
-        "station_name": "E 180 St"
+        "station_name": "E 180 St",
+        "side": "right"
       }
     },
     {
@@ -1405,7 +1757,8 @@
       "properties": {
         "station_id": "147",
         "elevator_no": "EL123",
-        "station_name": "175 St"
+        "station_name": "175 St",
+        "side": "right"
       }
     },
     {
@@ -1426,7 +1779,8 @@
       "properties": {
         "station_id": "26",
         "elevator_no": "EL370",
-        "station_name": "DeKalb Av"
+        "station_name": "DeKalb Av",
+        "side": "right"
       }
     },
     {
@@ -1439,15 +1793,16 @@
             40.672069
           ],
           [
-            -73.835254,
-            40.672369
+            -73.835919,
+            40.672097
           ]
         ]
       },
       "properties": {
         "station_id": "196",
         "elevator_no": "EL489X",
-        "station_name": "Aqueduct Racetrack"
+        "station_name": "Aqueduct Racetrack",
+        "side": "right"
       }
     },
     {
@@ -1468,7 +1823,8 @@
       "properties": {
         "station_id": "261",
         "elevator_no": "EL437",
-        "station_name": "Forest Hills-71 Av"
+        "station_name": "Forest Hills-71 Av",
+        "side": "left"
       }
     },
     {
@@ -1489,7 +1845,8 @@
       "properties": {
         "station_id": "254",
         "elevator_no": "EL431",
-        "station_name": "Jamaica-179 St"
+        "station_name": "Jamaica-179 St",
+        "side": "right"
       }
     },
     {
@@ -1510,7 +1867,8 @@
       "properties": {
         "station_id": "387",
         "elevator_no": "EL506",
-        "station_name": "170 St"
+        "station_name": "170 St",
+        "side": "right"
       }
     },
     {
@@ -1531,7 +1889,30 @@
       "properties": {
         "station_id": "166",
         "elevator_no": "EL221",
-        "station_name": "14 St"
+        "station_name": "14 St",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.002727,
+            40.739946
+          ],
+          [
+            -74.002578,
+            40.739777
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "115",
+        "elevator_no": "EL221",
+        "station_name": "14 St",
+        "side": "left"
       }
     },
     {
@@ -1552,7 +1933,8 @@
       "properties": {
         "station_id": "259",
         "elevator_no": "EL434",
-        "station_name": "Kew Gardens-Union Tpke"
+        "station_name": "Kew Gardens-Union Tpke",
+        "side": "left"
       }
     },
     {
@@ -1573,7 +1955,8 @@
       "properties": {
         "station_id": "106",
         "elevator_no": "EL728X",
-        "station_name": "Fulton St"
+        "station_name": "Fulton St",
+        "side": "left"
       }
     },
     {
@@ -1594,7 +1977,8 @@
       "properties": {
         "station_id": "295",
         "elevator_no": "EL184",
-        "station_name": "231 St"
+        "station_name": "231 St",
+        "side": "left"
       }
     },
     {
@@ -1615,7 +1999,52 @@
       "properties": {
         "station_id": "295",
         "elevator_no": "EL185",
-        "station_name": "231 St"
+        "station_name": "231 St",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.996565,
+            40.737332
+          ],
+          [
+            -73.996786,
+            40.737335
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "116",
+        "elevator_no": "EL611",
+        "station_name": "14th St/6th Av",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.996565,
+            40.737332
+          ],
+          [
+            -73.996209,
+            40.738228
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "229",
+        "elevator_no": "EL611",
+        "station_name": "14th St/6th Av",
+        "side": "left"
       }
     },
     {
@@ -1636,7 +2065,8 @@
       "properties": {
         "station_id": "447",
         "elevator_no": "EL414",
-        "station_name": "Flushing-Main St"
+        "station_name": "Flushing-Main St",
+        "side": "right"
       }
     },
     {
@@ -1657,7 +2087,52 @@
       "properties": {
         "station_id": "38",
         "elevator_no": "EL745",
-        "station_name": "86 St"
+        "station_name": "86 St",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.096502,
+            40.58873
+          ],
+          [
+            -74.09609,
+            40.588849
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "507",
+        "elevator_no": "ramp",
+        "station_name": "Dongan Hills",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.94044,
+            40.750384
+          ],
+          [
+            -73.940202,
+            40.750582
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "461",
+        "elevator_no": "EL478",
+        "station_name": "Queensboro Plaza",
+        "side": "left"
       }
     },
     {
@@ -1678,7 +2153,8 @@
       "properties": {
         "station_id": "119",
         "elevator_no": "EL292",
-        "station_name": "1 Av"
+        "station_name": "1 Av",
+        "side": "right"
       }
     },
     {
@@ -1699,7 +2175,8 @@
       "properties": {
         "station_id": "119",
         "elevator_no": "EL293",
-        "station_name": "1 Av"
+        "station_name": "1 Av",
+        "side": "right"
       }
     },
     {
@@ -1720,7 +2197,8 @@
       "properties": {
         "station_id": "2",
         "elevator_no": "EL464",
-        "station_name": "Astoria Blvd"
+        "station_name": "Astoria Blvd",
+        "side": "right"
       }
     },
     {
@@ -1741,7 +2219,8 @@
       "properties": {
         "station_id": "2",
         "elevator_no": "EL465",
-        "station_name": "Astoria Blvd"
+        "station_name": "Astoria Blvd",
+        "side": "right"
       }
     },
     {
@@ -1762,7 +2241,8 @@
       "properties": {
         "station_id": "148",
         "elevator_no": "EL139",
-        "station_name": "168 St"
+        "station_name": "168 St",
+        "side": "right"
       }
     },
     {
@@ -1783,7 +2263,8 @@
       "properties": {
         "station_id": "123",
         "elevator_no": "EL785",
-        "station_name": "Grand St"
+        "station_name": "Grand St",
+        "side": "right"
       }
     },
     {
@@ -1804,7 +2285,30 @@
       "properties": {
         "station_id": "123",
         "elevator_no": "EL786",
-        "station_name": "Grand St"
+        "station_name": "Grand St",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.242096,
+            40.516578
+          ],
+          [
+            -74.242096,
+            40.516578
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "523",
+        "elevator_no": "ramp",
+        "station_name": "Arthur Kill",
+        "side": "right"
       }
     },
     {
@@ -1825,7 +2329,8 @@
       "properties": {
         "station_id": "35",
         "elevator_no": "EL387",
-        "station_name": "59 St"
+        "station_name": "59 St",
+        "side": "right"
       }
     },
     {
@@ -1846,7 +2351,8 @@
       "properties": {
         "station_id": "48",
         "elevator_no": "ramp",
-        "station_name": "Avenue H"
+        "station_name": "Avenue H",
+        "side": "right"
       }
     },
     {
@@ -1859,15 +2365,38 @@
             40.683605
           ],
           [
-            -73.97881,
-            40.683666
+            -73.97689,
+            40.68446
           ]
         ]
       },
       "properties": {
-        "station_id": "27",
+        "station_id": "40",
         "elevator_no": "EL700X",
-        "station_name": "Atlantic Av-Barclays Ctr"
+        "station_name": "Atlantic Av-Barclays Ctr",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.976688,
+            40.683605
+          ],
+          [
+            -73.977666,
+            40.684359
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "338",
+        "elevator_no": "EL700X",
+        "station_name": "Atlantic Av-Barclays Ctr",
+        "side": "right"
       }
     },
     {
@@ -1888,7 +2417,8 @@
       "properties": {
         "station_id": "223",
         "elevator_no": "EL401",
-        "station_name": "Lexington Av/63 St"
+        "station_name": "Lexington Av/63 St",
+        "side": "left"
       }
     },
     {
@@ -1909,7 +2439,8 @@
       "properties": {
         "station_id": "223",
         "elevator_no": "EL444",
-        "station_name": "Lexington Av/63 St"
+        "station_name": "Lexington Av/63 St",
+        "side": "right"
       }
     },
     {
@@ -1930,7 +2461,8 @@
       "properties": {
         "station_id": "138",
         "elevator_no": "ramp",
-        "station_name": "Canarsie-Rockaway Pkwy"
+        "station_name": "Canarsie-Rockaway Pkwy",
+        "side": "left"
       }
     },
     {
@@ -1951,7 +2483,30 @@
       "properties": {
         "station_id": "112",
         "elevator_no": "EL396",
-        "station_name": "Myrtle-Wyckoff Avs"
+        "station_name": "Myrtle-Wyckoff Avs",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.911492,
+            40.699636
+          ],
+          [
+            -73.911586,
+            40.699814
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "128",
+        "elevator_no": "EL396",
+        "station_name": "Myrtle-Wyckoff Avs",
+        "side": "right"
       }
     },
     {
@@ -1972,7 +2527,8 @@
       "properties": {
         "station_id": "164",
         "elevator_no": "EL225",
-        "station_name": "34 St-Penn Station"
+        "station_name": "34 St-Penn Station",
+        "side": "right"
       }
     },
     {
@@ -1993,7 +2549,8 @@
       "properties": {
         "station_id": "318",
         "elevator_no": "EL618",
-        "station_name": "34 St-Penn Station"
+        "station_name": "34 St-Penn Station",
+        "side": "left"
       }
     },
     {
@@ -2014,7 +2571,30 @@
       "properties": {
         "station_id": "27",
         "elevator_no": "EL301",
-        "station_name": "Atlantic Av-Barclays Ctr"
+        "station_name": "Atlantic Av-Barclays Ctr",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.978485,
+            40.683832
+          ],
+          [
+            -73.977666,
+            40.684359
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "338",
+        "elevator_no": "EL301",
+        "station_name": "Atlantic Av-Barclays Ctr",
+        "side": "left"
       }
     },
     {
@@ -2035,7 +2615,8 @@
       "properties": {
         "station_id": "98",
         "elevator_no": "EL393",
-        "station_name": "Flushing Av"
+        "station_name": "Flushing Av",
+        "side": "left"
       }
     },
     {
@@ -2056,7 +2637,8 @@
       "properties": {
         "station_id": "212",
         "elevator_no": "EL189",
-        "station_name": "Kingsbridge Rd"
+        "station_name": "Kingsbridge Rd",
+        "side": "left"
       }
     },
     {
@@ -2077,7 +2659,30 @@
       "properties": {
         "station_id": "15",
         "elevator_no": "EL217",
-        "station_name": "14 St-Union Sq"
+        "station_name": "14 St-Union Sq",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.989642,
+            40.734488
+          ],
+          [
+            -73.99073,
+            40.734789
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "117",
+        "elevator_no": "EL217",
+        "station_name": "14 St-Union Sq",
+        "side": "right"
       }
     },
     {
@@ -2098,7 +2703,8 @@
       "properties": {
         "station_id": "279",
         "elevator_no": "EL450X",
-        "station_name": "Sutphin Blvd-Archer Av-JFK Airport"
+        "station_name": "Sutphin Blvd-Archer Av-JFK Airport",
+        "side": "right"
       }
     },
     {
@@ -2119,7 +2725,8 @@
       "properties": {
         "station_id": "279",
         "elevator_no": "EL448X",
-        "station_name": "Sutphin Blvd-Archer Av-JFK Airport"
+        "station_name": "Sutphin Blvd-Archer Av-JFK Airport",
+        "side": "right"
       }
     },
     {
@@ -2140,7 +2747,30 @@
       "properties": {
         "station_id": "279",
         "elevator_no": "EL449X",
-        "station_name": "Sutphin Blvd-Archer Av-JFK Airport"
+        "station_name": "Sutphin Blvd-Archer Av-JFK Airport",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.951431,
+            40.713241
+          ],
+          [
+            -73.951418,
+            40.712792
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "285",
+        "elevator_no": "EL779",
+        "station_name": "Metropolitan Av",
+        "side": "left"
       }
     },
     {
@@ -2161,7 +2791,8 @@
       "properties": {
         "station_id": "11",
         "elevator_no": "EL619",
-        "station_name": "Times Sq-42 St"
+        "station_name": "Times Sq-42 St",
+        "side": "right"
       }
     },
     {
@@ -2174,15 +2805,38 @@
             40.755786
           ],
           [
-            -73.986754,
-            40.754672
+            -73.987495,
+            40.75529
           ]
         ]
       },
       "properties": {
-        "station_id": "11",
+        "station_id": "317",
         "elevator_no": "EL231X",
-        "station_name": "Times Sq-42 St"
+        "station_name": "Times Sq-42 St",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.986891,
+            40.755786
+          ],
+          [
+            -73.987691,
+            40.755477
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "467",
+        "elevator_no": "EL231X",
+        "station_name": "Times Sq-42 St",
+        "side": "right"
       }
     },
     {
@@ -2203,7 +2857,8 @@
       "properties": {
         "station_id": "414",
         "elevator_no": "EL710",
-        "station_name": "Bowling Green"
+        "station_name": "Bowling Green",
+        "side": "right"
       }
     },
     {
@@ -2224,7 +2879,8 @@
       "properties": {
         "station_id": "278",
         "elevator_no": "EL412",
-        "station_name": "Jamaica Center-Parsons/Archer"
+        "station_name": "Jamaica Center-Parsons/Archer",
+        "side": "right"
       }
     },
     {
@@ -2245,7 +2901,8 @@
       "properties": {
         "station_id": "130",
         "elevator_no": "ramp",
-        "station_name": "Wilson Av"
+        "station_name": "Wilson Av",
+        "side": "right"
       }
     },
     {
@@ -2266,7 +2923,30 @@
       "properties": {
         "station_id": "230",
         "elevator_no": "EL328",
-        "station_name": "Bleecker St/Broadway-Lafayette St"
+        "station_name": "Bleecker St/Broadway-Lafayette St",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.995495,
+            40.725325
+          ],
+          [
+            -73.994659,
+            40.725915
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "408",
+        "elevator_no": "EL328",
+        "station_name": "Bleecker St/Broadway-Lafayette St",
+        "side": "left"
       }
     },
     {
@@ -2287,7 +2967,8 @@
       "properties": {
         "station_id": "330",
         "elevator_no": "EL730",
-        "station_name": "South Ferry"
+        "station_name": "South Ferry",
+        "side": "right"
       }
     },
     {
@@ -2308,7 +2989,8 @@
       "properties": {
         "station_id": "313",
         "elevator_no": "EL239",
-        "station_name": "72 St uptown"
+        "station_name": "72 St",
+        "side": "right"
       }
     },
     {
@@ -2329,7 +3011,8 @@
       "properties": {
         "station_id": "477",
         "elevator_no": "EL267",
-        "station_name": "72 St"
+        "station_name": "72 St",
+        "side": "right"
       }
     },
     {
@@ -2350,7 +3033,8 @@
       "properties": {
         "station_id": "477",
         "elevator_no": "EL266",
-        "station_name": "72 St"
+        "station_name": "72 St",
+        "side": "right"
       }
     },
     {
@@ -2371,7 +3055,8 @@
       "properties": {
         "station_id": "477",
         "elevator_no": "EL265",
-        "station_name": "72 St"
+        "station_name": "72 St",
+        "side": "right"
       }
     },
     {
@@ -2392,7 +3077,8 @@
       "properties": {
         "station_id": "477",
         "elevator_no": "EL264",
-        "station_name": "72 St"
+        "station_name": "72 St",
+        "side": "right"
       }
     },
     {
@@ -2413,7 +3099,8 @@
       "properties": {
         "station_id": "477",
         "elevator_no": "EL262",
-        "station_name": "72 St"
+        "station_name": "72 St",
+        "side": "right"
       }
     },
     {
@@ -2434,7 +3121,8 @@
       "properties": {
         "station_id": "313",
         "elevator_no": "EL240",
-        "station_name": "72 St downtown"
+        "station_name": "72 St",
+        "side": "right"
       }
     },
     {
@@ -2454,8 +3142,75 @@
       },
       "properties": {
         "station_id": "108",
-        "elevator_no": "Flat entry",
-        "station_name": "Middle Village-Metropolitan Av"
+        "elevator_no": "ramp",
+        "station_name": "Middle Village-Metropolitan Av",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.949457,
+            40.71425
+          ],
+          [
+            -73.950275,
+            40.714063
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "121",
+        "elevator_no": "EL776",
+        "station_name": "Lorimer St",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.9054655,
+            40.8497388
+          ],
+          [
+            -73.905227,
+            40.85041
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "215",
+        "elevator_no": "EL509",
+        "station_name": "Tremont Av",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.096231,
+            40.588586
+          ],
+          [
+            -74.09609,
+            40.588849
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "507",
+        "elevator_no": "ramp",
+        "station_name": "Dongan Hills",
+        "side": "left"
       }
     },
     {
@@ -2476,7 +3231,30 @@
       "properties": {
         "station_id": "195",
         "elevator_no": "EL462",
-        "station_name": "Ozone Park-Lefferts Blvd"
+        "station_name": "Ozone Park-Lefferts Blvd",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.151457,
+            40.550887
+          ],
+          [
+            -74.151399,
+            40.551231
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "513",
+        "elevator_no": "ramp",
+        "station_name": "Great Kills",
+        "side": "left"
       }
     },
     {
@@ -2497,7 +3275,8 @@
       "properties": {
         "station_id": "345",
         "elevator_no": "EL322",
-        "station_name": "Crown Hts-Utica Av"
+        "station_name": "Crown Hts-Utica Av",
+        "side": "right"
       }
     },
     {
@@ -2518,7 +3297,30 @@
       "properties": {
         "station_id": "418",
         "elevator_no": "EL192",
-        "station_name": "233 St"
+        "station_name": "233 St",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.982444,
+            40.767699
+          ],
+          [
+            -73.981736,
+            40.768296
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "161",
+        "elevator_no": "EL276X",
+        "station_name": "59 St-Columbus Circle",
+        "side": "left"
       }
     },
     {
@@ -2539,7 +3341,30 @@
       "properties": {
         "station_id": "315",
         "elevator_no": "EL276X",
-        "station_name": "59 St-Columbus Circle"
+        "station_name": "59 St-Columbus Circle",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.981599,
+            40.768696
+          ],
+          [
+            -73.981736,
+            40.768296
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "161",
+        "elevator_no": "EL280",
+        "station_name": "59 St-Columbus Circle",
+        "side": "right"
       }
     },
     {
@@ -2560,7 +3385,8 @@
       "properties": {
         "station_id": "315",
         "elevator_no": "EL280",
-        "station_name": "59 St-Columbus Circle"
+        "station_name": "59 St-Columbus Circle",
+        "side": "right"
       }
     },
     {
@@ -2581,7 +3407,8 @@
       "properties": {
         "station_id": "397",
         "elevator_no": "EL273",
-        "station_name": "86 St"
+        "station_name": "86 St",
+        "side": "right"
       }
     },
     {
@@ -2602,7 +3429,30 @@
       "properties": {
         "station_id": "476",
         "elevator_no": "EL250",
-        "station_name": "86 St"
+        "station_name": "86 St",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.151544,
+            40.551002
+          ],
+          [
+            -74.151399,
+            40.551231
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "513",
+        "elevator_no": "ramp",
+        "station_name": "Great Kills",
+        "side": "left"
       }
     },
     {
@@ -2623,7 +3473,8 @@
       "properties": {
         "station_id": "359",
         "elevator_no": "EL319",
-        "station_name": "Flatbush Av-Brooklyn College"
+        "station_name": "Flatbush Av-Brooklyn College",
+        "side": "right"
       }
     },
     {
@@ -2644,7 +3495,8 @@
       "properties": {
         "station_id": "163",
         "elevator_no": "EL291X",
-        "station_name": "42 St-Port Authority Bus Terminal"
+        "station_name": "42 St-Port Authority Bus Terminal",
+        "side": "right"
       }
     },
     {
@@ -2665,7 +3517,8 @@
       "properties": {
         "station_id": "163",
         "elevator_no": "EL288X",
-        "station_name": "42 St-Port Authority Bus Terminal"
+        "station_name": "42 St-Port Authority Bus Terminal",
+        "side": "left"
       }
     },
     {
@@ -2686,7 +3539,8 @@
       "properties": {
         "station_id": "163",
         "elevator_no": "EL289X",
-        "station_name": "42 St-Port Authority Bus Terminal"
+        "station_name": "42 St-Port Authority Bus Terminal",
+        "side": "left"
       }
     },
     {
@@ -2707,7 +3561,30 @@
       "properties": {
         "station_id": "243",
         "elevator_no": "EL373",
-        "station_name": "Church Av"
+        "station_name": "Church Av",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.116382,
+            40.573956
+          ],
+          [
+            -74.11721,
+            40.57348
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "510",
+        "elevator_no": "EL788",
+        "station_name": "New Dorp",
+        "side": "right"
       }
     },
     {
@@ -2728,7 +3605,30 @@
       "properties": {
         "station_id": "275",
         "elevator_no": "EL203X",
-        "station_name": "51 St and Lexington-53"
+        "station_name": "51 St and Lexington-53",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.971198,
+            40.757803
+          ],
+          [
+            -73.97192,
+            40.757107
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "401",
+        "elevator_no": "EL203X",
+        "station_name": "51 St and Lexington-53",
+        "side": "right"
       }
     },
     {
@@ -2749,7 +3649,8 @@
       "properties": {
         "station_id": "211",
         "elevator_no": "EL500",
-        "station_name": "Bedford Park Blvd"
+        "station_name": "Bedford Park Blvd",
+        "side": "left"
       }
     },
     {
@@ -2770,7 +3671,8 @@
       "properties": {
         "station_id": "451",
         "elevator_no": "EL425",
-        "station_name": "Junction Blvd"
+        "station_name": "Junction Blvd",
+        "side": "right"
       }
     },
     {
@@ -2783,15 +3685,16 @@
             40.752753
           ],
           [
-            -73.976041,
-            40.751431
+            -73.979189,
+            40.752769
           ]
         ]
       },
       "properties": {
-        "station_id": "465",
+        "station_id": "469",
         "elevator_no": "EL608X",
-        "station_name": "Grand Central-42 St"
+        "station_name": "Grand Central-42 St",
+        "side": "right"
       }
     },
     {
@@ -2812,7 +3715,8 @@
       "properties": {
         "station_id": "465",
         "elevator_no": "EL296",
-        "station_name": "Grand Central-42 St"
+        "station_name": "Grand Central-42 St",
+        "side": "right"
       }
     },
     {
@@ -2833,7 +3737,8 @@
       "properties": {
         "station_id": "143",
         "elevator_no": "EL148",
-        "station_name": "Inwood-207 St"
+        "station_name": "Inwood-207 St",
+        "side": "left"
       }
     },
     {
@@ -2854,7 +3759,8 @@
       "properties": {
         "station_id": "153",
         "elevator_no": "EL142",
-        "station_name": "125 St"
+        "station_name": "125 St",
+        "side": "left"
       }
     },
     {
@@ -2875,7 +3781,8 @@
       "properties": {
         "station_id": "273",
         "elevator_no": "EL428",
-        "station_name": "Queens Plaza"
+        "station_name": "Queens Plaza",
+        "side": "left"
       }
     },
     {
@@ -2896,7 +3803,8 @@
       "properties": {
         "station_id": "471",
         "elevator_no": "EL603",
-        "station_name": "34 St-Hudson Yards"
+        "station_name": "34 St-Hudson Yards",
+        "side": "right"
       }
     },
     {
@@ -2917,7 +3825,8 @@
       "properties": {
         "station_id": "68",
         "elevator_no": "EL376",
-        "station_name": "Bay Pkwy"
+        "station_name": "Bay Pkwy",
+        "side": "left"
       }
     },
     {
@@ -2938,7 +3847,8 @@
       "properties": {
         "station_id": "456",
         "elevator_no": "EL415X",
-        "station_name": "61 St-Woodside"
+        "station_name": "61 St-Woodside",
+        "side": "left"
       }
     },
     {
@@ -2959,7 +3869,8 @@
       "properties": {
         "station_id": "73",
         "elevator_no": "EL738",
-        "station_name": "62 St/New Utrecht Av"
+        "station_name": "62 St/New Utrecht Av",
+        "side": "left"
       }
     },
     {
@@ -2980,7 +3891,8 @@
       "properties": {
         "station_id": "310",
         "elevator_no": "EL145",
-        "station_name": "96 St downtown"
+        "station_name": "96 St",
+        "side": "right"
       }
     },
     {
@@ -3001,7 +3913,8 @@
       "properties": {
         "station_id": "310",
         "elevator_no": "EL146",
-        "station_name": "96 St uptown"
+        "station_name": "96 St",
+        "side": "right"
       }
     },
     {
@@ -3022,7 +3935,74 @@
       "properties": {
         "station_id": "63",
         "elevator_no": "EL739",
-        "station_name": "62 St/New Utrecht Av"
+        "station_name": "62 St/New Utrecht Av",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.996868,
+            40.625633
+          ],
+          [
+            -73.996353,
+            40.624842
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "73",
+        "elevator_no": "EL739",
+        "station_name": "62 St/New Utrecht Av",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.955866,
+            40.681058
+          ],
+          [
+            -73.955827,
+            40.680596
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "139",
+        "elevator_no": "EL339",
+        "station_name": "Franklin Av",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.955866,
+            40.681058
+          ],
+          [
+            -73.956848,
+            40.68138
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "178",
+        "elevator_no": "EL339",
+        "station_name": "Franklin Av",
+        "side": "right"
       }
     },
     {
@@ -3043,7 +4023,30 @@
       "properties": {
         "station_id": "219",
         "elevator_no": "EL131",
-        "station_name": "161 St-Yankee Stadium"
+        "station_name": "161 St-Yankee Stadium",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.925657,
+            40.82798
+          ],
+          [
+            -73.925831,
+            40.827994
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "389",
+        "elevator_no": "EL131",
+        "station_name": "161 St-Yankee Stadium",
+        "side": "right"
       }
     },
     {
@@ -3064,7 +4067,30 @@
       "properties": {
         "station_id": "141",
         "elevator_no": "ramp",
-        "station_name": "Park Pl"
+        "station_name": "Park Pl",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.11668,
+            40.574117
+          ],
+          [
+            -74.11721,
+            40.57348
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "510",
+        "elevator_no": "EL787",
+        "station_name": "New Dorp",
+        "side": "right"
       }
     },
     {
@@ -3085,7 +4111,30 @@
       "properties": {
         "station_id": "240",
         "elevator_no": "EL782",
-        "station_name": "7 Av"
+        "station_name": "7 Av",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.004895,
+            40.712781
+          ],
+          [
+            -74.003401,
+            40.713243
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "105",
+        "elevator_no": "EL314",
+        "station_name": "Brooklyn Bridge-City Hall & Chambers",
+        "side": "left"
       }
     },
     {
@@ -3106,7 +4155,8 @@
       "properties": {
         "station_id": "411",
         "elevator_no": "EL314",
-        "station_name": "Brooklyn Bridge-City Hall"
+        "station_name": "Brooklyn Bridge-City Hall & Chambers",
+        "side": "left"
       }
     },
     {
@@ -3127,7 +4177,8 @@
       "properties": {
         "station_id": "314",
         "elevator_no": "EL238",
-        "station_name": "66 St-Lincoln Center downtown"
+        "station_name": "66 St-Lincoln Center",
+        "side": "left"
       }
     },
     {
@@ -3148,7 +4199,8 @@
       "properties": {
         "station_id": "314",
         "elevator_no": "EL237",
-        "station_name": "66 St-Lincoln Center uptown"
+        "station_name": "66 St-Lincoln Center",
+        "side": "right"
       }
     },
     {
@@ -3169,7 +4221,8 @@
       "properties": {
         "station_id": "356",
         "elevator_no": "EL320",
-        "station_name": "Church Av"
+        "station_name": "Church Av",
+        "side": "right"
       }
     },
     {
@@ -3190,7 +4243,30 @@
       "properties": {
         "station_id": "356",
         "elevator_no": "EL321",
-        "station_name": "Church Av"
+        "station_name": "Church Av",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.89107,
+            40.746855
+          ],
+          [
+            -73.891338,
+            40.746644
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "267",
+        "elevator_no": "EL420",
+        "station_name": "Jackson Hts-Roosevelt Av/74 St-Broadway",
+        "side": "right"
       }
     },
     {
@@ -3211,7 +4287,8 @@
       "properties": {
         "station_id": "454",
         "elevator_no": "EL420",
-        "station_name": "Jackson Hts-Roosevelt Av/74 St-Broadway"
+        "station_name": "Jackson Hts-Roosevelt Av/74 St-Broadway",
+        "side": "right"
       }
     },
     {
@@ -3232,7 +4309,8 @@
       "properties": {
         "station_id": "71",
         "elevator_no": "EL752",
-        "station_name": "8 Av"
+        "station_name": "8 Av",
+        "side": "right"
       }
     },
     {
@@ -3253,7 +4331,8 @@
       "properties": {
         "station_id": "71",
         "elevator_no": "EL753",
-        "station_name": "8 Av"
+        "station_name": "8 Av",
+        "side": "right"
       }
     },
     {
@@ -3274,7 +4353,8 @@
       "properties": {
         "station_id": "209",
         "elevator_no": "EL497",
-        "station_name": "Far Rockaway-Mott Av"
+        "station_name": "Far Rockaway-Mott Av",
+        "side": "right"
       }
     },
     {
@@ -3295,7 +4375,52 @@
       "properties": {
         "station_id": "209",
         "elevator_no": "EL498",
-        "station_name": "Far Rockaway-Mott Av"
+        "station_name": "Far Rockaway-Mott Av",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.999958,
+            40.738578
+          ],
+          [
+            -74.000201,
+            40.737826
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "322",
+        "elevator_no": "EL615",
+        "station_name": "14th St/7th Av",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.990317,
+            40.69358
+          ],
+          [
+            -73.989998,
+            40.693219
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "335",
+        "elevator_no": "EL317",
+        "station_name": "Borough Hall",
+        "side": "left"
       }
     },
     {
@@ -3316,7 +4441,8 @@
       "properties": {
         "station_id": "415",
         "elevator_no": "EL317",
-        "station_name": "Borough Hall"
+        "station_name": "Borough Hall",
+        "side": "left"
       }
     },
     {
@@ -3337,7 +4463,8 @@
       "properties": {
         "station_id": "9",
         "elevator_no": "EL281",
-        "station_name": "57 St-7 Av"
+        "station_name": "57 St-7 Av",
+        "side": "right"
       }
     },
     {
@@ -3358,7 +4485,8 @@
       "properties": {
         "station_id": "9",
         "elevator_no": "EL604",
-        "station_name": "57 St-7 Av"
+        "station_name": "57 St-7 Av",
+        "side": "left"
       }
     },
     {
@@ -3379,7 +4507,8 @@
       "properties": {
         "station_id": "25",
         "elevator_no": "EL327X",
-        "station_name": "Jay St-MetroTech"
+        "station_name": "Jay St-MetroTech",
+        "side": "right"
       }
     },
     {
@@ -3400,7 +4529,8 @@
       "properties": {
         "station_id": "167",
         "elevator_no": "EL333",
-        "station_name": "W 4 St-Wash Sq"
+        "station_name": "W 4 St-Wash Sq",
+        "side": "left"
       }
     },
     {
@@ -3421,7 +4551,8 @@
       "properties": {
         "station_id": "283",
         "elevator_no": "EL763",
-        "station_name": "Greenpoint Av"
+        "station_name": "Greenpoint Av",
+        "side": "right"
       }
     },
     {
@@ -3442,7 +4573,30 @@
       "properties": {
         "station_id": "327",
         "elevator_no": "EL336",
-        "station_name": "Chambers St"
+        "station_name": "Chambers St",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.937057,
+            40.852883
+          ],
+          [
+            -73.937969,
+            40.851695
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "146",
+        "elevator_no": "EL518",
+        "station_name": "181 St",
+        "side": "right"
       }
     },
     {
@@ -3463,7 +4617,96 @@
       "properties": {
         "station_id": "274",
         "elevator_no": "EL482X",
-        "station_name": "Court Sq-23 St"
+        "station_name": "Court Sq-23 St",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.8518176,
+            40.6936248
+          ],
+          [
+            -73.851576,
+            40.693879
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "83",
+        "elevator_no": "EL484",
+        "station_name": "Woodhaven Blvd",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.8519765,
+            40.6939352
+          ],
+          [
+            -73.851576,
+            40.693879
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "83",
+        "elevator_no": "EL483",
+        "station_name": "Woodhaven Blvd",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.906806,
+            40.753111
+          ],
+          [
+            -73.906006,
+            40.752885
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "269",
+        "elevator_no": "EL485",
+        "station_name": "Northern Blvd",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.842972,
+            40.840056
+          ],
+          [
+            -73.842952,
+            40.839892
+          ]
+        ]
+      },
+      "properties": {
+        "station_id": "363",
+        "elevator_no": "EL512",
+        "station_name": "Westchester Sq-East Tremont Av",
+        "side": "left"
       }
     }
   ]

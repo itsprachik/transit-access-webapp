@@ -1,4 +1,4 @@
-export const stationCoordinates = {
+export const stationCoordinates: Record<string, [number, number]> = {
   "2": [
     -73.917843,
     40.770258
@@ -82,6 +82,10 @@ export const stationCoordinates = {
   "73": [
     -73.996353,
     40.624842
+  ],
+  "83": [
+    -73.851576,
+    40.693879
   ],
   "98": [
     -73.941126,
@@ -232,8 +236,8 @@ export const stationCoordinates = {
     40.685951
   ],
   "196": [
-    -73.835254,
-    40.672369
+    -73.835919,
+    40.672097
   ],
   "198": [
     -73.830301,
@@ -318,6 +322,10 @@ export const stationCoordinates = {
   "267": [
     -73.891338,
     40.746644
+  ],
+  "269": [
+    -73.906006,
+    40.752885
   ],
   "273": [
     -73.937243,
@@ -438,6 +446,10 @@ export const stationCoordinates = {
   "360": [
     -73.828121,
     40.852462
+  ],
+  "363": [
+    -73.842952,
+    40.839892
   ],
   "371": [
     -73.890549,

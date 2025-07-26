@@ -3,25 +3,41 @@ import mapboxgl from "mapbox-gl";
 import { fetchOutages } from "@/api/fetchOutages";
 import dotenv from "dotenv";
 import {
-  getOutElevatorNumbers,
+  getOutElevatorData,
   updateOutageLayer,
   updateStationOutageLayer,
+  updateStationComplexLayer,
 } from "./layers/CurrentOutages/handlerFunctions";
-import { outageSourceOptions } from "./mtaMapOptions";
+import {
+  outageSourceOptions,
+  complexBoundarySourceOptions,
+  setMapCenter,
+  setManhattanTilt,
+} from "./mtaMapOptions";
 import {
   currentOutageProps,
   stationOutageProps,
   animationProps,
 } from "./layers/CurrentOutages/currentOutagesProps";
+import { stationComplexProps } from "./layers/StationComplexes/stationComplexesProps";
+import { complexBoundaryProps } from "./layers/StationComplexes/complexBoundariesProps";
 import {
   handleMouseLeave,
   handleMouseMove,
   handleOnClick,
+  handleSearchPopup,
   initializeMtaMap,
+  cleanUpPopups,
 } from "./handlerFunctions";
-import { getStationOutageArray } from "@/utils/dataUtils";
+import {
+  getStationOutageArray,
+  dealWithMapboxIconOverlap,
+  makeElevatorMap,
+} from "@/utils/dataUtils";
 import SearchBar from "../SearchBar/SearchBar";
-import * as stationData from "@/resources/mta_subway_stations_all.json";
+import { MtaStationData } from "@/utils/types";
+import rawData from "@/resources/mta_subway_stations_all.json";
+const stationData = rawData as MtaStationData;
 
 // Load environment variables
 dotenv.config();
@@ -32,11 +48,60 @@ const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 const MtaMap = () => {
   const mapRef = useRef(null);
   const mapContainer = useRef(null);
-  let elevOut = [];
-  let stationOut = [];
-  const [elevatorOutages, setElevatorOutages] = useState([]);
-  const [stationOutages, setStationOutages] = useState([]);
+
+  // STATES: elevator outages, station outages, station view
+  // have to use hybrid state and ref (ref to keep stable data, state to re-render)
+  const [elevatorDataState, setElevatorDataState] = useState(null);
+  const elevatorDataRef = useRef(null);
+  const [elevatorRawDataState, setElevatorRawData] = useState(null);
+  const elevatorRawDataRef = useRef(null);
+
+  const [stationDataState, setStationDataState] = useState(null);
+  const stationDataRef = useRef(null);
+
+  const [stationView, setStationView] = useState<string | null>(null); // app state: enter station view
+  const [elevatorView, setElevatorView] = useState<string | null>(null); // app state: enter elevator view
+
+  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
+
   const [zoomLevel, setZoomLevel] = useState(13);
+
+  const [show3DToggle, setShow3DToggle] = React.useState(false);
+
+  // track elevator data state change
+  useEffect(() => {
+    elevatorDataRef.current = elevatorDataState;
+  }, [elevatorDataState]);
+
+  // track elevator raw data state change
+  useEffect(() => {
+    const map = mapRef.current as mapboxgl.Map;
+    if (map?.isStyleLoaded() && elevatorRawDataRef.current) {
+      updateOutageLayer(elevatorRawDataRef.current, map);
+    }
+  }, [elevatorRawDataState]);
+
+  // track station data state change
+  useEffect(() => {
+    stationDataRef.current = stationDataState;
+  }, [stationDataState]);
+
+  // track zoom state change
+  useEffect(() => {
+    // Track zoom level
+    const map = mapRef.current as mapboxgl.Map;
+    if (map?.isStyleLoaded()) {
+      mapRef.current.on("zoom", () => {
+        const zoom = mapRef.current.getZoom();
+        setZoomLevel(zoom);
+      });
+    }
+  }, [zoomLevel]);
+
+  function getLatestElevatorData() {
+    return elevatorDataRef.current;
+  }
+
   let hoveredFeatureId = null;
 
   // Popup for station info
@@ -57,15 +122,73 @@ const MtaMap = () => {
     })
   );
 
+  const handleStationSearchSelect = (
+    feature,
+    elevatorData,
+    stationView,
+    setStationView,
+    elevatorView,
+    setElevatorView,
+    show3DToggle,
+    setShow3DToggle
+  ) => {
+    handleSearchPopup(
+      feature,
+      onClickPopupRef,
+      mapRef.current,
+      elevatorData,
+      stationView,
+      setStationView,
+      elevatorView,
+      setElevatorView,
+      show3DToggle,
+      setShow3DToggle
+    );
+  };
+
   useEffect(() => {
     async function getOutages() {
-      let data = await fetchOutages(apiKey);
-      elevOut = data;
-      setElevatorOutages(data);
-      getOutElevatorNumbers(elevOut);
+      const data = await fetchOutages(apiKey);
+      setElevatorRawData(data);
+      elevatorRawDataRef.current = data;
 
-      stationOut = getStationOutageArray(data);
-      setStationOutages(stationOut);
+      const elevData = getOutElevatorData(data);
+      setElevatorDataState(elevData); // triggers rerender
+      elevatorDataRef.current = elevData; // stable reference for handlers
+
+      const stationData = getStationOutageArray(data);
+      setStationDataState(stationData);
+      stationDataRef.current = stationData;
+
+      makeElevatorMap(); // an easy way to reference elevators and their stations/complexes
+
+      setLastUpdated(new Date());
+
+      // 🔧 Trigger layer redraws after data updates
+      if (
+        mapRef.current?.getSource("outage-data") &&
+        elevatorRawDataRef.current
+      ) {
+        updateOutageLayer(elevatorRawDataRef.current, mapRef.current);
+      } else if (!elevatorDataState) {
+        console.warn(
+          "ElevatorDataState not loaded",
+          "Raw Data:",
+          elevatorRawDataState
+        );
+      }
+      if (
+        mapRef.current?.getSource("station-outage-data") &&
+        stationDataRef.current
+      ) {
+        updateStationOutageLayer(stationDataRef.current, mapRef.current);
+      }
+      if (
+        mapRef.current?.getSource("station-complexes") &&
+        stationDataRef.current
+      ) {
+        updateStationComplexLayer(stationDataRef.current, mapRef.current);
+      }
     }
     // Fetch outages on component mount
     getOutages();
@@ -79,87 +202,162 @@ const MtaMap = () => {
         "visibility",
         "visible"
       );
+
+      mapRef.current.addSource("station-complexes", outageSourceOptions);
       mapRef.current.addSource("outage-data", outageSourceOptions);
       mapRef.current.addSource("station-outage-data", outageSourceOptions);
 
-      if (elevOut.length > 0) {
-        updateOutageLayer(elevOut, mapRef);
-        updateStationOutageLayer(stationOut, mapRef);
+      if (
+        mapRef.current?.getSource("outage-data") &&
+        elevatorRawDataRef.current
+      ) {
+        updateOutageLayer(elevatorRawDataRef.current, mapRef.current);
+      }
+      if (
+        mapRef.current?.getSource("station-outage-data") &&
+        stationDataRef.current
+      ) {
+        updateStationOutageLayer(stationDataRef.current, mapRef.current);
+      }
+      if (
+        mapRef.current?.getSource("station-complexes") &&
+        stationDataRef.current
+      ) {
+        updateStationComplexLayer(stationDataRef.current, mapRef.current);
       }
 
       // Add outage layer with icons based on isBroken property
+
       mapRef.current.addLayer(currentOutageProps);
-      // Moves transit elevators layer so it's not hidden by outage layer
-      //  mapRef.current.moveLayer("outages", "transit-elevators");
-
       mapRef.current.addLayer(stationOutageProps);
-      mapRef.current.moveLayer("stationOutages", "transit-elevators");
+      mapRef.current.addLayer(stationComplexProps);
 
-      // Track zoom level
+      // Moves transit elevators layer so it's not hidden by outage layer
+      mapRef.current.moveLayer("stationOutages", "transit-elevators");
+      mapRef.current.moveLayer(
+        "mta-subway-complexes-accessible2",
+        "transit-elevators"
+      );
+
+      // Draw a translucent complex boundary
+      mapRef.current.addSource(
+        "active-complex-boundary",
+        complexBoundarySourceOptions
+      );
+      mapRef.current.addLayer(complexBoundaryProps);
+
       mapRef.current.on("zoom", () => {
         const zoom = mapRef.current.getZoom();
         setZoomLevel(zoom);
       });
 
-      // On hover event
-      mapRef.current?.on("mousemove", "transit-elevators", (e) => {
-        const currentZoom = mapRef.current.getZoom();
-        if (currentZoom > 17) {
-          hoveredFeatureId = handleMouseMove(
-            e,
-            hoveredFeatureId,
-            mapRef,
-            onHoverPopupRef
-          );
-        }
+      mapRef.current?.on("click", "stationOutages", (e) => {
+        e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
+        handleOnClick(
+          e,
+          onClickPopupRef,
+          mapRef.current,
+          elevatorDataRef.current,
+          stationView,
+          setStationView,
+          elevatorView,
+          setElevatorView,
+          show3DToggle,
+          setShow3DToggle
+        );
       });
 
-      mapRef.current?.on("mouseleave", "transit-elevators", (e) => {
-        const currentZoom = mapRef.current.getZoom();
-        if (currentZoom > 17) {
-          hoveredFeatureId = handleMouseLeave(
-            hoveredFeatureId,
-            mapRef,
-            onHoverPopupRef
-          );
-        }
-      });
+      mapRef.current?.on("click", "mta-subway-stations-accessible", (e) => {
+        e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
+        handleOnClick(
+          e,
+          onClickPopupRef,
+          mapRef.current,
+          getLatestElevatorData(),
+          stationView,
+          setStationView,
+          elevatorView,
+          setElevatorView,
+          show3DToggle,
+          setShow3DToggle
+        );
 
-      // zoom into station
-      const zoomToFeature = (e) => {
-        if (!e.features || e.features.length === 0) return;
-
-        const feature = e.features[0];
-        const coordinates = feature.geometry?.coordinates;
-
-        if (!coordinates || coordinates.length !== 2) return;
-
-        mapRef.current.flyTo({
-          center: coordinates,
-          zoom: 19,
-          speed: 1.2,
-          curve: 1,
+        // Track zoom level
+        mapRef.current.on("zoom", () => {
+          const zoom = mapRef.current.getZoom();
+          setZoomLevel(zoom);
         });
-      };
+      });
 
-      mapRef.current?.on("click", "stationOutages", zoomToFeature);
-      mapRef.current?.on(
-        "click",
-        "mta-subway-stations-accessible",
-        zoomToFeature
-      );
-
-      //  Click event to display pop-up ***
-      mapRef.current?.on("click", "transit-elevators", (e) => {
+      //  Click event to display station pop-up
+      mapRef.current?.on("click", "mta-subway-complexes-accessible2", (e) => {
         const currentZoom = mapRef.current.getZoom();
-        if (currentZoom > 17) {
-          handleOnClick(e, onClickPopupRef, mapRef);
+        if (currentZoom > 15) {
+          let confirmedClick = dealWithMapboxIconOverlap(e);
+          handleOnClick(
+            confirmedClick,
+            onClickPopupRef,
+            mapRef.current,
+            getLatestElevatorData(),
+            stationView,
+            setStationView,
+            elevatorView,
+            setElevatorView,
+            show3DToggle,
+            setShow3DToggle
+          );
         }
+
+        // Track zoom level
+        mapRef.current.on("zoom", () => {
+          const zoom = mapRef.current.getZoom();
+          setZoomLevel(zoom);
+        });
+      });
+      //  Click event to display elevator pop-up
+      mapRef.current?.on("click", "transit-elevators", (e) => {
+        if (!stationView) return; // if we're not in stationView, don't talk to me
+
+        const zoom = mapRef.current?.getZoom?.() || 0;
+        if (zoom < 15) return;
+
+        e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
+        handleOnClick(
+          e,
+          onClickPopupRef,
+          mapRef.current,
+          getLatestElevatorData(),
+          stationView,
+          setStationView,
+          elevatorView,
+          setElevatorView,
+          show3DToggle,
+          setShow3DToggle
+        );
+      });
+
+      mapRef.current?.on("click", "outages", (e) => {
+        if (!stationView) return; // if we're not in stationView, don't talk to me
+
+        const zoom = mapRef.current?.getZoom?.() || 0;
+        if (zoom < 15) return;
+        handleOnClick(
+          e,
+          onClickPopupRef,
+          mapRef.current,
+          getLatestElevatorData(),
+          stationView,
+          setStationView,
+          elevatorView,
+          setElevatorView,
+          show3DToggle,
+          setShow3DToggle
+        );
       });
     });
 
-    // Set up an interval to fetch outages every 120 seconds.
-    const intervalId = setInterval(getOutages, 10000);
+    // Set up an interval to fetch outages every 30 seconds.
+    const intervalId = setInterval(getOutages, 30000);
 
     return () => {
       clearInterval(intervalId);
@@ -169,29 +367,101 @@ const MtaMap = () => {
 
   return (
     <>
-      <SearchBar data={stationData} map={mapRef.current} />
-        <div
-          ref={mapContainer}
-          id="map-container"
-          className="map-container"
-        />
+      <SearchBar
+        data={stationData}
+        map={mapRef.current}
+        onStationSelect={(feature) => {
+          handleStationSearchSelect(
+            feature,
+            getLatestElevatorData(),
+            stationView,
+            setStationView,
+            elevatorView,
+            setElevatorView,
+            show3DToggle,
+            setShow3DToggle
+          );
+        }}
+      />
+      <div ref={mapContainer} id="map-container" className="map-container" />
+      {lastUpdated && (
+        <div className="last-updated">
+          Last updated:{" "}
+          {lastUpdated.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
+        </div>
+      )}
+      {zoomLevel > 13 && (
+        <button
+          className="map-reset-button"
+          onClick={() => {
+            const map = mapRef.current as mapboxgl.Map;
+            if (!map) return;
+            cleanUpPopups();
+            const center = setMapCenter();
+            const bearing = setManhattanTilt();
+            setStationView(null);
+            setElevatorView(null);
 
-        {zoomLevel > 16 && (
-          <button
-            className="map-reset-button"
-            onClick={() =>
-              mapRef.current?.flyTo({
-                center: [-73.98365318925187, 40.7583063693059],
-                zoom: 13,
-                speed: 1.2,
-                curve: 1,
-              })
+            map.flyTo({
+              center: center,
+              zoom: 13,
+              pitch: 0,
+              bearing: bearing,
+              speed: 1.8,
+              curve: 1,
+            });
+
+            if (map.getLayer("active-complex-boundary-layer")) {
+              map.setLayoutProperty(
+                "active-complex-boundary-layer",
+                "visibility",
+                "none"
+              );
             }
+          }}
+        >
+          Return to Map
+        </button>
+      )}
+      <>
+        {/* Toggle floating on top of map, outside popup */}
+        {show3DToggle && elevatorView && (
+          <div
+            style={{
+              position: "absolute",
+              top: 60,
+              right: 10,
+              zIndex: 1000,
+              background: "white",
+              padding: "4px",
+              borderRadius: "4px",
+              boxShadow: "0 1px 4px rgba(0,0,0,0.2)",
+            }}
           >
-            Return to Map
-          </button>
+            <label>
+              <input
+                type="checkbox"
+                defaultChecked={true}
+                onChange={(e) => {
+                  if (!mapRef.current) return;
+                  const visibility = e.target.checked ? "visible" : "none";
+                  if (mapRef.current.getLayer("building-extrusion")) {
+                    mapRef.current.setLayoutProperty(
+                      "building-extrusion",
+                      "visibility",
+                      visibility
+                    );
+                  }
+                }}
+              />{" "}
+              Show 3D Buildings
+            </label>
+          </div>
         )}
-      {/* </div> */}
+      </>
     </>
   );
 };

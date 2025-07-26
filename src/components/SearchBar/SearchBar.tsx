@@ -3,10 +3,14 @@ import Select, { components } from "react-select";
 import { MTA_SUBWAY_LINE_ICONS_SMALL } from "@/utils/constants";
 import { AccessibleIconWhite } from "../icons";
 import styled from "styled-components";
+import { getAverageElevatorCoordinates } from "@/utils/dataUtils";
+import customDataset from "@/resources/custom_dataset.json";
+import { MtaStationFeature, MtaStationData } from "@/utils/types";
 
 interface SearchBarProps {
   data: MtaStationData;
   map: mapboxgl.Map | null;
+  onStationSelect?: (feature: MtaStationFeature) => void;
 }
 
 const getLinesServedIcons = (lines: string[]) => {
@@ -65,13 +69,17 @@ const StyledDiv = styled.div`
   left: 10px;
   width: 300px;
   z-index: 1000;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   @media (max-width: 768px) {
     max-width: 230px;
   }
 `;
 
-const SearchBar: React.FC<SearchBarProps> = ({ data, map }) => {
+const SearchBar: React.FC<SearchBarProps> = ({
+  data,
+  map,
+  onStationSelect,
+}) => {
   const [options, setOptions] = useState<
     { label: string; value: string; icon: ReactElement }[]
   >([]);
@@ -90,7 +98,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ data, map }) => {
         stop_name: feature.properties.stop_name,
         complex_id: complex_id,
         ada: feature.properties.ada,
-        line: feature.properties.line
+        line: feature.properties.line,
       });
       linesServed[station_id] = lines;
     });
@@ -120,10 +128,48 @@ const SearchBar: React.FC<SearchBarProps> = ({ data, map }) => {
     const selectedStation = data.features.filter(
       (feature) => feature.properties.station_id === selected.value
     );
-    const center: [number, number] = selectedStation[0].geometry.coordinates;
 
-    // Move the map to the new location
-    map.flyTo({ center, zoom: 19 });
+    // callback to allow popup without passsing RT data into search
+    if (onStationSelect) {
+      const selected = selectedStation[0] as any;
+      selected.layer = { id: "mta-subway-stations-all" };
+      onStationSelect(selectedStation[0]);
+    }
+    const station_id = selectedStation[0].properties.station_id;
+    const complex_id = selectedStation[0].properties.complex_id;
+    const isAccessible = selectedStation[0].properties.ada;
+
+    let center: [number, number];
+    let popupFlag = null;
+
+    if (isAccessible !== "0") {
+      const coords = getAverageElevatorCoordinates(
+        customDataset.features,
+        complex_id
+      );
+
+      if (
+        coords?.bounds &&
+        Array.isArray(coords.bounds) &&
+        coords.bounds.length === 2 &&
+        typeof coords.bounds[0] === "number" &&
+        typeof coords.bounds[1] === "number"
+      ) {
+        center = coords.bounds.getCenter().toArray() as [number, number];
+      }
+
+      popupFlag = true;
+    } else {
+      center = selectedStation[0].geometry.coordinates as [number, number];
+      popupFlag = true;
+
+      map.flyTo({
+        center: center,
+        zoom: 15,
+        pitch: 0,
+        speed: 1.8,
+      });
+    }
   };
 
   return (
@@ -141,24 +187,3 @@ const SearchBar: React.FC<SearchBarProps> = ({ data, map }) => {
 };
 
 export default SearchBar;
-
-// averaging logic to add back in for complex ids, probably move out to utils functions
-// const stationElevators = data.features.filter(
-//   (feature) => feature.properties.stop_name === selected.value
-// );
-
-// if (stationElevators.length === 0) return;
-
-// // Compute center point
-// const avgCoords = stationElevators.reduce(
-//   (acc, feature) => {
-//     acc[0] += feature.geometry.coordinates[0];
-//     acc[1] += feature.geometry.coordinates[1];
-//     return acc;
-//   },
-//   [0, 0] as [number, number]
-// );
-// const center: [number, number] = [
-//   avgCoords[0] / stationElevators.length,
-//   avgCoords[1] / stationElevators.length,
-// ];

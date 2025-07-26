@@ -1,0 +1,82 @@
+.popup {
+  background: linear-gradient(to top, #2c2c34, #26262e);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.elevator-service {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  font-family: inherit;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+  font-size: 0.95rem;
+}
+
+.elevator-service-bad {
+  background-color: rgba(200, 0, 0, 0.95);
+  color: #fff;
+}
+
+.elevator-service-good {
+  background-color: rgba(43, 183, 206, 0.95);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.statusText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.eta {
+  font-size: 0.95rem;
+  text-transform: initial;
+  font-variant: normal;
+  color: #fff;
+  font-weight: 400;
+  margin-top: 0.1rem;
+}
+
+.description {
+  background-color: #626262;
+  color: #e0e0e0;
+  padding: 0.6rem 1rem;
+  margin: 0.75rem 0;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.gray-text {
+  color: #a1a1a1;
+  font-variant: small-caps;
+  font-size: 0.75rem;
+}
+
+.title {
+  display: block;
+  margin: 0.25rem 0 0.75rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f0f0f0;
+}
+
+.subtitle {
+  display: block;
+  margin: 0.25rem 0 0.75rem 0;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #cccccc;
+}
