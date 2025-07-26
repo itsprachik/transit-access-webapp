@@ -296,7 +296,7 @@
 .chevronWrapper {
   border: none;
   background: none;
-  padding: 0;
+  padding: 0.4rem 0rem 0.0rem 0rem;
   cursor: pointer;
   display: inline-flex;
   align-items: center;

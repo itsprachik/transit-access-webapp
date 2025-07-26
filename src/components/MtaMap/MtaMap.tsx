@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Switch } from "@/components/ui/switch";
 import mapboxgl from "mapbox-gl";
 import { fetchOutages } from "@/api/fetchOutages";
 import dotenv from "dotenv";
@@ -383,7 +384,9 @@ const MtaMap = () => {
           );
         }}
       />
+
       <div ref={mapContainer} id="map-container" className="map-container" />
+
       {lastUpdated && (
         <div className="last-updated">
           Last updated:{" "}
@@ -393,6 +396,7 @@ const MtaMap = () => {
           })}
         </div>
       )}
+
       {zoomLevel > 13 && (
         <button
           className="map-reset-button"
@@ -429,37 +433,20 @@ const MtaMap = () => {
       <>
         {/* Toggle floating on top of map, outside popup */}
         {show3DToggle && elevatorView && (
-          <div
-            style={{
-              position: "absolute",
-              top: 60,
-              right: 10,
-              zIndex: 1000,
-              background: "white",
-              padding: "4px",
-              borderRadius: "4px",
-              boxShadow: "0 1px 4px rgba(0,0,0,0.2)",
-            }}
-          >
-            <label>
-              <input
-                type="checkbox"
-                defaultChecked={true}
-                onChange={(e) => {
-                  if (!mapRef.current) return;
-                  const visibility = e.target.checked ? "visible" : "none";
-                  if (mapRef.current.getLayer("building-extrusion")) {
-                    mapRef.current.setLayoutProperty(
-                      "building-extrusion",
-                      "visibility",
-                      visibility
-                    );
-                  }
-                }}
-              />{" "}
-              Show 3D Buildings
-            </label>
-          </div>
+          <div className="show-3d-button-wrapper">
+  <Switch
+    defaultChecked
+    onCheckedChange={(checked) => {
+      if (!mapRef.current) return;
+      const visibility = checked ? "visible" : "none";
+      if (mapRef.current.getLayer("building-extrusion")) {
+        mapRef.current.setLayoutProperty("building-extrusion", "visibility", visibility);
+      }
+    }}
+  />
+  <span className="show-3d-button-label">Show 3D Buildings</span>
+</div>
+
         )}
       </>
     </>

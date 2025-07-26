@@ -1,4 +1,3 @@
-import { geometry } from "@turf/turf";
 import { FeatureCollection, Feature, Point } from "geojson";
 
 type ElevatorFeature = {

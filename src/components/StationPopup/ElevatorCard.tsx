@@ -129,7 +129,7 @@ const ElevatorCard: React.FC<{
                 ? "ramp always works"
                 : elevator.isOut
                 ? "out of service"
-                : "elevator is working"}
+                : "in service"}
             </div>
           </div>
 
