@@ -59,7 +59,9 @@ const CustomSelectOption = (props) => (
     </div>
 
     <div />
+    <div style={{ display: "flex", alignItems: "center" }}>
     {props.data.icon}
+    </div>
   </Option>
 );
 

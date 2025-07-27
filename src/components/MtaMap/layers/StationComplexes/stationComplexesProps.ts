@@ -34,9 +34,9 @@ export const stationComplexProps = {
           0.6,
           12,
           0.6,
-          15,
+          14,
           0.7,
-          16,
+          15,
           1.5
         ],
         "text-anchor": ["step", ["zoom"], "left", 17, "top"],
@@ -53,8 +53,8 @@ export const stationComplexProps = {
           17,
           ["literal", [0, 5]]
         ],
-        "text-opacity": ["step", ["zoom"], 0, 16, 1],
-        "icon-opacity": ["step", ["zoom"], 0, 16, 1]
+        "text-opacity": ["step", ["zoom"], 0, 15, 1],
+        "icon-opacity": ["step", ["zoom"], 0, 15, 1]
       },
   //sprite:
    // "mapbox://sprites/joelaaron/clndls6cm07rp01mae34gd2oo/ehu96mappgo0oqnlwfjrnz4ta", // Sprite URL

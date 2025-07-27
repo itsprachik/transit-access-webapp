@@ -18,6 +18,7 @@ interface ElevatorPopupProps {
   estimatedreturntoservice: string;
   directionLabel: string;
   isStreet: string;
+  lastUpdated: string;
 }
 
 const ElevatorPopup: React.FC<ElevatorPopupProps> = ({
@@ -29,6 +30,7 @@ const ElevatorPopup: React.FC<ElevatorPopupProps> = ({
   estimatedreturntoservice,
   directionLabel,
   isStreet,
+  lastUpdated
 }) => {
   const lines = linesServed.split("/");
 

@@ -52,7 +52,6 @@ export const initializeMtaMap = (mapRef, mapContainer) => {
   mapRef.current.dragRotate.enable();
   mapRef.current.touchZoomRotate.enable();
 
-  mapRef.current.addControl(zoomControl, "bottom-left");
   // GeoLocate
   const geolocateControl = new mapboxgl.GeolocateControl({
     positionOptions: {
@@ -61,7 +60,7 @@ export const initializeMtaMap = (mapRef, mapContainer) => {
     trackUserLocation: true,
     showUserHeading: true,
   });
-  mapRef.current.addControl(geolocateControl, "bottom-right");
+  mapRef.current.addControl(geolocateControl, "top-right");
 };
 
 function showPopup(coordinates, mapRef, popupRef, popupDiv, root) {
@@ -100,7 +99,7 @@ function convertDate(outageDate) {
 // ---------------------------------------
 // 🟦 Case 1: Single Elevator Popup
 // ---------------------------------------
-function handleElevatorClick(root: any, feature: any, elevatorData: any) {
+function handleElevatorClick(root: any, feature: any, elevatorData: any, lastUpdated: any) {
   const {
     description_custom,
     image,
@@ -110,6 +109,8 @@ function handleElevatorClick(root: any, feature: any, elevatorData: any) {
     directionLabel,
     isStreet,
   } = feature.properties;
+
+  const popupKey = lastUpdated?.toISOString() || ""; // triggers re-render of the popup
 
   const outage = elevatorData.find(
     (outElevator: any) => outElevator.elevatorNo === elevatorno
@@ -123,6 +124,7 @@ function handleElevatorClick(root: any, feature: any, elevatorData: any) {
 
   root.render(
     <ElevatorPopup
+      key={popupKey}
       title={title}
       description_custom={description_custom}
       imageUrl={image}
@@ -131,6 +133,7 @@ function handleElevatorClick(root: any, feature: any, elevatorData: any) {
       estimatedreturntoservice={formattedDate}
       directionLabel={directionLabel}
       isStreet={isStreet}
+      lastUpdated={lastUpdated}
     />
   );
 }
@@ -148,7 +151,8 @@ function handleStationComplexClick(
   elevatorView, 
   setElevatorView, 
   show3DToggle, 
-  setShow3DToggle) {
+  setShow3DToggle,
+  lastUpdated) {
 
   mapRef.setLayoutProperty("building-extrusion", "visibility", "visible");
 
@@ -263,7 +267,8 @@ function handleStationComplexClick(
       setElevatorView={setElevatorView}
       show3DToggle={show3DToggle}
       setShow3DToggle={setShow3DToggle}
-    />
+      lastUpdated={lastUpdated}
+    />,
   );
 
   getAreaOfComplex(complex_id, mapRef, true); // true shows the complex boundary highlight, false does not
@@ -336,7 +341,8 @@ export function handleSearchPopup(
   elevatorView,
   setElevatorView,
   show3DToggle,
-  setShow3DToggle
+  setShow3DToggle,
+  lastUpdated
 ) {
   if (!feature || feature.length === 0) return;
 
@@ -396,7 +402,8 @@ export function handleSearchPopup(
     elevatorView,
     setElevatorView,
     show3DToggle,
-    setShow3DToggle
+    setShow3DToggle,
+    lastUpdated
   );
 
   showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
@@ -416,7 +423,8 @@ export function handleOnClick(
   elevatorView,
   setElevatorView,
   show3DToggle,
-  setShow3DToggle
+  setShow3DToggle,
+  lastUpdated
 ) {
   if (!e.features || e.features.length === 0) return;
 
@@ -436,7 +444,7 @@ export function handleOnClick(
 
   // If it's an elevator, show one elevator popup
   if (layerId === "transit-elevators") {
-    handleElevatorClick(root, feature, elevatorData);
+    handleElevatorClick(root, feature, elevatorData, lastUpdated);
     showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
   }
 
@@ -466,7 +474,7 @@ export function handleOnClick(
       layer: { id: "transit-elevators" },
     };
 
-    handleElevatorClick(root, elevatorFeature, elevatorData);
+    handleElevatorClick(root, elevatorFeature, elevatorData, lastUpdated);
     showPopup(
       matchingElevator.geometry.coordinates,
       mapRef,
@@ -511,7 +519,7 @@ export function handleOnClick(
     const complexFeature = handleStationClick(stationFeature);
 
     
-    handleStationComplexClick(root, complexFeature, mapRef, elevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle);
+    handleStationComplexClick(root, complexFeature, mapRef, elevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle, lastUpdated);
     showPopup(
       complexFeature.geometry.coordinates,
       mapRef,
@@ -532,85 +540,14 @@ export function handleOnClick(
     });  
 
     const complexFeature = handleStationClick(feature);
-    handleStationComplexClick(root, complexFeature, mapRef, elevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle);
+    handleStationComplexClick(root, complexFeature, mapRef, elevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle, lastUpdated);
     showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
   }
 
   if (layerId === "mta-subway-complexes-accessible2") {
-    handleStationComplexClick(root, feature, mapRef, elevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle);
+    handleStationComplexClick(root, feature, mapRef, elevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle, lastUpdated);
     showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
   }
 
   return;
-}
-
-export function handleMouseLeave(
-  hoveredFeatureId: any,
-  mapRef: any,
-  onHoverPopupRef: any
-) {
-  if (hoveredFeatureId !== null) {
-    mapRef.setFeatureState(
-      {
-        source: "composite",
-        sourceLayer: "transit_elevators",
-        id: hoveredFeatureId,
-      },
-      { hover: false }
-    );
-  }
-  hoveredFeatureId = null;
-  onHoverPopupRef.current.remove();
-  return hoveredFeatureId;
-}
-export function handleMouseMove(
-  e: any,
-  hoveredFeatureId: any,
-  mapRef: any,
-  onHoverPopupRef: any
-) {
-  if (e.features.length > 0) {
-    // Change opacity of elevator icon to indicate hover
-    if (hoveredFeatureId !== null) {
-      mapRef.setFeatureState(
-        {
-          source: "composite",
-          sourceLayer: "transit_elevators",
-          id: hoveredFeatureId,
-        },
-        { hover: false }
-      );
-    }
-    hoveredFeatureId = e.features[0].id;
-    mapRef.setFeatureState(
-      {
-        source: "composite",
-        sourceLayer: "transit_elevators",
-        id: hoveredFeatureId,
-      },
-      { hover: true }
-    );
-
-    // Display popup with image and information about the elevator
-    const feature = e.features[0];
-    const coordinates = e.features[0].geometry.coordinates.slice();
-    const description = feature.properties.description;
-    const imageUrl = feature.properties.image;
-    const title = feature.properties.title;
-    const linesServed = feature.properties.linesServed;
-    const lines = linesServed.split("/");
-    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-    }
-
-    const popupDiv = document.createElement("div");
-    document.body.appendChild(popupDiv); // Ensure it's added to the DOM
-    const root = createRoot(popupDiv);
-    root.render(<OnHoverElevatorPopup linesServed={linesServed} />);
-    onHoverPopupRef.current
-      .setLngLat(coordinates)
-      .setDOMContent(popupDiv)
-      .addTo(mapRef);
-  }
-  return hoveredFeatureId;
 }

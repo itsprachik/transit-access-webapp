@@ -37,6 +37,7 @@ type StationPopupProps = {
   setElevatorView: React.Dispatch<React.SetStateAction<string | null>>;
   show3DToggle;
   setShow3DToggle: React.Dispatch<React.SetStateAction<boolean>>;
+  lastUpdated;
 };
 
 const StationPopup: React.FC<StationPopupProps> = ({
@@ -54,6 +55,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
   setElevatorView,
   show3DToggle,
   setShow3DToggle,
+  lastUpdated
 }) => {
   function generateSubwayLines(routeLines) {
     return routeLines.map((line, i) => (
@@ -136,6 +138,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
           ""
         )}
       </div>
+      
       <div className={styles.elevatorCard}>
         {elevators.map((elevator, idx) => (
           <ElevatorCard
@@ -149,6 +152,16 @@ const StationPopup: React.FC<StationPopupProps> = ({
             setShow3DToggle={setShow3DToggle}
           />
         ))}
+      {lastUpdated && (
+        <div className={styles.lastUpdated}>
+          Last updated:{" "}
+          {lastUpdated.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
+        </div>
+      )}
+
       </div>
     </div>
   );
