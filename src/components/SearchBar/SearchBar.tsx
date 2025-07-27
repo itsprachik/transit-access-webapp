@@ -52,7 +52,6 @@ const getIcons = (stationData, linesServed) => {
 
 const parseLine =  (line: string) => {
   const l = line.split('-')
-  console.log(l)
 }
 
 const { Option } = components;
@@ -62,7 +61,7 @@ const CustomSelectOption = (props) => (
       <span style={{ fontSize: "14px", fontWeight: "600", color: "#00000", marginRight: "8px" }}>
         {props.data.stop_name}
       </span>
-      <span style={{ fontSize: "14px", fontWeight: "400", color: "#00051580" }}>
+      <span style={{ fontSize: "10px", fontWeight: "400", color: "#00051580" }}>
         {props.data.line}
       </span>
       <span style={{marginLeft: "6px"}}>
@@ -71,7 +70,9 @@ const CustomSelectOption = (props) => (
     </div>
 
     <div />
+    <div style={{ display: "flex", alignItems: "center" }}>
     {props.data.icon}
+    </div>
   </Option>
 );
 
@@ -79,11 +80,11 @@ const StyledSelect = styled(Select)`
   position: absolute !important;
   top: 10px;
   left: 10px;
-  width: 344px;
+  width: 300px;
   z-index: 1000;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   @media (max-width: 768px) {
-    max-width: 270px;
+    max-width: 230px;
   }
 `;
 
@@ -199,7 +200,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         isClearable
         components={{ Option: CustomSelectOption }}
         onChange={handleSelect}
-        menuIsOpen={true}
+      //  menuIsOpen={true}
         placeholder="Search for a station"
       />
     // </StyledDiv>
