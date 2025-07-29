@@ -140,7 +140,10 @@ const StationPopup: React.FC<StationPopupProps> = ({
       </div>
       
       <div className={styles.elevatorCard}>
+        <div className={styles.header}>
+        street level </div>
         {elevators.map((elevator, idx) => (
+          elevator.isStreet ? (
           <ElevatorCard
             key={idx}
             elevator={elevator}
@@ -150,7 +153,25 @@ const StationPopup: React.FC<StationPopupProps> = ({
             elevatorView={elevatorView}
             setElevatorView={setElevatorView}
             setShow3DToggle={setShow3DToggle}
-          />
+          />) : null
+        ))}
+        {elevators.some((elevator) => !elevator.isStreet) && (
+          <div className={styles.header}>
+            in the station
+          </div>
+        )}
+          {elevators.map((elevator, idx) => (
+          elevator.isStreet ? null : (     
+          <ElevatorCard
+          key={idx}
+          elevator={elevator}
+          map={map}
+          stationView={stationView}
+          setStationView={setStationView}
+          elevatorView={elevatorView}
+          setElevatorView={setElevatorView}
+          setShow3DToggle={setShow3DToggle}
+        />)
         ))}
       {lastUpdated && (
         <div className={styles.lastUpdated}>

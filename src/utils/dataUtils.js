@@ -10,6 +10,7 @@ import { stationCoordinates } from "./accessibleStationGeometry";
 import { stationGeometry } from "./stationGeometry";
 import { complexCoordinates } from "./ComplexGeometry";
 import { getComplexBoundaryGeoJSON } from "@/components/MtaMap/layers/StationComplexes/complexBoundaries";
+import { parse, isToday, isTomorrow, isThisWeek, format, formatDistanceToNow } from "date-fns";
 
 import customDataset from "@/resources/custom_dataset.json";
 import complexesDataset from "@/resources/mta_subway_complexes.json";
@@ -127,6 +128,26 @@ export function getComplexIDByElevatorNo(elevatorNo) {
 }
 
 /* ************************************************************************** */
+
+export function convertDate(outageDate) {
+  const parsedDate = parse(outageDate, "MM/dd/yyyy hh:mm:ss a", new Date());
+
+  if (isToday(parsedDate)) {
+    return `in ${formatDistanceToNow(parsedDate)} (${format(parsedDate, "h:mmaaa")})`;
+  }
+
+  if (isTomorrow(parsedDate)) {
+    return `Tomorrow at ${format(parsedDate, "h:mmaaa")}`;
+  }
+
+  if (isThisWeek(parsedDate)) {
+    return `This ${format(parsedDate, "EEEE 'at' h:mmaaa")}`;
+  }
+
+  // fallback: generic relative time
+  return `in ${formatDistanceToNow(parsedDate)}`;
+}
+
 
 // when going between stations and complexes, the complex has to inherit a concatenated version of routes and ADA
 export function concatenateRoutes(stationIDs, stationsDataset) {
@@ -619,10 +640,7 @@ export function flyIn(
   stationView,
   setStationView
 ) {
-  if(!stationView) {
-    setStationView(stationView);
-    console.log("backup set", stationView);
-  } 
+  
   const zoomBoundsDuration = 70;
   const MID_AREA = 4000; // in meters, area at which we need to zoom in a little to comfortably see station
   const MIN_AREA = 2000; // in meters, area at which we need to zoom in even more to comfortably see station

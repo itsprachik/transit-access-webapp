@@ -48,6 +48,12 @@
   margin-top: 0.1rem;
 }
 
+.linesServed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .description {
   background-color: #626262;
   color: #e0e0e0;

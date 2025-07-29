@@ -3,7 +3,6 @@ import mapboxgl from "mapbox-gl";
 import { getMtaMapOptions } from "./mtaMapOptions";
 import React from "react";
 import { createRoot, type Root } from "react-dom/client";
-import { format, parse } from "date-fns";
 
 // DATASETS
 import customDataset from "@/resources/custom_dataset.json";
@@ -12,9 +11,9 @@ import mtaComplexesDataset from "@/resources/mta_subway_complexes.json";
 
 // FUNCTIONS
 import {
+  convertDate,
   getAverageElevatorCoordinates,
   flyIn,
-  showActiveComplexBoundary,
   getElevatorByNo,
   getElevatorsByComplexId,
   getElevatorsByStationId,
@@ -47,10 +46,14 @@ export const initializeMtaMap = (mapRef, mapContainer) => {
   // Zoom and bearing control
   const zoomControl = new mapboxgl.NavigationControl({
     visualizePitch: true,
+    showZoom: false
+    
   });
 
   mapRef.current.dragRotate.enable();
   mapRef.current.touchZoomRotate.enable();
+
+  mapRef.current.addControl(zoomControl, "bottom-right")
 
   // GeoLocate
   const geolocateControl = new mapboxgl.GeolocateControl({
@@ -60,7 +63,7 @@ export const initializeMtaMap = (mapRef, mapContainer) => {
     trackUserLocation: true,
     showUserHeading: true,
   });
-  mapRef.current.addControl(geolocateControl, "top-right");
+  mapRef.current.addControl(geolocateControl, "bottom-right");
 };
 
 function showPopup(coordinates, mapRef, popupRef, popupDiv, root) {
@@ -87,14 +90,6 @@ export function cleanUpPopups() {
     currentPopupRoot.unmount();
     currentPopupRoot = null;
   }
-}
-
-// Converts date into a readable format (uses date-fns)
-function convertDate(outageDate) {
-  // format estimatedreturntoseervice into something readable
-  const parsedDate = parse(outageDate, "MM/dd/yyyy hh:mm:ss a", new Date());
-  const formattedDate = format(parsedDate, "EEE MMM d, yyyy 'at' h:mmaaa");
-  return formattedDate;
 }
 // ---------------------------------------
 // 🟦 Case 1: Single Elevator Popup
@@ -152,7 +147,8 @@ function handleStationComplexClick(
   setElevatorView, 
   show3DToggle, 
   setShow3DToggle,
-  lastUpdated) {
+  lastUpdated,
+) {
 
   mapRef.setLayoutProperty("building-extrusion", "visibility", "visible");
 
@@ -342,7 +338,7 @@ export function handleSearchPopup(
   setElevatorView,
   show3DToggle,
   setShow3DToggle,
-  lastUpdated
+  lastUpdated,
 ) {
   if (!feature || feature.length === 0) return;
 
@@ -403,7 +399,7 @@ export function handleSearchPopup(
     setElevatorView,
     show3DToggle,
     setShow3DToggle,
-    lastUpdated
+    lastUpdated,
   );
 
   showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
@@ -424,7 +420,7 @@ export function handleOnClick(
   setElevatorView,
   show3DToggle,
   setShow3DToggle,
-  lastUpdated
+  lastUpdated,
 ) {
   if (!e.features || e.features.length === 0) return;
 

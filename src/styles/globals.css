@@ -31,6 +31,7 @@ div#__next>div {
 
 /* Custom styles for the click popup */
 .onclick-popup.mapboxgl-popup.mapboxgl-popup-anchor-bottom {
+  z-index: 10;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   width: 100vw !important;
@@ -173,13 +174,13 @@ div#__next>div {
   position: absolute;
   display: flex;
   align-items: center;
-  top: 10vh;
+  top: 8vh;
   left: 1vw;
   z-index: 10;
-  background-color: #111;
+  background-color: #484848;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(10px);
-  border: 3px solid #ccc;
+  border: 2px solid #e5e5e5;
   border-radius: 4px;
   padding: 6px 16px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -191,20 +192,20 @@ div#__next>div {
 }
 
 .map-reset-button:hover {
-  background-color: #441;
+  background-color: rgb(99, 99, 99);
   transform: translateY(-1px);
 }
 
 .show-3d-button-wrapper {
   position: absolute;
-  top: 60px;
-  right: 10px;
+  top: 14vh;
+  left: 1.5vw;
   z-index: 9999;
   display: flex;
   align-items: center;
   background-color: #fff;
   border-radius: 4px;
-  padding: 4px 8px;
+  padding: 4px 8px 4px 0px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 12px;
   color: #333;
@@ -221,6 +222,13 @@ div#__next>div {
   height: 100%;
 }
 
+.mapboxgl-ctrl-geolocate {
+  transform: scale(1.5); /* Increase size of geolocate */
+}
+
+.mapboxgl-ctrl-bottom-right {
+  z-index: 1; /* keep it behind popup */
+}
 
 
 @layer base {

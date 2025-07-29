@@ -120,7 +120,7 @@ const MtaMap = () => {
     setElevatorView,
     show3DToggle,
     setShow3DToggle,
-    lastUpdated
+    lastUpdated,
   ) => {
     handleSearchPopup(
       feature,
@@ -133,7 +133,7 @@ const MtaMap = () => {
       setElevatorView,
       show3DToggle,
       setShow3DToggle,
-      lastUpdated
+      lastUpdated,
     );
   };
 
@@ -258,7 +258,7 @@ const MtaMap = () => {
           setElevatorView,
           show3DToggle,
           setShow3DToggle,
-          lastUpdatedRef.current
+          lastUpdatedRef.current,
         );
       });
 
@@ -275,7 +275,7 @@ const MtaMap = () => {
           setElevatorView,
           show3DToggle,
           setShow3DToggle,
-          lastUpdatedRef.current
+          lastUpdatedRef.current,         
         );
 
         // Track zoom level
@@ -301,7 +301,7 @@ const MtaMap = () => {
             setElevatorView,
             show3DToggle,
             setShow3DToggle,
-            lastUpdatedRef.current
+            lastUpdatedRef.current,         
           );
         }
 
@@ -313,7 +313,7 @@ const MtaMap = () => {
       });
       //  Click event to display elevator pop-up
       mapRef.current?.on("click", "transit-elevators", (e) => {
-        if (!stationView) return; // if we're not in stationView, don't talk to me
+      //  if (!stationView) return; // if we're not in stationView, don't talk to me
 
         const zoom = mapRef.current?.getZoom?.() || 0;
         if (zoom < 15) return;
@@ -330,12 +330,12 @@ const MtaMap = () => {
           setElevatorView,
           show3DToggle,
           setShow3DToggle,
-          lastUpdatedRef.current
+          lastUpdatedRef.current,        
         );
       });
 
       mapRef.current?.on("click", "outages", (e) => {
-        if (!stationView) return; // if we're not in stationView, don't talk to me
+      //  if (!stationView) return; // if we're not in stationView, don't talk to me
 
         const zoom = mapRef.current?.getZoom?.() || 0;
         if (zoom < 15) return;
@@ -350,7 +350,7 @@ const MtaMap = () => {
           setElevatorView,
           show3DToggle,
           setShow3DToggle,
-          lastUpdatedRef.current
+          lastUpdatedRef.current,     
         );
       });
     });
@@ -379,7 +379,7 @@ const MtaMap = () => {
             setElevatorView,
             show3DToggle,
             setShow3DToggle,
-            lastUpdatedRef.current
+            lastUpdatedRef.current,   
           );
         }}
       />

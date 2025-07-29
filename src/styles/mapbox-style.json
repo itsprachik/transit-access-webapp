@@ -14362,7 +14362,7 @@
                 ],
                 "text-radial-offset": 1.5,
                 "icon-size-scale-range": [0.7, 2],
-                "symbol-sort-key": 2,
+                "symbol-sort-key": 5,
                 "symbol-z-order": "source",
                 "text-variable-anchor": ["top", "right", "left"],
                 "icon-offset": [0, 0],
@@ -14385,6 +14385,7 @@
                     "elevatorInverted"
                 ],
                 "symbol-avoid-edges": true,
+                "text-allow-overlap": false,
                 "text-font": [
                     "Montserrat SemiBold",
                     "Arial Unicode MS Regular"
