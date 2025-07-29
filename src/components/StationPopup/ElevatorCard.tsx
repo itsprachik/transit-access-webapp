@@ -7,6 +7,7 @@ import {
   LiftGood,
   ElevatorIcon,
   ElevatorInvertedIcon,
+  Ramp
 } from "../icons";
 import { MTA_SUBWAY_LINE_ICONS } from "@/utils/constants";
 
@@ -59,7 +60,6 @@ const ElevatorCard: React.FC<{
 
   // We've assigned our own ramp numbers. This is so they have a unique identifier. "RAxxx"
   const isRamp =
-    typeof elevator.elevatorno === "string" &&
     elevator.elevatorno.toLowerCase().includes("ra");
 
   const lines = elevator.linesServed?.split("/") || [];
@@ -111,7 +111,7 @@ const ElevatorCard: React.FC<{
             )}
           </div>
           <div className={styles.elevatorIcon}>
-            {elevator.isStreet ? (
+            {isRamp ? <Ramp size={50}/> : elevator.isStreet ? (
               <ElevatorIcon size={50} />
             ) : (
               <ElevatorInvertedIcon size={50} />

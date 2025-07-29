@@ -70,7 +70,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
   }
 
   const hasRamp = elevators.every(
-    (e) => e.elevatorno?.toLowerCase() === "ramp"
+    (e) => e.elevatorno.toLowerCase().includes("ra")
   );
 
   const lines = route?.split(" ") || [];
@@ -141,7 +141,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
       
       <div className={styles.elevatorCard}>
         <div className={styles.header}>
-        street level </div>
+        {ada!=="0" ? 'street level' : null}</div>
         {elevators.map((elevator, idx) => (
           elevator.isStreet ? (
           <ElevatorCard

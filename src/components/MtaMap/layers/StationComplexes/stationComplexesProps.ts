@@ -38,6 +38,10 @@ export const stationComplexProps = {
           14,
           0.7,
           15,
+          1.5,
+          16,
+          2.2,
+          17,
           3
         ],
         "text-anchor": ["step", ["zoom"], "left", 17, "top"],
