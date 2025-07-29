@@ -23,8 +23,6 @@ import {
 import { stationComplexProps } from "./layers/StationComplexes/stationComplexesProps";
 import { complexBoundaryProps } from "./layers/StationComplexes/complexBoundariesProps";
 import {
-  handleMouseLeave,
-  handleMouseMove,
   handleOnClick,
   handleSearchPopup,
   initializeMtaMap,
@@ -64,6 +62,7 @@ const MtaMap = () => {
   const [elevatorView, setElevatorView] = useState<string | null>(null); // app state: enter elevator view
 
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
+  const lastUpdatedRef = useRef<Date | null>(null);
 
   const [zoomLevel, setZoomLevel] = useState(13);
 
@@ -103,17 +102,6 @@ const MtaMap = () => {
     return elevatorDataRef.current;
   }
 
-  let hoveredFeatureId = null;
-
-  // Popup for station info
-  const onHoverPopupRef = useRef(
-    new mapboxgl.Popup({
-      closeButton: false,
-      closeOnClick: false,
-      className: "onhover-popup", // hover-popup css class
-    })
-  );
-
   const onClickPopupRef = useRef(
     new mapboxgl.Popup({
       anchor: "bottom",
@@ -131,7 +119,8 @@ const MtaMap = () => {
     elevatorView,
     setElevatorView,
     show3DToggle,
-    setShow3DToggle
+    setShow3DToggle,
+    lastUpdated,
   ) => {
     handleSearchPopup(
       feature,
@@ -143,7 +132,8 @@ const MtaMap = () => {
       elevatorView,
       setElevatorView,
       show3DToggle,
-      setShow3DToggle
+      setShow3DToggle,
+      lastUpdated,
     );
   };
 
@@ -164,8 +154,9 @@ const MtaMap = () => {
       makeElevatorMap(); // an easy way to reference elevators and their stations/complexes
 
       setLastUpdated(new Date());
+      lastUpdatedRef.current = new Date();
 
-      // 🔧 Trigger layer redraws after data updates
+      // Trigger layer redraws after data updates
       if (
         mapRef.current?.getSource("outage-data") &&
         elevatorRawDataRef.current
@@ -198,6 +189,7 @@ const MtaMap = () => {
     initializeMtaMap(mapRef, mapContainer);
 
     mapRef.current?.on("load", () => {
+      
       mapRef.current.setLayoutProperty(
         "transit-elevators",
         "visibility",
@@ -252,6 +244,7 @@ const MtaMap = () => {
         setZoomLevel(zoom);
       });
 
+
       mapRef.current?.on("click", "stationOutages", (e) => {
         e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
         handleOnClick(
@@ -264,7 +257,8 @@ const MtaMap = () => {
           elevatorView,
           setElevatorView,
           show3DToggle,
-          setShow3DToggle
+          setShow3DToggle,
+          lastUpdatedRef.current,
         );
       });
 
@@ -280,7 +274,8 @@ const MtaMap = () => {
           elevatorView,
           setElevatorView,
           show3DToggle,
-          setShow3DToggle
+          setShow3DToggle,
+          lastUpdatedRef.current,         
         );
 
         // Track zoom level
@@ -305,7 +300,8 @@ const MtaMap = () => {
             elevatorView,
             setElevatorView,
             show3DToggle,
-            setShow3DToggle
+            setShow3DToggle,
+            lastUpdatedRef.current,         
           );
         }
 
@@ -317,7 +313,7 @@ const MtaMap = () => {
       });
       //  Click event to display elevator pop-up
       mapRef.current?.on("click", "transit-elevators", (e) => {
-        if (!stationView) return; // if we're not in stationView, don't talk to me
+      //  if (!stationView) return; // if we're not in stationView, don't talk to me
 
         const zoom = mapRef.current?.getZoom?.() || 0;
         if (zoom < 15) return;
@@ -333,12 +329,13 @@ const MtaMap = () => {
           elevatorView,
           setElevatorView,
           show3DToggle,
-          setShow3DToggle
+          setShow3DToggle,
+          lastUpdatedRef.current,        
         );
       });
 
       mapRef.current?.on("click", "outages", (e) => {
-        if (!stationView) return; // if we're not in stationView, don't talk to me
+      //  if (!stationView) return; // if we're not in stationView, don't talk to me
 
         const zoom = mapRef.current?.getZoom?.() || 0;
         if (zoom < 15) return;
@@ -352,7 +349,8 @@ const MtaMap = () => {
           elevatorView,
           setElevatorView,
           show3DToggle,
-          setShow3DToggle
+          setShow3DToggle,
+          lastUpdatedRef.current,     
         );
       });
     });
@@ -380,7 +378,8 @@ const MtaMap = () => {
             elevatorView,
             setElevatorView,
             show3DToggle,
-            setShow3DToggle
+            setShow3DToggle,
+            lastUpdatedRef.current,   
           );
         }}
       />

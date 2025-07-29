@@ -18,6 +18,7 @@ interface ElevatorPopupProps {
   estimatedreturntoservice: string;
   directionLabel: string;
   isStreet: string;
+  lastUpdated: string;
 }
 
 const ElevatorPopup: React.FC<ElevatorPopupProps> = ({
@@ -29,6 +30,7 @@ const ElevatorPopup: React.FC<ElevatorPopupProps> = ({
   estimatedreturntoservice,
   directionLabel,
   isStreet,
+  lastUpdated
 }) => {
   const lines = linesServed.split("/");
 
@@ -64,10 +66,8 @@ const ElevatorPopup: React.FC<ElevatorPopupProps> = ({
 
       <img src={imageUrl} alt="Elevator at station" />
 
-      <p>
-        <span className={styles["subtitle"]}>Lines Served</span>
-      </p>
-      <div>
+        <div className={styles["subtitle"]}>Lines Served</div>
+      <div className={styles.linesServed}>
         {lines.map((line, index) => (
           <span key={index} title={line}>
             {MTA_SUBWAY_LINE_ICONS[line]}

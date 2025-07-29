@@ -1,8 +1,8 @@
 html,
 body,
-body > div:first-child,
+body>div:first-child,
 div#__next,
-div#__next > div {
+div#__next>div {
   height: 100%;
   margin: 0;
 }
@@ -27,62 +27,93 @@ div#__next > div {
   width: 100%;
 }
 
+
+
 /* Custom styles for the click popup */
 .onclick-popup.mapboxgl-popup.mapboxgl-popup-anchor-bottom {
+  z-index: 10;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
-  width: 90vw !important; /* Full width for mobile */
-  max-width: 90vw !important; /* Full width for mobile */
+  width: 100vw !important;
+  /* Full width for mobile */
+  max-width: 100vw !important;
+  /* Full width for mobile */
   position: fixed !important;
   left: 50% !important;
-  bottom: 1% !important;
+  bottom: -1% !important;
   top: auto;
   transform: translateX(-50%) !important;
-  border-radius: 10px; /* Rounded corners */
-  overflow: hidden; /* Prevent content overflow */
-  padding: 10px; /* Extra padding for cleaner spacing */
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.7
-  ); /* Slightly more opaque for bottom popup */
-  backdrop-filter: blur(10px); /* Stronger blur for bottom popup */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); /* Soft shadow */
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 5px 0px 0px 0px;
+  background-color: rgba(255,
+      255,
+      255,
+      0.7);
+  /* Slightly more opaque for bottom popup */
+  backdrop-filter: blur(10px);
+  /* Stronger blur for bottom popup */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  /* Soft shadow */
   color: #333;
-  max-height: 80vh; /* Ensure the popup doesn't exceed the viewport height */
-  overflow-y: auto; /* Enable vertical scroll if content overflows */
+  max-height: 80vh;
+  /* Ensure the popup doesn't exceed the viewport height */
+  overflow-y: auto;
+  /* Enable vertical scroll if content overflows */
+}
+@media (min-width: 768px) {
+  .onclick-popup.mapboxgl-popup.mapboxgl-popup-anchor-bottom {
+    padding: 5px 5px 5px 5px;
+  }
 }
 
 /* Ensure image spans full width */
 .onclick-popup img {
-  border-radius: 5px; /* Round image corners */
+  border-radius: 5px;
+  /* Round image corners */
   margin-top: 10px;
-  width: 100%; /* Image spans full width */
-  max-height: 50vh; /* Limit image height to prevent excessive height */
-  object-fit: cover; /* Ensure the image maintains aspect ratio */
+  width: 100%;
+  /* Image spans full width */
+  max-height: 50vh;
+  /* Limit image height to prevent excessive height */
+  object-fit: cover;
+  /* Ensure the image maintains aspect ratio */
 }
 
 /* Responsive adjustments for larger screens (like desktop) */
 @media (min-width: 768px) {
   .onclick-popup.mapboxgl-popup.mapboxgl-popup-anchor-bottom {
-    max-width: 60vw !important; /* Max width for larger screens */
+    max-width: 60vw !important;
+    /* Max width for larger screens */
     top: auto;
   }
 }
 
 @media (min-width: 1024px) {
   .onclick-popup.mapboxgl-popup.mapboxgl-popup-anchor-bottom {
-    max-width: 40vw !important; /* 60% width for larger screens */
+    max-width: 40vw !important;
+    /* 60% width for larger screens */
   }
+}
+
+.mapboxgl-popup-close-button {
+  display: none;
+  background-color: initial;
+  border: 0;
+  border-radius: 0 3px 0 0;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0
+}
+
+.mapboxgl-popup-close-button:hover {
+  background-color: #0000000d
 }
 
 .onclick-popup .mapboxgl-popup-content {
   position: relative !important;
-  background: rgba(250, 250, 250, 0) !important;
-  border-radius: 3px;
-  box-shadow: 0 1px 2px rgb(0 0 0 / 0%) !important;
-  padding: 10px 10px 15px;
+  padding: 0px 0px 0px !important;
   pointer-events: auto;
   height: 100%;
   max-height: 80vh;
@@ -92,7 +123,8 @@ div#__next > div {
 
 
 .onclick-popup p {
-  font-family: "Roboto", sans-serif; /* Use Roboto for secondary text */
+  font-family: "Roboto", sans-serif;
+  /* Use Roboto for secondary text */
   margin: 5px 0;
   font-size: 14px;
   line-height: 1.5;
@@ -103,7 +135,8 @@ div#__next > div {
   display: flex;
   margin-bottom: 1% !important;
   color: #111;
-  font-size: 18px; /* Slightly larger font for titles */
+  font-size: 18px;
+  /* Slightly larger font for titles */
 }
 
 /* Additional hover effects */
@@ -112,7 +145,8 @@ div#__next > div {
   padding-left: 10px;
   padding-right: 10px;
   text-align: center;
-  border-radius: 5px; /* Round corners */
+  border-radius: 5px;
+  /* Round corners */
   background-color: rgba(255, 255, 255, 1);
 }
 
@@ -143,37 +177,37 @@ div#__next > div {
   top: 1.2vh;
   right: 1vh;
   z-index: 10;
-  background-color: rgb(255, 255, 255);
+  background-color: #484848;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(10px);
-  border-color: hsl(0, 0%, 80%);
+  border: 2px solid #e5e5e5;
   border-radius: 4px;
   border-style: solid;
   border-width: 1px;
   padding:6px 16px;
   font-family: "Montserrat SemiBold", sans-serif;
   font-size: 16px;
-  color: #333;
+  color: #fff;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.0);
   transition: background-color 0.2s, transform 0.2s;
 }
 
 .map-reset-button:hover {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgb(99, 99, 99);
   transform: translateY(-1px);
 }
 
 .show-3d-button-wrapper {
   position: absolute;
-  top: 60px;
-  right: 10px;
+  top: 14vh;
+  left: 1.5vw;
   z-index: 9999;
   display: flex;
   align-items: center;
   background-color: #fff;
   border-radius: 4px;
-  padding: 4px 8px;
+  padding: 4px 8px 4px 0px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 12px;
   color: #333;
@@ -190,6 +224,13 @@ div#__next > div {
   height: 100%;
 }
 
+.mapboxgl-ctrl-geolocate {
+  transform: scale(1.5); /* Increase size of geolocate */
+}
+
+.mapboxgl-ctrl-bottom-right {
+  z-index: 1; /* keep it behind popup */
+}
 
 
 @layer base {
@@ -220,6 +261,7 @@ div#__next > div {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -254,6 +296,7 @@ div#__next > div {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }

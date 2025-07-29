@@ -56,3 +56,19 @@ export const MTA_SUBWAY_LINE_ICONS_SMALL = {
     SIR: <SIR_small />
 
 }
+
+export const ROUTE_ORDER = [
+    "A", "C", "E",
+    "B", "D", "F", "M",
+    "L",
+    "N", "Q", "R", "W",
+    "J", "Z",
+    "1", "2", "3",
+    "4", "5", "6",
+    "7",
+    "G",
+    "S",
+    "SIR",
+    "LIRR"
+  ];
+  

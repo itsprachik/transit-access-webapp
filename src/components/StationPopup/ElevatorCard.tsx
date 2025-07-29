@@ -13,6 +13,7 @@ import { MTA_SUBWAY_LINE_ICONS } from "@/utils/constants";
 import styles from "./station-popup.module.css";
 import "keen-slider/keen-slider.min.css";
 import { ChevronDown } from "lucide-react";
+
 import { lookAtElevator } from "@/utils/dataUtils";
 
 type Elevator = {
@@ -64,9 +65,8 @@ const ElevatorCard: React.FC<{
   const lines = elevator.linesServed?.split("/") || [];
 
   return (
-    <div className={styles.cardWrapper}>
+    <div className={elevator.isStreet ? styles.cardWrapperStreet : styles.cardWrapperPlatform}>  {/* <- wrapper for each elevator */}
       {" "}
-      {/* <- wrapper for each elevator */}
       {/* TITLE & ELEVATOR INFO */}
       <div className={styles.elevatorTitle}>
         {isRamp ? (
@@ -186,7 +186,7 @@ const ElevatorCard: React.FC<{
               <span className={styles.statusBad}>
                 <LiftBadInverted fill="#fff" />
                 <span className={styles.statusText}>
-                  <span>Out of service until</span>
+                  <span>Back in service</span>
                   <span className={styles.eta}>{elevator.estimatedReturn}</span>
                 </span>
               </span>

@@ -10,10 +10,13 @@ import { stationCoordinates } from "./accessibleStationGeometry";
 import { stationGeometry } from "./stationGeometry";
 import { complexCoordinates } from "./ComplexGeometry";
 import { getComplexBoundaryGeoJSON } from "@/components/MtaMap/layers/StationComplexes/complexBoundaries";
+import { parse, isToday, isTomorrow, isThisWeek, format, formatDistanceToNow } from "date-fns";
 
 import customDataset from "@/resources/custom_dataset.json";
 import complexesDataset from "@/resources/mta_subway_complexes.json";
 import stationsDataset from "@/resources/mta_subway_stations_all.json";
+import { setManhattanTilt } from "@/components/MtaMap/mtaMapOptions";
+import { ROUTE_ORDER } from "./constants";
 
 // make a map of elevator # tied to stationID and complexID
 import {
@@ -126,6 +129,26 @@ export function getComplexIDByElevatorNo(elevatorNo) {
 
 /* ************************************************************************** */
 
+export function convertDate(outageDate) {
+  const parsedDate = parse(outageDate, "MM/dd/yyyy hh:mm:ss a", new Date());
+
+  if (isToday(parsedDate)) {
+    return `in ${formatDistanceToNow(parsedDate)} (${format(parsedDate, "h:mmaaa")})`;
+  }
+
+  if (isTomorrow(parsedDate)) {
+    return `Tomorrow at ${format(parsedDate, "h:mmaaa")}`;
+  }
+
+  if (isThisWeek(parsedDate)) {
+    return `This ${format(parsedDate, "EEEE 'at' h:mmaaa")}`;
+  }
+
+  // fallback: generic relative time
+  return `in ${formatDistanceToNow(parsedDate)}`;
+}
+
+
 // when going between stations and complexes, the complex has to inherit a concatenated version of routes and ADA
 export function concatenateRoutes(stationIDs, stationsDataset) {
   const routes = new Set();
@@ -143,7 +166,9 @@ export function concatenateRoutes(stationIDs, stationsDataset) {
     }
   }
 
-  return Array.from(routes).sort().join(" ");
+  return Array.from(routes)
+  .sort((a, b) => ROUTE_ORDER.indexOf(a) - ROUTE_ORDER.indexOf(b))
+  .join(" ");
 }
 
 export function concatenateInaccessibleRoutes(stationIDs, stationsDataset) {
@@ -571,7 +596,7 @@ export function showActiveComplexBoundary(feature, map) {
   }, fadeDuration / steps);
 }
 
-function extendBoundsForTallComplex(bounds, popupDirection = "down") {
+function extendBoundsForPopup(bounds, popupDirection = "down") {
   const sw = bounds.getSouthWest();
   const ne = bounds.getNorthEast();
 
@@ -606,35 +631,6 @@ function extendBoundsForTallComplex(bounds, popupDirection = "down") {
   return new mapboxgl.LngLatBounds(newSW, newNE);
 }
 
-// bounds need to adjust based on popup in ~40% of the bottom
-function extendBoundsAwayFromPopup(
-  originalBounds,
-  direction = "down",
-  percent = 0.3
-) {
-  const sw = originalBounds.getSouthWest();
-  const ne = originalBounds.getNorthEast();
-
-  const latSpan = ne.lat - sw.lat;
-  const lngSpan = ne.lng - sw.lng;
-
-  let extendedSW = sw;
-  let extendedNE = ne;
-
-  if (direction === "down") {
-    // Extend further south to push everything upward in view
-    extendedSW = new mapboxgl.LngLat(sw.lng, sw.lat - latSpan * percent);
-  } else if (direction === "up") {
-    extendedNE = new mapboxgl.LngLat(ne.lng, ne.lat + latSpan * percent);
-  } else if (direction === "left") {
-    extendedSW = new mapboxgl.LngLat(sw.lng - lngSpan * percent, sw.lat);
-  } else if (direction === "right") {
-    extendedNE = new mapboxgl.LngLat(ne.lng + lngSpan * percent, ne.lat);
-  }
-
-  return new mapboxgl.LngLatBounds(extendedSW, extendedNE);
-}
-
 export function flyIn(
   map,
   complex_id,
@@ -644,9 +640,11 @@ export function flyIn(
   stationView,
   setStationView
 ) {
+  
   const zoomBoundsDuration = 70;
   const MID_AREA = 4000; // in meters, area at which we need to zoom in a little to comfortably see station
   const MIN_AREA = 2000; // in meters, area at which we need to zoom in even more to comfortably see station
+  const MAX_LAT_SPAN = 0.002; // to accommodate the Times Square/Port Authority sprawl for small screens
   let maxZoomLevel = 17;
 
   if (!coordsOrBounds) {
@@ -665,7 +663,7 @@ export function flyIn(
       center: coordsOrBounds,
       zoom: maxZoomLevel - 1,
       pitch: 0,
-      bearing: 0,
+      bearing: setManhattanTilt(),
       speed: 1.8,
     });
     return;
@@ -677,15 +675,14 @@ export function flyIn(
 
     let adjustedBounds = coordsOrBounds;
 
-    if (isPopup) {
-      // Dynamically extend for popup visibility and vertical spread
-      adjustedBounds = extendBoundsForTallComplex(coordsOrBounds, "down");
+    if (isPopup && currentLatSpan <= MAX_LAT_SPAN) {
+      // extend for popup visibility and vertical spread
+      adjustedBounds = extendBoundsForPopup(coordsOrBounds, "down");
     }
-
     const dynamicPadding =
       currentLatSpan > 0.0008
-        ? { top: 180, bottom: 320, left: 50, right: 50 }
-        : { top: 50, bottom: 220, left: 50, right: 50 };
+        ? { top: 180, bottom: 220, left: 0, right: 0 }
+        : { top: 80, bottom: 220, left: 30, right: 30 };
 
     const area = getAreaOfComplex(complex_id, map, false);
 
@@ -703,6 +700,7 @@ export function flyIn(
       offset: [0, -map.getCanvas().height * 0.01],
       maxZoom: maxZoomLevel,
       pitch: 0,
+      bearing: setManhattanTilt(),
       duration: zoomBoundsDuration,
     });
 

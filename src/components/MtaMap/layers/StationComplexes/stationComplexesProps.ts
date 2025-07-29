@@ -7,10 +7,11 @@ export const stationComplexProps = {
   type: "symbol",
   filter: ["match", ["get", "ada"], ["2", "1"], true, false],
   layout: {
-    "text-optional": true,
-    "text-size": 10,
-    "text-radial-offset": 1,
+    "text-size": 12,
+    "text-radial-offset": 1.5,
     "text-allow-overlap": true,
+    "symbol-sort-key": 10,
+    "symbol-z-order": "auto",
     "text-variable-anchor": ["bottom", "right", "top", "left"],
     "icon-image": [
       "case",
@@ -22,7 +23,7 @@ export const stationComplexProps = {
       "border-dot-13-yellow", // Use yellow dot
       "border-dot-13", // Default in case of missing data
     ],
-"text-font": ["Montserrat SemiBold", "Arial Unicode MS Regular"],
+"text-font": ["Montserrat Bold", "Arial Unicode MS Regular"],
         "icon-allow-overlap": true,
         "icon-size": [
           "step",
@@ -34,10 +35,10 @@ export const stationComplexProps = {
           0.6,
           12,
           0.6,
-          15,
+          14,
           0.7,
-          16,
-          1.5
+          15,
+          3
         ],
         "text-anchor": ["step", ["zoom"], "left", 17, "top"],
         "text-field": ["to-string", ["get", "name"]]
@@ -53,8 +54,8 @@ export const stationComplexProps = {
           17,
           ["literal", [0, 5]]
         ],
-        "text-opacity": ["step", ["zoom"], 0, 16, 1],
-        "icon-opacity": ["step", ["zoom"], 0, 16, 1]
+        "text-opacity": ["step", ["zoom"], 0, 15, 1],
+        "icon-opacity": ["step", ["zoom"], 0, 15, 1]
       },
   //sprite:
    // "mapbox://sprites/joelaaron/clndls6cm07rp01mae34gd2oo/ehu96mappgo0oqnlwfjrnz4ta", // Sprite URL

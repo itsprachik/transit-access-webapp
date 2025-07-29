@@ -37,6 +37,7 @@ type StationPopupProps = {
   setElevatorView: React.Dispatch<React.SetStateAction<string | null>>;
   show3DToggle;
   setShow3DToggle: React.Dispatch<React.SetStateAction<boolean>>;
+  lastUpdated;
 };
 
 const StationPopup: React.FC<StationPopupProps> = ({
@@ -54,6 +55,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
   setElevatorView,
   show3DToggle,
   setShow3DToggle,
+  lastUpdated
 }) => {
   function generateSubwayLines(routeLines) {
     return routeLines.map((line, i) => (
@@ -136,8 +138,12 @@ const StationPopup: React.FC<StationPopupProps> = ({
           ""
         )}
       </div>
+      
       <div className={styles.elevatorCard}>
+        <div className={styles.header}>
+        street level </div>
         {elevators.map((elevator, idx) => (
+          elevator.isStreet ? (
           <ElevatorCard
             key={idx}
             elevator={elevator}
@@ -147,8 +153,36 @@ const StationPopup: React.FC<StationPopupProps> = ({
             elevatorView={elevatorView}
             setElevatorView={setElevatorView}
             setShow3DToggle={setShow3DToggle}
-          />
+          />) : null
         ))}
+        {elevators.some((elevator) => !elevator.isStreet) && (
+          <div className={styles.header}>
+            in the station
+          </div>
+        )}
+          {elevators.map((elevator, idx) => (
+          elevator.isStreet ? null : (     
+          <ElevatorCard
+          key={idx}
+          elevator={elevator}
+          map={map}
+          stationView={stationView}
+          setStationView={setStationView}
+          elevatorView={elevatorView}
+          setElevatorView={setElevatorView}
+          setShow3DToggle={setShow3DToggle}
+        />)
+        ))}
+      {lastUpdated && (
+        <div className={styles.lastUpdated}>
+          Last updated:{" "}
+          {lastUpdated.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
+        </div>
+      )}
+
       </div>
     </div>
   );
