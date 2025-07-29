@@ -174,8 +174,8 @@ div#__next>div {
   position: absolute;
   display: flex;
   align-items: center;
-  top: 1.2vh;
-  right: 1vh;
+  top: 8.5vh;
+  left: 1vh;
   z-index: 10;
   background-color: #484848;
   backdrop-filter: blur(5px);
