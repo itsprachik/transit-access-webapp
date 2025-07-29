@@ -197,17 +197,15 @@ const SearchBar: React.FC<SearchBarProps> = ({
   };
 
   return (
-    // <StyledDiv>
       <StyledSelect
         instanceId="select-box"
         options={options}
         isClearable
         components={{ Option: CustomSelectOption }}
         onChange={handleSelect}
-        menuIsOpen={true}
+        //menuIsOpen={true}
         placeholder="Search for a station"
       />
-    // </StyledDiv>
   );
 };
 
