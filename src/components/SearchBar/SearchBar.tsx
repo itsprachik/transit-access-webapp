@@ -52,16 +52,21 @@ const getIcons = (stationData, linesServed) => {
 
 const parseLine =  (line: string) => {
   const l = line.split('-')
+  if (l.length == 1) {
+    const l_slash = line.split('/')
+    return l_slash[0];
+  }
+  return l[0];
 }
 
 const { Option } = components;
 const CustomSelectOption = (props) => (
   <Option {...props}>
     <div style={{ display: "flex", alignItems: "anchor-center",  }}>
-      <span style={{ fontSize: "14px", fontWeight: "600", color: "#00000", marginRight: "8px" }}>
+      <span style={{ fontSize: "14px", fontWeight: "600", color: "#00000", marginRight: "8px" , whiteSpace: "nowrap"}}>
         {props.data.stop_name}
       </span>
-      <span style={{ fontSize: "10px", fontWeight: "400", color: "#00051580" }}>
+      <span style={{ fontSize: "10px", fontWeight: "400", color: "#00051580", whiteSpace: "nowrap" }}>
         {props.data.line}
       </span>
       <span style={{marginLeft: "6px"}}>
@@ -79,12 +84,12 @@ const CustomSelectOption = (props) => (
 const StyledSelect = styled(Select)`
   position: absolute !important;
   top: 10px;
-  left: 10px;
+  padding: 0px 5px 0px 5px;
   width: 300px;
   z-index: 1000;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   @media (max-width: 768px) {
-    max-width: 230px;
+    width: 100vw;
   }
 `;
 
@@ -105,20 +110,19 @@ const SearchBar: React.FC<SearchBarProps> = ({
     data.features.forEach((feature) => {
       const station_id = feature.properties.station_id;
       const complex_id = feature.properties.complex_id;
-      const lines = feature.properties.daytime_routes.split(" ");
-      parseLine(feature.properties.line)
+      const  parsedLine = parseLine(feature.properties.line)
       stationData.push({
         station_id: feature.properties.station_id,
         stop_name: feature.properties.stop_name,
         complex_id: complex_id,
         ada: feature.properties.ada,
-        line: feature.properties.line,
+        line: parsedLine,
         label: feature.properties.stop_name.concat(
           " ",
           feature.properties.line
         ),
       });
-      linesServed[station_id] = lines;
+      linesServed[station_id] = feature.properties.daytime_routes.split(" ");;
     });
     const sortedStationData = stationData.sort((a, b) =>
       a.label.localeCompare(b.label)
@@ -200,7 +204,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         isClearable
         components={{ Option: CustomSelectOption }}
         onChange={handleSelect}
-      //  menuIsOpen={true}
+        menuIsOpen={true}
         placeholder="Search for a station"
       />
     // </StyledDiv>
