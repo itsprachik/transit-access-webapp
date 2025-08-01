@@ -1,6 +1,8 @@
 // naming convention: file is plural, export is singular.
 // import runs into ts type problems when they're the same (unconfirmed but suspected)
 
+import { elevatorView } from "../CurrentOutages/currentOutagesProps";
+
 export const stationComplexProps = {
   id: "mta-subway-complexes-accessible2",
   source: "station-complexes",
@@ -24,7 +26,7 @@ export const stationComplexProps = {
       "border-dot-13", // Default in case of missing data
     ],
 "text-font": ["Montserrat Bold", "Arial Unicode MS Regular"],
-        "icon-allow-overlap": true,
+        "icon-allow-overlap": ["step", ["zoom"], false, elevatorView, true],
         "icon-size": [
           "step",
           ["zoom"],
