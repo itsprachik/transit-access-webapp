@@ -47,7 +47,7 @@ const ElevatorPopup: React.FC<ElevatorPopupProps> = ({
   <div className={`${styles["elevator-service"]} ${styles["elevator-service-bad"]}`}>
     <LiftBad fill="#111" />
     <span className={styles.statusText}>
-      <span>Out of service until</span>
+      <span>Back in service</span>
       <span className={styles.eta}>{estimatedreturntoservice}</span>
     </span>
   </div>

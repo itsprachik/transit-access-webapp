@@ -814,7 +814,7 @@
         "isStreet": "",
         "shortdescription": "Mezzanine to 7 & downtown 1/2/3",
         "description_custom": "This elevator gets you from the upper mezzanine to downtown 1/2/3 trains, 7 trains in both directions, and the lower mezzanine (which lets you transfer to Port Authority A/C/E underground)",
-        "access_note": "This is an extremely slow elevator"
+        "access_note": "This is an extremely slow elevator. To transfer to ACE trains: Take this elevator to the lower mezzanine. Ramp between stations is a little steep (not to ADA code)"
       },
       "geometry": {
         "coordinates": [
@@ -3175,7 +3175,7 @@
         "isStreet": "true",
         "stationID": "501",
         "system": "nyc_sir",
-        "elevatorno": "elevatorno not listed in system",
+        "elevatorno": "ELPE-W",
         "linesServed": "SIR",
         "title": "St George",
         "image": "http://wheresthedamnelevator.com/assets/images/newyork/sir/StGeorge.jpg",
@@ -3184,7 +3184,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Customers using wheelchairs are asked to board trains at the designated location near the Off-Hour Waiting Area",
-        "description_custom": "",
+        "description_custom": "Elevator to bus, ferry, and SIR platform",
         "access_note": "Customers using wheelchairs board trains near the Off-Hour Waiting Area"
       },
       "geometry": {
@@ -4521,7 +4521,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the isStreett to the main station mezzanine"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "coordinates": [
@@ -4761,7 +4761,8 @@
         "directionLabel": "both directions",
         "isStreet": "",
         "shortdescription": "Customers using wheelchairs are asked to board trains at the designated location near the Off-Hour Waiting Area",
-        "description_custom": "Ramp on Bentley St. Customers using wheelchairs board trains near the Off-Hour Waiting Area"
+        "description_custom": "Ramp to trains in both directions. Located on Bentley St",
+        "access_note": "Customers using wheelchairs board trains near the Off-Hour Waiting Area"
       },
       "geometry": {
         "coordinates": [
@@ -5401,7 +5402,8 @@
         "isBroken": "",
         "directionLabel": "Tottenville-bound",
         "shortdescription": "Customers using wheelchairs are asked to board trains at the designated location near the Off-Hour Waiting Area",
-        "description_custom": "Customers using wheelchairs board trains near the Off-Hour Waiting Area"
+        "description_custom": "Ramp to Tottenville-bound trains",
+        "access_note": "Customers using wheelchairs board trains near the Off-Hour Waiting Area"
       },
       "geometry": {
         "coordinates": [
@@ -5552,7 +5554,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "coordinates": [
@@ -5582,7 +5584,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Manhattan-bound platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to Manhattan-bound N/W trains"
       },
       "geometry": {
         "coordinates": [
@@ -5612,7 +5614,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Astoria-bound platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the the main station mezzanine to Astoria-bound N/W trains"
       },
       "geometry": {
         "coordinates": [
@@ -5642,7 +5644,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "coordinates": [
@@ -5673,7 +5675,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to downtown A/C",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to downtown A/C trains"
       },
       "geometry": {
         "coordinates": [
@@ -5704,7 +5706,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to uptown A/C",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to uptown A/C trains"
       },
       "geometry": {
         "coordinates": [
@@ -5735,7 +5737,8 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "Next to the Russ Berrie Medical Science Pavilion. NOTE: The 1 here is not accessible."
+        "description_custom": "This elevator gets you from the street to the main station mezzanine. Next to the Russ Berrie Medical Science Pavilion",
+        "access_note": "The 1 here is not accessible"
       },
       "geometry": {
         "coordinates": [
@@ -5767,7 +5770,8 @@
         "isStreet": "",
         "isBridge": "true",
         "shortdescription": "Mezzanine to 1 train overpass",
-        "description_custom": "The 1 train is NOT ACCESSIBLE"
+        "description_custom": "This elevator gets you from the main station mezzanine to the overpass to 1 trains",
+        "access_note": "The 1 train at 168 is not accessible"
       },
       "geometry": {
         "coordinates": [
@@ -5799,7 +5803,8 @@
         "isStreet": "",
         "isBridge": "true",
         "shortdescription": "Mezzanine to 1 train overpass",
-        "description_custom": "The 1 train is NOT ACCESSIBLE"
+        "description_custom": "This elevator gets you from the main station mezzanine to the overpass to 1 trains",
+        "access_note": "The 1 train at 168 is not accessible"
       },
       "geometry": {
         "coordinates": [
@@ -5831,7 +5836,8 @@
         "isStreet": "",
         "isBridge": "true",
         "shortdescription": "Mezzanine to 1 train overpass",
-        "description_custom": "The 1 train is NOT ACCESSIBLE"
+        "description_custom": "This elevator gets you from the main station mezzanine to the overpass to 1 trains",
+        "access_note": "The 1 train at 168 is not accessible"
       },
       "geometry": {
         "coordinates": [
@@ -5863,7 +5869,8 @@
         "isStreet": "",
         "isBridge": "true",
         "shortdescription": "Mezzanine to 1 train overpass",
-        "description_custom": "The 1 train is NOT ACCESSIBLE"
+        "description_custom": "This elevator gets you from the main station mezzanine to the overpass to 1 trains",
+        "access_note": "The 1 train at 168 is not accessible"
       },
       "geometry": {
         "coordinates": [
@@ -5893,7 +5900,7 @@
         "ada": "1",
         "isBroken": "",
         "shortdescription": "Street to 8 Av-bound platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street directly to 8 Av-bound L trains"
       },
       "geometry": {
         "coordinates": [
@@ -5923,7 +5930,7 @@
         "ada": "1",
         "isBroken": "",
         "shortdescription": "Street to Canarsie-bound platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street directly to Canarsie-bound L trains"
       },
       "geometry": {
         "coordinates": [
@@ -5953,7 +5960,8 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Staten Island Railway. Customers using wheelchairs are asked to board trains at the designated location near the Off-Hour Waiting Area.",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "Ramp to trains in both directions",
+        "access_note": "Customers using wheelchairs board trains near the Off-Hour Waiting Area"
       },
       "geometry": {
         "coordinates": [
@@ -5983,7 +5991,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Balcony to west concourse",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the Oculus balcony to West Concourse leading to 1 trains in both directions"
       },
       "geometry": {
         "coordinates": [
@@ -6013,7 +6021,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Balcony to west concourse",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the Oculus balcony to West Concourse leading to 1 trains in both directions"
       },
       "geometry": {
         "coordinates": [
@@ -6043,7 +6051,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "coordinates": [
@@ -6073,7 +6081,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Brooklyn-bound platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to Brooklyn-bound N/R trains"
       },
       "geometry": {
         "coordinates": [
@@ -6103,7 +6111,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Manhattan-bound platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to Manhattan-bound N/R trains"
       },
       "geometry": {
         "coordinates": [
@@ -6133,7 +6141,7 @@
         "ada": "1",
         "isBroken": "",
         "shortdescription": "Manhattan-bound ramp",
-        "description_custom": "Ramp leads directly to platform. No elevators required."
+        "description_custom": "Ramp leads directly to Manhattan-bound Q trains. No elevators required."
       },
       "geometry": {
         "coordinates": [
@@ -6497,7 +6505,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to L platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to L trains in both directions"
       },
       "geometry": {
         "coordinates": [
@@ -6678,7 +6686,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Penn Station concourse to 2/3",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station concourse to 2/3 trains in both directions"
       },
       "geometry": {
         "coordinates": [
@@ -6708,7 +6716,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to uptown 1",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to uptown 1 trains"
       },
       "geometry": {
         "coordinates": [
@@ -6738,7 +6746,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to downtown 1",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to downtown 1 trains"
       },
       "geometry": {
         "coordinates": [
@@ -6768,7 +6776,8 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to concourse",
-        "description_custom": "This elevator gets you from the street to the Penn Station concourse. It is closest to the 1/2/3 trains but has access to A/C/E trains, NJ Transit, LIRR, & Amtrak via more elevators"
+        "description_custom": "This elevator gets you from the street to the Penn Station concourse",
+        "access_note": "It is closest to the 1/2/3 trains but has access to A/C/E trains, NJ Transit, LIRR, & Amtrak via more elevators"
       },
       "geometry": {
         "coordinates": [
@@ -6799,7 +6808,7 @@
         "ada": "1",
         "isBroken": "",
         "shortdescription": "Street to D/N/R & Brooklyn-bound 2/3",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street to D/N/R trains and Brooklyn-bound 2/3 trains"
       },
       "geometry": {
         "coordinates": [
@@ -6830,7 +6839,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to uptown N/Q/R/W",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to uptown N/Q/R/W trains"
       },
       "geometry": {
         "coordinates": [
@@ -6860,7 +6869,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "coordinates": [
@@ -6890,7 +6899,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Manhattan-bound platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to Manhattan-bound M/J trains"
       },
       "geometry": {
         "coordinates": [
@@ -6920,7 +6929,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Queens-bound platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to Queens-bound M/J trains"
       },
       "geometry": {
         "coordinates": [
@@ -6950,7 +6959,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "coordinates": [
@@ -6980,7 +6989,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Manhattan-bound platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to Manhattan-bound B/D trains"
       },
       "geometry": {
         "coordinates": [
@@ -7010,7 +7019,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Bronx-bound platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to Bronx-bound B/D trains"
       },
       "geometry": {
         "coordinates": [
@@ -7071,7 +7080,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "coordinates": [
@@ -7101,7 +7110,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "coordinates": [
@@ -7131,7 +7140,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "coordinates": [
@@ -7161,7 +7170,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to platforms",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to E/J/Z trains in both directions"
       },
       "geometry": {
         "coordinates": [
@@ -7191,7 +7200,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Manhattan and Queens-bound platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to Manhattan & Queens-bound F/G trains"
       },
       "geometry": {
         "coordinates": [
@@ -7221,7 +7230,8 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the street to the main station mezzanine for G trains. ACCESSIBILITY PROBLEM: Metropolitan Av (G) is connected underground to Lorimer St (L). You can access Canarsie-bound L trains underground, but it is via a steep ramp that is not up to ADA code. This may or may not work for you. For Manhattan-bound L trains, there is no path. Exit the station and re-enter at Lorimer St."
+        "description_custom": "This elevator gets you from the street to the main station mezzanine for G trains.",
+        "access_note": "Metropolitan Av (G) is connected underground to Lorimer St (L). You can access Canarsie-bound L trains underground, but it is via a steep ramp that is not up to ADA code. This may or may not work for you. For Manhattan-bound L trains, there is no path. Exit the station and re-enter at Lorimer St."
       },
       "geometry": {
         "coordinates": [
@@ -7252,7 +7262,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to downtown N/Q/R/W",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to downtown N/Q/R/W trains"
       },
       "geometry": {
         "coordinates": [
@@ -7283,7 +7293,8 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "ACCESSIBILITY NOTE: The passageway between Times Square (NQRW/123/7/S lines) and Port Authority (ACE lines) is only accessible via a steep ramp not up to ADA code. This may or may not work for you"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine. Closest to N/Q/R/W trains",
+        "access_note": "The passageway between Times Square (NQRW/123/7/S lines) and Port Authority (ACE lines) is accessible via a steep ramp not up to ADA code. This may or may not work for you"
       },
       "geometry": {
         "coordinates": [
@@ -7314,7 +7325,8 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "ACCESSIBILITY NOTE: The passageway between Times Square (NQRW/123/7/S lines) and Port Authority (ACE lines) is only accessible via a steep ramp not up to ADA code. This may or may not work for you"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine. Closest to 1/2/3/7 trains",
+        "access_note": "The passageway between Times Square (NQRW/123/7/S lines) and Port Authority (ACE lines) is accessible via a steep ramp not up to ADA code. This may or may not work for you"
       },
       "geometry": {
         "coordinates": [
@@ -7344,7 +7356,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Lower mezzanine to Brooklyn-bound platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the lower mezzanine Brooklyn-bound 4/5 trains"
       },
       "geometry": {
         "coordinates": [
@@ -7374,7 +7386,7 @@
         "ada": "1",
         "isBroken": "",
         "shortdescription": "Street to uptown platform & mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street directly to uptown 4/5 trains, and access to Brooklyn-bound"
       },
       "geometry": {
         "coordinates": [
@@ -7404,7 +7416,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Upper to lower mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the upper to lower mezzanine, which leads to A trains via more elevators"
       },
       "geometry": {
         "coordinates": [
@@ -7434,7 +7446,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "coordinates": [
@@ -7464,7 +7476,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to E & J/Z platforms",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine E/J/Z trains in both directions"
       },
       "geometry": {
         "coordinates": [
@@ -7494,7 +7506,7 @@
         "ada": "2",
         "isBroken": "",
         "shortdescription": "Manhattan-bound",
-        "description_custom": "PARTIALLY ACCESSIBLE STATION. Manhattan-bound only. Ramp at main entrance"
+        "description_custom": "This ramp gets you from the street directly to Manhatan-bound L trains. Ramp at main entrance"
       },
       "geometry": {
         "coordinates": [
@@ -7525,7 +7537,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Bronx-bound B/D",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to Bronx-bound B/D trains"
       },
       "geometry": {
         "coordinates": [
@@ -7556,7 +7568,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Manhattan-bound B/D",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to Manhattan-bound B/D trains"
       },
       "geometry": {
         "coordinates": [
@@ -7587,7 +7599,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Manhattan-bound 4",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to Manhattan-bound 4 trains"
       },
       "geometry": {
         "coordinates": [
@@ -7618,7 +7630,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "B/D mezzanine to 4 train",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the B/D mezzanine to Woodlawn-bound 4 trains"
       },
       "geometry": {
         "coordinates": [
@@ -7648,7 +7660,7 @@
         "ada": "1",
         "isBroken": "",
         "shortdescription": "Street to downtown 6 and access to B/D/F/M",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street directly to downtown 6 trains, and access to B/D/F/M and uptown 6 via more elevators"
       },
       "geometry": {
         "coordinates": [
@@ -7678,7 +7690,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Canarsie-bound platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to Canarsie-bound L trains"
       },
       "geometry": {
         "coordinates": [
@@ -7701,15 +7713,16 @@
         "system": "nyc_mta",
         "elevatorno": "EL731",
         "linesServed": "1",
-        "directionLabel": "uptown (end of the line)",
+        "directionLabel": "uptown",
         "title": "South Ferry",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
         "alternativeRoute": "If you are on the mezzanine: Exit faregate and use elevator to exit station. Take an uptown M55 (State St & Whitehall St) to Church and Vesey St.  Use elevators in Oculus to reach WTC Cortlandt St 1 Station. If you are on the platform: Take an uptown 1 to Chambers St. Then use elevators to exit the station and take a downtown M20 bus (Chambers St and Hudson St) to South Ferry.",
         "ada": "1",
         "isBroken": "",
         "isStreet": "",
+        "lastAccessibleStop": "true",
         "shortdescription": "Mezzanine to platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to uptown 1 trains"
       },
       "geometry": {
         "coordinates": [
@@ -7740,7 +7753,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the street to the mezzanine (fare gates). ACCESSIBILITY NOTE: Only the 1 is accessible here, not the R/W"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "coordinates": [
@@ -7770,7 +7783,7 @@
         "ada": "1",
         "isBroken": "",
         "shortdescription": "Street to uptown platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street directly to uptown 1/2/3 trains"
       },
       "geometry": {
         "coordinates": [
@@ -7800,7 +7813,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "coordinates": [
@@ -7830,7 +7843,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "coordinates": [
@@ -7860,7 +7873,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "coordinates": [
@@ -7890,7 +7903,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "coordinates": [
@@ -7920,7 +7933,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "coordinates": [
@@ -7950,7 +7963,7 @@
         "ada": "1",
         "isBroken": "",
         "shortdescription": "Street to downtown platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street directly to downtown 1/2/3 trains"
       },
       "geometry": {
         "coordinates": [
@@ -7979,8 +7992,9 @@
         "ada": "1",
         "isBroken": "",
         "directionLabel": "",
+        "noEquipment": "true",
         "shortdescription": "Entrance is flat. No elevators required.",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This entrance is flat. No ramps or elevators required"
       },
       "geometry": {
         "coordinates": [
@@ -8010,7 +8024,8 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the street to the main station mezzanine for L trains. ACCESSIBILITY PROBLEM: Lorimer St (L) is connected underground to Metropolitan Av (G). You can access G trains from the Canarsie-bound L platform underground, but it's via a steep ramp that is not up to ADA code. This may or may not work for you. If coming from a Manhattan-bound L, there's no path to the G. Exit the station and re-enter at Metropolitan Av."
+        "description_custom": "This elevator gets you from the street to the main station mezzanine.",
+        "access_note": "Lorimer St (L) is connected underground to Metropolitan Av (G). You can access G trains from the Canarsie-bound L platform underground, but it's via a steep ramp that is not up to ADA code. This may or may not work for you. If coming from a Manhattan-bound L, there's no path to the G. Exit the station and re-enter at Metropolitan Av."
       },
       "geometry": {
         "coordinates": [
@@ -8160,7 +8175,8 @@
         "ada": "1",
         "isBroken": "",
         "shortdescription": "Customers using wheelchairs are asked to board trains at the designated location near the Off-Hour Waiting Area.",
-        "description_custom": "Customers using wheelchairs board trains near the Off-Hour Waiting Area"
+        "description_custom": "Ramp to St. George-bound trains",
+        "access_note": "Customers using wheelchairs board trains near the Off-Hour Waiting Area"
       },
       "geometry": {
         "coordinates": [
@@ -8190,7 +8206,7 @@
         "isBroken": "",
         "isStreet": "true",
         "shortdescription": "Street to Manhattan-bound platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street directly to Manhattan-bound F trains"
       },
       "geometry": {
         "coordinates": [
@@ -8220,7 +8236,7 @@
         "isBroken": "",
         "isStreet": "true",
         "shortdescription": "Street to Jamaica-bound platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street directly to Jamaica-bound F trains"
       },
       "geometry": {
         "coordinates": [
@@ -8250,7 +8266,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "coordinates": [
@@ -8280,7 +8296,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to A trains in both directions"
       },
       "geometry": {
         "coordinates": [
@@ -8310,7 +8326,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Church Av-bound platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to Church Av-bound G trains"
       },
       "geometry": {
         "coordinates": [
@@ -8371,7 +8387,7 @@
         "directionLabel": "both directions",
         "isStreet": "",
         "shortdescription": "Overpass to D platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the overpass to D trains in both directions"
       },
       "geometry": {
         "coordinates": [
@@ -8401,7 +8417,8 @@
         "ada": "1",
         "isBroken": "",
         "shortdescription": "St George-bound. Staten Island Railway. Customers using wheelchairs are asked to board trains at the designated location near the Off-Hour Waiting Area.",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "Ramp to St. George-bound trains",
+        "access_note": "Customers using wheelchairs board trains near the Off-Hour Waiting Area"
       },
       "geometry": {
         "coordinates": [
@@ -8431,7 +8448,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "coordinates": [
@@ -8461,7 +8478,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to platforms",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to the 3/4 trains in both directions"
       },
       "geometry": {
         "coordinates": [
@@ -8491,7 +8508,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "coordinates": [
@@ -8521,7 +8538,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Manhattan-bound platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to Manhattan-bound 2/5 trains"
       },
       "geometry": {
         "coordinates": [
@@ -8551,7 +8568,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Bronx-bound platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to Bronx-bound 2/5 trains"
       },
       "geometry": {
         "coordinates": [
@@ -8581,7 +8598,7 @@
         "ada": "1",
         "isBroken": "",
         "shortdescription": "Street to downtown 1 & A/C/B/D mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street directly to downtown 1 trains, with access to uptown 1 and A/C/B/D trains"
       },
       "geometry": {
         "coordinates": [
@@ -8611,7 +8628,7 @@
         "ada": "1",
         "isBroken": "",
         "shortdescription": "Street to uptown 1 & A/B/C/D",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street directly to uptown 1 trains, with access to downtown 1 and A/C/B/D trains"
       },
       "geometry": {
         "coordinates": [
@@ -8641,7 +8658,7 @@
         "ada": "2",
         "isBroken": "",
         "shortdescription": "Street to uptown 6",
-        "description_custom": "This elevator gets you from the treet to uptown 6 trains. PARTIALLY ACCESSIBLE STATION. Uptown only"
+        "description_custom": "This elevator gets you from the street directly to uptown 6 trains"
       },
       "geometry": {
         "coordinates": [
@@ -8671,7 +8688,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "coordinates": [
@@ -8701,7 +8718,8 @@
         "ada": "1",
         "isBroken": "",
         "shortdescription": "Tottenville-bound. Use St. George ramp, then take ramped footbridge. Staten Island Railway. Customers using wheelchairs are asked to board trains at the designated location near the Off-Hour Waiting Area.",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "Ramp to Tottenville-bound trains",
+        "access_note": "Customers using wheelchairs board trains near the Off-Hour Waiting Area"
       },
       "geometry": {
         "coordinates": [
@@ -8762,7 +8780,7 @@
         "ada": "1",
         "isBroken": "",
         "shortdescription": "Street to platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street directly to 2/5 trains in both directions"
       },
       "geometry": {
         "coordinates": [
@@ -8792,7 +8810,8 @@
         "directionLabel": "both directions",
         "isStreet": "",
         "shortdescription": "Landing to mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator is a hydraulic wheelchair lift that gets you between floors",
+        "access_note": "This lift is not necessary for accessing A/C/E trains. Enter the station through the Port Authority Bus Terminal on 41st St"
       },
       "geometry": {
         "coordinates": [
@@ -8822,7 +8841,8 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to intermediate landing",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator leads to an intermediate landing, which leads to a hydraulic wheelchair lift",
+        "access_note": "This is not the recommended accessible path. Use elevators in Port Authority Bus Terminal on 41st St"
       },
       "geometry": {
         "coordinates": [
@@ -8852,7 +8872,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Bus terminal to subway",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the Port Authority Bus Terminal to the subway mezzanine (go to level SL)"
       },
       "geometry": {
         "coordinates": [
@@ -8882,7 +8902,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Bus terminal to subway",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the Port Authority Bus Terminal to the subway mezzanine (go to level SL)"
       },
       "geometry": {
         "coordinates": [
@@ -8912,7 +8932,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "coordinates": [
@@ -8942,7 +8962,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Brooklyn-bound platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to Brooklyn-bound F/G trains"
       },
       "geometry": {
         "coordinates": [
@@ -8972,7 +8992,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Manhattan-bound platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to Manhattan-bound F/G trains"
       },
       "geometry": {
         "coordinates": [
@@ -9002,7 +9022,8 @@
         "ada": "1",
         "isBroken": "",
         "shortdescription": "St. George-bound",
-        "description_custom": "Customers using wheelchairs are asked to board trains at the designated location near the Off-Hour Waiting Area"
+        "description_custom": "Ramp to St. George-bound trains",
+        "access_note": "Customers using wheelchairs board trains near the Off-Hour Waiting Area"
       },
       "geometry": {
         "coordinates": [
@@ -9033,7 +9054,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Uptown 6 to downtown B/D/F/M",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from uptown 6 trains to downtown B/D/F/M trains"
       },
       "geometry": {
         "coordinates": [
@@ -9064,7 +9085,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Uptown 6 to uptown B/D/F/M",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from uptown 6 trains to uptown B/D/F/M trains"
       },
       "geometry": {
         "coordinates": [
@@ -9095,7 +9116,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Downtown 6 to downtown B/D/F/M",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from downtown 6 trains to downtown B/D/F/M trains"
       },
       "geometry": {
         "coordinates": [
@@ -9126,7 +9147,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Downtown 6 to uptown B/D/F/M",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from downtown 6 trains to uptown B/D/F/M trains"
       },
       "geometry": {
         "coordinates": [
@@ -9156,7 +9177,6 @@
         "ada": "1",
         "isBroken": "",
         "isStreet": "",
-        "isBridge": "true",
         "shortdescription": "Footbridge to Manhattan-bound C",
         "description_custom": "This elevator gets you from the overpass to Manhattan-bound C trains"
       },
@@ -9189,7 +9209,8 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the street to the main station mezzanine. It serves both 51st St and 53-Lex. Passageway between the two stations underground is accessible"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine",
+        "access_note": "This elevator serves both 51st St and 53-Lex. Passageway between the two stations underground is accessible"
       },
       "geometry": {
         "coordinates": [
@@ -9220,7 +9241,8 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Broad St-bound J/Z",
-        "description_custom": "This elevator gets you from the main station mezzanine to Broad St-bound J/Z trains. To enter Chambers, use the street elevator at Brooklyn Bridge/City Hall"
+        "description_custom": "This elevator gets you from the main station mezzanine to Broad St-bound J/Z trains",
+        "access_note": "The accessible entrance to Chambers J/Z is the street elevator for Brooklyn Bridge/City Hall"
       },
       "geometry": {
         "coordinates": [
@@ -9251,7 +9273,8 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Brooklyn-bound J/Z",
-        "description_custom": "This elevator gets you from the main station mezzanine to Brooklyn-bound J/Z trains. To enter Chambers, use the street elevator at Brooklyn Bridge/City Hall"
+        "description_custom": "This elevator gets you from the main station mezzanine to Brooklyn-bound J/Z trains",
+        "access_note": "The accessible entrance to Chambers J/Z is the street elevator for Brooklyn Bridge/City Hall"
       },
       "geometry": {
         "coordinates": [
@@ -9433,8 +9456,9 @@
         "isBroken": "",
         "directionLabel": "both directions",
         "isStreet": "",
-        "shortdescription": "Entrance is flat. No elevator required.",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "noEquipment": "true",
+        "shortdescription": "Entrance is flat. No elevator required",
+        "description_custom": "Entrance is flat. No elevator required"
       },
       "geometry": {
         "coordinates": [
@@ -9464,7 +9488,7 @@
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine & overpass",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine, and the overpass to all trains via more elevators"
       },
       "geometry": {
         "coordinates": [
@@ -9494,7 +9518,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Overpass to Flushing-bound platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the overpass to Flushing-bound trains"
       },
       "geometry": {
         "coordinates": [
@@ -9524,7 +9548,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Overpass to Manhattan-bound platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the overpass to Manhattan-bound trains"
       },
       "geometry": {
         "coordinates": [
@@ -9554,7 +9578,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to platform",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to Q trains in both directions"
       },
       "geometry": {
         "coordinates": [
@@ -9585,7 +9609,8 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to uptown 1/2/3",
-        "description_custom": "This elevator gets you from the STREET to the main station mezzanine to the PLATFORM trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to uptown 1/2/3 trains",
+        "access_note": "To transfer to ACE trains: take this elevator to the upper mezzanine, walk across to the other elevator and go down to the lower mezzanine. Ramp between stations is a little steep (not to ADA code)"
       },
       "geometry": {
         "coordinates": [
@@ -10767,7 +10792,8 @@
         "ada": "1",
         "isBroken": "",
         "shortdescription": "Tottenville-bound",
-        "description_custom": "Customers using wheelchairs are asked to board trains at the designated location near the Off-Hour Waiting Area"
+        "description_custom": "Ramp to Tottenville-bound trains",
+        "access_note": "Customers using wheelchairs board trains near the Off-Hour Waiting Area"
       },
       "geometry": {
         "coordinates": [
@@ -11825,7 +11851,7 @@
         "linesServed": "J/Z",
         "directionLabel": "Jamaica-bound",
         "title": "Woodhaven Blvd",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Woodhaven-JZ_EL484.jpg",
         "alternativeRoute": "If you are on the street: proceed east on Jamaica Av and board a Jamaica-170 St-bound Q56 bus. \nThen either:\nFor Sutphin Blvd-Archer Av-JFK Airport, exit the bus at Jamaica Av and 147 Place.\nFor Jamaica Center-Parsons/ Archer, exit the bus at Jamaica Av and Parsons Blvd.\n\nIf you are on the platform: Take a Jamaica Center-bound J or Z to Sutphin Blvd-Archer Av. Then, transfer to a Manhattan-bound J or Z to Woodhaven Blvd.",
         "ada": 1,
         "isBroken": "",
@@ -11855,7 +11881,7 @@
         "linesServed": "J/Z",
         "directionLabel": "Manhattan-bound",
         "title": "Woodhaven Blvd",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Woodhaven-JZ_EL483.jpg",
         "alternativeRoute": "If you are on the street: Cross Jamaica Av and take a Jamaica Center-bound J or Z to Sutphin Blvd-Archer Av. Then, transfer to a Manhattan-bound J or Z.\n\nIf you are on the platform: Take a Manhattan-bound J or Z to Flushing Av (or to Marcy Av if AM rush hour). Then, transfer to a Jamaica Center-Parsons/Archer-bound J or Z to Woodhaven Blvd.",
         "ada": 1,
         "isBroken": "",
@@ -11885,12 +11911,12 @@
         "linesServed": "M/R",
         "directionLabel": "Forest Hills-bound",
         "title": "Northern Blvd",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Northern-EL485.jpg",
         "alternativeRoute": "If you are on the street:  \nTake a Maspeth/Grand Av-bound Q18 bus to 65 Pl and transfer to a Jamaica/Archer Av-bound Q60 bus to 71 Av for access to Forest Hills-71 Av E/F/M/R station.  \nOr, take a Flushing/Main St-bound Q66 bus (Northern Blvd & 54 St) to 101 St. Continue one block east to 102 St to transfer to a Forest Hills-bound Q23 bus to 108 St and Queens Blvd for access to Forest Hills-71 Av E/F/M/R station.  \n\nIf you are on the platform:  \nTake a Forest Hills-bound M or R train to Forest Hills-71 Av and use elevators to exit the station.  \nThen, either:  \nTake an East Midtown-bound Q60 bus (Queens Blvd and 108 St) to 65 Pl and transfer to an Astoria-bound Q18 bus to 54 St and Northern Blvd.  \nOr,  \nTake an East Elmhurst-bound Q23 bus (70 Rd and 108 St) to Northern Blvd and 103 St. Continue one block west to 102 St for a Woodside-bound Q66 bus to Broadway.\n\nEffective June 29, 2025: \nIf you are on the street:  \nTake a Maspeth/Grand Av-bound Q18 bus to 65 Pl and transfer to a Jamaica-bound Q60 bus to 71 Av for access to Forest Hills-71 Av E/F/M/R station.  \nOr, take a Flushing/Main St-bound Q63 or Q66 bus (Northern Blvd & 54 St) to 109 St. Continue one block west to 108 St to transfer to a Forest Hills-bound Q23 bus to 108 St and Queens Blvd for access to Forest Hills-71 Av E/F/M/R station.  \n\nIf you are on the platform:  \nTake a Forest Hills-bound M or R train to Forest Hills-71 Av and use elevators to exit the station.  \nThen, either:  \nTake an Manhattan-bound Q60 bus (Queens Blvd and 108 St) to 65 Pl and transfer to an Astoria-bound Q18 bus to 54 St and Northern Blvd.  \nOr,  \nTake an East Elmhurst-bound Q23 bus (70 Rd and 108 St) to Northern Blvd and 108 St. Transfer to a Long Island City-bound Q63 or Q66 bus to Broadway.",
         "ada": 2,
         "isBroken": "",
-        "shortdescription": "Street to Forest Hills-bound platform.",
-        "description_custom": "PARTIALLY ACCESSIBLE STATION. Forest Hills-bound. This elevator gets you from the street to Forest Hills-bound M/R trains"
+        "shortdescription": "Street to Forest Hills-bound platform",
+        "description_custom": "This elevator gets you from the street to Forest Hills-bound M/R trains"
       },
       "geometry": {
         "coordinates": [
@@ -11915,7 +11941,7 @@
         "linesServed": "6",
         "directionLabel": "",
         "title": "Westchester Sq-East Tremont Av",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Westchester-Sq_EL512.jpg",
         "alternativeRoute": "If you are on the street: Proceed north along Westchester Av to Blondel Av. Then, take a Country Club-bound Bx24 bus to Westchester Av and Amendola Plaza for access to Pelham Bay Park 6 Station.\n\nIf you are on the mezzanine: \nTake a Pelham Bay Park-bound 6 to Pelham Bay Park. Then, take a Hutchinson Metro Center-bound Bx24 bus to Westchester Sq-East Tremont Av.",
         "ada": 1,
         "isBroken": "",

@@ -1,7 +1,7 @@
 // naming convention: file is plural, export is singular.
 // import runs into ts type problems when they're the same (unconfirmed but suspected)
 
-const elevatorView = 16;
+export const elevatorView = 16;
 const offsetDistance = -22;
 
 export const currentOutageProps = {

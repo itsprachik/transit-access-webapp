@@ -641,7 +641,7 @@ export function flyIn(
   setStationView
 ) {
   
-  const zoomBoundsDuration = 70;
+  const zoomBoundsDuration = 900; // speed that we fly into an accessible station
   const MID_AREA = 4000; // in meters, area at which we need to zoom in a little to comfortably see station
   const MIN_AREA = 2000; // in meters, area at which we need to zoom in even more to comfortably see station
   const MAX_LAT_SPAN = 0.002; // to accommodate the Times Square/Port Authority sprawl for small screens
