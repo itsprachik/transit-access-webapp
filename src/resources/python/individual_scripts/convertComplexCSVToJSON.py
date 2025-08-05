@@ -1,8 +1,14 @@
+import os
 import csv
 import json
 
-input_csv = "../mta_subway_stations_and_complexes.csv"
-output_json = "../mta_subway_complexes.geojson"
+# Get directory where this script is located
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Paths relative to the script's directory
+input_csv = os.path.join(THIS_DIR, "..", "..", "mta_subway_stations_and_complexes.csv")
+output_json = os.path.join(THIS_DIR, "..", "..", "generated", "mta_subway_complexes.json")
+
 
 features = []
 

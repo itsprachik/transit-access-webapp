@@ -4,7 +4,7 @@ import { MTA_SUBWAY_LINE_ICONS_SMALL } from "@/utils/constants";
 import { AccessibleIconWhite } from "../icons";
 import styled from "styled-components";
 import { getAverageElevatorCoordinates } from "@/utils/dataUtils";
-import customDataset from "@/resources/custom_dataset.json";
+import customDataset from "@/resources/custom_elevator_dataset.json";
 import { MtaStationFeature, MtaStationData } from "@/utils/types";
 
 interface SearchBarProps {
@@ -122,7 +122,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
           feature.properties.line
         ),
       });
-      linesServed[station_id] = feature.properties.daytime_routes.split(" ");;
+      linesServed[station_id] = feature.properties.daytime_routes.split(" ");
     });
     const sortedStationData = stationData.sort((a, b) =>
       a.label.localeCompare(b.label)

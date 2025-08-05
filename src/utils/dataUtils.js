@@ -12,8 +12,8 @@ import { complexCoordinates } from "./ComplexGeometry";
 import { getComplexBoundaryGeoJSON } from "@/components/MtaMap/layers/StationComplexes/complexBoundaries";
 import { parse, isToday, isTomorrow, isThisWeek, format, formatDistanceToNow } from "date-fns";
 
-import customDataset from "@/resources/custom_dataset.json";
-import complexesDataset from "@/resources/mta_subway_complexes.json";
+import customDataset from "@/resources/custom_elevator_dataset.json";
+import complexesDataset from "@/resources/generated/mta_subway_complexes.json";
 import stationsDataset from "@/resources/mta_subway_stations_all.json";
 import { setManhattanTilt } from "@/components/MtaMap/mtaMapOptions";
 import { ROUTE_ORDER } from "./constants";
@@ -226,7 +226,7 @@ export function getComplexOutageLayerFeatures(outStationArray) {
 
   for (const complex of complexesDataset.features) {
     const complexID = complex.properties?.complex_id;
-    const name = complex.properties?.name || "Unknown";
+    const stop_name = complex.properties?.stop_name || "Unknown";
     const stationIDsRaw = complex.properties?.station_ids || "";
     const stationIDs = stationIDsRaw.split("/").map((id) => id.trim());
 
@@ -273,7 +273,7 @@ export function getComplexOutageLayerFeatures(outStationArray) {
       properties: {
         ada,
         route,
-        name,
+        stop_name,
         station_ids: stationIDsRaw,
         isProblem,
         isOut,
@@ -681,7 +681,7 @@ export function flyIn(
     }
     const dynamicPadding =
       currentLatSpan > 0.0008
-        ? { top: 180, bottom: 220, left: 0, right: 0 }
+        ? { top: 100, bottom: 200, left: 0, right: 0 }
         : { top: 80, bottom: 220, left: 30, right: 30 };
 
     const area = getAreaOfComplex(complex_id, map, false);

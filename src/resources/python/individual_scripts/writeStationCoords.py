@@ -1,11 +1,14 @@
+import os
 import json
 
-# Input and output file paths
-input_file = "../mta_subway_stations_all.json"        # subway stations, given by MTA
+# Get directory where this script is located
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 
-output_geojson = "../accessibleStationGeometry.geojson"         # filtered GeoJSON
-output_json = "../accessibleStationGeometry.json"        # compact JSON format
-output_js = "../../utils/accessibleStationGeometry.ts"          # JavaScript file in ../../utils
+# Paths relative to the script's directory
+input_file = os.path.join(THIS_DIR, "..", "..", "mta_subway_stations_all.json")  # subway stations, given by MTA
+output_geojson = os.path.join(THIS_DIR, "..", "..", "generated", "accessibleStationGeometry.geojson") # filtered GeoJSON
+output_json = os.path.join(THIS_DIR, "..", "..", "generated", "accessibleStationGeometry.json") # compact JSON format
+output_js = os.path.join(THIS_DIR, "..", "..", "..", "utils", "accessibleStationGeometry.ts") # JavaScript file in ../../../utils
 
 # Load the GeoJSON file
 with open(input_file, "r") as f:

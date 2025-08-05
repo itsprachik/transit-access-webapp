@@ -1,11 +1,14 @@
+import os
 import json
 
-# Input and output file paths
-input_file = "../mta_subway_complexes.geojson"        # complex stations, given by MTA and turned into geojson by convertComplexCSVToJSON.py
+# Get directory where this script is located
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 
-output_geojson = "../ComplexGeometry.geojson"         # filtered GeoJSON
-output_json = "../ComplexGeometry.json"        # compact JSON format
-output_js = "../../utils/ComplexGeometry.ts"          # JavaScript file in ../../utils
+# Paths relative to the script's directory
+input_file = os.path.join(THIS_DIR, "..", "..", "generated", "mta_subway_complexes.json")  # complex stations, given by MTA and turned into json by convertComplexCSVToJSON.py
+output_geojson = os.path.join(THIS_DIR, "..", "..", "generated", "ComplexGeometry.geojson") # filtered GeoJSON
+output_json = os.path.join(THIS_DIR, "..", "..", "generated", "ComplexGeometry.json") # compact JSON format
+output_js = os.path.join(THIS_DIR, "..", "..", "..", "utils", "ComplexGeometry.ts") # JavaScript file in ../../../utils
 
 # Load the GeoJSON file
 with open(input_file, "r") as f:

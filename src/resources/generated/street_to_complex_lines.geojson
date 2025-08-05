@@ -639,7 +639,7 @@
       },
       "properties": {
         "complex_id": "58",
-        "elevator_no": "ramp",
+        "elevator_no": "RA101",
         "station_name": "Coney Island-Stillwell Av",
         "ada": "1",
         "side": "left"
@@ -1145,7 +1145,7 @@
       },
       "properties": {
         "complex_id": "501",
-        "elevator_no": "elevatorno not listed in system",
+        "elevator_no": "ELPE-W",
         "station_name": "St George",
         "ada": "1",
         "side": "right"
@@ -1214,7 +1214,7 @@
       },
       "properties": {
         "complex_id": "58",
-        "elevator_no": "ramp",
+        "elevator_no": "RA102",
         "station_name": "Coney Island-Stillwell Av",
         "ada": "1",
         "side": "right"
@@ -1306,7 +1306,7 @@
       },
       "properties": {
         "complex_id": "48",
-        "elevator_no": "ramp",
+        "elevator_no": "RA103",
         "station_name": "Avenue H",
         "ada": "1",
         "side": "left"
@@ -1996,7 +1996,7 @@
       },
       "properties": {
         "complex_id": "507",
-        "elevator_no": "ramp",
+        "elevator_no": "RA105",
         "station_name": "Dongan Hills",
         "ada": "1",
         "side": "left"
@@ -2203,7 +2203,7 @@
       },
       "properties": {
         "complex_id": "523",
-        "elevator_no": "ramp",
+        "elevator_no": "RA106",
         "station_name": "Arthur Kill",
         "ada": "1",
         "side": "right"
@@ -2249,7 +2249,7 @@
       },
       "properties": {
         "complex_id": "48",
-        "elevator_no": "ramp",
+        "elevator_no": "RA107",
         "station_name": "Avenue H",
         "ada": "1",
         "side": "right"
@@ -2341,7 +2341,7 @@
       },
       "properties": {
         "complex_id": "138",
-        "elevator_no": "ramp",
+        "elevator_no": "RA108",
         "station_name": "Canarsie-Rockaway Pkwy",
         "ada": "1",
         "side": "left"
@@ -2709,7 +2709,7 @@
       },
       "properties": {
         "complex_id": "130",
-        "elevator_no": "ramp",
+        "elevator_no": "RA109",
         "station_name": "Wilson Av",
         "ada": "2",
         "side": "right"
@@ -2939,7 +2939,7 @@
       },
       "properties": {
         "complex_id": "108",
-        "elevator_no": "ramp",
+        "elevator_no": "RA110",
         "station_name": "Middle Village-Metropolitan Av",
         "ada": "1",
         "side": "right"
@@ -3008,10 +3008,56 @@
       },
       "properties": {
         "complex_id": "507",
-        "elevator_no": "ramp",
+        "elevator_no": "RA111",
         "station_name": "Dongan Hills",
         "ada": "1",
         "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.95326,
+            40.758945
+          ],
+          [
+            -73.95326,
+            40.759145
+          ]
+        ]
+      },
+      "properties": {
+        "complex_id": "222",
+        "elevator_no": "EL403",
+        "station_name": "Roosevelt Island",
+        "ada": "1",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.95326,
+            40.758844999999994
+          ],
+          [
+            -73.95326,
+            40.759145
+          ]
+        ]
+      },
+      "properties": {
+        "complex_id": "222",
+        "elevator_no": "EL404",
+        "station_name": "Roosevelt Island",
+        "ada": "1",
+        "side": "right"
       }
     },
     {
@@ -3054,7 +3100,7 @@
       },
       "properties": {
         "complex_id": "513",
-        "elevator_no": "ramp",
+        "elevator_no": "RA112",
         "station_name": "Great Kills",
         "ada": "1",
         "side": "left"
@@ -3215,7 +3261,7 @@
       },
       "properties": {
         "complex_id": "513",
-        "elevator_no": "ramp",
+        "elevator_no": "RA113",
         "station_name": "Great Kills",
         "ada": "1",
         "side": "left"
@@ -3767,7 +3813,7 @@
       },
       "properties": {
         "complex_id": "141",
-        "elevator_no": "ramp",
+        "elevator_no": "RA114",
         "station_name": "Park Pl",
         "ada": "1",
         "side": "right"
@@ -4275,7 +4321,7 @@
         "complex_id": "606",
         "elevator_no": "EL482X",
         "station_name": "Court Sq-23 St",
-        "ada": 2,
+        "ada": "2",
         "side": "right"
       }
     },
@@ -4298,7 +4344,7 @@
         "complex_id": "83",
         "elevator_no": "EL484",
         "station_name": "Woodhaven Blvd",
-        "ada": 1,
+        "ada": "1",
         "side": "left"
       }
     },
@@ -4321,7 +4367,7 @@
         "complex_id": "83",
         "elevator_no": "EL483",
         "station_name": "Woodhaven Blvd",
-        "ada": 1,
+        "ada": "1",
         "side": "left"
       }
     },
@@ -4344,7 +4390,7 @@
         "complex_id": "269",
         "elevator_no": "EL485",
         "station_name": "Northern Blvd",
-        "ada": 2,
+        "ada": "2",
         "side": "left"
       }
     },
@@ -4367,7 +4413,53 @@
         "complex_id": "363",
         "elevator_no": "EL512",
         "station_name": "Westchester Sq-East Tremont Av",
-        "ada": 1,
+        "ada": "1",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.939639,
+            40.750778
+          ],
+          [
+            -73.940202,
+            40.750582
+          ]
+        ]
+      },
+      "properties": {
+        "complex_id": "461",
+        "elevator_no": "EL791X",
+        "station_name": "Queensboro Plaza",
+        "ada": "1",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.03097600000001,
+            40.616622
+          ],
+          [
+            -74.030876,
+            40.616622
+          ]
+        ]
+      },
+      "properties": {
+        "complex_id": "39",
+        "elevator_no": "EL380",
+        "station_name": "Bay Ridge-95 St",
+        "ada": "1",
         "side": "left"
       }
     }

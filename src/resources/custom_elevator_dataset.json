@@ -8200,7 +8200,7 @@
         "linesServed": "F",
         "directionLabel": "Manhattan-bound",
         "title": "Roosevelt Island",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Roosevelt-Island_EL403.jpg",
         "alternativeRoute": "If you are on the street: Use elevator at other end of mezzanine to take a Queens-bound F to 21 St-Queensbridge. Use elevators to transfer to a Manhattan-bound F. Or, exit faregate and take an Astoria-bound Q102 (452 Main St) to 41 Av and 21 St for the 21 St-Queensbridge F Station. If you are on the platform: Take a Manhattan-bound F train to Lexington Av/63 St.  Use elevator to transfer to a Queens-bound F to Roosevelt Island F Station.",
         "ada": "1",
         "isBroken": "",
@@ -8230,7 +8230,7 @@
         "linesServed": "F",
         "directionLabel": "Jamaica-bound",
         "title": "Roosevelt Island",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Roosevelt-Island_EL403.jpg",
         "alternativeRoute": "If you are on the street: Use the elevator at other of mezzanine to take a Manhattan-bound F to Lexington Av/63 St. Use elevator to transfer to a Queens-bound F. Or, exit faregate and take an Astoria-bound Q102 (452 Main St) to 41 Av and 21 St for the 21 St-Queensbridge F Station. If you are on the platform: Take a Queens-bound F to 21 St-Queensbridge and use elevators to transfer to a Manhattan-bound F to Roosevelt Island F Station.",
         "ada": "1",
         "isBroken": "",
@@ -11823,7 +11823,7 @@
         "title": "Court Sq-23 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/CourtSq-23_EL482X.jpg",
         "alternativeRoute": "If you are on the street: Take a LI City-bound Q67 bus (44 Driver and 23 St) to 28 St and Queens Plaza South. Then, proceed to Jackson Av and use elevator to enter Queens Plaza station for Manhattan-bound E/M service. If you are on the platform: Take a Manhattan-bound E or M to Lexington Av/53 St and transfer across the platform to a Forest Hills-bound E or M to Queens Plaza. Then, use elevators to exit station and take a Middle Village-bound Q67 bus (Jackson Av and 42 Road) to 44 Drive and 23 St.",
-        "ada": 2,
+        "ada": "2",
         "isBroken": "",
         "shortdescription": "Street to Manhattan-bound platform",
         "description_custom": "PARTIALLY ACCESSIBLE STATION. This elevator gets you from the street to Manhattan-bound E/M trains"
@@ -11853,7 +11853,7 @@
         "title": "Woodhaven Blvd",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Woodhaven-JZ_EL484.jpg",
         "alternativeRoute": "If you are on the street: proceed east on Jamaica Av and board a Jamaica-170 St-bound Q56 bus. \nThen either:\nFor Sutphin Blvd-Archer Av-JFK Airport, exit the bus at Jamaica Av and 147 Place.\nFor Jamaica Center-Parsons/ Archer, exit the bus at Jamaica Av and Parsons Blvd.\n\nIf you are on the platform: Take a Jamaica Center-bound J or Z to Sutphin Blvd-Archer Av. Then, transfer to a Manhattan-bound J or Z to Woodhaven Blvd.",
-        "ada": 1,
+        "ada": "1",
         "isBroken": "",
         "shortdescription": "Street to Jamaica-bound platform.",
         "description_custom": "This elevator gets you from the street to Jamaica-bound J/Z trains"
@@ -11883,7 +11883,7 @@
         "title": "Woodhaven Blvd",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Woodhaven-JZ_EL483.jpg",
         "alternativeRoute": "If you are on the street: Cross Jamaica Av and take a Jamaica Center-bound J or Z to Sutphin Blvd-Archer Av. Then, transfer to a Manhattan-bound J or Z.\n\nIf you are on the platform: Take a Manhattan-bound J or Z to Flushing Av (or to Marcy Av if AM rush hour). Then, transfer to a Jamaica Center-Parsons/Archer-bound J or Z to Woodhaven Blvd.",
-        "ada": 1,
+        "ada": "1",
         "isBroken": "",
         "shortdescription": "Street to Manhattan-bound platform.",
         "description_custom": "This elevator gets you from the street to Manhattan-bound J/Z trains"
@@ -11911,9 +11911,9 @@
         "linesServed": "M/R",
         "directionLabel": "Forest Hills-bound",
         "title": "Northern Blvd",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Northern-EL485.jpg",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Northern_EL485.jpg",
         "alternativeRoute": "If you are on the street:  \nTake a Maspeth/Grand Av-bound Q18 bus to 65 Pl and transfer to a Jamaica/Archer Av-bound Q60 bus to 71 Av for access to Forest Hills-71 Av E/F/M/R station.  \nOr, take a Flushing/Main St-bound Q66 bus (Northern Blvd & 54 St) to 101 St. Continue one block east to 102 St to transfer to a Forest Hills-bound Q23 bus to 108 St and Queens Blvd for access to Forest Hills-71 Av E/F/M/R station.  \n\nIf you are on the platform:  \nTake a Forest Hills-bound M or R train to Forest Hills-71 Av and use elevators to exit the station.  \nThen, either:  \nTake an East Midtown-bound Q60 bus (Queens Blvd and 108 St) to 65 Pl and transfer to an Astoria-bound Q18 bus to 54 St and Northern Blvd.  \nOr,  \nTake an East Elmhurst-bound Q23 bus (70 Rd and 108 St) to Northern Blvd and 103 St. Continue one block west to 102 St for a Woodside-bound Q66 bus to Broadway.\n\nEffective June 29, 2025: \nIf you are on the street:  \nTake a Maspeth/Grand Av-bound Q18 bus to 65 Pl and transfer to a Jamaica-bound Q60 bus to 71 Av for access to Forest Hills-71 Av E/F/M/R station.  \nOr, take a Flushing/Main St-bound Q63 or Q66 bus (Northern Blvd & 54 St) to 109 St. Continue one block west to 108 St to transfer to a Forest Hills-bound Q23 bus to 108 St and Queens Blvd for access to Forest Hills-71 Av E/F/M/R station.  \n\nIf you are on the platform:  \nTake a Forest Hills-bound M or R train to Forest Hills-71 Av and use elevators to exit the station.  \nThen, either:  \nTake an Manhattan-bound Q60 bus (Queens Blvd and 108 St) to 65 Pl and transfer to an Astoria-bound Q18 bus to 54 St and Northern Blvd.  \nOr,  \nTake an East Elmhurst-bound Q23 bus (70 Rd and 108 St) to Northern Blvd and 108 St. Transfer to a Long Island City-bound Q63 or Q66 bus to Broadway.",
-        "ada": 2,
+        "ada": "2",
         "isBroken": "",
         "shortdescription": "Street to Forest Hills-bound platform",
         "description_custom": "This elevator gets you from the street to Forest Hills-bound M/R trains"
@@ -11943,10 +11943,10 @@
         "title": "Westchester Sq-East Tremont Av",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Westchester-Sq_EL512.jpg",
         "alternativeRoute": "If you are on the street: Proceed north along Westchester Av to Blondel Av. Then, take a Country Club-bound Bx24 bus to Westchester Av and Amendola Plaza for access to Pelham Bay Park 6 Station.\n\nIf you are on the mezzanine: \nTake a Pelham Bay Park-bound 6 to Pelham Bay Park. Then, take a Hutchinson Metro Center-bound Bx24 bus to Westchester Sq-East Tremont Av.",
-        "ada": 1,
+        "ada": "1",
         "isBroken": "",
         "shortdescription": "Street to mezzanine",
-        "description_custom": "This elevator gets you from the street to the main station mezzanine. No further elevators required."
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "coordinates": [
@@ -11956,6 +11956,156 @@
         "type": "Point"
       },
       "id": "fefbe0d189d752f676334eabb77aaa2i"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "R45",
+        "route": "R",
+        "complexID": "39",
+        "stationID": "39",
+        "system": "nyc_mta",
+        "elevatorno": "EL381",
+        "linesServed": "R",
+        "directionLabel": "Manhattan-bound",
+        "title": "Bay Ridge-95 St",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Bay-Ridge-95-St_EL381.jpg",
+        "alternativeRoute": "If you are on the mezzanine: \nUse the elevator to exit the station. Cross 4 Av to get to 5 Av and take a Cobble Hill-bound B63 bus to 86 St. Travel west on 86 St to 4 Av for the 86 St R.\n\nIf you are on the plaform: \nTake a Manhattan-bound R train to 86 St. Use elevators to exit the station. Then, travel east to 5 Av and 86 St to take a Bay Ridge-bound B63 to 94 St.\n",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "",
+        "shortdescription": "Paid Mezzanine to Platform",
+        "description_custom": "This elevator gets you from the main station mezzanine to Manhattan-bound R trains"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.030876,
+          40.616622
+        ]
+      },
+      "id": "7321b1fab67fd34d1f171ce0d219c6fd"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "1",
+        "elevatorgtfsstopid": "718",
+        "route": "N/W/7",
+        "complexID": "461",
+        "stationID": "461",
+        "system": "nyc_mta",
+        "elevatorno": "EL791X",
+        "linesServed": "N/W/7",
+        "directionLabel": "",
+        "title": "Queensboro Plaza",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Queensboro-Plaza_EL791X.jpg",
+        "alternativeRoute": "If you are on the street: \nUse other elevator located at the SW corner of Queens Plaza South and Crescent St.\n\nIf you are on the overpass level:\nFollow signs to use the other elevator which will take you to the SW corner of Queens Plaza South and Crescent St.",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "true",
+        "shortdescription": "Street to platform.",
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.939639,
+          40.750778
+        ]
+      },
+      "id": "d4b720418cf2c729e6de1558fec1393a"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "604",
+        "route": "6",
+        "complexID": "363",
+        "stationID": "363",
+        "system": "nyc_mta",
+        "elevatorno": "EL514",
+        "linesServed": "6",
+        "directionLabel": "Manhattan-bound",
+        "title": "Westchester Sq-East Tremont Av",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
+        "alternativeRoute": "If you are on the mezzanine:\nTake a Pelham Bay Park-bound 6 to Pelham Bay Park. Then, transfer to a Manhattan-bound 6.\n\nIf you are on the platform: \nTake a Manhattan-bound 6 to Hunts Point Av. Then, transfer to a Pelham Bay Park-bound 6 to Westchester Sq-East Tremont Av.",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "",
+        "shortdescription": "Mezzanine to southbound platform.",
+        "description_custom": "This elevator gets you from the main station mezzanine to Manhattan-bound 6 trains"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.842952,
+          40.839892
+        ]
+      },
+      "id": "0d941f85be010038ac0f56bd05b547da"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "604",
+        "route": "6",
+        "complexID": "363",
+        "stationID": "363",
+        "system": "nyc_mta",
+        "elevatorno": "EL513",
+        "linesServed": "6",
+        "directionLabel": "Pelham Bay Park-bound",
+        "title": "Westchester Sq-East Tremont Av",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
+        "alternativeRoute": "If you are on the mezzanine:\nExit the station and proceed north along Westchester Av to Westchester Av and Blondel Av.\nThen, take a Country Club-bound Bx24 bus to Westchester Av and Amendola Plaza for access to Pelham Bay Park 6 Station.\n\nIf you are on the platform: \nTake a Pelham Bay Park-bound 6 to Pelham Bay Park. Then, take a Manhattan-bound 6 to Westchester Sq-East Tremont Av.",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "",
+        "shortdescription": "Mezzanine to northbound platform.",
+        "description_custom": "This elevator gets you from the main station mezzanine to Pelham Bay Park-bound 6 trains"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.842952,
+          40.839892
+        ]
+      },
+      "id": "f0d71790773df50ecde0cb210d97c54a"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "R45",
+        "route": "R",
+        "complexID": "39",
+        "stationID": "39",
+        "system": "nyc_mta",
+        "elevatorno": "EL380",
+        "linesServed": "R",
+        "directionLabel": "Manhattan-bound",
+        "title": "Bay Ridge-95 St",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Bay-Ridge-95-St_EL380.jpg",
+        "alternativeRoute": "If you are on the street: \nCross 4 Av to get to 5 Av and take a Cobble Hill-bound B63 bus to 86 St. Travel west on 86 St to 4 Av for the 86 St R.\nIf you are on the mezzanine: \nAsk Station Agent or use HelpPoint for assistance re-entering the station through the AutoGate. Take a Manhattan-bound R train to 86 St. Use elevators to exit the station. Then, travel east to 5 Av and 86 St to take a Bay Ridge Shore Rd-bound B63 to 94 St. ",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "true",
+        "shortdescription": "Street to Unpaid Mezzanine",
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.03097600000001,
+          40.616622
+        ]
+      },
+      "id": "39c839d62c6723bb9d4e946b967989ae"
     }
   ],
   "type": "FeatureCollection"

@@ -6134,7 +6134,7 @@
         "complex_id": "39",
         "station_ids": "39",
         "stop_name": "Bay Ridge-95 St",
-        "ada": "0",
+        "ada": "1",
         "num_stations_in_complex": 1
       }
     },

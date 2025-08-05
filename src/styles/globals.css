@@ -174,7 +174,7 @@ div#__next>div {
   position: absolute;
   display: flex;
   align-items: center;
-  top: 8.5vh;
+  top: 70px;
   left: 1vh;
   z-index: 10;
   background-color: #484848;
