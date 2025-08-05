@@ -1,5 +1,5 @@
 import { complexCoordinates } from "@/utils/ComplexGeometry";
-import customDataset from "@/resources/custom_dataset.json";
+import customDataset from "@/resources/custom_elevator_dataset.json";
 import mapboxgl from "mapbox-gl";
 
 // allows for a larger bounding box at big complexes, and a smaller one at small stations

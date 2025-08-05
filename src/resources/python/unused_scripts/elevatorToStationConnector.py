@@ -1,9 +1,9 @@
 import json
 
 # File paths
-CUSTOM_DATASET_FILE = "../custom_dataset.json"
-MTA_STATIONS_FILE = "../mta_subway_stations_all.json"
-OUTPUT_FILE = "../street_to_station_lines.geojson"
+CUSTOM_DATASET_FILE = "../../custom_dataset.json"
+MTA_STATIONS_FILE = "../../mta_subway_stations_all.json"
+OUTPUT_FILE = "../../street_to_station_lines.geojson"
 
 # Load datasets
 with open(CUSTOM_DATASET_FILE, "r") as f:

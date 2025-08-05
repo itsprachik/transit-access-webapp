@@ -4,11 +4,11 @@ import json
 import os
 
 # Load the input elevator dataset
-with open("../custom_dataset.json", "r") as f:
+with open("../../custom_dataset.json", "r") as f:
     data = json.load(f)
 
 # Load complex coordinates GeoJSON
-with open("../mta_subway_complexes.geojson", "r") as f:
+with open("../../mta_subway_complexes.geojson", "r") as f:
     complex_geojson = json.load(f)
 
 # Convert to lookup dictionary
@@ -66,7 +66,7 @@ for complex_id, elevators in complex_elevator_map.items():
         elevator["geometry"]["coordinates"] = [base_lng, new_lat]
 
 # Save updated dataset
-with open("../custom_dataset_repositioned.json", "w") as f:
+with open("../../custom_dataset_repositioned.json", "w") as f:
     json.dump(data, f, indent=2)
 
 print("✅ Done! Saved as 'custom_dataset_repositioned.json'")

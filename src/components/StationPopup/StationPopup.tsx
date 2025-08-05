@@ -77,7 +77,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
   const inaccessibleLines = inaccessibleRoutes?.split(" ") || [];
 
   return (
-    <div className={styles.popup}>
+    <div className={styles.stationPopup}>
       <div className={styles.subtitle}>
         {ada === "0" ? (
           "This station is not accessible"

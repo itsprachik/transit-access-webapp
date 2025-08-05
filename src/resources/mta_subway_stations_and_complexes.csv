@@ -359,7 +359,7 @@ Complex ID,Is Complex,Number Of Stations In Complex,Stop Name,Display Name,Const
 36,False,1,Bay Ridge Av,Bay Ridge Av (R),Bay Ridge Av,36,R42,Bk,False,R,Subway,40.634967,-74.023377,0,
 37,False,1,77 St,77 St (R),77 St,37,R43,Bk,False,R,Subway,40.629742,-74.02551,0,
 38,False,1,86 St,86 St (R),86 St,38,R44,Bk,False,R,Subway,40.622687,-74.028398,1,
-39,False,1,Bay Ridge-95 St,Bay Ridge-95 St (R),Bay Ridge-95 St,39,R45,Bk,False,R,Subway,40.616622,-74.030876,0,
+39,False,1,Bay Ridge-95 St,Bay Ridge-95 St (R),Bay Ridge-95 St,39,R45,Bk,False,R,Subway,40.616622,-74.030876,1,
 41,False,1,7 Av,"7 Av (B,Q)",7 Av,41,D25,Bk,False,B Q,Subway,40.67705,-73.972367,0,
 42,False,1,Prospect Park,"Prospect Park (B,Q,S)",Prospect Park,42,D26,Bk,False,B Q S,Open Cut,40.661614,-73.962246,1,
 43,False,1,Parkside Av,Parkside Av (Q),Parkside Av,43,D27,Bk,False,Q,Open Cut,40.655292,-73.961495,0,

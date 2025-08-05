@@ -1,28 +1,33 @@
 /* STATION POPUP CSS */
 
 /* STATION */
-.popup {
+.stationPopup {
+  overflow-y: auto !important;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   width: auto;
   max-height: 40vh;
-  overflow-y: auto;
   background-color: #f0f0f0;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   margin: 0;
   box-sizing: border-box;
   word-wrap: break-word;
 }
 
 @media (max-width: 768px) {
-  .popup {
+  .stationPopup {
     max-height: 40vh;
   }
 }
 
 @media (max-width: 330px) {
-  .popup {
+  .stationPopup {
     overflow-x: auto !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .stationPopup {
+    overflow-y: auto;
   }
 }
 

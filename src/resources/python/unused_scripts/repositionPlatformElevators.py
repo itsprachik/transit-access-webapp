@@ -4,11 +4,11 @@ import json
 import os
 
 # Load the input elevator dataset
-with open("../custom_dataset.json", "r") as f:
+with open("../../custom_dataset.json", "r") as f:
     data = json.load(f)
 
 # Load station coordinates (one directory up)
-with open(os.path.join("..", "accessibleStationGeometry.json"), "r") as f:
+with open(os.path.join("..", "..", "accessibleStationGeometry.json"), "r") as f:
     stationCoordinates = json.load(f)
 
 # Offset to stack elevators vertically
@@ -62,7 +62,7 @@ for station_id, elevators in station_elevator_map.items():
         elevator["geometry"]["coordinates"] = [base_lng, new_lat]
 
 # Save updated dataset
-with open("../custom_dataset_repositioned.json", "w") as f:
+with open("../../custom_dataset_repositioned.json", "w") as f:
     json.dump(data, f, indent=2)
 
 print("✅ Done! Saved as 'custom_dataset_repositioned.json'")

@@ -5,9 +5,9 @@ import React from "react";
 import { createRoot, type Root } from "react-dom/client";
 
 // DATASETS
-import customDataset from "@/resources/custom_dataset.json";
+import customDataset from "@/resources/custom_elevator_dataset.json";
 import mtaStationsDataset from "@/resources/mta_subway_stations_all.json";
-import mtaComplexesDataset from "@/resources/mta_subway_complexes.json";
+import mtaComplexesDataset from "@/resources/generated/mta_subway_complexes.json";
 
 // FUNCTIONS
 import {
@@ -152,8 +152,7 @@ function handleStationComplexClick(
 
   mapRef.setLayoutProperty("building-extrusion", "visibility", "visible");
 
-  const { complex_id, name, ada, route } = feature.properties;
-
+  const { complex_id, stop_name, ada, route } = feature.properties;
 
   const stationIDsRaw = feature.properties.station_ids;
   const stationIDs = stationIDsRaw.split("/").map((id: string) => id.trim());
@@ -253,7 +252,7 @@ function handleStationComplexClick(
       inaccessibleRoutes={inaccessibleRoutes}
       ada_notes={ada_notes}
       complexID={complex_id}
-      complexName={name}
+      complexName={stop_name}
       elevators={elevatorArray}
       totalElevators={totalElevators}
       map={mapRef}

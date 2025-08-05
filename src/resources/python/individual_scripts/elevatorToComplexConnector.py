@@ -1,9 +1,13 @@
+import os
 import json
 
-# File paths
-CUSTOM_DATASET_FILE = "../custom_dataset.json"
-MTA_STATIONS_FILE = "../mta_subway_complexes.geojson"
-OUTPUT_FILE = "../street_to_complex_lines.geojson"
+# Get directory where this script is located
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Paths relative to the script's directory
+CUSTOM_DATASET_FILE = os.path.join(THIS_DIR, "..", "..", "custom_elevator_dataset.json")
+MTA_STATIONS_FILE = os.path.join(THIS_DIR, "..", "..", "generated", "mta_subway_complexes.json")
+OUTPUT_FILE = os.path.join(THIS_DIR, "..", "..", "generated", "street_to_complex_lines.geojson")
 
 # Load datasets
 with open(CUSTOM_DATASET_FILE, "r") as f:

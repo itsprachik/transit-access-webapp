@@ -160,6 +160,19 @@
     {
       "type": "Feature",
       "properties": {
+        "station_id": "39"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.030876,
+          40.616622
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "station_id": "40"
       },
       "geometry": {

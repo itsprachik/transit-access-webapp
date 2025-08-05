@@ -47,7 +47,7 @@ export const stationComplexProps = {
           3
         ],
         "text-anchor": ["step", ["zoom"], "left", 17, "top"],
-        "text-field": ["to-string", ["get", "name"]]
+        "text-field": ["to-string", ["get", "stop_name"]]
       },
       "paint": {
         "text-halo-color": "#ffffff",

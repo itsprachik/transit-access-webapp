@@ -1,10 +1,14 @@
+import os
 import json
 
-# file paths
-INPUT_DATASET = "../custom_dataset.json"
-INPUT_OUTAGE_DATASET = '../elevatorOutagesDataset.geojson'
-OUTPUT_DATASET = '../elevatorOutageGeometry.json'
-OUTPUT_JS = "../../utils/elevatorOutageGeometry.ts"          # TypeScript file in ../../utils
+# Get directory where this script is located
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Paths relative to the script's directory
+INPUT_DATASET = os.path.join(THIS_DIR, "..", "..", "custom_elevator_dataset.json")
+INPUT_OUTAGE_DATASET = os.path.join(THIS_DIR, "..", "..", "generated", "elevatorOutagesDataset.geojson")
+OUTPUT_DATASET = os.path.join(THIS_DIR, "..", "..", "generated", "elevatorOutageGeometry.json")
+OUTPUT_JS = os.path.join(THIS_DIR, "..", "..", "..", "utils", "elevatorOutageGeometry.ts") 
 
 # Load the GeoJSON data from the file
 with open(INPUT_DATASET) as f:
