@@ -8,16 +8,6 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
-.mapboxgl-popup-close-button {
-  color: #ffffff !important;
-}
-
-.mapboxgl-popup-close-button:hover {
-  transform: scale(1.15);
-  background-color: #e3e3e3 !important;
-  border-radius: 100%;
-}
-
 .elevator-service {
   display: flex;
   align-items: center;
