@@ -1,9 +1,21 @@
-.popup {
+.elevator-popup {
+  overflow-y: auto;
+  max-height: 80vh;
   background: linear-gradient(to top, #2c2c34, #26262e);
   border-radius: 0.5rem;
   padding: 0.75rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.mapboxgl-popup-close-button {
+  color: #ffffff !important;
+}
+
+.mapboxgl-popup-close-button:hover {
+  transform: scale(1.15);
+  background-color: #e3e3e3 !important;
+  border-radius: 100%;
 }
 
 .elevator-service {

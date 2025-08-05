@@ -37,7 +37,7 @@ const ElevatorPopup: React.FC<ElevatorPopupProps> = ({
   return (
     
     <div>
-      <div className={styles["popup"]}>
+      <div className={styles["elevator-popup"]}>
       <span className={styles["gray-text"]}>{elevatorno}</span>
       <span className={styles.subtitle}>Street Elevator {" "}
         <span className={styles.title}>{title} {directionLabel && ` (${directionLabel})`}</span>
