@@ -45,13 +45,7 @@ const ElevatorCard: React.FC<{
   elevatorView: string | null;
   setElevatorView: React.Dispatch<React.SetStateAction<string | null>>;
   setShow3DToggle: React.Dispatch<React.SetStateAction<boolean>>;
-}> = ({
-  elevator,
-  map,
-  setShow3DToggle,
-  elevatorView,
-  setElevatorView,
-}) => {
+}> = ({ elevator, map, setShow3DToggle, elevatorView, setElevatorView }) => {
   // Slider state
   const [currentSlide, setCurrentSlide] = useState(0);
   const [totalSlides, setTotalSlides] = useState(0);
@@ -66,7 +60,8 @@ const ElevatorCard: React.FC<{
 
   // Redundancy Note state
   const [showRedundancyNote, setShowRedundancyNote] = useState(false);
-  const [isAnimatingRedundancyOpen, setIsAnimatingRedundancyOpen] = useState(false);
+  const [isAnimatingRedundancyOpen, setIsAnimatingRedundancyOpen] =
+    useState(false);
   const [showRedundancyIcon, setShowRedundancyIcon] = useState(true);
 
   // Handle mutual exclusivity: open access note, close redundancy note
@@ -172,7 +167,7 @@ const ElevatorCard: React.FC<{
         {elevator.ada === "0" && <> (not accessible)</>}
         {elevator.isStreet &&
           lines.map((line, i) => (
-            <span key={i} title={line} className={styles.lineIcon} key={`street-${i}`}>
+            <span title={line} className={styles.lineIcon} key={`street-${i}`}>
               {MTA_SUBWAY_LINE_ICONS[line]}
             </span>
           ))}
@@ -213,56 +208,56 @@ const ElevatorCard: React.FC<{
                 : "in service"}
             </div>
 
-{/* Redundancy note toggle and content */}
-{elevator.isOut && (
-  <div className={styles.accessToggle}>
-    {(showRedundancyNote || !showRedundancyIcon) && (
-      // Redundancy note
-<div
-  className={`
+            {/* Redundancy note toggle and content */}
+            {elevator.isOut && (
+              <div className={styles.accessToggle}>
+                {(showRedundancyNote || !showRedundancyIcon) && (
+                  // Redundancy note
+                  <div
+                    {...({
+                      inert: !showRedundancyNote ? "true" : undefined,
+                    } as any)}
+                    className={`
     ${styles.redundancyNote}
     ${isAnimatingRedundancyOpen ? styles.accessNoteOpen : ""}
     ${elevator.isRedundant === "1" ? styles.redundantYes : styles.redundantNo}
   `}
-  inert={!showRedundancyNote ? true : undefined}
-
-      >
-
-                      <button
-                        onClick={() => handleToggleRedundancyNote(false)}
-                        className={styles.accessNoteClose}
-                        aria-label="Close redundancy info"
-                      >
-                        ×
-                      </button>
-                      <div className={styles.redundancyNoteContent}>
-  {elevator.isRedundant === "1" ? (
-    <>
-      <ElevatorIcon size={30} />
-      <span>Don&apos;t worry, there&apos;s another option</span>
-    </>
-  ) : (
-    <>
-      <AccessibleIconFalse size={30} />
-      <span>There is no other accessible path</span>
-    </>
-  )}
-</div>
-
+                  >
+                    <button
+                      onClick={() => handleToggleRedundancyNote(false)}
+                      className={styles.accessNoteClose}
+                      aria-label="Close redundancy info"
+                    >
+                      ×
+                    </button>
+                    <div className={styles.redundancyNoteContent}>
+                      {elevator.isRedundant === "1" ? (
+                        <>
+                          <ElevatorIcon size={30} />
+                          <span>
+                            Don&apos;t worry, there&apos;s another option
+                          </span>
+                        </>
+                      ) : (
+                        <>
+                          <AccessibleIconFalse size={30} />
+                          <span>There is no other accessible path</span>
+                        </>
+                      )}
+                    </div>
                   </div>
                 )}
-<button
-  onClick={() => handleToggleRedundancyNote(true)}
-  className={`
+                <button
+                  onClick={() => handleToggleRedundancyNote(true)}
+                  className={`
     ${styles.redundancyNoteIconButton}
     ${showRedundancyIcon ? styles.iconButtonVisible : ""}
     ${elevator.isRedundant === "1" ? styles.redundantYes : styles.redundantNo}
   `}
-  aria-label="Show redundancy info"
->
-  <CircleQuestionMark />
-</button>
-
+                  aria-label="Show redundancy info"
+                >
+                  <CircleQuestionMark />
+                </button>
               </div>
             )}
           </div>
@@ -333,8 +328,7 @@ const ElevatorCard: React.FC<{
             {/* Slider */}
             <div className={styles.sliderWrapper}>
               <div className={styles.paginationLabel}>
-                {totalSlides > 0 &&
-                  `${currentSlide + 1} / ${totalSlides}`}
+                {totalSlides > 0 && `${currentSlide + 1} / ${totalSlides}`}
               </div>
               <div ref={sliderRef} className="keen-slider">
                 {/* Slide 1 - Elevator image + access note */}
@@ -353,10 +347,12 @@ const ElevatorCard: React.FC<{
                     <div className={styles.accessToggle}>
                       {(showAccessNote || !showAccessIcon) && (
                         <div
+                          {...({
+                            inert: !showAccessNote ? "true" : undefined,
+                          } as any)}
                           className={`${styles.accessNote} ${
                             isAnimatingAccessOpen ? styles.accessNoteOpen : ""
                           }`}
-                          inert={!showAccessNote ? true : undefined}
                         >
                           <div className={styles.accessNoteHeader}>
                             <AccessibleIconWhite />
@@ -404,11 +400,13 @@ const ElevatorCard: React.FC<{
                             </>
                           )}
                         </div>
-                        {elevator.description_custom || "No description provided."}
+                        {elevator.description_custom ||
+                          "No description provided."}
                       </div>
 
                       <span className={styles["gray-text"]}>
-                        {isRamp ? "ramp" : "elevator"} number: {elevator.elevatorno}
+                        {isRamp ? "ramp" : "elevator"} number:{" "}
+                        {elevator.elevatorno}
                       </span>
 
                       <div className={styles.lineWrapper}>
