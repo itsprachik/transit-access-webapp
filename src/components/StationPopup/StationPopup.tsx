@@ -18,7 +18,9 @@ type Elevator = {
   estimatedReturn: string | null;
   totalElevators: number;
   coordinates: [number, number];
+  access_note: string;
   isBridge: string;
+  isRedundant: string;
 };
 
 type StationPopupProps = {

@@ -250,7 +250,7 @@ function handleStationComplexClick(
       ada={ada}
       route={route}
       inaccessibleRoutes={inaccessibleRoutes}
-      ada_notes={ada_notes}
+      ada_notes={ada_notes} // station ADA notes
       complexID={complex_id}
       complexName={stop_name}
       elevators={elevatorArray}
