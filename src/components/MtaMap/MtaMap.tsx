@@ -285,6 +285,52 @@ const MtaMap = () => {
         });
       });
 
+              mapRef.current?.on("click", "mta-subway-stations-inaccessible", (e) => {
+          e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
+          handleOnClick(
+            e,
+            onClickPopupRef,
+            mapRef.current,
+            getLatestElevatorData(),
+            stationView,
+            setStationView,
+            elevatorView,
+            setElevatorView,
+            show3DToggle,
+            setShow3DToggle,
+            lastUpdatedRef.current,         
+          );
+
+        // Track zoom level
+        mapRef.current.on("zoom", () => {
+          const zoom = mapRef.current.getZoom();
+          setZoomLevel(zoom);
+        });
+      });
+
+      mapRef.current?.on("click", "mta-subway-stations-inaccessible-icon2", (e) => {
+        e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
+        handleOnClick(
+          e,
+          onClickPopupRef,
+          mapRef.current,
+          getLatestElevatorData(),
+          stationView,
+          setStationView,
+          elevatorView,
+          setElevatorView,
+          show3DToggle,
+          setShow3DToggle,
+          lastUpdatedRef.current,         
+        );
+
+      // Track zoom level
+      mapRef.current.on("zoom", () => {
+        const zoom = mapRef.current.getZoom();
+        setZoomLevel(zoom);
+      });
+    });
+
       //  Click event to display station pop-up
       mapRef.current?.on("click", "mta-subway-complexes-accessible2", (e) => {
         const currentZoom = mapRef.current.getZoom();

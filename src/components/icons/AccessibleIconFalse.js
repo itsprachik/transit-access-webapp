@@ -1,4 +1,4 @@
-const AccessibleIconFalse = ({size = 40}) => {
+const AccessibleIconFalse = ({size = 24}) => {
   return (
     <svg
       width={size}

@@ -544,5 +544,11 @@ export function handleOnClick(
     showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
   }
 
+  if (layerId === "mta-subway-stations-inaccessible" || layerId === "mta-subway-stations-inaccessible-icon2") {
+    const complexFeature = handleStationClick(feature);
+    handleStationComplexClick(root, complexFeature, mapRef, elevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle, lastUpdated);
+    showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
+  }
+
   return;
 }

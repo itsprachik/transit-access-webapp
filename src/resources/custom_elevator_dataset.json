@@ -1650,7 +1650,7 @@
       "type": "Feature",
       "properties": {
         "notes": "",
-        "isRedundant": "1",
+        "isRedundant": "0",
         "elevatorgtfsstopid": "132/D19/L02",
         "route": "F/M/L/1/2/3",
         "complexID": "601",
@@ -1835,7 +1835,7 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "0",
+        "isRedundant": "1",
         "elevatorgtfsstopid": "A06",
         "route": "A",
         "complexID": "146",
@@ -3383,7 +3383,7 @@
       "type": "Feature",
       "properties": {
         "notes": "",
-        "isRedundant": 1,
+        "isRedundant": "0",
         "elevatorgtfsstopid": "132/D19/L02",
         "route": "F/M/L/1/2/3",
         "complexID": "601",
@@ -3929,7 +3929,7 @@
       "type": "Feature",
       "properties": {
         "notes": "",
-        "isRedundant": "1",
+        "isRedundant": "0",
         "elevatorgtfsstopid": "132/D19/L02",
         "route": "F/M/L/1/2/3",
         "complexID": "601",
@@ -4490,7 +4490,7 @@
         "alternativeRoute": "If you are on the Manhattan-bound E/F/M/R platform: Take an EM or R to Queens Plaza then either: Use elevators to transfer to a Jamaica-bound E, F or a Forest Hills-bound M, R to Jackson Hts-Roosevelt Av. Or, exit station and take a Jackson Heightsbound Q32 bus (28 St and Queens Plaza S) to 75 St and Roosevelt Av. If you are on the E/F/M/R mezzanine: Take an E, F, M or R to Forest Hills-71 Av and use elevators to transfer to a Manhattan-bound E, F, M or R. If you are on the transfer mezzanine:  For E, F, M, R to Manhattan, take a Manhattanbound Q32 bus (Roosevelt Av and 74 St) to Queens Plaza. For E, F, M, R to Forest Hills/Jamaica, take Rockaway Park-bound Q53 SBS (Broadway and 75 St) to Woodhaven Blvd. Transfer to a Jamaica-bound Q60 bus.",
         "ada": "1",
         "isBroken": "",
-        "isRedundant": "",
+        "isRedundant": "0",
         "isStreet": "",
         "shortdescription": "Manhattan-bound E/F/M/R to E/F/M/R/7 mezzanines",
         "description_custom": "This elevator gets you from the mezzanine to Manhattan-bound E/F/M/R trains, as well as access to 7 trains and Queens-bound E/F/M/R trains via more elevators"
@@ -5419,7 +5419,7 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "0",
+        "isRedundant": "1",
         "elevatorgtfsstopid": "718",
         "route": "N W 7",
         "complexID": "461",
@@ -5449,7 +5449,7 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "0",
+        "isRedundant": "1",
         "elevatorgtfsstopid": "A06",
         "route": "A",
         "complexID": "146",
@@ -5630,7 +5630,7 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "0",
+        "isRedundant": "1",
         "elevatorgtfsstopid": "R03",
         "route": "N W",
         "complexID": "2",
@@ -7406,7 +7406,7 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "0",
+        "isRedundant": "1",
         "elevatorgtfsstopid": "A06",
         "route": "A",
         "complexID": "146",
@@ -9661,7 +9661,7 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "0",
+        "isRedundant": "1",
         "elevatorgtfsstopid": "631/723/901",
         "route": "4 5 6 7 S",
         "complexID": "610",
@@ -10053,7 +10053,7 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "1",
+        "isRedundant": "0",
         "elevatorgtfsstopid": "726",
         "route": "7",
         "complexID": "471",
@@ -10083,7 +10083,7 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "1",
+        "isRedundant": "0",
         "elevatorgtfsstopid": "726",
         "route": "7",
         "complexID": "471",
@@ -10643,7 +10643,7 @@
         "ada": "1",
         "isBroken": "",
         "directionLabel": "",
-        "isRedundant": "",
+        "isRedundant": "0",
         "shortdescription": "Street to mezzanine",
         "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
@@ -11299,7 +11299,7 @@
       "type": "Feature",
       "properties": {
         "notes": "",
-        "isRedundant": 1,
+        "isRedundant": "0",
         "elevatorgtfsstopid": "132/D19/L02",
         "route": "F/M/L/1/2/3",
         "complexID": "601",

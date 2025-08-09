@@ -661,10 +661,10 @@ export function flyIn(
 
     map.flyTo({
       center: coordsOrBounds,
-      zoom: maxZoomLevel - 1,
+      zoom: map.getZoom(),
       pitch: 0,
       bearing: setManhattanTilt(),
-      speed: 1.8,
+      speed: 0.8,
     });
     return;
   }

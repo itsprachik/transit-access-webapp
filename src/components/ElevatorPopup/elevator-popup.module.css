@@ -1,6 +1,6 @@
 .elevator-popup {
   overflow-y: auto;
-  max-height: 80vh;
+  max-height: 75vh !important;
   background: linear-gradient(to top, #2c2c34, #26262e);
   border-radius: 0.5rem;
   padding: 0.75rem;
