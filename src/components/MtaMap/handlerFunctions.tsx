@@ -250,7 +250,7 @@ function handleStationComplexClick(
       ada={ada}
       route={route}
       inaccessibleRoutes={inaccessibleRoutes}
-      ada_notes={ada_notes}
+      ada_notes={ada_notes} // station ADA notes
       complexID={complex_id}
       complexName={stop_name}
       elevators={elevatorArray}
@@ -541,6 +541,12 @@ export function handleOnClick(
 
   if (layerId === "mta-subway-complexes-accessible2") {
     handleStationComplexClick(root, feature, mapRef, elevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle, lastUpdated);
+    showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
+  }
+
+  if (layerId === "mta-subway-stations-inaccessible" || layerId === "mta-subway-stations-inaccessible-icon2") {
+    const complexFeature = handleStationClick(feature);
+    handleStationComplexClick(root, complexFeature, mapRef, elevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle, lastUpdated);
     showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
   }
 

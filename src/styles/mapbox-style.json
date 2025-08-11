@@ -126,11 +126,15 @@
                         "platform-elevators-label-123",
                         "elevator-to-complex-connectors text",
                         "elevator-to-station-connectors text",
+                        "escalators-in",
+                        "escalators-out",
+                        "mta-subway-entrances-and-exits",
                         "transit-elevators",
                         "mta-subway-complexes-accessible",
                         "mta-subway-stations-accessible",
                         "elevator-to-complex-connectors",
-                        "elevator-to-station-connectors copy"
+                        "elevator-to-station-connectors copy",
+                        "nyc-transit-elevators-dev"
                     ]
                 }
             ],
@@ -591,7 +595,7 @@
                 }
             }
         },
-        "mapbox:thumb": "data:image/webp;base64,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",
+        "mapbox:thumb": "data:image/webp;base64,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",
         "mapbox:autocomposite": true,
         "mapbox:sdk-support": {
             "js": "3.8.0",
@@ -717,11 +721,11 @@
             "tileSize": 512
         },
         "composite": {
-            "url": "mapbox://mapbox.mapbox-streets-v8,mapbox.mapbox-terrain-v2,joelaaron.test-sf,joelaaron.clndm6gme0tz02bp74z629y3l-6q3qv,joelaaron.cly1qfom57x3y1noc7moxiiu4-1x1n4,joelaaron.cm5kh33pk0nno1umnguq9iybf-0yey6,joelaaron.cm5onyuyh16nz1pqi1akbp4ky-28sqt,joelaaron.cm62nbi3i1qk61ntmujfucl6p-7oxnc,joelaaron.cm5mtltj91zo81oojfo3y4xel-9l5s2,joelaaron.cmcx0lv3x13nv1nqm02dxhdoc-7m7dk,joelaaron.cmd2jh6pr6vr61opdkkkjaafp-1jiyt,joelaaron.cmctc0r3l1f2j1pqge4ykole4-4z4rq",
+            "url": "mapbox://mapbox.mapbox-streets-v8,mapbox.mapbox-terrain-v2,joelaaron.test-sf,joelaaron.clndm6gme0tz02bp74z629y3l-6q3qv,joelaaron.cly1qfom57x3y1noc7moxiiu4-1x1n4,joelaaron.cm5kh33pk0nno1umnguq9iybf-0yey6,joelaaron.cm5onyuyh16nz1pqi1akbp4ky-28sqt,joelaaron.cm62nbi3i1qk61ntmujfucl6p-7oxnc,joelaaron.cm5mtltj91zo81oojfo3y4xel-9l5s2,joelaaron.cmcx0lv3x13nv1nqm02dxhdoc-7m7dk,joelaaron.cmd2jh6pr6vr61opdkkkjaafp-1jiyt,joelaaron.cmctc0r3l1f2j1pqge4ykole4-4z4rq,joelaaron.cme4ke26u1o401qplwtob7kgz-4cr3o",
             "type": "vector"
         }
     },
-    "sprite": "mapbox://sprites/joelaaron/cm5sr6vct00a601s0eurkg40h/b8jx64ydiudqt8x551d2ch35j",
+    "sprite": "mapbox://sprites/joelaaron/cm5sr6vct00a601s0eurkg40h/50g1rpgkhm88zizggh3srurx0",
     "glyphs": "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
     "projection": {"name": "globe"},
     "layers": [
@@ -14626,6 +14630,137 @@
             }
         },
         {
+            "id": "escalators-in",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "mta_subway_entrances_and_exits",
+            "filter": [
+                "match",
+                ["get", "entrance_type"],
+                ["Escalator", "Stair/Escalator"],
+                true,
+                false
+            ],
+            "layout": {
+                "icon-image": [
+                    "match",
+                    ["get", "entrance_type"],
+                    ["Escalator", "Stair/Escalator"],
+                    [
+                        "image",
+                        "oneway-small-black",
+                        {"params": {"color-1": "#811d87"}}
+                    ],
+                    ""
+                ],
+                "icon-allow-overlap": true,
+                "icon-offset": [8, -8],
+                "icon-rotate": [
+                    "match",
+                    ["get", "entry_allowed"],
+                    ["YES"],
+                    135,
+                    0
+                ],
+                "icon-size": 0.7
+            },
+            "paint": {
+                "icon-opacity": [
+                    "step",
+                    ["zoom"],
+                    0,
+                    17,
+                    ["match", ["get", "entry_allowed"], ["YES"], 1, 0]
+                ]
+            }
+        },
+        {
+            "id": "escalators-out",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "mta_subway_entrances_and_exits",
+            "filter": [
+                "match",
+                ["get", "entrance_type"],
+                ["Escalator", "Stair/Escalator"],
+                true,
+                false
+            ],
+            "layout": {
+                "icon-image": [
+                    "match",
+                    ["get", "entrance_type"],
+                    ["Escalator", "Stair/Escalator"],
+                    [
+                        "image",
+                        "oneway-small-black",
+                        {"params": {"color-1": "#811d87"}}
+                    ],
+                    ""
+                ],
+                "icon-allow-overlap": true,
+                "icon-offset": [3, 8],
+                "icon-rotate": [
+                    "match",
+                    ["get", "exit_allowed"],
+                    ["YES"],
+                    -40,
+                    0
+                ],
+                "icon-size": 0.7
+            },
+            "paint": {
+                "icon-opacity": [
+                    "step",
+                    ["zoom"],
+                    0,
+                    17,
+                    ["match", ["get", "exit_allowed"], ["YES"], 1, 0]
+                ]
+            }
+        },
+        {
+            "id": "mta-subway-entrances-and-exits",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "mta_subway_entrances_and_exits",
+            "filter": [
+                "match",
+                ["get", "entrance_type"],
+                ["Elevator"],
+                false,
+                true
+            ],
+            "layout": {
+                "icon-image": [
+                    "match",
+                    ["get", "entrance_type"],
+                    ["Escalator", "Stair/Escalator"],
+                    ["image", "escalator", {"params": {"color-1": "#811d87"}}],
+                    ["Stair"],
+                    [
+                        "image",
+                        "stairs",
+                        {"params": {"color-1": "#141414", "color-2": "#796c7a"}}
+                    ],
+                    ["Ramp", "Stair/Ramp"],
+                    "ramp_gray",
+                    ""
+                ],
+                "icon-allow-overlap": true,
+                "icon-size": [
+                    "match",
+                    ["get", "entrance_type"],
+                    ["Stair", "Stair/Ramp/Walkway"],
+                    0.5,
+                    ["Stair/Ramp", "Ramp"],
+                    0.5,
+                    0.7
+                ]
+            },
+            "paint": {"icon-opacity": ["step", ["zoom"], 0, 17, 1]}
+        },
+        {
             "id": "transit-elevators",
             "type": "symbol",
             "metadata": {"mapbox:featureStateHandler": {}},
@@ -14660,7 +14795,16 @@
                     [
                         "all",
                         ["==", ["get", "isStreet"], "true"],
-                        ["==", ["get", "elevatorno"], "ramp"]
+                        [
+                            "==",
+                            [
+                                "slice",
+                                ["downcase", ["get", "elevatorno"]],
+                                0,
+                                2
+                            ],
+                            "ra"
+                        ]
                     ],
                     "ramp",
                     ["==", ["get", "isStreet"], "true"],
@@ -14694,40 +14838,49 @@
                     [
                         "case",
                         [
-                            "match",
-                            ["get", "elevatorno"],
-                            ["", "ramp"],
-                            false,
-                            true
+                            "==",
+                            [
+                                "slice",
+                                ["downcase", ["get", "elevatorno"]],
+                                0,
+                                2
+                            ],
+                            "ra"
                         ],
-                        0.7,
-                        0.5
+                        0.5,
+                        0.7
                     ],
                     14,
                     [
                         "case",
                         [
-                            "match",
-                            ["get", "elevatorno"],
-                            ["", "ramp"],
-                            false,
-                            true
+                            "==",
+                            [
+                                "slice",
+                                ["downcase", ["get", "elevatorno"]],
+                                0,
+                                2
+                            ],
+                            "ra"
                         ],
-                        0.9,
-                        0.6
+                        0.6,
+                        0.9
                     ],
                     17,
                     [
                         "case",
                         [
-                            "match",
-                            ["get", "elevatorno"],
-                            ["", "ramp"],
-                            false,
-                            true
+                            "==",
+                            [
+                                "slice",
+                                ["downcase", ["get", "elevatorno"]],
+                                0,
+                                2
+                            ],
+                            "ra"
                         ],
-                        1,
-                        0.8
+                        0.8,
+                        1
                     ]
                 ],
                 "text-anchor": "left",
@@ -14736,7 +14889,16 @@
                     [
                         "all",
                         ["==", ["get", "isStreet"], "true"],
-                        ["==", ["get", "elevatorno"], "ramp"],
+                        [
+                            "==",
+                            [
+                                "slice",
+                                ["downcase", ["get", "elevatorno"]],
+                                0,
+                                2
+                            ],
+                            "ra"
+                        ],
                         ["has", "directionLabel"],
                         ["!=", ["get", "directionLabel"], ""]
                     ],
@@ -14744,7 +14906,16 @@
                     [
                         "all",
                         ["==", ["get", "isStreet"], "true"],
-                        ["==", ["get", "elevatorno"], "ramp"]
+                        [
+                            "==",
+                            [
+                                "slice",
+                                ["downcase", ["get", "elevatorno"]],
+                                0,
+                                2
+                            ],
+                            "ra"
+                        ]
                     ],
                     "Ramp",
                     [
@@ -14937,10 +15108,31 @@
                 "line-color": "#878787",
                 "line-opacity": ["step", ["zoom"], 0, 15, 0, 16, 1]
             }
+        },
+        {
+            "id": "nyc-transit-elevators-dev",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "nyc_transit_elevators_dev",
+            "filter": ["has", "access_note"],
+            "layout": {
+                "text-size": 8,
+                "icon-offset": [150, -65],
+                "icon-image": "Accessible=True",
+                "text-font": ["Montserrat Medium", "Arial Unicode MS Regular"],
+                "text-justify": "left",
+                "visibility": "none",
+                "text-offset": [2, -2],
+                "icon-size": 0.6,
+                "text-anchor": "top",
+                "text-field": ["to-string", ["get", "access_note"]],
+                "text-max-width": 20
+            },
+            "paint": {"text-translate": [90, -15]}
         }
     ],
     "created": "2025-01-11T22:24:04.926Z",
-    "modified": "2025-08-04T23:35:57.681Z",
+    "modified": "2025-08-09T23:45:19.620Z",
     "id": "cm5sr6vct00a601s0eurkg40h",
     "owner": "joelaaron",
     "visibility": "private",
