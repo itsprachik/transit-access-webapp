@@ -20,7 +20,9 @@ import {
   concatenateADA,
   concatenateRoutes,
   getAreaOfComplex,
-  concatenateInaccessibleRoutes
+  concatenateInaccessibleRoutes,
+  getStationOutageLayerFeatures,
+  getComplexOutageLayerFeatures
 } from "@/utils/dataUtils";
 import { stationIDToComplexID } from "@/utils/elevatorIndexUtils";
 
@@ -91,6 +93,18 @@ export function cleanUpPopups() {
     currentPopupRoot = null;
   }
 }
+
+function addDynamicProperties(complexFeature, stationData) {
+  const outageInfo = getComplexOutageLayerFeatures(stationData); // includes the isOut, isProblem properties
+  const match = outageInfo.find(
+    f => f.properties.complex_id === complexFeature.properties.complex_id
+  );
+  if (match) {
+    complexFeature.properties.isOut = match.properties.isOut;
+    complexFeature.properties.isProblem = match.properties.isProblem;
+  }
+  return complexFeature;
+}
 // ---------------------------------------
 // 🟦 Case 1: Single Elevator Popup
 // ---------------------------------------
@@ -152,7 +166,7 @@ function handleStationComplexClick(
 
   mapRef.setLayoutProperty("building-extrusion", "visibility", "visible");
 
-  const { complex_id, stop_name, ada, route } = feature.properties;
+  const { complex_id, stop_name, ada, route, isOut, isProblem } = feature.properties;
 
   const stationIDsRaw = feature.properties.station_ids;
   const stationIDs = stationIDsRaw.split("/").map((id: string) => id.trim());
@@ -263,6 +277,8 @@ function handleStationComplexClick(
       show3DToggle={show3DToggle}
       setShow3DToggle={setShow3DToggle}
       lastUpdated={lastUpdated}
+      isOut={isOut}
+      isProblem={isProblem}
     />,
   );
 
@@ -331,6 +347,7 @@ export function handleSearchPopup(
   onClickPopupRef: any,
   mapRef,
   elevatorData: any,
+  stationData: any,
   stationView: any,
   setStationView: any,
   elevatorView,
@@ -374,18 +391,8 @@ export function handleSearchPopup(
   const ada = concatenateADA(stationIDs, mtaStationsDataset); // add concatenated ADA info for complex
   const ada_notes = feature.properties.ada_notes;
 
-  // Mimic the matching complex feature (and add to it)
-  const complexFeature = {
-    ...matchingComplex,
-    properties: {
-      ...matchingComplex.properties,
-      route,
-      ada,
-      ada_notes,
-      inaccessibleRoutes,
-    },
-    layer: { id: "mta-subway-complexes-accessible" },
-  };
+  const complexFeature = handleStationClick(feature);
+  const dynamicComplexFeature = addDynamicProperties(complexFeature, stationData);
 
   handleStationComplexClick(
     root,
@@ -413,6 +420,7 @@ export function handleOnClick(
   onClickPopupRef: any,
   mapRef: any,
   elevatorData: any,
+  stationData: any,
   stationView,
   setStationView,
   elevatorView,
@@ -511,10 +519,10 @@ export function handleOnClick(
       layer: { id: "mta-subway-stations-accessible" },
     };
 
-    const complexFeature = handleStationClick(stationFeature);
+    const complexFeature = handleStationClick(feature);
+    const dynamicComplexFeature = addDynamicProperties(complexFeature, stationData);
 
-    
-    handleStationComplexClick(root, complexFeature, mapRef, elevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle, lastUpdated);
+    handleStationComplexClick(root, dynamicComplexFeature, mapRef, elevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle, lastUpdated);
     showPopup(
       complexFeature.geometry.coordinates,
       mapRef,
@@ -535,7 +543,8 @@ export function handleOnClick(
     });  
 
     const complexFeature = handleStationClick(feature);
-    handleStationComplexClick(root, complexFeature, mapRef, elevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle, lastUpdated);
+    const dynamicComplexFeature = addDynamicProperties(complexFeature, stationData);
+    handleStationComplexClick(root, dynamicComplexFeature, mapRef, elevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle, lastUpdated);
     showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
   }
 

@@ -114,6 +114,7 @@ const MtaMap = () => {
   const handleStationSearchSelect = (
     feature,
     elevatorData,
+    stationData,
     stationView,
     setStationView,
     elevatorView,
@@ -127,6 +128,7 @@ const MtaMap = () => {
       onClickPopupRef,
       mapRef.current,
       elevatorData,
+      stationDataRef.current,
       stationView,
       setStationView,
       elevatorView,
@@ -217,6 +219,7 @@ const MtaMap = () => {
         stationDataRef.current
       ) {
         updateStationComplexLayer(stationDataRef.current, mapRef.current);
+        
       }
 
       // Add outage layer with icons based on isBroken property
@@ -252,6 +255,7 @@ const MtaMap = () => {
           onClickPopupRef,
           mapRef.current,
           elevatorDataRef.current,
+          stationDataRef.current,
           stationView,
           setStationView,
           elevatorView,
@@ -269,6 +273,7 @@ const MtaMap = () => {
           onClickPopupRef,
           mapRef.current,
           getLatestElevatorData(),
+          stationDataRef.current,
           stationView,
           setStationView,
           elevatorView,
@@ -292,6 +297,7 @@ const MtaMap = () => {
             onClickPopupRef,
             mapRef.current,
             getLatestElevatorData(),
+            stationDataRef.current,
             stationView,
             setStationView,
             elevatorView,
@@ -315,6 +321,7 @@ const MtaMap = () => {
           onClickPopupRef,
           mapRef.current,
           getLatestElevatorData(),
+          stationDataRef.current,
           stationView,
           setStationView,
           elevatorView,
@@ -341,6 +348,7 @@ const MtaMap = () => {
             onClickPopupRef,
             mapRef.current,
             getLatestElevatorData(),
+            stationDataRef.current,
             stationView,
             setStationView,
             elevatorView,
@@ -370,6 +378,7 @@ const MtaMap = () => {
           onClickPopupRef,
           mapRef.current,
           getLatestElevatorData(),
+          stationDataRef.current,
           stationView,
           setStationView,
           elevatorView,
@@ -390,6 +399,7 @@ const MtaMap = () => {
           onClickPopupRef,
           mapRef.current,
           getLatestElevatorData(),
+          stationDataRef.current,
           stationView,
           setStationView,
           elevatorView,
@@ -419,6 +429,7 @@ const MtaMap = () => {
           handleStationSearchSelect(
             feature,
             getLatestElevatorData(),
+            stationDataRef.current,
             stationView,
             setStationView,
             elevatorView,
