@@ -111,6 +111,7 @@ function addDynamicProperties(complexFeature, stationData) {
 // ---------------------------------------
 function handleElevatorClick(root: any, feature: any, elevatorData: any, upcomingElevatorData: any, lastUpdated: any) {
   const {
+    ada,
     description_custom,
     image,
     title,
@@ -125,8 +126,8 @@ function handleElevatorClick(root: any, feature: any, elevatorData: any, upcomin
   const outage = elevatorData.find(
     (outElevator: any) => outElevator.elevatorNo === elevatorno
   );
-  // format estimatedreturntoseervice into something readable
-  const rawDate = outage?.estimatedReturn;
+  // format estimatedreturntoservice into something readable
+  const rawDate = outage?.estimatedreturntoservice;
   let formattedDate = null;
   if (rawDate) {
     formattedDate = convertDate(rawDate);
@@ -136,27 +137,37 @@ function handleElevatorClick(root: any, feature: any, elevatorData: any, upcomin
     (el) => el.equipment === elevatorno
   );
 
-  const filteredOutage = upcomingOutage
-  ? {
+  const filteredOutage = Array.isArray(upcomingOutage)
+  ? upcomingOutage.map(o => ({
+      reason: o.reason,
+      outageDate: o.outagedate,
+      estimatedreturntoservice: o.estimatedreturntoservice?.trim() || null,
+      outageDuration: o.outageDuration || null,
+    }))
+  : upcomingOutage
+  ? [{
       reason: upcomingOutage.reason,
       outageDate: upcomingOutage.outagedate,
-      estimatedReturn: upcomingOutage.estimatedreturntoservice?.trim() || null,
-    }
-  : null;
+      estimatedreturntoservice: upcomingOutage.estimatedreturntoservice?.trim() || null,
+      outageDuration: upcomingOutage.outageDuration || null,
+    }]
+  : [];
+
 
   root.render(
     <ElevatorPopup
+      ada={ada}
       key={popupKey}
       title={title}
       description_custom={description_custom}
-      imageUrl={image}
+      imageURL={image}
       elevatorno={elevatorno}
       linesServed={linesServed}
       estimatedreturntoservice={formattedDate}
       directionLabel={directionLabel}
       isStreet={isStreet}
       lastUpdated={lastUpdated}
-      estimatedReturn={filteredOutage}
+      isUpcomingOutage={filteredOutage}
     />
   );
 }
@@ -234,13 +245,13 @@ function handleStationComplexClick(
     ? {
         reason: upcomingOutage.reason,
         outageDate: convertDate(upcomingOutage?.outagedate),
-        estimatedReturn: convertDate(upcomingOutage.estimatedreturntoservice?.trim()) || null,
+        estimatedreturntoservice: convertDate(upcomingOutage.estimatedreturntoservice?.trim()) || null,
         outageDuration: convertDateDistance(upcomingOutage?.outagedate, upcomingOutage?.estimatedreturntoservice) || "null",
       }
     : null;
 
     // format estimatedreturntoseervice into something readable
-    const rawDate = matchedOutage?.estimatedReturn;
+    const rawDate = matchedOutage?.estimatedreturntoservice;
     let formattedDate = null;
     if (rawDate) {
       formattedDate = convertDate(rawDate);
@@ -253,7 +264,7 @@ function handleStationComplexClick(
       isStreet: elevator.properties.isStreet,
       imageURL: elevator.properties.image,
       isOut: Boolean(matchedOutage),
-      estimatedReturn: formattedDate || "null",
+      estimatedreturntoservice: formattedDate || "null",
       totalElevators: totalElevators,
       totalRamps: totalRamps,
       isUpcomingOutage: filteredOutage || [],

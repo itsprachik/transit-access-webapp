@@ -17,15 +17,13 @@ import { MTA_SUBWAY_LINE_ICONS } from "@/utils/constants";
 import styles from "./station-popup.module.css";
 import "keen-slider/keen-slider.min.css";
 import {
-  Calendar,
-  Calendar1Icon,
   CalendarDays,
   ChevronDown,
   CircleQuestionMark,
   Clock10Icon,
   InfoIcon,
   ListIcon,
-  MenuIcon,
+  WrenchIcon,
 } from "lucide-react";
 
 import { lookAtElevator } from "@/utils/dataUtils";
@@ -433,9 +431,9 @@ const ElevatorCard: React.FC<{
 
                 <button
                   onClick={() => handleToggleAccessNote(true)}
-                  className={`${styles.iconButton} ${styles.accessNoteIconButton} ${
-                    showAccessIcon ? styles.iconButtonVisible : ""
-                  }`}
+                  className={`${styles.iconButton} ${
+                    styles.accessNoteIconButton
+                  } ${showAccessIcon ? styles.iconButtonVisible : ""}`}
                   aria-label="Show access note"
                 >
                   <ListIcon size={15} color="#111" />
@@ -444,11 +442,11 @@ const ElevatorCard: React.FC<{
             )}
           </div>
 
-            {/* UPCOMING OUTAGES NOTE */}
-            {upcomingOutages.length > 0 && (
-              <div ref={upcomingNoteRef}>
-                                    <div className={styles.upcomingWrapper}>
-                {(showUpcomingNote) && (
+          {/* UPCOMING OUTAGES NOTE */}
+          {upcomingOutages.length > 0 && (
+            <div ref={upcomingNoteRef}>
+              <div className={styles.upcomingWrapper}>
+                {showUpcomingNote && (
                   <div
                     {...({
                       inert: !showUpcomingNote ? "true" : undefined,
@@ -457,14 +455,21 @@ const ElevatorCard: React.FC<{
                       isAnimatingUpcomingOpen ? styles.accessNoteOpen : ""
                     }`}
                   >
-
                     <div className={styles.accessNoteHeader}>
                       <Clock10Icon />
-                      Upcoming Outage
+                      {upcomingOutages.map((o, i) => (
+                        <div key={i}>
+                          Upcoming{" "}
+                          {o.reason === "Capital Replacement"
+                            ? "Long-Term"
+                            : " "}{" "}
+                          Outage
+                        </div>
+                      ))}
                       <button
                         onClick={() => handleToggleUpcomingNote(false)}
                         className={styles.accessNoteClose}
-                        aria-label="Close access note"
+                        aria-label="Close upcoming outage note"
                       >
                         ×
                       </button>
@@ -484,20 +489,34 @@ const ElevatorCard: React.FC<{
                 )}
                 <button
                   onClick={() => {
-                    handleToggleUpcomingNote(!showUpcomingNote)}
-                  }
-                  
-                  className={`${styles.iconButton} ${styles.upcomingIconButton} ${showUpcomingNote ? `${styles.pressed} ${styles.upcomingAnimate}` : ""}   ${
-                    showUpcomingIcon ? styles.iconButtonVisible : showUpcomingIcon
-                  }`}
+                    handleToggleUpcomingNote(!showUpcomingNote);
+                  }}
+                  className={`${styles.iconButton} ${
+                    styles.upcomingIconButton
+                  } ${
+                    showUpcomingNote
+                      ? `${styles.pressed} ${styles.upcomingAnimate}`
+                      : ""
+                  } ${showUpcomingIcon ? styles.iconButtonVisible : ""}
+                  `}
                   aria-label="Show access note"
                 >
-                  <CalendarDays size={20} color="#c80000" />
+                  {upcomingOutages.map((o, i) => (
+                    <div
+                      key={i}
+                      className={
+                        o.reason === "Capital Replacement"
+                          ? styles.upcomingIconButtonRedInverted
+                          : styles.upcomingIconButtonRed
+                      }
+                    >
+                      <WrenchIcon size={15} />
+                    </div>
+                  ))}
                 </button>
               </div>
-              </div>
-            )}
-
+            </div>
+          )}
 
           {/* See on map button */}
           <div className={styles.info2}>
@@ -529,7 +548,9 @@ const ElevatorCard: React.FC<{
                 <LiftBadInverted fill="#fff" />
                 <span className={styles.statusText}>
                   <span>Back in service</span>
-                  <span className={styles.eta}>{elevator.estimatedReturn}</span>
+                  <span className={styles.eta}>
+                    {elevator.estimatedreturntoservice}
+                  </span>
                 </span>
               </span>
             ) : (

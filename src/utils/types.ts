@@ -8,7 +8,8 @@ export type UpcomingOutage = {
 };
 
 export type ElevatorPopupProps = {
-  ada: string;
+  title: string;
+  ada?: string;
   directionLabel: string;
   elevatorno: string;
   description_custom?: string;
@@ -16,13 +17,14 @@ export type ElevatorPopupProps = {
   linesServed?: string;
   isOut?: boolean | string;
   isStreet?: boolean | string;
-  estimatedReturn?: string | null;
+  estimatedreturntoservice?: string | null;
   totalElevators?: number;
   coordinates?: [number, number];
   access_note?: string;
   isBridge?: boolean | string;
   isRedundant?: boolean | string;
   isUpcomingOutage?: UpcomingOutage[] | null;
+  lastUpdated?: string,
 };
 
 export type StationPopupProps = {

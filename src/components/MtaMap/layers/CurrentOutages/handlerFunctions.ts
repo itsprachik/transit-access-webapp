@@ -14,7 +14,7 @@ export const getOutElevatorData = (elOutages: any[]) => {
         if (equip.equipmenttype === "EL") {
           outElevatorData.push({
             elevatorNo: equip.equipment.trim(),
-            estimatedReturn: equip.estimatedreturntoservice?.trim() || null,
+            estimatedreturntoservice: equip.estimatedreturntoservice?.trim() || null,
             isupcomingoutage: equip.isupcomingoutage,
           });
         }

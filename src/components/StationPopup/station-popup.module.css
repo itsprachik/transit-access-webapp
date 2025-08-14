@@ -531,12 +531,27 @@
   opacity: 1;
   display: inline-flex;
   background-color: #fff;
-  padding: 0.3rem 0.3rem;
-  top: 3.2rem;
-  left: -1.7rem;
-  transform: rotate(-20deg);
+  padding: 0.1rem 0.1rem;
+  top: 2.9rem;
+  left: -1.3rem;
+  transform: rotate(0deg);
   z-index: 10;
 }
+
+.upcomingIconButtonRed {
+  padding: 0.3rem 0.3rem;
+  color: #c80000;
+}
+
+.upcomingIconButtonRedInverted {
+  border-radius: 50%; /* keep it circular */
+  padding: 0.3rem 0.3rem;
+  background-color: #c80000;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+}
+
 
 .upcomingAnimate {
   transform: scale(1.7) translateY(-2.2rem) translateX(0.6rem); /* grow & move up */

@@ -8,29 +8,19 @@ import {
 } from "../icons";
 import { MTA_SUBWAY_LINE_ICONS } from "@/utils/constants";
 import styles from "./elevator-popup.module.css";
-
-interface ElevatorPopupProps {
-  title: string;
-  elevatorno: string;
-  imageUrl: string;
-  description_custom: string;
-  linesServed: string;
-  estimatedreturntoservice: string;
-  directionLabel: string;
-  isStreet: string;
-  lastUpdated: string;
-}
+import { ElevatorPopupProps } from "@/utils/types";
 
 const ElevatorPopup: React.FC<ElevatorPopupProps> = ({
   title,
   elevatorno,
-  imageUrl,
+  imageURL,
   description_custom,
   linesServed,
   estimatedreturntoservice,
   directionLabel,
   isStreet,
-  lastUpdated
+  lastUpdated,
+  isUpcomingOutage
 }) => {
   const lines = linesServed.split("/");
 
@@ -64,7 +54,7 @@ const ElevatorPopup: React.FC<ElevatorPopupProps> = ({
         <span>{description_custom}</span>
       </div>
 
-      <img src={imageUrl} alt="Elevator at station" />
+      <img src={imageURL} alt="Elevator at station" />
 
         <div className={styles["subtitle"]}>Lines Served</div>
       <div className={styles.linesServed}>

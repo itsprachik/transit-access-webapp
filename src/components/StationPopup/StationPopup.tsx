@@ -119,7 +119,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
     ada === "0" ? AccessibleIconFalse : AccessibleIconWhite;
 
   const oosCount = elevators.filter(
-    (e) => e.estimatedReturn !== "null" && e.estimatedReturn.trim().length > 0
+    (e) => e.estimatedreturntoservice !== "null" && e.estimatedreturntoservice?.trim().length > 0
   ).length;
 
   function generateSubwayLines(routeLines?: string | null) {
