@@ -5,6 +5,7 @@ import { fetchOutages } from "@/api/fetchOutages";
 import dotenv from "dotenv";
 import {
   getOutElevatorData,
+  getUpcomingElevatorData,
   updateOutageLayer,
   updateStationOutageLayer,
   updateStationComplexLayer,
@@ -52,6 +53,8 @@ const MtaMap = () => {
   // have to use hybrid state and ref (ref to keep stable data, state to re-render)
   const [elevatorDataState, setElevatorDataState] = useState(null);
   const elevatorDataRef = useRef(null);
+  const [upcomingElevatorDataState, setUpcomingElevatorDataState] = useState(null);
+  const upcomingElevatorDataRef = useRef(null);
   const [elevatorRawDataState, setElevatorRawData] = useState(null);
   const elevatorRawDataRef = useRef(null);
 
@@ -114,6 +117,7 @@ const MtaMap = () => {
   const handleStationSearchSelect = (
     feature,
     elevatorData,
+    upcomingElevatorData,
     stationData,
     stationView,
     setStationView,
@@ -128,6 +132,7 @@ const MtaMap = () => {
       onClickPopupRef,
       mapRef.current,
       elevatorData,
+      upcomingElevatorDataRef.current,
       stationDataRef.current,
       stationView,
       setStationView,
@@ -142,14 +147,19 @@ const MtaMap = () => {
   useEffect(() => {
     async function getOutages() {
       const data = await fetchOutages(apiKey);
-      setElevatorRawData(data);
-      elevatorRawDataRef.current = data;
+      const currentData = data.filter(el => el.isupcomingoutage==="N");
+      const upcomingData = data.filter(el => el.isupcomingoutage==="Y");
+      setElevatorRawData(currentData);
+      elevatorRawDataRef.current = currentData;
 
-      const elevData = getOutElevatorData(data);
+      const elevData = getOutElevatorData(currentData);
+      const upcomingElevData = getOutElevatorData(upcomingData);
       setElevatorDataState(elevData); // triggers rerender
-      elevatorDataRef.current = elevData; // stable reference for handlers
+      setUpcomingElevatorDataState(upcomingElevData);
+      elevatorDataRef.current = elevData;
+      upcomingElevatorDataRef.current = upcomingData;
 
-      const stationData = getStationOutageArray(data);
+      const stationData = getStationOutageArray(currentData);
       setStationDataState(stationData);
       stationDataRef.current = stationData;
 
@@ -254,7 +264,8 @@ const MtaMap = () => {
           e,
           onClickPopupRef,
           mapRef.current,
-          elevatorDataRef.current,
+          getLatestElevatorData(),
+          upcomingElevatorDataRef.current,
           stationDataRef.current,
           stationView,
           setStationView,
@@ -273,6 +284,7 @@ const MtaMap = () => {
           onClickPopupRef,
           mapRef.current,
           getLatestElevatorData(),
+          upcomingElevatorDataRef.current,
           stationDataRef.current,
           stationView,
           setStationView,
@@ -297,6 +309,7 @@ const MtaMap = () => {
             onClickPopupRef,
             mapRef.current,
             getLatestElevatorData(),
+            upcomingElevatorDataRef.current,
             stationDataRef.current,
             stationView,
             setStationView,
@@ -321,6 +334,7 @@ const MtaMap = () => {
           onClickPopupRef,
           mapRef.current,
           getLatestElevatorData(),
+          upcomingElevatorDataRef.current,
           stationDataRef.current,
           stationView,
           setStationView,
@@ -348,6 +362,7 @@ const MtaMap = () => {
             onClickPopupRef,
             mapRef.current,
             getLatestElevatorData(),
+            upcomingElevatorDataRef.current,
             stationDataRef.current,
             stationView,
             setStationView,
@@ -378,6 +393,7 @@ const MtaMap = () => {
           onClickPopupRef,
           mapRef.current,
           getLatestElevatorData(),
+          upcomingElevatorDataRef.current,
           stationDataRef.current,
           stationView,
           setStationView,
@@ -399,6 +415,7 @@ const MtaMap = () => {
           onClickPopupRef,
           mapRef.current,
           getLatestElevatorData(),
+          upcomingElevatorDataRef.current,
           stationDataRef.current,
           stationView,
           setStationView,
@@ -429,6 +446,7 @@ const MtaMap = () => {
           handleStationSearchSelect(
             feature,
             getLatestElevatorData(),
+            upcomingElevatorDataRef.current,
             stationDataRef.current,
             stationView,
             setStationView,

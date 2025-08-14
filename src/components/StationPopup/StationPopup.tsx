@@ -5,50 +5,18 @@ import ElevatorCard from "./ElevatorCard";
 import styles from "@/components/StationPopup/station-popup.module.css";
 import { toWords } from "number-to-words";
 import { MTA_SUBWAY_LINE_ICONS } from "@/utils/constants";
-import { AccessibleIconWhite, AccessibleIconFalse } from "../icons";
-
-type Elevator = {
-  ada: string;
-  directionLabel: string;
-  elevatorno: string;
-  description_custom?: string;
-  imageURL?: string;
-  linesServed?: string;
-  isOut?: boolean | string;
-  isStreet?: boolean | string;
-  estimatedReturn?: string | null;
-  totalElevators?: number;
-  coordinates?: [number, number];
-  access_note?: string;
-  isBridge?: boolean | string;
-  isRedundant?: boolean | string;
-};
-
-type StationPopupProps = {
-  ada: string;
-  ada_notes?: string | null;
-  route?: string | null;
-  inaccessibleRoutes?: string | null;
-  complexName: string;
-  complexID?: string | number;
-  elevators: Elevator[];
-  totalElevators: number;
-  map?: mapboxgl.Map | null;
-  stationView: string | null;
-  setStationView: React.Dispatch<React.SetStateAction<string | null>>;
-  elevatorView: string | null;
-  setElevatorView: React.Dispatch<React.SetStateAction<string | null>>;
-  show3DToggle: boolean;
-  setShow3DToggle: React.Dispatch<React.SetStateAction<boolean>>;
-  lastUpdated?: Date | string | null;
-  isOut?: boolean | string;
-  isProblem?: boolean | string;
-};
+import {
+  AccessibleIconWhite,
+  AccessibleIconFalse,
+  StationComplexDot,
+} from "../icons";
+import { StationPopupProps } from "@/utils/types";
 
 const StationPopup: React.FC<StationPopupProps> = ({
   complexName,
   elevators,
   totalElevators,
+  totalRamps,
   map,
   ada,
   ada_notes,
@@ -114,26 +82,41 @@ const StationPopup: React.FC<StationPopupProps> = ({
   const toBool = (v?: boolean | string | null) =>
     typeof v === "string" ? v === "true" : Boolean(v);
 
-  function getStationComplexClass(
-    adaVal: string,
+  function getStationComplexStatus(
     isProblemBool: boolean,
-    isOutBool: boolean
+    isOutBool: boolean,
+    isPlain: boolean
   ) {
-    if (adaVal === "0") return styles.colorBad; // inaccessible
-    if (isOutBool) return styles.colorBad; // outage (red)
-    if (isProblemBool) return styles.colorWarning; // problem (yellow)
-    return styles.colorGood; // good (green)
+    if (isOutBool && !isPlain) return styles.colorBad; // outage (red)
+    if (isOutBool && isPlain) return styles.colorBadPlain; // for out color w/ no background
+    if (isProblemBool && !isPlain) return styles.colorWarning; // problem (yellow)
+    if (isProblemBool && isPlain) return styles.colorWarningPlain; // for out color w/ no background
+    if (!isProblemBool && !isOutBool && isPlain) return styles.colorGoodPlain;
+    return styles.colorGood; // good (blue)
+  }
+
+  function getADAStyle(adaVal: string) {
+    if (adaVal === "0") return styles.colorBadPlain; // inaccessible
+    else return styles.colorGoodPlain;
   }
 
   const isProblemBool = toBool(isProblem);
   const isOutBool = toBool(isOut);
-  const accessibilityClass = getStationComplexClass(
-    ada,
+  const complexStatus = getStationComplexStatus(
     isProblemBool,
-    isOutBool
+    isOutBool,
+    false
   );
+  const complexStatusPlain = getStationComplexStatus(
+    isProblemBool,
+    isOutBool,
+    true
+  );
+  const accessibilityStatus = getADAStyle(ada);
 
-  const IconComponent = ada === "0" ? AccessibleIconFalse : AccessibleIconWhite;
+  const ComplexStatusIconComponent = StationComplexDot;
+  const AccessibleIconComponent =
+    ada === "0" ? AccessibleIconFalse : AccessibleIconWhite;
 
   const oosCount = elevators.filter(
     (e) => e.estimatedReturn !== "null" && e.estimatedReturn.trim().length > 0
@@ -153,9 +136,27 @@ const StationPopup: React.FC<StationPopupProps> = ({
     ));
   }
 
-  const hasRamp =
-    elevators.length > 0 &&
-    elevators.every((e) => (e.elevatorno || "").toLowerCase().includes("ra"));
+  function buildEquipmentText(totalElevators, totalRamps) {
+    const parts = [];
+  
+    if (totalElevators > 0) {
+      parts.push(`${toWords(totalElevators)} ${totalElevators > 1 ? "Elevators" : "Elevator"}`);
+    }
+  
+    if (totalRamps > 0) {
+      parts.push(`${toWords(totalRamps)} ${totalRamps > 1 ? "Ramps" : "Ramp"}`);
+    }
+  
+    if (parts.length === 0) {
+      return "There are no Elevators or Ramps at";
+    }
+  
+    const joined = parts.join(" and ");
+    const verb = (totalElevators + totalRamps) > 1 ? "are" : "is";
+  
+    return `There ${verb} ${joined} `;
+  }
+  
 
   return (
     <div className={styles.stationPopup}>
@@ -164,28 +165,28 @@ const StationPopup: React.FC<StationPopupProps> = ({
           "This station is not accessible"
         ) : (
           <>
-            There {totalElevators > 1 ? "are" : "is"} {toWords(totalElevators)}{" "}
-            {hasRamp
-              ? totalElevators > 1
-                ? "Ramps"
-                : "Ramp"
-              : totalElevators > 1
-              ? "Elevators"
-              : "Elevator"}{" "}
-            at
+      {buildEquipmentText(totalElevators, totalRamps)}
+      at
           </>
         )}
       </div>
 
+      {/* STATION TITLE */}
       <h3 className={styles.title}>
-        {complexName}{" "}
+        {complexName}
+        <span
+          className={`${styles.accessibleIconWrapper} ${accessibilityStatus} ${styles.nonInteractive}`}
+        >
+          <AccessibleIconComponent />
+        </span>
+
         <span className={styles.OOSToggleWrapper} ref={wrapperRef}>
           {showOOS && (
             <div
               {...({ inert: !showOOS ? "true" : undefined } as any)}
               className={`${styles.OOSNote} ${
                 isAnimatingOOSOpen ? styles.OOSNoteOpen : ""
-              } ${accessibilityClass}`}
+              } ${complexStatus}`}
               role="dialog"
               aria-live="polite"
             >
@@ -201,9 +202,11 @@ const StationPopup: React.FC<StationPopupProps> = ({
                 ×
               </button>
               <div>
-                {oosCount === totalElevators ? (
+                {totalElevators === 0 ? (
+                  "No elevators at station"
+                ) : totalElevators > 0 && oosCount === totalElevators ? (
                   "All elevators out of service"
-                ) : oosCount === 0 ? (
+                ) : totalElevators > 0 && oosCount === 0 ? (
                   "All elevators in service"
                 ) : (
                   <>
@@ -215,29 +218,33 @@ const StationPopup: React.FC<StationPopupProps> = ({
             </div>
           )}
 
-          <button
-            onClick={() => {
-              handleToggleOOS(true);
-              setIsPressed(true);
-            }}
-            className={styles.OOSIconButton}
-            aria-label="Show number of OOS elevators"
-            type="button"
-          >
-            <span
-              className={`${
-                styles.accessibleIconWrapper
-              } ${accessibilityClass} ${isPressed ? styles.pressed : ""}`}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ")
-                  setIsPressed(!isPressed);
+          {totalElevators > 0 ? (
+            <button
+              onClick={() => {
+                handleToggleOOS(true);
+                setIsPressed(true);
               }}
+              className={styles.OOSIconButton}
+              aria-label="Show number of OOS elevators"
+              type="button"
             >
-              <IconComponent fill="currentColor" />
-            </span>
-          </button>
+              <span
+                className={`${
+                  styles.accessibleIconWrapper
+                } ${complexStatusPlain} ${isPressed ? styles.pressed : ""}`}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ")
+                    setIsPressed(!isPressed);
+                }}
+              >
+                <ComplexStatusIconComponent fill="currentColor" size={25} />
+              </span>
+            </button>
+          ) : (
+            ""
+          )}
         </span>
       </h3>
 

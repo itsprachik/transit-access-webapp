@@ -62,17 +62,13 @@
 }
 
 .accessibleIconWrapper {
-  width: 1.7rem;
   color: inherit;
   display: inline-flex;
   margin-left: 0.3rem;
   justify-content: center;
   align-items: center;
   border-radius: 100%;
-  padding: 0.01rem 0.3rem;
-  vertical-align: top;
-
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  vertical-align: middle;
   transition: box-shadow 0.1s ease, filter 0.1s ease, transform 0.1s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   border: none;
@@ -84,6 +80,11 @@
   transform: translateY(2px);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   filter: brightness(65%);
+}
+
+.nonInteractive {
+  cursor: default;
+  box-shadow: none;
 }
 
 .rotated {
@@ -440,44 +441,34 @@
   /* wait 0.3s to fade in */
 }
 
-
-.accessNoteIconButton {
+.iconButton {
   opacity: 0;
   pointer-events: none;
-  background-color: #b1a5a52a;
   border-radius: 100%;
-  /* width: 1.4rem; */
-  /* height: 1.4rem; */
   color: #111;
   position: absolute;
-  display: inline-block;
-  bottom: 16%;
-  left: 125%;
-  transform: translateX(-50%);
   z-index: 2;
   cursor: pointer;
-  padding: 0.2rem;
-  align-items: center;
-  justify-content: center;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
   transition: opacity 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.accessNoteIconButton {
+  background-color: #b1a5a52a;
+  display: inline-block;
+  bottom: 16%;
+  left: 125%;
+  transform: translateX(-50%);
+  padding: 0.2rem;
+  align-items: center;
+  justify-content: center;
+}
+
 .redundancyNoteIconButton {
-  opacity: 0;
-  pointer-events: none;
   background-color: #f99a9a;
-  border-radius: 100%;
-  color: #111;
-  position: absolute;
   display: inline-flex;
   top: -0.7rem;
-  z-index: 2;
-  cursor: pointer;
   align-items: start;
-  justify-content: center;
-  box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.25);
-  transition: opacity 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .iconButtonVisible {
@@ -515,6 +506,42 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
 }
+
+.upcomingWrapper {
+  display: inline-flex; /* shrink to fit note width */
+  flex-direction: column; /* stack icon above note */
+  align-items: center; /* center horizontally */
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+}
+
+.upcomingNote {
+  background-color: #f6dcda;
+  width: 300px;
+  white-space: nowrap;
+  transform-origin: center left;
+  left: 10rem;
+  z-index: 9;
+}
+
+.upcomingIconButton {
+  position: relative; /* for scaling animation pivot */
+  z-index: 2;
+  opacity: 1;
+  display: inline-flex;
+  background-color: #fff;
+  padding: 0.3rem 0.3rem;
+  top: 3.2rem;
+  left: -1.7rem;
+  transform: rotate(-20deg);
+  z-index: 10;
+}
+
+.upcomingAnimate {
+  transform: scale(1.7) translateY(-2.2rem) translateX(0.6rem); /* grow & move up */
+}
+
 
 .redundancyNote {
   position: absolute;
@@ -583,6 +610,7 @@
   justify-content: center;
   font-weight: 700;
   font-size: 0.9rem;
+  gap: 0.25rem;
 }
 
 .accessNoteClose {
@@ -600,7 +628,7 @@
 
 .OOSNote {
   position: absolute;
-  top: 130%;
+  top: 140%;
   left: 50%;
   transform: translate(-50%, -10px);
   overflow: visible !important;
@@ -640,7 +668,7 @@
 
 
 .OOSToggleWrapper {
-  position: relative;
+  position:relative;
   /* so that .OOSNote absolute is relative to this */
   --icon-color: #055765;
 }
@@ -735,14 +763,26 @@
   background-color: #2bb9cf36;
 }
 
+.colorGoodPlain {
+  color: #2bb9cf;
+}
+
 .colorBad {
   color: #4d0404;
   background-color: #c8000026;
 }
 
+.colorBadPlain {
+  color: #c80000;
+}
+
 .colorWarning {
   color: #604604;
   background-color: #ffb70077;
+}
+
+.colorWarningPlain {
+  color: #ffb700;
 }
 
 .colorGood .OOSNoteBackground {
