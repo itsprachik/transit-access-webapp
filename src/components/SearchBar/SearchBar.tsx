@@ -85,7 +85,7 @@ const StyledSelect = styled(Select)`
   position: absolute !important;
   top: 10px;
   padding: 0px 5px 0px 5px;
-  width: 300px;
+  width: 400px;
   z-index: 1000;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   @media (max-width: 768px) {
@@ -208,7 +208,6 @@ const SearchBar: React.FC<SearchBarProps> = ({
         isClearable
         components={{ Option: CustomSelectOption }}
         onChange={handleSelect}
-        //menuIsOpen={true}
         placeholder="Search for a station"
       />
   );

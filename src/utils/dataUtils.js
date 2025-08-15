@@ -10,7 +10,7 @@ import { stationCoordinates } from "./accessibleStationGeometry";
 import { stationGeometry } from "./stationGeometry";
 import { complexCoordinates } from "./ComplexGeometry";
 import { getComplexBoundaryGeoJSON } from "@/components/MtaMap/layers/StationComplexes/complexBoundaries";
-import { parse, isToday, isTomorrow, isThisWeek, format, formatDistanceToNow } from "date-fns";
+import { parse, isToday, isTomorrow, isThisWeek, format, formatDistanceToNow, formatDistance } from "date-fns";
 
 import customDataset from "@/resources/custom_elevator_dataset.json";
 import complexesDataset from "@/resources/generated/mta_subway_complexes.json";
@@ -146,6 +146,26 @@ export function convertDate(outageDate) {
 
   // fallback: generic relative time
   return `in ${formatDistanceToNow(parsedDate)}`;
+}
+
+export function convertDateDistance(outageDate, estimatedReturn) {
+  const parsedDate = parse(outageDate, "MM/dd/yyyy hh:mm:ss a", new Date());
+  const parsedReturn = parse(estimatedReturn, "MM/dd/yyyy hh:mm:ss a", new Date());
+
+  if (isToday(parsedDate)) {
+    return `In ${formatDistanceToNow(parsedDate)} (${format(parsedDate, "h:mmaaa")}) for ${formatDistance(outageDate, estimatedReturn)}`;
+  }
+
+  if (isTomorrow(parsedDate)) {
+    return `Tomorrow at ${format(parsedDate, "h:mmaaa")} for ${formatDistance(outageDate, estimatedReturn)}`;
+  }
+
+  if (isThisWeek(parsedDate)) {
+    return `This ${format(parsedDate, "EEEE 'at' h:mmaaa")} for ${formatDistance(outageDate, estimatedReturn)}`;
+  }
+
+  // fallback: generic relative time
+  return `In ${formatDistanceToNow(parsedDate)}`;
 }
 
 

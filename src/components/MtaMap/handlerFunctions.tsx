@@ -20,7 +20,10 @@ import {
   concatenateADA,
   concatenateRoutes,
   getAreaOfComplex,
-  concatenateInaccessibleRoutes
+  concatenateInaccessibleRoutes,
+  getStationOutageLayerFeatures,
+  getComplexOutageLayerFeatures,
+  convertDateDistance
 } from "@/utils/dataUtils";
 import { stationIDToComplexID } from "@/utils/elevatorIndexUtils";
 
@@ -91,11 +94,24 @@ export function cleanUpPopups() {
     currentPopupRoot = null;
   }
 }
+
+function addDynamicProperties(complexFeature, stationData) {
+  const outageInfo = getComplexOutageLayerFeatures(stationData); // includes the isOut, isProblem properties
+  const match = outageInfo.find(
+    f => f.properties.complex_id === complexFeature.properties.complex_id
+  );
+  if (match) {
+    complexFeature.properties.isOut = match.properties.isOut;
+    complexFeature.properties.isProblem = match.properties.isProblem;
+  }
+  return complexFeature;
+}
 // ---------------------------------------
 // 🟦 Case 1: Single Elevator Popup
 // ---------------------------------------
-function handleElevatorClick(root: any, feature: any, elevatorData: any, lastUpdated: any) {
+function handleElevatorClick(root: any, feature: any, elevatorData: any, upcomingElevatorData: any, lastUpdated: any) {
   const {
+    ada,
     description_custom,
     image,
     title,
@@ -110,25 +126,48 @@ function handleElevatorClick(root: any, feature: any, elevatorData: any, lastUpd
   const outage = elevatorData.find(
     (outElevator: any) => outElevator.elevatorNo === elevatorno
   );
-  // format estimatedreturntoseervice into something readable
-  const rawDate = outage?.estimatedReturn;
+  // format estimatedreturntoservice into something readable
+  const rawDate = outage?.estimatedreturntoservice;
   let formattedDate = null;
   if (rawDate) {
     formattedDate = convertDate(rawDate);
   }
 
+  const upcomingOutage = upcomingElevatorData?.find(
+    (el) => el.equipment === elevatorno
+  );
+
+  const filteredOutage = Array.isArray(upcomingOutage)
+  ? upcomingOutage.map(o => ({
+      reason: o.reason,
+      outageDate: o.outagedate,
+      estimatedreturntoservice: o.estimatedreturntoservice?.trim() || null,
+      outageDuration: o.outageDuration || null,
+    }))
+  : upcomingOutage
+  ? [{
+      reason: upcomingOutage.reason,
+      outageDate: upcomingOutage.outagedate,
+      estimatedreturntoservice: upcomingOutage.estimatedreturntoservice?.trim() || null,
+      outageDuration: upcomingOutage.outageDuration || null,
+    }]
+  : [];
+
+
   root.render(
     <ElevatorPopup
+      ada={ada}
       key={popupKey}
       title={title}
       description_custom={description_custom}
-      imageUrl={image}
+      imageURL={image}
       elevatorno={elevatorno}
       linesServed={linesServed}
       estimatedreturntoservice={formattedDate}
       directionLabel={directionLabel}
       isStreet={isStreet}
       lastUpdated={lastUpdated}
+      isUpcomingOutage={filteredOutage}
     />
   );
 }
@@ -141,6 +180,7 @@ function handleStationComplexClick(
   feature, 
   mapRef, 
   elevatorData, 
+  upcomingElevatorData,
   stationView, 
   setStationView, 
   elevatorView, 
@@ -152,7 +192,7 @@ function handleStationComplexClick(
 
   mapRef.setLayoutProperty("building-extrusion", "visibility", "visible");
 
-  const { complex_id, stop_name, ada, route } = feature.properties;
+  const { complex_id, stop_name, ada, route, isOut, isProblem } = feature.properties;
 
   const stationIDsRaw = feature.properties.station_ids;
   const stationIDs = stationIDsRaw.split("/").map((id: string) => id.trim());
@@ -178,7 +218,18 @@ function handleStationComplexClick(
 
   const elevatorsAtComplex = getElevatorsByComplexId(complex_id);
 
-  const totalElevators = elevatorsAtComplex.length;
+  let totalElevators = 0;
+  let totalRamps = 0;
+  
+  elevatorsAtComplex.forEach(el => {
+    const num = String(el?.properties?.elevatorno || "").toLowerCase();
+  
+    if (num.startsWith("ra")) {
+      totalRamps++;
+    } else {
+      totalElevators++;
+    }
+  });  
 
   let elevatorArray = elevatorsAtComplex.map((elevator) => {
     const elevatorno = elevator.properties.elevatorno;
@@ -186,8 +237,21 @@ function handleStationComplexClick(
       (out) => out.elevatorNo === elevatorno
     );
 
+    const upcomingOutage = upcomingElevatorData?.find(
+      (el) => el.equipment === elevatorno
+    );
+
+    const filteredOutage = upcomingOutage
+    ? {
+        reason: upcomingOutage.reason,
+        outageDate: convertDate(upcomingOutage?.outagedate),
+        estimatedreturntoservice: convertDate(upcomingOutage.estimatedreturntoservice?.trim()) || null,
+        outageDuration: convertDateDistance(upcomingOutage?.outagedate, upcomingOutage?.estimatedreturntoservice) || "null",
+      }
+    : null;
+
     // format estimatedreturntoseervice into something readable
-    const rawDate = matchedOutage?.estimatedReturn;
+    const rawDate = matchedOutage?.estimatedreturntoservice;
     let formattedDate = null;
     if (rawDate) {
       formattedDate = convertDate(rawDate);
@@ -200,8 +264,10 @@ function handleStationComplexClick(
       isStreet: elevator.properties.isStreet,
       imageURL: elevator.properties.image,
       isOut: Boolean(matchedOutage),
-      estimatedReturn: formattedDate || "null",
+      estimatedreturntoservice: formattedDate || "null",
       totalElevators: totalElevators,
+      totalRamps: totalRamps,
+      isUpcomingOutage: filteredOutage || [],
     };
   });
 
@@ -255,6 +321,7 @@ function handleStationComplexClick(
       complexName={stop_name}
       elevators={elevatorArray}
       totalElevators={totalElevators}
+      totalRamps={totalRamps}
       map={mapRef}
       stationView={stationView}
       setStationView={setStationView} // in-popup button to look at elevators leaves station view
@@ -263,6 +330,8 @@ function handleStationComplexClick(
       show3DToggle={show3DToggle}
       setShow3DToggle={setShow3DToggle}
       lastUpdated={lastUpdated}
+      isOut={isOut}
+      isProblem={isProblem}
     />,
   );
 
@@ -331,6 +400,8 @@ export function handleSearchPopup(
   onClickPopupRef: any,
   mapRef,
   elevatorData: any,
+  upcomingElevatorData: any,
+  stationData: any,
   stationView: any,
   setStationView: any,
   elevatorView,
@@ -374,24 +445,15 @@ export function handleSearchPopup(
   const ada = concatenateADA(stationIDs, mtaStationsDataset); // add concatenated ADA info for complex
   const ada_notes = feature.properties.ada_notes;
 
-  // Mimic the matching complex feature (and add to it)
-  const complexFeature = {
-    ...matchingComplex,
-    properties: {
-      ...matchingComplex.properties,
-      route,
-      ada,
-      ada_notes,
-      inaccessibleRoutes,
-    },
-    layer: { id: "mta-subway-complexes-accessible" },
-  };
+  const complexFeature = handleStationClick(feature);
+  const dynamicComplexFeature = addDynamicProperties(complexFeature, stationData);
 
   handleStationComplexClick(
     root,
-    complexFeature,
+    dynamicComplexFeature,
     mapRef,
     elevatorData,
+    upcomingElevatorData,
     stationView,
     setStationView,
     elevatorView,
@@ -413,6 +475,8 @@ export function handleOnClick(
   onClickPopupRef: any,
   mapRef: any,
   elevatorData: any,
+  upcomingElevatorData: any,
+  stationData: any,
   stationView,
   setStationView,
   elevatorView,
@@ -439,7 +503,7 @@ export function handleOnClick(
 
   // If it's an elevator, show one elevator popup
   if (layerId === "transit-elevators") {
-    handleElevatorClick(root, feature, elevatorData, lastUpdated);
+    handleElevatorClick(root, feature, elevatorData, upcomingElevatorData, lastUpdated);
     showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
   }
 
@@ -469,7 +533,7 @@ export function handleOnClick(
       layer: { id: "transit-elevators" },
     };
 
-    handleElevatorClick(root, elevatorFeature, elevatorData, lastUpdated);
+    handleElevatorClick(root, elevatorFeature, elevatorData, upcomingElevatorData, lastUpdated);
     showPopup(
       matchingElevator.geometry.coordinates,
       mapRef,
@@ -511,10 +575,10 @@ export function handleOnClick(
       layer: { id: "mta-subway-stations-accessible" },
     };
 
-    const complexFeature = handleStationClick(stationFeature);
+    const complexFeature = handleStationClick(feature);
+    const dynamicComplexFeature = addDynamicProperties(complexFeature, stationData);
 
-    
-    handleStationComplexClick(root, complexFeature, mapRef, elevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle, lastUpdated);
+    handleStationComplexClick(root, dynamicComplexFeature, mapRef, elevatorData, upcomingElevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle, lastUpdated);
     showPopup(
       complexFeature.geometry.coordinates,
       mapRef,
@@ -535,18 +599,19 @@ export function handleOnClick(
     });  
 
     const complexFeature = handleStationClick(feature);
-    handleStationComplexClick(root, complexFeature, mapRef, elevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle, lastUpdated);
+    const dynamicComplexFeature = addDynamicProperties(complexFeature, stationData);
+    handleStationComplexClick(root, dynamicComplexFeature, mapRef, elevatorData, upcomingElevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle, lastUpdated);
     showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
   }
 
   if (layerId === "mta-subway-complexes-accessible2") {
-    handleStationComplexClick(root, feature, mapRef, elevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle, lastUpdated);
+    handleStationComplexClick(root, feature, mapRef, elevatorData, upcomingElevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle, lastUpdated);
     showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
   }
 
   if (layerId === "mta-subway-stations-inaccessible" || layerId === "mta-subway-stations-inaccessible-icon2") {
     const complexFeature = handleStationClick(feature);
-    handleStationComplexClick(root, complexFeature, mapRef, elevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle, lastUpdated);
+    handleStationComplexClick(root, complexFeature, mapRef, elevatorData, upcomingElevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle, lastUpdated);
     showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
   }
 

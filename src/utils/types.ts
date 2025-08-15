@@ -1,5 +1,54 @@
 import { FeatureCollection, Feature, Point } from "geojson";
 
+export type UpcomingOutage = {
+  reason?: string | null;
+  outageDate?: string | null;
+  estimatedReturn?: string | null;
+  outageDuration?: string | null;
+};
+
+export type ElevatorPopupProps = {
+  title: string;
+  ada?: string;
+  directionLabel: string;
+  elevatorno: string;
+  description_custom?: string;
+  imageURL?: string;
+  linesServed?: string;
+  isOut?: boolean | string;
+  isStreet?: boolean | string;
+  estimatedreturntoservice?: string | null;
+  totalElevators?: number;
+  coordinates?: [number, number];
+  access_note?: string;
+  isBridge?: boolean | string;
+  isRedundant?: boolean | string;
+  isUpcomingOutage?: UpcomingOutage[] | null;
+  lastUpdated?: string,
+};
+
+export type StationPopupProps = {
+  ada: string;
+  ada_notes?: string | null;
+  route?: string | null;
+  inaccessibleRoutes?: string | null;
+  complexName: string;
+  complexID?: string | number;
+  elevators: ElevatorPopupProps[];
+  totalElevators: number;
+  totalRamps: number;
+  map?: mapboxgl.Map | null;
+  stationView: string | null;
+  setStationView: React.Dispatch<React.SetStateAction<string | null>>;
+  elevatorView: string | null;
+  setElevatorView: React.Dispatch<React.SetStateAction<string | null>>;
+  show3DToggle: boolean;
+  setShow3DToggle: React.Dispatch<React.SetStateAction<boolean>>;
+  lastUpdated?: Date | string | null;
+  isOut?: boolean | string;
+  isProblem?: boolean | string;
+};
+
 type ElevatorFeature = {
   type: string;
   properties: {

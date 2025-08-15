@@ -11,8 +11,34 @@ export const getOutElevatorData = (elOutages: any[]) => {
         equipment: string;
         estimatedreturntoservice: string;
       }) => {
-        if (equip.equipmenttype === "EL" && equip.isupcomingoutage === "N") {
+        if (equip.equipmenttype === "EL") {
           outElevatorData.push({
+            elevatorNo: equip.equipment.trim(),
+            estimatedreturntoservice: equip.estimatedreturntoservice?.trim() || null,
+            isupcomingoutage: equip.isupcomingoutage,
+          });
+        }
+      }
+    );
+  }
+
+  return outElevatorData;
+};
+
+export const getUpcomingElevatorData = (elOutages: any[]) => {
+  const upcomingOutElevatorData = [];
+
+  if (elOutages.length !== 0) {
+    elOutages.forEach(
+      (equip: {
+        equipmenttype: string;
+        isupcomingoutage: string;
+        equipment: string;
+        estimatedreturntoservice: string;
+        reason: string;
+      }) => {
+        if (equip.equipmenttype === "EL" && equip.isupcomingoutage === "Y") {
+          upcomingOutElevatorData.push({
             elevatorNo: equip.equipment.trim(),
             estimatedReturn: equip.estimatedreturntoservice?.trim() || null,
           });
@@ -21,7 +47,7 @@ export const getOutElevatorData = (elOutages: any[]) => {
     );
   }
 
-  return outElevatorData;
+  return upcomingOutElevatorData;
 };
 
 export const updateOutageLayer = (data: any[], mapRef: { getSource: (arg0: string) => any; } ) => {
