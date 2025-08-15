@@ -1,6 +1,6 @@
 /* STATION POPUP CSS */
 
-/* STATION */
+/**** STATION ****/
 .stationPopup {
   overflow-y: auto !important;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -23,11 +23,9 @@
   .stationPopup {
     overflow-x: auto !important;
   }
-}
 
-@media (min-width: 768px) {
-  .stationPopup {
-    overflow-y: auto;
+  .flyButton {
+    font-size: 0.75rem;
   }
 }
 
@@ -109,14 +107,13 @@
   box-sizing: border-box;
 }
 
-/* ELEVATOR CARD */
+/**** ELEVATOR CARD ****/
 
 .cardWrapperPlatform {
   display: flex;
   flex-direction: column;
   padding-top: 0.5rem;
   border-bottom: 1px solid hsla(0, 0%, 0%, 0.15);
-  /* box-shadow: 0 1px 2px rgba(0,0,0,0.55);*/
   border-radius: 0.3rem;
   position: relative;
 }
@@ -139,7 +136,6 @@
   flex-direction: column;
   padding-top: 0.5rem;
   border-bottom: 1px solid hsla(0, 0%, 0%, 0.15);
-  /* box-shadow: 0 1px 2px rgba(0,0,0,0.55);*/
   border-radius: 0.3rem;
   position: relative;
 }
@@ -212,7 +208,51 @@
   font-variant: small-caps;
 }
 
+.slideImage {
+  position: relative;
+  height: 180px;
+  max-width: 90% !important;
+  left: 50%;
+  transform: translateX(-50%);
+  object-fit: contain;
+  border-radius: 0.3rem;
+}
 
+.verticalStack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 0;
+}
+
+.descriptionWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 0 0.3rem;
+  box-sizing: border-box;
+}
+
+.description {
+  background-color: #727272;
+  font-size: 0.7rem;
+  color: #fff;
+  border-radius: 0.3rem;
+  padding: 0.5rem 0.3rem;
+  line-height: 1rem;
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto;
+  margin-top: 1.2rem;
+}
+
+/**** STATUS CSS ****/
 .statusText {
   display: flex;
   flex-direction: column;
@@ -302,6 +342,7 @@
   margin-top: 0.1rem;
 }
 
+/**** BUTTONS ****/ 
 .flyButton {
   display: inline-flex;
   overflow: hidden;
@@ -320,6 +361,17 @@
   cursor: pointer;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
   transition: transform 0.1s ease, filter 0.1s ease;
+  }
+
+  @media (min-width: 768px) {
+    .stationPopup {
+      overflow-y: auto;
+    }
+
+    .flyButton {
+      width: 50%;
+    }
+
   }
 
 /* Text backing */
@@ -356,61 +408,8 @@
   position: absolute;
   inset: 0;
   background: inherit;
-  /* copy the button’s background */
   filter: brightness(1.0);
   z-index: 0;
-  /* behind text */
-}
-
-
-@media (max-width: 330px) {
-  .flyButton {
-    font-size: 0.75rem;
-  }
-}
-
-.slideImage {
-  position: relative;
-  height: 180px;
-  max-width: 90% !important;
-  left: 50%;
-  transform: translateX(-50%);
-  object-fit: contain;
-  border-radius: 0.3rem;
-}
-
-.verticalStack {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 100%;
-  max-height: 100%;
-  box-sizing: border-box;
-  padding: 0.5rem 0;
-}
-
-.descriptionWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  padding: 0 0.3rem;
-  box-sizing: border-box;
-}
-
-.description {
-  background-color: #727272;
-  font-size: 0.7rem;
-  color: #fff;
-  border-radius: 0.3rem;
-  padding: 0.5rem 0.3rem;
-  line-height: 1rem;
-  text-align: center;
-  max-width: 90%;
-  margin: 0 auto;
-  margin-top: 1.2rem;
 }
 
 .accessNoteToggle {
@@ -437,8 +436,7 @@
 .iconButtonHidden {
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s ease 0.3s;
-  /* wait 0.3s to fade in */
+  transition: opacity 0.2s ease 0.3s; /* wait 0.3s to fade in */
 }
 
 .iconButton {
@@ -508,9 +506,9 @@
 }
 
 .upcomingWrapper {
-  display: inline-flex; /* shrink to fit note width */
-  flex-direction: column; /* stack icon above note */
-  align-items: center; /* center horizontally */
+  display: inline-flex; 
+  flex-direction: column; 
+  align-items: center;
   position: absolute;
   bottom: 2rem;
   left: 0;
@@ -526,7 +524,7 @@
 }
 
 .upcomingIconButton {
-  position: relative; /* for scaling animation pivot */
+  position: relative;
   z-index: 2;
   opacity: 1;
   display: inline-flex;
@@ -544,17 +542,12 @@
 }
 
 .upcomingIconButtonRedInverted {
-  border-radius: 50%; /* keep it circular */
+  border-radius: 50%;
   padding: 0.3rem 0.3rem;
   background-color: #c80000;
   color: #fff;
   align-items: center;
   justify-content: center;
-}
-
-
-.upcomingAnimate {
-  transform: scale(1.7) translateY(-2.2rem) translateX(0.6rem); /* grow & move up */
 }
 
 
@@ -582,13 +575,11 @@
 
 .redundantYes {
   background-color: #a7d3f6;
-  /* Light blue */
   color: #111;
 }
 
 .redundantNo {
   background-color: #f99a9a;
-  /* Red like you already have */
   color: #111;
 }
 
@@ -606,18 +597,10 @@
 }
 
 
-/* Redundancy note */
+/**** Redundancy note ****/
 .redundancyNote.accessNote {
-  z-index: 10;
-  /* higher than access note */
+  z-index: 10; /* higher than access note */
 }
-
-
-.accessNoteOpen {
-  transform: translateX(-50%) scaleX(1);
-}
-
-
 
 .accessNoteHeader {
   display: flex;
@@ -677,14 +660,12 @@
   bottom: 0;
   border-radius: inherit;
   background-color: rgba(255, 255, 255, 0.9);
-  /* or another opaque color */
   z-index: -1;
 }
 
 
 .OOSToggleWrapper {
-  position:relative;
-  /* so that .OOSNote absolute is relative to this */
+  position:relative; /* so that .OOSNote is relative to this */
   --icon-color: #055765;
 }
 
@@ -713,6 +694,16 @@
   background: none;
   border: none;
   cursor: pointer;
+}
+
+
+/**** ANIMATIONS ****/
+.upcomingAnimate {
+  transform: scale(1.7) translateY(-2.2rem) translateX(0.6rem); /* grow & move up */
+}
+
+.accessNoteOpen {
+  transform: translateX(-50%) scaleX(1);
 }
 
 
@@ -758,9 +749,7 @@
 .iconBackground {
   display: inline-flex;
   border-radius: 50%;
-  padding: 0.2rem;
-  /* controls the circle size */
-  /* backgroundColor set dynamically inline */
+  padding: 0.2rem; /* backgroundColor set dynamically inline */
 }
 
 .chevronIcon {
@@ -801,18 +790,15 @@
 }
 
 .colorGood .OOSNoteBackground {
-  background-color: #d5eff3;
-  /* opaque version of #2bb9cf */
+  background-color: #d5eff3; /* opaque version of blue #2bb9cf36 */
 }
 
 .colorBad .OOSNoteBackground {
-  background-color: #f6dcda;
-  /* opaque red */
+  background-color: #f6dcda; /* opaque version of red #c8000026 */
 }
 
 .colorWarning .OOSNoteBackground {
-  background-color: #f7d696;
-  /* opaque yellow */
+  background-color: #f7d696; /* opaque version of yellow #ffb70077 */
 }
 
 

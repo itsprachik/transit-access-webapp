@@ -36,6 +36,11 @@ import {
 } from "@/utils/dataUtils";
 import SearchBar from "../SearchBar/SearchBar";
 import { MtaStationData } from "@/utils/types";
+import {
+  Earth,
+  Globe,
+  Map
+} from "lucide-react";
 import rawData from "@/resources/mta_subway_stations_all.json";
 const stationData = rawData as MtaStationData;
 
@@ -501,7 +506,7 @@ const MtaMap = () => {
             }
           }}
         >
-          Return to Map
+          <Earth /> Return to Map
         </button>
       )}
       <>

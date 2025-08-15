@@ -153,7 +153,7 @@ export function convertDateDistance(outageDate, estimatedReturn) {
   const parsedReturn = parse(estimatedReturn, "MM/dd/yyyy hh:mm:ss a", new Date());
 
   if (isToday(parsedDate)) {
-    return `In ${formatDistanceToNow(parsedDate)} (${format(parsedDate, "h:mmaaa")}) for ${formatDistance(outageDate, estimatedReturn)}`;
+    return `Today at ${format(parsedDate, "h:mmaaa")} for ${formatDistance(outageDate, estimatedReturn)}`;
   }
 
   if (isTomorrow(parsedDate)) {
