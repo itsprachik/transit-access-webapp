@@ -1,4 +1,9 @@
-import { getOutageLayerFeatures, getStationOutageLayerFeatures, getComplexOutageLayerFeatures } from "@/utils/dataUtils";
+import { 
+  getOutageLayerFeatures, 
+  getStationOutageLayerFeatures, 
+  getComplexOutageLayerFeatures, 
+  getUpcomingOutageLayerFeatures 
+} from "@/utils/dataUtils";
 
 export const getOutElevatorData = (elOutages: any[]) => {
   const outElevatorData = [];
@@ -99,5 +104,25 @@ export const updateStationComplexLayer = (
     geojsonSource.setData(geojson);
   } else {
     console.warn("station-complex-data source not found");
+  }
+};
+
+export const updateUpcomingOutagesLayer = (
+  upcomingOutageArray: string[],
+  mapRef: { getSource: (arg0: string) => any; }
+) => {
+
+  const features = getUpcomingOutageLayerFeatures(upcomingOutageArray);
+
+  const geojson = {
+    type: "FeatureCollection",
+    features: features,
+  };
+
+  const geojsonSource = mapRef?.getSource("upcoming-outage-data");
+  if (geojsonSource) {
+    geojsonSource.setData(geojson);
+  } else {
+    console.warn("upcoming-outage-data source not found");
   }
 };

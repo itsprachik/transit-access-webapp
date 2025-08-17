@@ -23,6 +23,7 @@ import {
   buildElevatorIndex,
   stationIDToComplexID,
 } from "@/utils/elevatorIndexUtils";
+import { geometry } from "@turf/turf";
 let elevatorIndex = [];
 
 // Function to highlight all upcoming outages
@@ -103,6 +104,58 @@ export function getOutageLayerFeatures(outElevatorData) {
   return features;
 }
 
+export function getUpcomingOutageLayerFeatures(upcomingOutElevatorData) {
+  const features = [];
+
+  for (const elevator of upcomingOutElevatorData) {
+    const cleanElevatorNo = elevator.equipment.trim();
+    const rawStationID = getStationIDByElevatorNo(cleanElevatorNo);
+
+    const coordsList = rawStationID
+      .split("/") // split into individual stations
+      .map(id => id.replace(/^0+/, "")) // strip leading zeros
+      .map(id => stationCoordinates[id]) // look up coords
+      .filter(Boolean); // remove null/undefined
+
+    const coords = coordsList[0] || null;
+
+    // coordsList is an array of all matching station coordinates
+    // to be cleaned with a smarter function linking elevators to stations, rather than complexes
+    
+    const station = stationsDataset.features.find((s) => {
+      // Normalize both sides by removing leading zeros
+      const datasetID = String(s.properties.station_id).replace(/^0+/, "");
+      
+      // Split incoming ID by "/" and normalize each piece
+      const idsToMatch = rawStationID
+        .split("/")
+        .map(id => id.replace(/^0+/, ""));
+
+      return idsToMatch.includes(datasetID);
+    });    
+
+    const obj = {
+      type: "Feature",
+      id: cleanElevatorNo,
+      properties: {
+        elevatorno: cleanElevatorNo,
+        station: station.properties.stop_name,
+        isUpcoming: true,
+        reason: elevator.reason,
+      },
+      geometry: coords
+        ? {
+            coordinates: coords,
+            type: "Point",
+          }
+        : null,
+    };
+
+    features.push(obj);
+  }
+  return features;
+}
+
 // The following functions make it easy to find an elevator attached to a given station
 /* ************************************************************************** */
 export function makeElevatorMap() {
@@ -125,6 +178,11 @@ export function getElevatorsByStationId(stationId) {
 export function getComplexIDByElevatorNo(elevatorNo) {
   const elevator = elevatorIndex.elevatorByNo.get(elevatorNo);
   return elevator?.properties?.complexID;
+}
+
+export function getStationIDByElevatorNo(elevatorNo) {
+  const elevator = elevatorIndex.elevatorByNo.get(elevatorNo);
+  return elevator?.properties?.stationID;
 }
 
 /* ************************************************************************** */
@@ -653,6 +711,7 @@ function extendBoundsForPopup(bounds, popupDirection = "down") {
 
 export function flyIn(
   map,
+  station_ids,
   complex_id,
   coordsOrBounds,
   isAccessible,
@@ -666,6 +725,10 @@ export function flyIn(
   const MIN_AREA = 2000; // in meters, area at which we need to zoom in even more to comfortably see station
   const MAX_LAT_SPAN = 0.002; // to accommodate the Times Square/Port Authority sprawl for small screens
   let maxZoomLevel = 17;
+
+  const stationFeature = stationsDataset.features.find ((s) => s.properties.station_id === station_ids[0]);
+  const borough = stationFeature.properties.borough;
+
 
   if (!coordsOrBounds) {
     console.warn("flyIn: No coordinates or bounds provided.");
@@ -683,7 +746,7 @@ export function flyIn(
       center: coordsOrBounds,
       zoom: map.getZoom(),
       pitch: 0,
-      bearing: setManhattanTilt(),
+      bearing: borough == "M"? setManhattanTilt(): 0,
       speed: 0.8,
     });
     return;
@@ -720,7 +783,7 @@ export function flyIn(
       offset: [0, -map.getCanvas().height * 0.01],
       maxZoom: maxZoomLevel,
       pitch: 0,
-      bearing: setManhattanTilt(),
+      bearing: borough == "M"? setManhattanTilt(): 0,
       duration: zoomBoundsDuration,
     });
 

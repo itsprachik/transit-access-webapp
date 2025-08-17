@@ -12,7 +12,7 @@ import {
   ElevatorOutIcon,
   AccessibleIconFalse,
 } from "../icons";
-import { MTA_SUBWAY_LINE_ICONS } from "@/utils/constants";
+import { MTA_SUBWAY_LINE_ICONS, MTA_SUBWAY_LINE_ICONS_SMALL } from "@/utils/constants";
 
 import styles from "./station-popup.module.css";
 import "keen-slider/keen-slider.min.css";
@@ -235,14 +235,12 @@ const ElevatorCard: React.FC<{
 
   return (
     <div
-      className={
-        elevator.isStreet
-          ? styles.cardWrapperStreet
-          : styles.cardWrapperPlatform
-      }
-    >
+    className={`${elevator.isStreet ? styles.cardWrapperStreet : styles.cardWrapperPlatform}
+    `}
+  >
       {/* Title & elevator info */}
-      <div className={styles.elevatorTitle}>
+      <div className={`${styles.elevatorTitle} ${
+      showUpcomingNote ? styles.thumbnailRowBlur : ""}`}>
         {isRamp ? (
           "Ramp"
         ) : elevator.isStreet ? (
@@ -274,10 +272,12 @@ const ElevatorCard: React.FC<{
               {MTA_SUBWAY_LINE_ICONS[line]}
             </span>
           ))}
-      </div>
+      </div> {/* elevatorTitle */}
 
       {/* Left icon and status */}
-      <div className={styles.thumbnailRow}>
+      <div className={`
+      ${styles.thumbnailRow} ${
+      showUpcomingNote ? styles.thumbnailRowBlur : ""}`}>
         <div className={styles.thumbnailWrapper}>
           <div className={styles.statusIconFloating}>
             {elevator.isOut ? (
@@ -285,7 +285,7 @@ const ElevatorCard: React.FC<{
             ) : (
               <LiftGood fill="#2bb9cfe6" />
             )}
-          </div>
+          </div> {/* statusIconFloating */}
           <div className={styles.elevatorIcon}>
             {isRamp ? (
               <Ramp size={50} />
@@ -294,8 +294,8 @@ const ElevatorCard: React.FC<{
             ) : (
               <ElevatorInvertedIcon size={50} />
             )}
-          </div>
-        </div>
+          </div> {/* elevatorIcon */}
+        </div> {/* thumbnailWrapper */}
 
         {/* Info column */}
         <div className={styles.infoColumn}>
@@ -329,6 +329,21 @@ const ElevatorCard: React.FC<{
             </span>
           </button>
           {/* Status and redundancy note */}
+          <div className={styles.chevronWrapper}
+            onClick={() => {
+              setShowDetails(!showDetails);
+              if (!isPressed) {
+                setIsPressed(true);
+              } else {
+                setIsPressed(false);
+              }
+            }}
+            aria-label={
+              showDetails ? "Hide elevator details" : "Show elevator details"
+            }
+            aria-expanded={showDetails}
+            aria-controls="elevator-details"
+          >
           <div className={styles.info1}>
             <div
               className={
@@ -384,7 +399,10 @@ const ElevatorCard: React.FC<{
                     </div>
                   )}
                   <button
-                    onClick={() => handleToggleRedundancyNote(true)}
+                    onClick={(e) => {
+                      handleToggleRedundancyNote(true);
+                      e.stopPropagation()}
+                    }
                     className={`
                       ${styles.iconButton} ${styles.redundancyNoteIconButton}
                    ${showRedundancyIcon ? styles.iconButtonVisible : ""}
@@ -398,9 +416,11 @@ const ElevatorCard: React.FC<{
                   >
                     <CircleQuestionMark />
                   </button>
-                </div>
+                </div> // accessToggle
               )}
-            </div>
+            </div> {/* elevator.isOut */}
+            </div> {/* second chevronWrapper, so clicking on service text does the same thing */}
+            </div> {/* info1 */}
 
             {/* ACCESS NOTE */}
             {elevator.access_note && (
@@ -438,12 +458,33 @@ const ElevatorCard: React.FC<{
                 >
                   <ListIcon size={15} color="#111" />
                 </button>
-              </div>
+              </div> // accessNote
             )}
-          </div>
 
-          {/* UPCOMING OUTAGES NOTE */}
-          {upcomingOutages.length > 0 && (
+
+          {/* See on map button */}
+          <div className={styles.info2}>
+            {elevator.isStreet && (
+              <button
+                className={`${styles.flyButton} ${
+                  isFlyButtonPressed ? styles.flyButtonActive : ""
+                }`}
+                style={
+                  {
+                    "--flybutton-bg": `url(${elevator.imageURL})`,
+                  } as React.CSSProperties
+                }
+                onClick={handleFlyButtonClick}
+              >
+                <span className={styles.flyButtonLabel}>see on map</span>
+              </button>
+            )}
+          </div> {/* info2 */}
+        </div> {/* infoColumn */}
+      </div> {/* thumbnailRow */}
+
+                {/* UPCOMING OUTAGES NOTE */}
+                {upcomingOutages.length > 0 && (
             <div ref={upcomingNoteRef}>
               <div className={styles.upcomingWrapper}>
                 {showUpcomingNote && (
@@ -462,7 +503,7 @@ const ElevatorCard: React.FC<{
                           Upcoming{" "}
                           {o.reason === "Capital Replacement"
                             ? "Long-Term"
-                            : " "}{" "}
+                            : "Short-Term"}{" "}
                           Outage
                         </div>
                       ))}
@@ -515,29 +556,8 @@ const ElevatorCard: React.FC<{
                   ))}
                 </button>
               </div>
-            </div>
+            </div> // upcomingNote
           )}
-
-          {/* See on map button */}
-          <div className={styles.info2}>
-            {elevator.isStreet && (
-              <button
-                className={`${styles.flyButton} ${
-                  isFlyButtonPressed ? styles.flyButtonActive : ""
-                }`}
-                style={
-                  {
-                    "--flybutton-bg": `url(${elevator.imageURL})`,
-                  } as React.CSSProperties
-                }
-                onClick={handleFlyButtonClick}
-              >
-                <span className={styles.flyButtonLabel}>see on map</span>
-              </button>
-            )}
-          </div>
-        </div>
-      </div>
 
       {/* Expanded details */}
       {showDetails && (
@@ -639,7 +659,7 @@ const ElevatorCard: React.FC<{
           </div>
         </>
       )}
-    </div>
+    </div> // cardWrapper
   );
 };
 

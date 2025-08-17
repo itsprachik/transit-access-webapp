@@ -5,7 +5,7 @@ import { fetchOutages } from "@/api/fetchOutages";
 import dotenv from "dotenv";
 import {
   getOutElevatorData,
-  getUpcomingElevatorData,
+  updateUpcomingOutagesLayer,
   updateOutageLayer,
   updateStationOutageLayer,
   updateStationComplexLayer,
@@ -23,6 +23,7 @@ import {
 } from "./layers/CurrentOutages/currentOutagesProps";
 import { stationComplexProps } from "./layers/StationComplexes/stationComplexesProps";
 import { complexBoundaryProps } from "./layers/StationComplexes/complexBoundariesProps";
+import { upcomingOutageProps } from "./layers/UpcomingOutages/upcomingOutagesProps";
 import {
   handleOnClick,
   handleSearchPopup,
@@ -198,6 +199,11 @@ const MtaMap = () => {
       ) {
         updateStationComplexLayer(stationDataRef.current, mapRef.current);
       }
+      if (
+        mapRef.current?.getSource("upcoming-outage-data")
+      ) {
+        updateUpcomingOutagesLayer(upcomingElevatorDataRef.current, mapRef.current);
+      }
     }
     // Fetch outages on component mount
     getOutages();
@@ -216,6 +222,7 @@ const MtaMap = () => {
       mapRef.current.addSource("station-complexes", outageSourceOptions);
       mapRef.current.addSource("outage-data", outageSourceOptions);
       mapRef.current.addSource("station-outage-data", outageSourceOptions);
+      mapRef.current.addSource("upcoming-outage-data", outageSourceOptions);
 
       if (
         mapRef.current?.getSource("outage-data") &&
@@ -237,11 +244,18 @@ const MtaMap = () => {
         
       }
 
+      if (
+        mapRef.current?.getSource("upcoming-outage-data")
+      ) {
+        updateUpcomingOutagesLayer(upcomingElevatorDataRef.current, mapRef.current);
+      }
+
       // Add outage layer with icons based on isBroken property
 
       mapRef.current.addLayer(currentOutageProps);
       mapRef.current.addLayer(stationOutageProps);
       mapRef.current.addLayer(stationComplexProps);
+      mapRef.current.addLayer(upcomingOutageProps);
 
       // Moves transit elevators layer so it's not hidden by outage layer
       mapRef.current.moveLayer("stationOutages", "transit-elevators");

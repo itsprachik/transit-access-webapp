@@ -1,6 +1,4 @@
-// StationPopup.tsx
 import React, { useState, useEffect, useRef } from "react";
-import mapboxgl from "mapbox-gl";
 import ElevatorCard from "./ElevatorCard";
 import styles from "@/components/StationPopup/station-popup.module.css";
 import { toWords } from "number-to-words";
@@ -32,15 +30,147 @@ const StationPopup: React.FC<StationPopupProps> = ({
   isOut,
   isProblem,
 }) => {
-  // OOS note state
   const [showOOS, setShowOOS] = useState(false);
   const [isAnimatingOOSOpen, setIsAnimatingOOSOpen] = useState(false);
   const [isPressed, setIsPressed] = useState(false);
-
-  //*** adding click listeners to show and hide notes */
   const wrapperRef = useRef<HTMLSpanElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const oosButtonRef = useRef<HTMLButtonElement>(null);
 
-  // Close OOS note if clicked outside button or note
+
+
+  const toBool = (v?: boolean | string | null) =>
+    typeof v === "string" ? v === "true" : Boolean(v);
+
+  const isAccessible = ada !== "0";
+  const AccessibleIconComponent = isAccessible
+    ? AccessibleIconWhite
+    : AccessibleIconFalse;
+  const accessibleStatusText = isAccessible
+    ? "Station is accessible"
+    : "Station is not accessible";
+
+  const oosCount = elevators.filter(
+    (e) =>
+      e.estimatedreturntoservice !== "null" &&
+      e.estimatedreturntoservice?.trim().length > 0
+  ).length;
+
+  const buildEquipmentText = (totalElevators: number, totalRamps: number) => {
+    const parts = [];
+    if (totalElevators > 0)
+      parts.push(
+        `${toWords(totalElevators)} ${
+          totalElevators > 1 ? "Elevators" : "Elevator"
+        }`
+      );
+    if (totalRamps > 0)
+      parts.push(`${toWords(totalRamps)} ${totalRamps > 1 ? "Ramps" : "Ramp"}`)
+    if (parts.length === 0) return "There are no Elevators or Ramps at";
+    const joined = parts.join(" and ");
+    const verb = totalElevators + totalRamps > 1 ? "are" : "is";
+    return `There ${verb} ${joined}`;
+  };
+
+  const getStationComplexStatus = (
+    isProblemBool: boolean,
+    isOutBool: boolean,
+    isPlain: boolean
+  ) => {
+    if (isOutBool && !isPlain) return styles.colorBad; // outage (red)
+    if (isOutBool && isPlain) return styles.colorBadPlain; // outage plain
+    if (isProblemBool && !isPlain) return styles.colorWarning; // warning (yellow)
+    if (isProblemBool && isPlain) return styles.colorWarningPlain; // warning plain
+    if (!isProblemBool && !isOutBool && isPlain) return styles.colorGoodPlain;
+    return styles.colorGood; // good (blue)
+  };
+
+  const isProblemBool = toBool(isProblem);
+  const isOutBool = toBool(isOut);
+
+  const complexStatus = getStationComplexStatus(
+    isProblemBool,
+    isOutBool,
+    false
+  );
+  const complexStatusPlain = getStationComplexStatus(
+    isProblemBool,
+    isOutBool,
+    true
+  );
+
+  const srAnnouncementRef = useRef<HTMLSpanElement>(null);
+
+  // --- new state + builder ---
+  const [announcement, setAnnouncement] = useState("");
+  
+  const buildAnnouncement = () => {
+    const isAccessible = ada !== "0";
+  
+    const equipment = isAccessible
+      ? `${buildEquipmentText(totalElevators, totalRamps)}.`
+      : "";
+  
+    let oos = "";
+    if (totalElevators > 0) {
+      if (oosCount === 0) oos = "All elevators are in service.";
+      else if (oosCount === totalElevators) oos = "All elevators are out of service.";
+      else oos = `${oosCount} ${oosCount > 1 ? "elevators are" : "elevator is"} out of service.`;
+    }
+  
+    const lines = isAccessible && route ? ` Accessible lines: ${route}.` : "";
+    const adaNotes = ada_notes ? ` ${ada_notes}.` : "";
+    const inac =
+      inaccessibleRoutes
+        ? ` Lines ${inaccessibleRoutes} not accessible.`
+        : "";
+  
+    return isAccessible
+      ? `${complexName} is an accessible station. ${equipment} ${oos}${lines}${adaNotes}${inac}`.replace(/\s+/g, " ")
+      : `${complexName}${inaccessibleRoutes ? ` on line ${inaccessibleRoutes}` : ""} is not accessible.`;
+  };
+  
+  //  focus the dialog on mount
+  useEffect(() => {
+    dialogRef.current?.focus();
+  }, []);
+  
+  //  update live region after mount and on relevant changes 
+  useEffect(() => {
+    const next = buildAnnouncement();
+    // Clear, then set on next frame to guarantee a DOM change SRs can detect
+    setAnnouncement("");
+    const id = requestAnimationFrame(() => setAnnouncement(next));
+    return () => cancelAnimationFrame(id);
+  }, [
+    complexName,
+    ada,
+    ada_notes,
+    totalElevators,
+    totalRamps,
+    oosCount,
+    route,
+    inaccessibleRoutes,
+  ]);
+
+  const generateSubwayLines = (routeLines?: string | null) => {
+    if (!routeLines) return null;
+    return routeLines
+      .split(" ")
+      .filter(Boolean)
+      .map((line) => (
+        <span
+          key={line}
+          className={`${styles.lineIcon} ${styles.lineIconLarge}`}
+          role="img"
+          aria-label={`Line ${line}`}
+        >
+          {MTA_SUBWAY_LINE_ICONS[line] ?? line}
+        </span>
+      ));
+  };
+
+  // Close OOS if clicked outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -54,279 +184,257 @@ const StationPopup: React.FC<StationPopupProps> = ({
     }
 
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [showOOS]);
 
-  // toggle for Out of Service note at top of popup
   const handleToggleOOS = (open: boolean) => {
     if (open) {
       setShowOOS(true);
+      setTimeout(() => setIsAnimatingOOSOpen(true), 10);
     } else {
       setIsAnimatingOOSOpen(false);
       setTimeout(() => setShowOOS(false), 300);
     }
   };
 
-  useEffect(() => {
-    if (showOOS) {
-      const timer = setTimeout(() => setIsAnimatingOOSOpen(true), 10);
-      return () => clearTimeout(timer);
-    } else {
-      setIsAnimatingOOSOpen(false);
-    }
-  }, [showOOS]);
-
-  // accept "true"/"false" strings or booleans
-  const toBool = (v?: boolean | string | null) =>
-    typeof v === "string" ? v === "true" : Boolean(v);
-
-  function getStationComplexStatus(
-    isProblemBool: boolean,
-    isOutBool: boolean,
-    isPlain: boolean
-  ) {
-    if (isOutBool && !isPlain) return styles.colorBad; // outage (red)
-    if (isOutBool && isPlain) return styles.colorBadPlain; // for out color w/ no background
-    if (isProblemBool && !isPlain) return styles.colorWarning; // problem (yellow)
-    if (isProblemBool && isPlain) return styles.colorWarningPlain; // for out color w/ no background
-    if (!isProblemBool && !isOutBool && isPlain) return styles.colorGoodPlain;
-    return styles.colorGood; // good (blue)
-  }
-
-  function getADAStyle(adaVal: string) {
-    if (adaVal === "0") return styles.colorBadPlain; // inaccessible
-    else return styles.colorGoodPlain;
-  }
-
-  const isProblemBool = toBool(isProblem);
-  const isOutBool = toBool(isOut);
-  const complexStatus = getStationComplexStatus(
-    isProblemBool,
-    isOutBool,
-    false
-  );
-  const complexStatusPlain = getStationComplexStatus(
-    isProblemBool,
-    isOutBool,
-    true
-  );
-  const accessibilityStatus = getADAStyle(ada);
-
-  const ComplexStatusIconComponent = StationComplexDot;
-  const AccessibleIconComponent =
-    ada === "0" ? AccessibleIconFalse : AccessibleIconWhite;
-
-  const oosCount = elevators.filter(
-    (e) => e.estimatedreturntoservice !== "null" && e.estimatedreturntoservice?.trim().length > 0
-  ).length;
-
-  function generateSubwayLines(routeLines?: string | null) {
-    if (!routeLines) return null;
-    const lines = routeLines.split(" ").filter(Boolean);
-    return lines.map((line) => (
-      <span
-        key={line}
-        title={line}
-        className={`${styles.lineIcon} ${styles.lineIconLarge}`}
-      >
-        {MTA_SUBWAY_LINE_ICONS[line] ?? line}
-      </span>
-    ));
-  }
-
-  function buildEquipmentText(totalElevators, totalRamps) {
-    const parts = [];
-  
-    if (totalElevators > 0) {
-      parts.push(`${toWords(totalElevators)} ${totalElevators > 1 ? "Elevators" : "Elevator"}`);
-    }
-  
-    if (totalRamps > 0) {
-      parts.push(`${toWords(totalRamps)} ${totalRamps > 1 ? "Ramps" : "Ramp"}`);
-    }
-  
-    if (parts.length === 0) {
-      return "There are no Elevators or Ramps at";
-    }
-  
-    const joined = parts.join(" and ");
-    const verb = (totalElevators + totalRamps) > 1 ? "are" : "is";
-  
-    return `There ${verb} ${joined} `;
-  }
-  
-
   return (
-    <div className={styles.stationPopup}>
-      <div className={styles.subtitle}>
-        {ada === "0" ? (
-          "This station is not accessible"
-        ) : (
-          <>
-      {buildEquipmentText(totalElevators, totalRamps)}
-      at
-          </>
-        )}
+    <div
+      ref={dialogRef}
+      className={styles.stationPopup}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="station-popup-title"
+      aria-describedby="station-popup-desc"
+      tabIndex={-1}
+      onKeyDown={(e) => {
+        if (
+          ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)
+        ) {
+          e.stopPropagation();
+        }
+      }}
+    >
+      {/* Equipment summary */}
+      <div id="station-popup-desc" className={styles.subtitle}>
+        {isAccessible
+          ? `${buildEquipmentText(totalElevators, totalRamps)} at`
+          : "This station is not accessible"}
       </div>
 
-      {/* STATION TITLE */}
-      <h3 className={styles.title}>
-        {complexName}
-        <span
-          className={`${styles.accessibleIconWrapper} ${accessibilityStatus} ${styles.nonInteractive}`}
+<h3 id="station-popup-title" className={styles.title}>
+  {/* Station title text */}
+  <span>{complexName}</span>
+
+  {/* SCREEN READER POPUP ANNOUNCEMENT */}
+  <span
+  tabIndex={0}
+  ref={srAnnouncementRef}
+  className="sr-only"
+  aria-live="polite"
+>
+  {isAccessible ? (
+    <>
+      {complexName} is an accessible station;{" "}
+      {buildEquipmentText(totalElevators, totalRamps)};{" "}
+      {totalElevators === 0 ? null : oosCount === 0 ? (
+        "All elevators are in service."
+      ) : oosCount === totalElevators ? (
+        "All elevators are out of service."
+      ) : (
+        <>
+          {oosCount} {oosCount > 1 ? "elevators are" : "elevator is"} out of
+          service.
+        </>
+      )}{" "}
+      Accessible lines: {route};
+      <h3 id="station-popup-title" className={styles.title}>
+  <span>{complexName}</span>
+  <div className={styles.iconWrapper}>
+    <AccessibleIconComponent />
+  </div>
+
+  {/* Visual dot + OOS button remain here */}
+  {totalElevators > 0 && (
+    <span
+      className={styles.OOSToggleWrapper}
+      ref={wrapperRef}
+      style={{ display: "inline-flex", alignItems: "center" }}
+    >
+      {/* … your OOS button code … */}
+    </span>
+  )}
+</h3>
+
+{/* Screen reader announcement should be outside the heading */}
+<span
+  ref={srAnnouncementRef}
+  className="sr-only"
+  aria-live="polite"
+>
+  {isAccessible ? (
+    <>
+      {complexName} is an accessible station.{" "}
+      {buildEquipmentText(totalElevators, totalRamps)}.{" "}
+      {totalElevators === 0 ? null : oosCount === 0 ? (
+        "All elevators are in service."
+      ) : oosCount === totalElevators ? (
+        "All elevators are out of service."
+      ) : (
+        `${oosCount} ${oosCount > 1 ? "elevators are" : "elevator is"} out of service.`
+      )}{" "}
+      Accessible lines: {route}.{" "}
+      {ada_notes && <> {ada_notes}. </>}
+      {inaccessibleRoutes && <> Line {inaccessibleRoutes} not accessible.</>}
+    </>
+  ) : (
+    `${complexName} on line ${inaccessibleRoutes} is not accessible.`
+  )}
+</span>
+
+      {inaccessibleRoutes && (
+        <> ; Line {inaccessibleRoutes} not accessible.</>
+      )}
+    </>
+  ) : (
+    <>
+      {complexName} on line {inaccessibleRoutes} is not accessible.
+    </>
+  )}
+
+</span>
+
+  {/* Accessibility icon */}
+  <div className={`${styles.iconWrapper}`}>
+    <AccessibleIconComponent />
+  </div>
+
+  {/* Visual complex dot + OOS button inline */}
+  {totalElevators > 0 && (
+    <span className={styles.OOSToggleWrapper} ref={wrapperRef} style={{ display: "inline-flex", alignItems: "center" }}>
+      <button
+        ref={oosButtonRef}
+        type="button"
+        className={styles.OOSIconButton}
+        aria-label={`Show number of out-of-service elevators for ${complexName}`}
+        aria-expanded={showOOS}
+        aria-controls="oosNoteDesc"
+        onClick={() => {
+          handleToggleOOS(!showOOS);
+          setIsPressed(!isPressed);
+        }}
+      >
+      <span className={`${styles.iconWrapper} ${styles.complexIconWrapper} ${complexStatusPlain} ${isPressed ? styles.pressed : ""}`}>
+          <StationComplexDot fill="currentColor" size={25} />
+        </span>
+      </button>
+
+      {/* Visual OOS Note */}
+      {showOOS && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="oosNoteTitle"
+          aria-describedby="oosNoteDesc"
+          className={`${styles.OOSNote} ${isAnimatingOOSOpen ? styles.OOSNoteOpen : ""} ${complexStatus}`}
         >
-          <AccessibleIconComponent />
-        </span>
+          <div className={styles.OOSNoteBackground} />
+          <button
+            onClick={() => {
+              handleToggleOOS(false);
+              setIsPressed(false);
+              oosButtonRef.current?.focus();
+            }}
+            className={styles.OOSNoteClose}
+            aria-label="Close out of service note"
+          >
+            ×
+          </button>
+          <div id="oosNoteTitle" className="sr-only">Elevators at Station</div>
+          <div id="oosNoteDesc">
+            {totalElevators === 0
+              ? "No elevators at station"
+              : oosCount === totalElevators
+              ? "All elevators out of service"
+              : oosCount === 0
+              ? "All elevators in service"
+              : `${oosCount} ${oosCount > 1 ? "elevators" : "elevator"} out of service`}
+          </div>
+        </div>
+      )}
+    </span>
+  )}
+</h3>
 
-        <span className={styles.OOSToggleWrapper} ref={wrapperRef}>
-          {showOOS && (
-            <div
-              {...({ inert: !showOOS ? "true" : undefined } as any)}
-              className={`${styles.OOSNote} ${
-                isAnimatingOOSOpen ? styles.OOSNoteOpen : ""
-              } ${complexStatus}`}
-              role="dialog"
-              aria-live="polite"
-            >
-              <div className={styles.OOSNoteBackground} />
-              <button
-                onClick={() => {
-                  handleToggleOOS(false);
-                  setIsPressed(false);
-                }}
-                className={styles.OOSNoteClose}
-                aria-label="Close access note"
-              >
-                ×
-              </button>
-              <div>
-                {totalElevators === 0 ? (
-                  "No elevators at station"
-                ) : totalElevators > 0 && oosCount === totalElevators ? (
-                  "All elevators out of service"
-                ) : totalElevators > 0 && oosCount === 0 ? (
-                  "All elevators in service"
-                ) : (
-                  <>
-                    {oosCount} {oosCount > 1 ? "elevators" : "elevator"} out of
-                    service
-                  </>
-                )}
-              </div>
-            </div>
-          )}
 
-          {totalElevators > 0 ? (
-            <button
-              onClick={() => {
-                handleToggleOOS(true);
-                setIsPressed(true);
-              }}
-              className={styles.OOSIconButton}
-              aria-label="Show number of OOS elevators"
-              type="button"
-            >
-              <span
-                className={`${
-                  styles.accessibleIconWrapper
-                } ${complexStatusPlain} ${isPressed ? styles.pressed : ""}`}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ")
-                    setIsPressed(!isPressed);
-                }}
-              >
-                <div className={styles.dotWrapper}>
-                <ComplexStatusIconComponent fill="currentColor" size={25} />
-                </div>
-              </span>
-            </button>
-          ) : (
-            ""
-          )}
-        </span>
-      </h3>
 
-      {/* STATION ROUTES */}
+
+      {/* Subway lines */}
       <div className={styles.stationRouteWrapper}>
-        {ada !== "0"
+        {isAccessible
           ? generateSubwayLines(route)
           : generateSubwayLines(inaccessibleRoutes)}
       </div>
+      {inaccessibleRoutes && ada!=="0" ? `${inaccessibleRoutes} not accessible` : ""}
 
-      <div className={styles.inaccessibleRoutesWrapper}>
-        {ada !== "0" && inaccessibleRoutes
-          ? `${inaccessibleRoutes} not accessible`
-          : null}
-      </div>
+      {/* ADA Notes */}
+      {ada_notes && (
+        <div className={styles.adaNotesWrapper}>
+          <AccessibleIconWhite size={18} fill="currentColor" />
+          <span>{ada_notes}</span>
+        </div>
+      )}
 
-      <div className={styles.adaNotesWrapper}>
-        {ada_notes ? (
-          <>
-            <AccessibleIconWhite size={18} fill="currentColor" />
-            <span>{ada_notes}</span>
-          </>
-        ) : null}
-      </div>
-
+      {/* Elevators */}
       <div className={styles.elevatorCard}>
         <div className={styles.header}>
-          {ada !== "0" ? "street level" : null}
+          {isAccessible ? "street level" : null}
         </div>
 
-        {elevators.map((elevator, idx) =>
-          toBool(elevator.isStreet) ? (
-            <ElevatorCard
-              key={elevator.elevatorno ?? `street-${idx}`}
-              elevator={elevator}
-              map={map}
-              stationView={stationView}
-              setStationView={setStationView}
-              elevatorView={elevatorView}
-              setElevatorView={setElevatorView}
-              setShow3DToggle={setShow3DToggle}
-            />
-          ) : null
-        )}
+        {elevators
+          .map((e, idx) =>
+            toBool(e.isStreet) ? (
+              <ElevatorCard
+                key={e.elevatorno ?? `street-${idx}`}
+                elevator={e}
+                map={map}
+                stationView={stationView}
+                setStationView={setStationView}
+                elevatorView={elevatorView}
+                setElevatorView={setElevatorView}
+                setShow3DToggle={setShow3DToggle}
+              />
+            ) : null
+          )}
 
         {elevators.some((e) => !toBool(e.isStreet)) && (
           <div className={styles.header}>in the station</div>
         )}
 
-        {elevators.map((elevator, idx) =>
-          !toBool(elevator.isStreet) ? (
-            <ElevatorCard
-              key={elevator.elevatorno ?? `in-${idx}`}
-              elevator={elevator}
-              map={map}
-              stationView={stationView}
-              setStationView={setStationView}
-              elevatorView={elevatorView}
-              setElevatorView={setElevatorView}
-              setShow3DToggle={setShow3DToggle}
-            />
-          ) : null
-        )}
+        {elevators
+          .map((e, idx) =>
+            !toBool(e.isStreet) ? (
+              <ElevatorCard
+                key={e.elevatorno ?? `in-${idx}`}
+                elevator={e}
+                map={map}
+                stationView={stationView}
+                setStationView={setStationView}
+                elevatorView={elevatorView}
+                setElevatorView={setElevatorView}
+                setShow3DToggle={setShow3DToggle}
+              />
+            ) : null
+          )}
 
-        {lastUpdated ? (
+        {lastUpdated && (
           <div className={styles.lastUpdated}>
             Last updated:{" "}
-            {typeof lastUpdated === "string"
-              ? new Date(lastUpdated).toLocaleTimeString([], {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })
-              : lastUpdated instanceof Date
-              ? lastUpdated.toLocaleTimeString([], {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })
-              : null}
+            {new Date(lastUpdated).toLocaleTimeString([], {
+              hour: "2-digit",
+              minute: "2-digit",
+            })}
           </div>
-        ) : null}
+        )}
       </div>
     </div>
   );

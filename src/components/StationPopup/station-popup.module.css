@@ -59,7 +59,7 @@
   margin-bottom: 0.3rem;
 }
 
-.accessibleIconWrapper {
+.iconWrapper {
   color: inherit;
   display: inline-flex;
   margin-left: 0.3rem;
@@ -67,11 +67,14 @@
   align-items: center;
   border-radius: 100%;
   vertical-align: middle;
-  transition: box-shadow 0.1s ease, filter 0.1s ease, transform 0.1s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   border: none;
   background: transparent;
   cursor: pointer;
+}
+
+.complexIconWrapper {
+  transition: box-shadow 0.1s ease, filter 0.1s ease, transform 0.1s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .pressed {
@@ -171,11 +174,11 @@
   font-weight: 600;
   line-height: 1.4;
   word-wrap: break-word;
-  max-width: 70%;
+  max-width: 60%;
   flex-shrink: 1;
   font-size: 0.85rem;
   text-align: left;
-  padding: 0.2rem 3rem;
+  padding: 0.2rem 0rem 0.2rem 3rem;
   flex: 1 1 auto;
 }
 
@@ -376,20 +379,19 @@
 
 /* Text backing */
 .flyButtonLabel {
-  display: inline-block;
+  display: inline-flex;
   background-color: #f5f5f5a4;
-  position: absolute;
-  display: flex;
+  position: relative;
+  align-self: end;
   align-items: center;
   justify-content: center;
-  bottom: 0rem;
+  /* bottom: 0rem; */
   color: #111;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 600;
   font-variant: small-caps;
   border-radius: 0.2rem;
-  padding: 0rem 1rem;
-  -webkit-backdrop-filter: blur(1px);
+  padding: 0rem 0.5rem;
   backdrop-filter: blur(1px);
 }
 
@@ -455,10 +457,10 @@
   background-color: #b1a5a52a;
   display: inline-block;
   bottom: 16%;
-  left: 125%;
   transform: translateX(-50%);
-  padding: 0.2rem;
   align-items: center;
+  padding: 0.2rem;
+  margin-left: 1.6rem;
   justify-content: center;
 }
 
@@ -484,11 +486,11 @@
 .accessNote {
   position: absolute;
   left: 9rem;
-  bottom: -2rem;
+  bottom: 0rem;
   transform: translateX(-50%) scaleX(0);
   transform-origin: center center;
   z-index: 5;
-  width: 250%;
+  width: 100%;
   background-color: #f4c6fbe6;
   color: #111;
   border-radius: 0.3rem;
@@ -516,10 +518,12 @@
 
 .upcomingNote {
   background-color: #f6dcda;
-  width: 300px;
+  width: max-content;
+  padding: 0.5rem 1.5rem;
   white-space: nowrap;
   transform-origin: center left;
-  left: 10rem;
+  left: 13rem;
+  bottom: -1rem;
   z-index: 9;
 }
 
@@ -530,8 +534,8 @@
   display: inline-flex;
   background-color: #fff;
   padding: 0.1rem 0.1rem;
-  top: 2.9rem;
-  left: -1.3rem;
+  top: 2.4rem;
+  left: 1.6rem;
   transform: rotate(0deg);
   z-index: 10;
 }
@@ -699,8 +703,13 @@
 
 /**** ANIMATIONS ****/
 .upcomingAnimate {
-  transform: scale(1.7) translateY(-2.2rem) translateX(0.6rem); /* grow & move up */
+  transform: scale(1.5) translateY(-2.7rem) translateX(0.8rem) /* grow & move up */
 }
+
+.thumbnailRowBlur {
+  filter: blur(2px);
+}
+
 
 .accessNoteOpen {
   transform: translateX(-50%) scaleX(1);

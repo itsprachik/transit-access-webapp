@@ -2,7 +2,7 @@
 // import runs into ts type problems when they're the same (unconfirmed but suspected)
 
 export const elevatorView = 16;
-const offsetDistance = -22;
+export const offsetDistance = -22;
 
 export const currentOutageProps = {
   id: "outages",
@@ -19,10 +19,6 @@ export const currentOutageProps = {
       "liftgood", // Default to checkmark icon in case of missing data
     ],
     
-    paint: {
-      "icon-opacity": ["step", ["zoom"], 0, elevatorView-1, 1],
-    },
-    
     "icon-size": ["step", ["zoom"], 0, elevatorView-1, 0.9],
     "icon-anchor": "center",
     "icon-offset": [0, offsetDistance],
@@ -37,9 +33,10 @@ export const currentOutageProps = {
 
     "text-padding": ["interpolate", ["linear"], ["zoom"], 0, 0, 15, 0, 16, 2],
     "text-offset": [1.5, 0],
-  }
-//  sprite:
-   // "mapbox://sprites/joelaaron/clndls6cm07rp01mae34gd2oo/ehu96mappgo0oqnlwfjrnz4ta", // Sprite URL
+  },
+  paint: {
+    "icon-opacity": ["step", ["zoom"], 0, elevatorView-1, 1],
+  },
 };
 
 export const stationOutageProps = {
@@ -57,9 +54,6 @@ export const stationOutageProps = {
       "warn", // Use warning icon
       "", // Default to nothing in case of missing data
     ],
-    paint: {
-      "icon-opacity": ["step", ["zoom"], 1, elevatorView, 0],
-    },
     "icon-size": ["interpolate", ["linear"], ["zoom"], elevatorView-2, 0.75, elevatorView-1, 0.8, elevatorView+1, 0],
     "icon-anchor": "center",
     "icon-offset": [0, offsetDistance],
@@ -73,9 +67,10 @@ export const stationOutageProps = {
 
     "text-padding": ["interpolate", ["linear"], ["zoom"], 0, 0, 15, 0, 16, 2],
     "text-offset": [1.5, 0],
-  }
-  //sprite:
-   // "mapbox://sprites/joelaaron/clndls6cm07rp01mae34gd2oo/ehu96mappgo0oqnlwfjrnz4ta", // Sprite URL
+  },
+  paint: {
+    "icon-opacity": ["step", ["zoom"], 1, elevatorView, 0],
+  },
 };
 
 export const animationProps = {
