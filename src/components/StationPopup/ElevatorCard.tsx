@@ -12,7 +12,10 @@ import {
   ElevatorOutIcon,
   AccessibleIconFalse,
 } from "../icons";
-import { MTA_SUBWAY_LINE_ICONS, MTA_SUBWAY_LINE_ICONS_SMALL } from "@/utils/constants";
+import {
+  MTA_SUBWAY_LINE_ICONS,
+  MTA_SUBWAY_LINE_ICONS_SMALL,
+} from "@/utils/constants";
 
 import styles from "./station-popup.module.css";
 import "keen-slider/keen-slider.min.css";
@@ -61,13 +64,14 @@ const ElevatorCard: React.FC<{
   const [isAnimatingUpcomingOpen, setIsAnimatingUpcomingOpen] = useState(false);
   const [showUpcomingIcon, setShowUpcomingIcon] = useState(true);
 
+  // flyButtonState
+  const [activeFlyButton, setActiveFlyButton] = useState<string | null>(null);
+
   // for click listeners on redundancy/access note states
   const accessNoteRef = useRef<HTMLDivElement>(null);
   const redundancyNoteRef = useRef<HTMLDivElement>(null);
   const upcomingNoteRef = useRef<HTMLDivElement>(null);
   const [isPressed, setIsPressed] = useState(false);
-  const [isUpcomingPressed, setIsUpcomingPressed] = useState(false);
-  const [isFlyButtonPressed, setIsFlyButtonPressed] = useState(false);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -167,6 +171,22 @@ const ElevatorCard: React.FC<{
     }
   };
 
+  function handleFlyButtonClick(
+    elevatorId: string,
+    elevator: ElevatorPopupProps
+  ) {
+    // Always set the clicked one as active
+    setActiveFlyButton(elevatorId);
+
+    lookAtElevator(
+      map,
+      elevator.elevatorno,
+      elevator.coordinates,
+      elevatorView,
+      setElevatorView
+    );
+  }
+
   // Animate opening/closing Access Note
   useEffect(() => {
     if (showAccessNote) {
@@ -196,20 +216,6 @@ const ElevatorCard: React.FC<{
     }
   }, [showUpcomingNote]);
 
-  const handleFlyButtonClick = () => {
-    setIsFlyButtonPressed(true);
-
-    setElevatorView(elevator.elevatorno);
-    setShow3DToggle(true);
-    lookAtElevator(
-      map,
-      elevator.elevatorno,
-      elevator.coordinates,
-      elevatorView,
-      setElevatorView
-    );
-  };
-
   // Keen slider setup
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: false,
@@ -235,12 +241,19 @@ const ElevatorCard: React.FC<{
 
   return (
     <div
-    className={`${elevator.isStreet ? styles.cardWrapperStreet : styles.cardWrapperPlatform}
+      className={`${
+        elevator.isStreet
+          ? styles.cardWrapperStreet
+          : styles.cardWrapperPlatform
+      }
     `}
-  >
+    >
       {/* Title & elevator info */}
-      <div className={`${styles.elevatorTitle} ${
-      showUpcomingNote ? styles.thumbnailRowBlur : ""}`}>
+      <div
+        className={`${styles.elevatorTitle} ${
+          showUpcomingNote ? styles.thumbnailRowBlur : ""
+        }`}
+      >
         {isRamp ? (
           "Ramp"
         ) : elevator.isStreet ? (
@@ -272,12 +285,15 @@ const ElevatorCard: React.FC<{
               {MTA_SUBWAY_LINE_ICONS[line]}
             </span>
           ))}
-      </div> {/* elevatorTitle */}
-
+      </div>{" "}
+      {/* elevatorTitle */}
       {/* Left icon and status */}
-      <div className={`
+      <div
+        className={`
       ${styles.thumbnailRow} ${
-      showUpcomingNote ? styles.thumbnailRowBlur : ""}`}>
+          showUpcomingNote ? styles.thumbnailRowBlur : ""
+        }`}
+      >
         <div className={styles.thumbnailWrapper}>
           <div className={styles.statusIconFloating}>
             {elevator.isOut ? (
@@ -285,7 +301,8 @@ const ElevatorCard: React.FC<{
             ) : (
               <LiftGood fill="#2bb9cfe6" />
             )}
-          </div> {/* statusIconFloating */}
+          </div>{" "}
+          {/* statusIconFloating */}
           <div className={styles.elevatorIcon}>
             {isRamp ? (
               <Ramp size={50} />
@@ -294,10 +311,10 @@ const ElevatorCard: React.FC<{
             ) : (
               <ElevatorInvertedIcon size={50} />
             )}
-          </div> {/* elevatorIcon */}
-        </div> {/* thumbnailWrapper */}
+          </div>{" "}         {/* elevatorIcon */}
+      </div>{" "}       {/* thumbnailWrapper */}
 
-        {/* Info column */}
+       {/* Info column */}
         <div className={styles.infoColumn}>
           {/* Details toggle button */}
           <button
@@ -329,7 +346,8 @@ const ElevatorCard: React.FC<{
             </span>
           </button>
           {/* Status and redundancy note */}
-          <div className={styles.chevronWrapper}
+          <div
+            className={styles.chevronWrapper}
             onClick={() => {
               setShowDetails(!showDetails);
               if (!isPressed) {
@@ -344,27 +362,29 @@ const ElevatorCard: React.FC<{
             aria-expanded={showDetails}
             aria-controls="elevator-details"
           >
-          <div className={styles.info1}>
-            <div
-              className={
-                elevator.isOut ? styles.statusBadSmall : styles.statusGoodSmall
-              }
-            >
-              {isRamp
-                ? "always in service"
-                : elevator.isOut
-                ? "out of service"
-                : "in service"}
+            <div className={styles.info1}>
+              <div
+                className={
+                  elevator.isOut
+                    ? styles.statusBadSmall
+                    : styles.statusGoodSmall
+                }
+              >
+                {isRamp
+                  ? "always in service"
+                  : elevator.isOut
+                  ? "out of service"
+                  : "in service"}
 
-              {/* Redundancy note toggle and content */}
-              {elevator.isOut && (
-                <div className={styles.accessToggle} ref={redundancyNoteRef}>
-                  {(showRedundancyNote || !showRedundancyIcon) && (
-                    <div
-                      {...({
-                        inert: !showRedundancyNote ? "true" : undefined,
-                      } as any)}
-                      className={`
+                {/* Redundancy note toggle and content */}
+                {elevator.isOut && (
+                  <div className={styles.accessToggle} ref={redundancyNoteRef}>
+                    {(showRedundancyNote || !showRedundancyIcon) && (
+                      <div
+                        {...({
+                          inert: !showRedundancyNote ? "true" : undefined,
+                        } as any)}
+                        className={`
                      ${styles.redundancyNote}
                      ${isAnimatingRedundancyOpen ? styles.accessNoteOpen : ""}
                      ${
@@ -373,37 +393,37 @@ const ElevatorCard: React.FC<{
                          : styles.redundantNo
                      }
                    `}
-                    >
-                      <button
-                        onClick={() => handleToggleRedundancyNote(false)}
-                        className={styles.accessNoteClose}
-                        aria-label="Close redundancy info"
                       >
-                        ×
-                      </button>
-                      <div className={styles.redundancyNoteContent}>
-                        {elevator.isRedundant === "1" ? (
-                          <>
-                            <ElevatorIcon size={30} />
-                            <span>
-                              Don&apos;t worry, there&apos;s another option
-                            </span>
-                          </>
-                        ) : (
-                          <>
-                            <AccessibleIconFalse size={30} />
-                            <span>There is no other accessible path</span>
-                          </>
-                        )}
+                        <button
+                          onClick={() => handleToggleRedundancyNote(false)}
+                          className={styles.accessNoteClose}
+                          aria-label="Close redundancy info"
+                        >
+                          ×
+                        </button>
+                        <div className={styles.redundancyNoteContent}>
+                          {elevator.isRedundant === "1" ? (
+                            <>
+                              <ElevatorIcon size={30} />
+                              <span>
+                                Don&apos;t worry, there&apos;s another option
+                              </span>
+                            </>
+                          ) : (
+                            <>
+                              <AccessibleIconFalse size={30} />
+                              <span>There is no other accessible path</span>
+                            </>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  )}
-                  <button
-                    onClick={(e) => {
-                      handleToggleRedundancyNote(true);
-                      e.stopPropagation()}
-                    }
-                    className={`
+                    )}
+                    <button
+                      onClick={(e) => {
+                        handleToggleRedundancyNote(true);
+                        e.stopPropagation();
+                      }}
+                      className={`
                       ${styles.iconButton} ${styles.redundancyNoteIconButton}
                    ${showRedundancyIcon ? styles.iconButtonVisible : ""}
                    ${
@@ -412,153 +432,157 @@ const ElevatorCard: React.FC<{
                        : styles.redundantNo
                    }
                  `}
-                    aria-label="Show redundancy info"
-                  >
-                    <CircleQuestionMark />
-                  </button>
-                </div> // accessToggle
-              )}
-            </div> {/* elevator.isOut */}
-            </div> {/* second chevronWrapper, so clicking on service text does the same thing */}
-            </div> {/* info1 */}
-
-            {/* ACCESS NOTE */}
-            {elevator.access_note && (
-              <div ref={accessNoteRef}>
-                {(showAccessNote || !showAccessIcon) && (
-                  <div
-                    {...({
-                      inert: !showAccessNote ? "true" : undefined,
-                    } as any)}
-                    className={`${styles.accessNote} ${
-                      isAnimatingAccessOpen ? styles.accessNoteOpen : ""
-                    }`}
-                  >
-                    <div className={styles.accessNoteHeader}>
-                      <AccessibleIconWhite />
-                      Transit Access Note
-                      <button
-                        onClick={() => handleToggleAccessNote(false)}
-                        className={styles.accessNoteClose}
-                        aria-label="Close access note"
-                      >
-                        ×
-                      </button>
-                    </div>
-                    <div>{elevator.access_note}</div>
-                  </div>
+                      aria-label="Show redundancy info"
+                    >
+                      <CircleQuestionMark />
+                    </button>
+                  </div> // accessToggle
                 )}
-
-                <button
-                  onClick={() => handleToggleAccessNote(true)}
-                  className={`${styles.iconButton} ${
-                    styles.accessNoteIconButton
-                  } ${showAccessIcon ? styles.iconButtonVisible : ""}`}
-                  aria-label="Show access note"
+              </div>{" "}
+              {/* elevator.isOut */}
+            </div>{" "}
+            {/* second chevronWrapper, so clicking on service text does the same thing */}
+          </div>{" "}
+          {/* info1 */}
+          {/* ACCESS NOTE */}
+          {elevator.access_note && (
+            <div ref={accessNoteRef}>
+              {(showAccessNote || !showAccessIcon) && (
+                <div
+                  {...({
+                    inert: !showAccessNote ? "true" : undefined,
+                  } as any)}
+                  className={`${styles.accessNote} ${
+                    isAnimatingAccessOpen ? styles.accessNoteOpen : ""
+                  }`}
                 >
-                  <ListIcon size={15} color="#111" />
-                </button>
-              </div> // accessNote
-            )}
+                  <div className={styles.accessNoteHeader}>
+                    <AccessibleIconWhite />
+                    Transit Access Note
+                    <button
+                      onClick={() => handleToggleAccessNote(false)}
+                      className={styles.accessNoteClose}
+                      aria-label="Close access note"
+                    >
+                      ×
+                    </button>
+                  </div>
+                  <div>{elevator.access_note}</div>
+                </div>
+              )}
 
-
+              <button
+                onClick={() => handleToggleAccessNote(true)}
+                className={`${styles.iconButton} ${
+                  styles.accessNoteIconButton
+                } ${showAccessIcon ? styles.iconButtonVisible : ""}`}
+                aria-label="Show access note"
+              >
+                <AccessibleIconWhite size={20} fill="#501759e6" />
+              </button>
+            </div> // accessNote
+          )}
           {/* See on map button */}
           <div className={styles.info2}>
             {elevator.isStreet && (
               <button
-                className={`${styles.flyButton} ${
-                  isFlyButtonPressed ? styles.flyButtonActive : ""
-                }`}
+              className={`${styles.flyButton} ${
+                activeFlyButton === elevator.elevatorno ? styles.flyButtonActive : ""
+              }`}
                 style={
                   {
                     "--flybutton-bg": `url(${elevator.imageURL})`,
                   } as React.CSSProperties
                 }
-                onClick={handleFlyButtonClick}
+                onClick={() =>
+                  {
+                  handleFlyButtonClick(elevator.elevatorno, elevator);
+                  setShow3DToggle(true);
+                }
+                }
               >
                 <span className={styles.flyButtonLabel}>see on map</span>
               </button>
             )}
-          </div> {/* info2 */}
-        </div> {/* infoColumn */}
-      </div> {/* thumbnailRow */}
-
-                {/* UPCOMING OUTAGES NOTE */}
-                {upcomingOutages.length > 0 && (
-            <div ref={upcomingNoteRef}>
-              <div className={styles.upcomingWrapper}>
-                {showUpcomingNote && (
-                  <div
-                    {...({
-                      inert: !showUpcomingNote ? "true" : undefined,
-                    } as any)}
-                    className={`${styles.accessNote} ${styles.upcomingNote} ${
-                      isAnimatingUpcomingOpen ? styles.accessNoteOpen : ""
-                    }`}
-                  >
-                    <div className={styles.accessNoteHeader}>
-                      <Clock10Icon />
-                      {upcomingOutages.map((o, i) => (
-                        <div key={i}>
-                          Upcoming{" "}
-                          {o.reason === "Capital Replacement"
-                            ? "Long-Term"
-                            : "Short-Term"}{" "}
-                          Outage
-                        </div>
-                      ))}
-                      <button
-                        onClick={() => handleToggleUpcomingNote(false)}
-                        className={styles.accessNoteClose}
-                        aria-label="Close upcoming outage note"
-                      >
-                        ×
-                      </button>
-                    </div>
-                    <div>
-                      {upcomingOutages.length > 0 ? (
-                        upcomingOutages.map((o, i) => (
-                          <div key={i}>
-                            {o.outageDuration} ({o.reason})
-                          </div>
-                        ))
-                      ) : (
-                        <div>No upcoming outages</div>
-                      )}
-                    </div>
-                  </div>
-                )}
-                <button
-                  onClick={() => {
-                    handleToggleUpcomingNote(!showUpcomingNote);
-                  }}
-                  className={`${styles.iconButton} ${
-                    styles.upcomingIconButton
-                  } ${
-                    showUpcomingNote
-                      ? `${styles.pressed} ${styles.upcomingAnimate}`
-                      : ""
-                  } ${showUpcomingIcon ? styles.iconButtonVisible : ""}
-                  `}
-                  aria-label="Show access note"
-                >
+          </div>{" "}
+          {/* info2 */}
+        </div>{" "}
+        {/* infoColumn */}
+      </div>{" "}
+      {/* thumbnailRow */}
+      {/* UPCOMING OUTAGES NOTE */}
+      {upcomingOutages.length > 0 && (
+        <div ref={upcomingNoteRef}>
+          <div className={styles.upcomingWrapper}>
+            {showUpcomingNote && (
+              <div
+                {...({
+                  inert: !showUpcomingNote ? "true" : undefined,
+                } as any)}
+                className={`${styles.note} ${styles.upcomingNote} ${
+                  isAnimatingUpcomingOpen ? styles.accessNoteOpen : ""
+                }`}
+              >
+                <div className={styles.accessNoteHeader}>
+                  <Clock10Icon />
                   {upcomingOutages.map((o, i) => (
-                    <div
-                      key={i}
-                      className={
-                        o.reason === "Capital Replacement"
-                          ? styles.upcomingIconButtonRedInverted
-                          : styles.upcomingIconButtonRed
-                      }
-                    >
-                      <WrenchIcon size={15} />
+                    <div key={i}>
+                      Upcoming{" "}
+                      {o.reason === "Capital Replacement"
+                        ? "Long-Term"
+                        : "Short-Term"}{" "}
+                      Outage
                     </div>
                   ))}
-                </button>
+                  <button
+                    onClick={() => handleToggleUpcomingNote(false)}
+                    className={styles.accessNoteClose}
+                    aria-label="Close upcoming outage note"
+                  >
+                    ×
+                  </button>
+                </div>
+                <div>
+                  {upcomingOutages.length > 0 ? (
+                    upcomingOutages.map((o, i) => (
+                      <div key={i}>
+                        {o.outageDuration} ({o.reason})
+                      </div>
+                    ))
+                  ) : (
+                    <div>No upcoming outages</div>
+                  )}
+                </div>
               </div>
-            </div> // upcomingNote
-          )}
-
+            )}
+            <button
+              onClick={() => {
+                handleToggleUpcomingNote(!showUpcomingNote);
+              }}
+              className={`${styles.iconButton} ${styles.upcomingIconButton} ${
+                showUpcomingNote
+                  ? `${styles.pressed} ${styles.upcomingAnimate}`
+                  : ""
+              } ${showUpcomingIcon ? styles.iconButtonVisible : ""}
+                  `}
+              aria-label="Show access note"
+            >
+              {upcomingOutages.map((o, i) => (
+                <div
+                  key={i}
+                  className={
+                    o.reason === "Capital Replacement"
+                      ? styles.upcomingIconButtonRedInverted
+                      : styles.upcomingIconButtonRed
+                  }
+                >
+                  <WrenchIcon size={15} />
+                </div>
+              ))}
+            </button>
+          </div>
+        </div> // upcomingNote
+      )}
       {/* Expanded details */}
       {showDetails && (
         <>

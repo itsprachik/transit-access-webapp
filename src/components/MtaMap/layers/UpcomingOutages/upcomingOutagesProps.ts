@@ -13,18 +13,17 @@ export const upcomingOutageProps = {
     "icon-image": [
       "case",
       ["==", ["get", "reason"], "Capital Replacement"], // If it's a long-term outage
-      "wrench-plain", // Use inverted wrench icon
+      "wrench-filled", // Use inverted wrench icon
       "", // Default to nothing
     ],
 
-    "icon-size": ["interpolate", ["linear"], ["zoom"], elevatorView-2, 0.6, elevatorView-1, 0.7, elevatorView+1, 0],
+    "icon-size": ["interpolate", ["linear"], ["zoom"], elevatorView-2, 0.6, elevatorView-1, 0.8, elevatorView+1, 0],
     "icon-anchor": "center",
-    "icon-offset": [44, 8],
-    "icon-allow-overlap": false,
-    "icon-rotate": -90,
-    "icon-padding": 2,
+    "icon-offset": [-23, 0],
+    "icon-allow-overlap": true,
+    "icon-padding": 0,
     "symbol-z-order": "source",
-    "symbol-sort-key": 1,
+    "symbol-sort-key": 9,
   },
   paint: {
     "icon-opacity": ["step", ["zoom"], 1, elevatorView-1, 0],

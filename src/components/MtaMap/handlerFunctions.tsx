@@ -24,7 +24,8 @@ import {
   concatenateInaccessibleRoutes,
   getStationOutageLayerFeatures,
   getComplexOutageLayerFeatures,
-  convertDateDistance
+  convertDateDistance,
+  easyToReadDate
 } from "@/utils/dataUtils";
 import { stationIDToComplexID } from "@/utils/elevatorIndexUtils";
 
@@ -33,6 +34,7 @@ import ElevatorPopup, {
   OnHoverElevatorPopup,
 } from "../ElevatorPopup/ElevatorPopup";
 import StationComplexPopup from "../StationPopup/StationPopup";
+import { formatDate } from "date-fns";
 
 let currentPopup: mapboxgl.Popup | null = null;
 let currentPopupRoot: Root | null = null;
@@ -42,7 +44,7 @@ export function setMapPitch(pitch: any) {
 }
 
 export const initializeMtaMap = (mapRef, mapContainer) => {
-  const mapRefPitch = setMapPitch(60);
+  const mapRefPitch = setMapPitch(0);
   const mtaMapOptions = getMtaMapOptions(mapContainer.current, mapRefPitch);
 
   mapRef.current = new mapboxgl.Map(mtaMapOptions);
@@ -690,4 +692,104 @@ export function handleOnClick(
   }
 
   return;
+}
+
+// HOVER POPUP STUFF
+
+export function removeHoverPopup(onHoverPopupRef: any) {
+  if (onHoverPopupRef) {
+    onHoverPopupRef.remove();
+  }
+}
+
+let popupTimeout: NodeJS.Timeout | null = null;
+
+export function handleMouseLeave(
+  hoveredFeatureId: any,
+  mapRef: any,
+  onHoverPopupRef: any
+) {
+  if (hoveredFeatureId !== null) {
+    mapRef.setFeatureState(
+      {
+        source: "upcoming-outage-data",
+        id: hoveredFeatureId,
+      },
+      { hover: false }
+    );
+  }
+  hoveredFeatureId = null;
+
+  // Clear any previous timers
+  if (popupTimeout) {
+    clearTimeout(popupTimeout);
+  }
+
+  // Delay removal a little 
+  popupTimeout = setTimeout(() => {
+    removeHoverPopup(onHoverPopupRef);
+  }, 50);
+
+  return hoveredFeatureId;
+}
+
+export function handleMouseMove(
+  e: any,
+  hoveredFeatureId: any,
+  mapRef: any,
+  onHoverPopupRef: any
+) {
+  if (popupTimeout) {
+    clearTimeout(popupTimeout); // cancel pending removal if mouse comes back
+    popupTimeout = null;
+  }
+
+  if (e.features.length > 0) {
+    e.originalEvent.cancelBubble = true;
+    if (hoveredFeatureId !== null) {
+      mapRef.setFeatureState(
+        {
+          source: "upcoming-outage-data",
+          id: hoveredFeatureId,
+        },
+        { hover: false }
+      );
+    }
+
+    hoveredFeatureId = e.features[0].layer.id;
+
+    mapRef.setFeatureState(
+      {
+        source: "upcoming-outage-data",
+        id: hoveredFeatureId,
+      },
+      { hover: true }
+    );
+
+    const reason = e.features[0].properties.reason;
+    const date = e.features[0].properties.outageDate;
+    const matchingElevatorFeature = getElevatorByNo(e.features[0].properties.elevatorno);
+    const isStreet = matchingElevatorFeature.properties.isStreet;
+    const station = matchingElevatorFeature.properties.title;
+    const easyDate = easyToReadDate(date);
+    const returntoservice = e.features[0].properties.estimatedreturntoservice;
+    const coordinates = e.features[0].geometry.coordinates.slice();
+
+    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    }
+
+    const popupDiv = document.createElement("div");
+    const root = createRoot(popupDiv);
+    root.render(<OnHoverElevatorPopup date={easyDate} reason={reason} isStreet={isStreet} station={station} />);
+
+    popupTimeout = setTimeout(() => {
+    onHoverPopupRef
+      .setLngLat(coordinates)
+      .setDOMContent(popupDiv)
+      .addTo(mapRef);
+    }, 50);
+  }
+
+  return hoveredFeatureId;
 }

@@ -26,9 +26,12 @@ import { complexBoundaryProps } from "./layers/StationComplexes/complexBoundarie
 import { upcomingOutageProps } from "./layers/UpcomingOutages/upcomingOutagesProps";
 import {
   handleOnClick,
+  handleMouseLeave,
+  handleMouseMove,
   handleSearchPopup,
   initializeMtaMap,
   cleanUpPopups,
+  removeHoverPopup
 } from "./handlerFunctions";
 import {
   getStationOutageArray,
@@ -110,6 +113,17 @@ const MtaMap = () => {
   function getLatestElevatorData() {
     return elevatorDataRef.current;
   }
+
+  let hoveredFeatureId = null;
+
+  // Popup for station info
+  const onHoverPopupRef = useRef(
+    new mapboxgl.Popup({
+      closeButton: true,
+      closeOnClick: true,
+      className: "onhover-popup", // hover-popup css class
+    })
+  );
 
   const onClickPopupRef = useRef(
     new mapboxgl.Popup({
@@ -263,6 +277,10 @@ const MtaMap = () => {
         "mta-subway-complexes-accessible2",
         "transit-elevators"
       );
+      mapRef.current.moveLayer(
+        "upcoming-outages",
+        "mta-subway-stations-accessible"
+      );
 
       // Draw a translucent complex boundary
       mapRef.current.addSource(
@@ -276,6 +294,9 @@ const MtaMap = () => {
         setZoomLevel(zoom);
       });
 
+       mapRef.current.on("click", () => removeHoverPopup(onHoverPopupRef.current));
+      // mapRef.current.on("dragstart", () => removeHoverPopup(onHoverPopupRef.current));
+       mapRef.current.on("zoomstart", () => removeHoverPopup(onHoverPopupRef.current));
 
       mapRef.current?.on("click", "stationOutages", (e) => {
         e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
@@ -320,6 +341,7 @@ const MtaMap = () => {
           setZoomLevel(zoom);
         });
       });
+
 
               mapRef.current?.on("click", "mta-subway-stations-inaccessible", (e) => {
           e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
@@ -444,6 +466,30 @@ const MtaMap = () => {
           setShow3DToggle,
           lastUpdatedRef.current,     
         );
+      });
+
+      // On hover event
+      mapRef.current?.on("mousemove", "upcoming-outages", (e) => {
+        const currentZoom = mapRef.current.getZoom();
+        if (currentZoom < 17) {
+          hoveredFeatureId = handleMouseMove(
+            e,
+            hoveredFeatureId,
+            mapRef.current,
+            onHoverPopupRef.current
+          );
+        }
+      });
+
+      mapRef.current?.on("mouseleave", "upcoming-outages", (e) => {
+        const currentZoom = mapRef.current.getZoom();
+        if (currentZoom < 17) {
+          hoveredFeatureId = handleMouseLeave(
+            hoveredFeatureId,
+            mapRef.current,
+            onHoverPopupRef.current
+          );
+        }
       });
     });
 

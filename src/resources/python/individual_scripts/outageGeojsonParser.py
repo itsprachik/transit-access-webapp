@@ -60,5 +60,5 @@ js_content = f"export const elevatorCoordinates: Record<string, [number, number]
 with open(OUTPUT_JS, "w") as f:
     f.write(js_content)
 
-print(f"\n**[1] ELEVATOR COORDINATES**\n✅ Generated {len(outage_features)} features and saved to {OUTPUT_DATASET}")
+print(f"\n** 📍 [2] ELEVATOR COORDINATES 📍 **\n✅ Generated {len(outage_features)} features and saved to {OUTPUT_DATASET}")
 print(f"JavaScript file saved to {OUTPUT_JS}")

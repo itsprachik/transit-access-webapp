@@ -12,7 +12,7 @@ export const stationComplexProps = {
     "text-size": 12,
     "text-radial-offset": 1.5,
     "text-allow-overlap": ["step", ["zoom"], false, elevatorView, true],
-    "symbol-sort-key": 100,
+    "symbol-sort-key": 10,
     "symbol-z-order": "auto",
     "text-variable-anchor": ["bottom", "right", "top", "left"],
     "icon-image": [
@@ -26,7 +26,7 @@ export const stationComplexProps = {
       "border-dot-13", // Default in case of missing data
     ],
 "text-font": ["Montserrat Bold", "Arial Unicode MS Regular"],
-        "icon-allow-overlap": ["step", ["zoom"], false, elevatorView-2, true],
+        "icon-allow-overlap": ["step", ["zoom"], true, elevatorView-2, true],
         "icon-size": [
           "step",
           ["zoom"],
@@ -51,8 +51,8 @@ export const stationComplexProps = {
       },
       "paint": {
         "text-halo-color": "#ffffff",
-        "text-halo-width": 50,
-        "text-halo-blur": 50,
+        "text-halo-width": 2,
+        "text-halo-blur": 1,
         "text-translate": [
           "step",
           ["zoom"],

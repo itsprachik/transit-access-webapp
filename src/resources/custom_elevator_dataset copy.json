@@ -1,0 +1,35 @@
+{
+  "features": [    
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "G16",
+        "route": "M/R",
+        "complexID": "269",
+        "stationID": "269",
+        "system": "nyc_mta",
+        "elevatorno": "EL486",
+        "linesServed": "M/R",
+        "directionLabel": "Manhattan-bound",
+        "title": "Northern Blvd",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Northern-Blvd_EL486.jpg",
+        "alternativeRoute": "If you are on the street:\nTake a Long Island City-bound Q63 bus (Northern Blvd and Broadway) to Jackson Av and Queens Plaza S for Queens Plaza E/M/R.\n \nIf you are on the platform: \nTake any train to Queens Plaza. Exit the station and cross Jackson Av to board a Flushing-bound Q63 bus (Jackson Av and Queens Blvd) to Northern Blvd and 54 St.\n",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "true",
+        "shortdescription": "Street to Manhattan-bound platform",
+        "description_custom": "This elevator gets you from the street directly to Manhattan-bound M/R trains"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.90511111111111,
+          40.7526389
+        ]
+      },
+      "id": "c5871313ac18d727136bf8228b3608c5"
+    }
+  ],
+  "type": "FeatureCollection"
+}

@@ -108,7 +108,9 @@ export function getUpcomingOutageLayerFeatures(upcomingOutElevatorData) {
   const features = [];
 
   for (const elevator of upcomingOutElevatorData) {
-    const cleanElevatorNo = elevator.equipment.trim();
+    const cleanElevatorNo = elevator?.equipment.trim();
+    const outageDate = elevator?.outagedate;
+    const estimatedreturntoservice = elevator?.estimatedreturntoservice;
     const rawStationID = getStationIDByElevatorNo(cleanElevatorNo);
 
     const coordsList = rawStationID
@@ -139,6 +141,8 @@ export function getUpcomingOutageLayerFeatures(upcomingOutElevatorData) {
       id: cleanElevatorNo,
       properties: {
         elevatorno: cleanElevatorNo,
+        outageDate: outageDate,
+        estimatedreturntoservice: estimatedreturntoservice,
         station: station.properties.stop_name,
         isUpcoming: true,
         reason: elevator.reason,
@@ -186,6 +190,11 @@ export function getStationIDByElevatorNo(elevatorNo) {
 }
 
 /* ************************************************************************** */
+
+export function easyToReadDate(outageDate) {
+  const parsedDate = parse(outageDate, "MM/dd/yyyy hh:mm:ss a", new Date());
+  return `${format(parsedDate, "EEEE',' MMMM dd 'at' h:mmaaa")}`;
+}
 
 export function convertDate(outageDate) {
   const parsedDate = parse(outageDate, "MM/dd/yyyy hh:mm:ss a", new Date());
@@ -265,7 +274,9 @@ export function concatenateInaccessibleRoutes(stationIDs, stationsDataset) {
     }
   }
 
-  return Array.from(routes).sort().join(" ");
+  return Array.from(routes)
+    .sort((a, b) => ROUTE_ORDER.indexOf(a) - ROUTE_ORDER.indexOf(b))
+    .join(" ");
 }
 
 // when going between stations and complexes, the complex has to inherit a concatenated version of routes and ADA

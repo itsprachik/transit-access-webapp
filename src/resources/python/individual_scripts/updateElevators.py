@@ -18,7 +18,7 @@ CUSTOM_ELEVATOR_FILE = os.path.join(THIS_DIR, "..", "..", "custom_elevator_datas
 
 # === FETCH STEP ===
 def fetch_latest_equipment():
-    print("Fetching latest MTA equipment data...")
+    print(f"\n** 🛗 [1] ELEVATOR DATASET 🛗 **\nFetching latest MTA equipment data...")
     headers = {"x-api-key": API_KEY}
     response = requests.get(API_URL, headers=headers)
     response.raise_for_status()
@@ -216,8 +216,8 @@ with open(CUSTOM_ELEVATOR_FILE, "w", encoding="utf-8") as f:
     json.dump(elevator_data, f, indent=2)
 
 if new_features:
-    print(f"\n**[0] ELEVATOR DATASET**\n✅ Added {len(new_features)} new elevators to custom_elevator_dataset:")
+    print(f"✅ Added {len(new_features)} new elevators to custom_elevator_dataset:")
     for feat in new_features:
         print(f"  {feat['properties']['elevatorno']} - {feat['properties']['title']}")
 else:
-    print(f"\n**[0] ELEVATOR DATASET**\n✅ Transit Access has all accessible elevators in MTA. No new elevators were added.")
+    print(f"\n✅ Transit Access has all accessible elevators in MTA. No new elevators were added.")

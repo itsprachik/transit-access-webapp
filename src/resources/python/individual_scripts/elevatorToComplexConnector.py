@@ -68,4 +68,4 @@ output_geojson = {
 with open(OUTPUT_FILE, "w") as f:
     json.dump(output_geojson, f, indent=2)
 
-print(f"Generated {len(lines)} LineString features and saved to {OUTPUT_FILE}")
+print(f"\n** 🚶 [3] GENERATE COMPLEX->ELEVATOR LINES 🚶 **:Generated {len(lines)} LineString features and saved to {OUTPUT_FILE}")
