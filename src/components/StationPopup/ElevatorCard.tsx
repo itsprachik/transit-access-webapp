@@ -29,6 +29,10 @@ import {
   WrenchIcon,
 } from "lucide-react";
 
+import { FaWrench, FaRegQuestionCircle  } from "react-icons/fa";
+import {FiChevronDown} from "react-icons/fi"
+import { LuClock2 } from "react-icons/lu";
+
 import { lookAtElevator } from "@/utils/dataUtils";
 import { ElevatorPopupProps } from "@/utils/types";
 
@@ -334,7 +338,7 @@ const ElevatorCard: React.FC<{
             aria-controls="elevator-details"
           >
             <span className={styles.iconBackground}>
-              <ChevronDown
+              <FiChevronDown
                 className={`
     ${styles.chevronIcon} 
     ${elevator.isOut ? styles.colorBad : styles.colorGood} 
@@ -434,7 +438,7 @@ const ElevatorCard: React.FC<{
                  `}
                       aria-label="Show redundancy info"
                     >
-                      <CircleQuestionMark />
+                      <FaRegQuestionCircle size={20} />
                     </button>
                   </div> // accessToggle
                 )}
@@ -524,7 +528,7 @@ const ElevatorCard: React.FC<{
                 }`}
               >
                 <div className={styles.accessNoteHeader}>
-                  <Clock10Icon />
+                  <LuClock2 size={20}/>
                   {upcomingOutages.map((o, i) => (
                     <div key={i}>
                       Upcoming{" "}
@@ -576,7 +580,7 @@ const ElevatorCard: React.FC<{
                       : styles.upcomingIconButtonRed
                   }
                 >
-                  <WrenchIcon size={15} />
+                  <FaWrench size={10} />
                 </div>
               ))}
             </button>

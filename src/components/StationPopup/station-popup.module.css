@@ -32,10 +32,10 @@
 .title {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #111111;
-  margin-bottom: 0.25rem;
-  margin-top: 0.25rem;
-  padding: 0rem 0.5rem;
+  color: #111111 !important;
+  /* margin-bottom: 0.25rem; */
+  /* margin-top: 0.25rem; */
+  padding: 0.0rem 0.5rem 0.5rem 0.5rem;
   border-radius: 0.3rem;
   max-width: 100%;
   word-wrap: break-word;
@@ -43,12 +43,12 @@
 }
 
 .subtitle {
-  color: #181818;
+  color: #181818 !important;
   font-size: 1.1rem;
   word-wrap: break-word;
   text-transform: lowercase;
   font-variant: small-caps;
-  text-align: center
+  text-align: center;
 }
 
 .header {
@@ -96,7 +96,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.5rem;
+  color: #111111 !important;
+  padding: 0rem 0rem 0.5rem 0rem;
 }
 
 
@@ -514,7 +515,7 @@
 
 .upcomingWrapper {
   position: absolute;
-  bottom: 2rem;
+  top: 3.5rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -539,8 +540,8 @@
 .upcomingIconButton {
   display: inline-flex; 
   align-items: center;
-  bottom: -2rem;
-  left: 1.6rem;
+  bottom: -1.5rem;
+  left: 1.8rem;
   position: absolute;
   z-index: 2;
   opacity: 1;
@@ -739,7 +740,7 @@
 }
 
 .stationRouteWrapper {
-  margin-bottom: 0.2rem;
+  padding: 0rem 0rem 0.5rem 0rem;
 }
 
 .lineIcon {

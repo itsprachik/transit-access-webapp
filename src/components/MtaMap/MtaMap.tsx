@@ -40,11 +40,7 @@ import {
 } from "@/utils/dataUtils";
 import SearchBar from "../SearchBar/SearchBar";
 import { MtaStationData } from "@/utils/types";
-import {
-  Earth,
-  Globe,
-  Map
-} from "lucide-react";
+import { IoEarthSharp } from "react-icons/io5";
 import rawData from "@/resources/mta_subway_stations_all.json";
 const stationData = rawData as MtaStationData;
 
@@ -295,7 +291,6 @@ const MtaMap = () => {
       });
 
        mapRef.current.on("click", () => removeHoverPopup(onHoverPopupRef.current));
-      // mapRef.current.on("dragstart", () => removeHoverPopup(onHoverPopupRef.current));
        mapRef.current.on("zoomstart", () => removeHoverPopup(onHoverPopupRef.current));
 
       mapRef.current?.on("click", "stationOutages", (e) => {
@@ -566,7 +561,7 @@ const MtaMap = () => {
             }
           }}
         >
-          <Earth /> Return to Map
+          <IoEarthSharp size={20} /> Return to Map
         </button>
       )}
       <>
