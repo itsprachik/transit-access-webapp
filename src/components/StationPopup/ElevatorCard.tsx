@@ -285,11 +285,11 @@ const ElevatorCard: React.FC<{
       {/* Left icon and status */}
       <div
         className={`
-      ${styles.thumbnailRow} ${
-          showUpcomingNote ? styles.thumbnailRowBlur : ""
-        }`}
+      ${styles.thumbnailRow}`}
       >
-        <div className={styles.thumbnailWrapper}>
+        <div className={`${styles.thumbnailWrapper} ${
+          showUpcomingNote ? styles.thumbnailRowBlur : ""
+        }`} >
           <div className={styles.statusIconFloating}>
             {elevator.isOut ? (
               <LiftBad fill="#C80000e6" />
@@ -357,7 +357,9 @@ const ElevatorCard: React.FC<{
             aria-expanded={showDetails}
             aria-controls="elevator-details"
           >
-            <div className={styles.info1}>
+            <div className={`{styles.info1} ${
+          showUpcomingNote ? styles.thumbnailRowBlur : ""
+        }`}>
               <div
                 className={
                   elevator.isOut
@@ -501,11 +503,7 @@ const ElevatorCard: React.FC<{
             )}
           </div>{" "}
           {/* info2 */}
-        </div>{" "}
-        {/* infoColumn */}
-      </div>{" "}
-      {/* thumbnailRow */}
-      {/* UPCOMING OUTAGES NOTE */}
+           {/* UPCOMING OUTAGES NOTE */}
       {upcomingOutages.length > 0 && (
         <div ref={upcomingNoteRef}>
           <div className={styles.upcomingWrapper}>
@@ -578,6 +576,12 @@ const ElevatorCard: React.FC<{
           </div>
         </div> // upcomingNote
       )}
+        </div>{" "}
+        {/* infoColumn */}
+        
+      </div>{" "}
+      {/* thumbnailRow */}
+     
       {/* Expanded details */}
       {showDetails && (
         <>
