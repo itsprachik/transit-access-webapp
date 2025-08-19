@@ -1,11 +1,11 @@
 .elevator-popup {
   overflow-y: auto;
-  max-height: 75vh !important;
+  max-height: 70vh !important;
   background: linear-gradient(to top, #2c2c34, #26262e);
   border-radius: 0.5rem;
   padding: 0.75rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
 }
 
 .elevator-service {

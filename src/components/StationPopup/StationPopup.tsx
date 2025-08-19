@@ -239,7 +239,9 @@ const StationPopup: React.FC<StationPopupProps> = ({
                     setIsPressed(!isPressed);
                 }}
               >
+                <div className={styles.dotWrapper}>
                 <ComplexStatusIconComponent fill="currentColor" size={25} />
+                </div>
               </span>
             </button>
           ) : (
