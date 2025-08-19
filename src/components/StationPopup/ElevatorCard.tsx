@@ -19,15 +19,6 @@ import {
 
 import styles from "./station-popup.module.css";
 import "keen-slider/keen-slider.min.css";
-import {
-  CalendarDays,
-  ChevronDown,
-  CircleQuestionMark,
-  Clock10Icon,
-  InfoIcon,
-  ListIcon,
-  WrenchIcon,
-} from "lucide-react";
 
 import { FaWrench, FaRegQuestionCircle  } from "react-icons/fa";
 import {FiChevronDown} from "react-icons/fi"

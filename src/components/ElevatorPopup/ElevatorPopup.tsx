@@ -9,7 +9,7 @@ import {
 import { MTA_SUBWAY_LINE_ICONS } from "@/utils/constants";
 import styles from "./elevator-popup.module.css";
 import { ElevatorPopupProps } from "@/utils/types";
-import { Clock10 } from "lucide-react";
+import { LuClock2 } from "react-icons/lu";
 
 const ElevatorPopup: React.FC<ElevatorPopupProps> = ({
   title,
@@ -86,7 +86,7 @@ export const OnHoverElevatorPopup: React.FC<OnHoverElevatorPopupProps> = ({
   return (
     <>
     <div className={styles.upcoming}>
-        <div className={styles.header}><Clock10 /><strong>Upcoming Long-Term Outage</strong></div>
+        <div className={styles.header}><LuClock2 size={25}/><strong>Upcoming Long-Term Outage</strong></div>
         {isStreet ? "Street Elevator" : "Platform Elevator"} at <div className={styles.popupSubtitle}>{station}</div>
       <div className={styles.date}>Starting {date}</div>
       </div>
