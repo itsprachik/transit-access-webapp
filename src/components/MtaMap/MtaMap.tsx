@@ -27,7 +27,7 @@ import { upcomingOutageProps } from "./layers/UpcomingOutages/upcomingOutagesPro
 import {
   handleOnClick,
   handleMouseLeave,
-  handleMouseMove,
+  handlePopupEvent,
   handleSearchPopup,
   initializeMtaMap,
   cleanUpPopups,
@@ -293,10 +293,59 @@ const MtaMap = () => {
        mapRef.current.on("click", () => removeHoverPopup(onHoverPopupRef.current));
        mapRef.current.on("zoomstart", () => removeHoverPopup(onHoverPopupRef.current));
 
-      mapRef.current?.on("click", "stationOutages", (e) => {
-        e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
+// One click listener for all interactive layers
+mapRef.current?.on("click", (e) => {
+  const features = mapRef.current?.queryRenderedFeatures(e.point, {
+    layers: [
+      "stationOutages",
+      "mta-subway-stations-accessible",
+      "mta-subway-stations-inaccessible",
+      "mta-subway-stations-inaccessible-icon2",
+      "mta-subway-complexes-accessible2",
+      "transit-elevators",
+      "outages",
+      "upcoming-outages"
+    ],
+  });
+
+  if (!features || !features.length) return;
+
+  // Mutate the event object to look like a layer-specific event
+  const augmentedEvent = {
+    ...e,
+    features, 
+  };
+
+  const layerId = features[0].layer.id;
+  e.originalEvent.cancelBubble = true;
+
+  switch (layerId) {
+    case "stationOutages":
+    case "mta-subway-stations-accessible":
+    case "mta-subway-stations-inaccessible":
+    case "mta-subway-stations-inaccessible-icon2":
+      handleOnClick(
+        augmentedEvent, // pass augmented version
+        onClickPopupRef,
+        mapRef.current,
+        getLatestElevatorData(),
+        upcomingElevatorDataRef.current,
+        stationDataRef.current,
+        stationView,
+        setStationView,
+        elevatorView,
+        setElevatorView,
+        show3DToggle,
+        setShow3DToggle,
+        lastUpdatedRef.current,
+      );
+      break;
+
+    case "mta-subway-complexes-accessible2":
+      if (mapRef.current.getZoom() > 15) {
+        let confirmedClick = dealWithMapboxIconOverlap(augmentedEvent);
         handleOnClick(
-          e,
+          confirmedClick,
           onClickPopupRef,
           mapRef.current,
           getLatestElevatorData(),
@@ -310,210 +359,78 @@ const MtaMap = () => {
           setShow3DToggle,
           lastUpdatedRef.current,
         );
-      });
-
-      mapRef.current?.on("click", "mta-subway-stations-accessible", (e) => {
-        e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
-        handleOnClick(
-          e,
-          onClickPopupRef,
-          mapRef.current,
-          getLatestElevatorData(),
-          upcomingElevatorDataRef.current,
-          stationDataRef.current,
-          stationView,
-          setStationView,
-          elevatorView,
-          setElevatorView,
-          show3DToggle,
-          setShow3DToggle,
-          lastUpdatedRef.current,         
-        );
-
-        // Track zoom level
-        mapRef.current.on("zoom", () => {
-          const zoom = mapRef.current.getZoom();
-          setZoomLevel(zoom);
-        });
-      });
-
-
-              mapRef.current?.on("click", "mta-subway-stations-inaccessible", (e) => {
-          e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
-          handleOnClick(
-            e,
-            onClickPopupRef,
-            mapRef.current,
-            getLatestElevatorData(),
-            upcomingElevatorDataRef.current,
-            stationDataRef.current,
-            stationView,
-            setStationView,
-            elevatorView,
-            setElevatorView,
-            show3DToggle,
-            setShow3DToggle,
-            lastUpdatedRef.current,         
-          );
-
-        // Track zoom level
-        mapRef.current.on("zoom", () => {
-          const zoom = mapRef.current.getZoom();
-          setZoomLevel(zoom);
-        });
-      });
-
-      mapRef.current?.on("click", "mta-subway-stations-inaccessible-icon2", (e) => {
-        e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
-        handleOnClick(
-          e,
-          onClickPopupRef,
-          mapRef.current,
-          getLatestElevatorData(),
-          upcomingElevatorDataRef.current,
-          stationDataRef.current,
-          stationView,
-          setStationView,
-          elevatorView,
-          setElevatorView,
-          show3DToggle,
-          setShow3DToggle,
-          lastUpdatedRef.current,         
-        );
-
-      // Track zoom level
-      mapRef.current.on("zoom", () => {
-        const zoom = mapRef.current.getZoom();
-        setZoomLevel(zoom);
-      });
-    });
-
-      //  Click event to display station pop-up
-      mapRef.current?.on("click", "mta-subway-complexes-accessible2", (e) => {
-        const currentZoom = mapRef.current.getZoom();
-        if (currentZoom > 15) {
-          let confirmedClick = dealWithMapboxIconOverlap(e);
-          handleOnClick(
-            confirmedClick,
-            onClickPopupRef,
-            mapRef.current,
-            getLatestElevatorData(),
-            upcomingElevatorDataRef.current,
-            stationDataRef.current,
-            stationView,
-            setStationView,
-            elevatorView,
-            setElevatorView,
-            show3DToggle,
-            setShow3DToggle,
-            lastUpdatedRef.current,         
-          );
-        }
-
-        // Track zoom level
-        mapRef.current.on("zoom", () => {
-          const zoom = mapRef.current.getZoom();
-          setZoomLevel(zoom);
-        });
-      });
-      //  Click event to display elevator pop-up
-      mapRef.current?.on("click", "transit-elevators", (e) => {
-      //  if (!stationView) return; // if we're not in stationView, don't talk to me
-
-        const zoom = mapRef.current?.getZoom?.() || 0;
-        if (zoom < 15) return;
-
-        e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
-        handleOnClick(
-          e,
-          onClickPopupRef,
-          mapRef.current,
-          getLatestElevatorData(),
-          upcomingElevatorDataRef.current,
-          stationDataRef.current,
-          stationView,
-          setStationView,
-          elevatorView,
-          setElevatorView,
-          show3DToggle,
-          setShow3DToggle,
-          lastUpdatedRef.current,        
-        );
-      });
-
-      mapRef.current?.on("click", "outages", (e) => {
-      //  if (!stationView) return; // if we're not in stationView, don't talk to me
-
-        const zoom = mapRef.current?.getZoom?.() || 0;
-        if (zoom < 15) return;
-        handleOnClick(
-          e,
-          onClickPopupRef,
-          mapRef.current,
-          getLatestElevatorData(),
-          upcomingElevatorDataRef.current,
-          stationDataRef.current,
-          stationView,
-          setStationView,
-          elevatorView,
-          setElevatorView,
-          show3DToggle,
-          setShow3DToggle,
-          lastUpdatedRef.current,     
-        );
-      });
-
-      // HOVER LOGIC
-      const isTouch = navigator.maxTouchPoints > 0;
-      console.log(isTouch)
-
-      if (isTouch) {
-        // Show popup on tap
-        mapRef.current?.on("click", "upcoming-outages", (e) => {
-          e.originalEvent.cancelBubble = true;
-          hoveredFeatureId = handleMouseMove(
-            e,
-            hoveredFeatureId,
-            mapRef.current,
-            onHoverPopupRef.current
-          );
-        });
-      
-        // Remove popup if you tap elsewhere
-        mapRef.current?.on("click", (e) => {
-          if (!e.features?.length) {
-            hoveredFeatureId = handleMouseLeave(
-              hoveredFeatureId,
-              mapRef.current,
-              onHoverPopupRef.current
-            );
-          }
-        });
-      } else {
-        // Desktop hover logic
-        mapRef.current?.on("mousemove", "upcoming-outages", (e) => {
-          e.originalEvent.cancelBubble = true;
-          if (mapRef.current.getZoom() < 17) {
-            hoveredFeatureId = handleMouseMove(
-              e,
-              hoveredFeatureId,
-              mapRef.current,
-              onHoverPopupRef.current
-            );
-          }
-        });
-      
-        mapRef.current?.on("mouseleave", "upcoming-outages", (e) => {
-          e.originalEvent.cancelBubble = true;
-          if (mapRef.current.getZoom() < 17) {
-            hoveredFeatureId = handleMouseLeave(
-              hoveredFeatureId,
-              mapRef.current,
-              onHoverPopupRef.current
-            );
-          }
-        });
       }
+      break;
+
+    case "transit-elevators":
+    case "outages":
+      if ((mapRef.current?.getZoom?.() || 0) >= 15) {
+        handleOnClick(
+          augmentedEvent,
+          onClickPopupRef,
+          mapRef.current,
+          getLatestElevatorData(),
+          upcomingElevatorDataRef.current,
+          stationDataRef.current,
+          stationView,
+          setStationView,
+          elevatorView,
+          setElevatorView,
+          show3DToggle,
+          setShow3DToggle,
+          lastUpdatedRef.current,
+        );
+      }
+      break;
+
+    case "upcoming-outages":
+      if (isTouch) {
+        let confirmedClick = dealWithMapboxIconOverlap(augmentedEvent);
+        hoveredFeatureId = handlePopupEvent(
+          confirmedClick,
+          hoveredFeatureId,
+          mapRef.current,
+          onHoverPopupRef.current,
+          true
+        );
+      }
+      break;
+
+    default:
+      break;
+  }
+});
+
+
+// Track zoom level separately (one global listener)
+mapRef.current?.on("zoom", () => {
+  setZoomLevel(mapRef.current?.getZoom() ?? 0);
+});
+
+const isTouch = navigator.maxTouchPoints > 0;
+
+// Hover logic remains separate for non-touch
+if (!isTouch) {
+  mapRef.current.on("mousemove", "upcoming-outages", (e) => {
+    hoveredFeatureId = handlePopupEvent(
+      e,
+      hoveredFeatureId,
+      mapRef.current,
+      onHoverPopupRef.current,
+      false
+    );
+  });
+
+  mapRef.current.on("mouseleave", "upcoming-outages", () => {
+    hoveredFeatureId = handleMouseLeave(
+      hoveredFeatureId,
+      mapRef.current,
+      onHoverPopupRef.current
+    );
+  });
+}
+
+      
       
     });
 

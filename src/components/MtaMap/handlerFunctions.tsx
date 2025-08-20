@@ -560,6 +560,7 @@ export function handleOnClick(
   setShow3DToggle,
   lastUpdated,
 ) {
+  console.log(e.features)
   if (!e.features || e.features.length === 0) return;
 
   const feature = e.features[0];
@@ -737,26 +738,22 @@ export function handleMouseLeave(
   return hoveredFeatureId;
 }
 
-export function handleMouseMove(
+export function handlePopupEvent(
   e: any,
   hoveredFeatureId: any,
   mapRef: any,
-  onHoverPopupRef: any
+  onHoverPopupRef: any,
+  isClick: boolean = false
 ) {
   if (popupTimeout) {
-    clearTimeout(popupTimeout); // cancel pending removal if mouse comes back
+    clearTimeout(popupTimeout);
     popupTimeout = null;
   }
-
-  console.log(e)
 
   if (e.features.length > 0) {
     if (hoveredFeatureId !== null) {
       mapRef.setFeatureState(
-        {
-          source: "upcoming-outage-data",
-          id: hoveredFeatureId,
-        },
+        { source: "upcoming-outage-data", id: hoveredFeatureId },
         { hover: false }
       );
     }
@@ -764,20 +761,12 @@ export function handleMouseMove(
     hoveredFeatureId = e.features[0].layer.id;
 
     mapRef.setFeatureState(
-      {
-        source: "upcoming-outage-data",
-        id: hoveredFeatureId,
-      },
+      { source: "upcoming-outage-data", id: hoveredFeatureId },
       { hover: true }
     );
 
-    const reason = e.features[0].properties.reason;
-    const date = e.features[0].properties.outageDate;
-    const matchingElevatorFeature = getElevatorByNo(e.features[0].properties.elevatorno);
-    const isStreet = matchingElevatorFeature.properties.isStreet;
-    const station = matchingElevatorFeature.properties.title;
-    const easyDate = easyToReadDate(date);
-    const returntoservice = e.features[0].properties.estimatedreturntoservice;
+    const props = e.features[0].properties;
+    const matchingElevatorFeature = getElevatorByNo(props.elevatorno);
     const coordinates = e.features[0].geometry.coordinates.slice();
 
     while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
@@ -786,15 +775,29 @@ export function handleMouseMove(
 
     const popupDiv = document.createElement("div");
     const root = createRoot(popupDiv);
-    root.render(<OnHoverElevatorPopup date={easyDate} reason={reason} isStreet={isStreet} station={station} />);
+    root.render(
+      <OnHoverElevatorPopup
+        date={easyToReadDate(props.outageDate)}
+        reason={props.reason}
+        isStreet={matchingElevatorFeature.properties.isStreet}
+        station={matchingElevatorFeature.properties.title}
+      />
+    );
 
-    popupTimeout = setTimeout(() => {
-    onHoverPopupRef
-      .setLngLat(coordinates)
-      .setDOMContent(popupDiv)
-      .addTo(mapRef);
-    }, 50);
+    const showPopup = () => {
+      onHoverPopupRef
+        .setLngLat(coordinates)
+        .setDOMContent(popupDiv)
+        .addTo(mapRef);
+    };
+
+    if (isClick) {
+      showPopup(); // immediate on tap
+    } else {
+      popupTimeout = setTimeout(showPopup, 50); // slight delay on hover
+    }
   }
 
   return hoveredFeatureId;
 }
+
