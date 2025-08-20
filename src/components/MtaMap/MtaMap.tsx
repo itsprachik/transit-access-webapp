@@ -5,7 +5,7 @@ import { fetchOutages } from "@/api/fetchOutages";
 import dotenv from "dotenv";
 import {
   getOutElevatorData,
-  getUpcomingElevatorData,
+  updateUpcomingOutagesLayer,
   updateOutageLayer,
   updateStationOutageLayer,
   updateStationComplexLayer,
@@ -23,11 +23,15 @@ import {
 } from "./layers/CurrentOutages/currentOutagesProps";
 import { stationComplexProps } from "./layers/StationComplexes/stationComplexesProps";
 import { complexBoundaryProps } from "./layers/StationComplexes/complexBoundariesProps";
+import { upcomingOutageProps } from "./layers/UpcomingOutages/upcomingOutagesProps";
 import {
   handleOnClick,
+  handleMouseLeave,
+  handleMouseMove,
   handleSearchPopup,
   initializeMtaMap,
   cleanUpPopups,
+  removeHoverPopup
 } from "./handlerFunctions";
 import {
   getStationOutageArray,
@@ -36,11 +40,7 @@ import {
 } from "@/utils/dataUtils";
 import SearchBar from "../SearchBar/SearchBar";
 import { MtaStationData } from "@/utils/types";
-import {
-  Earth,
-  Globe,
-  Map
-} from "lucide-react";
+import { IoEarthSharp } from "react-icons/io5";
 import rawData from "@/resources/mta_subway_stations_all.json";
 const stationData = rawData as MtaStationData;
 
@@ -109,6 +109,17 @@ const MtaMap = () => {
   function getLatestElevatorData() {
     return elevatorDataRef.current;
   }
+
+  let hoveredFeatureId = null;
+
+  // Popup for station info
+  const onHoverPopupRef = useRef(
+    new mapboxgl.Popup({
+      closeButton: true,
+      closeOnClick: true,
+      className: "onhover-popup", // hover-popup css class
+    })
+  );
 
   const onClickPopupRef = useRef(
     new mapboxgl.Popup({
@@ -198,6 +209,11 @@ const MtaMap = () => {
       ) {
         updateStationComplexLayer(stationDataRef.current, mapRef.current);
       }
+      if (
+        mapRef.current?.getSource("upcoming-outage-data")
+      ) {
+        updateUpcomingOutagesLayer(upcomingElevatorDataRef.current, mapRef.current);
+      }
     }
     // Fetch outages on component mount
     getOutages();
@@ -216,6 +232,7 @@ const MtaMap = () => {
       mapRef.current.addSource("station-complexes", outageSourceOptions);
       mapRef.current.addSource("outage-data", outageSourceOptions);
       mapRef.current.addSource("station-outage-data", outageSourceOptions);
+      mapRef.current.addSource("upcoming-outage-data", outageSourceOptions);
 
       if (
         mapRef.current?.getSource("outage-data") &&
@@ -237,17 +254,28 @@ const MtaMap = () => {
         
       }
 
+      if (
+        mapRef.current?.getSource("upcoming-outage-data")
+      ) {
+        updateUpcomingOutagesLayer(upcomingElevatorDataRef.current, mapRef.current);
+      }
+
       // Add outage layer with icons based on isBroken property
 
       mapRef.current.addLayer(currentOutageProps);
       mapRef.current.addLayer(stationOutageProps);
       mapRef.current.addLayer(stationComplexProps);
+      mapRef.current.addLayer(upcomingOutageProps);
 
       // Moves transit elevators layer so it's not hidden by outage layer
       mapRef.current.moveLayer("stationOutages", "transit-elevators");
       mapRef.current.moveLayer(
         "mta-subway-complexes-accessible2",
         "transit-elevators"
+      );
+      mapRef.current.moveLayer(
+        "upcoming-outages",
+        "mta-subway-stations-accessible"
       );
 
       // Draw a translucent complex boundary
@@ -262,6 +290,8 @@ const MtaMap = () => {
         setZoomLevel(zoom);
       });
 
+       mapRef.current.on("click", () => removeHoverPopup(onHoverPopupRef.current));
+       mapRef.current.on("zoomstart", () => removeHoverPopup(onHoverPopupRef.current));
 
       mapRef.current?.on("click", "stationOutages", (e) => {
         e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
@@ -306,6 +336,7 @@ const MtaMap = () => {
           setZoomLevel(zoom);
         });
       });
+
 
               mapRef.current?.on("click", "mta-subway-stations-inaccessible", (e) => {
           e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
@@ -431,6 +462,30 @@ const MtaMap = () => {
           lastUpdatedRef.current,     
         );
       });
+
+      // On hover event
+      mapRef.current?.on("mousemove", "upcoming-outages", (e) => {
+        const currentZoom = mapRef.current.getZoom();
+        if (currentZoom < 17) {
+          hoveredFeatureId = handleMouseMove(
+            e,
+            hoveredFeatureId,
+            mapRef.current,
+            onHoverPopupRef.current
+          );
+        }
+      });
+
+      mapRef.current?.on("mouseleave", "upcoming-outages", (e) => {
+        const currentZoom = mapRef.current.getZoom();
+        if (currentZoom < 17) {
+          hoveredFeatureId = handleMouseLeave(
+            hoveredFeatureId,
+            mapRef.current,
+            onHoverPopupRef.current
+          );
+        }
+      });
     });
 
     // Set up an interval to fetch outages every 30 seconds.
@@ -506,7 +561,7 @@ const MtaMap = () => {
             }
           }}
         >
-          <Earth /> Return to Map
+          <IoEarthSharp size={20} /> Return to Map
         </button>
       )}
       <>

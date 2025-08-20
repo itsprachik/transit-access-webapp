@@ -17,6 +17,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "dotenv": "^16.4.5",
+    "focus-trap": "^7.6.5",
     "keen-slider": "^6.8.6",
     "lucide-react": "^0.525.0",
     "mapbox-gl": "^3.4.0",

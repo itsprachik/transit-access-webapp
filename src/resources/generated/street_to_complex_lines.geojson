@@ -4390,7 +4390,7 @@
         "complex_id": "269",
         "elevator_no": "EL485",
         "station_name": "Northern Blvd",
-        "ada": "2",
+        "ada": "1",
         "side": "left"
       }
     },
@@ -4446,8 +4446,8 @@
         "type": "LineString",
         "coordinates": [
           [
-            -74.03133333333334,
-            40.6161111
+            -74.03097600000001,
+            40.616622
           ],
           [
             -74.030876,
@@ -4461,6 +4461,29 @@
         "station_name": "Bay Ridge-95 St",
         "ada": "1",
         "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.90511111111111,
+            40.7526389
+          ],
+          [
+            -73.906006,
+            40.752885
+          ]
+        ]
+      },
+      "properties": {
+        "complex_id": "269",
+        "elevator_no": "EL486",
+        "station_name": "Northern Blvd",
+        "ada": "1",
+        "side": "right"
       }
     }
   ]

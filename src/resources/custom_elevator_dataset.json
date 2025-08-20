@@ -123,7 +123,7 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "0",
+        "isRedundant": "1",
         "elevatorgtfsstopid": "D17/R17",
         "route": "B D F M N Q R W",
         "complexID": "607",
@@ -2702,7 +2702,7 @@
         "ada": "1",
         "isBroken": "",
         "shortdescription": "Street to Manhattan-bound platform",
-        "description_custom": "This elevator gets you from the street directly to Manahttan-bound M/J/Z trains"
+        "description_custom": "This elevator gets you from the street directly to Manhattan-bound M/J/Z trains"
       },
       "geometry": {
         "coordinates": [
@@ -4703,7 +4703,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Manhattan-bound platform",
-        "description_custom": "This elevator gets you from the main station mezzanine to Manahttan-bound E/F/M/R trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to Manhahttan-bound E/F/M/R trains"
       },
       "geometry": {
         "coordinates": [
@@ -11917,12 +11917,12 @@
         "linesServed": "M/R",
         "directionLabel": "Forest Hills-bound",
         "title": "Northern Blvd",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Northern_EL485.jpg",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Northern-Blvd_EL485.jpg",
         "alternativeRoute": "If you are on the street:  \nTake a Maspeth/Grand Av-bound Q18 bus to 65 Pl and transfer to a Jamaica/Archer Av-bound Q60 bus to 71 Av for access to Forest Hills-71 Av E/F/M/R station.  \nOr, take a Flushing/Main St-bound Q66 bus (Northern Blvd & 54 St) to 101 St. Continue one block east to 102 St to transfer to a Forest Hills-bound Q23 bus to 108 St and Queens Blvd for access to Forest Hills-71 Av E/F/M/R station.  \n\nIf you are on the platform:  \nTake a Forest Hills-bound M or R train to Forest Hills-71 Av and use elevators to exit the station.  \nThen, either:  \nTake an East Midtown-bound Q60 bus (Queens Blvd and 108 St) to 65 Pl and transfer to an Astoria-bound Q18 bus to 54 St and Northern Blvd.  \nOr,  \nTake an East Elmhurst-bound Q23 bus (70 Rd and 108 St) to Northern Blvd and 103 St. Continue one block west to 102 St for a Woodside-bound Q66 bus to Broadway.\n\nEffective June 29, 2025: \nIf you are on the street:  \nTake a Maspeth/Grand Av-bound Q18 bus to 65 Pl and transfer to a Jamaica-bound Q60 bus to 71 Av for access to Forest Hills-71 Av E/F/M/R station.  \nOr, take a Flushing/Main St-bound Q63 or Q66 bus (Northern Blvd & 54 St) to 109 St. Continue one block west to 108 St to transfer to a Forest Hills-bound Q23 bus to 108 St and Queens Blvd for access to Forest Hills-71 Av E/F/M/R station.  \n\nIf you are on the platform:  \nTake a Forest Hills-bound M or R train to Forest Hills-71 Av and use elevators to exit the station.  \nThen, either:  \nTake an Manhattan-bound Q60 bus (Queens Blvd and 108 St) to 65 Pl and transfer to an Astoria-bound Q18 bus to 54 St and Northern Blvd.  \nOr,  \nTake an East Elmhurst-bound Q23 bus (70 Rd and 108 St) to Northern Blvd and 108 St. Transfer to a Long Island City-bound Q63 or Q66 bus to Broadway.",
-        "ada": "2",
+        "ada": "1",
         "isBroken": "",
         "shortdescription": "Street to Forest Hills-bound platform",
-        "description_custom": "This elevator gets you from the street to Forest Hills-bound M/R trains"
+        "description_custom": "This elevator gets you from the street directly to Forest Hills-bound M/R trains"
       },
       "geometry": {
         "coordinates": [
@@ -12107,11 +12107,41 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.03133333333334,
-          40.6161111
+          -74.03097600000001,
+          40.616622
         ]
       },
-      "id": "39c839d62c6723bb9d4e946b967989ae"
+      "id": "6fedcaa2b80ada5cf173dba80a837883"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "G16",
+        "route": "M/R",
+        "complexID": "269",
+        "stationID": "269",
+        "system": "nyc_mta",
+        "elevatorno": "EL486",
+        "linesServed": "M/R",
+        "directionLabel": "Manhattan-bound",
+        "title": "Northern Blvd",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Northern-Blvd_EL486.jpg",
+        "alternativeRoute": "If you are on the street:\nTake a Long Island City-bound Q63 bus (Northern Blvd and Broadway) to Jackson Av and Queens Plaza S for Queens Plaza E/M/R.\n \nIf you are on the platform: \nTake any train to Queens Plaza. Exit the station and cross Jackson Av to board a Flushing-bound Q63 bus (Jackson Av and Queens Blvd) to Northern Blvd and 54 St.\n",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "true",
+        "shortdescription": "Street to Manhattan-bound platform",
+        "description_custom": "This elevator gets you from the street directly to Manhattan-bound M/R trains"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.90511111111111,
+          40.7526389
+        ]
+      },
+      "id": "c5871313ac18d727136bf8228b3608c5"
     }
   ],
   "type": "FeatureCollection"

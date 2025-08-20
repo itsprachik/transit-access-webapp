@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { getAverageElevatorCoordinates } from "@/utils/dataUtils";
 import customDataset from "@/resources/custom_elevator_dataset.json";
 import { MtaStationFeature, MtaStationData } from "@/utils/types";
+import { setManhattanTilt } from "../MtaMap/mtaMapOptions";
 
 interface SearchBarProps {
   data: MtaStationData;
@@ -196,6 +197,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         center: center,
         zoom: 15,
         pitch: 0,
+        bearing: selectedStation[0].properties.borough == "M" ? setManhattanTilt() : 0,
         speed: 1.8,
       });
     }

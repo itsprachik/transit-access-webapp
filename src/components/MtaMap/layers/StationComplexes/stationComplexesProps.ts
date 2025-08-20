@@ -11,7 +11,7 @@ export const stationComplexProps = {
   layout: {
     "text-size": 12,
     "text-radial-offset": 1.5,
-    "text-allow-overlap": true,
+    "text-allow-overlap": ["step", ["zoom"], false, elevatorView, true],
     "symbol-sort-key": 10,
     "symbol-z-order": "auto",
     "text-variable-anchor": ["bottom", "right", "top", "left"],
@@ -26,7 +26,7 @@ export const stationComplexProps = {
       "border-dot-13", // Default in case of missing data
     ],
 "text-font": ["Montserrat Bold", "Arial Unicode MS Regular"],
-        "icon-allow-overlap": ["step", ["zoom"], false, elevatorView, true],
+        "icon-allow-overlap": ["step", ["zoom"], true, elevatorView-2, true],
         "icon-size": [
           "step",
           ["zoom"],
@@ -40,7 +40,7 @@ export const stationComplexProps = {
           14,
           0.7,
           15,
-          1.5,
+          2,
           16,
           2.2,
           17,
@@ -51,8 +51,8 @@ export const stationComplexProps = {
       },
       "paint": {
         "text-halo-color": "#ffffff",
-        "text-halo-width": 50,
-        "text-halo-blur": 50,
+        "text-halo-width": 2,
+        "text-halo-blur": 1,
         "text-translate": [
           "step",
           ["zoom"],
@@ -60,9 +60,7 @@ export const stationComplexProps = {
           17,
           ["literal", [0, 5]]
         ],
-        "text-opacity": ["step", ["zoom"], 0, 15, 1],
-        "icon-opacity": ["step", ["zoom"], 0, 15, 1]
+        "text-opacity": ["step", ["zoom"], 0, elevatorView-1, 1],
+        "icon-opacity": ["step", ["zoom"], 0, elevatorView-1, 1]
       },
-  //sprite:
-   // "mapbox://sprites/joelaaron/clndls6cm07rp01mae34gd2oo/ehu96mappgo0oqnlwfjrnz4ta", // Sprite URL
 };

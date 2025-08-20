@@ -3,6 +3,7 @@ import mapboxgl from "mapbox-gl";
 import { getMtaMapOptions } from "./mtaMapOptions";
 import React from "react";
 import { createRoot, type Root } from "react-dom/client";
+import { createFocusTrap } from "focus-trap";
 
 // DATASETS
 import customDataset from "@/resources/custom_elevator_dataset.json";
@@ -23,7 +24,8 @@ import {
   concatenateInaccessibleRoutes,
   getStationOutageLayerFeatures,
   getComplexOutageLayerFeatures,
-  convertDateDistance
+  convertDateDistance,
+  easyToReadDate
 } from "@/utils/dataUtils";
 import { stationIDToComplexID } from "@/utils/elevatorIndexUtils";
 
@@ -32,6 +34,7 @@ import ElevatorPopup, {
   OnHoverElevatorPopup,
 } from "../ElevatorPopup/ElevatorPopup";
 import StationComplexPopup from "../StationPopup/StationPopup";
+import { formatDate } from "date-fns";
 
 let currentPopup: mapboxgl.Popup | null = null;
 let currentPopupRoot: Root | null = null;
@@ -41,7 +44,7 @@ export function setMapPitch(pitch: any) {
 }
 
 export const initializeMtaMap = (mapRef, mapContainer) => {
-  const mapRefPitch = setMapPitch(60);
+  const mapRefPitch = setMapPitch(0);
   const mtaMapOptions = getMtaMapOptions(mapContainer.current, mapRefPitch);
 
   mapRef.current = new mapboxgl.Map(mtaMapOptions);
@@ -69,19 +72,91 @@ export const initializeMtaMap = (mapRef, mapContainer) => {
   mapRef.current.addControl(geolocateControl, "bottom-right");
 };
 
-function showPopup(coordinates, mapRef, popupRef, popupDiv, root) {
-  popupRef.current
-    .setLngLat(coordinates)
-    .setDOMContent(popupDiv)
-    .addTo(mapRef);
+let lastFocusedElementBeforePopup: HTMLElement | null = null;
 
-  // Track current root and popup
+export function showPopup(
+  coordinates: mapboxgl.LngLatLike,
+  mapRef: mapboxgl.Map,
+  popupRef: React.RefObject<mapboxgl.Popup>,
+  popupDiv: HTMLElement,
+  root: { unmount: () => void }
+) {
+  // Store what had focus before opening
+  lastFocusedElementBeforePopup =
+    document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null;
+
+  // Make popup accessible
+  popupDiv.setAttribute("role", "dialog");
+  popupDiv.setAttribute("aria-modal", "true");
+  popupDiv.tabIndex = -1; // Make the container focusable
+
+  // Add popup to map
+  if (!popupRef.current) return;
+  popupRef.current.setLngLat(coordinates).setDOMContent(popupDiv).addTo(mapRef);
+
+  // Remove previous popup
   if (currentPopup) currentPopup.remove();
   if (currentPopupRoot) currentPopupRoot.unmount();
 
   currentPopup = popupRef.current;
   currentPopupRoot = root;
+
+  // Focus trap setup
+  const focusableSelectors =
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+  const focusableEls: HTMLElement[] = Array.from(
+    popupDiv.querySelectorAll<HTMLElement>(focusableSelectors)
+  );
+
+  function trapFocus(e: KeyboardEvent) {
+    if (e.key !== "Tab") return;
+
+    // Only include elements that can be focused
+    const focusable = focusableEls.filter(
+      (el) => !("disabled" in el && (el as HTMLButtonElement).disabled)
+    );
+    if (!focusable.length) return;
+
+    const firstEl = focusable[0];
+    const lastEl = focusable[focusable.length - 1];
+
+    if (e.shiftKey) {
+      // Shift + Tab
+      if (document.activeElement === firstEl) {
+        e.preventDefault();
+        lastEl.focus();
+      }
+    } else {
+      // Tab
+      if (document.activeElement === lastEl) {
+        e.preventDefault();
+        firstEl.focus();
+      }
+    }
+  }
+
+  popupDiv.addEventListener("keydown", trapFocus);
+
+  // Move focus into popup
+  if (focusableEls.length) {
+    focusableEls[0].focus();
+  } else {
+    popupDiv.focus();
+  }
+
+  // Cleanup function when popup closes
+  function cleanup() {
+    popupDiv.removeEventListener("keydown", trapFocus);
+    if (lastFocusedElementBeforePopup) lastFocusedElementBeforePopup.focus();
+  }
+
+  // Listen for close event from Mapbox popup
+  popupRef.current.on("close", cleanup);
 }
+
+
 
 export function cleanUpPopups() {
   // clean up any old popups
@@ -305,10 +380,10 @@ function handleStationComplexClick(
   // flyIn expects either coords or bounds depending on accessibility (coords for inaccessible, bounds for elevators)
   if (ada === "0") {
     // Inaccessible → flyTo the adjustedCenter point. false for popupFlag (there's no popup)
-    flyIn(mapRef, complex_id, average, false, false, stationView, setStationView);
+    flyIn(mapRef, stationIDs, complex_id, average, false, false, stationView, setStationView);
   } else {
       // Accessible → fit bounds. true for popup flag (there's a popup)
-      flyIn(mapRef, complex_id, bounds, true, true, stationView, setStationView);
+      flyIn(mapRef, stationIDs, complex_id, bounds, true, true, stationView, setStationView);
   }
   // Popup render
   root.render(
@@ -535,7 +610,7 @@ export function handleOnClick(
 
     handleElevatorClick(root, elevatorFeature, elevatorData, upcomingElevatorData, lastUpdated);
     showPopup(
-      matchingElevator.geometry.coordinates,
+      matchingElevator.geometry.coordinates as [number, number],
       mapRef,
       onClickPopupRef,
       popupDiv,
@@ -580,7 +655,7 @@ export function handleOnClick(
 
     handleStationComplexClick(root, dynamicComplexFeature, mapRef, elevatorData, upcomingElevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle, lastUpdated);
     showPopup(
-      complexFeature.geometry.coordinates,
+      complexFeature.geometry.coordinates as [number, number],
       mapRef,
       onClickPopupRef,
       popupDiv,
@@ -611,9 +686,110 @@ export function handleOnClick(
 
   if (layerId === "mta-subway-stations-inaccessible" || layerId === "mta-subway-stations-inaccessible-icon2") {
     const complexFeature = handleStationClick(feature);
-    handleStationComplexClick(root, complexFeature, mapRef, elevatorData, upcomingElevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle, lastUpdated);
+    const dynamicComplexFeature = addDynamicProperties(complexFeature, stationData);
+    handleStationComplexClick(root, dynamicComplexFeature, mapRef, elevatorData, upcomingElevatorData, stationView, setStationView, elevatorView, setElevatorView, show3DToggle, setShow3DToggle, lastUpdated);
     showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
   }
 
   return;
+}
+
+// HOVER POPUP STUFF
+
+export function removeHoverPopup(onHoverPopupRef: any) {
+  if (onHoverPopupRef) {
+    onHoverPopupRef.remove();
+  }
+}
+
+let popupTimeout: NodeJS.Timeout | null = null;
+
+export function handleMouseLeave(
+  hoveredFeatureId: any,
+  mapRef: any,
+  onHoverPopupRef: any
+) {
+  if (hoveredFeatureId !== null) {
+    mapRef.setFeatureState(
+      {
+        source: "upcoming-outage-data",
+        id: hoveredFeatureId,
+      },
+      { hover: false }
+    );
+  }
+  hoveredFeatureId = null;
+
+  // Clear any previous timers
+  if (popupTimeout) {
+    clearTimeout(popupTimeout);
+  }
+
+  // Delay removal a little 
+  popupTimeout = setTimeout(() => {
+    removeHoverPopup(onHoverPopupRef);
+  }, 50);
+
+  return hoveredFeatureId;
+}
+
+export function handleMouseMove(
+  e: any,
+  hoveredFeatureId: any,
+  mapRef: any,
+  onHoverPopupRef: any
+) {
+  if (popupTimeout) {
+    clearTimeout(popupTimeout); // cancel pending removal if mouse comes back
+    popupTimeout = null;
+  }
+
+  if (e.features.length > 0) {
+    e.originalEvent.cancelBubble = true;
+    if (hoveredFeatureId !== null) {
+      mapRef.setFeatureState(
+        {
+          source: "upcoming-outage-data",
+          id: hoveredFeatureId,
+        },
+        { hover: false }
+      );
+    }
+
+    hoveredFeatureId = e.features[0].layer.id;
+
+    mapRef.setFeatureState(
+      {
+        source: "upcoming-outage-data",
+        id: hoveredFeatureId,
+      },
+      { hover: true }
+    );
+
+    const reason = e.features[0].properties.reason;
+    const date = e.features[0].properties.outageDate;
+    const matchingElevatorFeature = getElevatorByNo(e.features[0].properties.elevatorno);
+    const isStreet = matchingElevatorFeature.properties.isStreet;
+    const station = matchingElevatorFeature.properties.title;
+    const easyDate = easyToReadDate(date);
+    const returntoservice = e.features[0].properties.estimatedreturntoservice;
+    const coordinates = e.features[0].geometry.coordinates.slice();
+
+    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    }
+
+    const popupDiv = document.createElement("div");
+    const root = createRoot(popupDiv);
+    root.render(<OnHoverElevatorPopup date={easyDate} reason={reason} isStreet={isStreet} station={station} />);
+
+    popupTimeout = setTimeout(() => {
+    onHoverPopupRef
+      .setLngLat(coordinates)
+      .setDOMContent(popupDiv)
+      .addTo(mapRef);
+    }, 50);
+  }
+
+  return hoveredFeatureId;
 }

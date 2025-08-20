@@ -5964,8 +5964,23 @@
       },
       "geometry": {
         "coordinates": [
-          -74.03133333333334,
-          40.6161111
+          -74.03097600000001,
+          40.616622
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "EL486",
+      "properties": {
+        "elevatorno": "EL486",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.90511111111111,
+          40.7526389
         ],
         "type": "Point"
       }

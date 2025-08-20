@@ -88,3 +88,35 @@
   font-weight: 400;
   color: #cccccc;
 }
+
+.header {
+  align-self: center;
+  justify-items: center;
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.upcoming {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #4d0404;
+  display: inline-flex;
+  flex-direction: column;
+  background-color: #f6dcda;
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.5rem;
+  width: max-content;        /* only as wide as text */
+  max-width: 100%;            /* prevent overflow if text is very long */
+  z-index: 9;
+}
+
+.popupSubtitle {
+  text-transform: lowercase;
+  font-variant: small-caps;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.date {
+  font-style: italic;
+}
