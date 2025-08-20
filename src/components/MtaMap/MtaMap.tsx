@@ -27,11 +27,11 @@ import { upcomingOutageProps } from "./layers/UpcomingOutages/upcomingOutagesPro
 import {
   handleOnClick,
   handleMouseLeave,
-  handleMouseMove,
+  handlePopupEvent,
   handleSearchPopup,
   initializeMtaMap,
   cleanUpPopups,
-  removeHoverPopup
+  removeHoverPopup,
 } from "./handlerFunctions";
 import {
   getStationOutageArray,
@@ -58,7 +58,8 @@ const MtaMap = () => {
   // have to use hybrid state and ref (ref to keep stable data, state to re-render)
   const [elevatorDataState, setElevatorDataState] = useState(null);
   const elevatorDataRef = useRef(null);
-  const [upcomingElevatorDataState, setUpcomingElevatorDataState] = useState(null);
+  const [upcomingElevatorDataState, setUpcomingElevatorDataState] =
+    useState(null);
   const upcomingElevatorDataRef = useRef(null);
   const [elevatorRawDataState, setElevatorRawData] = useState(null);
   const elevatorRawDataRef = useRef(null);
@@ -141,7 +142,7 @@ const MtaMap = () => {
     setElevatorView,
     show3DToggle,
     setShow3DToggle,
-    lastUpdated,
+    lastUpdated
   ) => {
     handleSearchPopup(
       feature,
@@ -156,15 +157,15 @@ const MtaMap = () => {
       setElevatorView,
       show3DToggle,
       setShow3DToggle,
-      lastUpdated,
+      lastUpdated
     );
   };
 
   useEffect(() => {
     async function getOutages() {
       const data = await fetchOutages(apiKey);
-      const currentData = data.filter(el => el.isupcomingoutage==="N");
-      const upcomingData = data.filter(el => el.isupcomingoutage==="Y");
+      const currentData = data.filter((el) => el.isupcomingoutage === "N");
+      const upcomingData = data.filter((el) => el.isupcomingoutage === "Y");
       setElevatorRawData(currentData);
       elevatorRawDataRef.current = currentData;
 
@@ -209,10 +210,11 @@ const MtaMap = () => {
       ) {
         updateStationComplexLayer(stationDataRef.current, mapRef.current);
       }
-      if (
-        mapRef.current?.getSource("upcoming-outage-data")
-      ) {
-        updateUpcomingOutagesLayer(upcomingElevatorDataRef.current, mapRef.current);
+      if (mapRef.current?.getSource("upcoming-outage-data")) {
+        updateUpcomingOutagesLayer(
+          upcomingElevatorDataRef.current,
+          mapRef.current
+        );
       }
     }
     // Fetch outages on component mount
@@ -222,7 +224,6 @@ const MtaMap = () => {
     initializeMtaMap(mapRef, mapContainer);
 
     mapRef.current?.on("load", () => {
-      
       mapRef.current.setLayoutProperty(
         "transit-elevators",
         "visibility",
@@ -251,13 +252,13 @@ const MtaMap = () => {
         stationDataRef.current
       ) {
         updateStationComplexLayer(stationDataRef.current, mapRef.current);
-        
       }
 
-      if (
-        mapRef.current?.getSource("upcoming-outage-data")
-      ) {
-        updateUpcomingOutagesLayer(upcomingElevatorDataRef.current, mapRef.current);
+      if (mapRef.current?.getSource("upcoming-outage-data")) {
+        updateUpcomingOutagesLayer(
+          upcomingElevatorDataRef.current,
+          mapRef.current
+        );
       }
 
       // Add outage layer with icons based on isBroken property
@@ -290,202 +291,159 @@ const MtaMap = () => {
         setZoomLevel(zoom);
       });
 
-       mapRef.current.on("click", () => removeHoverPopup(onHoverPopupRef.current));
-       mapRef.current.on("zoomstart", () => removeHoverPopup(onHoverPopupRef.current));
+      mapRef.current.on("click", () =>
+        removeHoverPopup(onHoverPopupRef.current)
+      );
+      mapRef.current.on("zoomstart", () =>
+        removeHoverPopup(onHoverPopupRef.current)
+      );
 
-      mapRef.current?.on("click", "stationOutages", (e) => {
-        e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
-        handleOnClick(
-          e,
-          onClickPopupRef,
-          mapRef.current,
-          getLatestElevatorData(),
-          upcomingElevatorDataRef.current,
-          stationDataRef.current,
-          stationView,
-          setStationView,
-          elevatorView,
-          setElevatorView,
-          show3DToggle,
-          setShow3DToggle,
-          lastUpdatedRef.current,
-        );
-      });
+      const priority = [
+        "upcoming-outages",
+        "stationOutages",
+        "mta-subway-stations-accessible",
+        "mta-subway-complexes-accessible2",
+        "transit-elevators",
+        "outages",
+        "mta-subway-stations-inaccessible",
+      ];
 
-      mapRef.current?.on("click", "mta-subway-stations-accessible", (e) => {
-        e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
-        handleOnClick(
-          e,
-          onClickPopupRef,
-          mapRef.current,
-          getLatestElevatorData(),
-          upcomingElevatorDataRef.current,
-          stationDataRef.current,
-          stationView,
-          setStationView,
-          elevatorView,
-          setElevatorView,
-          show3DToggle,
-          setShow3DToggle,
-          lastUpdatedRef.current,         
-        );
-
-        // Track zoom level
-        mapRef.current.on("zoom", () => {
-          const zoom = mapRef.current.getZoom();
-          setZoomLevel(zoom);
+      // One click listener for all interactive layers
+      mapRef.current?.on("click", (e) => {
+        const features = mapRef.current?.queryRenderedFeatures(e.point, {
+          layers: priority,
         });
-      });
 
-
-              mapRef.current?.on("click", "mta-subway-stations-inaccessible", (e) => {
-          e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
-          handleOnClick(
-            e,
-            onClickPopupRef,
-            mapRef.current,
-            getLatestElevatorData(),
-            upcomingElevatorDataRef.current,
-            stationDataRef.current,
-            stationView,
-            setStationView,
-            elevatorView,
-            setElevatorView,
-            show3DToggle,
-            setShow3DToggle,
-            lastUpdatedRef.current,         
-          );
-
-        // Track zoom level
-        mapRef.current.on("zoom", () => {
-          const zoom = mapRef.current.getZoom();
-          setZoomLevel(zoom);
-        });
-      });
-
-      mapRef.current?.on("click", "mta-subway-stations-inaccessible-icon2", (e) => {
-        e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
-        handleOnClick(
-          e,
-          onClickPopupRef,
-          mapRef.current,
-          getLatestElevatorData(),
-          upcomingElevatorDataRef.current,
-          stationDataRef.current,
-          stationView,
-          setStationView,
-          elevatorView,
-          setElevatorView,
-          show3DToggle,
-          setShow3DToggle,
-          lastUpdatedRef.current,         
-        );
-
-      // Track zoom level
-      mapRef.current.on("zoom", () => {
-        const zoom = mapRef.current.getZoom();
-        setZoomLevel(zoom);
-      });
-    });
-
-      //  Click event to display station pop-up
-      mapRef.current?.on("click", "mta-subway-complexes-accessible2", (e) => {
-        const currentZoom = mapRef.current.getZoom();
-        if (currentZoom > 15) {
-          let confirmedClick = dealWithMapboxIconOverlap(e);
-          handleOnClick(
-            confirmedClick,
-            onClickPopupRef,
-            mapRef.current,
-            getLatestElevatorData(),
-            upcomingElevatorDataRef.current,
-            stationDataRef.current,
-            stationView,
-            setStationView,
-            elevatorView,
-            setElevatorView,
-            show3DToggle,
-            setShow3DToggle,
-            lastUpdatedRef.current,         
-          );
+        // choose the highest priority feature
+        function pickTopFeature(features) {
+          return features.sort((a, b) => {
+            const aIdx = priority.indexOf(a.layer.id);
+            const bIdx = priority.indexOf(b.layer.id);
+            return aIdx - bIdx; // lower index = higher priority
+          })[0];
         }
 
-        // Track zoom level
-        mapRef.current.on("zoom", () => {
-          const zoom = mapRef.current.getZoom();
-          setZoomLevel(zoom);
-        });
+        const prioritizedFeature = pickTopFeature(features);
+
+        if (!features || !features.length) return;
+
+        // Mutate the event object to look like a layer-specific event
+        const augmentedEvent = {
+          ...e,
+          features: [prioritizedFeature],
+        };
+
+        const layerId = prioritizedFeature.layer.id;
+
+        switch (layerId) {
+          case "stationOutages":
+          case "mta-subway-stations-accessible":
+          case "mta-subway-stations-inaccessible":
+          case "mta-subway-stations-inaccessible-icon2":
+            handleOnClick(
+              augmentedEvent,
+              onClickPopupRef,
+              mapRef.current,
+              getLatestElevatorData(),
+              upcomingElevatorDataRef.current,
+              stationDataRef.current,
+              stationView,
+              setStationView,
+              elevatorView,
+              setElevatorView,
+              show3DToggle,
+              setShow3DToggle,
+              lastUpdatedRef.current
+            );
+            break;
+
+          case "mta-subway-complexes-accessible2":
+            if (mapRef.current.getZoom() > 15) {
+              let confirmedClick = dealWithMapboxIconOverlap(augmentedEvent);
+              handleOnClick(
+                confirmedClick,
+                onClickPopupRef,
+                mapRef.current,
+                getLatestElevatorData(),
+                upcomingElevatorDataRef.current,
+                stationDataRef.current,
+                stationView,
+                setStationView,
+                elevatorView,
+                setElevatorView,
+                show3DToggle,
+                setShow3DToggle,
+                lastUpdatedRef.current
+              );
+            }
+            break;
+
+          case "transit-elevators":
+          case "outages":
+            if ((mapRef.current?.getZoom?.() || 0) >= 15) {
+              handleOnClick(
+                augmentedEvent,
+                onClickPopupRef,
+                mapRef.current,
+                getLatestElevatorData(),
+                upcomingElevatorDataRef.current,
+                stationDataRef.current,
+                stationView,
+                setStationView,
+                elevatorView,
+                setElevatorView,
+                show3DToggle,
+                setShow3DToggle,
+                lastUpdatedRef.current
+              );
+            }
+            break;
+
+          case "upcoming-outages":
+            if (isTouch) {
+              let confirmedClick = dealWithMapboxIconOverlap(augmentedEvent);
+              hoveredFeatureId = handlePopupEvent(
+                confirmedClick,
+                hoveredFeatureId,
+                mapRef.current,
+                onHoverPopupRef.current,
+                true
+              );
+            }
+            break;
+
+          default:
+            break;
+        }
       });
-      //  Click event to display elevator pop-up
-      mapRef.current?.on("click", "transit-elevators", (e) => {
-      //  if (!stationView) return; // if we're not in stationView, don't talk to me
 
-        const zoom = mapRef.current?.getZoom?.() || 0;
-        if (zoom < 15) return;
-
-        e.originalEvent.cancelBubble = true; // Don't click one layer when you meant the other
-        handleOnClick(
-          e,
-          onClickPopupRef,
-          mapRef.current,
-          getLatestElevatorData(),
-          upcomingElevatorDataRef.current,
-          stationDataRef.current,
-          stationView,
-          setStationView,
-          elevatorView,
-          setElevatorView,
-          show3DToggle,
-          setShow3DToggle,
-          lastUpdatedRef.current,        
-        );
+      // Track zoom level separately (one global listener)
+      mapRef.current?.on("zoom", () => {
+        setZoomLevel(mapRef.current?.getZoom() ?? 0);
       });
 
-      mapRef.current?.on("click", "outages", (e) => {
-      //  if (!stationView) return; // if we're not in stationView, don't talk to me
+      const isTouch = navigator.maxTouchPoints > 0;
 
-        const zoom = mapRef.current?.getZoom?.() || 0;
-        if (zoom < 15) return;
-        handleOnClick(
-          e,
-          onClickPopupRef,
-          mapRef.current,
-          getLatestElevatorData(),
-          upcomingElevatorDataRef.current,
-          stationDataRef.current,
-          stationView,
-          setStationView,
-          elevatorView,
-          setElevatorView,
-          show3DToggle,
-          setShow3DToggle,
-          lastUpdatedRef.current,     
-        );
-      });
-
-      // On hover event
-      mapRef.current?.on("mousemove", "upcoming-outages", (e) => {
-        const currentZoom = mapRef.current.getZoom();
-        if (currentZoom < 17) {
-          hoveredFeatureId = handleMouseMove(
+      // Hover logic remains separate for non-touch
+      if (!isTouch) {
+        mapRef.current.on("mousemove", "upcoming-outages", (e) => {
+          hoveredFeatureId = handlePopupEvent(
             e,
             hoveredFeatureId,
             mapRef.current,
-            onHoverPopupRef.current
+            onHoverPopupRef.current,
+            false
           );
-        }
-      });
+        });
 
-      mapRef.current?.on("mouseleave", "upcoming-outages", (e) => {
-        const currentZoom = mapRef.current.getZoom();
-        if (currentZoom < 17) {
+        mapRef.current.on("mouseleave", "upcoming-outages", () => {
           hoveredFeatureId = handleMouseLeave(
             hoveredFeatureId,
             mapRef.current,
             onHoverPopupRef.current
           );
-        }
-      });
+        });
+      }
     });
 
     // Set up an interval to fetch outages every 30 seconds.
@@ -514,7 +472,7 @@ const MtaMap = () => {
             setElevatorView,
             show3DToggle,
             setShow3DToggle,
-            lastUpdatedRef.current,   
+            lastUpdatedRef.current
           );
         }}
       />
@@ -568,19 +526,22 @@ const MtaMap = () => {
         {/* Toggle floating on top of map, outside popup */}
         {show3DToggle && elevatorView && (
           <div className="show-3d-button-wrapper">
-  <Switch
-    defaultChecked
-    onCheckedChange={(checked) => {
-      if (!mapRef.current) return;
-      const visibility = checked ? "visible" : "none";
-      if (mapRef.current.getLayer("building-extrusion")) {
-        mapRef.current.setLayoutProperty("building-extrusion", "visibility", visibility);
-      }
-    }}
-  />
-  <span className="show-3d-button-label">Show 3D Buildings</span>
-</div>
-
+            <Switch
+              defaultChecked
+              onCheckedChange={(checked) => {
+                if (!mapRef.current) return;
+                const visibility = checked ? "visible" : "none";
+                if (mapRef.current.getLayer("building-extrusion")) {
+                  mapRef.current.setLayoutProperty(
+                    "building-extrusion",
+                    "visibility",
+                    visibility
+                  );
+                }
+              }}
+            />
+            <span className="show-3d-button-label">Show 3D Buildings</span>
+          </div>
         )}
       </>
     </>
