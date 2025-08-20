@@ -463,29 +463,58 @@ const MtaMap = () => {
         );
       });
 
-      // On hover event
-      mapRef.current?.on("mousemove", "upcoming-outages", (e) => {
-        const currentZoom = mapRef.current.getZoom();
-        if (currentZoom < 17) {
+      // HOVER LOGIC
+      const isTouch = navigator.maxTouchPoints > 0;
+      console.log(isTouch)
+
+      if (isTouch) {
+        // Show popup on tap
+        mapRef.current?.on("click", "upcoming-outages", (e) => {
+          e.originalEvent.cancelBubble = true;
           hoveredFeatureId = handleMouseMove(
             e,
             hoveredFeatureId,
             mapRef.current,
             onHoverPopupRef.current
           );
-        }
-      });
-
-      mapRef.current?.on("mouseleave", "upcoming-outages", (e) => {
-        const currentZoom = mapRef.current.getZoom();
-        if (currentZoom < 17) {
-          hoveredFeatureId = handleMouseLeave(
-            hoveredFeatureId,
-            mapRef.current,
-            onHoverPopupRef.current
-          );
-        }
-      });
+        });
+      
+        // Remove popup if you tap elsewhere
+        mapRef.current?.on("click", (e) => {
+          if (!e.features?.length) {
+            hoveredFeatureId = handleMouseLeave(
+              hoveredFeatureId,
+              mapRef.current,
+              onHoverPopupRef.current
+            );
+          }
+        });
+      } else {
+        // Desktop hover logic
+        mapRef.current?.on("mousemove", "upcoming-outages", (e) => {
+          e.originalEvent.cancelBubble = true;
+          if (mapRef.current.getZoom() < 17) {
+            hoveredFeatureId = handleMouseMove(
+              e,
+              hoveredFeatureId,
+              mapRef.current,
+              onHoverPopupRef.current
+            );
+          }
+        });
+      
+        mapRef.current?.on("mouseleave", "upcoming-outages", (e) => {
+          e.originalEvent.cancelBubble = true;
+          if (mapRef.current.getZoom() < 17) {
+            hoveredFeatureId = handleMouseLeave(
+              hoveredFeatureId,
+              mapRef.current,
+              onHoverPopupRef.current
+            );
+          }
+        });
+      }
+      
     });
 
     // Set up an interval to fetch outages every 30 seconds.

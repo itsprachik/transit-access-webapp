@@ -699,8 +699,12 @@ export function handleOnClick(
 export function removeHoverPopup(onHoverPopupRef: any) {
   if (onHoverPopupRef) {
     onHoverPopupRef.remove();
+    if (onHoverPopupRef.hasOwnProperty("current")) {
+      onHoverPopupRef.current = null;
+    }
   }
 }
+
 
 let popupTimeout: NodeJS.Timeout | null = null;
 
@@ -744,8 +748,9 @@ export function handleMouseMove(
     popupTimeout = null;
   }
 
+  console.log(e)
+
   if (e.features.length > 0) {
-    e.originalEvent.cancelBubble = true;
     if (hoveredFeatureId !== null) {
       mapRef.setFeatureState(
         {
