@@ -560,7 +560,6 @@ export function handleOnClick(
   setShow3DToggle,
   lastUpdated,
 ) {
-  console.log(e.features)
   if (!e.features || e.features.length === 0) return;
 
   const feature = e.features[0];

@@ -293,31 +293,44 @@ const MtaMap = () => {
        mapRef.current.on("click", () => removeHoverPopup(onHoverPopupRef.current));
        mapRef.current.on("zoomstart", () => removeHoverPopup(onHoverPopupRef.current));
 
+       const priority = [
+        "upcoming-outages",
+        "stationOutages",
+        "mta-subway-stations-accessible",
+        "mta-subway-complexes-accessible2",
+        "transit-elevators",
+        "outages",
+        "mta-subway-stations-inaccessible",
+      ];
+
 // One click listener for all interactive layers
 mapRef.current?.on("click", (e) => {
   const features = mapRef.current?.queryRenderedFeatures(e.point, {
-    layers: [
-      "stationOutages",
-      "mta-subway-stations-accessible",
-      "mta-subway-stations-inaccessible",
-      "mta-subway-stations-inaccessible-icon2",
-      "mta-subway-complexes-accessible2",
-      "transit-elevators",
-      "outages",
-      "upcoming-outages"
-    ],
+    layers: priority,
   });
+
+  // choose the highest priority feature
+function pickTopFeature(features) {
+  return features.sort((a, b) => {
+    const aIdx = priority.indexOf(a.layer.id);
+    const bIdx = priority.indexOf(b.layer.id);
+    return aIdx - bIdx; // lower index = higher priority
+  })[0];
+
+  
+}
+
+const prioritizedFeature = pickTopFeature(features);
 
   if (!features || !features.length) return;
 
   // Mutate the event object to look like a layer-specific event
   const augmentedEvent = {
     ...e,
-    features, 
+    features: [prioritizedFeature], 
   };
 
-  const layerId = features[0].layer.id;
-  e.originalEvent.cancelBubble = true;
+  const layerId = prioritizedFeature.layer.id;
 
   switch (layerId) {
     case "stationOutages":
@@ -325,7 +338,7 @@ mapRef.current?.on("click", (e) => {
     case "mta-subway-stations-inaccessible":
     case "mta-subway-stations-inaccessible-icon2":
       handleOnClick(
-        augmentedEvent, // pass augmented version
+        augmentedEvent,
         onClickPopupRef,
         mapRef.current,
         getLatestElevatorData(),
