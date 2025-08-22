@@ -1,7 +1,6 @@
 import json
 import os
 import re
-import csv
 import requests
 
 # === CONFIG ===
@@ -26,6 +25,7 @@ def fetch_latest_equipment():
 
     os.makedirs(os.path.dirname(MTA_EQUIP_FILE), exist_ok=True)
     with open(MTA_EQUIP_FILE, "w", encoding="utf-8") as f:
+        f.write("// 🚨 This file is auto-generated. Do not edit manually.\n")
         json.dump(data, f, indent=2)
     print(f"Saved latest equipment data to {MTA_EQUIP_FILE}")
     return data
@@ -54,19 +54,21 @@ def infer_direction_label_from_desc(desc):
     
     return ""
 
-def load_complex_lookup(csv_path):
+def load_complex_lookup(json_path):
     lookup = {}
-    with open(csv_path, newline="", encoding="utf-8") as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            complex_id = str(row["Complex ID"])
-            try:
-                lat = float(row["Latitude"])
-                lon = float(row["Longitude"])
-                lookup[complex_id] = (lon, lat)
-            except ValueError:
-                continue
+    with open(json_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    # If the JSON is a FeatureCollection (GeoJSON-style)
+        for feature in data.get("features", []):
+            props = feature.get("properties", {})
+            complex_id = str(props.get("complex_id"))
+            coords = feature.get("geometry", {}).get("coordinates")
+            if complex_id and coords:
+                lookup[complex_id] = (coords[0], coords[1])
+
     return lookup
+
 
 # Track placement counts so we know how to offset each new one
 complex_placement_counter = {}
@@ -128,7 +130,7 @@ existing_elevators = {feature["properties"]["elevatorno"] for feature in elevato
 new_features = []
 
 # Load complex coordinates from CSV
-COMPLEX_FILE = os.path.join(THIS_DIR, "..", "..", "mta_subway_stations_and_complexes.csv")
+COMPLEX_FILE = os.path.join(THIS_DIR, "..", "..", "mta_subway_complexes.json")
 complex_lookup = load_complex_lookup(COMPLEX_FILE)
 
 # Iterate through MTA equipment list
