@@ -7,6 +7,8 @@ import { getAverageElevatorCoordinates } from "@/utils/dataUtils";
 import customDataset from "@/resources/custom_elevator_dataset.json";
 import { MtaStationFeature, MtaStationData } from "@/utils/types";
 import { setManhattanTilt } from "../MtaMap/mtaMapOptions";
+import { matchSorter } from "match-sorter";
+import { getOptions } from "./handlerFunctions";
 
 interface SearchBarProps {
   data: MtaStationData;
@@ -14,70 +16,37 @@ interface SearchBarProps {
   onStationSelect?: (feature: MtaStationFeature) => void;
 }
 
-const getLinesServedIcons = (lines: string[]) => {
-  return (
-    <>
-      {lines?.map((l: string | number, index: number) => (
-        <span
-          alt-text={l[index]}
-          key={index}
-          style={{ height: "4px !important", width: "4px !important" }}
-        >
-          {MTA_SUBWAY_LINE_ICONS_SMALL[l]}
-        </span>
-      ))}
-    </>
-  );
-};
-
-const getAdaIcon = (ada: string) => {
-  return (
-    <>
-      {ada != "0" && (
-        <>
-          <AccessibleIconWhite />
-        </>
-      )}
-    </>
-  );
-};
-
-const getIcons = (stationData, linesServed) => {
-  stationData.forEach((station) => {
-    station.icon = getLinesServedIcons(linesServed[station.gtfs_stop_id]);
-    station.ada = getAdaIcon(station.ada);
-  });
-
-  return stationData;
-};
-
-const parseLine =  (line: string) => {
-  const l = line.split('-')
-  if (l.length == 1) {
-    const l_slash = line.split('/')
-    return l_slash[0];
-  }
-  return l[0];
-}
-
 const { Option } = components;
 const CustomSelectOption = (props) => (
   <Option {...props}>
-    <div style={{ display: "flex", alignItems: "anchor-center",  }}>
-      <span style={{ fontSize: "14px", fontWeight: "600", color: "#00000", marginRight: "8px" , whiteSpace: "nowrap"}}>
+    <div style={{ display: "flex", alignItems: "anchor-center" }}>
+      <span
+        style={{
+          fontSize: "14px",
+          fontWeight: "600",
+          color: "#00000",
+          marginRight: "8px",
+          whiteSpace: "nowrap",
+        }}
+      >
         {props.data.stop_name}
       </span>
-      <span style={{ fontSize: "10px", fontWeight: "400", color: "#00051580", whiteSpace: "nowrap" }}>
+      <span
+        style={{
+          fontSize: "10px",
+          fontWeight: "400",
+          color: "#00051580",
+          whiteSpace: "nowrap",
+        }}
+      >
         {props.data.line}
       </span>
-      <span style={{marginLeft: "6px"}}>
-      {props.data.ada}
-      </span>
+      <span style={{ marginLeft: "6px" }}>{props.data.ada}</span>
     </div>
 
     <div />
     <div style={{ display: "flex", alignItems: "center" }}>
-    {props.data.icon}
+      {props.data.icon}
     </div>
   </Option>
 );
@@ -103,55 +72,14 @@ const SearchBar: React.FC<SearchBarProps> = ({
     { label: string; value: string; icon: ReactElement }[]
   >([]);
   const [selectedStation, setSelectedStation] = useState<string | null>(null);
+  const defaultOptions = getOptions(data);
 
   useEffect(() => {
-    // Extract unique station names for the search dropdown based on tbeir complex ids
-    const stationData = [];
-    const linesServed: { [key: string]: string[] } = {};
-    data.features.forEach((feature) => {
-      const station_id = feature.properties.station_id;
-      const gtfs_stop_id = feature.properties.gtfs_stop_id; // this is always unique, whereas station_id sometimes overlaps
-      const complex_id = feature.properties.complex_id;
-      const  parsedLine = parseLine(feature.properties.line)
-      stationData.push({
-        station_id: feature.properties.station_id,
-        gtfs_stop_id: gtfs_stop_id,
-        stop_name: feature.properties.stop_name,
-        complex_id: complex_id,
-        ada: feature.properties.ada,
-        line: parsedLine,
-        label: feature.properties.stop_name.concat(
-          " ",
-          feature.properties.line
-        ),
-      });
-      linesServed[gtfs_stop_id] = feature.properties.daytime_routes.split(" ");
-    });
-    const sortedStationData = stationData.sort((a, b) =>
-      a.label.localeCompare(b.label)
-    );
-
-    const stationDataWithLinesServedIcons = getIcons(
-      sortedStationData,
-      linesServed
-    );
-    setOptions(
-      stationDataWithLinesServedIcons.map((st) => ({
-        label: st.stop_name,
-        value: st.station_id,
-        icon: st.icon,
-        ada: st.ada,
-        stop_name: st.stop_name,
-        line: st.line,
-      }))
-    );
+    setOptions(defaultOptions);
   }, [data]);
-
-
 
   const handleSelect = (selected: { label: string; value: string } | null) => {
     if (!selected || !map) return;
-
     setSelectedStation(selected.value);
 
     // Find all elevators at the selected station
@@ -197,21 +125,65 @@ const SearchBar: React.FC<SearchBarProps> = ({
         center: center,
         zoom: 15,
         pitch: 0,
-        bearing: selectedStation[0].properties.borough == "M" ? setManhattanTilt() : 0,
+        bearing:
+          selectedStation[0].properties.borough == "M" ? setManhattanTilt() : 0,
         speed: 1.8,
       });
     }
   };
 
+  const handleInputChange = (inputValue: string) => {
+    if (!inputValue) {
+      setOptions(defaultOptions);
+    } else {
+      setOptions(
+        matchSorter(defaultOptions, inputValue, {
+          keys: [(item) => item.label.replace(/-/g, " ")],
+        })
+      );
+    }
+    return inputValue; // important so react-select updates its input
+  };
+
   return (
-      <StyledSelect
-        instanceId="select-box"
-        options={options}
-        isClearable
-        components={{ Option: CustomSelectOption }}
-        onChange={handleSelect}
-        placeholder="Search for a station"
-      />
+    <StyledSelect
+      instanceId="select-box"
+      options={options}
+      isClearable
+      filterOption={() => true} // disables built-in filtering, this is a fix for the lag thats introduced when custom filtering is applied
+      onInputChange={handleInputChange}
+      components={{ Option: CustomSelectOption }}
+      onChange={handleSelect}
+      placeholder="Search for a station"
+    />
+  );
+};
+
+export const getLinesServedIcons = (lines: string[]) => {
+  return (
+    <>
+      {lines?.map((l: string | number, index: number) => (
+        <span
+          alt-text={l[index]}
+          key={index}
+          style={{ height: "4px !important", width: "4px !important" }}
+        >
+          {MTA_SUBWAY_LINE_ICONS_SMALL[l]}
+        </span>
+      ))}
+    </>
+  );
+};
+
+export const getAdaIcon = (ada: string) => {
+  return (
+    <>
+      {ada != "0" && (
+        <>
+          <AccessibleIconWhite />
+        </>
+      )}
+    </>
   );
 };
 
