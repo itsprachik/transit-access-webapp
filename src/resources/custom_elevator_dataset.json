@@ -229,7 +229,8 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to uptown B/D/F/M",
-        "description_custom": "This elevator gets you from the main station mezzanine to uptown B/D/F/M trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to uptown B/D/F/M trains",
+        "access_note": "This elevator is the only accessible path to B/D/F/M trains. A non-ADA ramp leads to stairs, so it is not a secondary path"
       },
       "geometry": {
         "coordinates": [
@@ -259,7 +260,8 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to downtown B/D/F/M",
-        "description_custom": "This elevator gets you from the main station mezzanine to downtown B/D/F/M trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to downtown B/D/F/M trains",
+        "access_note": "This elevator is the only accessible path to B/D/F/M trains. A non-ADA ramp leads to stairs, so it is not a secondary path"
       },
       "geometry": {
         "coordinates": [
@@ -814,7 +816,7 @@
         "isStreet": "",
         "shortdescription": "Mezzanine to 7 & downtown 1/2/3",
         "description_custom": "This elevator gets you from the upper mezzanine to downtown 1/2/3 trains, 7 trains in both directions, and the lower mezzanine (which lets you transfer to Port Authority A/C/E underground)",
-        "access_note": "This is an extremely slow elevator. To transfer to ACE trains: Take this elevator to the lower mezzanine. Ramp between stations is a little steep (not to ADA code)"
+        "access_note": "This is an extremely slow elevator, and overcrowded at rush hour. Budget extra time. To transfer to ACE trains: Take this elevator to the lower mezzanine. Ramp between stations is a little steep (not to ADA code)"
       },
       "geometry": {
         "coordinates": [
@@ -1440,14 +1442,14 @@
         "elevatorgtfsstopid": "A06",
         "route": "A",
         "complexID": "146",
-        "isStreet": "true",
+        "isStreet": "",
         "stationID": "146",
         "system": "nyc_mta",
         "elevatorno": "EL517",
         "linesServed": "A",
         "directionLabel": "uptown",
         "title": "181 St",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/181-A_EL517.jpg",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
         "alternativeRoute": "If you\u2019re on the platform: Take an Inwood-207 St-bound A to Inwood-207 St. Then, stay on the train or transfer across the platform for the next Downtown and Brooklyn-bound A to 181st St. If you\u2019re on the mezzanine: Use EL518 to take a Downtown and Brooklyn-bound A to 175 St. Then, transfer across the platform to an Inwood-207 St-bound A.",
         "ada": "1",
         "isBroken": "",
@@ -1456,8 +1458,8 @@
       },
       "geometry": {
         "coordinates": [
-          -73.937429,
-          40.852929
+          -73.937962,
+          40.851681
         ],
         "type": "Point"
       },
@@ -1845,18 +1847,18 @@
         "linesServed": "A",
         "directionLabel": "both directions",
         "title": "181 St",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/181-A_EL117.jpg",
         "alternativeRoute": "Use an adjacent elevator",
         "ada": "1",
         "isBroken": "",
-        "isStreet": "",
+        "isStreet": "true",
         "shortdescription": "Upper to lower mezzanine",
         "description_custom": "This elevator gets you from the upper to lower mezzanine, which leads to A trains via more elevators. Inside station."
       },
       "geometry": {
         "coordinates": [
-          -73.937969,
-          40.851495
+          -73.937429,
+          40.852929
         ],
         "type": "Point"
       },
@@ -5459,18 +5461,18 @@
         "linesServed": "A",
         "directionLabel": "both directions",
         "title": "181 St",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/181-A_EL117.jpg",
         "alternativeRoute": "Use an adjacent elevator",
         "ada": "1",
         "isBroken": "",
-        "isStreet": "",
+        "isStreet": "true",
         "shortdescription": "Upper to lower mezzanine",
         "description_custom": "This elevator gets you from the upper mezzanine to the lower mezzanine"
       },
       "geometry": {
         "coordinates": [
-          -73.937969,
-          40.851395
+          -73.937243,
+          40.852906
         ],
         "type": "Point"
       },
@@ -6174,7 +6176,8 @@
         "ada": "1",
         "isBroken": "",
         "shortdescription": "Street to Manhattan-bound 2/3.",
-        "description_custom": "This elevator gets you from the street to Manhattan-bound 2/3 trains. It's in front of Barclays Center"
+        "description_custom": "This elevator gets you from the street to Manhattan-bound 2/3 trains. It's in front of Barclays Center",
+        "access_note": "There is a small concrete step in front of this elevator button that may impact some people's ability to reach the call button"
       },
       "geometry": {
         "coordinates": [
@@ -6590,7 +6593,7 @@
         "stationID": "164",
         "system": "nyc_mta",
         "elevatorno": "EL226",
-        "linesServed": "A/C/E",
+        "linesServed": "C/E",
         "directionLabel": "uptown",
         "title": "34 St-Penn Station",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
@@ -6652,7 +6655,7 @@
         "stationID": "164",
         "system": "nyc_mta",
         "elevatorno": "EL228",
-        "linesServed": "A/C/E",
+        "linesServed": "C/E",
         "directionLabel": "downtown",
         "title": "34 St-Penn Station",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
@@ -7416,18 +7419,18 @@
         "directionLabel": "both directions",
         "linesServed": "A",
         "title": "181 St",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/181-A_EL117.jpg",
         "alternativeRoute": "Use an adjacent elevator",
         "ada": "1",
         "isBroken": "",
-        "isStreet": "",
+        "isStreet": "true",
         "shortdescription": "Upper to lower mezzanine",
         "description_custom": "This elevator gets you from the upper to lower mezzanine, which leads to A trains via more elevators"
       },
       "geometry": {
         "coordinates": [
-          -73.937969,
-          40.851295
+          -73.937057,
+          40.852883
         ],
         "type": "Point"
       },
@@ -10036,8 +10039,9 @@
         "alternativeRoute": "Use an adjacent elevator.",
         "ada": "1",
         "isBroken": "",
-        "directionLabel": "both directions",
+        "directionLabel": "",
         "isStreet": "",
+        "isMezzTransferOnly": "true",
         "shortdescription": "Upper to lower mezzanine",
         "description_custom": "This elevator gets you from the upper mezzanine to the lower mezzanine. There is one more elevator required to get to the platform"
       },
@@ -10126,8 +10130,9 @@
         "alternativeRoute": "Use an adjacent elevator.",
         "ada": "1",
         "isBroken": "",
-        "directionLabel": "both directions",
+        "directionLabel": "",
         "isStreet": "",
+        "isMezzTransferOnly": "true",
         "shortdescription": "Upper to lower mezzanine",
         "description_custom": "This elevator gets you from the the upper mezzanine to the lower mezzanine. There is one more elevator required to get to the platform"
       },
@@ -11789,14 +11794,14 @@
         "elevatorgtfsstopid": "A06",
         "route": "A",
         "complexID": "146",
-        "isStreet": "true",
+        "isStreet": "",
         "stationID": "146",
         "system": "nyc_mta",
         "elevatorno": "EL518",
         "linesServed": "A",
         "directionLabel": "downtown",
         "title": "181 St",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/181-A_EL517.jpg",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
         "alternativeRoute": "If you're on the platform: Take a Downtown and Brooklyn-bound A to 175 St. Then, transfer across the platform to an Inwood-207 St-bound A. If you\u2019re on the mezzanine: Use EL517 to take an Inwood-207 St-bound A to Inwood-207 St. Then, stay on the train or transfer across the platform for the next Downtown and Brooklyn-bound A to 181st St. ",
         "ada": "1",
         "isBroken": "",
@@ -11805,8 +11810,8 @@
       },
       "geometry": {
         "coordinates": [
-          -73.937057,
-          40.852883
+          -73.937958,
+          40.851631
         ],
         "type": "Point"
       },
@@ -12107,8 +12112,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.03097600000001,
-          40.616622
+          -74.03133,
+          40.61614
         ]
       },
       "id": "6fedcaa2b80ada5cf173dba80a837883"
@@ -12142,6 +12147,66 @@
         ]
       },
       "id": "c5871313ac18d727136bf8228b3608c5"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "402",
+        "route": "4",
+        "complexID": "379",
+        "stationID": "379",
+        "system": "nyc_mta",
+        "elevatorno": "EL523",
+        "linesServed": "4",
+        "directionLabel": "both directions",
+        "title": "Mosholu Pkwy",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Mosholu-Pkwy_EL523.jpg",
+        "alternativeRoute": "If you are on the street:  \n\nProceed to the SW corner of W Mosholu Pkwy South & Jerome Av. Then either:  \nTake a Mott Haven-bound Bx1 or Bx2 to Bedford Park Blvd. Take a Manhattan-bound B or D train to 161 St \u2013 Yankee Stadium and transfer to 4 service. \nOr take a Mott Haven-bound Bx1 or Bx2 to Fordham Rd. Head west along E 188 St and then west along Fordham Rd to the Fordham Rd 4 station for service in both directions.   \n\nIf you are on the transfer mezzanine level:  \nTake a Manhattan-bound 4 to Fordham Rd. Exit the station and proceed east along Fordham Rd to the NE corner of Fordham Rd and Grand Concourse. Take a Riverdale-bound Bx1 or Kingsbridge Heights-bound Bx2 to E Mosholu Pkwy South / Jerome Av.  \n\nIf you are on the Woodlawn-bound platform: \nTake a Woodlawn-bound 4 train to Woodlawn. Transfer to a Manhattan-bound 4 train (trains become Manhattan-bound after Woodlawn)",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "true",
+        "shortdescription": "Street (SE corner of Jerome Av and E Mosholu Pkwy North) to Transfer Mezzanine &",
+        "description_custom": "This elevator gets you from the street to the main station mezzanine, and directly to Woodlawn-bound 4 trains"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8842563,
+          40.8801321
+        ]
+      },
+      "id": "32d4776070db78b924eafa2c669cc5ab"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "402",
+        "route": "4",
+        "complexID": "379",
+        "stationID": "379",
+        "system": "nyc_mta",
+        "elevatorno": "EL524",
+        "linesServed": "4",
+        "directionLabel": "Manhattan-bound",
+        "title": "Mosholu Pkwy",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/Mosholu-Pkwy_EL524.jpg",
+        "alternativeRoute": "If you are on the transfer mezzanine level: \nSee a station agent for re-entry and take a Woodlawn-bound 4 train to Woodlawn. Transfer to a Manhattan-bound 4 train (trains become Manhattan-bound after Woodlawn).  \nOr exit the station and proceed to the SW corner of W Mosholu Pkwy South & Jerome Av. Take a Mott Haven-bound Bx1 or Bx2 to Bedford Park Blvd. Take a Manhattan-bound B or D train to 161 St \u2013 Yankee Stadium and transfer to 4 service.  \n\nIf you are on the Manhattan-bound platform: \nTake a Manhattan-bound 4 train to Fordham Rd. Transfer to a Woodlawn-bound 4 train to Mosholu Pkwy. ",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "",
+        "shortdescription": "Middle Mezzanine to SB Platform",
+        "description_custom": "This elevator gets you from the main station mezzanine to Manhattan-bound 4 trains"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.884655,
+          40.87965
+        ]
+      },
+      "id": "91f36c4c32f6f7c54e374a2ba3138ed7"
     }
   ],
   "type": "FeatureCollection"

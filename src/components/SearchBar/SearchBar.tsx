@@ -4,7 +4,7 @@ import { MTA_SUBWAY_LINE_ICONS_SMALL } from "@/utils/constants";
 import { AccessibleIconWhite } from "../icons";
 import styled from "styled-components";
 import { getAverageElevatorCoordinates } from "@/utils/dataUtils";
-import customDataset from "@/resources/custom_elevator_dataset.json";
+import customElevatorDataset from "@/resources/custom_elevator_dataset.json";
 import { MtaStationFeature, MtaStationData } from "@/utils/types";
 import { setManhattanTilt } from "../MtaMap/mtaMapOptions";
 
@@ -88,7 +88,7 @@ const StyledSelect = styled(Select)`
   padding: 0px 5px 0px 5px;
   width: 400px;
   z-index: 1000;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
   @media (max-width: 768px) {
     width: 100vw;
   }
@@ -174,7 +174,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
     if (isAccessible !== "0") {
       const coords = getAverageElevatorCoordinates(
-        customDataset.features,
+        customElevatorDataset.features,
         complex_id
       );
 

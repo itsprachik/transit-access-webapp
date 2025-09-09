@@ -12,18 +12,19 @@ import { complexCoordinates } from "./ComplexGeometry";
 import { getComplexBoundaryGeoJSON } from "@/components/MtaMap/layers/StationComplexes/complexBoundaries";
 import { parse, isToday, isTomorrow, isThisWeek, format, formatDistanceToNow, formatDistance } from "date-fns";
 
-import customDataset from "@/resources/custom_elevator_dataset.json";
-import complexesDataset from "@/resources/generated/mta_subway_complexes.json";
+import customElevatorDataset from "@/resources/custom_elevator_dataset.json";
+import complexesDataset from "@/resources/mta_subway_complexes.json";
 import stationsDataset from "@/resources/mta_subway_stations_all.json";
 import { setManhattanTilt } from "@/components/MtaMap/mtaMapOptions";
-import { ROUTE_ORDER } from "./constants";
+import { ROUTE_ORDER, MTA_SUBWAY_LINE_ICONS, MTA_SUBWAY_LINE_ICONS_SMALL } from "./constants";
+
+import { elevatorHighlightProps, elevatorToComplexHighlightProps } from "@/components/MtaMap/layers/StationComplexes/elevatorHighlightsProps";
 
 // make a map of elevator # tied to stationID and complexID
 import {
   buildElevatorIndex,
   stationIDToComplexID,
 } from "@/utils/elevatorIndexUtils";
-import { geometry } from "@turf/turf";
 let elevatorIndex = [];
 
 // Function to highlight all upcoming outages
@@ -60,8 +61,8 @@ export function getOutageLayerFeatures(outElevatorData) {
   const features = [];
 
   // Use customDataset.features array
-  const elevatorsArray = Array.isArray(customDataset.features)
-    ? customDataset.features
+  const elevatorsArray = Array.isArray(customElevatorDataset.features)
+    ? customElevatorDataset.features
     : [];
 
   for (const [elevatorNo, geometry] of Object.entries(elevatorCoordinates)) {
@@ -163,7 +164,7 @@ export function getUpcomingOutageLayerFeatures(upcomingOutElevatorData) {
 // The following functions make it easy to find an elevator attached to a given station
 /* ************************************************************************** */
 export function makeElevatorMap() {
-  elevatorIndex = buildElevatorIndex(customDataset.features);
+  elevatorIndex = buildElevatorIndex(customElevatorDataset.features);
   return elevatorIndex;
 }
 
@@ -441,8 +442,8 @@ export const getStationsWithOutages = (elevatorOutages) => {
     return {};
   }
 
-  const elevatorFeatures = Array.isArray(customDataset.features)
-    ? customDataset.features
+  const elevatorFeatures = Array.isArray(customElevatorDataset.features)
+    ? customElevatorDataset.features
     : [];
 
   if (!elevatorFeatures || elevatorFeatures.length === 0) {
@@ -528,7 +529,7 @@ export const getStationOutageArray = (elevatorOutages) => {
       const trimmedID = stationID.trim?.();
 
       // Find corresponding ADA info in the custom dataset
-      const adaStatus = customDataset.features.find((f) =>
+      const adaStatus = customElevatorDataset.features.find((f) =>
         String(f.properties?.stationID || "")
           .split("/")
           .map((s) => s.trim())
@@ -903,4 +904,78 @@ export function lookAtElevator(
     curve: 1.5,
     essential: true,
   });
+};
+
+export function highlightElevator(map, activeFlyButton) {
+  if (!map || typeof map.getLayer !== 'function' || map._removed) {
+    return;
+  }
+
+    // Check if we have a valid elevator ID
+    const elevatorId = activeFlyButton;
+
+  // Remove existing highlight layers
+  if (map.getLayer("elevator-complex-highlight")) {
+    map.removeLayer("elevator-complex-highlight");
+  }
+
+  if (map.getLayer("elevator-highlight")) {
+    map.removeLayer("elevator-highlight");
+  }
+  
+  if (elevatorId === undefined || elevatorId === null) {
+    return; 
+  }
+
+  // Add new highlight layers
+  if (map.getLayer("elevator-to-complex-connectors")) {
+    map.addLayer(elevatorToComplexHighlightProps(elevatorId));
+  }
+
+  if (map.getLayer("transit-elevators")) {
+    map.addLayer(elevatorHighlightProps(elevatorId));
+  }
 }
+
+export const generateSubwayLines = (
+  routeLines,
+  size,
+  ada,
+  isTitle,
+  styles
+) => {
+  if (!routeLines) return null;
+
+  const lines = routeLines.split(" ").filter(Boolean);
+  const linesText = lines.join(", ");
+
+  return (
+    <>
+      <span className="sr-only">
+        {ada === "0"
+          ? `${isTitle ? "Inaccessible subway lines:" : ""} ${linesText} ${isTitle ? "not A.D.A. accessible" : ""}`
+          : `${isTitle ? "Accessible subway lines:" : ""} ${linesText}`}
+      </span>
+      {/* Screen reader only text, leave for future version */}
+      {/* <span className="sr-only">
+        {accessibilityLabel}
+      </span> */}
+
+      {/* Visual icons hidden from screen readers */}
+      <div aria-hidden="true">
+        {lines.map((line) => (
+          <span
+            key={line}
+            className={`${styles.lineIcon} ${
+              size === "big" ? styles.lineIconLarge : styles.lineIconSmall
+            }`}
+          >
+            {size === "small"
+              ? MTA_SUBWAY_LINE_ICONS_SMALL[line] ?? line
+              : MTA_SUBWAY_LINE_ICONS[line] ?? line}
+          </span>
+        ))}
+      </div>
+    </>
+  );
+};

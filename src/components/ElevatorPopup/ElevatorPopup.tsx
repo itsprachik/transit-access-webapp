@@ -27,13 +27,14 @@ const ElevatorPopup: React.FC<ElevatorPopupProps> = ({
 
   return (
     
-    <div>
-      <div className={styles["elevator-popup"]}>
-      <span className={styles["gray-text"]}>{elevatorno}</span>
-      <span className={styles.subtitle}>Street Elevator {" "}
-        <span className={styles.title}>{title} {directionLabel && ` (${directionLabel})`}</span>
-      </span>
-
+      <section className={styles["elevator-popup"]}>
+        <div className={styles.header}>
+          <div className={styles.headerText}>
+      <h1 className={styles.title}>Street Elevator {" "} </h1>
+      <h2 className={styles.subtitle}>{title} {directionLabel && ` (${directionLabel})`}</h2>
+      <h3 className={styles["gray-text"]}>{elevatorno}</h3>
+      </div>
+    <section id="elevator-service">
       {estimatedreturntoservice ? (
   <div className={`${styles["elevator-service"]} ${styles["elevator-service-bad"]}`}>
     <LiftBad fill="#111" />
@@ -50,13 +51,16 @@ const ElevatorPopup: React.FC<ElevatorPopupProps> = ({
           <span>In service</span>
         </div>
       )}
-
-      <div className={styles["description"]}>
-        <span>{description_custom}</span>
+      </section>
       </div>
+
+      <section id="description" className={styles["description"]}>
+        <span>{description_custom}</span>
+      </section>
 
       <img src={imageURL} alt="Elevator at station" />
 
+<section id="lines-served">
         <div className={styles["subtitle"]}>Lines Served</div>
       <div className={styles.linesServed}>
         {lines.map((line, index) => (
@@ -65,8 +69,8 @@ const ElevatorPopup: React.FC<ElevatorPopupProps> = ({
           </span>
         ))}
       </div>
-    </div>
-    </div>
+      </section>
+    </section>
   );
 };
 
@@ -86,7 +90,7 @@ export const OnHoverElevatorPopup: React.FC<OnHoverElevatorPopupProps> = ({
   return (
     <>
     <div className={styles.upcoming}>
-        <div className={styles.header}><LuClock2 size={25}/><strong>Upcoming Long-Term Outage</strong></div>
+        <div className={styles.upcomingHeader}><LuClock2 size={25}/><strong>Upcoming Long-Term Outage</strong></div>
         {isStreet ? "Street Elevator" : "Platform Elevator"} at <div className={styles.popupSubtitle}>{station}</div>
       <div className={styles.date}>Starting {date}</div>
       </div>

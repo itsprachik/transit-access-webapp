@@ -1,14 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import ElevatorCard from "./ElevatorCard";
 import styles from "@/components/StationPopup/station-popup.module.css";
-import { toWords } from "number-to-words";
-import { MTA_SUBWAY_LINE_ICONS } from "@/utils/constants";
 import {
   AccessibleIconWhite,
   AccessibleIconFalse,
   StationComplexDot,
+  ElevatorIcon,
+  Ramp,
+  LiftBad,
+  LiftGood,
+  WarnIcon,
 } from "../icons";
 import { StationPopupProps } from "@/utils/types";
+import { generateSubwayLines } from "@/utils/dataUtils";
 
 const StationPopup: React.FC<StationPopupProps> = ({
   complexName,
@@ -32,21 +36,133 @@ const StationPopup: React.FC<StationPopupProps> = ({
 }) => {
   const [showOOS, setShowOOS] = useState(false);
   const [isAnimatingOOSOpen, setIsAnimatingOOSOpen] = useState(false);
-  const [isPressed, setIsPressed] = useState(false);
   const wrapperRef = useRef<HTMLSpanElement>(null);
-  const dialogRef = useRef<HTMLDivElement>(null);
   const oosButtonRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLElement>(null);
+
+  const contentAreaRef = useRef<HTMLDivElement>(null);
+  const headerAreaRef = useRef<HTMLDivElement>(null);
+
+  // popup expansion states
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Touch handling for swipe down
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  // flyButtonState
+  const [activeFlyButton, setActiveFlyButton] = useState<string | null>(null);
+
+  const isMobile = navigator.maxTouchPoints > 0;
 
   const toBool = (v?: boolean | string | null) =>
     typeof v === "string" ? v === "true" : Boolean(v);
 
   const isAccessible = ada !== "0";
-  const AccessibleIconComponent = isAccessible
-    ? AccessibleIconWhite
-    : AccessibleIconFalse;
-  const accessibleStatusText = isAccessible
-    ? "Station is accessible"
-    : "Station is not accessible";
+
+  // COMMENTED OUT FOR TESTING (do we need this to focus sr? likely not)
+  // Focus management for modal
+  // useEffect(() => {
+  //   if (dialogRef.current) {
+  //     dialogRef.current.focus();
+  //   }
+  // }, []);
+
+  // Minimum swipe distance (in px)
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientY);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientY);
+
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isDownSwipe = distance < -minSwipeDistance;
+    const isUpSwipe = distance > minSwipeDistance;
+
+    if (isUpSwipe && !isExpanded) {
+      setIsExpanded(true);
+      setActiveFlyButton(null);
+    }
+
+    // Only collapse on downward swipe if we're expanded
+    if (isDownSwipe && isExpanded) {
+      setIsExpanded(false);
+      setIsScrolled(false);
+      if (activeFlyButton) setActiveFlyButton(null);
+    }
+  };
+
+  const onTouchEnd = () => {
+    // Clean up touch tracking
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
+
+  // SCROLL USE EFFECT
+  useEffect(() => {
+    const contentArea = contentAreaRef.current;
+    if (!contentArea) return;
+
+    const checkContentOverflow = () => {
+      const hasOverflow = contentArea.scrollHeight > contentArea.clientHeight;
+
+      if (!hasOverflow) {
+        if (isExpanded) {
+          if (isScrolled) {
+            setIsScrolled(false);
+          }
+        }
+        return;
+      }
+
+      const scrollTop = contentArea.scrollTop;
+
+      // Use different thresholds to prevent oscillation
+      const shouldCollapse = scrollTop > 45; // Higher threshold to collapse
+      const shouldExpand = scrollTop < 15; // Lower threshold to expand
+
+      if (shouldCollapse && !isScrolled) {
+        setTimeout(() => {
+          setIsScrolled(true);
+        }, 300);
+      } else if (shouldExpand && isScrolled) {
+        setTimeout(() => setIsScrolled(false), 10);
+      }
+      // Do nothing in the middle zone (15-35px) to prevent oscillation
+    };
+
+    checkContentOverflow();
+
+    const resizeObserver = new ResizeObserver(checkContentOverflow);
+    resizeObserver.observe(contentArea);
+
+    contentArea.addEventListener("scroll", checkContentOverflow);
+
+    return () => {
+      resizeObserver.disconnect();
+      contentArea.removeEventListener("scroll", checkContentOverflow);
+    };
+  }, [isScrolled, isExpanded, activeFlyButton]);
+
+  useEffect(() => {
+    if (activeFlyButton) {
+      setIsExpanded(false);
+      setIsScrolled(false);
+    }
+  }, [activeFlyButton]);
+
+  const AccessibleIconComponent = (fill?: string, size?: number) => {
+    const Icon = isAccessible ? AccessibleIconWhite : AccessibleIconFalse;
+
+    return <Icon fill={fill} size={size} aria-hidden="true" />;
+  };
 
   const oosCount = elevators.filter(
     (e) =>
@@ -54,27 +170,100 @@ const StationPopup: React.FC<StationPopupProps> = ({
       e.estimatedreturntoservice?.trim().length > 0
   ).length;
 
+  // Helper functions for accessibility announcements
+  const getAccessibilityStatus = () => {
+    if (ada === "0") return "This station is not A.D.A. accessible";
+    if (ada === "2") return "This station is partially accessible";
+    return "This station is fully accessible";
+  };
+
+  const getElevatorStatusText = () => {
+    if (totalElevators === 0) return "No elevators at this station";
+    if (oosCount === totalElevators)
+      return `All ${totalElevators} elevators are out of service`;
+    if (oosCount === 0) return `All ${totalElevators} elevators are in service`;
+    return `${oosCount} of ${totalElevators} elevators are out of service`;
+  };
+
+  const getSubwayLinesText = (lines: string) => {
+    return lines.split(" ").filter(Boolean).join(", ");
+  };
+
   const buildEquipmentText = (totalElevators: number, totalRamps: number) => {
-    const parts = [];
-    if (totalElevators > 0)
-      parts.push(
-        `${toWords(totalElevators)} ${
-          totalElevators > 1 ? "Elevators" : "Elevator"
-        }`
+    if (totalElevators === 0 && totalRamps === 0)
+      return "No elevators or ramps";
+
+    const srParts = [];
+    const visualParts = [];
+
+    if (totalElevators > 0) {
+      srParts.push(
+        `${totalElevators} ${totalElevators > 1 ? "elevators" : "elevator"}`
       );
-    if (totalRamps > 0)
-      parts.push(`${toWords(totalRamps)} ${totalRamps > 1 ? "Ramps" : "Ramp"}`);
-    if (parts.length === 0) return "There are no Elevators or Ramps at";
-    const joined = parts.join(" and ");
-    const verb = totalElevators + totalRamps > 1 ? "are" : "is";
-    return `There ${verb} ${joined}`;
+
+      visualParts.push(
+        <span
+          key="elevators"
+          style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}
+          aria-hidden="true"
+        >
+          <ElevatorIcon size={15} />
+          {totalElevators} {totalElevators > 1 ? "elevators" : "elevator"}
+        </span>
+      );
+    }
+
+    if (totalRamps > 0) {
+      srParts.push(`${totalRamps} ${totalRamps > 1 ? "ramps" : "ramp"}`);
+
+      visualParts.push(
+        <span
+          key="ramps"
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            gap: "0.25rem",
+          }}
+          aria-hidden="true"
+        >
+          <Ramp size={15} />
+          {totalRamps} {totalRamps > 1 ? "ramps" : "ramp"}
+        </span>
+      );
+    }
+
+    return (
+      <>
+        <span className="sr-only">{srParts.join(" and ")} at station</span>
+        <div
+          aria-hidden="true"
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            gap: "0.25rem",
+          }}
+        >
+          {visualParts.map((part, i) => (
+            <React.Fragment key={i}>
+              {part}
+              {i < visualParts.length - 1 && " "}
+            </React.Fragment>
+          ))}
+          {" at station"}
+        </div>
+      </>
+    );
   };
 
   const getStationComplexStatus = (
     isProblemBool: boolean,
     isOutBool: boolean,
-    isPlain: boolean
+    isPlain: boolean,
+    totalElevators?: number
   ) => {
+    if (totalElevators === 0) return styles.colorNeutral;
     if (isOutBool && !isPlain) return styles.colorBad; // outage (red)
     if (isOutBool && isPlain) return styles.colorBadPlain; // outage plain
     if (isProblemBool && !isPlain) return styles.colorWarning; // warning (yellow)
@@ -83,38 +272,32 @@ const StationPopup: React.FC<StationPopupProps> = ({
     return styles.colorGood; // good (blue)
   };
 
+  const getADAStatus = (ada: string, isPlain?: boolean) => {
+    if (isPlain === true) {
+      if (ada === "0") return styles.colorBadPlain;
+      else return styles.colorGoodPlain;
+    }
+    if (ada === "0") return styles.colorBad;
+    return styles.colorGood;
+  };
+
   const isProblemBool = toBool(isProblem);
   const isOutBool = toBool(isOut);
 
   const complexStatus = getStationComplexStatus(
     isProblemBool,
     isOutBool,
-    false
+    false, // light yellow background, dark yellow text
+    totalElevators
   );
+  const adaStatus = getADAStatus(ada);
+  const adaStatusPlain = getADAStatus(ada, true);
+  const adaColor = ada === "0" ? "#c80000" : "#055765";
   const complexStatusPlain = getStationComplexStatus(
     isProblemBool,
     isOutBool,
-    true
+    true // bright yellow color, no background
   );
-
-  const srAnnouncementRef = useRef<HTMLSpanElement>(null);
-
-  const generateSubwayLines = (routeLines?: string | null) => {
-    if (!routeLines) return null;
-    return routeLines
-      .split(" ")
-      .filter(Boolean)
-      .map((line) => (
-        <span
-          key={line}
-          className={`${styles.lineIcon} ${styles.lineIconLarge}`}
-          role="img"
-          aria-label={`Line ${line}`}
-        >
-          {MTA_SUBWAY_LINE_ICONS[line] ?? line}
-        </span>
-      ));
-  };
 
   // Close OOS if clicked outside
   useEffect(() => {
@@ -125,7 +308,6 @@ const StationPopup: React.FC<StationPopupProps> = ({
         !wrapperRef.current.contains(event.target as Node)
       ) {
         handleToggleOOS(false);
-        setIsPressed(false);
       }
     }
 
@@ -144,202 +326,261 @@ const StationPopup: React.FC<StationPopupProps> = ({
   };
 
   return (
-    <div
+    <section
       ref={dialogRef}
-      className={styles.stationPopup}
+      id="station-popup"
+      className={`${styles.stationPopup} ${isExpanded ? styles.expanded : ""}`}
       role="dialog"
       aria-modal="true"
       aria-labelledby="station-popup-title"
-      aria-describedby="station-popup-desc"
+      aria-describedby="station-summary"
       tabIndex={-1}
     >
-      {/* Equipment summary */}
-      <div className={`${styles.subtitle}`}>
-        {isAccessible
-          ? `${buildEquipmentText(totalElevators, totalRamps)} at`
-          : "This station is not accessible"}
-      </div>
-
-      <h3 id="station-popup-title" className={`${styles.title}`}>
-        {/* Station title text */}
-        <span>{complexName}</span>
-
-        <span
-          ref={srAnnouncementRef}
-          className="sr-only"
-          aria-live="polite"
-          aria-atomic="true"
+      <div
+        className={styles.popupHeader}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
+        {/* announcement for future sr version, don't delete yet */}
+        {/* <div id="station-summary" className="sr-only">
+        {getAccessibilityStatus()}. {getElevatorStatusText()}.
+        {route && ` Subway lines: ${getSubwayLinesText(route)}.`}
+      </div> */}
+        {isMobile && (
+          <div aria-hidden="true" className="flex justify-center p-2">
+            <div className="h-1 w-12 rounded-full bg-muted-foreground/30" />
+          </div>
+        )}
+        <h1
+          id="station-popup-title"
+          className={`${styles.title} ${isMobile ? "" : styles.desktop} ${
+            isScrolled ? styles.scrolled : ""
+          }`}
         >
-          {isAccessible ? (
-            <>
-              {complexName} is an accessible station.{" "}
-              {buildEquipmentText(totalElevators, totalRamps)}.{" "}
-              {totalElevators === 0
-                ? null
-                : oosCount === 0
-                ? "All elevators are in service."
-                : oosCount === totalElevators
-                ? "All elevators are out of service."
-                : `${oosCount} ${
-                    oosCount > 1 ? "elevators are" : "elevator is"
-                  } out of service.`}{" "}
-              Accessible lines: {route}. {ada_notes && `${ada_notes}. `}
-              {inaccessibleRoutes &&
-                `Line ${inaccessibleRoutes} not accessible.`}
-            </>
-          ) : (
-            <>
-              {complexName} on line {inaccessibleRoutes} is not accessible.
-            </>
-          )}
-        </span>
+          {/* Station title text */}
+          {complexName}
 
-        {/* Accessibility icon */}
-        <div className={`${styles.iconWrapper}`}>
-          <AccessibleIconComponent />
-        </div>
-
-        {/* Visual complex dot + OOS button inline */}
-        {totalElevators > 0 && (
-          <span
-            className={styles.OOSToggleWrapper}
-            ref={wrapperRef}
-            style={{ display: "inline-flex", alignItems: "center" }}
+          {/* Accessibility icon - now properly labeled */}
+          <div
+            className={`${styles.iconWrapper} ${adaStatus}`}
+            aria-hidden="true"
           >
-            <button
-              ref={oosButtonRef}
-              type="button"
-              className={styles.OOSIconButton}
-              aria-expanded={showOOS}
-              aria-controls="oosNoteDesc"
-              onClick={() => {
-                handleToggleOOS(!showOOS);
-                setIsPressed(!isPressed);
-              }}
-            >
-              <span
-                className={`${styles.iconWrapper} ${
-                  styles.complexIconWrapper
-                } ${complexStatusPlain} ${isPressed ? styles.pressed : ""}`}
-              >
-                <StationComplexDot fill="currentColor" size={25} />
-              </span>
-            </button>
+            {AccessibleIconComponent(adaColor, isScrolled ? 16 : 24)}
+          </div>
+          <span className="sr-only">
+            {isAccessible
+              ? "station is accessible"
+              : "station is not A.D.A. accessible"}
+          </span>
+        </h1>
+      </div>
+      <div ref={contentAreaRef} className={styles.popupContent}>
+        <section id="station-info">
+          {/* Accessible Subway lines */}
+          <h2 className={`${styles.stationRouteWrapper}`}>
+            {isAccessible
+              ? generateSubwayLines(route, "big", ada, true, styles) // true/false indicates isTitle
+              : generateSubwayLines(
+                  inaccessibleRoutes,
+                  "big",
+                  ada,
+                  true,
+                  styles
+                )}
+          </h2>
 
-            {/* Visual OOS Note */}
-            {showOOS && (
-              <div
-                role="dialog"
-                aria-modal="true"
-                aria-labelledby="oosNoteTitle"
-                aria-describedby="oosNoteDesc"
-                className={`${styles.OOSNote} ${
-                  isAnimatingOOSOpen ? styles.OOSNoteOpen : ""
-                } ${complexStatus}`}
-              >
-                <div className={styles.OOSNoteBackground} />
-                <button
-                  onClick={() => {
-                    handleToggleOOS(false);
-                    setIsPressed(false);
-                    oosButtonRef.current?.focus();
-                  }}
-                  className={styles.OOSNoteClose}
-                  aria-label="Close out of service note"
-                >
-                  ×
-                </button>
-                <div id="oosNoteTitle" className="sr-only">
-                  Elevators at Station
-                </div>
-                <div id="oosNoteDesc">
-                  {totalElevators === 0
-                    ? "No elevators at station"
-                    : oosCount === totalElevators
-                    ? "All elevators out of service"
-                    : oosCount === 0
-                    ? "All elevators in service"
-                    : `${oosCount} ${
-                        oosCount > 1 ? "elevators" : "elevator"
-                      } out of service`}
-                </div>
+          {/* Inaccessible lines section */}
+          {inaccessibleRoutes && ada !== "0" && (
+            <h2 className={`${styles.stationRouteWrapper}`}>
+              {inaccessibleRoutes ? (
+                <>
+                  {generateSubwayLines(
+                    inaccessibleRoutes,
+                    "small",
+                    "0",
+                    true,
+                    styles
+                  )}{" "}
+                  {/* // true/false indicates isTitle */}
+                  <div className={styles.adaNotesWrapper} aria-hidden="true">
+                    <span>
+                      not<span aria-hidden="true"> ADA </span>
+                      <span className="sr-only">A.D.A.</span>
+                      accessible
+                    </span>
+                    <AccessibleIconFalse size={15} fill="#111111" />
+                  </div>
+                </>
+              ) : (
+                ""
+              )}
+            </h2>
+          )}
+
+          {/* ADA Notes */}
+          {ada_notes && (
+            <div
+              className={`${styles.adaNotesWrapper}`}
+              aria-label={`Station accessibility notes: Accessible ${ada_notes}`}
+            >
+              <span aria-hidden="true">
+                <AccessibleIconWhite size={18} fill="currentColor" />
+              </span>
+              <span aria-hidden="true">{ada_notes}</span>
+            </div>
+          )}
+        </section>
+
+        {/* Equipment summary */}
+        <section className={`${styles.equipmentWrapper}`}>
+          {ada === "0" && (
+            <div className={`${styles.equipmentRowOneWrapper} ${adaStatus}`}>
+              This station is not ADA accessible
+            </div>
+          )}
+          <div className={styles.equipmentRowTwoWrapper}>
+            {totalElevators > 0 && (
+              <div className={`${styles.equipmentStatus} ${complexStatus}`}>
+                {totalElevators === 0 && totalRamps === 0 ? (
+                  <span>No elevators at station</span>
+                ) : oosCount === totalElevators ? (
+                  <>
+                    <span aria-hidden="true">
+                      <LiftBad size={20} />
+                    </span>
+                    <span>All elevators out of service</span>
+                  </>
+                ) : oosCount === 0 ? (
+                  <>
+                    <span aria-hidden="true">
+                      <LiftGood size={20} />
+                    </span>
+                    <span>All elevators in service</span>
+                  </>
+                ) : (
+                  <>
+                    <span aria-hidden="true">
+                      <LiftBad size={20} aria-hidden="true" />
+                    </span>
+                    <span>
+                      {oosCount} {oosCount > 1 ? "elevators" : "elevator"} out
+                      of service
+                    </span>
+                  </>
+                )}
               </div>
             )}
-          </span>
-        )}
-      </h3>
+            <div className={`${styles.equipmentCount} ${styles.colorNeutral}`}>
+              {totalElevators > 0 || totalRamps > 0 ? (
+                <>{buildEquipmentText(totalElevators, totalRamps)}</>
+              ) : (
+                "No elevators or ramps"
+              )}
+            </div>
+          </div>
+        </section>
 
-      {/* Subway lines */}
-      <div className={`${styles.stationRouteWrapper}`}>
-        {isAccessible
-          ? generateSubwayLines(route)
-          : generateSubwayLines(inaccessibleRoutes)}
+        <section
+          className={styles.elevatorCard}
+          id="elevators-at-station"
+          role="region"
+          aria-label="Elevator details"
+        >
+          {elevators.some((e) => toBool(e.isStreet)) && (
+            <>
+              {/* Street level elevators */}
+              <h2 className="sr-only">Street Level Elevators</h2>
+              <h2 aria-hidden="true" className={`${styles.header}`}>
+                Street Level
+              </h2>
+            </>
+          )}
+
+          {elevators
+            .filter((e) => toBool(e.isStreet))
+            .sort((a, b) => {
+              // Out of service elevators first (true > false)
+              return (toBool(b.isOut) ? 1 : 0) - (toBool(a.isOut) ? 1 : 0);
+            })
+            .map((e, idx) => (
+              <div
+                key={e.elevatorno ?? `in-${idx}`}
+                className={`${styles.cardWrapperStreet} ${
+                  e.isOut
+                    ? `${styles.colorBadFaint} ${
+                        e.isRedundant == "0" ? styles.colorBadPlain : ""
+                      }`
+                    : ""
+                }`}
+              >
+                <ElevatorCard
+                  elevator={e}
+                  map={map}
+                  stationView={stationView}
+                  setStationView={setStationView}
+                  elevatorView={elevatorView}
+                  setElevatorView={setElevatorView}
+                  setShow3DToggle={setShow3DToggle}
+                  activeFlyButton={activeFlyButton}
+                  setActiveFlyButton={setActiveFlyButton}
+                />
+              </div>
+            ))}
+
+          {elevators.some((e) => !toBool(e.isStreet)) && (
+            <>
+              <h2 className="sr-only">Elevators in the Station</h2>
+              <h2 aria-hidden="true" className={`${styles.header}`}>
+                In the Station
+              </h2>
+            </>
+          )}
+          {/* In-station elevators */}
+          {elevators
+            .filter((e) => !toBool(e.isStreet))
+            .sort((a, b) => {
+              // Out of service elevators first (true > false)
+              return (toBool(b.isOut) ? 1 : 0) - (toBool(a.isOut) ? 1 : 0);
+            })
+            .map((e, idx) => (
+              <div
+                key={e.elevatorno ?? `in-${idx}`}
+                className={`${styles.cardWrapperPlatform} ${
+                  e.isOut
+                    ? `${styles.colorBadFaint} ${
+                        e.isRedundant == "0" ? styles.colorBadPlain : ""
+                      }`
+                    : ""
+                }`}
+              >
+                <ElevatorCard
+                  elevator={e}
+                  map={map}
+                  stationView={stationView}
+                  setStationView={setStationView}
+                  elevatorView={elevatorView}
+                  setElevatorView={setElevatorView}
+                  setShow3DToggle={setShow3DToggle}
+                  activeFlyButton={activeFlyButton}
+                  setActiveFlyButton={setActiveFlyButton}
+                />
+              </div>
+            ))}
+        </section>
       </div>
-      <div className={`${styles.adaNotesWrapper}`}>
-        {inaccessibleRoutes && ada !== "0"
-          ? `${inaccessibleRoutes} not accessible`
-          : ""}
-      </div>
-
-      {/* ADA Notes */}
-      {ada_notes && (
-        <div className={`${styles.adaNotesWrapper}`}>
-          <AccessibleIconWhite size={18} fill="currentColor" />
-          <span>{ada_notes}</span>
-        </div>
-      )}
-
-      {/* Elevators */}
-      <div className={styles.elevatorCard}>
-        <div className={styles.header}>
-          {isAccessible ? "street level" : null}
-        </div>
-
-        {elevators.map((e, idx) =>
-          toBool(e.isStreet) ? (
-            <ElevatorCard
-              key={e.elevatorno ?? `street-${idx}`}
-              elevator={e}
-              map={map}
-              stationView={stationView}
-              setStationView={setStationView}
-              elevatorView={elevatorView}
-              setElevatorView={setElevatorView}
-              setShow3DToggle={setShow3DToggle}
-            />
-          ) : null
-        )}
-
-        {elevators.some((e) => !toBool(e.isStreet)) && (
-          <div className={styles.header}>in the station</div>
-        )}
-
-        {elevators.map((e, idx) =>
-          !toBool(e.isStreet) ? (
-            <ElevatorCard
-              key={e.elevatorno ?? `in-${idx}`}
-              elevator={e}
-              map={map}
-              stationView={stationView}
-              setStationView={setStationView}
-              elevatorView={elevatorView}
-              setElevatorView={setElevatorView}
-              setShow3DToggle={setShow3DToggle}
-            />
-          ) : null
-        )}
-
-        {lastUpdated && (
-          <div className={styles.lastUpdated}>
+      {lastUpdated && (
+        <div className={styles.lastUpdated}>
+          <span>
             Last updated:{" "}
             {new Date(lastUpdated).toLocaleTimeString([], {
               hour: "2-digit",
               minute: "2-digit",
-            })}
-          </div>
-        )}
-      </div>
-    </div>
+            })}{" "}
+          </span>
+        </div>
+      )}
+    </section>
   );
 };
 
