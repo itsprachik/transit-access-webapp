@@ -100,6 +100,14 @@ const StationPopup: React.FC<StationPopupProps> = ({
   };
 
   const onTouchEnd = () => {
+
+    const wasSwipeOrDrag = touchEnd !== null && Math.abs(touchStart - touchEnd) > 10; // e.g., 10px
+  
+    if (!wasSwipeOrDrag && touchStart !== null) {
+      // This was a tap - toggle the expanded state
+      setIsExpanded(!isExpanded);
+      if (!isExpanded) setActiveFlyButton(null);
+    }
     // Clean up touch tracking
     setTouchStart(null);
     setTouchEnd(null);
@@ -131,7 +139,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
       if (shouldCollapse && !isScrolled) {
         setTimeout(() => {
           setIsScrolled(true);
-        }, 300);
+        }, 10);
       } else if (shouldExpand && isScrolled) {
         setTimeout(() => setIsScrolled(false), 10);
       }
@@ -337,7 +345,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
       tabIndex={-1}
     >
       <div
-        className={styles.popupHeader}
+        className={`${styles.popupHeader} ${isScrolled ? styles.scrolled : ""}`}
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
@@ -505,7 +513,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
             })
             .map((e, idx) => (
               <div
-                key={e.elevatorno ?? `in-${idx}`}
+                key={e.elevatorno ?? `st-${idx}`}
                 className={`${styles.cardWrapperStreet} ${
                   e.isOut
                     ? `${styles.colorBadFaint} ${
