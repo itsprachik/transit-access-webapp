@@ -22,6 +22,7 @@ export type ElevatorPopupProps = {
   coordinates?: [number, number];
   access_note?: string;
   isBridge?: boolean | string;
+  isMezzTransferOnly?: string;
   isRedundant?: boolean | string;
   isUpcomingOutage?: UpcomingOutage[] | null;
   lastUpdated?: string,

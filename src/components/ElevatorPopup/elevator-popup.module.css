@@ -2,10 +2,27 @@
   overflow-y: auto;
   max-height: 70vh !important;
   background: linear-gradient(to top, #2c2c34, #26262e);
-  border-radius: 0.5rem;
+  border-radius: 0.4rem;
   padding: 0.75rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
   z-index: 1000;
+}
+
+@media (min-width: 768px) {
+  .elevator-popup {
+    left: 0% !important;
+    top: 120px !important;
+    transform: translateX(0) !important;
+    width: -moz-max-content !important;
+    width: max-content !important;
+    height: -moz-fit-content;
+    height: fit-content;
+    max-height: 80vh !important;
+    min-width: 400px !important;
+    max-width: 400px;
+    overflow-y: auto;
+    border-radius: 0rem 0.4rem 0rem 0rem;
+  }
 }
 
 .elevator-service {
@@ -38,7 +55,7 @@
   display: flex;
   flex-direction: column;
   line-height: 1.2;
-  text-align: center;
+  text-align: left;
 }
 
 .eta {
@@ -51,9 +68,10 @@
 }
 
 .linesServed {
+  margin-top: 0.5rem;
+  justify-content: center;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .description {
@@ -71,41 +89,61 @@
   color: #a1a1a1;
   font-variant: small-caps;
   font-size: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .title {
   display: block;
-  margin: 0.25rem 0 0.75rem 0;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: #f0f0f0;
+  line-height: 1.4rem;
+  justify-content: center;
 }
 
 .subtitle {
   display: block;
-  margin: 0.25rem 0 0.75rem 0;
   font-size: 1.1rem;
   font-weight: 400;
   color: #cccccc;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.upcomingHeader {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+  align-items: center;
 }
 
 .header {
   align-self: center;
-  justify-items: center;
+  text-align: center;
   font-size: 0.8rem;
   margin-bottom: 0.4rem;
+  align-items: center;
+}
+
+.headerText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .upcoming {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
   color: #4d0404;
   display: inline-flex;
   flex-direction: column;
   background-color: #f6dcda;
   padding: 0.5rem 0.7rem;
   border-radius: 0.5rem;
-  width: max-content;        /* only as wide as text */
-  max-width: 100%;            /* prevent overflow if text is very long */
+  max-width: 100%;
   z-index: 9;
 }
 

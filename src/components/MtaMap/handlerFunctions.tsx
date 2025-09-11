@@ -6,9 +6,9 @@ import { createRoot, type Root } from "react-dom/client";
 import { createFocusTrap } from "focus-trap";
 
 // DATASETS
-import customDataset from "@/resources/custom_elevator_dataset.json";
+import customElevatorDataset from "@/resources/custom_elevator_dataset.json";
 import mtaStationsDataset from "@/resources/mta_subway_stations_all.json";
-import mtaComplexesDataset from "@/resources/generated/mta_subway_complexes.json";
+import mtaComplexesDataset from "@/resources/mta_subway_complexes.json";
 
 // FUNCTIONS
 import {
@@ -387,7 +387,7 @@ function handleStationComplexClick(
 
   // Accessible:
   const { average, bounds } = getAverageElevatorCoordinates(
-    customDataset.features,
+    customElevatorDataset.features,
     complex_id
   ); // returns { average, bounds }
 
@@ -636,7 +636,7 @@ export function handleOnClick(
     const outageElevatorNo = feature.properties.elevatorno;
 
     // Try to find the matching elevator feature from customDataset
-    const matchingElevator = customDataset.features.find(
+    const matchingElevator = customElevatorDataset.features.find(
       (f: any) =>
         f.properties.elevatorno?.toLowerCase() ===
         outageElevatorNo?.toLowerCase()

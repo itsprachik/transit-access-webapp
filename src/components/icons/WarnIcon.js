@@ -1,4 +1,4 @@
-const WarnIcon = ({ fill }) => {
+const WarnIcon = ({ fill="#ffb700" }) => {
   return (
     <svg
       width="24"
