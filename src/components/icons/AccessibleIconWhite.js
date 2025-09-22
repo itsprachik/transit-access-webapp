@@ -1,4 +1,4 @@
-const AccessibleIconWhite = ({size = 24, fill="#000515", stroke=null, strokeWidth=1, focusable}) => {
+const AccessibleIconWhite = ({size = 24, fill="#000515", stroke=null, strokeWidth=1}) => {
   return (
     <svg
       id="Layer_1"
@@ -14,7 +14,6 @@ const AccessibleIconWhite = ({size = 24, fill="#000515", stroke=null, strokeWidt
         fill={fill}
         stroke={stroke || "none"}
         strokeWidth={stroke ? strokeWidth : 0}
-        focusable={focusable}
       />
     </svg>
   );

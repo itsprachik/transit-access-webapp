@@ -185,7 +185,7 @@ export const getAdaIcon = (ada: string) => {
     <>
       {ada != "0" && (
         <>
-          <AccessibleIconWhite aria-hidden="true" aria-label="Accessible Station" focusable="false" />
+          <AccessibleIconWhite aria-hidden="true" aria-label="Accessible Station" />
         </>
       )}
     </>
