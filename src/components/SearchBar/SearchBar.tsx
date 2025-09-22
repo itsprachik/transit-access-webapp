@@ -9,6 +9,8 @@ import { MtaStationFeature, MtaStationData } from "@/utils/types";
 import { setManhattanTilt } from "../MtaMap/mtaMapOptions";
 import { matchSorter } from "match-sorter";
 import { getOptions } from "./handlerFunctions";
+import styles from "@/components/SearchBar/searchbar.module.css";
+
 
 interface SearchBarProps {
   data: MtaStationData;
@@ -16,10 +18,11 @@ interface SearchBarProps {
   onStationSelect?: (feature: MtaStationFeature) => void;
 }
 
+// Custom Option since we want icons and custom styling. Need a custom component to override the default label in react-select
 const { Option } = components;
 const CustomSelectOption = (props) => (
   <Option {...props}>
-    <div style={{ display: "flex", alignItems: "anchor-center" }}>
+    <div style={{ display: "flex", alignItems: "anchor-center" }} role="option" aria-selected={props.isSelected}>
       <span
         style={{
           fontSize: "14px",
@@ -149,6 +152,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
     <StyledSelect
       instanceId="select-box"
       options={options}
+      aria-label="Search for an MTA subway station"
+      aria-describedby="station-search-help"
       isClearable
       filterOption={() => true} // disables built-in filtering, this is a fix for the lag thats introduced when custom filtering is applied
       onInputChange={handleInputChange}
@@ -180,7 +185,7 @@ export const getAdaIcon = (ada: string) => {
     <>
       {ada != "0" && (
         <>
-          <AccessibleIconWhite />
+          <AccessibleIconWhite aria-hidden="true" aria-label="Accessible Station" focusable="false" />
         </>
       )}
     </>
