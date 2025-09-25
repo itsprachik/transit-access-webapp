@@ -97,7 +97,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
   }, [data]);
 
   const handleSelect = (
-    selected: { stop_name: string; label: string; value: string } | null
+    selected: {label: string; value: string } | null
   ) => {
     if (!selected || !map) return;
     setSelectedStation(selected);
