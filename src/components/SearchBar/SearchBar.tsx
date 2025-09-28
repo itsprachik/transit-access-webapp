@@ -9,6 +9,7 @@ import { MtaStationFeature, MtaStationData } from "@/utils/types";
 import { setManhattanTilt } from "../MtaMap/mtaMapOptions";
 import { matchSorter } from "match-sorter";
 import { getOptions } from "./handlerFunctions";
+import styles from "@/components/SearchBar/searchbar.module.css";
 
 interface SearchBarProps {
   data: MtaStationData;
@@ -16,10 +17,15 @@ interface SearchBarProps {
   onStationSelect?: (feature: MtaStationFeature) => void;
 }
 
+// Custom Option since we want icons and custom styling. Need a custom component to override the default label in react-select
 const { Option } = components;
 const CustomSelectOption = (props) => (
   <Option {...props}>
-    <div style={{ display: "flex", alignItems: "anchor-center" }}>
+    <div
+      style={{ display: "flex", alignItems: "anchor-center" }}
+      role="option"
+      aria-selected={props.isSelected}
+    >
       <span
         style={{
           fontSize: "14px",
@@ -51,13 +57,25 @@ const CustomSelectOption = (props) => (
   </Option>
 );
 
+const { SingleValue } = components;
+
+const CustomSingleValue = (props) => {
+  const { data } = props;
+  return (
+    <SingleValue {...props}>
+      <span>{data.stop_name}</span>
+    </SingleValue>
+  );
+};
+
 const StyledSelect = styled(Select)`
   position: absolute !important;
   top: 10px;
   padding: 0px 5px 0px 5px;
   width: 400px;
   z-index: 1000;
-  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica,
+    Arial, sans-serif;
   @media (max-width: 768px) {
     width: 100vw;
   }
@@ -78,9 +96,11 @@ const SearchBar: React.FC<SearchBarProps> = ({
     setOptions(defaultOptions);
   }, [data]);
 
-  const handleSelect = (selected: { label: string; value: string } | null) => {
+  const handleSelect = (
+    selected: {label: string; value: string } | null
+  ) => {
     if (!selected || !map) return;
-    setSelectedStation(selected.value);
+    setSelectedStation(selected);
 
     // Find all elevators at the selected station
     const selectedStation = data.features.filter(
@@ -149,10 +169,15 @@ const SearchBar: React.FC<SearchBarProps> = ({
     <StyledSelect
       instanceId="select-box"
       options={options}
+      aria-label="Search for an MTA subway station"
+      aria-describedby="station-search-help"
       isClearable
       filterOption={() => true} // disables built-in filtering, this is a fix for the lag thats introduced when custom filtering is applied
       onInputChange={handleInputChange}
-      components={{ Option: CustomSelectOption }}
+      components={{
+        Option: CustomSelectOption,
+        SingleValue: CustomSingleValue,
+      }}
       onChange={handleSelect}
       placeholder="Search for a station"
     />
@@ -180,7 +205,10 @@ export const getAdaIcon = (ada: string) => {
     <>
       {ada != "0" && (
         <>
-          <AccessibleIconWhite />
+          <AccessibleIconWhite
+            aria-hidden="true"
+            aria-label="Accessible Station"
+          />
         </>
       )}
     </>
