@@ -89,7 +89,6 @@ const SearchBar: React.FC<SearchBarProps> = ({
   const [options, setOptions] = useState<
     { label: string; value: string; icon: ReactElement }[]
   >([]);
-  const [selectedStation, setSelectedStation] = useState<string | null>(null);
   const defaultOptions = getOptions(data);
 
   useEffect(() => {
@@ -100,7 +99,6 @@ const SearchBar: React.FC<SearchBarProps> = ({
     selected: {label: string; value: string } | null
   ) => {
     if (!selected || !map) return;
-    setSelectedStation(selected);
 
     // Find all elevators at the selected station
     const selectedStation = data.features.filter(

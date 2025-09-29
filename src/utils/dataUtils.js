@@ -107,7 +107,7 @@ export function getOutageLayerFeatures(outElevatorData) {
 
 export function getUpcomingOutageLayerFeatures(upcomingOutElevatorData) {
   const features = [];
-
+//TO DO: temp fix for coordsList being undefined. Check what is causing it do be undefined
   for (const elevator of upcomingOutElevatorData) {
     const cleanElevatorNo = elevator?.equipment.trim();
     const outageDate = elevator?.outagedate;
@@ -115,12 +115,12 @@ export function getUpcomingOutageLayerFeatures(upcomingOutElevatorData) {
     const rawStationID = getStationIDByElevatorNo(cleanElevatorNo);
 
     const coordsList = rawStationID
-      .split("/") // split into individual stations
-      .map(id => id.replace(/^0+/, "")) // strip leading zeros
-      .map(id => stationCoordinates[id]) // look up coords
-      .filter(Boolean); // remove null/undefined
-
-    const coords = coordsList[0] || null;
+      ?.split("/") // split into individual stations
+      ?.map(id => id.replace(/^0+/, "")) // strip leading zeros
+      ?.map(id => stationCoordinates[id]) // look up coords
+      ?.filter(Boolean); // remove null/undefined
+    console.log(coordsList)
+    const coords = coordsList ? coordsList[0] : null;
 
     // coordsList is an array of all matching station coordinates
     // to be cleaned with a smarter function linking elevators to stations, rather than complexes
@@ -131,10 +131,10 @@ export function getUpcomingOutageLayerFeatures(upcomingOutElevatorData) {
       
       // Split incoming ID by "/" and normalize each piece
       const idsToMatch = rawStationID
-        .split("/")
-        .map(id => id.replace(/^0+/, ""));
+        ?.split("/")
+        ?.map(id => id.replace(/^0+/, ""));
 
-      return idsToMatch.includes(datasetID);
+      return idsToMatch?.includes(datasetID);
     });    
 
     const obj = {
@@ -144,7 +144,7 @@ export function getUpcomingOutageLayerFeatures(upcomingOutElevatorData) {
         elevatorno: cleanElevatorNo,
         outageDate: outageDate,
         estimatedreturntoservice: estimatedreturntoservice,
-        station: station.properties.stop_name,
+        station: station?.properties.stop_name,
         isUpcoming: true,
         reason: elevator.reason,
       },
