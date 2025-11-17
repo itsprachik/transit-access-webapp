@@ -57,6 +57,24 @@ const CustomSelectOption = (props) => (
   </Option>
 );
 
+const { ClearIndicator } = components;
+const CustomClear = (props) => {
+  const { selectProps } = props;
+  return (
+    <>
+      <button
+        onClick={() => {
+          props.clearValue();
+        }}
+        className="react-select-custom-clear"
+        aria-label="clear"
+      >
+        <ClearIndicator {...props} />
+      </button>
+    </>
+  );
+};
+
 const { SingleValue } = components;
 
 const CustomSingleValue = (props) => {
@@ -95,9 +113,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
     setOptions(defaultOptions);
   }, [data]);
 
-  const handleSelect = (
-    selected: {label: string; value: string } | null
-  ) => {
+  const handleSelect = (selected: { label: string; value: string } | null) => {
     if (!selected || !map) return;
 
     // Find all elevators at the selected station
@@ -175,6 +191,9 @@ const SearchBar: React.FC<SearchBarProps> = ({
       components={{
         Option: CustomSelectOption,
         SingleValue: CustomSingleValue,
+        ClearIndicator: CustomClear,
+        DropdownIndicator: () => null,
+        IndicatorSeparator: () => null,
       }}
       onChange={handleSelect}
       placeholder="Search for a station"
