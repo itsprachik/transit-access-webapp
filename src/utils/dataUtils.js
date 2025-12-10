@@ -119,7 +119,6 @@ export function getUpcomingOutageLayerFeatures(upcomingOutElevatorData) {
       ?.map(id => id.replace(/^0+/, "")) // strip leading zeros
       ?.map(id => stationCoordinates[id]) // look up coords
       ?.filter(Boolean); // remove null/undefined
-    console.log(coordsList)
     const coords = coordsList ? coordsList[0] : null;
 
     // coordsList is an array of all matching station coordinates

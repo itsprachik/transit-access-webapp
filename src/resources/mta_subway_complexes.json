@@ -7,2115 +7,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.912034,
-          40.775036
-        ]
-      },
-      "properties": {
-        "complex_id": "1",
-        "station_ids": "1",
-        "gtfs_stop_ids": "R01",
-        "stop_name": "Astoria-Ditmars Blvd",
-        "ada": "0",
-        "borough": "Q",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.917843,
-          40.770258
-        ]
-      },
-      "properties": {
-        "complex_id": "2",
-        "station_ids": "2",
-        "gtfs_stop_ids": "R03",
-        "stop_name": "Astoria Blvd",
-        "ada": "1",
-        "borough": "Q",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.921479,
-          40.766779
-        ]
-      },
-      "properties": {
-        "complex_id": "3",
-        "station_ids": "3",
-        "gtfs_stop_ids": "R04",
-        "stop_name": "30 Av",
-        "ada": "0",
-        "borough": "Q",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.925508,
-          40.76182
-        ]
-      },
-      "properties": {
-        "complex_id": "4",
-        "station_ids": "4",
-        "gtfs_stop_ids": "R05",
-        "stop_name": "Broadway",
-        "ada": "0",
-        "borough": "Q",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.929575,
-          40.756804
-        ]
-      },
-      "properties": {
-        "complex_id": "5",
-        "station_ids": "5",
-        "gtfs_stop_ids": "R06",
-        "stop_name": "36 Av",
-        "ada": "0",
-        "borough": "Q",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.932755,
-          40.752882
-        ]
-      },
-      "properties": {
-        "complex_id": "6",
-        "station_ids": "6",
-        "gtfs_stop_ids": "R08",
-        "stop_name": "39 Av-Dutch Kills",
-        "ada": "0",
-        "borough": "Q",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.973347,
-          40.764811
-        ]
-      },
-      "properties": {
-        "complex_id": "8",
-        "station_ids": "8",
-        "gtfs_stop_ids": "R13",
-        "stop_name": "5 Av/59 St",
-        "ada": "0",
-        "borough": "M",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.980658,
-          40.764664
-        ]
-      },
-      "properties": {
-        "complex_id": "9",
-        "station_ids": "9",
-        "gtfs_stop_ids": "R14",
-        "stop_name": "57 St-7 Av",
-        "ada": "1",
-        "borough": "M",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.984139,
-          40.759901
-        ]
-      },
-      "properties": {
-        "complex_id": "10",
-        "station_ids": "10",
-        "gtfs_stop_ids": "R15",
-        "stop_name": "49 St",
-        "ada": "2",
-        "borough": "M",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.988691,
-          40.745494
-        ]
-      },
-      "properties": {
-        "complex_id": "13",
-        "station_ids": "13",
-        "gtfs_stop_ids": "R18",
-        "stop_name": "28 St",
-        "ada": "0",
-        "borough": "M",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.989344,
-          40.741303
-        ]
-      },
-      "properties": {
-        "complex_id": "14",
-        "station_ids": "14",
-        "gtfs_stop_ids": "R19",
-        "stop_name": "23 St",
-        "ada": "0",
-        "borough": "M",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.992629,
-          40.730328
-        ]
-      },
-      "properties": {
-        "complex_id": "16",
-        "station_ids": "16",
-        "gtfs_stop_ids": "R21",
-        "stop_name": "8 St-NYU",
-        "ada": "0",
-        "borough": "M",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.997702,
-          40.724329
-        ]
-      },
-      "properties": {
-        "complex_id": "17",
-        "station_ids": "17",
-        "gtfs_stop_ids": "R22",
-        "stop_name": "Prince St",
-        "ada": "0",
-        "borough": "M",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -74.006978,
-          40.713282
-        ]
-      },
-      "properties": {
-        "complex_id": "20",
-        "station_ids": "20",
-        "gtfs_stop_ids": "R24",
-        "stop_name": "City Hall",
-        "ada": "0",
-        "borough": "M",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -74.013342,
-          40.70722
-        ]
-      },
-      "properties": {
-        "complex_id": "22",
-        "station_ids": "22",
-        "gtfs_stop_ids": "R26",
-        "stop_name": "Rector St",
-        "ada": "0",
-        "borough": "M",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.981824,
-          40.690635
-        ]
-      },
-      "properties": {
-        "complex_id": "26",
-        "station_ids": "26",
-        "gtfs_stop_ids": "R30",
-        "stop_name": "DeKalb Av",
-        "ada": "1",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.98311,
-          40.677316
-        ]
-      },
-      "properties": {
-        "complex_id": "28",
-        "station_ids": "28",
-        "gtfs_stop_ids": "R32",
-        "stop_name": "Union St",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.992872,
-          40.665414
-        ]
-      },
-      "properties": {
-        "complex_id": "30",
-        "station_ids": "30",
-        "gtfs_stop_ids": "R34",
-        "stop_name": "Prospect Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.998091,
-          40.660397
-        ]
-      },
-      "properties": {
-        "complex_id": "31",
-        "station_ids": "31",
-        "gtfs_stop_ids": "R35",
-        "stop_name": "25 St",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -74.003549,
-          40.655144
-        ]
-      },
-      "properties": {
-        "complex_id": "32",
-        "station_ids": "32",
-        "gtfs_stop_ids": "R36",
-        "stop_name": "36 St",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -74.010006,
-          40.648939
-        ]
-      },
-      "properties": {
-        "complex_id": "33",
-        "station_ids": "33",
-        "gtfs_stop_ids": "R39",
-        "stop_name": "45 St",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -74.014034,
-          40.645069
-        ]
-      },
-      "properties": {
-        "complex_id": "34",
-        "station_ids": "34",
-        "gtfs_stop_ids": "R40",
-        "stop_name": "53 St",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -74.017881,
-          40.641362
-        ]
-      },
-      "properties": {
-        "complex_id": "35",
-        "station_ids": "35",
-        "gtfs_stop_ids": "R41",
-        "stop_name": "59 St",
-        "ada": "1",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -74.023377,
-          40.634967
-        ]
-      },
-      "properties": {
-        "complex_id": "36",
-        "station_ids": "36",
-        "gtfs_stop_ids": "R42",
-        "stop_name": "Bay Ridge Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -74.02551,
-          40.629742
-        ]
-      },
-      "properties": {
-        "complex_id": "37",
-        "station_ids": "37",
-        "gtfs_stop_ids": "R43",
-        "stop_name": "77 St",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -74.028398,
-          40.622687
-        ]
-      },
-      "properties": {
-        "complex_id": "38",
-        "station_ids": "38",
-        "gtfs_stop_ids": "R44",
-        "stop_name": "86 St",
-        "ada": "1",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -74.030876,
-          40.616622
-        ]
-      },
-      "properties": {
-        "complex_id": "39",
-        "station_ids": "39",
-        "gtfs_stop_ids": "R45",
-        "stop_name": "Bay Ridge-95 St",
-        "ada": "1",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.972367,
-          40.67705
-        ]
-      },
-      "properties": {
-        "complex_id": "41",
-        "station_ids": "41",
-        "gtfs_stop_ids": "D25",
-        "stop_name": "7 Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.962246,
-          40.661614
-        ]
-      },
-      "properties": {
-        "complex_id": "42",
-        "station_ids": "42",
-        "gtfs_stop_ids": "D26",
-        "stop_name": "Prospect Park",
-        "ada": "1",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.961495,
-          40.655292
-        ]
-      },
-      "properties": {
-        "complex_id": "43",
-        "station_ids": "43",
-        "gtfs_stop_ids": "D27",
-        "stop_name": "Parkside Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.962982,
-          40.650527
-        ]
-      },
-      "properties": {
-        "complex_id": "44",
-        "station_ids": "44",
-        "gtfs_stop_ids": "D28",
-        "stop_name": "Church Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.964492,
-          40.644031
-        ]
-      },
-      "properties": {
-        "complex_id": "45",
-        "station_ids": "45",
-        "gtfs_stop_ids": "D29",
-        "stop_name": "Beverley Rd",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.963891,
-          40.640927
-        ]
-      },
-      "properties": {
-        "complex_id": "46",
-        "station_ids": "46",
-        "gtfs_stop_ids": "D30",
-        "stop_name": "Cortelyou Rd",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.962793,
-          40.635082
-        ]
-      },
-      "properties": {
-        "complex_id": "47",
-        "station_ids": "47",
-        "gtfs_stop_ids": "D31",
-        "stop_name": "Newkirk Plaza",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.961639,
-          40.62927
-        ]
-      },
-      "properties": {
-        "complex_id": "48",
-        "station_ids": "48",
-        "gtfs_stop_ids": "D32",
-        "stop_name": "Avenue H",
-        "ada": "1",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.960803,
-          40.625039
-        ]
-      },
-      "properties": {
-        "complex_id": "49",
-        "station_ids": "49",
-        "gtfs_stop_ids": "D33",
-        "stop_name": "Avenue J",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.959399,
-          40.617618
-        ]
-      },
-      "properties": {
-        "complex_id": "50",
-        "station_ids": "50",
-        "gtfs_stop_ids": "D34",
-        "stop_name": "Avenue M",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.957734,
-          40.60867
-        ]
-      },
-      "properties": {
-        "complex_id": "51",
-        "station_ids": "51",
-        "gtfs_stop_ids": "D35",
-        "stop_name": "Kings Hwy",
-        "ada": "1",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.955929,
-          40.5993
-        ]
-      },
-      "properties": {
-        "complex_id": "52",
-        "station_ids": "52",
-        "gtfs_stop_ids": "D37",
-        "stop_name": "Avenue U",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.955161,
-          40.595246
-        ]
-      },
-      "properties": {
-        "complex_id": "53",
-        "station_ids": "53",
-        "gtfs_stop_ids": "D38",
-        "stop_name": "Neck Rd",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.954155,
-          40.586896
-        ]
-      },
-      "properties": {
-        "complex_id": "54",
-        "station_ids": "54",
-        "gtfs_stop_ids": "D39",
-        "stop_name": "Sheepshead Bay",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.961376,
-          40.577621
-        ]
-      },
-      "properties": {
-        "complex_id": "55",
-        "station_ids": "55",
-        "gtfs_stop_ids": "D40",
-        "stop_name": "Brighton Beach",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.968501,
-          40.576312
-        ]
-      },
-      "properties": {
-        "complex_id": "56",
-        "station_ids": "56",
-        "gtfs_stop_ids": "D41",
-        "stop_name": "Ocean Pkwy",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.975939,
-          40.576127
-        ]
-      },
-      "properties": {
-        "complex_id": "57",
-        "station_ids": "57",
-        "gtfs_stop_ids": "D42",
-        "stop_name": "W 8 St-NY Aquarium",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.981233,
-          40.577422
-        ]
-      },
-      "properties": {
-        "complex_id": "58",
-        "station_ids": "58",
-        "gtfs_stop_ids": "D43",
-        "stop_name": "Coney Island-Stillwell Av",
-        "ada": "1",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.994324,
-          40.646292
-        ]
-      },
-      "properties": {
-        "complex_id": "59",
-        "station_ids": "59",
-        "gtfs_stop_ids": "B12",
-        "stop_name": "9 Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.994304,
-          40.640914
-        ]
-      },
-      "properties": {
-        "complex_id": "60",
-        "station_ids": "60",
-        "gtfs_stop_ids": "B13",
-        "stop_name": "Fort Hamilton Pkwy",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.994791,
-          40.63626
-        ]
-      },
-      "properties": {
-        "complex_id": "61",
-        "station_ids": "61",
-        "gtfs_stop_ids": "B14",
-        "stop_name": "50 St",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.995476,
-          40.631435
-        ]
-      },
-      "properties": {
-        "complex_id": "62",
-        "station_ids": "62",
-        "gtfs_stop_ids": "B15",
-        "stop_name": "55 St",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.998864,
-          40.619589
-        ]
-      },
-      "properties": {
-        "complex_id": "64",
-        "station_ids": "64",
-        "gtfs_stop_ids": "B17",
-        "stop_name": "71 St",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -74.00061,
-          40.613501
-        ]
-      },
-      "properties": {
-        "complex_id": "65",
-        "station_ids": "65",
-        "gtfs_stop_ids": "B18",
-        "stop_name": "79 St",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -74.001736,
-          40.607954
-        ]
-      },
-      "properties": {
-        "complex_id": "66",
-        "station_ids": "66",
-        "gtfs_stop_ids": "B19",
-        "stop_name": "18 Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.998168,
-          40.604556
-        ]
-      },
-      "properties": {
-        "complex_id": "67",
-        "station_ids": "67",
-        "gtfs_stop_ids": "B20",
-        "stop_name": "20 Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.993728,
-          40.601875
-        ]
-      },
-      "properties": {
-        "complex_id": "68",
-        "station_ids": "68",
-        "gtfs_stop_ids": "B21",
-        "stop_name": "Bay Pkwy",
-        "ada": "1",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.986829,
-          40.597704
-        ]
-      },
-      "properties": {
-        "complex_id": "69",
-        "station_ids": "69",
-        "gtfs_stop_ids": "B22",
-        "stop_name": "25 Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.983765,
-          40.588841
-        ]
-      },
-      "properties": {
-        "complex_id": "70",
-        "station_ids": "70",
-        "gtfs_stop_ids": "B23",
-        "stop_name": "Bay 50 St",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -74.011719,
-          40.635064
-        ]
-      },
-      "properties": {
-        "complex_id": "71",
-        "station_ids": "71",
-        "gtfs_stop_ids": "N02",
-        "stop_name": "8 Av",
-        "ada": "1",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -74.005351,
-          40.631386
-        ]
-      },
-      "properties": {
-        "complex_id": "72",
-        "station_ids": "72",
-        "gtfs_stop_ids": "N03",
-        "stop_name": "Fort Hamilton Pkwy",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.990414,
-          40.620671
-        ]
-      },
-      "properties": {
-        "complex_id": "74",
-        "station_ids": "74",
-        "gtfs_stop_ids": "N05",
-        "stop_name": "18 Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.985026,
-          40.61741
-        ]
-      },
-      "properties": {
-        "complex_id": "75",
-        "station_ids": "75",
-        "gtfs_stop_ids": "N06",
-        "stop_name": "20 Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.981848,
-          40.611815
-        ]
-      },
-      "properties": {
-        "complex_id": "76",
-        "station_ids": "76",
-        "gtfs_stop_ids": "N07",
-        "stop_name": "Bay Pkwy",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.980353,
-          40.603923
-        ]
-      },
-      "properties": {
-        "complex_id": "77",
-        "station_ids": "77",
-        "gtfs_stop_ids": "N08",
-        "stop_name": "Kings Hwy",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.979137,
-          40.597473
-        ]
-      },
-      "properties": {
-        "complex_id": "78",
-        "station_ids": "78",
-        "gtfs_stop_ids": "N09",
-        "stop_name": "Avenue U",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.97823,
-          40.592721
-        ]
-      },
-      "properties": {
-        "complex_id": "79",
-        "station_ids": "79",
-        "gtfs_stop_ids": "N10",
-        "stop_name": "86 St",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.828294,
-          40.700492
-        ]
-      },
-      "properties": {
-        "complex_id": "80",
-        "station_ids": "80",
-        "gtfs_stop_ids": "J12",
-        "stop_name": "121 St",
-        "ada": "0",
-        "borough": "Q",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.836345,
-          40.697418
-        ]
-      },
-      "properties": {
-        "complex_id": "81",
-        "station_ids": "81",
-        "gtfs_stop_ids": "J13",
-        "stop_name": "111 St",
-        "ada": "0",
-        "borough": "Q",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.84433,
-          40.695178
-        ]
-      },
-      "properties": {
-        "complex_id": "82",
-        "station_ids": "82",
-        "gtfs_stop_ids": "J14",
-        "stop_name": "104 St",
-        "ada": "0",
-        "borough": "Q",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.851576,
-          40.693879
-        ]
-      },
-      "properties": {
-        "complex_id": "83",
-        "station_ids": "83",
-        "gtfs_stop_ids": "J15",
-        "stop_name": "Woodhaven Blvd",
-        "ada": "1",
-        "borough": "Q",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.86001,
-          40.692435
-        ]
-      },
-      "properties": {
-        "complex_id": "84",
-        "station_ids": "84",
-        "gtfs_stop_ids": "J16",
-        "stop_name": "85 St-Forest Pkwy",
-        "ada": "0",
-        "borough": "Q",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.867139,
-          40.691324
-        ]
-      },
-      "properties": {
-        "complex_id": "85",
-        "station_ids": "85",
-        "gtfs_stop_ids": "J17",
-        "stop_name": "75 St-Elderts Ln",
-        "ada": "0",
-        "borough": "Q",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.87255,
-          40.689941
-        ]
-      },
-      "properties": {
-        "complex_id": "86",
-        "station_ids": "86",
-        "gtfs_stop_ids": "J19",
-        "stop_name": "Cypress Hills",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.873785,
-          40.683194
-        ]
-      },
-      "properties": {
-        "complex_id": "87",
-        "station_ids": "87",
-        "gtfs_stop_ids": "J20",
-        "stop_name": "Crescent St",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.880039,
-          40.68141
-        ]
-      },
-      "properties": {
-        "complex_id": "88",
-        "station_ids": "88",
-        "gtfs_stop_ids": "J21",
-        "stop_name": "Norwood Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.884639,
-          40.679947
-        ]
-      },
-      "properties": {
-        "complex_id": "89",
-        "station_ids": "89",
-        "gtfs_stop_ids": "J22",
-        "stop_name": "Cleveland St",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.891688,
-          40.678024
-        ]
-      },
-      "properties": {
-        "complex_id": "90",
-        "station_ids": "90",
-        "gtfs_stop_ids": "J23",
-        "stop_name": "Van Siclen Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.898654,
-          40.676992
-        ]
-      },
-      "properties": {
-        "complex_id": "91",
-        "station_ids": "91",
-        "gtfs_stop_ids": "J24",
-        "stop_name": "Alabama Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.910456,
-          40.682893
-        ]
-      },
-      "properties": {
-        "complex_id": "93",
-        "station_ids": "93",
-        "gtfs_stop_ids": "J28",
-        "stop_name": "Chauncey St",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.916559,
-          40.68637
-        ]
-      },
-      "properties": {
-        "complex_id": "94",
-        "station_ids": "94",
-        "gtfs_stop_ids": "J29",
-        "stop_name": "Halsey St",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.92227,
-          40.68963
-        ]
-      },
-      "properties": {
-        "complex_id": "95",
-        "station_ids": "95",
-        "gtfs_stop_ids": "J30",
-        "stop_name": "Gates Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.928814,
-          40.693342
-        ]
-      },
-      "properties": {
-        "complex_id": "96",
-        "station_ids": "96",
-        "gtfs_stop_ids": "J31",
-        "stop_name": "Kosciuszko St",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.935657,
-          40.697207
-        ]
-      },
-      "properties": {
-        "complex_id": "97",
-        "station_ids": "97",
-        "gtfs_stop_ids": "M11",
-        "stop_name": "Myrtle Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.941126,
-          40.70026
-        ]
-      },
-      "properties": {
-        "complex_id": "98",
-        "station_ids": "98",
-        "gtfs_stop_ids": "M12",
-        "stop_name": "Flushing Av",
-        "ada": "1",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.947408,
-          40.703869
-        ]
-      },
-      "properties": {
-        "complex_id": "99",
-        "station_ids": "99",
-        "gtfs_stop_ids": "M13",
-        "stop_name": "Lorimer St",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.953431,
-          40.70687
-        ]
-      },
-      "properties": {
-        "complex_id": "100",
-        "station_ids": "100",
-        "gtfs_stop_ids": "M14",
-        "stop_name": "Hewes St",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.957757,
-          40.708359
-        ]
-      },
-      "properties": {
-        "complex_id": "101",
-        "station_ids": "101",
-        "gtfs_stop_ids": "M16",
-        "stop_name": "Marcy Av",
-        "ada": "1",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.993915,
-          40.72028
-        ]
-      },
-      "properties": {
-        "complex_id": "103",
-        "station_ids": "103",
-        "gtfs_stop_ids": "M19",
-        "stop_name": "Bowery",
-        "ada": "0",
-        "borough": "M",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -74.011056,
-          40.706476
-        ]
-      },
-      "properties": {
-        "complex_id": "107",
-        "station_ids": "107",
-        "gtfs_stop_ids": "M23",
-        "stop_name": "Broad St",
-        "ada": "0",
-        "borough": "M",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.889601,
-          40.711396
-        ]
-      },
-      "properties": {
-        "complex_id": "108",
-        "station_ids": "108",
-        "gtfs_stop_ids": "M01",
-        "stop_name": "Middle Village-Metropolitan Av",
-        "ada": "1",
-        "borough": "Q",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.895877,
-          40.706186
-        ]
-      },
-      "properties": {
-        "complex_id": "109",
-        "station_ids": "109",
-        "gtfs_stop_ids": "M04",
-        "stop_name": "Fresh Pond Rd",
-        "ada": "0",
-        "borough": "Q",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.903077,
-          40.704423
-        ]
-      },
-      "properties": {
-        "complex_id": "110",
-        "station_ids": "110",
-        "gtfs_stop_ids": "M05",
-        "stop_name": "Forest Av",
-        "ada": "0",
-        "borough": "Q",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.90774,
-          40.702762
-        ]
-      },
-      "properties": {
-        "complex_id": "111",
-        "station_ids": "111",
-        "gtfs_stop_ids": "M06",
-        "stop_name": "Seneca Av",
-        "ada": "0",
-        "borough": "Q",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.919711,
-          40.698664
-        ]
-      },
-      "properties": {
-        "complex_id": "113",
-        "station_ids": "113",
-        "gtfs_stop_ids": "M09",
-        "stop_name": "Knickerbocker Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.927397,
-          40.697857
-        ]
-      },
-      "properties": {
-        "complex_id": "114",
-        "station_ids": "114",
-        "gtfs_stop_ids": "M10",
-        "stop_name": "Central Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.986122,
-          40.732849
-        ]
-      },
-      "properties": {
-        "complex_id": "118",
-        "station_ids": "118",
-        "gtfs_stop_ids": "L05",
-        "stop_name": "3 Av",
-        "ada": "0",
-        "borough": "M",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.981628,
-          40.730953
-        ]
-      },
-      "properties": {
-        "complex_id": "119",
-        "station_ids": "119",
-        "gtfs_stop_ids": "L06",
-        "stop_name": "1 Av",
-        "ada": "1",
-        "borough": "M",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.956872,
-          40.717304
-        ]
-      },
-      "properties": {
-        "complex_id": "120",
-        "station_ids": "120",
-        "gtfs_stop_ids": "L08",
-        "stop_name": "Bedford Av",
-        "ada": "1",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.944053,
-          40.714565
-        ]
-      },
-      "properties": {
-        "complex_id": "122",
-        "station_ids": "122",
-        "gtfs_stop_ids": "L11",
-        "stop_name": "Graham Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.94067,
-          40.711926
-        ]
-      },
-      "properties": {
-        "complex_id": "123",
-        "station_ids": "123",
-        "gtfs_stop_ids": "L12",
-        "stop_name": "Grand St",
-        "ada": "1",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.93985,
-          40.707739
-        ]
-      },
-      "properties": {
-        "complex_id": "124",
-        "station_ids": "124",
-        "gtfs_stop_ids": "L13",
-        "stop_name": "Montrose Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.933147,
-          40.706152
-        ]
-      },
-      "properties": {
-        "complex_id": "125",
-        "station_ids": "125",
-        "gtfs_stop_ids": "L14",
-        "stop_name": "Morgan Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.922913,
-          40.706607
-        ]
-      },
-      "properties": {
-        "complex_id": "126",
-        "station_ids": "126",
-        "gtfs_stop_ids": "L15",
-        "stop_name": "Jefferson St",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.918425,
-          40.703811
-        ]
-      },
-      "properties": {
-        "complex_id": "127",
-        "station_ids": "127",
-        "gtfs_stop_ids": "L16",
-        "stop_name": "DeKalb Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.904084,
-          40.695602
-        ]
-      },
-      "properties": {
-        "complex_id": "129",
-        "station_ids": "129",
-        "gtfs_stop_ids": "L19",
-        "stop_name": "Halsey St",
-        "ada": "0",
-        "borough": "Q",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.904046,
-          40.688764
-        ]
-      },
-      "properties": {
-        "complex_id": "130",
-        "station_ids": "130",
-        "gtfs_stop_ids": "L20",
-        "stop_name": "Wilson Av",
-        "ada": "2",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.905249,
-          40.682829
-        ]
-      },
-      "properties": {
-        "complex_id": "131",
-        "station_ids": "131",
-        "gtfs_stop_ids": "L21",
-        "stop_name": "Bushwick Av-Aberdeen St",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.903097,
-          40.675345
-        ]
-      },
-      "properties": {
-        "complex_id": "133",
-        "station_ids": "133",
-        "gtfs_stop_ids": "L24",
-        "stop_name": "Atlantic Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.901975,
-          40.669367
-        ]
-      },
-      "properties": {
-        "complex_id": "134",
-        "station_ids": "134",
-        "gtfs_stop_ids": "L25",
-        "stop_name": "Sutter Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.900571,
-          40.664038
-        ]
-      },
-      "properties": {
-        "complex_id": "135",
-        "station_ids": "135",
-        "gtfs_stop_ids": "L26",
-        "stop_name": "Livonia Av",
-        "ada": "1",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.899232,
-          40.658733
-        ]
-      },
-      "properties": {
-        "complex_id": "136",
-        "station_ids": "136",
-        "gtfs_stop_ids": "L27",
-        "stop_name": "New Lots Av",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.899485,
-          40.650573
-        ]
-      },
-      "properties": {
-        "complex_id": "137",
-        "station_ids": "137",
-        "gtfs_stop_ids": "L28",
-        "stop_name": "East 105 St",
-        "ada": "0",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.90185,
-          40.646654
-        ]
-      },
-      "properties": {
-        "complex_id": "138",
-        "station_ids": "138",
-        "gtfs_stop_ids": "L29",
-        "stop_name": "Canarsie-Rockaway Pkwy",
-        "ada": "1",
-        "borough": "Bk",
-        "num_stations_in_complex": "1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -73.959874,
           40.77362
         ]
@@ -2200,7 +91,7 @@
         "complex_id": "405",
         "station_ids": "405",
         "gtfs_stop_ids": "634",
-        "stop_name": "23 St",
+        "stop_name": "23 St-Baruch College",
         "ada": "1",
         "borough": "M",
         "num_stations_in_complex": "1"
@@ -6780,7 +4671,7 @@
         "station_ids": "168",
         "gtfs_stop_ids": "A33",
         "stop_name": "Spring St",
-        "ada": "0",
+        "ada": "2",
         "borough": "M",
         "num_stations_in_complex": "1"
       }
@@ -8454,6 +6345,2115 @@
         "stop_name": "46 St",
         "ada": "0",
         "borough": "Q",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.912034,
+          40.775036
+        ]
+      },
+      "properties": {
+        "complex_id": "1",
+        "station_ids": "1",
+        "gtfs_stop_ids": "R01",
+        "stop_name": "Astoria-Ditmars Blvd",
+        "ada": "0",
+        "borough": "Q",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.917843,
+          40.770258
+        ]
+      },
+      "properties": {
+        "complex_id": "2",
+        "station_ids": "2",
+        "gtfs_stop_ids": "R03",
+        "stop_name": "Astoria Blvd",
+        "ada": "1",
+        "borough": "Q",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.921479,
+          40.766779
+        ]
+      },
+      "properties": {
+        "complex_id": "3",
+        "station_ids": "3",
+        "gtfs_stop_ids": "R04",
+        "stop_name": "30 Av",
+        "ada": "0",
+        "borough": "Q",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.925508,
+          40.76182
+        ]
+      },
+      "properties": {
+        "complex_id": "4",
+        "station_ids": "4",
+        "gtfs_stop_ids": "R05",
+        "stop_name": "Broadway",
+        "ada": "0",
+        "borough": "Q",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.929575,
+          40.756804
+        ]
+      },
+      "properties": {
+        "complex_id": "5",
+        "station_ids": "5",
+        "gtfs_stop_ids": "R06",
+        "stop_name": "36 Av",
+        "ada": "0",
+        "borough": "Q",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.932755,
+          40.752882
+        ]
+      },
+      "properties": {
+        "complex_id": "6",
+        "station_ids": "6",
+        "gtfs_stop_ids": "R08",
+        "stop_name": "39 Av-Dutch Kills",
+        "ada": "0",
+        "borough": "Q",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.973347,
+          40.764811
+        ]
+      },
+      "properties": {
+        "complex_id": "8",
+        "station_ids": "8",
+        "gtfs_stop_ids": "R13",
+        "stop_name": "5 Av/59 St",
+        "ada": "0",
+        "borough": "M",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.980658,
+          40.764664
+        ]
+      },
+      "properties": {
+        "complex_id": "9",
+        "station_ids": "9",
+        "gtfs_stop_ids": "R14",
+        "stop_name": "57 St-7 Av",
+        "ada": "1",
+        "borough": "M",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.984139,
+          40.759901
+        ]
+      },
+      "properties": {
+        "complex_id": "10",
+        "station_ids": "10",
+        "gtfs_stop_ids": "R15",
+        "stop_name": "49 St",
+        "ada": "2",
+        "borough": "M",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.988691,
+          40.745494
+        ]
+      },
+      "properties": {
+        "complex_id": "13",
+        "station_ids": "13",
+        "gtfs_stop_ids": "R18",
+        "stop_name": "28 St",
+        "ada": "0",
+        "borough": "M",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.989344,
+          40.741303
+        ]
+      },
+      "properties": {
+        "complex_id": "14",
+        "station_ids": "14",
+        "gtfs_stop_ids": "R19",
+        "stop_name": "23 St",
+        "ada": "0",
+        "borough": "M",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.992629,
+          40.730328
+        ]
+      },
+      "properties": {
+        "complex_id": "16",
+        "station_ids": "16",
+        "gtfs_stop_ids": "R21",
+        "stop_name": "8 St-NYU",
+        "ada": "0",
+        "borough": "M",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.997702,
+          40.724329
+        ]
+      },
+      "properties": {
+        "complex_id": "17",
+        "station_ids": "17",
+        "gtfs_stop_ids": "R22",
+        "stop_name": "Prince St",
+        "ada": "0",
+        "borough": "M",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.006978,
+          40.713282
+        ]
+      },
+      "properties": {
+        "complex_id": "20",
+        "station_ids": "20",
+        "gtfs_stop_ids": "R24",
+        "stop_name": "City Hall",
+        "ada": "0",
+        "borough": "M",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.013342,
+          40.70722
+        ]
+      },
+      "properties": {
+        "complex_id": "22",
+        "station_ids": "22",
+        "gtfs_stop_ids": "R26",
+        "stop_name": "Rector St",
+        "ada": "0",
+        "borough": "M",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.981824,
+          40.690635
+        ]
+      },
+      "properties": {
+        "complex_id": "26",
+        "station_ids": "26",
+        "gtfs_stop_ids": "R30",
+        "stop_name": "DeKalb Av",
+        "ada": "1",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98311,
+          40.677316
+        ]
+      },
+      "properties": {
+        "complex_id": "28",
+        "station_ids": "28",
+        "gtfs_stop_ids": "R32",
+        "stop_name": "Union St",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.992872,
+          40.665414
+        ]
+      },
+      "properties": {
+        "complex_id": "30",
+        "station_ids": "30",
+        "gtfs_stop_ids": "R34",
+        "stop_name": "Prospect Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.998091,
+          40.660397
+        ]
+      },
+      "properties": {
+        "complex_id": "31",
+        "station_ids": "31",
+        "gtfs_stop_ids": "R35",
+        "stop_name": "25 St",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.003549,
+          40.655144
+        ]
+      },
+      "properties": {
+        "complex_id": "32",
+        "station_ids": "32",
+        "gtfs_stop_ids": "R36",
+        "stop_name": "36 St",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.010006,
+          40.648939
+        ]
+      },
+      "properties": {
+        "complex_id": "33",
+        "station_ids": "33",
+        "gtfs_stop_ids": "R39",
+        "stop_name": "45 St",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.014034,
+          40.645069
+        ]
+      },
+      "properties": {
+        "complex_id": "34",
+        "station_ids": "34",
+        "gtfs_stop_ids": "R40",
+        "stop_name": "53 St",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.017881,
+          40.641362
+        ]
+      },
+      "properties": {
+        "complex_id": "35",
+        "station_ids": "35",
+        "gtfs_stop_ids": "R41",
+        "stop_name": "59 St",
+        "ada": "1",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.023377,
+          40.634967
+        ]
+      },
+      "properties": {
+        "complex_id": "36",
+        "station_ids": "36",
+        "gtfs_stop_ids": "R42",
+        "stop_name": "Bay Ridge Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.02551,
+          40.629742
+        ]
+      },
+      "properties": {
+        "complex_id": "37",
+        "station_ids": "37",
+        "gtfs_stop_ids": "R43",
+        "stop_name": "77 St",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.028398,
+          40.622687
+        ]
+      },
+      "properties": {
+        "complex_id": "38",
+        "station_ids": "38",
+        "gtfs_stop_ids": "R44",
+        "stop_name": "86 St",
+        "ada": "1",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.030876,
+          40.616622
+        ]
+      },
+      "properties": {
+        "complex_id": "39",
+        "station_ids": "39",
+        "gtfs_stop_ids": "R45",
+        "stop_name": "Bay Ridge-95 St",
+        "ada": "1",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.972367,
+          40.67705
+        ]
+      },
+      "properties": {
+        "complex_id": "41",
+        "station_ids": "41",
+        "gtfs_stop_ids": "D25",
+        "stop_name": "7 Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.962246,
+          40.661614
+        ]
+      },
+      "properties": {
+        "complex_id": "42",
+        "station_ids": "42",
+        "gtfs_stop_ids": "D26",
+        "stop_name": "Prospect Park",
+        "ada": "1",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.961495,
+          40.655292
+        ]
+      },
+      "properties": {
+        "complex_id": "43",
+        "station_ids": "43",
+        "gtfs_stop_ids": "D27",
+        "stop_name": "Parkside Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.962982,
+          40.650527
+        ]
+      },
+      "properties": {
+        "complex_id": "44",
+        "station_ids": "44",
+        "gtfs_stop_ids": "D28",
+        "stop_name": "Church Av",
+        "ada": "1",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.964492,
+          40.644031
+        ]
+      },
+      "properties": {
+        "complex_id": "45",
+        "station_ids": "45",
+        "gtfs_stop_ids": "D29",
+        "stop_name": "Beverley Rd",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.963891,
+          40.640927
+        ]
+      },
+      "properties": {
+        "complex_id": "46",
+        "station_ids": "46",
+        "gtfs_stop_ids": "D30",
+        "stop_name": "Cortelyou Rd",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.962793,
+          40.635082
+        ]
+      },
+      "properties": {
+        "complex_id": "47",
+        "station_ids": "47",
+        "gtfs_stop_ids": "D31",
+        "stop_name": "Newkirk Plaza",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.961639,
+          40.62927
+        ]
+      },
+      "properties": {
+        "complex_id": "48",
+        "station_ids": "48",
+        "gtfs_stop_ids": "D32",
+        "stop_name": "Avenue H",
+        "ada": "1",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.960803,
+          40.625039
+        ]
+      },
+      "properties": {
+        "complex_id": "49",
+        "station_ids": "49",
+        "gtfs_stop_ids": "D33",
+        "stop_name": "Avenue J",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.959399,
+          40.617618
+        ]
+      },
+      "properties": {
+        "complex_id": "50",
+        "station_ids": "50",
+        "gtfs_stop_ids": "D34",
+        "stop_name": "Avenue M",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.957734,
+          40.60867
+        ]
+      },
+      "properties": {
+        "complex_id": "51",
+        "station_ids": "51",
+        "gtfs_stop_ids": "D35",
+        "stop_name": "Kings Hwy",
+        "ada": "1",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.955929,
+          40.5993
+        ]
+      },
+      "properties": {
+        "complex_id": "52",
+        "station_ids": "52",
+        "gtfs_stop_ids": "D37",
+        "stop_name": "Avenue U",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.955161,
+          40.595246
+        ]
+      },
+      "properties": {
+        "complex_id": "53",
+        "station_ids": "53",
+        "gtfs_stop_ids": "D38",
+        "stop_name": "Neck Rd",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.954155,
+          40.586896
+        ]
+      },
+      "properties": {
+        "complex_id": "54",
+        "station_ids": "54",
+        "gtfs_stop_ids": "D39",
+        "stop_name": "Sheepshead Bay",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.961376,
+          40.577621
+        ]
+      },
+      "properties": {
+        "complex_id": "55",
+        "station_ids": "55",
+        "gtfs_stop_ids": "D40",
+        "stop_name": "Brighton Beach",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.968501,
+          40.576312
+        ]
+      },
+      "properties": {
+        "complex_id": "56",
+        "station_ids": "56",
+        "gtfs_stop_ids": "D41",
+        "stop_name": "Ocean Pkwy",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.975939,
+          40.576127
+        ]
+      },
+      "properties": {
+        "complex_id": "57",
+        "station_ids": "57",
+        "gtfs_stop_ids": "D42",
+        "stop_name": "W 8 St-NY Aquarium",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.981233,
+          40.577422
+        ]
+      },
+      "properties": {
+        "complex_id": "58",
+        "station_ids": "58",
+        "gtfs_stop_ids": "D43",
+        "stop_name": "Coney Island-Stillwell Av",
+        "ada": "1",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.994324,
+          40.646292
+        ]
+      },
+      "properties": {
+        "complex_id": "59",
+        "station_ids": "59",
+        "gtfs_stop_ids": "B12",
+        "stop_name": "9 Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.994304,
+          40.640914
+        ]
+      },
+      "properties": {
+        "complex_id": "60",
+        "station_ids": "60",
+        "gtfs_stop_ids": "B13",
+        "stop_name": "Fort Hamilton Pkwy",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.994791,
+          40.63626
+        ]
+      },
+      "properties": {
+        "complex_id": "61",
+        "station_ids": "61",
+        "gtfs_stop_ids": "B14",
+        "stop_name": "50 St",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.995476,
+          40.631435
+        ]
+      },
+      "properties": {
+        "complex_id": "62",
+        "station_ids": "62",
+        "gtfs_stop_ids": "B15",
+        "stop_name": "55 St",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.998864,
+          40.619589
+        ]
+      },
+      "properties": {
+        "complex_id": "64",
+        "station_ids": "64",
+        "gtfs_stop_ids": "B17",
+        "stop_name": "71 St",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00061,
+          40.613501
+        ]
+      },
+      "properties": {
+        "complex_id": "65",
+        "station_ids": "65",
+        "gtfs_stop_ids": "B18",
+        "stop_name": "79 St",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.001736,
+          40.607954
+        ]
+      },
+      "properties": {
+        "complex_id": "66",
+        "station_ids": "66",
+        "gtfs_stop_ids": "B19",
+        "stop_name": "18 Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.998168,
+          40.604556
+        ]
+      },
+      "properties": {
+        "complex_id": "67",
+        "station_ids": "67",
+        "gtfs_stop_ids": "B20",
+        "stop_name": "20 Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.993728,
+          40.601875
+        ]
+      },
+      "properties": {
+        "complex_id": "68",
+        "station_ids": "68",
+        "gtfs_stop_ids": "B21",
+        "stop_name": "Bay Pkwy",
+        "ada": "1",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.986829,
+          40.597704
+        ]
+      },
+      "properties": {
+        "complex_id": "69",
+        "station_ids": "69",
+        "gtfs_stop_ids": "B22",
+        "stop_name": "25 Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.983765,
+          40.588841
+        ]
+      },
+      "properties": {
+        "complex_id": "70",
+        "station_ids": "70",
+        "gtfs_stop_ids": "B23",
+        "stop_name": "Bay 50 St",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.011719,
+          40.635064
+        ]
+      },
+      "properties": {
+        "complex_id": "71",
+        "station_ids": "71",
+        "gtfs_stop_ids": "N02",
+        "stop_name": "8 Av",
+        "ada": "1",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.005351,
+          40.631386
+        ]
+      },
+      "properties": {
+        "complex_id": "72",
+        "station_ids": "72",
+        "gtfs_stop_ids": "N03",
+        "stop_name": "Fort Hamilton Pkwy",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.990414,
+          40.620671
+        ]
+      },
+      "properties": {
+        "complex_id": "74",
+        "station_ids": "74",
+        "gtfs_stop_ids": "N05",
+        "stop_name": "18 Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.985026,
+          40.61741
+        ]
+      },
+      "properties": {
+        "complex_id": "75",
+        "station_ids": "75",
+        "gtfs_stop_ids": "N06",
+        "stop_name": "20 Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.981848,
+          40.611815
+        ]
+      },
+      "properties": {
+        "complex_id": "76",
+        "station_ids": "76",
+        "gtfs_stop_ids": "N07",
+        "stop_name": "Bay Pkwy",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.980353,
+          40.603923
+        ]
+      },
+      "properties": {
+        "complex_id": "77",
+        "station_ids": "77",
+        "gtfs_stop_ids": "N08",
+        "stop_name": "Kings Hwy",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.979137,
+          40.597473
+        ]
+      },
+      "properties": {
+        "complex_id": "78",
+        "station_ids": "78",
+        "gtfs_stop_ids": "N09",
+        "stop_name": "Avenue U",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97823,
+          40.592721
+        ]
+      },
+      "properties": {
+        "complex_id": "79",
+        "station_ids": "79",
+        "gtfs_stop_ids": "N10",
+        "stop_name": "86 St",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.828294,
+          40.700492
+        ]
+      },
+      "properties": {
+        "complex_id": "80",
+        "station_ids": "80",
+        "gtfs_stop_ids": "J12",
+        "stop_name": "121 St",
+        "ada": "0",
+        "borough": "Q",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.836345,
+          40.697418
+        ]
+      },
+      "properties": {
+        "complex_id": "81",
+        "station_ids": "81",
+        "gtfs_stop_ids": "J13",
+        "stop_name": "111 St",
+        "ada": "0",
+        "borough": "Q",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.84433,
+          40.695178
+        ]
+      },
+      "properties": {
+        "complex_id": "82",
+        "station_ids": "82",
+        "gtfs_stop_ids": "J14",
+        "stop_name": "104 St",
+        "ada": "0",
+        "borough": "Q",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.851576,
+          40.693879
+        ]
+      },
+      "properties": {
+        "complex_id": "83",
+        "station_ids": "83",
+        "gtfs_stop_ids": "J15",
+        "stop_name": "Woodhaven Blvd",
+        "ada": "1",
+        "borough": "Q",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.86001,
+          40.692435
+        ]
+      },
+      "properties": {
+        "complex_id": "84",
+        "station_ids": "84",
+        "gtfs_stop_ids": "J16",
+        "stop_name": "85 St-Forest Pkwy",
+        "ada": "0",
+        "borough": "Q",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.867139,
+          40.691324
+        ]
+      },
+      "properties": {
+        "complex_id": "85",
+        "station_ids": "85",
+        "gtfs_stop_ids": "J17",
+        "stop_name": "75 St-Elderts Ln",
+        "ada": "0",
+        "borough": "Q",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.87255,
+          40.689941
+        ]
+      },
+      "properties": {
+        "complex_id": "86",
+        "station_ids": "86",
+        "gtfs_stop_ids": "J19",
+        "stop_name": "Cypress Hills",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.873785,
+          40.683194
+        ]
+      },
+      "properties": {
+        "complex_id": "87",
+        "station_ids": "87",
+        "gtfs_stop_ids": "J20",
+        "stop_name": "Crescent St",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.880039,
+          40.68141
+        ]
+      },
+      "properties": {
+        "complex_id": "88",
+        "station_ids": "88",
+        "gtfs_stop_ids": "J21",
+        "stop_name": "Norwood Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.884639,
+          40.679947
+        ]
+      },
+      "properties": {
+        "complex_id": "89",
+        "station_ids": "89",
+        "gtfs_stop_ids": "J22",
+        "stop_name": "Cleveland St",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.891688,
+          40.678024
+        ]
+      },
+      "properties": {
+        "complex_id": "90",
+        "station_ids": "90",
+        "gtfs_stop_ids": "J23",
+        "stop_name": "Van Siclen Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.898654,
+          40.676992
+        ]
+      },
+      "properties": {
+        "complex_id": "91",
+        "station_ids": "91",
+        "gtfs_stop_ids": "J24",
+        "stop_name": "Alabama Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.910456,
+          40.682893
+        ]
+      },
+      "properties": {
+        "complex_id": "93",
+        "station_ids": "93",
+        "gtfs_stop_ids": "J28",
+        "stop_name": "Chauncey St",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.916559,
+          40.68637
+        ]
+      },
+      "properties": {
+        "complex_id": "94",
+        "station_ids": "94",
+        "gtfs_stop_ids": "J29",
+        "stop_name": "Halsey St",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.92227,
+          40.68963
+        ]
+      },
+      "properties": {
+        "complex_id": "95",
+        "station_ids": "95",
+        "gtfs_stop_ids": "J30",
+        "stop_name": "Gates Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.928814,
+          40.693342
+        ]
+      },
+      "properties": {
+        "complex_id": "96",
+        "station_ids": "96",
+        "gtfs_stop_ids": "J31",
+        "stop_name": "Kosciuszko St",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.935657,
+          40.697207
+        ]
+      },
+      "properties": {
+        "complex_id": "97",
+        "station_ids": "97",
+        "gtfs_stop_ids": "M11",
+        "stop_name": "Myrtle Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.941126,
+          40.70026
+        ]
+      },
+      "properties": {
+        "complex_id": "98",
+        "station_ids": "98",
+        "gtfs_stop_ids": "M12",
+        "stop_name": "Flushing Av",
+        "ada": "1",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.947408,
+          40.703869
+        ]
+      },
+      "properties": {
+        "complex_id": "99",
+        "station_ids": "99",
+        "gtfs_stop_ids": "M13",
+        "stop_name": "Lorimer St",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.953431,
+          40.70687
+        ]
+      },
+      "properties": {
+        "complex_id": "100",
+        "station_ids": "100",
+        "gtfs_stop_ids": "M14",
+        "stop_name": "Hewes St",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.957757,
+          40.708359
+        ]
+      },
+      "properties": {
+        "complex_id": "101",
+        "station_ids": "101",
+        "gtfs_stop_ids": "M16",
+        "stop_name": "Marcy Av",
+        "ada": "1",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.993915,
+          40.72028
+        ]
+      },
+      "properties": {
+        "complex_id": "103",
+        "station_ids": "103",
+        "gtfs_stop_ids": "M19",
+        "stop_name": "Bowery",
+        "ada": "0",
+        "borough": "M",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.011056,
+          40.706476
+        ]
+      },
+      "properties": {
+        "complex_id": "107",
+        "station_ids": "107",
+        "gtfs_stop_ids": "M23",
+        "stop_name": "Broad St",
+        "ada": "0",
+        "borough": "M",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.889601,
+          40.711396
+        ]
+      },
+      "properties": {
+        "complex_id": "108",
+        "station_ids": "108",
+        "gtfs_stop_ids": "M01",
+        "stop_name": "Middle Village-Metropolitan Av",
+        "ada": "1",
+        "borough": "Q",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.895877,
+          40.706186
+        ]
+      },
+      "properties": {
+        "complex_id": "109",
+        "station_ids": "109",
+        "gtfs_stop_ids": "M04",
+        "stop_name": "Fresh Pond Rd",
+        "ada": "0",
+        "borough": "Q",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.903077,
+          40.704423
+        ]
+      },
+      "properties": {
+        "complex_id": "110",
+        "station_ids": "110",
+        "gtfs_stop_ids": "M05",
+        "stop_name": "Forest Av",
+        "ada": "0",
+        "borough": "Q",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.90774,
+          40.702762
+        ]
+      },
+      "properties": {
+        "complex_id": "111",
+        "station_ids": "111",
+        "gtfs_stop_ids": "M06",
+        "stop_name": "Seneca Av",
+        "ada": "0",
+        "borough": "Q",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.919711,
+          40.698664
+        ]
+      },
+      "properties": {
+        "complex_id": "113",
+        "station_ids": "113",
+        "gtfs_stop_ids": "M09",
+        "stop_name": "Knickerbocker Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.927397,
+          40.697857
+        ]
+      },
+      "properties": {
+        "complex_id": "114",
+        "station_ids": "114",
+        "gtfs_stop_ids": "M10",
+        "stop_name": "Central Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.986122,
+          40.732849
+        ]
+      },
+      "properties": {
+        "complex_id": "118",
+        "station_ids": "118",
+        "gtfs_stop_ids": "L05",
+        "stop_name": "3 Av",
+        "ada": "0",
+        "borough": "M",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.981628,
+          40.730953
+        ]
+      },
+      "properties": {
+        "complex_id": "119",
+        "station_ids": "119",
+        "gtfs_stop_ids": "L06",
+        "stop_name": "1 Av",
+        "ada": "1",
+        "borough": "M",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.956872,
+          40.717304
+        ]
+      },
+      "properties": {
+        "complex_id": "120",
+        "station_ids": "120",
+        "gtfs_stop_ids": "L08",
+        "stop_name": "Bedford Av",
+        "ada": "1",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.944053,
+          40.714565
+        ]
+      },
+      "properties": {
+        "complex_id": "122",
+        "station_ids": "122",
+        "gtfs_stop_ids": "L11",
+        "stop_name": "Graham Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.94067,
+          40.711926
+        ]
+      },
+      "properties": {
+        "complex_id": "123",
+        "station_ids": "123",
+        "gtfs_stop_ids": "L12",
+        "stop_name": "Grand St",
+        "ada": "1",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.93985,
+          40.707739
+        ]
+      },
+      "properties": {
+        "complex_id": "124",
+        "station_ids": "124",
+        "gtfs_stop_ids": "L13",
+        "stop_name": "Montrose Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.933147,
+          40.706152
+        ]
+      },
+      "properties": {
+        "complex_id": "125",
+        "station_ids": "125",
+        "gtfs_stop_ids": "L14",
+        "stop_name": "Morgan Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.922913,
+          40.706607
+        ]
+      },
+      "properties": {
+        "complex_id": "126",
+        "station_ids": "126",
+        "gtfs_stop_ids": "L15",
+        "stop_name": "Jefferson St",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.918425,
+          40.703811
+        ]
+      },
+      "properties": {
+        "complex_id": "127",
+        "station_ids": "127",
+        "gtfs_stop_ids": "L16",
+        "stop_name": "DeKalb Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.904084,
+          40.695602
+        ]
+      },
+      "properties": {
+        "complex_id": "129",
+        "station_ids": "129",
+        "gtfs_stop_ids": "L19",
+        "stop_name": "Halsey St",
+        "ada": "0",
+        "borough": "Q",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.904046,
+          40.688764
+        ]
+      },
+      "properties": {
+        "complex_id": "130",
+        "station_ids": "130",
+        "gtfs_stop_ids": "L20",
+        "stop_name": "Wilson Av",
+        "ada": "2",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.905249,
+          40.682829
+        ]
+      },
+      "properties": {
+        "complex_id": "131",
+        "station_ids": "131",
+        "gtfs_stop_ids": "L21",
+        "stop_name": "Bushwick Av-Aberdeen St",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.903097,
+          40.675345
+        ]
+      },
+      "properties": {
+        "complex_id": "133",
+        "station_ids": "133",
+        "gtfs_stop_ids": "L24",
+        "stop_name": "Atlantic Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.901975,
+          40.669367
+        ]
+      },
+      "properties": {
+        "complex_id": "134",
+        "station_ids": "134",
+        "gtfs_stop_ids": "L25",
+        "stop_name": "Sutter Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.900571,
+          40.664038
+        ]
+      },
+      "properties": {
+        "complex_id": "135",
+        "station_ids": "135",
+        "gtfs_stop_ids": "L26",
+        "stop_name": "Livonia Av",
+        "ada": "1",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.899232,
+          40.658733
+        ]
+      },
+      "properties": {
+        "complex_id": "136",
+        "station_ids": "136",
+        "gtfs_stop_ids": "L27",
+        "stop_name": "New Lots Av",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.899485,
+          40.650573
+        ]
+      },
+      "properties": {
+        "complex_id": "137",
+        "station_ids": "137",
+        "gtfs_stop_ids": "L28",
+        "stop_name": "East 105 St",
+        "ada": "0",
+        "borough": "Bk",
+        "num_stations_in_complex": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.90185,
+          40.646654
+        ]
+      },
+      "properties": {
+        "complex_id": "138",
+        "station_ids": "138",
+        "gtfs_stop_ids": "L29",
+        "stop_name": "Canarsie-Rockaway Pkwy",
+        "ada": "1",
+        "borough": "Bk",
         "num_stations_in_complex": "1"
       }
     }

@@ -23,7 +23,7 @@ const ElevatorPopup: React.FC<ElevatorPopupProps> = ({
   lastUpdated,
   isUpcomingOutage
 }) => {
-  const lines = linesServed.split("/");
+  const lines = linesServed.split("/").map(line => line.replace(/-/g, ""));;
 
   return (
     

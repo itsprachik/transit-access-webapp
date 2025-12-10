@@ -54,6 +54,18 @@ def fetch_latest_station_data():
     # Print summary
     if added or removed or modified:
         print(f"Added: {len(added)} | Removed: {len(removed)} | Modified: {len(modified)}")
+        if added:
+            print("\n--- Added ---")
+            for item in added:
+                print(item)
+        if removed:
+            print("\n--- Removed ---")
+            for item in removed:
+                print(item)
+        if modified:
+            print("\n--- Modified ---")
+            for item in modified:
+                print(item)
     else:
         print("No changes detected.")
 

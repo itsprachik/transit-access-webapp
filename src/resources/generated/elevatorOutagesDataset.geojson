@@ -6015,6 +6015,111 @@
         ],
         "type": "Point"
       }
+    },
+    {
+      "type": "Feature",
+      "id": "EL792",
+      "properties": {
+        "elevatorno": "EL792",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.962917,
+          40.650528
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "EL791",
+      "properties": {
+        "elevatorno": "EL791",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.963083,
+          40.650556
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "EL606X",
+      "properties": {
+        "elevatorno": "EL606X",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.978194,
+          40.753056
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "EL775",
+      "properties": {
+        "elevatorno": "EL775",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.991777,
+          40.693999999999996
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "EL774",
+      "properties": {
+        "elevatorno": "EL774",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.991777,
+          40.6939
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "EL773",
+      "properties": {
+        "elevatorno": "EL773",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.990139,
+          40.692528
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "EL1106",
+      "properties": {
+        "elevatorno": "EL1106",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -74.004306,
+          40.725472
+        ],
+        "type": "Point"
+      }
     }
   ],
   "type": "FeatureCollection"
