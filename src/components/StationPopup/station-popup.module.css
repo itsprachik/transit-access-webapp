@@ -22,6 +22,17 @@
   max-height: 20dvh;
 }
 
+.url {
+  color: #0066cc;
+  text-decoration: underline;
+  font-size: 0.6rem;
+  font-style: italic;
+}
+
+.url:hover {
+  color: #004499;
+}
+
 .mapboxgl-ctrl {
   position: relative;
     bottom: 300px;

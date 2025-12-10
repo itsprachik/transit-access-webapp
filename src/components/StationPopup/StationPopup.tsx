@@ -290,6 +290,28 @@ const StationPopup: React.FC<StationPopupProps> = ({
     return styles.colorGood;
   };
 
+  const renderAlertWithLinks = (alert: string) => {
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    const parts = alert.split(urlRegex);
+    
+    return parts.map((part, index) => {
+      if (part.match(urlRegex)) {
+        return (
+          <a 
+            key={index} 
+            href={part} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className={styles.url}
+          >
+            {part}
+          </a>
+        );
+      }
+      return part;
+    });
+  };
+
   const isProblemBool = toBool(isProblem);
   const isOutBool = toBool(isOut);
 
@@ -432,7 +454,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
     <div className={styles.alert}>
       {complexAlert.map((alert: string, index: number) => (
         <div key={index} aria-label={`Station alert: ${alert}`}>
-          {alert}
+          {renderAlertWithLinks(alert)}
         </div>
       ))}
     </div>
