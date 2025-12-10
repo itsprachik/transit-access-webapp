@@ -519,7 +519,7 @@ const MtaMap = () => {
             }
           }}
         >
-          <IoEarthSharp size={20} /> Return to Map
+          <IoEarthSharp size={20} /> Center Map
         </button>
       )}
       <>
