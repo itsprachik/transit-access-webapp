@@ -1,0 +1,14 @@
+{
+  "_comment": "This file is currently updated manually",
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "complex_id": "273,606,612,276,221,222,223,224",
+        "stop_name": "Queens Plaza,Court Sq-23 St,Lexington Av/51-53 Sts,5 Av/53 St,21 St-Queensbridge,Roosevelt Island,Lexington Av/63 St,57 St",
+        "alert": "This stop affected by recent F/M switch"
+      }
+    }
+ ]   
+}

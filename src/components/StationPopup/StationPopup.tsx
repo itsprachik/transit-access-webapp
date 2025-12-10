@@ -33,6 +33,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
   lastUpdated,
   isOut,
   isProblem,
+  complexAlert
 }) => {
   const [showOOS, setShowOOS] = useState(false);
   const [isAnimatingOOSOpen, setIsAnimatingOOSOpen] = useState(false);
@@ -425,6 +426,18 @@ const StationPopup: React.FC<StationPopupProps> = ({
               )}
             </h2>
           )}
+          {complexAlert.length > 0 && (
+  <div className={styles.alertHeader}>
+    <div>{complexAlert.length>1 ? `Alerts:`: `Alert:`}</div>
+    <div className={styles.alert}>
+      {complexAlert.map((alert: string, index: number) => (
+        <div key={index} aria-label={`Station alert: ${alert}`}>
+          {alert}
+        </div>
+      ))}
+    </div>
+  </div>
+)}
 
           {/* ADA Notes */}
           {ada_notes && (

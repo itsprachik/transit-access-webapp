@@ -9,6 +9,7 @@ import { createFocusTrap } from "focus-trap";
 import customElevatorDataset from "@/resources/custom_elevator_dataset.json";
 import mtaStationsDataset from "@/resources/mta_subway_stations_all.json";
 import mtaComplexesDataset from "@/resources/mta_subway_complexes.json";
+import taAlerts from "@/resources/ta_alerts.json";
 
 // FUNCTIONS
 import {
@@ -274,6 +275,13 @@ function handleStationComplexClick(
   const { complex_id, stop_name, ada, route, isOut, isProblem } =
     feature.properties;
 
+  // deal with alerts from ta_alerts.json
+  const complexAlert = taAlerts.features
+    .filter((feature) =>
+      feature.properties.complex_id.split(",").includes(complex_id)
+    )
+    .map((feature) => feature.properties.alert);
+
   const stationIDsRaw = feature.properties.station_ids;
   const stationIDs = stationIDsRaw.split("/").map((id: string) => id.trim());
 
@@ -357,6 +365,7 @@ function handleStationComplexClick(
       totalElevators: totalElevators,
       totalRamps: totalRamps,
       isUpcomingOutage: filteredOutage || [],
+      complexAlert: complexAlert,
     };
   });
 
@@ -439,6 +448,7 @@ function handleStationComplexClick(
       lastUpdated={lastUpdated}
       isOut={isOut}
       isProblem={isProblem}
+      complexAlert={complexAlert}
     />
   );
 
