@@ -48,6 +48,7 @@ export type StationPopupProps = {
   lastUpdated?: Date | string | null;
   isOut?: boolean | string;
   isProblem?: boolean | string;
+  complexAlert?: string[];
 };
 
 type ElevatorFeature = {

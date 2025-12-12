@@ -4532,6 +4532,121 @@
         "ada": "1",
         "side": "right"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.962917,
+            40.650528
+          ],
+          [
+            -73.962982,
+            40.650527
+          ]
+        ]
+      },
+      "properties": {
+        "complex_id": "44",
+        "elevator_no": "EL792",
+        "station_name": "Church Av",
+        "ada": "1",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.963083,
+            40.650556
+          ],
+          [
+            -73.962982,
+            40.650527
+          ]
+        ]
+      },
+      "properties": {
+        "complex_id": "44",
+        "elevator_no": "EL791",
+        "station_name": "Church Av",
+        "ada": "1",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.978194,
+            40.753056
+          ],
+          [
+            -73.97735933,
+            40.751992
+          ]
+        ]
+      },
+      "properties": {
+        "complex_id": "610",
+        "elevator_no": "EL606X",
+        "station_name": "Grand Central-42 St",
+        "ada": "1",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.990139,
+            40.692528
+          ],
+          [
+            -73.990642,
+            40.693241
+          ]
+        ]
+      },
+      "properties": {
+        "complex_id": "620",
+        "elevator_no": "EL773",
+        "station_name": "Borough Hall",
+        "ada": "2",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.004306,
+            40.725472
+          ],
+          [
+            -74.003739,
+            40.726227
+          ]
+        ]
+      },
+      "properties": {
+        "complex_id": "168",
+        "elevator_no": "EL1106",
+        "station_name": "Spring St",
+        "ada": "2",
+        "side": "left"
+      }
     }
   ]
 }

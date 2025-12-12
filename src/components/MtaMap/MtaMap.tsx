@@ -488,8 +488,7 @@ const MtaMap = () => {
           })}
         </div>
       )}
-
-      {zoomLevel > 13 && (
+      
         <button
           className="map-reset-button"
           onClick={() => {
@@ -519,9 +518,8 @@ const MtaMap = () => {
             }
           }}
         >
-          <IoEarthSharp size={20} /> Return to Map
+          <IoEarthSharp size={20} /> Center Map
         </button>
-      )}
       <>
         {/* Toggle floating on top of map, outside popup */}
         {show3DToggle && elevatorView && (

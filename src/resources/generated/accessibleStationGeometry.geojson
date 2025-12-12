@@ -200,6 +200,19 @@
     {
       "type": "Feature",
       "properties": {
+        "station_id": "44"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.962982,
+          40.650527
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "station_id": "48"
       },
       "geometry": {
@@ -701,6 +714,19 @@
         "coordinates": [
           -74.000495,
           40.732338
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "168"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.003739,
+          40.726227
         ]
       }
     },

@@ -283,7 +283,7 @@ useEffect(() => {
   // Identify if elevatorno is a ramp
   const isRamp = elevator.elevatorno.toLowerCase().includes("ra");
 
-  const lines = elevator.linesServed?.replaceAll("/", " ") || [];
+  const lines = elevator.linesServed?.replace(/-/g, "").replaceAll("/", " ") || [];
 
   const linesServedBigSlow = generateSubwayLines(lines, "big", elevator.ada, true, styles)
   const linesServedBigQuick = generateSubwayLines(lines, "big", elevator.ada, false, styles);

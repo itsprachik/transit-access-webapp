@@ -22,6 +22,17 @@
   max-height: 20dvh;
 }
 
+.url {
+  color: #0066cc;
+  text-decoration: underline;
+  font-size: 0.6rem;
+  font-style: italic;
+}
+
+.url:hover {
+  color: #004499;
+}
+
 .mapboxgl-ctrl {
   position: relative;
     bottom: 300px;
@@ -51,6 +62,20 @@
   flex: 1;
   min-height: 0; /* Critical for flex */
   overflow-y: auto !important;
+}
+
+.alertHeader {
+  font-weight: 600;
+  padding-left: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.2rem;
+}
+.alert {
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 330px) {
@@ -191,6 +216,7 @@
   color: #111111 !important;
   gap: 0.25rem;
   margin-left: 0.25rem;
+  font-weight: 300;
 }
 
 

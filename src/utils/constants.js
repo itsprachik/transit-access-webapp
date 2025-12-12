@@ -1,5 +1,5 @@
-import { A, B, C, D, E, F, G, J, L, Line1, Line2, Line3, Line4, Line5, Line6, Line7, M, N, Q, R, S, W, Z, SIR, LIRR } from "@/components/icons/MtaLineIcons";
-import { A_small, B_small, C_small, D_small, E_small, F_small, G_small, J_small, L_small, Line1_small, Line2_small, Line3_small, Line4_small, Line5_small, Line6_small, Line7_small, LIRR_small, M_small, N_small, Q_small, R_small, S_small, SIR_small, W_small, Z_small } from "@/components/icons/MtaLineIconsSmall";
+import { A, B, C, D, E, F, G, J, L, Line1, Line2, Line3, Line4, Line5, Line6, Line7, M, N, Q, R, S, W, Z, SIR, LIRR, LIRR_retro, MNR } from "@/components/icons/MtaLineIcons";
+import { A_small, B_small, C_small, D_small, E_small, F_small, G_small, J_small, L_small, Line1_small, Line2_small, Line3_small, Line4_small, Line5_small, Line6_small, Line7_small, LIRR_small, LIRR_retro_small, M_small, N_small, Q_small, R_small, S_small, SIR_small, W_small, Z_small, MNR_small } from "@/components/icons/MtaLineIconsSmall";
 
 export const MTA_SUBWAY_LINE_ICONS = {
     1:  <Line1 />,
@@ -26,7 +26,8 @@ export const MTA_SUBWAY_LINE_ICONS = {
     W: <W />,
     Z: <Z />,
     SIR: <SIR />,
-    LIRR: <LIRR />
+    LIRR: <LIRR />,
+    METRONORTH: <MNR />
 }
 
 export const MTA_SUBWAY_LINE_ICONS_SMALL = {
@@ -54,7 +55,8 @@ export const MTA_SUBWAY_LINE_ICONS_SMALL = {
     W: <W_small />,
     Z: <Z_small />,
     SIR: <SIR_small />,
-    LIRR: <LIRR_small />
+    LIRR: <LIRR_small />,
+    METRONORTH: <MNR_small />
 }
 
 export const ROUTE_ORDER = [
@@ -69,6 +71,7 @@ export const ROUTE_ORDER = [
     "G",
     "S",
     "SIR",
-    "LIRR"
+    "LIRR",
+    "METRONORTH"
   ];
   

@@ -33,6 +33,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
   lastUpdated,
   isOut,
   isProblem,
+  complexAlert
 }) => {
   const [showOOS, setShowOOS] = useState(false);
   const [isAnimatingOOSOpen, setIsAnimatingOOSOpen] = useState(false);
@@ -289,6 +290,28 @@ const StationPopup: React.FC<StationPopupProps> = ({
     return styles.colorGood;
   };
 
+  const renderAlertWithLinks = (alert: string) => {
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    const parts = alert.split(urlRegex);
+    
+    return parts.map((part, index) => {
+      if (part.match(urlRegex)) {
+        return (
+          <a 
+            key={index} 
+            href={part} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className={styles.url}
+          >
+            {part}
+          </a>
+        );
+      }
+      return part;
+    });
+  };
+
   const isProblemBool = toBool(isProblem);
   const isOutBool = toBool(isOut);
 
@@ -425,6 +448,18 @@ const StationPopup: React.FC<StationPopupProps> = ({
               )}
             </h2>
           )}
+          {complexAlert.length > 0 && (
+  <div className={styles.alertHeader}>
+    <div>{complexAlert.length>1 ? `Alerts:`: `Alert:`}</div>
+    <div className={styles.alert}>
+      {complexAlert.map((alert: string, index: number) => (
+        <div key={index} aria-label={`Station alert: ${alert}`}>
+          {renderAlertWithLinks(alert)}
+        </div>
+      ))}
+    </div>
+  </div>
+)}
 
           {/* ADA Notes */}
           {ada_notes && (

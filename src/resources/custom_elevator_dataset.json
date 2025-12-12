@@ -893,22 +893,23 @@
       "properties": {
         "isRedundant": "0",
         "elevatorgtfsstopid": "630/F11",
-        "route": "E M 6",
+        "route": "E F 6",
         "complexID": "612",
         "stationID": "275",
         "system": "nyc_mta",
         "elevatorno": "EL245",
         "note": "elevatorgtfsstopid was F11",
-        "linesServed": "E/M",
+        "linesServed": "E/F",
         "directionLabel": "both directions",
         "title": "Lexington Av/53 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
-        "alternativeRoute": "If you are on the mezzanine: For M, take the elevator to access the downtown 6 and transfer via elevators at Bleecker St to Broadway-Lafayette St B, D, F, M. Or, exit station and take a West Side-bound M50 bus (E 49 St and Lexington Av) to 6 Av for the B, F, M or to 8 Av for downtown C, E. Note: 50 St C, E station is accessible for downtown service only. For uptown E service, take a downtown C or E and transfer via elevators at 42 St/Port Authority. If you are on the E/M platform: Take a downtown M to 47-50 Sts- Rockefeller Ctr. Exit station and take an M50 bus (50 St between 6 Av and 5 Av) to Lexington Av. Or, take a downtown E to 50 St. Exit station and take an M50 bus (50 St between 8 Av and 7 Av) to Lexington Av.",
+        "alternativeRoute": "If you are on the mezzanine: \nFor F, take a West Side-bound M50 bus (E 49 St at Lexington Av) to 6 Av for the 47-50 Sts Rockefeller Ctr B/D/F/M station. \nFor E, take a West Side-bound M50 bus (E 49 St at Lexington Av) to 8 Av for the 50 St C E station (accessible downtown only). For uptown E, take a downtown C or E and transfer at 42 St/Port Authority. \n\nIf you are on the E/F platform: \nTake a downtown F to 47-50 Sts-Rockefeller Ctr. Exit station and take an East Side-bound M50 bus (50 St at 6 Av) to Lexington Av. Or, take a downtown E to 50 St. Exit station and take an East Side-bound M50 bus (50 St at 8 Av) to Lexington Av.",
         "ada": "1",
         "isBroken": "",
         "isStreet": "",
-        "shortdescription": "Mezzanine to E/M platform",
-        "description_custom": "This elevator gets you from the main station mezzanine to E/M trains in both directions"
+        "shortdescription": "Mezzanine to E/F platform",
+        "access_note": "Nights (9:30pm-6am) and weekends, the F does not stop here. F travels along M line between 57 St and 21 St Queensbridge station",
+        "description_custom": "This elevator gets you from the main station mezzanine to E/F trains in both directions"
       },
       "geometry": {
         "coordinates": [
@@ -924,7 +925,7 @@
       "properties": {
         "isRedundant": "0",
         "elevatorgtfsstopid": "630/F11",
-        "route": "E M 6",
+        "route": "E F 6",
         "complexID": "612",
         "stationID": "401",
         "system": "nyc_mta",
@@ -955,7 +956,7 @@
       "properties": {
         "isRedundant": "0",
         "elevatorgtfsstopid": "630/F11",
-        "route": "E M 6",
+        "route": "E F 6",
         "complexID": "612",
         "stationID": "401",
         "system": "nyc_mta",
@@ -1685,7 +1686,7 @@
         "notes": "elevatorgtfsstopid was G22",
         "isRedundant": "0",
         "elevatorgtfsstopid": "719/F09/G22",
-        "route": "E M G 7",
+        "route": "E F G 7",
         "complexID": "606",
         "stationID": "281",
         "system": "nyc_mta",
@@ -1716,7 +1717,7 @@
         "notes": "elevatorgtfsstopid was G22",
         "isRedundant": "0",
         "elevatorgtfsstopid": "719/F09/G22",
-        "route": "E M G 7",
+        "route": "E F G 7",
         "complexID": "606",
         "isStreet": "true",
         "stationID": "281/462",
@@ -1747,7 +1748,7 @@
         "notes": "elevatorgtfsstopid was G22",
         "isRedundant": "0",
         "elevatorgtfsstopid": "719/F09/G22",
-        "route": "E M G 7",
+        "route": "E F G 7",
         "complexID": "606",
         "stationID": "462",
         "system": "nyc_mta",
@@ -1869,20 +1870,21 @@
       "properties": {
         "isRedundant": "0",
         "elevatorgtfsstopid": "B04",
-        "route": "F",
+        "route": "F/M",
         "complexID": "221",
         "isStreet": "true",
         "stationID": "221",
         "system": "nyc_mta",
         "elevatorno": "EL405",
-        "linesServed": "F",
+        "linesServed": "F/M",
         "title": "21 St-Queensbridge",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/21-Queensbridge_EL405.jpg",
-        "alternativeRoute": "If you are on the street: Take an Astoria-bound Q102 (41st Av and 21st St) to Queens Plaza South and 27 St.  Then transfer to a Jackson Heights-bound Q32 (Queens Plaza South and 28 St) to the Jackson Hts-Roosevelt Av E/F/M/R/7 Station. If you are on the mezzanine: Use elevator to take a Jamaica-bound F to the Jackson Hts.  Use elevators to exit station and take a Midtown-bound Q32 (Roosevelt Av and 74 St) to Queens Plaza North and 27 St.  Then transfer to a Roosevelt Island-bound Q102 at the same stop and travel to 21st St and 41st Av.",
+        "alternativeRoute": "If you are on the street: \nTake an East Elmhurst-bound Q69 bus or Flushing-bound Q66 to 21 St/36 Av and then take a Roosevelt Island-bound Q102 bus to Main St for the Roosevelt Island M station. Note: F runs via Roosevelt Island during Nights and Weekends. \n\nIf you are on the mezzanine: \nTake a Manhattan-bound train to Roosevelt Island and then take a Court Sq-bound Q102 to 21 St/36 Av. Transfer to a Queens Plaza-bound Q69 or Q66 to 21 St/41 Av.",
         "ada": "1",
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
+        "access_note": "This stop served by M train, not F train, weekdays 6am-9:30pm. This stop served by F train nights and weekends only.",
         "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
@@ -1899,21 +1901,22 @@
       "properties": {
         "isRedundant": "0",
         "elevatorgtfsstopid": "B04",
-        "route": "F",
+        "route": "F/M",
         "complexID": "221",
         "stationID": "221",
         "system": "nyc_mta",
         "elevatorno": "EL407",
-        "linesServed": "F",
+        "linesServed": "F/M",
         "directionLabel": "Jamaica-bound",
         "title": "21 St-Queensbridge",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
-        "alternativeRoute": "If you are on the mezzanine: Use elevator to take a Manhattan-bound F to Roosevelt Island.  Then use elevators to take a Jamaica-bound F. If you are on the platform: Take a Jamaica-bound F to Jackson Hts-Roosevelt Av.  Then use elevators to transfer to a Manhattan-bound F to 21 St-Queensbridge.",
+        "alternativeRoute": "If you are on the mezzanine: \nTake a Manhattan-bound train to Roosevelt Island and transfer to a Forest Hills-bound M (Jamaica-bound F Nights, Weekends). \n\nIf you are on the platform: \nWeekdays from 6 AM to 9:30 pm: Take a Forest Hills-bound M to Northern Blvd and transfer to a Manhattan-bound M to 21 St - Queensbridge. \nNights and Weekends: Take a Jamaica-bound F to Jackson Hts-Roosevelt Av and transfer to a Manhattan-bound F to 21 St - Queensbridge.",
         "ada": "1",
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Jamaica-bound platform",
-        "description_custom": "This elevator gets you from the main station mezzanine to Jamaica-bound F trains"
+        "access_note": "This stop served by M train, not F train, weekdays 6am-9:30pm. This stop served by F train nights and weekends only.",
+        "description_custom": "This elevator gets you from the main station mezzanine to Jamaica-bound M or F trains (M weekdays, F nights & weekends)"
       },
       "geometry": {
         "coordinates": [
@@ -1929,21 +1932,22 @@
       "properties": {
         "isRedundant": "0",
         "elevatorgtfsstopid": "B04",
-        "route": "F",
+        "route": "F/M",
         "complexID": "221",
         "stationID": "221",
         "system": "nyc_mta",
         "elevatorno": "EL406",
-        "linesServed": "F",
+        "linesServed": "F/M",
         "directionLabel": "Manhattan-bound",
         "title": "21 St-Queensbridge",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
-        "alternativeRoute": "If you are on the mezzanine: Use elevator to take a Jamaica-bound F to the Jackson Hts-Roosevelt Av.  Then use elevators to transfer to a Manhattan-bound F.   If you are on the platform: Take a Manhattan-bound F to Roosevelt Island.   Use elevators to take a Jamaica-bound F to 21 St-Queensbridge F Station.",
+        "alternativeRoute": "If you are on the mezzanine: \nWeekdays from 6 AM to 9:30 PM: Take a Forest Hills-bound M to Northern Blvd and transfer to a Manhattan-bound M. \nNights and Weekends: Take a Jamaica-bound F to Jackson Hts-Roosevelt Av and transfer to a Manhattan-bound F.\n\nIf you are on the platform: \nTake a Manhattan-bound train to Roosevelt Island and transfer to a Forest Hills-bound M (Jamaica-bound F Nights, Weekends) to 21 St-Queensbridge.",
         "ada": "1",
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Manhattan-bound platform",
-        "description_custom": "This elevator gets you from the main station mezzanine to Manhattan-bound F trains"
+        "access_note": "This stop served by M train, not F train, weekdays 6am-9:30pm. This stop served by F train nights and weekends only.",
+        "description_custom": "This elevator gets you from the main station mezzanine to Manhattan-bound M or F trains (M weekdays, F nights & weekends)"
       },
       "geometry": {
         "coordinates": [
@@ -6255,20 +6259,21 @@
       "properties": {
         "isRedundant": "1",
         "elevatorgtfsstopid": "B08",
-        "route": "F Q",
+        "route": "F M Q",
         "complexID": "223",
         "isStreet": "true",
         "stationID": "223",
         "system": "nyc_mta",
         "elevatorno": "EL401",
-        "linesServed": "F/Q",
+        "linesServed": "F/M/Q",
         "title": "Lexington Av/63 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Lex-63_EL401.jpg",
-        "alternativeRoute": "If you are on the street: Proceed to other entrance with elevators at 63 St and 3 Av. If you are on the mezzanine:  See a station agent to re-enter fare gate and take elevator to uptown F/Q platform. Proceed to other end of the uptown F/Q platform and take elevators to the street.",
+        "alternativeRoute": "If you are on the street: \nProceed to the other entrance at 63 St and 3 Av. \n\nIf you are on the mezzanine:  \nSee a station agent to re-enter fare gate and take elevator to the uptown M/Q platform. Proceed to other end of the uptown M/Q platform and take elevators the to street.",
         "ada": "1",
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
+        "access_note": "This stop served by M train, not F train, weekdays 6am-9:30pm. This stop served by F train nights and weekends only.",
         "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
@@ -6285,20 +6290,21 @@
       "properties": {
         "isRedundant": "1",
         "elevatorgtfsstopid": "B08",
-        "route": "F Q",
+        "route": "F M Q",
         "complexID": "223",
         "isStreet": "true",
         "stationID": "223",
         "system": "nyc_mta",
         "elevatorno": "EL444",
-        "linesServed": "F/Q",
+        "linesServed": "F/M/Q",
         "title": "Lexington Av/63 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Lex-63_EL444.jpg",
-        "alternativeRoute": "If you are on the street: Proceed to other entrance with elevators at 63 St and Lexington Av. If you are on the mezzanine:  See a station agent to re-enter fare gate and take elevator to uptown F/Q platform. Proceed to other end of the uptown F/Q platform and take elevators to the street.",
+        "alternativeRoute": "If you are on the street: \nProceed to the other entrance at 63 St and Lexington Av. \n\nIf you are on the mezzanine:  \nSee a station agent or use Help Point to re-enter fare gate and take elevator to uptown M/Q platform. Proceed to other end of the uptown M/Q platform and take elevators to the street.",
         "ada": "1",
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
+        "access_note": "This stop served by M train, not F train, weekdays 6am-9:30pm. This stop served by F train nights and weekends only.",
         "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
@@ -6315,12 +6321,12 @@
       "properties": {
         "isRedundant": "1",
         "elevatorgtfsstopid": "B08",
-        "route": "F Q",
+        "route": "F M Q",
         "complexID": "223",
         "stationID": "223",
         "system": "nyc_mta",
         "elevatorno": "EL443",
-        "linesServed": "F/Q",
+        "linesServed": "F/M/Q",
         "directionLabel": "both directions",
         "title": "Lexington Av/63 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
@@ -6329,7 +6335,8 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to platforms",
-        "description_custom": "This elevator gets you from the main station mezzanine to the F/Q trains"
+        "access_note": "This stop served by M train, not F train, weekdays 6am-9:30pm. This stop served by F train nights and weekends only.",
+        "description_custom": "This elevator gets you from the main station mezzanine to Q trains and M/F trains (M weekdays 6am-9:30pm, F nights & weekends)"
       },
       "geometry": {
         "coordinates": [
@@ -6345,12 +6352,12 @@
       "properties": {
         "isRedundant": "1",
         "elevatorgtfsstopid": "B08",
-        "route": "F Q",
+        "route": "F M Q",
         "complexID": "223",
         "stationID": "223",
         "system": "nyc_mta",
         "elevatorno": "EL442",
-        "linesServed": "F/Q",
+        "linesServed": "F/M/Q",
         "directionLabel": "both directions",
         "title": "Lexington Av/63 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
@@ -6359,7 +6366,8 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to platforms",
-        "description_custom": "This elevator gets you from the main station mezzanine to the F/Q trains"
+        "access_note": "This stop served by M train, not F train, weekdays 6am-9:30pm. This stop served by F train nights and weekends only.",
+        "description_custom": "This elevator gets you from the main station mezzanine to Q trains and M/F trains (M weekdays 6am-9:30pm, F nights & weekends)"
       },
       "geometry": {
         "coordinates": [
@@ -6375,12 +6383,12 @@
       "properties": {
         "isRedundant": "1",
         "elevatorgtfsstopid": "B08",
-        "route": "F Q",
+        "route": "F M Q",
         "complexID": "223",
         "stationID": "223",
         "system": "nyc_mta",
         "elevatorno": "EL441",
-        "linesServed": "F/Q",
+        "linesServed": "F/M/Q",
         "directionLabel": "both directions",
         "title": "Lexington Av/63 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
@@ -6389,7 +6397,8 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to platforms",
-        "description_custom": "This elevator gets you from the main station mezzanine to the F/Q trains"
+        "access_note": "This stop served by M train, not F train, weekdays 6am-9:30pm. This stop served by F train nights and weekends only.",
+        "description_custom": "This elevator gets you from the main station mezzanine to Q trains and M/F trains (M weekdays 6am-9:30pm, F nights & weekends)"
       },
       "geometry": {
         "coordinates": [
@@ -6405,12 +6414,12 @@
       "properties": {
         "isRedundant": "1",
         "elevatorgtfsstopid": "B08",
-        "route": "F Q",
+        "route": "F M Q",
         "complexID": "223",
         "stationID": "223",
         "system": "nyc_mta",
         "elevatorno": "EL440",
-        "linesServed": "F/Q",
+        "linesServed": "F/M/Q",
         "directionLabel": "both directions",
         "title": "Lexington Av/63 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
@@ -6419,7 +6428,8 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to platforms",
-        "description_custom": "This elevator gets you from the main station mezzanine to the F/Q trains"
+        "access_note": "This stop served by M train, not F train, weekdays 6am-9:30pm. This stop served by F train nights and weekends only.",
+        "description_custom": "This elevator gets you from the main station mezzanine to Q trains and M/F trains (M weekdays 6am-9:30pm, F nights & weekends)"
       },
       "geometry": {
         "coordinates": [
@@ -6435,21 +6445,22 @@
       "properties": {
         "isRedundant": "1",
         "elevatorgtfsstopid": "B08",
-        "route": "F Q",
+        "route": "F M Q",
         "complexID": "223",
         "stationID": "223",
         "system": "nyc_mta",
         "elevatorno": "EL402",
-        "linesServed": "F/Q",
+        "linesServed": "F/M/Q",
         "directionLabel": "both directions",
         "title": "Lexington Av/63 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
-        "alternativeRoute": "If you are on the mezzanine: Exit fare gate and take elevator to street. Proceed to other entrance at 63 St and 3 Av. Re-enter station and take elevators to reach F/Q platforms. If you are on either platform: Proceed to other end of the platform and take elevators to the street.",
+        "alternativeRoute": "If you are on the mezzanine: \nExit the station and proceed to the other entrance at 63 St and 3 Av. Re-enter station and take elevators to reach M/Q platforms. \n\nIf you are on either platform: \nProceed to other end of the platform and take elevators to the street.",
         "ada": "1",
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to platforms",
-        "description_custom": "This elevator gets you from the main station mezzanine to the F/Q trains"
+        "access_note": "This stop served by M train, not F train, weekdays 6am-9:30pm. This stop served by F train nights and weekends only.",
+        "description_custom": "This elevator gets you from the main station mezzanine to Q trains and M/F trains (M weekdays 6am-9:30pm, F nights & weekends)"
       },
       "geometry": {
         "coordinates": [
@@ -8201,21 +8212,22 @@
       "properties": {
         "isRedundant": "0",
         "elevatorgtfsstopid": "B06",
-        "route": "F",
+        "route": "F/M",
         "complexID": "222",
         "stationID": "222",
         "system": "nyc_mta",
         "elevatorno": "EL403",
-        "linesServed": "F",
+        "linesServed": "F/M",
         "directionLabel": "Manhattan-bound",
         "title": "Roosevelt Island",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Roosevelt-Island_EL403.jpg",
-        "alternativeRoute": "If you are on the street: Use elevator at other end of mezzanine to take a Queens-bound F to 21 St-Queensbridge. Use elevators to transfer to a Manhattan-bound F. Or, exit faregate and take an Astoria-bound Q102 (452 Main St) to 41 Av and 21 St for the 21 St-Queensbridge F Station. If you are on the platform: Take a Manhattan-bound F train to Lexington Av/63 St.  Use elevator to transfer to a Queens-bound F to Roosevelt Island F Station.",
+        "alternativeRoute": "If you are on the street: \nUse elevator at other end of mezzanine to take a Queens-bound train to 21 St-Queensbridge. Use elevators to transfer to a Manhattan-bound train. Or, exit faregate and take an Astoria-bound Q102 (452 Main St) to 41 Av and 21 St for the 21 St-Queensbridge Station. \n\nIf you are on the platform: \nTake a Manhattan-bound train to Lexington Av/63 St.  Use elevator to transfer to a Queens-bound train to Roosevelt Island Station.",
         "ada": "1",
         "isBroken": "",
         "isStreet": "true",
         "shortdescription": "Street to Manhattan-bound platform",
-        "description_custom": "This elevator gets you from the street directly to Manhattan-bound F trains"
+        "access_note": "This stop served by M train, not F train, weekdays 6am-9:30pm. This stop served by F train nights and weekends only.",
+        "description_custom": "This elevator gets you from the street directly to Manhattan-bound M or F trains (M weekdays 6am-9:30pm, F nights & weekends)"
       },
       "geometry": {
         "coordinates": [
@@ -8231,21 +8243,22 @@
       "properties": {
         "isRedundant": "0",
         "elevatorgtfsstopid": "B06",
-        "route": "F",
+        "route": "F/M",
         "complexID": "222",
         "stationID": "222",
         "system": "nyc_mta",
         "elevatorno": "EL404",
-        "linesServed": "F",
+        "linesServed": "F/M",
         "directionLabel": "Jamaica-bound",
         "title": "Roosevelt Island",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Roosevelt-Island_EL403.jpg",
-        "alternativeRoute": "If you are on the street: Use the elevator at other of mezzanine to take a Manhattan-bound F to Lexington Av/63 St. Use elevator to transfer to a Queens-bound F. Or, exit faregate and take an Astoria-bound Q102 (452 Main St) to 41 Av and 21 St for the 21 St-Queensbridge F Station. If you are on the platform: Take a Queens-bound F to 21 St-Queensbridge and use elevators to transfer to a Manhattan-bound F to Roosevelt Island F Station.",
+        "alternativeRoute": "If you are on the street: \nUse the elevator at other of mezzanine to take a Manhattan-bound train to Lexington Av/63 St. Use elevator to transfer to a Queens-bound train. Or, exit faregate and take an Astoria-bound Q102 (452 Main St) to 41 Av and 21 St for the 21 St-Queensbridge Station. \n\nIf you are on the platform: \nTake a Queens-bound train to 21 St-Queensbridge and use elevators to transfer to a Manhattan-bound train to Roosevelt Island Station.",
         "ada": "1",
         "isBroken": "",
         "isStreet": "true",
         "shortdescription": "Street to Jamaica-bound platform",
-        "description_custom": "This elevator gets you from the street directly to Jamaica-bound F trains"
+        "access_note": "This stop served by M train, not F train, weekdays 6am-9:30pm. This stop served by F train nights and weekends only.",
+        "description_custom": "This elevator gets you from the street directly to Jamaica-bound M or F trains (M weekdays, F nights & weekends)"
       },
       "geometry": {
         "coordinates": [
@@ -9203,17 +9216,17 @@
       "properties": {
         "isRedundant": "0",
         "elevatorgtfsstopid": "630/F11",
-        "route": "E M 6",
+        "route": "E F 6",
         "complexID": "612",
         "isStreet": "true",
         "stationID": "275/401",
         "system": "nyc_mta",
         "elevatorno": "EL203X",
         "note": "elevatorgtfsstopid was F11. stationID was 401.",
-        "linesServed": "E/M/6",
+        "linesServed": "E/F/6",
         "title": "51 St and Lexington-53",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/53-Lex_EL203X.jpg",
-        "alternativeRoute": "If you are on the street: Proceed to Grand Central-42 St for 6. Or, take a downtown M101 LTD, M102, or M103 to Grand Central-42 St and take an uptown 6 to 51 St.  If you are on the mezzanine: Take a downtown 6 to Grand Central-42 St. Exit station and take an M101, M102, or M103 bus (3 Av between 42 St and 43 St) to 50 St. Proceed one block west for Lexington Av. Or, take a downtown M to 47-50 Sts-Rockefeller Ctr. Exit station and take an M50 bus (50 St between 6 Av and 5 Av) to Lexington Av.",
+        "alternativeRoute": "If you are on the street: \nProceed to Grand Central-42 St for 6. Or, take a downtown M101 LTD, M102, or M103 to Grand Central-42 St and take an uptown 6 to 51 St.\n\nIf you are on the mezzanine: Take a downtown 6 to Grand Central - 42 St. Exit the station and take a M101, M102, or M103 bus (3 Av between 42 St and 43 St) to 50 St. Proceed one block west to Lexington Av.",
         "ada": "1",
         "isBroken": "",
         "directionLabel": "",
@@ -9395,17 +9408,17 @@
         "stationID": "335/415",
         "system": "nyc_mta",
         "elevatorno": "EL318",
-        "linesServed": "2/3/4/5",
-        "directionLabel": "2/3 both directions, 4/5 Manhattan-bound",
+        "linesServed": "2/3",
+        "directionLabel": "both directions",
         "title": "Borough Hall",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
         "alternativeRoute": "If you are on the mezzanine: Exit through the faregate and use the elevator to proceed to the plaza at Court St and Montague St. Then take a Kings Plaza/ Bergen Beach-bound B41 bus to Atlantic Av and Flatbush Av and enter Atlantic Av-Barclays Ctr for 2/3/4/5 service. If you are on the Manhattan-bound 2/3 platform: Take a Manhattan-bound 2, 3, 4 or 5 to Fulton St and use elevators to transfer to a Brooklyn-bound A or C to Jay St-MetroTech. If you are on the Brooklyn-bound 2/3  platform:  Take a Brooklyn-bound 2 or 3 to Atlantic Av-Barclays Ctr. Then use elevators to exit the station and take a Downtown Brooklyn-bound B41 bus (Flatbush Av and Atlantic Av) to the plaza at Court St and Montague St.",
-        "access_note": "PARTIALLY ACCESSIBLE STATION. 2/3 trains fully accessible. 4/5 trains only Manhattan-bound accessible",
-        "ada": "2",
+        "access_note": "Transfer to 4/5 via the Manhattan-bound 2/3 platform",
+        "ada": "1",
         "isBroken": "",
         "isStreet": "",
-        "shortdescription": "Mezzanine to 2/3 trains and Manhattan-bound 4/5 trains",
-        "description_custom": "This elevator gets you from the main station mezzanine to 2/3 trains and Manhattan-bound 4/5 trains"
+        "shortdescription": "Mezzanine to 2/3. Transfer to 4/5 via Manhattan-bound 2/3 platform",
+        "description_custom": "This elevator gets you from the main station mezzanine to 2/3 trains"
       },
       "geometry": {
         "coordinates": [
@@ -9938,20 +9951,21 @@
       "properties": {
         "isRedundant": "0",
         "elevatorgtfsstopid": "G21",
-        "route": "E M R",
+        "route": "E F R",
         "complexID": "273",
         "isStreet": "true",
         "stationID": "273",
         "system": "nyc_mta",
         "elevatorno": "EL428",
-        "linesServed": "E/M/R",
+        "linesServed": "E/F/R",
         "title": "Queens Plaza",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/QueensPlaza_EL428.jpg",
-        "alternativeRoute": "If you are on the street: For Forest Hills-bound service, take a Jackson Heights-bound Q32 bus (Queens Plaza South and 28 St) to Roosevelt Av and 74 St for E/F/M/R service at Jackson Hts-Roosevelt Av.  For Manahttan-bound service, take a Middle Village-bound Q67 bus (Jackson Av and 42 Road) to 44 Drive and 23 St for E/M service at Court Sq-23 St. If you are on the mezzanine: See a station agent to re-enter through the faregate and use elevator to take a Manhattan-bound E or M to Court Sq-23 St. Then, use elevator to exit the station and take a LI City-bound Q67 bus (44 Driver and 23 St) to 28 St and Queens Plaza South.",
+        "alternativeRoute": "If you are on the street: \nTake a Flushing-bound Q63 bus to Northern Blvd/54 St for the Northern Blvd M/R station. Transfer at Queens Plaza for Manhattan-bound E/F and at Jackson Hts-Roosevelt Av for Jamaica-bound E/F.\n\nIf you are on the mezzanine: \nSee station agent to re-enter faregate and take a Manhattan-bound E or F to Court Sq - 23 St. Exit the station and proceed east along 44 Dr and then north along Jackson Av to Queens Blvd.",
         "ada": "1",
         "isBroken": "",
         "directionLabel": "",
         "shortdescription": "Street to mezzanine",
+        "access_note": "Nights (9:30pm-6am) and weekends, the F does not stop here. F travels along M line between 57 St and 21 St Queensbridge station",
         "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
@@ -9968,12 +9982,12 @@
       "properties": {
         "isRedundant": "0",
         "elevatorgtfsstopid": "G21",
-        "route": "E M R",
+        "route": "E F R",
         "complexID": "273",
         "stationID": "273",
         "system": "nyc_mta",
         "elevatorno": "EL430",
-        "linesServed": "E/M/R",
+        "linesServed": "E/F/R",
         "directionLabel": "Queens-bound",
         "title": "Queens Plaza",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
@@ -9982,6 +9996,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Queens-bound platform",
+        "access_note": "Nights (9:30pm-6am) and weekends, the F does not stop here. F travels along M line between 57 St and 21 St Queensbridge station",
         "description_custom": "This elevator gets you from the main station mezzanine to Queens-bound E/M/R trains"
       },
       "geometry": {
@@ -9998,12 +10013,12 @@
       "properties": {
         "isRedundant": "0",
         "elevatorgtfsstopid": "G21",
-        "route": "E M R",
+        "route": "E F R",
         "complexID": "273",
         "stationID": "273",
         "system": "nyc_mta",
         "elevatorno": "EL429",
-        "linesServed": "E/M/R",
+        "linesServed": "E/F/R",
         "directionLabel": "Manhattan-bound",
         "title": "Queens Plaza",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/platformelevator_default.jpg",
@@ -10012,6 +10027,7 @@
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Manhattan-bound platform",
+        "access_note": "Nights (9:30pm-6am) and weekends, the F does not stop here. F travels along M line between 57 St and 21 St Queensbridge station",
         "description_custom": "This elevator gets you from the main station mezzanine to Manhattan-bound E/M/R trains"
       },
       "geometry": {
@@ -11374,16 +11390,16 @@
         "stationID": "335/415",
         "system": "nyc_mta",
         "elevatorno": "EL317",
-        "linesServed": "2/3/4/5",
+        "linesServed": "2/3",
         "directionLabel": "",
         "title": "Borough Hall",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Borough_EL317.jpg",
-        "alternativeRoute": "If you are on the street: Proceed to the plaza at Court St and Montague St. Then take a Kings Plaza/Bergen Beach-bound B41 bus to Atlantic Av and Flatbush Av and use elevators to enter Atlantic Av-Barclays Ctr for 2/3/4/5 service. If you are on the mezzanine: See a station agent to re-enter through the faregate and use the elevator to take a Brooklyn-bound 2 or 3 to Atlantic Av-Barclays Ctr. Then use elevators to exit the station and take a Downtown Brooklyn-bound B41 bus (Flatbush Av and Atlantic Av) to the plaza at Court St and Montague St.",
+        "alternativeRoute": "If you are on the street: \nTravel to the northeast corner of Court St and Joralemon St. Use elevator EL773 to enter the Borough Hall station for 2/3/4/5 service.\n\nIf you are on the mezzanine: \nUse the Manhattan-bound 2/3 platform to access the Manhattan-bound 4/5 platform. Use elevators to exit the station.",
         "ada": "2",
         "isBroken": "",
-        "shortdescription": "Street to 2/3 & Manhattan-bound 4/5",
+        "shortdescription": "Street to 2/3 mezzanine. Transfer to 4/5 via Manhattan-bound 2/3 platform",
         "description_custom": "This elevator gets you from the street to the main station mezzanine",
-        "access_note": "PARTIALLY ACCESSIBLE STATION. 2/3 trains fully accessible. 4/5 only Manhattan-bound is accessible"
+        "access_note": "Can also serve 4/5 if needed. Transfer to 4/5 via the Manhattan-bound 2/3 platform"
       },
       "geometry": {
         "coordinates": [
@@ -11400,7 +11416,7 @@
         "notes": "elevatorgtfsstopid was G22",
         "isRedundant": "0",
         "elevatorgtfsstopid": "719/F09/G22",
-        "route": "E M G 7",
+        "route": "E F G 7",
         "complexID": "606",
         "stationID": "462",
         "system": "nyc_mta",
@@ -11823,21 +11839,22 @@
         "notes": "elevatorgtfsstopid was F09",
         "isRedundant": "0",
         "elevatorgtfsstopid": "719/F09/G22",
-        "route": "E M G 7",
+        "route": "E F G 7",
         "complexID": "606",
         "isStreet": "true",
         "stationID": "274",
         "system": "nyc_mta",
         "elevatorno": "EL482X",
-        "linesServed": "E/M",
+        "linesServed": "E/F",
         "directionLabel": "Manhattan-bound",
         "title": "Court Sq-23 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/CourtSq-23_EL482X.jpg",
-        "alternativeRoute": "If you are on the street: Take a LI City-bound Q67 bus (44 Driver and 23 St) to 28 St and Queens Plaza South. Then, proceed to Jackson Av and use elevator to enter Queens Plaza station for Manhattan-bound E/M service. If you are on the platform: Take a Manhattan-bound E or M to Lexington Av/53 St and transfer across the platform to a Forest Hills-bound E or M to Queens Plaza. Then, use elevators to exit station and take a Middle Village-bound Q67 bus (Jackson Av and 42 Road) to 44 Drive and 23 St.",
+        "alternativeRoute": "If you are on the street: \nTake a Flushing-bound Q63 bus (Jackson Av at 44 Dr) to Jackson Av / Queens Blvd for the Queens Plaza E/F/R station.\n\nIf you are on the platform: \nTake a Manhattan-bound E or F to Lexington Av/53 St and transfer across the platform to a Jamaica-bound E or F to Queens Plaza. Exit the station and take a Court Sq-bound Q63 bus (Jackson Av at 42 Rd) to 44 Dr / Jackson Av. Proceed west along 44 Dr to 23 St for Court Sq E/F.",
         "ada": "2",
         "isBroken": "",
         "shortdescription": "Street to Manhattan-bound platform",
-        "description_custom": "PARTIALLY ACCESSIBLE STATION. This elevator gets you from the street to Manhattan-bound E/M trains"
+        "access_note": "Nights (9:30pm-6am) and weekends, the F does not stop here. F travels along M line between 57 St and 21 St Queensbridge station",
+        "description_custom": "PARTIALLY ACCESSIBLE STATION. This elevator gets you from the street to Manhattan-bound E/F trains"
       },
       "geometry": {
         "coordinates": [
@@ -12207,6 +12224,218 @@
         ]
       },
       "id": "91f36c4c32f6f7c54e374a2ba3138ed7"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "D28",
+        "route": "B/Q",
+        "complexID": "44",
+        "stationID": "44",
+        "system": "nyc_mta",
+        "elevatorno": "EL792",
+        "linesServed": "B/Q",
+        "directionLabel": "Manhattan-bound",
+        "title": "Church Av",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Church-Av_EL792.jpg",
+        "alternativeRoute": "If you are on the street: Take a Coney Island-bound Q to Avenue H and use  underpass to transfer to a Manhattan-bound Q. Transfer at Church Av for Manhattan-bound B. \n\nIf you are on the platform: Take a Manhattan-bound B or Q to Prospect Park. Transfer to a Brighton Beach-bound B or Coney Island-bound Q to Church Av. ",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "true",
+        "shortdescription": "Street (18 St between Church Av & Caton Av) to Manhattan-bound platform. ",
+        "description_custom": "This elevator gets you from the street directly to Manhattan-bound B/Q trains. Elevator in station house."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.962917,
+          40.650528
+        ]
+      },
+      "id": "537a7c30d08c3cc93b69d49abbf03f26"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "D28",
+        "route": "B/Q",
+        "complexID": "44",
+        "stationID": "44",
+        "system": "nyc_mta",
+        "elevatorno": "EL791",
+        "linesServed": "B/Q",
+        "directionLabel": "Coney Island-bound",
+        "title": "Church Av",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Church-Av_EL791.jpg",
+        "alternativeRoute": "If you are on the street: Take a Manhattan-bound  B or Q to Prospect Park. Transfer to a Brighton Beach-bound B or Coney Island-bound Q.\n\nIf you are on the platform: Take a Coney Island-bound Q to Avenue H. Use underpass to transfer to a Manhattan-bound Q to Church Av.\n",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "true",
+        "shortdescription": "Street (18 St between Church Av and Caton Av) to Brighton/Coney-bound platform.",
+        "description_custom": "This elevator gets you from the street directly to Brighton/Coney Island-bound B/Q trains. Elevator in station house."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.963083,
+          40.650556
+        ]
+      },
+      "id": "64503fe6c34c76db6e262863a9c47ca5"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "1",
+        "elevatorgtfsstopid": "631/723/901",
+        "route": "4/5/6/7/S",
+        "complexID": "610",
+        "stationID": "402",
+        "system": "nyc_mta",
+        "elevatorno": "EL606X",
+        "linesServed": "4/5/6/7/S/LIRR/METRO-NORTH",
+        "directionLabel": "",
+        "title": "Grand Central-42 St",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Grand-Central-42-St_EL606X.jpg",
+        "alternativeRoute": "If this elevator is out of service, use nearby elevators.",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "true",
+        "shortdescription": "1 Vanderbilt lobby (NW corner of 42 St & Vanderbilt Av) for LIRR, MNR, & subway.",
+        "description_custom": "This elevator gets you from the main station mezzanine to 4/5/6/7/S/LIRR/METRO-NORTH trains"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.978194,
+          40.753056
+        ]
+      },
+      "id": "1d99aa94765f01738ba857b356a33b08"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "232/423/R28",
+        "route": "R/2/3/4/5",
+        "complexID": "620",
+        "stationID": "24",
+        "system": "nyc_mta",
+        "elevatorno": "EL775",
+        "linesServed": "4/5",
+        "directionLabel": "Flatbush Av-Brooklyn College-bound",
+        "title": "Borough Hall",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/Borough-Hall_EL775.jpg",
+        "alternativeRoute": "If you are on the mezzanine:\nTake a Manhattan-bound 4 or 5 to Bowling Green and use elevators to transfer to a Brooklyn-bound 4 or 5.\n\nIf you are on the platform: \nTake a Crown Heights-Utica Av-bound 4 or a Flatbush Av-Brooklyn College-bound 5 to Atlantic Av. Transfer cross-platform to a Manhattan-bound 4 or 5 to Borough Hall.",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "",
+        "shortdescription": "Mezzanine to Flatbush Av-Brooklyn College-bound 5 and Utica Av-bound 4 platform.",
+        "description_custom": "This elevator gets you from the main station mezzanine to Flatbush Av-Brooklyn College-bound 5 and Utica Av-bound 4 trains"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.991777,
+          40.693999999999996
+        ]
+      },
+      "id": "96895cf8b51811a5cf376230bdee85fe"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "232/423/R28",
+        "route": "R/2/3/4/5",
+        "complexID": "620",
+        "stationID": "24",
+        "system": "nyc_mta",
+        "elevatorno": "EL774",
+        "linesServed": "4/5",
+        "directionLabel": "Manhattan-bound",
+        "title": "Borough Hall",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/Borough-Hall_EL774.jpg",
+        "alternativeRoute": "If you are on the mezzanine: \nTake a Crown Heights-Utica Av-bound 4 or a Flatbush Av-Brooklyn College-bound 5 to Atlantic Av-Barclays Center. Transfer across the platform for Manhattan-bound 4/5. \n\nIf you are on the Manhattan-bound 4/5 platform: \nFollow signage towards the Manhattan-bound 2/3 platform. Use elevators to exit the station. ",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "",
+        "shortdescription": "Mezzanine to Manhattan-bound 4/5 platform.",
+        "description_custom": "This elevator gets you from the main station mezzanine to Manhattan-bound 4/5 trains",
+        "access_note": "Transfer to 2/3 via this elevator"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.991777,
+          40.6939
+        ]
+      },
+      "id": "df3240e57e35096fba944fef906f00ba"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "1",
+        "elevatorgtfsstopid": "232/423/R28",
+        "route": "R/2/3/4/5",
+        "complexID": "620",
+        "stationID": "24",
+        "system": "nyc_mta",
+        "elevatorno": "EL773",
+        "linesServed": "4/5",
+        "directionLabel": "",
+        "title": "Borough Hall",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Borough-Hall_EL773.jpg",
+        "alternativeRoute": "If you are on the street: \nTravel north along Court St to elevator EL317 to enter the Borough Hall station and proceed to the Manhattan-bound 2/3 platform. Follow signage to the Manhattan-bound 4/5 platform. Use elevators to transfer to Crown Heights-Utica Av-bound 4 and Flatbush Av-Brooklyn College-bound 5. \n\nIf you are on the mezzanine level:  \nUse the Manhattan-bound 4/5 platform to access the Manhattan-bound 2/3 platform. Use elevators to exit the station. ",
+        "ada": "2",
+        "isBroken": "",
+        "isStreet": "true",
+        "shortdescription": "Joralemon St to 4/5 mezzanine. Transfer to 2/3 via Manhattan-bound 4/5 platform.",
+        "description_custom": "This elevator gets you from the street to the 4/5 mezzanine",
+        "access_note": "Can also serve 2/3 if needed. Transfer to 2/3 via the Manhattan-bound 4/5 platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.990139,
+          40.692528
+        ]
+      },
+      "id": "8ba5f0b2b8d46712fe257ebe38586021"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "A33",
+        "route": "C/E",
+        "complexID": "168",
+        "stationID": "168",
+        "system": "nyc_mta",
+        "elevatorno": "EL1106",
+        "linesServed": "C/E",
+        "directionLabel": "downtown",
+        "title": "Spring St",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Spring-St_EL1106.jpg",
+        "alternativeRoute": "If you are on the street: \nTravel north along 6 Av to the W 4 \u2013 Washington Sq A/B/C/D/E/F/M station.\nOr, travel west to Hudson St and then north to Charlton St. Take a Lincoln Center-bound M20 bus to 14 St for the 14 St A/C/E/L station.\n\nIf you are on the platform:\nTake a World Trade Center-bound E to World Trade Center. Exit the station and travel to the northeast corner of Church St and Vesey St. Take a 44 St 6 Av-bound M55 bus to Spring St. ",
+        "ada": "2",
+        "isBroken": "",
+        "isStreet": "true",
+        "shortdescription": "South side of Spring St & 6 Av in front of Spring St Park to downtown platform.",
+        "description_custom": "This elevator gets you from the street directly to downtown C/E trains"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.004306,
+          40.725472
+        ]
+      },
+      "id": "40de17f477fa8c7f4ff1e475e5ffd46f"
     }
   ],
   "type": "FeatureCollection"
