@@ -126,7 +126,7 @@ const MtaMap = () => {
     new mapboxgl.Popup({
       anchor: "bottom",
       className: "onclick-popup",
-      closeButton: true,
+      closeButton: true, // lil comment
       closeOnClick: true,
     })
   );
