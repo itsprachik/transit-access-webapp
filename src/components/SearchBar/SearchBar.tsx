@@ -143,8 +143,10 @@ const StyledSelect = styled(Select)`
   #react-select-select-box-placeholder {
     color: #595959; 
 
-  @media (max-width: 768px) {
-    width: 100vw;
+
+  // Figure out why this isnt being applied anymore, had to add to global.css
+  @media (max-width: 768px)  {
+        width: 100vw !important;
   }
 `;
 
@@ -230,6 +232,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
   return (
     <StyledSelect
+      className="searchBar"
       instanceId="select-box"
       options={options}
       aria-label="Search for a station"

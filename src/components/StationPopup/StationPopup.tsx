@@ -376,7 +376,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
         {/* <div id="station-summary" className="sr-only">
         {getAccessibilityStatus()}. {getElevatorStatusText()}.
         {route && ` Subway lines: ${getSubwayLinesText(route)}.`}
-      </div> */}3
+      </div> */}
         {isMobile && (
           <div aria-hidden="true" className="flex justify-center p-2">
             <div className="h-1 w-12 rounded-full bg-muted-foreground/30" />

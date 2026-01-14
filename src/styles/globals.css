@@ -74,6 +74,14 @@ div#__next>div {
   }
 }
 
+@media (max-width: 768px)  {
+    .searchBar{
+            width: 100vw !important;
+
+    }
+  }
+ 
+
 /* Ensure image spans full width */
 .onclick-popup img {
   border-radius: 5px;

@@ -7,19 +7,19 @@
   justify-content: center;
 }
 
-.reactSelectCustomDropdownIndicator:hover, .reactSelectCustomClearIndicator:hover {
+.reactSelectCustomDropdownIndicator:hover,
+.reactSelectCustomClearIndicator:hover {
   opacity: 0.7;
 }
 
-.reactSelectCustomDropdownIndicator:focus, .reactSelectCustomClearIndicator:focus {
+.reactSelectCustomDropdownIndicator:focus,
+.reactSelectCustomClearIndicator:focus {
   outline: 2px solid #0066cc;
   border-radius: 4px;
 }
 
-.reactSelectCustomDropdownIndicator svg, .reactSelectCustomClearIndicator svg  {
+.reactSelectCustomDropdownIndicator svg,
+.reactSelectCustomClearIndicator svg {
   fill: #595959;
-  stroke:  #595959;
-
-
+  stroke: #595959;
 }
-
