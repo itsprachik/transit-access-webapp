@@ -43,6 +43,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
 
   const contentAreaRef = useRef<HTMLDivElement>(null);
   const headerAreaRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
 
   // popup expansion states
   const [isExpanded, setIsExpanded] = useState(false);
@@ -61,14 +62,6 @@ const StationPopup: React.FC<StationPopupProps> = ({
     typeof v === "string" ? v === "true" : Boolean(v);
 
   const isAccessible = ada !== "0";
-
-  // COMMENTED OUT FOR TESTING (do we need this to focus sr? likely not)
-  // Focus management for modal
-  // useEffect(() => {
-  //   if (dialogRef.current) {
-  //     dialogRef.current.focus();
-  //   }
-  // }, []);
 
   // Minimum swipe distance (in px)
   const minSwipeDistance = 50;
@@ -101,9 +94,9 @@ const StationPopup: React.FC<StationPopupProps> = ({
   };
 
   const onTouchEnd = () => {
+    const wasSwipeOrDrag =
+      touchEnd !== null && Math.abs(touchStart - touchEnd) > 10; // e.g., 10px
 
-    const wasSwipeOrDrag = touchEnd !== null && Math.abs(touchStart - touchEnd) > 10; // e.g., 10px
-  
     if (!wasSwipeOrDrag && touchStart !== null) {
       // This was a tap - toggle the expanded state
       setIsExpanded(!isExpanded);
@@ -330,6 +323,13 @@ const StationPopup: React.FC<StationPopupProps> = ({
     true // bright yellow color, no background
   );
 
+  useEffect(() => {
+  // Focus the title when a new station is selected
+  if (complexName && titleRef.current) {
+    titleRef.current.focus();
+  }
+}, [complexName]);
+
   // Close OOS if clicked outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -365,7 +365,6 @@ const StationPopup: React.FC<StationPopupProps> = ({
       aria-modal="true"
       aria-labelledby="station-popup-title"
       aria-describedby="station-summary"
-      tabIndex={-1}
     >
       <div
         className={`${styles.popupHeader} ${isScrolled ? styles.scrolled : ""}`}
@@ -377,13 +376,15 @@ const StationPopup: React.FC<StationPopupProps> = ({
         {/* <div id="station-summary" className="sr-only">
         {getAccessibilityStatus()}. {getElevatorStatusText()}.
         {route && ` Subway lines: ${getSubwayLinesText(route)}.`}
-      </div> */}
+      </div> */}3
         {isMobile && (
           <div aria-hidden="true" className="flex justify-center p-2">
             <div className="h-1 w-12 rounded-full bg-muted-foreground/30" />
           </div>
         )}
         <h1
+          ref={titleRef}
+          tabIndex={-1}
           id="station-popup-title"
           className={`${styles.title} ${isMobile ? "" : styles.desktop} ${
             isScrolled ? styles.scrolled : ""
@@ -392,7 +393,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
           {/* Station title text */}
           {complexName}
 
-          {/* Accessibility icon - now properly labeled */}
+          {/* Accessibility icon */}
           <div
             className={`${styles.iconWrapper} ${adaStatus}`}
             aria-hidden="true"

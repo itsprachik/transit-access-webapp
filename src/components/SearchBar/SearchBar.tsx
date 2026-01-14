@@ -10,7 +10,6 @@ import { setManhattanTilt } from "../MtaMap/mtaMapOptions";
 import { matchSorter } from "match-sorter";
 import { getOptions } from "./handlerFunctions";
 import styles from "@/components/SearchBar/searchbar.module.css";
-
 interface SearchBarProps {
   data: MtaStationData;
   map: mapboxgl.Map | null;
@@ -18,7 +17,7 @@ interface SearchBarProps {
 }
 
 // Custom Option since we want icons and custom styling. Need a custom component to override the default label in react-select
-const { Option } = components;
+const { Option, ClearIndicator, DropdownIndicator } = components;
 const CustomSelectOption = (props) => (
   <Option {...props}>
     <div
@@ -57,21 +56,66 @@ const CustomSelectOption = (props) => (
   </Option>
 );
 
-const { ClearIndicator } = components;
 const CustomClear = (props) => {
-  const { selectProps } = props;
+  const focusInput = () => {
+    // Use the instanceId to find the input
+    const input = document.querySelector(
+      '[id^="react-select-"][id$="-input"]'
+    ) as HTMLInputElement;
+    if (input) {
+      input.focus();
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      props.clearValue();
+      setTimeout(() => focusInput(), 10);
+    }
+  };
+
   return (
     <>
       <button
         onClick={() => {
           props.clearValue();
+          setTimeout(() => focusInput(), 10);
         }}
-        className="react-select-custom-clear"
-        aria-label="clear"
+        onKeyDown={handleKeyDown}
+        className={styles.reactSelectCustomClearIndicator}
+        aria-label="Clear selection"
+        type="button"
+        tabIndex={0}
       >
         <ClearIndicator {...props} />
       </button>
     </>
+  );
+};
+
+const CustomDropdownIndicator = (props) => {
+  return (
+    <button
+      type="button"
+      onClick={(e) => {
+        e.stopPropagation();
+        props.selectProps.onMenuOpen();
+      }}
+      onMouseDown={(e) => {
+        e.stopPropagation();
+      }}
+      aria-label={
+        props.selectProps.menuIsOpen
+          ? "Close station dropdown"
+          : "Open station dropdown"
+      }
+      aria-expanded={props.selectProps.menuIsOpen}
+      tabIndex={0}
+      className={styles.reactSelectCustomDropdownIndicator}
+    >
+      <DropdownIndicator {...props} />
+    </button>
   );
 };
 
@@ -92,8 +136,13 @@ const StyledSelect = styled(Select)`
   padding: 0px 5px 0px 5px;
   width: 400px;
   z-index: 1000;
+  border-color:  #595959;
   font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica,
     Arial, sans-serif;
+
+  #react-select-select-box-placeholder {
+    color: #595959; 
+
   @media (max-width: 768px) {
     width: 100vw;
   }
@@ -183,7 +232,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
     <StyledSelect
       instanceId="select-box"
       options={options}
-      aria-label="Search for an MTA subway station"
+      aria-label="Search for a station"
       aria-describedby="station-search-help"
       isClearable
       filterOption={() => true} // disables built-in filtering, this is a fix for the lag thats introduced when custom filtering is applied
@@ -192,7 +241,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         Option: CustomSelectOption,
         SingleValue: CustomSingleValue,
         ClearIndicator: CustomClear,
-        DropdownIndicator: () => null,
+        DropdownIndicator: CustomDropdownIndicator,
         IndicatorSeparator: () => null,
       }}
       onChange={handleSelect}
