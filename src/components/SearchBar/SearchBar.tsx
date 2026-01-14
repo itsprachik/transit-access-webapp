@@ -10,7 +10,6 @@ import { setManhattanTilt } from "../MtaMap/mtaMapOptions";
 import { matchSorter } from "match-sorter";
 import { getOptions } from "./handlerFunctions";
 import styles from "@/components/SearchBar/searchbar.module.css";
-
 interface SearchBarProps {
   data: MtaStationData;
   map: mapboxgl.Map | null;
@@ -18,7 +17,7 @@ interface SearchBarProps {
 }
 
 // Custom Option since we want icons and custom styling. Need a custom component to override the default label in react-select
-const { Option } = components;
+const { Option, ClearIndicator, DropdownIndicator } = components;
 const CustomSelectOption = (props) => (
   <Option {...props}>
     <div
@@ -57,6 +56,69 @@ const CustomSelectOption = (props) => (
   </Option>
 );
 
+const CustomClear = (props) => {
+  const focusInput = () => {
+    // Use the instanceId to find the input
+    const input = document.querySelector(
+      '[id^="react-select-"][id$="-input"]'
+    ) as HTMLInputElement;
+    if (input) {
+      input.focus();
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      props.clearValue();
+      setTimeout(() => focusInput(), 10);
+    }
+  };
+
+  return (
+    <>
+      <button
+        onClick={() => {
+          props.clearValue();
+          setTimeout(() => focusInput(), 10);
+        }}
+        onKeyDown={handleKeyDown}
+        className={styles.reactSelectCustomClearIndicator}
+        aria-label="Clear selection"
+        type="button"
+        tabIndex={0}
+      >
+        <ClearIndicator {...props} />
+      </button>
+    </>
+  );
+};
+
+const CustomDropdownIndicator = (props) => {
+  return (
+    <button
+      type="button"
+      onClick={(e) => {
+        e.stopPropagation();
+        props.selectProps.onMenuOpen();
+      }}
+      onMouseDown={(e) => {
+        e.stopPropagation();
+      }}
+      aria-label={
+        props.selectProps.menuIsOpen
+          ? "Close station dropdown"
+          : "Open station dropdown"
+      }
+      aria-expanded={props.selectProps.menuIsOpen}
+      tabIndex={0}
+      className={styles.reactSelectCustomDropdownIndicator}
+    >
+      <DropdownIndicator {...props} />
+    </button>
+  );
+};
+
 const { SingleValue } = components;
 
 const CustomSingleValue = (props) => {
@@ -74,10 +136,17 @@ const StyledSelect = styled(Select)`
   padding: 0px 5px 0px 5px;
   width: 400px;
   z-index: 1000;
+  border-color:  #595959;
   font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica,
     Arial, sans-serif;
-  @media (max-width: 768px) {
-    width: 100vw;
+
+  #react-select-select-box-placeholder {
+    color: #595959; 
+
+
+  // Figure out why this isnt being applied anymore, had to add to global.css
+  @media (max-width: 768px)  {
+        width: 100vw !important;
   }
 `;
 
@@ -95,9 +164,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
     setOptions(defaultOptions);
   }, [data]);
 
-  const handleSelect = (
-    selected: {label: string; value: string } | null
-  ) => {
+  const handleSelect = (selected: { label: string; value: string } | null) => {
     if (!selected || !map) return;
 
     // Find all elevators at the selected station
@@ -165,9 +232,10 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
   return (
     <StyledSelect
+      className="searchBar"
       instanceId="select-box"
       options={options}
-      aria-label="Search for an MTA subway station"
+      aria-label="Search for a station"
       aria-describedby="station-search-help"
       isClearable
       filterOption={() => true} // disables built-in filtering, this is a fix for the lag thats introduced when custom filtering is applied
@@ -175,6 +243,9 @@ const SearchBar: React.FC<SearchBarProps> = ({
       components={{
         Option: CustomSelectOption,
         SingleValue: CustomSingleValue,
+        ClearIndicator: CustomClear,
+        DropdownIndicator: CustomDropdownIndicator,
+        IndicatorSeparator: () => null,
       }}
       onChange={handleSelect}
       placeholder="Search for a station"
