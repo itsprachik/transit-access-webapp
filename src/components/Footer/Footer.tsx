@@ -1,5 +1,6 @@
 import React from "react";
 import { FaEnvelope, FaTiktok, FaInstagram, FaBluesky } from "react-icons/fa6";
+import { RiSurveyLine } from "react-icons/ri";
 import { SiBuymeacoffee } from "react-icons/si";
 import styled from "styled-components";
 
@@ -53,14 +54,14 @@ const Footer = () => {
   return (
     <FooterContainer>
       <SocialLink
-        href="mailto:contact@example.com"
+        href="mailto:team@transitaccess.org"
         aria-label="Send us an email"
       >
         <FaEnvelope />
       </SocialLink>
 
       <SocialLink
-        href="https://linkedin.com/company/yourcompany"
+        href=""
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Buy me a coffee"
@@ -69,7 +70,7 @@ const Footer = () => {
       </SocialLink>
 
       <SocialLink
-        href="https://github.com/yourusername"
+        href="https://www.tiktok.com/@transitaccess"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Visit our TikTok page"
@@ -78,7 +79,7 @@ const Footer = () => {
       </SocialLink>
 
       <SocialLink
-        href="https://twitter.com/yourusername"
+        href="https://www.instagram.com/transitaccess/"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Visit our Instagram page"
@@ -87,12 +88,21 @@ const Footer = () => {
       </SocialLink>
 
       <SocialLink
-        href="https://linkedin.com/company/yourcompany"
+        href="https://bsky.app/profile/transitaccess.bsky.social"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Visit our Bluesky page"
       >
         <FaBluesky />
+      </SocialLink>
+
+       <SocialLink
+        href="https://app.youform.com/forms/dnefmhvd"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Take our feedback survey"
+      >
+        <RiSurveyLine />
       </SocialLink>
     </FooterContainer>
   );
