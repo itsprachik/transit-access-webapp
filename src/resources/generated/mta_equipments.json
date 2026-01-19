@@ -260,9 +260,9 @@
     "equipmenttype": "EL",
     "serving": "mezzanine to uptown A/C/E platform",
     "ADA": "Y",
-    "isactive": "N",
+    "isactive": "Y",
     "nonNYCT": "N",
-    "shortdescription": "Mezzanine to uptown A/C/E",
+    "shortdescription": "Upper Mezzanine to Northbound A/C/E trains Platform level (Front)",
     "linesservedbyelevator": "A/C/E",
     "elevatorsgtfsstopid": "A31/L01",
     "elevatormrn": "115/166",
@@ -481,7 +481,7 @@
     "nextadasouth": "119, L",
     "redundant": 0,
     "busconnections": "M1, M2, M3, M14A SBS, M14D SBS",
-    "alternativeroute": "This elevator is out of service for replacement. Read on for travel alternatives: \n\nFrom the mezzanine: \nFollow signs to take an uptown N/Q/R/W to 34 St-Herald Sq. Use elevators to transfer to a downtown F or M to 14 St and use elevator to transfer to the L.\n\nFrom the platform: \nTake an 8 Av-bound L to 6 Av and use elevators to exit the station. Then, take a LES-bound M14A or M14D to 4 Av.\nFor access to N/Q/R/W, transfer at 14 St/6 Av to an uptown F or M to 34 St-Herald Sq and use elevators to transfer to the N/Q/R/W in either direction. "
+    "alternativeroute": "This elevator is out of service for replacement. \n\nFor L service from the mezzanine: \nFollow signs to take an uptown N/Q/R/W to 34 St-Herald Sq. Transfer to a downtown F or M to 14 St and use elevator & OMNY transfer validators to transfer to L.\n\nTo exit from the platform: \nTake an 8 Av-bound L to 6 Av and use elevators to exit the station. Then, take a LES-bound M14A or M14D to 4 Av.\nFor access to N/Q/R/W, transfer at 14 St/6 Av to an uptown F or M to 34 St-Herald Sq and use elevators to transfer to the N/Q/R/W in either direction. "
   },
   {
     "station": "14 St-Union Sq",
@@ -502,7 +502,7 @@
     "nextadasouth": "119, L / 21, R, W / 26, Q / 27, N",
     "redundant": 0,
     "busconnections": "M1, M2, M3, M14A SBS, M14D SBS",
-    "alternativeroute": "This elevator is out of service for replacement. Read on for travel alternatives: \n\nFrom the street: \nTake a Chelsea Piers-bound M14D or Abingdon Sq-bound M14A to 6 Av for 14 St F/M and 6 Av L station. For N/Q/R/W service, take an uptown F or M train to 34 St-Herald Sq and use elevators to transfer to the N/Q/R/W in either direction. \n\nFrom the mezzanine:\nSee a station agent to re-enter through faregate and take an uptown N/Q/R/W to 34 St-Herald Sq. Use elevators to exit the station, travel to 36 St and 5 Av and take a Soho-bound M1 or East Village-bound M2 or M3 to 14 St. "
+    "alternativeroute": "This elevator is out of service for replacement.\n\nFor N/Q/R/W/L:\nTake a Chelsea Piers-bound M14D or Abingdon Sq-bound M14A to 6 Av for 14 St F/M and 6 Av L station. For N/Q/R/W service, take an uptown F or M train to 34 St-Herald Sq and use elevators to transfer to the N/Q/R/W in either direction.\n\nTo exit from the mezzanine:\nSee a station agent to re-enter through faregate and take an uptown N/Q/R/W to 34 St-Herald Sq. Use elevators to exit the station, travel to 36 St and 5 Av and take a Soho-bound M1 or East Village-bound M2 or M3 to 14 St."
   },
   {
     "station": "14 St-Union Sq",
@@ -1404,7 +1404,7 @@
     "nextadanorth": "267, F, M",
     "nextadasouth": "222, F, M",
     "redundant": 0,
-    "busconnections": "B62, Q66, Q69, Q100, Q103",
+    "busconnections": "B62, Q66, Q69, Q100, Q103.",
     "alternativeroute": "If you are on the mezzanine: \nTake a Manhattan-bound train to Roosevelt Island and transfer to a Forest Hills-bound M (Jamaica-bound F Nights, Weekends). \n\nIf you are on the platform: \nWeekdays from 6 AM to 9:30 pm: Take a Forest Hills-bound M to Northern Blvd and transfer to a Manhattan-bound M to 21 St - Queensbridge. \nNights and Weekends: Take a Jamaica-bound F to Jackson Hts-Roosevelt Av and transfer to a Manhattan-bound F to 21 St - Queensbridge."
   },
   {
@@ -1425,7 +1425,7 @@
     "nextadanorth": "267, F, M",
     "nextadasouth": "222, F, M",
     "redundant": 0,
-    "busconnections": "B62, Q66, Q69, Q100, Q103",
+    "busconnections": "B62, Q66, Q69, Q100, Q103.",
     "alternativeroute": "If you are on the mezzanine: \nWeekdays from 6 AM to 9:30 PM: Take a Forest Hills-bound M to Northern Blvd and transfer to a Manhattan-bound M. \nNights and Weekends: Take a Jamaica-bound F to Jackson Hts-Roosevelt Av and transfer to a Manhattan-bound F.\n\nIf you are on the platform: \nTake a Manhattan-bound train to Roosevelt Island and transfer to a Forest Hills-bound M (Jamaica-bound F Nights, Weekends) to 21 St-Queensbridge."
   },
   {
@@ -1446,7 +1446,7 @@
     "nextadanorth": "267, F, M",
     "nextadasouth": "222, F, M",
     "redundant": 0,
-    "busconnections": "B62, Q66, Q69, Q100, Q103",
+    "busconnections": "B62, Q66, Q69, Q100, Q103.",
     "alternativeroute": "If you are on the street: \nTake an East Elmhurst-bound Q69 bus or Flushing-bound Q66 to 21 St/36 Av and then take a Roosevelt Island-bound Q102 bus to Main St for the Roosevelt Island M station. Note: F runs via Roosevelt Island during Nights and Weekends. \n\nIf you are on the mezzanine: \nTake a Manhattan-bound train to Roosevelt Island and then take a Court Sq-bound Q102 to 21 St/36 Av. Transfer to a Queens Plaza-bound Q69 or Q66 to 21 St/41 Av."
   },
   {
@@ -1457,7 +1457,7 @@
     "equipmenttype": "ES",
     "serving": "mezzanine to 21 St & 41 Ave (NE corner)",
     "ADA": "N",
-    "isactive": "Y",
+    "isactive": "N",
     "nonNYCT": "N",
     "shortdescription": "Mezzanine to 21 St & 41 Ave (NE corner).",
     "linesservedbyelevator": "F/M",
@@ -1467,7 +1467,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "B62, Q66, Q69, Q100, Q103",
+    "busconnections": "B62, Q66, Q69, Q100, Q103.",
     "alternativeroute": ""
   },
   {
@@ -1488,7 +1488,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "B62, Q66, Q69, Q100, Q103",
+    "busconnections": "B62, Q66, Q69, Q100, Q103.",
     "alternativeroute": ""
   },
   {
@@ -1499,7 +1499,7 @@
     "equipmenttype": "ES",
     "serving": "21 St & 41 Ave (NE corner) to mezzanine",
     "ADA": "N",
-    "isactive": "Y",
+    "isactive": "N",
     "nonNYCT": "N",
     "shortdescription": "21 St & 41 Ave (NE corner) to mezzanine.",
     "linesservedbyelevator": "F/M",
@@ -1509,7 +1509,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "B62, Q66, Q69, Q100, Q103",
+    "busconnections": "B62, Q66, Q69, Q100, Q103.",
     "alternativeroute": ""
   },
   {
@@ -1530,7 +1530,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "B62, Q66, Q69, Q100, Q103",
+    "busconnections": "B62, Q66, Q69, Q100, Q103.",
     "alternativeroute": ""
   },
   {
@@ -1551,7 +1551,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "B62, Q66, Q69, Q100, Q103",
+    "busconnections": "B62, Q66, Q69, Q100, Q103.",
     "alternativeroute": ""
   },
   {
@@ -1572,7 +1572,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "B62, Q66, Q69, Q100, Q103",
+    "busconnections": "B62, Q66, Q69, Q100, Q103.",
     "alternativeroute": ""
   },
   {
@@ -2591,7 +2591,7 @@
     "equipmenttype": "EL",
     "serving": "uptown C/E platform to lower mezzanine for access to Penn Station concourse and rest of complex",
     "ADA": "Y",
-    "isactive": "N",
+    "isactive": "Y",
     "nonNYCT": "N",
     "shortdescription": "Uptown C/E to mezzanine",
     "linesservedbyelevator": "A/C/E",
@@ -2612,7 +2612,7 @@
     "equipmenttype": "EL",
     "serving": "34 St & 8th Ave (SE corner) to uptown C/E platform and access to rest of complex",
     "ADA": "Y",
-    "isactive": "N",
+    "isactive": "Y",
     "nonNYCT": "N",
     "shortdescription": "Street to uptown C/E",
     "linesservedbyelevator": "A/C/E",
@@ -3053,7 +3053,7 @@
     "equipmenttype": "ES",
     "serving": "mezzanine (Madison Ave & 53 St) to downtown platform",
     "ADA": "N",
-    "isactive": "Y",
+    "isactive": "N",
     "nonNYCT": "N",
     "shortdescription": "Mezzanine (53 St & Madison Ave) to downtown platform.",
     "linesservedbyelevator": "E/F",
@@ -3216,7 +3216,7 @@
   {
     "station": "51 St",
     "borough": "",
-    "trainno": "E/F/M/6",
+    "trainno": "E/F/6",
     "equipmentno": "EL202",
     "equipmenttype": "EL",
     "serving": "downtown 6 platform to underpass for access to uptown 6 and E/F service in both directions",
@@ -3237,7 +3237,7 @@
   {
     "station": "51 St",
     "borough": "",
-    "trainno": "E/F/M/6",
+    "trainno": "E/F/6",
     "equipmentno": "EL201",
     "equipmenttype": "EL",
     "serving": "Mezzanine to underpass for access to downtown 6.",
@@ -3258,7 +3258,7 @@
   {
     "station": "51 St",
     "borough": "",
-    "trainno": "E/F/M/6",
+    "trainno": "E/F/6",
     "equipmentno": "EL203X",
     "equipmenttype": "EL",
     "serving": "52 St & Lexington Ave (NE corner) to mezzanine for E/F/6 service in both directions.",
@@ -3270,8 +3270,8 @@
     "elevatorsgtfsstopid": "630/F11",
     "elevatormrn": "275/401",
     "stationcomplexid": "612",
-    "nextadanorth": "273, E, F / 274, M / 397, 6",
-    "nextadasouth": "162, E / 225, F, M / 402, 6",
+    "nextadanorth": "273, E, F / 397, 6",
+    "nextadasouth": "162, E / 225, F / 402, 6",
     "redundant": 0,
     "busconnections": "M20 (northbound; southbound at 7 Av), M50, M104 (northbound; southbound at 7 Av)/M50; M101, M102, M103 (all southbound; northbound at 3 Av); SIM6, SIM11, SIM22, SIM26",
     "alternativeroute": "If you are on the street: \nProceed to Grand Central-42 St for 6. Or, take a downtown M101 LTD, M102, or M103 to Grand Central-42 St and take an uptown 6 to 51 St.\n\nIf you are on the mezzanine: Take a downtown 6 to Grand Central - 42 St. Exit the station and take a M101, M102, or M103 bus (3 Av between 42 St and 43 St) to 50 St. Proceed one block west to Lexington Av. "
@@ -3655,27 +3655,6 @@
     "alternativeroute": "If you are on the mezzanine: For downtown 1, proceed to the elevator at the other side of the mezzanine to reach the platform and use the elevator at the other end of platform. Take an uptown 1 to 72 St and use elevators to transfer to a downtown 1. For downtown A, B, C or D, proceed to the elevator at the side of the mezzanine and take an uptown A, C, B or D to 125 St. Use elevators to transfer to downtown service.  Or, take a southbound M104 bus (Columbus Circle and 8 Av) to 41 St and 8 Av and proceed to Times Sq-42 St for downtown 1 or to 42 St/Port Authority Bus Terminal for A, C. If you are on the downtown A/B/C/D platform: Take a downtown A or C to 42 St/Port Authority Bus Terminal and use ramps to transfer to an uptown A or C to 59 St-Columbus Circle. Or, take a downtown C to 50 St. Exit station and take a northbound M20 or M104 bus (49 St and 8 Av) to 59 St-Columbus Circle. If you are on the downtown 1 platform: Take a downtown 1 to Times Sq-42 St then either: Use elevators to transfer to an uptown 1 to 59 St-Columbus Circle. Or, take a northbound M20 or M104 bus (8 Av and 43 St) to 59 St-Columbus Circle."
   },
   {
-    "station": "59 St-Columbus Circle",
-    "borough": "",
-    "trainno": "A/C/B/D/1",
-    "equipmentno": "ES276X",
-    "equipmenttype": "ES",
-    "serving": "3 Landings",
-    "ADA": "N",
-    "isactive": "Y",
-    "nonNYCT": "Y",
-    "shortdescription": "",
-    "linesservedbyelevator": "A/C/B/D/1",
-    "elevatorsgtfsstopid": "125/A24",
-    "elevatormrn": "161/315",
-    "stationcomplexid": "614",
-    "nextadanorth": "",
-    "nextadasouth": "",
-    "redundant": 0,
-    "busconnections": "M5,\u00a0M7,\u00a0M10,\u00a0M12,\u00a0M20,\u00a0M31,\u00a0M57\u00a0(at 57 St),  M104, X12,\u00a0X14, X30,\u00a0 X42\u00a0(all at 57 St)/M5, M7, M10, M12, M20, M31, M57 (at 57 St), M104, X12, X14, X42 (all at 57 St)",
-    "alternativeroute": ""
-  },
-  {
     "station": "6 Av",
     "borough": "",
     "trainno": "F/M/L/1/2/3",
@@ -3798,7 +3777,7 @@
     "nextadanorth": "454, 7",
     "nextadasouth": "462, 7",
     "redundant": 0,
-    "busconnections": "Q18 (on Woodside Av, two blocks away), Q32, Q53 SBS, Q70 SBS; LIRR",
+    "busconnections": "Q18, Q32, Q53 SBS, Q70 SBS (Q70 goes to LaGuardia Airport).",
     "alternativeroute": "Alt route not available for this elevator. Please use TripPlanner for latest information."
   },
   {
@@ -3819,7 +3798,7 @@
     "nextadanorth": "454, 7",
     "nextadasouth": "462, 7",
     "redundant": 0,
-    "busconnections": "Q18 (on Woodside Av, two blocks away), Q32, Q53 SBS, Q70 SBS; LIRR",
+    "busconnections": "Q18, Q32, Q53 SBS, Q70 SBS (Q70 goes to LaGuardia Airport).",
     "alternativeroute": "Alt route not available for this elevator. Please use TripPlanner for latest information."
   },
   {
@@ -3840,7 +3819,7 @@
     "nextadanorth": "454, 7",
     "nextadasouth": "462, 7",
     "redundant": 0,
-    "busconnections": "Q18 (on Woodside Av, two blocks away), Q32, Q53 SBS, Q70 SBS; LIRR",
+    "busconnections": "Q18, Q32, Q53 SBS, Q70 SBS (Q70 goes to LaGuardia Airport).",
     "alternativeroute": "Alt route not available for this elevator. Please use TripPlanner for latest information."
   },
   {
@@ -3861,7 +3840,7 @@
     "nextadanorth": "454, 7",
     "nextadasouth": "462, 7",
     "redundant": 0,
-    "busconnections": "Q18 (on Woodside Av, two blocks away), Q32, Q53 SBS, Q70 SBS; LIRR",
+    "busconnections": "Q18, Q32, Q53 SBS, Q70 SBS (Q70 goes to LaGuardia Airport).",
     "alternativeroute": "Alt route not available for this elevator. Please use TripPlanner for latest information."
   },
   {
@@ -3882,7 +3861,7 @@
     "nextadanorth": "454, 7",
     "nextadasouth": "462, 7",
     "redundant": 0,
-    "busconnections": "Q18 (on Woodside Av, two blocks away), Q32, Q53 SBS, Q70 SBS; LIRR",
+    "busconnections": "Q18, Q32, Q53 SBS, Q70 SBS (Q70 goes to LaGuardia Airport).",
     "alternativeroute": "Alt route not available for this elevator. Please use TripPlanner for latest information."
   },
   {
@@ -3903,7 +3882,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q18 (on Woodside Av, two blocks away), Q32, Q53 SBS, Q70 SBS; LIRR",
+    "busconnections": "Q18, Q32, Q53 SBS, Q70 SBS (Q70 goes to LaGuardia Airport).",
     "alternativeroute": ""
   },
   {
@@ -4523,7 +4502,7 @@
     "equipmenttype": "EL",
     "serving": "Broadway (between 72 St & 73 St) to downtown platform",
     "ADA": "Y",
-    "isactive": "Y",
+    "isactive": "N",
     "nonNYCT": "N",
     "shortdescription": "Street to downtown platform",
     "linesservedbyelevator": "1/2/3",
@@ -4544,7 +4523,7 @@
     "equipmenttype": "EL",
     "serving": "Broadway (between 72 St & 73 St) to uptown platform",
     "ADA": "Y",
-    "isactive": "Y",
+    "isactive": "N",
     "nonNYCT": "N",
     "shortdescription": "Street to uptown platform",
     "linesservedbyelevator": "1/2/3",
@@ -4575,7 +4554,7 @@
     "nextadanorth": "261, E, F, M, R / 451, 7",
     "nextadasouth": "221, F / 273, E, M, R / 456, 7",
     "redundant": 0,
-    "busconnections": "Q32, Q33, Q47, Q49, Q53 SBS, Q70 SBS/Q32, Q33, Q47, Q49, Q53-SBS, Q70-SBS",
+    "busconnections": "Q32, Q33, Q47, Q49, Q53 SBS, Q70 SBS/Q18, Q47, Q60 (Q47 goes to LaGuardia Airport)/Q18, Q47, Q60 (Q47 goes to LaGuardia Airport)./Q18, Q47, Q60 (Q47 goes to LaGuardia Airport),",
     "alternativeroute": "If you are on the Manhattan-bound platform: \nTake a Manhattan-bound 7 to 61 St-Woodside then either: \nTransfer to a Flushing-Main St-bound 7 to 74 St-Broadway. \nOr, exit station and take LaGuardia Airport-bound Q70 SBS bus or Rockaway Park-bound Q53 SBS bus (Roosevelt Av at 62 St) to Jackson Hts-Roosevelt Av/74 St-Broadway. \n\nIf you are on the Manhattan-bound 7 Mezzanine: \nExit the station and take a Woodside-bound Q70 SBS or Q53 SBS bus to 61 St/Roosevelt Av for the 61 St-Woodside 7 station."
   },
   {
@@ -4596,7 +4575,7 @@
     "nextadanorth": "261, E, F, M, R / 451, 7",
     "nextadasouth": "221, F / 273, E, M, R / 456, 7",
     "redundant": 0,
-    "busconnections": "Q32, Q33, Q47, Q49, Q53 SBS, Q70 SBS/Q32, Q33, Q47, Q49, Q53-SBS, Q70-SBS",
+    "busconnections": "Q32, Q33, Q47, Q49, Q53 SBS, Q70 SBS/Q18, Q47, Q60 (Q47 goes to LaGuardia Airport)/Q18, Q47, Q60 (Q47 goes to LaGuardia Airport)./Q18, Q47, Q60 (Q47 goes to LaGuardia Airport),",
     "alternativeroute": "If you are on the street: \nFor Manhattan-bound E/F/R, take a Penn Station-bound Q32 bus (Roosevelt Av at 74 St) to Queens Plaza. \nFor Manhattan-bound M/R, take a Penn Station-bound Q32 bus (Roosevelt Av at 74 St) to 58 St. Travel north on 58 St, east (left) on 38 Av, and north (right) on 56 St to Broadway for Manhattan-bound access at Northern Blvd M/R station. \nFor E, F, M, R to Forest Hills/Jamaica, take a Rockaway Park-bound Q53 SBS (Broadway at 75 St) to Woodhaven Blvd. Transfer to a Jamaica-bound Q60 bus. \nFor 7, proceed to bus terminal and take LaGuardia Link Q70 SBS to 61 St-Woodside. \n\nIf you are on the Manhattan-bound 7 mezzanine: \nFor street access, take a Manhattan-bound 7 to 61 St-Woodside. Exit station and take LaGuardia Airport-bound Q70 SBS bus or Rockaway Park-bound Q53 SBS bus (Roosevelt Av at 62 St) to Jackson Hts-Roosevelt Av/74 St-Broadway. \nFor E/F/R, take a Manhattan-bound 7 to Queensboro Plaza. Use elevators to exit the station and proceed east along Queens Plaza S to the Queens Plaza E/F/R station.\nFor M/R, take a Manhattan-bound 7 to 61 St-Woodside. Use elevators to exit the station and take an Astoria-bound Q18 (Woodside Av at 61st St) to 54 St and Northern Blvd for Northern Blvd M/R station. For Forest Hills-bound service, elevator on SE corner of 54 St and Broadway. For Manhattan-bound service, elevator on NW corner of 56 St and Broadway.\n\nIf you are on the transfer mezzanine: \nTake an E, F or R to Queens Plaza. \nFor 7, use elevators to exit the station proceed west along Queens Plaza S to the Queensboro Plaza station. \nTo return to Jackson Heights-Roosevelt Av from Queens Plaza, take a Jackson Heights-bound Q32 bus (Queens Plaza S at 28 St) to 76 St and Roosevelt Av. \n\nIf you are on the Queens-bound 7 platform: \nFor street access, take a Flushing-Main St-bound 7 to Junction Blvd and transfer to a Manhattan-bound 7 to 61 St-Woodside. Exit station and take LaGuardia Airport-bound Q70 SBS bus or Rockaway Park-bound Q53 SBS bus (Roosevelt Av at 62 St) to Jackson Hts-Roosevelt Av/74 St-Broadway. \nFor E/F/M/R, take a Flushing-Main St-bound 7 to Junction Blvd and transfer to a Manhattan-bound 7 to Queensboro Plaza. Proceed east along Queens Plaza S to the Queens Plaza E/F/R station."
   },
   {
@@ -4617,7 +4596,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q32, Q33, Q47, Q49, Q53 SBS, Q70 SBS/Q32, Q33, Q47, Q49, Q53-SBS, Q70-SBS",
+    "busconnections": "Q32, Q33, Q47, Q49, Q53 SBS, Q70 SBS/Q18, Q47, Q60 (Q47 goes to LaGuardia Airport)/Q18, Q47, Q60 (Q47 goes to LaGuardia Airport)./Q18, Q47, Q60 (Q47 goes to LaGuardia Airport),",
     "alternativeroute": ""
   },
   {
@@ -4638,7 +4617,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q32, Q33, Q47, Q49, Q53 SBS, Q70 SBS/Q32, Q33, Q47, Q49, Q53-SBS, Q70-SBS",
+    "busconnections": "Q32, Q33, Q47, Q49, Q53 SBS, Q70 SBS/Q18, Q47, Q60 (Q47 goes to LaGuardia Airport)/Q18, Q47, Q60 (Q47 goes to LaGuardia Airport)./Q18, Q47, Q60 (Q47 goes to LaGuardia Airport),",
     "alternativeroute": ""
   },
   {
@@ -4659,7 +4638,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q32, Q33, Q47, Q49, Q53 SBS, Q70 SBS/Q32, Q33, Q47, Q49, Q53-SBS, Q70-SBS",
+    "busconnections": "Q32, Q33, Q47, Q49, Q53 SBS, Q70 SBS/Q18, Q47, Q60 (Q47 goes to LaGuardia Airport)/Q18, Q47, Q60 (Q47 goes to LaGuardia Airport)./Q18, Q47, Q60 (Q47 goes to LaGuardia Airport),",
     "alternativeroute": ""
   },
   {
@@ -4680,7 +4659,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q32, Q33, Q47, Q49, Q53 SBS, Q70 SBS/Q32, Q33, Q47, Q49, Q53-SBS, Q70-SBS",
+    "busconnections": "Q32, Q33, Q47, Q49, Q53 SBS, Q70 SBS/Q18, Q47, Q60 (Q47 goes to LaGuardia Airport)/Q18, Q47, Q60 (Q47 goes to LaGuardia Airport)./Q18, Q47, Q60 (Q47 goes to LaGuardia Airport),",
     "alternativeroute": ""
   },
   {
@@ -4701,7 +4680,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q32, Q33, Q47, Q49, Q53 SBS, Q70 SBS/Q32, Q33, Q47, Q49, Q53-SBS, Q70-SBS",
+    "busconnections": "Q32, Q33, Q47, Q49, Q53 SBS, Q70 SBS/Q18, Q47, Q60 (Q47 goes to LaGuardia Airport)/Q18, Q47, Q60 (Q47 goes to LaGuardia Airport)./Q18, Q47, Q60 (Q47 goes to LaGuardia Airport),",
     "alternativeroute": ""
   },
   {
@@ -5457,7 +5436,7 @@
     "nextadanorth": "",
     "nextadasouth": "10, W",
     "redundant": 0,
-    "busconnections": "M60, SBS",
+    "busconnections": "Q19, M60-SBS.",
     "alternativeroute": "If you are on the mezzanine: Use the other elevator to take a northbound N or W to Astoria-Ditmars Blvd. Then remain on the train or wait at the platform for a Manhattan-bound N or W. If you are on the platform: Take a Manhattan-bound N or W to Times Sq-42 St. Then use elevators to take a Queens-bound N or W to Astoria Blvd."
   },
   {
@@ -5478,7 +5457,7 @@
     "nextadanorth": "",
     "nextadasouth": "10, W",
     "redundant": 0,
-    "busconnections": "M60, SBS",
+    "busconnections": "Q19, M60-SBS.",
     "alternativeroute": "If you are on the platform: Take a northbound N or W to Astoria-Ditmars Blvd. Then remain on the train or wait at the platform for a Manhattan-bound N or W to Astoria Blvd."
   },
   {
@@ -5499,7 +5478,7 @@
     "nextadanorth": "",
     "nextadasouth": "10, W",
     "redundant": 1,
-    "busconnections": "M60, SBS",
+    "busconnections": "Q19, M60-SBS.",
     "alternativeroute": "If you are on the street: Proceed to the other elevator at NW corner of Hoyt Ave North and 31 St. If you are on the mezzanine: Contact a station agent to re-enter through the faregate and cross the mezzanine. Exit through the faregate and proceed down the passageway for other elevator on this level."
   },
   {
@@ -5520,7 +5499,7 @@
     "nextadanorth": "",
     "nextadasouth": "10, W",
     "redundant": 1,
-    "busconnections": "M60, SBS",
+    "busconnections": "Q19, M60-SBS.",
     "alternativeroute": "If you are on the street: Proceed to the other elevator at SE corner of Hoyt Ave South and 31 St. If you are on the mezzanine: Proceed down the passageway and see a station agent to re-enter through the faregate. Cross the mezzanine and exit through the faregate for other elevator on this level."
   },
   {
@@ -5919,7 +5898,7 @@
     "nextadanorth": "198, A",
     "nextadasouth": "209, A",
     "redundant": 0,
-    "busconnections": "",
+    "busconnections": "Q22, QM15, Q52-SBS.",
     "alternativeroute": "If you are on the mezzanine:  \nUse EL480 to exit the station. Then, take a Far Rockway Mott Av-bound Q22 bus (SW corner of Beach Channel Dr and 69 St) to Beach 21 St Terminal."
   },
   {
@@ -5940,7 +5919,7 @@
     "nextadanorth": "198, A",
     "nextadasouth": "209, A",
     "redundant": 0,
-    "busconnections": "",
+    "busconnections": "Q22, QM15, Q52-SBS.",
     "alternativeroute": "If you are on the street:  \nTake a Far Rockway Mott Av-bound Q22 bus (SW corner of Beach Channel Dr and 69 St) to Beach 21 St Terminal. Then, follow Beach 21 St to Mott Av for the Far Rockaway-Mott Av A station.  \nOr, take an Elmhurst-bound Q52-SBS bus (Rockaway Beach Blvd and Beach 67 St) to 157 St and Cross Bay Blvd. Then, travel to 159 Ave and 103 St for the Howard Beach/JFK Airport A station.  \n\nIf you are on the mezzanine:  \nUse EL481 to take a Far Rockaway-Mott Av-bound A train to Far Rockaway-Mott Av. Use the elevator to exit the station and take a Roxbury-bound Q22 bus (Mott Av and Beach 21 St) to Beach Channel Dr and Beach 67 St.  \n\nIf you are on the platform:  \nTake an A train to Howard Beach-JFK Airport.  \nThen, either:  \nUse elevators to exit the station and take an Arverne-bound Q52-SBS bus (SW corner of 157 Ave and Cross Bay Blvd) to Rockaway Beach Blvd and Beach 67 St.  \nOr,  \nUse elevators to transfer to a Far Rockaway-bound A train to Far Rockaway-Mott Av. Then, Use the elevator to exit the station and take a Roxbury-bound Q22 bus (Mott Av and Beach 21 St) to Beach Channel Dr and Beach 67 St."
   },
   {
@@ -7437,7 +7416,7 @@
   {
     "station": "Court Sq",
     "borough": "",
-    "trainno": "E/F/M/G/7",
+    "trainno": "E/F/G/7",
     "equipmentno": "EL469",
     "equipmenttype": "EL",
     "serving": "Mezzanine to Brooklyn-bound platform/Court Sq-bound platform to mezzanine.",
@@ -7452,13 +7431,13 @@
     "nextadanorth": "",
     "nextadasouth": "283, G",
     "redundant": 0,
-    "busconnections": "B32, B62, Q39, Q67, Q69",
+    "busconnections": "B32, B62, Q39, Q63, Q67, Q101, Q102, Q103.",
     "alternativeroute": "If you are on the mezzanine: \n\nFollow signs to exit the station. Then, take a downtown Brooklyn-bound B62 bus (Jackson Av and 45 Av) to Manhattan Av and Greenpoint Av and proceed to Greenpoint Av station. \n\nIf you are on the platform: \n\nTake a Brooklyn-bound G train to Greenpoint Ave and use elevators to exit the station. Then, take a Long Island City-bound B62 bus (Manhattan Av and Greenpoint Av) to Jackson\n\n\n<a href=\"https://new.mta.info/document/143426\" target=\"_blank\" rel=\"noopener noreferrer\">See alternatives during modernization work.</a>\n"
   },
   {
     "station": "Court Sq",
     "borough": "",
-    "trainno": "E/F/M/G/7",
+    "trainno": "E/F/G/7",
     "equipmentno": "EL446",
     "equipmenttype": "EL",
     "serving": "Jackson Ave & 23 St (NE corner) to mezzanine for 7 service in both directions and access to G mezzanine",
@@ -7473,13 +7452,13 @@
     "nextadanorth": "456, 7",
     "nextadasouth": "402, 7",
     "redundant": 0,
-    "busconnections": "B32, B62, Q39, Q67, Q69",
+    "busconnections": "B32, B62, Q39, Q63, Q67, Q101, Q102, Q103.",
     "alternativeroute": "If you are on the street: \nProceed north along 23 St and then east along Queens Plaza S to the Queensboro Plaza N/W/7 station. \n\nIf you are on the mezzanine: \nTo exit: see a station agent to re-enter faregate and take a Flushing-bound 7 to Queensboro Plaza. Exit the station via elevator EL-478 and proceed west along Queens Plaza S and then south along 23 St. \nFor G, proceed west along Queens Plaza S to 21 St and take a Downtown Brooklyn-bound B62 bus to Manhattan Av/Greenpoint Av for the Greenpoint Av G station."
   },
   {
     "station": "Court Sq",
     "borough": "",
-    "trainno": "E/F/M/G/7",
+    "trainno": "E/F/G/7",
     "equipmentno": "EL447",
     "equipmenttype": "EL",
     "serving": "mezzanine to Manhattan-bound 7 platform",
@@ -7494,13 +7473,13 @@
     "nextadanorth": "456, 7",
     "nextadasouth": "402, 7",
     "redundant": 0,
-    "busconnections": "B32, B62, Q39, Q67, Q69",
+    "busconnections": "B32, B62, Q39, Q63, Q67, Q101, Q102, Q103.",
     "alternativeroute": "If you are on the mezzanine: \nTake a Flushing-bound 7 to Queensboro Plaza and transfer to a Manhattan-bound 7. \n\nIf you are on the platform: \nTake a Manhattan-bound 7 to Grand Central-42 St and then transfer across the platform to a Flushing-bound 7 to Court Sq."
   },
   {
     "station": "Court Sq",
     "borough": "",
-    "trainno": "E/F/M/G/7",
+    "trainno": "E/F/G/7",
     "equipmentno": "EL445X",
     "equipmenttype": "EL",
     "serving": "Flushing-bound 7 platform to mezzanine to EFG transfer.",
@@ -7512,16 +7491,16 @@
     "elevatorsgtfsstopid": "719/F09/G22",
     "elevatormrn": "274/281/462",
     "stationcomplexid": "606",
-    "nextadanorth": "273, E, F, M / 456, 7",
-    "nextadasouth": "275, E, F, M / 402, 7",
+    "nextadanorth": "273, E, F / 456, 7",
+    "nextadasouth": "275, E, F / 402, 7",
     "redundant": 0,
-    "busconnections": "B32, B62, Q39, Q67, Q69",
+    "busconnections": "B32, B62, Q39, Q63, Q67, Q101, Q102, Q103./B32, B62, Q67, Q101, Q103.",
     "alternativeroute": "If you are on the 7 mezzanine:  \nTake a Manhattan-bound 7 to Grand Central-42 St. Use elevators to transfer to a Flushing-bound 7.  \n\nIf you are on the platform:  \nTake Flushing-bound 7 to 61 St-Woodside. \nThen either:  Use elevators to transfer to a Manhattan-bound 7 to Court Sq.  \nOr, use elevators to exit station and take a Manhattan-bound Q32 (Roosevelt Av and 61 St) to Queens Plaza North and 29 St.  Then transfer to a Brooklyn-bound B62 (Jackson Av and 42 Rd) to Jackson Av and 45 Av.\n\nIf you are on the lower landing  E/ F/G mezzanine: \nTake a Church Av-bound G to Greenpoint Av, then either:\nFor Court Sq-23 St, take an Astoria-bound B62 bus to 21 St / 44 Dr. \nFor 7, take an Astoria-bound B62 bus to 21 St / Queens Plaza S. Proceed east along Queens Plaza S to Crescent St for the Queensboro Plaza 7 station."
   },
   {
     "station": "Court Sq",
     "borough": "",
-    "trainno": "E/F/M/G/7",
+    "trainno": "E/F/G/7",
     "equipmentno": "ES462X",
     "equipmenttype": "ES",
     "serving": "7 upper mezzanine (Jackson Ave & 23rd St) to lower mezzanine for G service and access to E/F",
@@ -7536,13 +7515,13 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "B32, B62, Q39, Q67, Q69",
+    "busconnections": "B32, B62, Q39, Q63, Q67, Q101, Q102, Q103./B32, B62, Q67, Q101, Q103.",
     "alternativeroute": ""
   },
   {
     "station": "Court Sq",
     "borough": "",
-    "trainno": "E/F/M/G/7",
+    "trainno": "E/F/G/7",
     "equipmentno": "ES461X",
     "equipmenttype": "ES",
     "serving": "G lower mezzanine to upper mezzanine for 7 service and Jackson Ave & 23rd St exit",
@@ -7557,13 +7536,13 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "B32, B62, Q39, Q67, Q69",
+    "busconnections": "B32, B62, Q39, Q63, Q67, Q101, Q102, Q103./B32, B62, Q67, Q101, Q103.",
     "alternativeroute": ""
   },
   {
     "station": "Court Sq",
     "borough": "",
-    "trainno": "E/F/M/G/7",
+    "trainno": "E/F/G/7",
     "equipmentno": "ES266X",
     "equipmenttype": "ES",
     "serving": "E/F/G mezzanine to 45 St & Jackson Ave",
@@ -7578,13 +7557,13 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "B32, B62, Q39, Q67, Q69",
+    "busconnections": "B32, B62, Q39, Q63, Q67, Q101, Q102, Q103./B32, B62, Q67, Q101, Q103.",
     "alternativeroute": ""
   },
   {
     "station": "Court Sq",
     "borough": "",
-    "trainno": "E/F/M/G/7",
+    "trainno": "E/F/G/7",
     "equipmentno": "ES265X",
     "equipmenttype": "ES",
     "serving": "45 St & Jackson Ave to mezzanine for E/F & G service and access to 7",
@@ -7599,13 +7578,13 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "B32, B62, Q39, Q67, Q69",
+    "busconnections": "B32, B62, Q39, Q63, Q67, Q101, Q102, Q103./B32, B62, Q67, Q101, Q103.",
     "alternativeroute": ""
   },
   {
     "station": "Court Sq-23 St",
     "borough": "",
-    "trainno": "E/F/M/G/7",
+    "trainno": "E/F/G/7",
     "equipmentno": "EL482X",
     "equipmenttype": "EL",
     "serving": "NE corner of 44 Drive and 23 St to mezzanine for E/F service to Manhattan.",
@@ -7617,10 +7596,10 @@
     "elevatorsgtfsstopid": "719/F09/G22",
     "elevatormrn": "274/281/462",
     "stationcomplexid": "606",
-    "nextadanorth": "273, E, F, M",
-    "nextadasouth": "275, E, F, M",
+    "nextadanorth": "273, E, F",
+    "nextadasouth": "275, E, F",
     "redundant": 0,
-    "busconnections": "B32, B62, Q39, Q67, Q69",
+    "busconnections": "B32, B62, Q67, Q101, Q103.",
     "alternativeroute": "If you are on the street: \nTake a Flushing-bound Q63 bus (Jackson Av at 44 Dr) to Jackson Av / Queens Blvd for the Queens Plaza E/F/R station.\n\nIf you are on the platform: \nTake a Manhattan-bound E or F to Lexington Av/53 St and transfer across the platform to a Jamaica-bound E or F to Queens Plaza. Exit the station and take a Court Sq-bound Q63 bus (Jackson Av at 42 Rd) to 44 Dr / Jackson Av. Proceed west along 44 Dr to 23 St for Court Sq E/F."
   },
   {
@@ -7726,7 +7705,7 @@
     "nextadasouth": "",
     "redundant": 0,
     "busconnections": "B14, B17, B46, B46 SBS",
-    "alternativeroute": "If you are on the mezzanine: Use elevator to exit the station and take a Downtown Brooklyn-bound B45 bus (St Johns Place and Utica Av) to Sterling Pl and Washington Av. Then, proceed to Eastern Parkway for Manhattan-bound 3 service. For 4, use passageway at Borough Hall to transfer. If you are on the Manhattan-bound platform: Take a Manhattan-bound 3 to Eastern Parkway and use elevators to exit the station. Then, take a Crown Heights-bound B45 bus (St Johns Place and Washington Av) to Utica Av. If you are on the New Lots Av-bound platform: Proceed to the ADA boarding area and inform the 4 train conductor of the need to ride the train as it changes to the Manhattan-bound direction. Ask the conductor to confirm that the 4 train will remain in service*. If yes, take it to Atlantic Av-Barclays Ctr station and use the elevator(s) to exit the station. Then take a Crown Heights-bound B45 bus (Atlantic Av and Flatbush Av) to St Johns Pl and Utica Av. \n"
+    "alternativeroute": "Both elevators at this station are out of service for replacement. \n\nIf you are on the Manhattan-bound platform: Take a Manhattan-bound 3 to Eastern Pkwy. Proceed north along Washington Av to St. Johns Pl and take a Crown Heights-bound B45 bus to St. Johns Pl/Utica Av. Proceed south along Utica Av to Eastern Pkwy. \n\nIf you are on the New Lots Av-bound platform: See conductor in accessible boarding area for assistance. Take a Manhattan-bound 4 to Atlantic Av-Barclays Ctr and then take a New Lots Av-bound 3 or a Flatbush Av-bound 2 to Eastern Pkwy. Proceed north along Washington Av to St. Johns Pl and take a Crown Heights-bound B45 bus to St. Johns Pl/Utica Av. Proceed south along Utica Av to Eastern Pkwy. "
   },
   {
     "station": "Crown Hts-Utica Av",
@@ -7747,7 +7726,7 @@
     "nextadasouth": "",
     "redundant": 0,
     "busconnections": "B14, B17, B46, B46 SBS",
-    "alternativeroute": "If you are on the street: Take a Downtown Brooklyn-bound B45 bus (St Johns Place and Utica Av) to Sterling Pl and Washington Av. Then, proceed to Eastern Parkway for Manhattan-bound 3 service. For 4, use passageway at Borough Hall to transfer. If you are on the mezzanine: See a station agent to re-enter through the faregate and use the nearby elevator to return to the Manhattan-bound platform (lower level) and take a 3 to Eastern Parkway. Then, use elevators to exit the station and take a Crown Heights-bound B45 bus (St Johns Place and Washington Av) to Utica Av."
+    "alternativeroute": "Both elevators at this station are out of service for replacement. For 3/4 service, take a Downtown Brooklyn-bound B45 bus (NE corner of St Johns Pl/Utica Av) to Sterling Pl/Washington Av. Proceed south to Eastern Parkway for Manhattan-bound 2/3 service. For 4, transfer at Borough Hall. "
   },
   {
     "station": "DeKalb Av",
@@ -8187,7 +8166,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 1,
-    "busconnections": "Q22, Q114, QM17; NICE: N31, N32, N33",
+    "busconnections": "Q22, Q113, Q114; NICE (Nassau Inter-County Express Buses: N31, N32, and N33; call 516-228-4000 for more information).",
     "alternativeroute": "Use an adjacent elevator."
   },
   {
@@ -8208,7 +8187,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 1,
-    "busconnections": "Q22, Q114, QM17; NICE: N31, N32, N33",
+    "busconnections": "Q22, Q113, Q114; NICE (Nassau Inter-County Express Buses: N31, N32, and N33; call 516-228-4000 for more information).",
     "alternativeroute": "Use an adjacent elevator."
   },
   {
@@ -8313,8 +8292,8 @@
     "nextadanorth": "461, 7",
     "nextadasouth": "451, 7",
     "redundant": 0,
-    "busconnections": "Q12, Q13, Q15, Q15A, Q16, Q17, Q19, Q20A, Q20B, Q25, Q26, Q27, Q28, Q34, Q44 SBS, Q48, Q50, Q65, Q66; NICE: N20, N21",
-    "alternativeroute": "If you are on the street: \nTake a Q63 or Q66 bus to Junction Blvd and Roosevelt Av and transfer to a southbound Q72 bus to Junction Blvd 7. \n\nIf you are at the platform: \nTake a Manhattan-bound 7 to Junction Blvd. Use elevators to exit the station and a take LaGuardia Airport-bound Q72 bus (Roosevelt Av and Junction Blvd) to Northern Blvd and Junction Blvd. Then transfer to a Flushing-bound Q63 or Q66 bus to its terminal near Flushing-Main St.\n"
+    "busconnections": "Q13, Q15, Q17, Q19, Q20, Q25, Q26, Q27, Q44-SBS, Q50, Q58, Q61, Q63, Q65, Q66, Q90, Q98; NICE (Nassau Inter County Express; 516-228-4000): N20X, N21G.",
+    "alternativeroute": "If you are on the street: \nFor Manhattan-bound service via LIRR: Reduced-Fare OMNY/MetroCard holders may ride LIRR between Flushing-Main St (LIRR) and Grand Central / Penn Station at no additional cost. Transfer at Woodside for Queens 7 stations. You must present your Reduced-Fare OMNY or MetroCard to the LIRR conductor onboard to use this service. \n\nFor Manhattan-bound service via bus/subway: Take a Q63 or Q66 bus to Junction Blvd and Roosevelt Av and transfer to a southbound Q72 bus to the Junction Blvd 7 station. \n\nIf you are at the platform: \nTake a Manhattan-bound 7 to Junction Blvd. Exit the station and a take LaGuardia Airport-bound Q72 bus (Roosevelt Av and Junction Blvd) to Northern Blvd and Junction Blvd. Then transfer to a Flushing-bound Q63 or Q66 bus to its terminal near Flushing-Main St."
   },
   {
     "station": "Flushing-Main St",
@@ -8334,7 +8313,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q12, Q13, Q15, Q15A, Q16, Q17, Q19, Q20A, Q20B, Q25, Q26, Q27, Q28, Q34, Q44 SBS, Q48, Q50, Q65, Q66; NICE: N20, N21",
+    "busconnections": "Q13, Q15, Q17, Q19, Q20, Q25, Q26, Q27, Q44-SBS, Q50, Q58, Q61, Q63, Q65, Q66, Q90, Q98; NICE (Nassau Inter County Express; 516-228-4000): N20X, N21G.",
     "alternativeroute": ""
   },
   {
@@ -8355,7 +8334,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q12, Q13, Q15, Q15A, Q16, Q17, Q19, Q20A, Q20B, Q25, Q26, Q27, Q28, Q34, Q44 SBS, Q48, Q50, Q65, Q66; NICE: N20, N21",
+    "busconnections": "Q13, Q15, Q17, Q19, Q20, Q25, Q26, Q27, Q44-SBS, Q50, Q58, Q61, Q63, Q65, Q66, Q90, Q98; NICE (Nassau Inter County Express; 516-228-4000): N20X, N21G.",
     "alternativeroute": ""
   },
   {
@@ -8376,7 +8355,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q12, Q13, Q15, Q15A, Q16, Q17, Q19, Q20A, Q20B, Q25, Q26, Q27, Q28, Q34, Q44 SBS, Q48, Q50, Q65, Q66; NICE: N20, N21",
+    "busconnections": "Q13, Q15, Q17, Q19, Q20, Q25, Q26, Q27, Q44-SBS, Q50, Q58, Q61, Q63, Q65, Q66, Q90, Q98; NICE (Nassau Inter County Express; 516-228-4000): N20X, N21G.",
     "alternativeroute": ""
   },
   {
@@ -8460,7 +8439,7 @@
     "nextadanorth": "259, E, F",
     "nextadasouth": "267, E, F",
     "redundant": 0,
-    "busconnections": "Q23, Q60, Q64, Q74, QM11, QM18",
+    "busconnections": "Q23, Q60, Q64, Q74, QM4.",
     "alternativeroute": "If you are on the mezzanine: Use the elevator at the other end of the mezzanine to take a Jamaica-bound E or F to Kew Gardens/Union Tpke. Then use elevators to transfer to a Manhattan-bound E or F to Forest Hills/71 Av. \n\nIf you are on the Manhattan-bound platform: Take a Manhattan-bound E, F, M or R to Jackson Hts/Roosevelt Av, then either: Use elevators to transfer to a Forest Hills/71 Av-bound M/R or Jamaica-bound E/F to Forest Hills/71 Av. Or, use elevators to exit the station and take Rockaway Park-bound Q53 SBS (Broadway and 75 St) to Hoffman Dr and Woodhaven Blvd. Then transfer to a South Jamaica-bound Q60 bus to Queens Blvd and 71 Av.\n"
   },
   {
@@ -8481,7 +8460,7 @@
     "nextadanorth": "259, E, F",
     "nextadasouth": "267, E, F",
     "redundant": 0,
-    "busconnections": "Q23, Q60, Q64, Q74, QM11, QM18",
+    "busconnections": "Q23, Q60, Q64, Q74, QM4.",
     "alternativeroute": "If you are on the mezzanine: Use elevator at other end of mezzanine to take Manhattan-bound EFMR to Jackson Hts/Roosevelt Av. Use elevators to transfer to Jamaica-bound EF. \n\nIf you are on the Queens-bound platform: Take a Jamaica-bound E or F to Kew Gardens/Union Tpke, then either: Use elevators to transfer to a Manhattan-bound E/F to Forest Hills/71 Av. Or, use elevators to exit the station and take an East Midtown-bound Q60 bus (Queens Blvd and Union Tpke) to Queens Blvd and 108 St.\n"
   },
   {
@@ -8502,7 +8481,7 @@
     "nextadanorth": "259, E, F",
     "nextadasouth": "267, E, F",
     "redundant": 0,
-    "busconnections": "Q23, Q60, Q64, Q74, QM11, QM18",
+    "busconnections": "Q23, Q60, Q64, Q74, QM4.",
     "alternativeroute": "If you are on the street: Take a South Jamaica-bound Q60 bus (Queens Blvd and 71 Av) to Queens Blvd and Union Tpke. Then use the elevator on Kew Gardens Rd to enter the Kew Gardens/Union Tpke E/F station. \n\nIf you are on the mezzanine: See a station agent to re-enter through the faregate and use the elevator to take a Jamaica-bound E or F to Kew Gardens/Union Tpke. Then use elevators to exit the station and take an East Midtown-bound Q60 bus (Queens Blvd and Union Tpke) to Queens Blvd and 108 St.\n"
   },
   {
@@ -9183,11 +9162,11 @@
     "trainno": "4/5/6/7/S",
     "equipmentno": "ES641X",
     "equipmenttype": "ES",
-    "serving": "Escalator at Grand Central 42 Street",
+    "serving": "Shuttle platform to LIRR \u201cMadison Concourse\u201d below.",
     "ADA": "N",
     "isactive": "Y",
     "nonNYCT": "Y",
-    "shortdescription": "",
+    "shortdescription": "Shuttle platform to LIRR \u201cMadison Concourse\u201d below.",
     "linesservedbyelevator": "4/5/6/7",
     "elevatorsgtfsstopid": "631/723/901",
     "elevatormrn": "402/465/469",
@@ -9204,11 +9183,11 @@
     "trainno": "4/5/6/7/S",
     "equipmentno": "ES640X",
     "equipmenttype": "ES",
-    "serving": "Escalator at Grand Central 42 Street",
+    "serving": "Shuttle platform to LIRR \u201cMadison Concourse\u201d below.",
     "ADA": "N",
     "isactive": "Y",
     "nonNYCT": "Y",
-    "shortdescription": "",
+    "shortdescription": "Shuttle platform to LIRR \u201cMadison Concourse\u201d below.",
     "linesservedbyelevator": "4/5/6/7",
     "elevatorsgtfsstopid": "631/723/901",
     "elevatormrn": "402/465/469",
@@ -9288,7 +9267,7 @@
     "trainno": "4/5/6/7/S",
     "equipmentno": "ES610X",
     "equipmenttype": "ES",
-    "serving": "intermediate mezzanine to Bowery Building (SE corner of 42 St & Park Ave)",
+    "serving": "Intermediate mezzanine to Bowery Building (SE corner of 42 St & Park Ave)",
     "ADA": "N",
     "isactive": "Y",
     "nonNYCT": "Y",
@@ -9414,11 +9393,11 @@
     "trainno": "4/5/6/7/S",
     "equipmentno": "ES639X",
     "equipmenttype": "ES",
-    "serving": "Escalator at Grand Central 42 Street",
+    "serving": "42 St and Vanderbilt Ave (NE corner) to platform level for Shuttle service.",
     "ADA": "N",
     "isactive": "Y",
     "nonNYCT": "Y",
-    "shortdescription": "",
+    "shortdescription": "42 St and Vanderbilt Ave (NE corner) to platform level for Shuttle service.",
     "linesservedbyelevator": "4/5/6/7",
     "elevatorsgtfsstopid": "631/723/901",
     "elevatormrn": "402/465/469",
@@ -9435,11 +9414,11 @@
     "trainno": "4/5/6/7/S",
     "equipmentno": "ES638X",
     "equipmenttype": "ES",
-    "serving": "Escalator at Grand Central 42 Street",
+    "serving": "42 St and Vanderbilt Ave (NE corner) to platform level for Shuttle service.",
     "ADA": "N",
     "isactive": "Y",
     "nonNYCT": "Y",
-    "shortdescription": "",
+    "shortdescription": "42 St and Vanderbilt Ave (NE corner) to platform level for Shuttle service.",
     "linesservedbyelevator": "4/5/6/7",
     "elevatorsgtfsstopid": "631/723/901",
     "elevatormrn": "402/465/469",
@@ -9477,11 +9456,11 @@
     "trainno": "4/5/6/7/S",
     "equipmentno": "ES637X",
     "equipmenttype": "ES",
-    "serving": "Escalator at Grand Central 42 Street",
+    "serving": "42 St and Vanderbilt Ave (NE corner) to platform level for Shuttle service.",
     "ADA": "N",
     "isactive": "Y",
     "nonNYCT": "Y",
-    "shortdescription": "",
+    "shortdescription": "42 St and Vanderbilt Ave (NE corner) to platform level for Shuttle service.",
     "linesservedbyelevator": "4/5/6/7",
     "elevatorsgtfsstopid": "631/723/901",
     "elevatormrn": "402/465/469",
@@ -10350,8 +10329,8 @@
     "nextadanorth": "261, E, F, M, R",
     "nextadasouth": "221, F / 273, E, M, R",
     "redundant": 0,
-    "busconnections": "Q32, Q33, Q47, Q49, Q53-SBS, Q70-SBS",
-    "alternativeroute": "If you are on the E/F/M/R mezzanine: \nTake an E, F or R to Queens Plaza and transfer to a Jamaica-bound E/F or Forest Hills-bound R. \n\nIf you are on the Queens-bound E/F/M/R platform: \nTake an E/F/M/R to Forest Hills-71 Av and then either: Use elevators to transfer to a Manhattan-bound E, F, M or R to Jackson Hts-Roosevelt Av. Or, exit station and take a Manhattan-bound Q60 bus (108 St and Queens Blvd) to 59 St and Queens Blvd, then transfer to Woodside-bound Q53 SBS to 75 St and Broadway. Jackson Hts-Roosevelt Av is one block north."
+    "busconnections": "Q18, Q47, Q60 (Q47 goes to LaGuardia Airport)/Q18, Q47, Q60 (Q47 goes to LaGuardia Airport)./Q18, Q47, Q60 (Q47 goes to LaGuardia Airport),",
+    "alternativeroute": "The elevators serving the E/F/M/R platforms are out of service for replacement. \n\nFor E/F/M/R service from the mezzanine: Take a Manhattan-bound 7 to Queensboro Plaza and proceed east along Queens Plaza S to the Queens Plaza E/F/R station.\n\nTo exit: Take an E/F/M/R to Forest Hills-71 Av and exit the station. Take a Manhattan-bound Q60 bus (108 St/Queens Blvd) to 59 St/Queens Blvd and then transfer to a Woodside-bound Q53 SBS to 75 St/Broadway. Jackson Heights-Roosevelt Av is one block north. "
   },
   {
     "station": "Jackson Hts-Roosevelt Av",
@@ -10371,8 +10350,8 @@
     "nextadanorth": "261, E, F, M, R",
     "nextadasouth": "221, F / 273, E, M, R",
     "redundant": 0,
-    "busconnections": "Q32, Q33, Q47, Q49, Q53-SBS, Q70-SBS",
-    "alternativeroute": "If you are on the Manhattan-bound E/F/M/R platform: \nTake an E/F/R to Queens Plaza. Then: \nFor street access, either: transfer to a Jamaica-bound E/F or a Forest Hills-bound R to Jackson Hts-Roosevelt Av. \nOr, use elevators to exit the station and take a Jackson Heights-bound Q32 bus (Queens Plaza S at 28 St) to 75 St and Roosevelt Av. \nFor 7, use elevators to exit the station proceed west along Queens Plaza S to the Queensboro Plaza station. \n\nIf you are on the E/F/M/R mezzanine: \nTake an E, F, M or R to Forest Hills-71 Av and transfer to a Manhattan-bound E, F, M or R. \n\nIf you are on the transfer mezzanine:  \nFor Manhattan-bound E/F/R, exit the station and take a Manhattan/Penn Station-bound Q32 bus (Roosevelt Av at 74 St) to Queens Plaza. \nFor M/R, take a Manhattan-bound 7 to 61 St-Woodside. Use elevators to exit the station and take an Astoria-bound Q18 (Woodside Av at 61st St) to 54 St and Northern Blvd for Northern Blvd M/R station. For Forest Hills-bound service, elevator on SE corner of 54 St and Broadway. For Manhattan-bound service, elevator on NW corner of 56 St and Broadway.\nFor E, F, M, R to Forest Hills/Jamaica, exit the station and take Rockaway Park-bound Q53 SBS (Broadway at 75 St) to Woodhaven Blvd. Transfer to a Jamaica-bound Q60 bus to Queens Blvd/71 Av for the Forest Hills-71 Av E/F/M/R station."
+    "busconnections": "Q18, Q47, Q60 (Q47 goes to LaGuardia Airport)/Q18, Q47, Q60 (Q47 goes to LaGuardia Airport)./Q18, Q47, Q60 (Q47 goes to LaGuardia Airport),",
+    "alternativeroute": "The elevators serving the E/F/M/R platforms are out of service for replacement. \n\nFor E/F/M/R service from the mezzanine: Take a Manhattan-bound 7 to Queensboro Plaza and proceed east along Queens Plaza S to the Queens Plaza E/F/R station. For M to Roosevelt Island, take a Forest Hills-bound R to Northern Blvd and transfer to a Manhattan-bound M. \n\nTo exit: Take a Manhattan-bound E/F/R to Queens Plaza. Proceed west along Queens Plaza S to the Queensboro Plaza 7 station. Take a Flushing-bound 7 local train to 74 St-Broadway or take a Jackson Heights-bound Q32 bus (from Queens Plaza S/28 St) to Roosevelt Av/75 St."
   },
   {
     "station": "Jamaica Center-Parsons/Archer",
@@ -10392,7 +10371,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q4, Q5, Q6, Q8, Q9, Q20A, Q20B, Q24, Q25, Q30, Q31, Q34, Q41, Q42, Q44 SBS, Q65, Q83, Q84, Q85, Q110, Q111, Q112, Q113, Q114",
+    "busconnections": "Q1, Q2, Q3, Q17, Q36, Q43, Q76, Q77, Q82, Q110.",
     "alternativeroute": "If you are on the mezzanine:\nExit through the faregate and use the elevator to exit the station. Then take a College Point-bound Q20 bus (Archer Av and Parsons Blvd) to Sutphin Blvd and Archer Av for E/J/Z service at the Sutphin Blvd/Archer Av-JFK Airport station. \n\nIf you are on the E platform: \nTake a Manhattan-bound E to Sutphin Blvd/Archer Av-JFK Airport. Then use elevators to exit the station and take a Jamaica-bound Q20 bus (Archer Av and Sutphin Blvd) to Archer Av and Parsons Blvd. \n\nIf you are on the J/Z platform: \nTake a Manhattan-bound J or Z to Sutphin Blvd/Archer Av-JFK Airport. Then use elevators to exit the station and take a Jamaica-bound Q20 bus (Archer Av and Sutphin Blvd) to Archer Av and Parsons Blvd.\n"
   },
   {
@@ -10413,7 +10392,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q4, Q5, Q6, Q8, Q9, Q20A, Q20B, Q24, Q25, Q30, Q31, Q34, Q41, Q42, Q44 SBS, Q65, Q83, Q84, Q85, Q110, Q111, Q112, Q113, Q114",
+    "busconnections": "Q1, Q2, Q3, Q17, Q36, Q43, Q76, Q77, Q82, Q110.",
     "alternativeroute": "If you are on the street:  \nTake a College Point-bound Q20 bus (Archer Av and 160 St) to Sutphin Blvd and Archer Av for E/J/Z service at the Sutphin Blvd/Archer Av-JFK Airport station. \n\nIf you are on the mezzanine: \nSee a station agent to re-enter through the faregate and use the elevator to take a Manhattan-bound E to Sutphin Blvd/Archer Av-JFK Airport. Then use elevators to exit the station and take a Jamaica-bound Q20 bus (Archer Av and Sutphin Blvd) to Archer Av and Parsons Blvd."
   },
   {
@@ -10434,7 +10413,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q4, Q5, Q6, Q8, Q9, Q20A, Q20B, Q24, Q25, Q30, Q31, Q34, Q41, Q42, Q44 SBS, Q65, Q83, Q84, Q85, Q110, Q111, Q112, Q113, Q114",
+    "busconnections": "Q1, Q2, Q3, Q17, Q36, Q43, Q76, Q77, Q82, Q110.",
     "alternativeroute": ""
   },
   {
@@ -10455,7 +10434,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q4, Q5, Q6, Q8, Q9, Q20A, Q20B, Q24, Q25, Q30, Q31, Q34, Q41, Q42, Q44 SBS, Q65, Q83, Q84, Q85, Q110, Q111, Q112, Q113, Q114",
+    "busconnections": "Q1, Q2, Q3, Q17, Q36, Q43, Q76, Q77, Q82, Q110.",
     "alternativeroute": ""
   },
   {
@@ -10476,7 +10455,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q4, Q5, Q6, Q8, Q9, Q20A, Q20B, Q24, Q25, Q30, Q31, Q34, Q41, Q42, Q44 SBS, Q65, Q83, Q84, Q85, Q110, Q111, Q112, Q113, Q114",
+    "busconnections": "Q1, Q2, Q3, Q17, Q36, Q43, Q76, Q77, Q82, Q110.",
     "alternativeroute": ""
   },
   {
@@ -10497,7 +10476,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q4, Q5, Q6, Q8, Q9, Q20A, Q20B, Q24, Q25, Q30, Q31, Q34, Q41, Q42, Q44 SBS, Q65, Q83, Q84, Q85, Q110, Q111, Q112, Q113, Q114",
+    "busconnections": "Q1, Q2, Q3, Q17, Q36, Q43, Q76, Q77, Q82, Q110.",
     "alternativeroute": ""
   },
   {
@@ -10518,7 +10497,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q4, Q5, Q6, Q8, Q9, Q20A, Q20B, Q24, Q25, Q30, Q31, Q34, Q41, Q42, Q44 SBS, Q65, Q83, Q84, Q85, Q110, Q111, Q112, Q113, Q114",
+    "busconnections": "Q1, Q2, Q3, Q17, Q36, Q43, Q76, Q77, Q82, Q110.",
     "alternativeroute": ""
   },
   {
@@ -10539,7 +10518,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q4, Q5, Q6, Q8, Q9, Q20A, Q20B, Q24, Q25, Q30, Q31, Q34, Q41, Q42, Q44 SBS, Q65, Q83, Q84, Q85, Q110, Q111, Q112, Q113, Q114",
+    "busconnections": "Q1, Q2, Q3, Q17, Q36, Q43, Q76, Q77, Q82, Q110.",
     "alternativeroute": ""
   },
   {
@@ -10560,7 +10539,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q4, Q5, Q6, Q8, Q9, Q20A, Q20B, Q24, Q25, Q30, Q31, Q34, Q41, Q42, Q44 SBS, Q65, Q83, Q84, Q85, Q110, Q111, Q112, Q113, Q114",
+    "busconnections": "Q1, Q2, Q3, Q17, Q36, Q43, Q76, Q77, Q82, Q110.",
     "alternativeroute": ""
   },
   {
@@ -10581,7 +10560,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q4, Q5, Q6, Q8, Q9, Q20A, Q20B, Q24, Q25, Q30, Q31, Q34, Q41, Q42, Q44 SBS, Q65, Q83, Q84, Q85, Q110, Q111, Q112, Q113, Q114",
+    "busconnections": "Q1, Q2, Q3, Q17, Q36, Q43, Q76, Q77, Q82, Q110.",
     "alternativeroute": ""
   },
   {
@@ -10602,7 +10581,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q4, Q5, Q6, Q8, Q9, Q20A, Q20B, Q24, Q25, Q30, Q31, Q34, Q41, Q42, Q44 SBS, Q65, Q83, Q84, Q85, Q110, Q111, Q112, Q113, Q114",
+    "busconnections": "Q1, Q2, Q3, Q17, Q36, Q43, Q76, Q77, Q82, Q110.",
     "alternativeroute": ""
   },
   {
@@ -10623,7 +10602,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q4, Q5, Q6, Q8, Q9, Q20A, Q20B, Q24, Q25, Q30, Q31, Q34, Q41, Q42, Q44 SBS, Q65, Q83, Q84, Q85, Q110, Q111, Q112, Q113, Q114",
+    "busconnections": "Q1, Q2, Q3, Q17, Q36, Q43, Q76, Q77, Q82, Q110.",
     "alternativeroute": ""
   },
   {
@@ -10644,7 +10623,7 @@
     "nextadanorth": "279, E",
     "nextadasouth": "259, E",
     "redundant": 0,
-    "busconnections": "Q24, Q44 SBS (two blocks away, on Main Street), Q54, Q56, Q60",
+    "busconnections": "Q20, Q24, Q54, Q56, Q60.",
     "alternativeroute": "If you are on the street: Take a Jamaica-bound Q54 or Q56 (Jamaica and Van Wyck Expwy) to Jamaica Av and 147 Pl.  Proceed two blocks south to Sutphin Blvd and Jamaica Av.  Use elevators to enter the Sutphin Blvd-Archer Av E/J/Z Station. If you are on the mezzanine: See a station agent to re-enter faregate and use elevator to take a Jamaica-bound E to Sutphin Blvd-Archer Av E/J/Z Station.  Use elevators to exit station and take a Lafayette Av-bound Q24 or a Williamsburg Bridge Plz-bound Q54 (Jamaica Av & Sutphin Blvd) to Jamaica-Van Wyck E Station."
   },
   {
@@ -10665,7 +10644,7 @@
     "nextadanorth": "279, E",
     "nextadasouth": "259, E",
     "redundant": 0,
-    "busconnections": "Q24, Q44 SBS (two blocks away, on Main Street), Q54, Q56, Q60",
+    "busconnections": "Q20, Q24, Q54, Q56, Q60.",
     "alternativeroute": "If you are on the mezzanine: Exit faregate and use elevator to exit station.  Then, take a Jamaica-bound Q54 orQ56 (Jamaica and Van Wyck Expwy) to Jamaica Av and 147 Pl.  Proceed two block south to Sutphin Blvd and Jamaica Av.  Use elevators to enter the Sutphin Blvd-Archer Av E/J/Z Station. If you are on the platform: Take a Jamaica-bound E to Sutphin Blvd-Archer Av E/J/Z Station.  Use elevators to exit staton and take a Lafayette Av-bound Q24 or a Williamsburg Bridge Plz-bound Q54 (Jamaica Av & Sutphin Blvd) to Jamaica-Van Wyck E Station."
   },
   {
@@ -10686,7 +10665,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q24, Q44 SBS (two blocks away, on Main Street), Q54, Q56, Q60",
+    "busconnections": "Q20, Q24, Q54, Q56, Q60.",
     "alternativeroute": ""
   },
   {
@@ -10707,7 +10686,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q24, Q44 SBS (two blocks away, on Main Street), Q54, Q56, Q60",
+    "busconnections": "Q20, Q24, Q54, Q56, Q60.",
     "alternativeroute": ""
   },
   {
@@ -10728,7 +10707,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q24, Q44 SBS (two blocks away, on Main Street), Q54, Q56, Q60",
+    "busconnections": "Q20, Q24, Q54, Q56, Q60.",
     "alternativeroute": ""
   },
   {
@@ -10749,7 +10728,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q24, Q44 SBS (two blocks away, on Main Street), Q54, Q56, Q60",
+    "busconnections": "Q20, Q24, Q54, Q56, Q60.",
     "alternativeroute": ""
   },
   {
@@ -10770,7 +10749,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q24, Q44 SBS (two blocks away, on Main Street), Q54, Q56, Q60",
+    "busconnections": "Q20, Q24, Q54, Q56, Q60.",
     "alternativeroute": ""
   },
   {
@@ -10791,8 +10770,8 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q1, Q2, Q3, Q17, Q36, Q43, Q76, Q77, Q82; NICE: N6, N22, N24 (N1, N22A, N26 rush hours only)",
-    "alternativeroute": "If you are on the platform:  Proceed to the ADA boarding area and inform the F train conductor of the need to ride the train as it changes to the Manhattan-bound direction. Ask the conductor to confirm that the F train will remain in service.  If yes, board the train and remain on it until it returns to the opposite track and then exit the station.  If the train will not remain in service, please wait for the next F train and follow the above instructions. Alternatively, you can also see a station agent for instructions on how to exit the station."
+    "busconnections": "Q1, Q2, Q3, Q17, Q36, Q43, Q76, Q77, Q110 (rush hours only) X68, NICE (Nassau Inter County Express; 516-228-4000): N6, N22, N24; (N1, N22A, N26 rush hours only).",
+    "alternativeroute": "All elevators at this station are out of service for replacement. To exit, see conductor in the accessible boarding area for assistance. Confirm with conductor that the F train will remain in service and return to Manhattan. Take a Manhattan-bound F to Kew Gardens-Union Tpke and transfer to a Jamaica Center-bound E to Sutphin Blvd/Archer Av/JFK Airport. Exit the station and proceed north to the SW corner of Archer Av/Sutphin Blvd. Take a Floral Park-bound Q43 bus to Hillside Av/180 St. "
   },
   {
     "station": "Jamaica-179 St",
@@ -10812,8 +10791,8 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q1, Q2, Q3, Q17, Q36, Q43, Q76, Q77, Q82; NICE: N6, N22, N24 (N1, N22A, N26 rush hours only)",
-    "alternativeroute": "If you are on the mezzanine:  Use the nearby elevator to exit the station and take a Jamaica-bound Q43 bus (Hillside Av and 179 Place) to the terminal. Then either:  Transfer to a Manhattan-bound Q60 bus (Sutphin Blvd and Archer Av) to Kew Gardens-Union Tpke E/F station (Queens Blvd and Union Tpke).  Or, use elevators to enter Sutphin Blvd-Archer Av/JFK Airport station and take the Manhattan-bound E to Kew Gardens-Union Tpke."
+    "busconnections": "Q1, Q2, Q3, Q17, Q36, Q43, Q76, Q77, Q110 (rush hours only) X68, NICE (Nassau Inter County Express; 516-228-4000): N6, N22, N24; (N1, N22A, N26 rush hours only).",
+    "alternativeroute": "All elevators at this station are out of service for replacement. To exit, take a Manhattan-bound F to Kew Gardens-Union Tpke and transfer to a Jamaica Center-bound E to Sutphin Blvd/Archer Av/JFK Airport. Exit the station and proceed north to the SW corner of Archer Av/Sutphin Blvd. Take a Floral Park-bound Q43 bus to Hillside Av/180 St. "
   },
   {
     "station": "Jamaica-179 St",
@@ -10833,8 +10812,8 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q1, Q2, Q3, Q17, Q36, Q43, Q76, Q77, Q82; NICE: N6, N22, N24 (N1, N22A, N26 rush hours only)",
-    "alternativeroute": "If you are on the street:  Take a Jamaica-bound Q43 bus (Hillside Av and 179 Place) to the terminal, then either:  Transfer to a Manhattan-bound Q60 bus (Sutphin Blvd and Archer Av) to Queens Blvd and Union Tpke for Kew Gardens-Union Tpke E/F station.  Or, use elevators to enter Sutphin Blvd-Archer Av/JFK Airport E/J/Z station and take a Manhattan-bound E to Kew Gardens-Union Tpke.  If you are on the mezzanine:  See a station agent to re-enter through the faregate and use the elevator to take a Manhattan-bound F to Kew Gardens-Union Tpke. Then either:  Use elevators to exit the station and take a Jamaica-bound Q60 bus (Queens Blvd and Union Tpke) to Sutphin Blvd and 91 Av.  Or, use elevators to transfer to a Jamaica-bound E to Sutphin Blvd-Archer Av/JFK Airport. Then transfer to a Floral Park-bound Q43 bus (Sutphin Blvd and Archer Av) to Hillside Av and 180 St."
+    "busconnections": "Q1, Q2, Q3, Q17, Q36, Q43, Q76, Q77, Q110 (rush hours only) X68, NICE (Nassau Inter County Express; 516-228-4000): N6, N22, N24; (N1, N22A, N26 rush hours only).",
+    "alternativeroute": "All elevators at this station are out of service for replacement. For F, take a Jamaica-bound Q43 bus to Sutphin Blvd/91 Av for the Sutphin Blvd/Archer Av/JFK Airport E/J/Z station. Take a Manhattan-bound E and transfer to F at Kew Gardens-Union Tpke or at Lexington Av-53 St."
   },
   {
     "station": "Jay St-Metro Tech",
@@ -11043,7 +11022,7 @@
     "nextadanorth": "447, 7",
     "nextadasouth": "454, 7",
     "redundant": 0,
-    "busconnections": "Q72",
+    "busconnections": "Q14, Q58, Q72 (Q72 goes to LaGuardia Airport).",
     "alternativeroute": "If you are on the overpass: \nTake a Manhattan-bound 7 to 74 St-Broadway and use elevators to transfer to a Flushing-bound 7. \n\nIf you are on the platform: \nTake a Flushing-bound 7 to Flushing-Main St, \nthen either: \nTransfer to a Manhattan-bound 7 to Junction Blvd. \nOr, \nuse the elevator to exit the station and take a Long Island City-bound Q63 or Q66 bus (Main St and Roosevelt Av) to Northern Blvd and Junction Blvd. Transfer to a Rego Park-bound Q72 bus to Roosevelt Av and Junction Blvd.\n"
   },
   {
@@ -11064,7 +11043,7 @@
     "nextadanorth": "447, 7",
     "nextadasouth": "454, 7",
     "redundant": 0,
-    "busconnections": "Q72",
+    "busconnections": "Q14, Q58, Q72 (Q72 goes to LaGuardia Airport).",
     "alternativeroute": "If you are on the overpass: Take a Flushing-bound 7 to Flushing-Main St. Transfer on the same level to a Manhattan-bound 7 to Junction Blvd. If you are on the platform: Take a Manhattan-bound 7 to 74 St-Broadway, then either: Use elevators to transfer to a Flushing-bound 7 to Junction Blvd. Or, use elevators to exit the station and take an East Elmhurst-bound Q49 bus (74 St and Roosevelt Av) to 92 St and Astoria Blvd. Transfer to a Rego Park-bound Q72 bus to Roosevelt Av and Junction Blvd."
   },
   {
@@ -11085,7 +11064,7 @@
     "nextadanorth": "447, 7",
     "nextadasouth": "454, 7",
     "redundant": 0,
-    "busconnections": "Q72",
+    "busconnections": "Q14, Q58, Q72 (Q72 goes to LaGuardia Airport).",
     "alternativeroute": "If you are on the street: \nTake a LaGuardia-bound Q72 bus, \nthen either: \nFor Manhattan, transfer at Junction Blvd and Northern Blvd to a Jackson Hts-bound Q49 bus to the end of the route. Enter the subway at Jackson Hts-Roosevelt Av E/F/M/R/7.  \nFor Flushing-Main St, transfer at Junction Blvd and Roosevelt Av to a Flushing-bound Q63 or Q66 bus to the end of the route. \n\nIf you are on the overpass: \nTake a Flushing-bound 7 to Flushing-Main St. Use the elevator to exit the station and take a Long Island City-bound Q63 or Q66 bus (Main St and Roosevelt Av) to Northern Blvd and Junction Blvd. Transfer to a Rego Park-bound Q72 bus to Roosevelt Av and Junction Blvd.\n"
   },
   {
@@ -11106,7 +11085,7 @@
     "nextadanorth": "254, F / 280, E",
     "nextadasouth": "261, E, F",
     "redundant": 0,
-    "busconnections": "Q10 (Q10 goes to JFK Airport), Q37, Q45, Q46, Q48, Q60, Q80, QM63, QM64, QM65, QM68",
+    "busconnections": "Q10 (Q10 goes to JFK Airport), Q37, Q45, Q46, Q60, Q80.",
     "alternativeroute": "If you are on the mezzanine: Use elevator to take a Manhattan-bound E or F to Forest Hills-71 Av and then use elevators to take Jamaica-bound E or F. If you are on the platform: Take a Jamaica-bound E train to Jamaica Van Wyck and then transfer across the platform to a Manhattan-bound E train to Kew Gardens-Union Tpke. Or, take a Jamaica-bound F train to 179th Street and then use elevators to take a Manhattan-bound F train to Kew Gardens-Union Tpke."
   },
   {
@@ -11127,7 +11106,7 @@
     "nextadanorth": "254, F / 280, E",
     "nextadasouth": "261, E, F",
     "redundant": 0,
-    "busconnections": "Q10 (Q10 goes to JFK Airport), Q37, Q45, Q46, Q48, Q60, Q80, QM63, QM64, QM65, QM68",
+    "busconnections": "Q10 (Q10 goes to JFK Airport), Q37, Q45, Q46, Q60, Q80.",
     "alternativeroute": "If you are on the street:  Take a East Midtown-bound Q60 (Queens Blvd/Union Tpke) to Queens Blvd and 108 St for the Forest Hills-71st Av E/F/M/R Station.  If you are on the mezzanine:  See a station agent to re-enter faregate and use elevator to take a Manhattan-bound E or F to Forest Hills 71 Av and then use elevators to exit station and take a South Jamaica-bound Q60 (Queens Blvd/71 Av) to Union Tpke."
   },
   {
@@ -11148,7 +11127,7 @@
     "nextadanorth": "254, F / 280, E",
     "nextadasouth": "261, E, F",
     "redundant": 0,
-    "busconnections": "Q10 (Q10 goes to JFK Airport), Q37, Q45, Q46, Q48, Q60, Q80, QM63, QM64, QM65, QM68",
+    "busconnections": "Q10 (Q10 goes to JFK Airport), Q37, Q45, Q46, Q60, Q80.",
     "alternativeroute": "If you are on the mezzanine:  Use elevator to take a Jamaica-bound E train to Jamaica Van Wyck and transfer across the platform to a Manhattan-bound E train.  Or, use elevator to exit station and take a East Midtown-bound Q60 (Queens Blvd/Union Tpke) to Queens Blvd and 108 St for the Forest Hills-71st Av E/F/M/R Station.  If you are on the platform:  Take a Manhattan-bound E or F to Forest Hills-71 Av and then either: Use elevators to take Jamaica-bound E or F to Kew Gardens-Union Tpke Station. Use elevators to exit station and take a South Jamaica-bound Q60 (Queens Blvd and 71 Av) to Union Tpke."
   },
   {
@@ -11259,7 +11238,7 @@
   {
     "station": "Lexington Av/53 St",
     "borough": "",
-    "trainno": "E/F/M/6",
+    "trainno": "E/F/6",
     "equipmentno": "ES269",
     "equipmenttype": "ES",
     "serving": "6 mezzanine (53 St & Lexington Av) to E/F platform for both directions.",
@@ -11280,7 +11259,7 @@
   {
     "station": "Lexington Av/53 St",
     "borough": "",
-    "trainno": "E/F/M/6",
+    "trainno": "E/F/6",
     "equipmentno": "ES243",
     "equipmenttype": "ES",
     "serving": "E/F platform to mezzanine for 6 service and 53 St & Lexington Ave exit",
@@ -11301,7 +11280,7 @@
   {
     "station": "Lexington Av/53 St",
     "borough": "",
-    "trainno": "E/F/M/6",
+    "trainno": "E/F/6",
     "equipmentno": "ES246",
     "equipmenttype": "ES",
     "serving": "Mezzanine (53 St & 3 Av) to E/F platform for service in both directions.",
@@ -11322,7 +11301,7 @@
   {
     "station": "Lexington Av/53 St",
     "borough": "",
-    "trainno": "E/F/M/6",
+    "trainno": "E/F/6",
     "equipmentno": "ES244",
     "equipmenttype": "ES",
     "serving": "E/F platform to mezzanine for 6 train and 53 St & Lexington Av exit.",
@@ -11343,7 +11322,7 @@
   {
     "station": "Lexington Av/53 St",
     "borough": "",
-    "trainno": "E/F/M/6",
+    "trainno": "E/F/6",
     "equipmentno": "ES245",
     "equipmenttype": "ES",
     "serving": "E/F platform to mezzanine for 53 St & 3rd Av exit.",
@@ -11364,7 +11343,7 @@
   {
     "station": "Lexington Av/53 St",
     "borough": "",
-    "trainno": "E/F/M/6",
+    "trainno": "E/F/6",
     "equipmentno": "ES600X",
     "equipmenttype": "ES",
     "serving": "6/E/F mezzanine to 52 St & Lexington Av (NE corner).",
@@ -11385,7 +11364,7 @@
   {
     "station": "Lexington Av/53 St",
     "borough": "",
-    "trainno": "E/F/M/6",
+    "trainno": "E/F/6",
     "equipmentno": "ES254X",
     "equipmenttype": "ES",
     "serving": "E/F platform to mezzanine for 6 service and 53 St & Lexington Av exit.",
@@ -11406,7 +11385,7 @@
   {
     "station": "Lexington Av/53 St",
     "borough": "",
-    "trainno": "E/F/M/6",
+    "trainno": "E/F/6",
     "equipmentno": "EL245",
     "equipmenttype": "EL",
     "serving": "mezzanine to E/F platform for service in both directions",
@@ -11418,8 +11397,8 @@
     "elevatorsgtfsstopid": "630/F11",
     "elevatormrn": "275/401",
     "stationcomplexid": "612",
-    "nextadanorth": "273, E, F / 274, M",
-    "nextadasouth": "162, E / 225, F, M",
+    "nextadanorth": "273, E, F",
+    "nextadasouth": "162, E / 225, F",
     "redundant": 0,
     "busconnections": "M50; M101, M102, M103 (all southbound; northbound at 3 Av); SIM6, SIM11, SIM22, SIM26",
     "alternativeroute": "If you are on the mezzanine: \nFor F, take a West Side-bound M50 bus (E 49 St at Lexington Av) to 6 Av for the 47-50 Sts Rockefeller Ctr B/D/F/M station. \nFor E, take a West Side-bound M50 bus (E 49 St at Lexington Av) to 8 Av for the 50 St C E station (accessible downtown only). For uptown E, take a downtown C or E and transfer at 42 St/Port Authority. \n\nIf you are on the E/F platform: \nTake a downtown F to 47-50 Sts-Rockefeller Ctr. Exit station and take an East Side-bound M50 bus (50 St at 6 Av) to Lexington Av. Or, take a downtown E to 50 St. Exit station and take an East Side-bound M50 bus (50 St at 8 Av) to Lexington Av."
@@ -11427,7 +11406,7 @@
   {
     "station": "Lexington Av/53 St",
     "borough": "",
-    "trainno": "E/F/M/6",
+    "trainno": "E/F/6",
     "equipmentno": "ES253X",
     "equipmenttype": "ES",
     "serving": "Downtown 6 underpass to mezzanine for E/F service and 52 St & Lexington Av exit.",
@@ -12345,7 +12324,7 @@
     "nextadanorth": "267, M, R",
     "nextadasouth": "273, M, R",
     "redundant": 0,
-    "busconnections": "",
+    "busconnections": "Q18, Q63, Q66.",
     "alternativeroute": "If you are on the street: \nTake a Court Sq-bound Q63 bus (Northern Blvd and Broadway) to Jackson Av and Queens Plaza S for Queens Plaza E/F/R.\n \nIf you are on the platform: \nTake a Manhattan-bound R to Queens Plaza and transfer to a Forest Hills-bound R to Northern Blvd."
   },
   {
@@ -12366,7 +12345,7 @@
     "nextadanorth": "267, M, R",
     "nextadasouth": "273, M, R",
     "redundant": 0,
-    "busconnections": "",
+    "busconnections": "Q18, Q63, Q66.",
     "alternativeroute": "If you are on the street:  \nTake a Manhattan-bound R to Queens Plaza and transfer to a Forest Hills-bound R. \n\nIf you are on the platform:  \nTake a Forest Hills-bound M or R train to Jackson Hts - Roosevelt Av or Forest Hills - 71 Av and transfer to a Manhattan-bound M or R to Northern Blvd."
   },
   {
@@ -12408,7 +12387,7 @@
     "nextadanorth": "188, A",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q22, Q114, QM17; NICE: N31, N32, N33",
+    "busconnections": "Q10, Q41, Q80, Q112.",
     "alternativeroute": "If you are on the mezzanine:  Use the nearby elevator to exit the station. Then take a Kew Gardens-bound Q10 bus (Lefferts Blvd and Liberty Av) to 101 Av and transfer to a Spring Creek-bound Q8 bus (101 Av and Lefferts Blvd) to Euclid Av A/C station.  If you are on the platform:  Take a Manhattan-bound A to Euclid Av and use elevators to exit the station. Then take a Jamaica-bound Q8 bus (Pitkin Av and Euclid Av) to Lefferts Blvd and transfer to a JFK Airport-bound Q10 bus (Lefferts Blvd and 101 Av) to Liberty Av."
   },
   {
@@ -12429,7 +12408,7 @@
     "nextadanorth": "188, A",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q22, Q114, QM17; NICE: N31, N32, N33",
+    "busconnections": "Q10, Q41, Q80, Q112.",
     "alternativeroute": "If you are on the street:  Take a Kew Gardens-bound Q10 bus (Lefferts Blvd and Liberty Av) to 101 Av and Lefferts Blvd. Then transfer to a Spring Creek-bound Q8 bus (101 Av and Lefferts Blvd) to Euclid Av A/C station.  If you are on the mezzanine:  See a station agent to re-enter through the faregate and use the elevator to take a Manhattan-bound A to Euclid Av. Then use elevators to exit the station and take a Jamaica-bound Q8 bus (Pitkin Av and Euclid Av) to Lefferts Blvd. Then transfer to a JFK Airport-bound Q10 bus (Lefferts Blvd and 101 Av) to Liberty Av."
   },
   {
@@ -12478,6 +12457,48 @@
     "station": "Parkchester",
     "borough": "",
     "trainno": "6",
+    "equipmentno": "EL522",
+    "equipmenttype": "EL",
+    "serving": "Center of Hugh J. Grant Circle to mezzanine and Manhattan-bound platform.",
+    "ADA": "Y",
+    "isactive": "Y",
+    "nonNYCT": "N",
+    "shortdescription": "Center of Hugh J. Grant Circle to mezzanine and Manhattan-bound platform.",
+    "linesservedbyelevator": "6",
+    "elevatorsgtfsstopid": "608",
+    "elevatormrn": "366",
+    "stationcomplexid": "366",
+    "nextadanorth": "363, 6",
+    "nextadasouth": "371, 6",
+    "redundant": 1,
+    "busconnections": "Bx4, Bx4A, Bx11, Bx36, BxM6, Q44-SBS",
+    "alternativeroute": "If you are on the street: \nTake a Pelham Bay Park-bound 6 to Westchester Sq \u2013 E Tremont Av and transfer to a Manhattan-bound 6. \n\nIf you are on the mezzanine: \nTake a Pelham Bay Park-bound 6 to Westchester Sq \u2013 E Tremont Av and transfer to a Manhattan-bound 6. \n\nIf you are on the platform: Take a Manhattan-bound 6 to Hunts Point Av and transfer to a Pelham Bay Park or Parkchester-bound 6 to Parkchester."
+  },
+  {
+    "station": "Parkchester",
+    "borough": "",
+    "trainno": "6",
+    "equipmentno": "EL521",
+    "equipmenttype": "EL",
+    "serving": "Center of Hugh J. Grant Circle to mezzanine and Pelham Bay Park-bound platform. ",
+    "ADA": "Y",
+    "isactive": "Y",
+    "nonNYCT": "N",
+    "shortdescription": "Center of Hugh J. Grant Circle to mezzanine and Pelham Bay Park-bound platform.",
+    "linesservedbyelevator": "6",
+    "elevatorsgtfsstopid": "608",
+    "elevatormrn": "366",
+    "stationcomplexid": "366",
+    "nextadanorth": "363, 6",
+    "nextadasouth": "371, 6",
+    "redundant": 1,
+    "busconnections": "Bx4, Bx4A, Bx11, Bx36, BxM6, Q44-SBS",
+    "alternativeroute": "If you are on the street: \nTake a Manhattan-bound 6 to Hunts Point Av and transfer to a Pelham Bay Park-bound 6. \n\nIf you are on the mezzanine:\nTake a Manhattan-bound 6 to Hunts Point Av and transfer to a Pelham Bay Park-bound 6.  \n\nIf you are on the platform:\nTake a Pelham Bay Park-bound 6 to Westchester Sq \u2013 E Tremont Av and transfer to a Manhattan-bound 6 to Parkchester. "
+  },
+  {
+    "station": "Parkchester",
+    "borough": "",
+    "trainno": "6",
     "equipmentno": "ES111",
     "equipmenttype": "ES",
     "serving": "Westchester Ave entrance to Manhattan-bound platform",
@@ -12492,7 +12513,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "",
+    "busconnections": "Bx4, Bx4A, Bx11, Bx36, BxM6, Q44-SBS",
     "alternativeroute": ""
   },
   {
@@ -12724,7 +12745,7 @@
     "nextadasouth": "48, Q / 51, B",
     "redundant": 0,
     "busconnections": "B16, B41, B43, B48",
-    "alternativeroute": "If you are on the street: Use elevator to take a Manhattan-bound B or Q to Atlantic Av-Barclays Center and transfer across the platform to Coney Island-bound  B or Q. Or, exit faregate and take northbound B41 or B41LTD (Flatbush Av and Empire Blvd) to Atlantic Av-Barclays Center B/Q/D/N/R/2/3/4/5 Station. If you are on the platform: Take a Coney Island-bound B or Q to Kings Highway. Then either: Use elevator to transfer to northbound B or Q  to Prospect Park. Or, take a Spring Creek-bound B82 or B82SBS (Kings Highway and E16 St) to Flatbush Av. Transfer to a Downtown Brooklyn-bound B41 or B41LTD (Flatbush Av at Kings Hwy) and take to Empire Blvd."
+    "alternativeroute": "If you are on the street: Take a Bay Ridge-bound B16 bus to Caton Av/St. Pauls Pl. Proceed south along E 18 St for the Church Av B/Q station.\n\nIf you are on the platform: Take a Coney Island-bound Q or Brighton Beach-bound B to Church Av. Exit the station and proceed north along E 18 St to Caton Av/St. Pauls Pl. Take a Lefferts Gardens-bound B16 bus to Ocean Av/Lincoln Rd. "
   },
   {
     "station": "Prospect Park",
@@ -12745,12 +12766,12 @@
     "nextadasouth": "48, Q / 51, B",
     "redundant": 0,
     "busconnections": "B16, B41, B43, B48",
-    "alternativeroute": "Use elevator to take a Coney Island-bound B/Q to Church Av. Then use elevators to transfer to northbound B or Q. For S service to Franklin Av C/S station, take a Greenpoint-bound B48 (Empire Blvd and Flatbush Av) to Classon Av and Fulton St.  \n\n\nIf you are on the platform: Take a Manhattan-bound B or Q to Atlantic Av-Barclays Center.\nThen either: \nTransfer across the platform to a Coney Island-bound  B or Q  to Prospect Park.  \nOr, use elevators to exit station and take a southbound B41 or B41LTD (Flatbush Av and Atlantic Av) to Lincoln Rd.\n"
+    "alternativeroute": "If you are on the street: Take a Bay Ridge-bound B16 bus to Caton Av/St. Pauls Pl. Proceed south along E 18 St for the Church Av B/Q station. For S, take a Manhattan-bound B or Q and transfer at Prospect Park.\n\n\nIf you are on the platform: Take a Manhattan-bound B or Q to Atlantic Av-Barclays Center and then either: \nTransfer across the platform to a Brighton Beach-bound B or Coney Island-bound Q to Church Av. Exit the station and proceed north along E 18 St to Caton Av/St. Pauls Pl. Take a Lefferts Gardens-bound B16 bus to Ocean Av/Lincoln Rd. \n\nOr exit the station and take a southbound B41 or B41LTD bus (Flatbush Av and Atlantic Av) to Lincoln Rd."
   },
   {
     "station": "Queens Plaza",
     "borough": "",
-    "trainno": "E/F/M/R",
+    "trainno": "E/F/R",
     "equipmentno": "EL430",
     "equipmenttype": "EL",
     "serving": "mezzanine to Forest Hills and Jamaica-bound platform",
@@ -12762,16 +12783,16 @@
     "elevatorsgtfsstopid": "G21",
     "elevatormrn": "273",
     "stationcomplexid": "273",
-    "nextadanorth": "267, E, F / 269, M, R",
-    "nextadasouth": "274, E, F, M / 9, R",
+    "nextadanorth": "267, E, F / 269, R",
+    "nextadasouth": "274, E, F / 9, R",
     "redundant": 0,
-    "busconnections": "B62, Q32, Q39, Q60, Q67, Q69, Q100, Q101, Q102",
+    "busconnections": "Q32, Q39, Q60, Q63, Q66, Q69, Q100, Q101, Q102.",
     "alternativeroute": "If you are on the mezzanine: \nTake a Manhattan-bound E or F to Lexington Av/53 St. Then transfer across the platform to a Queens-bound E or F to Queens Plaza. \n\nIf you are on the Queens-bound platform:  \nTake a Jamaica-bound E or F or Forest Hills-bound R to Jackson Hts-Roosevelt Av and transfer to a Manhattan-bound E, F or R to Queens Plaza. \nOr, take a Forest Hills-bound R to Northern Blvd and transfer to a Manhattan-bound R to Queens Plaza."
   },
   {
     "station": "Queens Plaza",
     "borough": "",
-    "trainno": "E/F/M/R",
+    "trainno": "E/F/R",
     "equipmentno": "EL429",
     "equipmenttype": "EL",
     "serving": "mezzanine to Manhattan-bound platform",
@@ -12783,16 +12804,16 @@
     "elevatorsgtfsstopid": "G21",
     "elevatormrn": "273",
     "stationcomplexid": "273",
-    "nextadanorth": "267, E, F / 269, M, R",
-    "nextadasouth": "274, E, F, M / 9, R",
+    "nextadanorth": "267, E, F / 269, R",
+    "nextadasouth": "274, E, F / 9, R",
     "redundant": 0,
-    "busconnections": "B62, Q32, Q39, Q60, Q67, Q69, Q100, Q101, Q102",
+    "busconnections": "Q32, Q39, Q60, Q63, Q66, Q69, Q100, Q101, Q102.",
     "alternativeroute": "If you are on the mezzanine: \nTake a Jamaica-bound F or E or Forest Hills-bound R to Jackson Hts-Roosevelt Av and transfer to a Manhattan-bound E, F or R. \nOr, take a Forest Hills-bound R to Northern Blvd and transfer to a Manhattan-bound R. Transfer to E/F at Queens Plaza.\n\nIf you are on the Manhattan-bound platform: \nTake a Manhattan-bound E or F to Lexington Av/53 St. Transfer across the platform to a Queens-bound E or F to Queens Plaza."
   },
   {
     "station": "Queens Plaza",
     "borough": "",
-    "trainno": "E/F/M/R",
+    "trainno": "E/F/R",
     "equipmentno": "EL428",
     "equipmenttype": "EL",
     "serving": "Queens Plaza & Jackson Ave to mezzanine for service in both directions",
@@ -12804,10 +12825,10 @@
     "elevatorsgtfsstopid": "G21",
     "elevatormrn": "273",
     "stationcomplexid": "273",
-    "nextadanorth": "267, E, F / 269, M, R",
-    "nextadasouth": "274, E, F, M / 9, R",
+    "nextadanorth": "267, E, F / 269, R",
+    "nextadasouth": "274, E, F / 9, R",
     "redundant": 0,
-    "busconnections": "B62, Q32, Q39, Q60, Q67, Q69, Q100, Q101, Q102",
+    "busconnections": "Q32, Q39, Q60, Q63, Q66, Q69, Q100, Q101, Q102.",
     "alternativeroute": "If you are on the street: \nTake a Flushing-bound Q63 bus to Northern Blvd/54 St for the Northern Blvd M/R station. Transfer at Queens Plaza for Manhattan-bound E/F and at Jackson Hts-Roosevelt Av for Jamaica-bound E/F.\n\nIf you are on the mezzanine: \nSee station agent to re-enter faregate and take a Manhattan-bound E or F to Court Sq - 23 St. Exit the station and proceed east along 44 Dr and then north along Jackson Av to Queens Blvd."
   },
   {
@@ -12828,7 +12849,7 @@
     "nextadanorth": "2, N, W",
     "nextadasouth": "447, 7 / 9, W",
     "redundant": 1,
-    "busconnections": "B62, B67, Q32, Q39, Q60, Q66, Q69, Q100, Q101, Q102",
+    "busconnections": "Q32, Q39, Q60, Q63, Q66, Q69, Q100, Q101, Q102.",
     "alternativeroute": "If you are on the street: \nUse other elevator located at the SW corner of Queens Plaza South and Crescent St.\n\nIf you are on the overpass level:\nFollow signs to use the other elevator which will take you to the SW corner of Queens Plaza South and Crescent St."
   },
   {
@@ -12849,7 +12870,7 @@
     "nextadanorth": "2, N, W",
     "nextadasouth": "447, 7 / 9, W",
     "redundant": 0,
-    "busconnections": "B62, B67, Q32, Q39, Q60, Q66, Q69, Q100, Q101, Q102",
+    "busconnections": "Q32, Q39, Q60, Q63, Q66, Q69, Q100, Q101, Q102.",
     "alternativeroute": "If you are on the mezzanine: Exit the station and proceed south along 23 St to the Court Sq station for 7 service. For Manhattan and Brooklyn-bound N/W service, take a Manhattan-bound 7 to Times Sq-42 St and transfer to N/W. For service to Astoria Blvd, take a Flushing-Main St-bound 7 to Queensboro Plaza. Then, transfer to an Astoria-Ditmars Blvd-bound N/W to Astoria Blvd.\n\nIf you are on the Manhattan-bound platform: Take a Manhattan-bound 7 to the Court Sq station. Exit the station and proceed north along 23 St to Queens Plaza.\n\nIf you are on the Queens-bound platform: Take a Flushing-Main St-bound 7 to 61 St-Woodside. Then, take a Manhattan-bound 7 to Court Sq. Exit the station and proceed north along 23 St to Queens Plaza."
   },
   {
@@ -12870,7 +12891,7 @@
     "nextadanorth": "2, N, W",
     "nextadasouth": "447, 7 / 9, W",
     "redundant": 1,
-    "busconnections": "B62, B67, Q32, Q39, Q60, Q66, Q69, Q100, Q101, Q102",
+    "busconnections": "Q32, Q39, Q60, Q63, Q66, Q69, Q100, Q101, Q102.",
     "alternativeroute": "If you are on the overpass level: Follow signs to other elevator which will take you to Queens Plaza North between Crescent St and 27 St.\n\nIf you are at street level: Use other elevator on Queens Plaza North between Crescent St and 27 St."
   },
   {
@@ -13175,7 +13196,7 @@
     "equipmenttype": "ES",
     "serving": "intermediate mezzanine to upper mezzanine",
     "ADA": "N",
-    "isactive": "N",
+    "isactive": "Y",
     "nonNYCT": "N",
     "shortdescription": "Intermediate mezzanine to upper mezzanine",
     "linesservedbyelevator": "F/G",
@@ -13196,7 +13217,7 @@
     "equipmenttype": "ES",
     "serving": "9th St & Smith St (NE corner) to intermediate mezzanine",
     "ADA": "N",
-    "isactive": "N",
+    "isactive": "Y",
     "nonNYCT": "N",
     "shortdescription": "Intermediate mezzanine to street",
     "linesservedbyelevator": "F/G",
@@ -13217,7 +13238,7 @@
     "equipmenttype": "ES",
     "serving": "intermediate mezzanine to 9th St & Smith St (NE corner)",
     "ADA": "N",
-    "isactive": "Y",
+    "isactive": "N",
     "nonNYCT": "N",
     "shortdescription": "Street to intermediate mezzanine",
     "linesservedbyelevator": "F/G",
@@ -13259,7 +13280,7 @@
     "equipmenttype": "ES",
     "serving": "9th St & Smith St (NE corner) to intermediate mezzanine",
     "ADA": "N",
-    "isactive": "Y",
+    "isactive": "N",
     "nonNYCT": "N",
     "shortdescription": "Street to intermediate mezzanine",
     "linesservedbyelevator": "F/G",
@@ -13521,7 +13542,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q6, Q8, Q9, Q20A, Q20B, Q24, Q25, Q30, Q31, Q34, Q40, Q41, Q43, Q44 SBS, Q54, Q56, Q60, Q65",
+    "busconnections": "Q6, Q8, Q9, Q20, Q24, Q25, Q30, Q31, Q40, Q41, Q43, Q44-SBS, Q54, Q56, Q60, Q65.",
     "alternativeroute": ""
   },
   {
@@ -13542,7 +13563,7 @@
     "nextadanorth": "278, E, J, Z",
     "nextadasouth": "101, Z / 280, E / 98, J",
     "redundant": 0,
-    "busconnections": "Q6, Q8, Q9, Q20A, Q20B, Q24, Q25, Q30, Q31, Q34, Q40, Q41, Q43, Q44 SBS, Q54, Q56, Q60, Q65",
+    "busconnections": "Q6, Q8, Q9, Q20, Q24, Q25, Q30, Q31, Q40, Q41, Q43, Q44-SBS, Q54, Q56, Q60, Q65.",
     "alternativeroute": "If you are on the mezzanine:  Use the nearby elevator to exit the station. Then take a Jamaica-bound Q24 bus (Archer Av and Sutphin Blvd) to Jamaica Center-Parsons/Archer E/J/Z station (Archer Av and 158 St).  If you are on the E platform:  Take a Jamaica-bound E to Jamaica Center-Parsons/Archer, then either:  Use the elevator to exit the station and take a Bushwick-bound Q24, Jamaica-bound Q30 or Q31, Williamsburg-bound Q54, or Broadway Junction-bound Q56 bus (Jamaica Av/Parsons Blvd) to Sutphin Blvd.  Or for J/Z, use the elevator to the lower level and board a Manhattan-bound J or Z.  If you are on the J/Z platform: Take a Jamaica-bound J or Z to Jamaica Center-Parsons/Archer, then either:  Use the elevator to exit the station and take a Bushwick-bound Q24, Jamaica-bound Q30 or Q31, Williamsburg-bound Q54, or Broadway Junction-bound Q56 bus (Jamaica Av/Parsons Blvd) to Sutphin Blvd.  Or for E, use the elevator to the upper level and board a Manhattan-bound E."
   },
   {
@@ -13563,7 +13584,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q6, Q8, Q9, Q20A, Q20B, Q24, Q25, Q30, Q31, Q34, Q40, Q41, Q43, Q44 SBS, Q54, Q56, Q60, Q65",
+    "busconnections": "Q6, Q8, Q9, Q20, Q24, Q25, Q30, Q31, Q40, Q41, Q43, Q44-SBS, Q54, Q56, Q60, Q65.",
     "alternativeroute": ""
   },
   {
@@ -13584,7 +13605,7 @@
     "nextadanorth": "278, E, J, Z",
     "nextadasouth": "101, Z / 280, E / 98, J",
     "redundant": 1,
-    "busconnections": "Q6, Q8, Q9, Q20A, Q20B, Q24, Q25, Q30, Q31, Q34, Q40, Q41, Q43, Q44 SBS, Q54, Q56, Q60, Q65",
+    "busconnections": "Q6, Q8, Q9, Q20, Q24, Q25, Q30, Q31, Q40, Q41, Q43, Q44-SBS, Q54, Q56, Q60, Q65.",
     "alternativeroute": "Use an adjacent elevator."
   },
   {
@@ -13605,7 +13626,7 @@
     "nextadanorth": "278, E, J, Z",
     "nextadasouth": "101, Z / 280, E / 98, J",
     "redundant": 1,
-    "busconnections": "Q6, Q8, Q9, Q20A, Q20B, Q24, Q25, Q30, Q31, Q34, Q40, Q41, Q43, Q44 SBS, Q54, Q56, Q60, Q65",
+    "busconnections": "Q6, Q8, Q9, Q20, Q24, Q25, Q30, Q31, Q40, Q41, Q43, Q44-SBS, Q54, Q56, Q60, Q65.",
     "alternativeroute": "Use an adjacent elevator."
   },
   {
@@ -13626,7 +13647,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q6, Q8, Q9, Q20A, Q20B, Q24, Q25, Q30, Q31, Q34, Q40, Q41, Q43, Q44 SBS, Q54, Q56, Q60, Q65",
+    "busconnections": "Q6, Q8, Q9, Q20, Q24, Q25, Q30, Q31, Q40, Q41, Q43, Q44-SBS, Q54, Q56, Q60, Q65.",
     "alternativeroute": ""
   },
   {
@@ -13647,7 +13668,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q6, Q8, Q9, Q20A, Q20B, Q24, Q25, Q30, Q31, Q34, Q40, Q41, Q43, Q44 SBS, Q54, Q56, Q60, Q65",
+    "busconnections": "Q6, Q8, Q9, Q20, Q24, Q25, Q30, Q31, Q40, Q41, Q43, Q44-SBS, Q54, Q56, Q60, Q65.",
     "alternativeroute": ""
   },
   {
@@ -13668,7 +13689,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q6, Q8, Q9, Q20A, Q20B, Q24, Q25, Q30, Q31, Q34, Q40, Q41, Q43, Q44 SBS, Q54, Q56, Q60, Q65",
+    "busconnections": "Q6, Q8, Q9, Q20, Q24, Q25, Q30, Q31, Q40, Q41, Q43, Q44-SBS, Q54, Q56, Q60, Q65.",
     "alternativeroute": ""
   },
   {
@@ -13689,7 +13710,7 @@
     "nextadanorth": "",
     "nextadasouth": "",
     "redundant": 0,
-    "busconnections": "Q6, Q8, Q9, Q20A, Q20B, Q24, Q25, Q30, Q31, Q34, Q40, Q41, Q43, Q44 SBS, Q54, Q56, Q60, Q65",
+    "busconnections": "Q6, Q8, Q9, Q20, Q24, Q25, Q30, Q31, Q40, Q41, Q43, Q44-SBS, Q54, Q56, Q60, Q65.",
     "alternativeroute": ""
   },
   {
@@ -13710,7 +13731,7 @@
     "nextadanorth": "278, E, J, Z",
     "nextadasouth": "101, Z / 280, E / 98, J",
     "redundant": 1,
-    "busconnections": "Q6, Q8, Q9, Q20A, Q20B, Q24, Q25, Q30, Q31, Q34, Q40, Q41, Q43, Q44 SBS, Q54, Q56, Q60, Q65",
+    "busconnections": "Q6, Q8, Q9, Q20, Q24, Q25, Q30, Q31, Q40, Q41, Q43, Q44-SBS, Q54, Q56, Q60, Q65.",
     "alternativeroute": "Use an adjacent elevator."
   },
   {
@@ -13721,9 +13742,9 @@
     "equipmenttype": "EL",
     "serving": "mezzanine to downtown N/Q/R/W platform",
     "ADA": "Y",
-    "isactive": "N",
+    "isactive": "Y",
     "nonNYCT": "N",
-    "shortdescription": "Mezzanine to downtown N/Q/R/W.",
+    "shortdescription": "Mezzanine level (Front) Downtown N/Q/R/W Train Platform level (Rear)",
     "linesservedbyelevator": "N/Q/R/W",
     "elevatorsgtfsstopid": "127/725/902/A27/R16",
     "elevatormrn": "011/163/317/467/468",
@@ -14173,7 +14194,7 @@
     "nextadasouth": "171, E / 172, A, C / 230, B, D, F, M",
     "redundant": 0,
     "busconnections": "M5 (northbound)",
-    "alternativeroute": "If you are on the street: For B, F, M, take an uptown M55 bus to 34 St-Herald Sq. For A, C, E, take an uptown M55 bus to 14 St and transfer to an M14A or M14D bus to 8 Av. If you are on the mezzanine: Take a downtown E to World Trade Center and use the ramp and elevator to exit the station. Then take an uptown M55 bus (Church St and Vesey St) to W 3 St and 6 Av."
+    "alternativeroute": "If you are on the street: Proceed north along 6 Av or take an uptown M55 bus (across 3rd St) to 12 St for the 14 St F/M/L station. For downtown F/M, enter at the NW corner of 14 St & 6 Av. For uptown F/M, enter at the NE corner of 14 St & 6 Av. For A/C/E, take a downtown F/M to W 4 St and transfer to A/C/E. \n\nIf you are on the mezzanine: See a station agent to re-enter through the faregate and take a downtown C/E to Spring St. Exit the station and proceed north along 6 Av to W 4 St. "
   },
   {
     "station": "W 4 St-Wash Sq",
@@ -14434,10 +14455,10 @@
     "equipmentno": "EL484",
     "equipmenttype": "EL",
     "serving": "Street (SW corner of Jamaica Ave and Woodhaven Blvd Service Rd) to Jamaica-bound platform.",
-    "ADA": "-",
+    "ADA": "Y",
     "isactive": "Y",
     "nonNYCT": "N",
-    "shortdescription": "Street to Jamaica-bound platform.",
+    "shortdescription": "Street Level Northbound (toward Jamaica Center)",
     "linesservedbyelevator": "J/Z",
     "elevatorsgtfsstopid": "J15",
     "elevatormrn": "083",
@@ -14445,7 +14466,7 @@
     "nextadanorth": "98, J, Z",
     "nextadasouth": "279, J, Z",
     "redundant": 0,
-    "busconnections": "Q11, QM15, Q21, Q52-SBS, Q56",
+    "busconnections": " Q11, Q21, Q52-SBS, Q53-SBS, Q56, QM15.",
     "alternativeroute": "If you are on the street: proceed east on Jamaica Av and board a Jamaica-170 St-bound Q56 bus. \nThen either:\nFor Sutphin Blvd-Archer Av-JFK Airport, exit the bus at Jamaica Av and 147 Place.\nFor Jamaica Center-Parsons/ Archer, exit the bus at Jamaica Av and Parsons Blvd.\n\nIf you are on the platform: Take a Jamaica Center-bound J or Z to Sutphin Blvd-Archer Av. Then, transfer to a Manhattan-bound J or Z to Woodhaven Blvd."
   },
   {
@@ -14455,10 +14476,10 @@
     "equipmentno": "EL483",
     "equipmenttype": "EL",
     "serving": "Street (NW corner of Jamaica Ave and Woodhaven Blvd Service Rd) to Manhattan-bound platform.",
-    "ADA": "-",
+    "ADA": "Y",
     "isactive": "Y",
     "nonNYCT": "N",
-    "shortdescription": "Street to Manhattan-bound platform.",
+    "shortdescription": "Street Level Southbound (toward Broad St)",
     "linesservedbyelevator": "J/Z",
     "elevatorsgtfsstopid": "J15",
     "elevatormrn": "083",
@@ -14466,7 +14487,7 @@
     "nextadanorth": "98, J, Z",
     "nextadasouth": "279, J, Z",
     "redundant": 0,
-    "busconnections": "Q11, QM15, Q21, Q52-SBS, Q56",
+    "busconnections": " Q11, Q21, Q52-SBS, Q53-SBS, Q56, QM15.",
     "alternativeroute": "If you are on the street: Cross Jamaica Av and take a Jamaica Center-bound J or Z to Sutphin Blvd-Archer Av. Then, transfer to a Manhattan-bound J or Z.\n\nIf you are on the platform: Take a Manhattan-bound J or Z to Flushing Av (or to Marcy Av if AM rush hour). Then, transfer to a Jamaica Center-Parsons/Archer-bound J or Z to Woodhaven Blvd."
   },
   {

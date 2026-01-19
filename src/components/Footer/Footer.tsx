@@ -61,7 +61,7 @@ const Footer = () => {
       </SocialLink>
 
       <SocialLink
-        href=""
+        href="https://www.buymeacoffee.com/transitaccess"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Buy me a coffee"
