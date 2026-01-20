@@ -12461,8 +12461,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.860816,
-          40.833126
+          -73.8611111111111,
+          40.83325000000001
         ]
       },
       "id": "9eaaa16c96db4b9b6e5c13623ce6635b"
@@ -12478,7 +12478,7 @@
         "system": "nyc_mta",
         "elevatorno": "EL521",
         "linesServed": "6",
-        "directionLabel": "Parkchester-bound",
+        "directionLabel": "Pelham Bay Park-bound",
         "title": "Parkchester",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Parkchester_EL521.jpg",
         "alternativeRoute": "If you are on the street: \nTake a Manhattan-bound 6 to Hunts Point Av and transfer to a Pelham Bay Park-bound 6. \n\nIf you are on the mezzanine:\nTake a Manhattan-bound 6 to Hunts Point Av and transfer to a Pelham Bay Park-bound 6.  \n\nIf you are on the platform:\nTake a Pelham Bay Park-bound 6 to Westchester Sq \u2013 E Tremont Av and transfer to a Manhattan-bound 6 to Parkchester. ",
@@ -12486,13 +12486,13 @@
         "isBroken": "",
         "isStreet": "true",
         "shortdescription": "Center of Hugh J. Grant Circle to mezzanine and Pelham Bay Park-bound platform.",
-        "description_custom": "This elevator gets you from the street directly to Park-bound 6 trains"
+        "description_custom": "This elevator gets you from the street directly to Pelham Bay Park-bound 6 trains"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.860816,
-          40.833026000000004
+          -73.86105555555555,
+          40.83316666666667
         ]
       },
       "id": "b87cd74a36ecddf6ad72bc2e9c1ca613"

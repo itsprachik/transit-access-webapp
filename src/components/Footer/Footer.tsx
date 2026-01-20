@@ -1,4 +1,5 @@
 import React from "react";
+import { FaDiscord } from "react-icons/fa";
 import { FaEnvelope, FaTiktok, FaInstagram, FaBluesky } from "react-icons/fa6";
 import { RiSurveyLine } from "react-icons/ri";
 import { SiBuymeacoffee } from "react-icons/si";
@@ -54,6 +55,12 @@ const Footer = () => {
   return (
     <FooterContainer>
       <SocialLink
+        href="https://discord.gg/HgZVSJ9SE8"
+        aria-label="Join our Discord!"
+      >
+        <FaDiscord />
+      </SocialLink>
+      <SocialLink
         href="mailto:team@transitaccess.org"
         aria-label="Send us an email"
       >
@@ -96,7 +103,7 @@ const Footer = () => {
         <FaBluesky />
       </SocialLink>
 
-       <SocialLink
+      <SocialLink
         href="https://app.youform.com/forms/dnefmhvd"
         target="_blank"
         rel="noopener noreferrer"

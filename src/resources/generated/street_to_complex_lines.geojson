@@ -4647,6 +4647,52 @@
         "ada": "2",
         "side": "left"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.8611111111111,
+            40.83325000000001
+          ],
+          [
+            -73.860816,
+            40.833226
+          ]
+        ]
+      },
+      "properties": {
+        "complex_id": "366",
+        "elevator_no": "EL522",
+        "station_name": "Parkchester",
+        "ada": "1",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.86105555555555,
+            40.83316666666667
+          ],
+          [
+            -73.860816,
+            40.833226
+          ]
+        ]
+      },
+      "properties": {
+        "complex_id": "366",
+        "elevator_no": "EL521",
+        "station_name": "Parkchester",
+        "ada": "1",
+        "side": "left"
+      }
     }
   ]
 }
