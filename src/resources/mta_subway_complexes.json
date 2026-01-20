@@ -3683,7 +3683,7 @@
         "station_ids": "366",
         "gtfs_stop_ids": "608",
         "stop_name": "Parkchester",
-        "ada": "0",
+        "ada": "1",
         "borough": "Bx",
         "num_stations_in_complex": "1"
       }

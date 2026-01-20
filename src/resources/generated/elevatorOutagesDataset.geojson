@@ -6120,6 +6120,36 @@
         ],
         "type": "Point"
       }
+    },
+    {
+      "type": "Feature",
+      "id": "EL522",
+      "properties": {
+        "elevatorno": "EL522",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.8611111111111,
+          40.83325000000001
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "EL521",
+      "properties": {
+        "elevatorno": "EL521",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.86105555555555,
+          40.83316666666667
+        ],
+        "type": "Point"
+      }
     }
   ],
   "type": "FeatureCollection"
