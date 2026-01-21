@@ -7296,7 +7296,7 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "0",
+        "isRedundant": "1",
         "elevatorgtfsstopid": "127/725/902/A27/R16",
         "route": "A C E N Q R W 1 2 3 7 S",
         "complexID": "611",
@@ -7328,7 +7328,7 @@
     {
       "type": "Feature",
       "properties": {
-        "isRedundant": "0",
+        "isRedundant": "1",
         "elevatorgtfsstopid": "127/725/902/A27/R16",
         "route": "A C E N Q R W 1 2 3 7 S",
         "complexID": "611",
