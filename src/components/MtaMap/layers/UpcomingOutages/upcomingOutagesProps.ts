@@ -7,12 +7,20 @@ const offsetDistance = 20;
 export const upcomingOutageProps = {
   id: "upcoming-outages",
   source: "upcoming-outage-data",
-  filter: ["==", ["get", "reason"], "Capital Replacement"], // If it's a long-term outage
+  filter: [
+    "any",
+    ["==", ["get", "reason"], "Capital Replacement"],
+    ["==", ["get", "reason"], "Station is Under Rehabilitation"]
+    ], // If it's a long-term outage
   type: "symbol", // Using symbol type for icon display
   layout: {
     "icon-image": [
       "case",
-      ["==", ["get", "reason"], "Capital Replacement"], // If it's a long-term outage
+      [
+        "any",
+        ["==", ["get", "reason"], "Capital Replacement"],
+        ["==", ["get", "reason"], "Station is Under Rehabilitation"]
+        ], // If it's a long-term outage
       "wrench-filled", // Use inverted wrench icon
       "", // Default to nothing
     ],

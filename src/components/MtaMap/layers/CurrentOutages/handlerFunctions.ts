@@ -51,7 +51,6 @@ export const getUpcomingElevatorData = (elOutages: any[]) => {
       }
     );
   }
-
   return upcomingOutElevatorData;
 };
 
