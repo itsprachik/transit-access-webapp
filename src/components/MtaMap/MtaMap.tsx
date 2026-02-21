@@ -42,6 +42,10 @@ import SearchBar from "../SearchBar/SearchBar";
 import { MtaStationData } from "@/utils/types";
 import { IoEarthSharp } from "react-icons/io5";
 import rawData from "@/resources/mta_subway_stations_all.json";
+import alertData from "@/resources/ta_alerts.json";
+import AlertBanner from "../AlertBanner/AlertBanner";
+import {handleAlertClose} from "../AlertBanner/handlerFunctions"
+import { AlertData } from "@/types/alerts";
 const stationData = rawData as MtaStationData;
 
 // Load environment variables
@@ -76,6 +80,21 @@ const MtaMap = () => {
   const [zoomLevel, setZoomLevel] = useState(13);
 
   const [show3DToggle, setShow3DToggle] = React.useState(false);
+
+  const [openStates, setOpenStates] = useState({});
+  const hasAlert =
+    alertData?.length > 0 && alertData.some((_, i) => openStates[i] !== false);
+
+  // Initialize open states when alertData changes
+  useEffect(() => {
+    if (alertData && alertData.length > 0) {
+      const initialStates = {};
+      alertData.forEach((_, index) => {
+        initialStates[index] = true;
+      });
+      setOpenStates(initialStates);
+    }
+  }, [alertData]);
 
   // track elevator data state change
   useEffect(() => {
@@ -119,7 +138,7 @@ const MtaMap = () => {
       closeButton: true,
       closeOnClick: true,
       className: "onhover-popup", // hover-popup css class
-    })
+    }),
   );
 
   const onClickPopupRef = useRef(
@@ -128,7 +147,7 @@ const MtaMap = () => {
       className: "onclick-popup",
       closeButton: true,
       closeOnClick: true,
-    })
+    }),
   );
 
   const handleStationSearchSelect = (
@@ -142,7 +161,7 @@ const MtaMap = () => {
     setElevatorView,
     show3DToggle,
     setShow3DToggle,
-    lastUpdated
+    lastUpdated,
   ) => {
     handleSearchPopup(
       feature,
@@ -157,7 +176,7 @@ const MtaMap = () => {
       setElevatorView,
       show3DToggle,
       setShow3DToggle,
-      lastUpdated
+      lastUpdated,
     );
   };
 
@@ -195,7 +214,7 @@ const MtaMap = () => {
         console.warn(
           "ElevatorDataState not loaded",
           "Raw Data:",
-          elevatorRawDataState
+          elevatorRawDataState,
         );
       }
       if (
@@ -213,7 +232,7 @@ const MtaMap = () => {
       if (mapRef.current?.getSource("upcoming-outage-data")) {
         updateUpcomingOutagesLayer(
           upcomingElevatorDataRef.current,
-          mapRef.current
+          mapRef.current,
         );
       }
     }
@@ -227,7 +246,7 @@ const MtaMap = () => {
       mapRef.current.setLayoutProperty(
         "transit-elevators",
         "visibility",
-        "visible"
+        "visible",
       );
 
       mapRef.current.addSource("station-complexes", outageSourceOptions);
@@ -257,7 +276,7 @@ const MtaMap = () => {
       if (mapRef.current?.getSource("upcoming-outage-data")) {
         updateUpcomingOutagesLayer(
           upcomingElevatorDataRef.current,
-          mapRef.current
+          mapRef.current,
         );
       }
 
@@ -272,17 +291,17 @@ const MtaMap = () => {
       mapRef.current.moveLayer("stationOutages", "transit-elevators");
       mapRef.current.moveLayer(
         "mta-subway-complexes-accessible2",
-        "transit-elevators"
+        "transit-elevators",
       );
       mapRef.current.moveLayer(
         "upcoming-outages",
-        "mta-subway-stations-accessible"
+        "mta-subway-stations-accessible",
       );
 
       // Draw a translucent complex boundary
       mapRef.current.addSource(
         "active-complex-boundary",
-        complexBoundarySourceOptions
+        complexBoundarySourceOptions,
       );
       mapRef.current.addLayer(complexBoundaryProps);
 
@@ -292,10 +311,10 @@ const MtaMap = () => {
       });
 
       mapRef.current.on("click", () =>
-        removeHoverPopup(onHoverPopupRef.current)
+        removeHoverPopup(onHoverPopupRef.current),
       );
       mapRef.current.on("zoomstart", () =>
-        removeHoverPopup(onHoverPopupRef.current)
+        removeHoverPopup(onHoverPopupRef.current),
       );
 
       const priority = [
@@ -353,7 +372,7 @@ const MtaMap = () => {
               setElevatorView,
               show3DToggle,
               setShow3DToggle,
-              lastUpdatedRef.current
+              lastUpdatedRef.current,
             );
             break;
 
@@ -373,7 +392,7 @@ const MtaMap = () => {
                 setElevatorView,
                 show3DToggle,
                 setShow3DToggle,
-                lastUpdatedRef.current
+                lastUpdatedRef.current,
               );
             }
             break;
@@ -394,7 +413,7 @@ const MtaMap = () => {
                 setElevatorView,
                 show3DToggle,
                 setShow3DToggle,
-                lastUpdatedRef.current
+                lastUpdatedRef.current,
               );
             }
             break;
@@ -407,7 +426,7 @@ const MtaMap = () => {
                 hoveredFeatureId,
                 mapRef.current,
                 onHoverPopupRef.current,
-                true
+                true,
               );
             }
             break;
@@ -432,7 +451,7 @@ const MtaMap = () => {
             hoveredFeatureId,
             mapRef.current,
             onHoverPopupRef.current,
-            false
+            false,
           );
         });
 
@@ -440,7 +459,7 @@ const MtaMap = () => {
           hoveredFeatureId = handleMouseLeave(
             hoveredFeatureId,
             mapRef.current,
-            onHoverPopupRef.current
+            onHoverPopupRef.current,
           );
         });
       }
@@ -457,8 +476,15 @@ const MtaMap = () => {
 
   return (
     <>
+      <AlertBanner
+        alertData={alertData as AlertData[]}
+        openStates={openStates}
+        onClose={(index) => handleAlertClose(index, setOpenStates)}
+      />
+
       <SearchBar
         data={stationData}
+        $hasAlert={hasAlert}
         map={mapRef.current}
         onStationSelect={(feature) => {
           handleStationSearchSelect(
@@ -472,7 +498,7 @@ const MtaMap = () => {
             setElevatorView,
             show3DToggle,
             setShow3DToggle,
-            lastUpdatedRef.current
+            lastUpdatedRef.current,
           );
         }}
       />
@@ -480,7 +506,13 @@ const MtaMap = () => {
       <div ref={mapContainer} id="map-container" className="map-container" />
 
       {lastUpdated && (
-        <div className="last-updated">
+        <div
+          className="last-updated"
+          style={{
+            top: hasAlert ? "93px" : "50px",
+            transition: "top 0.3s ease",
+          }}
+        >
           Last updated:{" "}
           {lastUpdated.toLocaleTimeString([], {
             hour: "2-digit",
@@ -488,38 +520,43 @@ const MtaMap = () => {
           })}
         </div>
       )}
-      
-        <button
-          className="map-reset-button"
-          onClick={() => {
-            const map = mapRef.current as mapboxgl.Map;
-            if (!map) return;
-            cleanUpPopups();
-            const center = setMapCenter();
-            const bearing = setManhattanTilt();
-            setStationView(null);
-            setElevatorView(null);
 
-            map.flyTo({
-              center: center,
-              zoom: 13,
-              pitch: 0,
-              bearing: bearing,
-              speed: 1.8,
-              curve: 1,
-            });
+      <button
+        className="map-reset-button"
+        style={{
+          top: hasAlert ? "110px" : "70px",
+          transition: "top 0.3s ease",
+          position: "absolute",
+        }}
+        onClick={() => {
+          const map = mapRef.current as mapboxgl.Map;
+          if (!map) return;
+          cleanUpPopups();
+          const center = setMapCenter();
+          const bearing = setManhattanTilt();
+          setStationView(null);
+          setElevatorView(null);
 
-            if (map.getLayer("active-complex-boundary-layer")) {
-              map.setLayoutProperty(
-                "active-complex-boundary-layer",
-                "visibility",
-                "none"
-              );
-            }
-          }}
-        >
-          <IoEarthSharp size={20} /> Center Map
-        </button>
+          map.flyTo({
+            center: center,
+            zoom: 13,
+            pitch: 0,
+            bearing: bearing,
+            speed: 1.8,
+            curve: 1,
+          });
+
+          if (map.getLayer("active-complex-boundary-layer")) {
+            map.setLayoutProperty(
+              "active-complex-boundary-layer",
+              "visibility",
+              "none",
+            );
+          }
+        }}
+      >
+        <IoEarthSharp size={20} /> Center Map
+      </button>
       <>
         {/* Toggle floating on top of map, outside popup */}
         {show3DToggle && elevatorView && (
@@ -533,7 +570,7 @@ const MtaMap = () => {
                   mapRef.current.setLayoutProperty(
                     "building-extrusion",
                     "visibility",
-                    visibility
+                    visibility,
                   );
                 }
               }}
