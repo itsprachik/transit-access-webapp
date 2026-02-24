@@ -9,7 +9,7 @@ import { createFocusTrap } from "focus-trap";
 import customElevatorDataset from "@/resources/custom_elevator_dataset.json";
 import mtaStationsDataset from "@/resources/mta_subway_stations_all.json";
 import mtaComplexesDataset from "@/resources/mta_subway_complexes.json";
-import taAlerts from "@/resources/ta_alerts.json";
+import taAlerts from "@/resources/station_alerts.json";
 
 // FUNCTIONS
 import {
@@ -79,7 +79,7 @@ export function showPopup(
   mapRef: mapboxgl.Map,
   popupRef: React.RefObject<mapboxgl.Popup>,
   popupDiv: HTMLElement,
-  root: { unmount: () => void }
+  root: { unmount: () => void },
 ) {
   // Store what had focus before opening
   lastFocusedElementBeforePopup =
@@ -107,7 +107,7 @@ export function showPopup(
   const focusableSelectors =
     'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
   const focusableEls: HTMLElement[] = Array.from(
-    popupDiv.querySelectorAll<HTMLElement>(focusableSelectors)
+    popupDiv.querySelectorAll<HTMLElement>(focusableSelectors),
   );
 
   function trapFocus(e: KeyboardEvent) {
@@ -115,7 +115,7 @@ export function showPopup(
 
     // Only include elements that can be focused
     const focusable = focusableEls.filter(
-      (el) => !("disabled" in el && (el as HTMLButtonElement).disabled)
+      (el) => !("disabled" in el && (el as HTMLButtonElement).disabled),
     );
     if (!focusable.length) return;
 
@@ -171,7 +171,7 @@ export function cleanUpPopups() {
 function addDynamicProperties(complexFeature, stationData) {
   const outageInfo = getComplexOutageLayerFeatures(stationData); // includes the isOut, isProblem properties
   const match = outageInfo.find(
-    (f) => f.properties.complex_id === complexFeature.properties.complex_id
+    (f) => f.properties.complex_id === complexFeature.properties.complex_id,
   );
   if (match) {
     complexFeature.properties.isOut = match.properties.isOut;
@@ -187,7 +187,7 @@ function handleElevatorClick(
   feature: any,
   elevatorData: any,
   upcomingElevatorData: any,
-  lastUpdated: any
+  lastUpdated: any,
 ) {
   const {
     ada,
@@ -203,7 +203,7 @@ function handleElevatorClick(
   const popupKey = lastUpdated?.toISOString() || ""; // triggers re-render of the popup
 
   const outage = elevatorData.find(
-    (outElevator: any) => outElevator.elevatorNo === elevatorno
+    (outElevator: any) => outElevator.elevatorNo === elevatorno,
   );
   // format estimatedreturntoservice into something readable
   const rawDate = outage?.estimatedreturntoservice;
@@ -213,7 +213,7 @@ function handleElevatorClick(
   }
 
   const upcomingOutage = upcomingElevatorData?.find(
-    (el) => el.equipment === elevatorno
+    (el) => el.equipment === elevatorno,
   );
 
   const filteredOutage = Array.isArray(upcomingOutage)
@@ -224,16 +224,16 @@ function handleElevatorClick(
         outageDuration: o.outageDuration || null,
       }))
     : upcomingOutage
-    ? [
-        {
-          reason: upcomingOutage.reason,
-          outageDate: upcomingOutage.outagedate,
-          estimatedreturntoservice:
-            upcomingOutage.estimatedreturntoservice?.trim() || null,
-          outageDuration: upcomingOutage.outageDuration || null,
-        },
-      ]
-    : [];
+      ? [
+          {
+            reason: upcomingOutage.reason,
+            outageDate: upcomingOutage.outagedate,
+            estimatedreturntoservice:
+              upcomingOutage.estimatedreturntoservice?.trim() || null,
+            outageDuration: upcomingOutage.outageDuration || null,
+          },
+        ]
+      : [];
 
   root.render(
     <ElevatorPopup
@@ -249,7 +249,7 @@ function handleElevatorClick(
       isStreet={isStreet}
       lastUpdated={lastUpdated}
       isUpcomingOutage={filteredOutage}
-    />
+    />,
   );
 }
 
@@ -268,7 +268,7 @@ function handleStationComplexClick(
   setElevatorView,
   show3DToggle,
   setShow3DToggle,
-  lastUpdated
+  lastUpdated,
 ) {
   mapRef.setLayoutProperty("building-extrusion", "visibility", "visible");
 
@@ -278,7 +278,7 @@ function handleStationComplexClick(
   // deal with alerts from ta_alerts.json
   const complexAlert = taAlerts.features
     .filter((feature) =>
-      feature.properties.complex_id.split(",").includes(complex_id)
+      feature.properties.complex_id.split(",").includes(complex_id),
     )
     .map((feature) => feature.properties.alert);
 
@@ -289,7 +289,7 @@ function handleStationComplexClick(
   const ada_notes = stationIDs
     .map((stationID) => {
       const station = mtaStationsDataset.features.find(
-        (f: any) => f.properties.station_id === stationID
+        (f: any) => f.properties.station_id === stationID,
       );
       if (!station || !station.properties.ada_notes) return null;
       let routes = "";
@@ -304,7 +304,7 @@ function handleStationComplexClick(
 
   const inaccessibleRoutes = concatenateInaccessibleRoutes(
     stationIDs,
-    mtaStationsDataset
+    mtaStationsDataset,
   );
 
   const elevatorsAtComplex = getElevatorsByComplexId(complex_id);
@@ -325,11 +325,11 @@ function handleStationComplexClick(
   let elevatorArray = elevatorsAtComplex.map((elevator) => {
     const elevatorno = elevator.properties.elevatorno;
     const matchedOutage = elevatorData.find(
-      (out) => out.elevatorNo === elevatorno
+      (out) => out.elevatorNo === elevatorno,
     );
 
     const upcomingOutage = upcomingElevatorData?.find(
-      (el) => el.equipment === elevatorno
+      (el) => el.equipment === elevatorno,
     );
 
     const filteredOutage = upcomingOutage
@@ -342,7 +342,7 @@ function handleStationComplexClick(
           outageDuration:
             convertDateDistance(
               upcomingOutage?.outagedate,
-              upcomingOutage?.estimatedreturntoservice
+              upcomingOutage?.estimatedreturntoservice,
             ) || "null",
         }
       : null;
@@ -397,7 +397,7 @@ function handleStationComplexClick(
   // Accessible:
   const { average, bounds } = getAverageElevatorCoordinates(
     customElevatorDataset.features,
-    complex_id
+    complex_id,
   ); // returns { average, bounds }
 
   // flyIn expects either coords or bounds depending on accessibility (coords for inaccessible, bounds for elevators)
@@ -411,7 +411,7 @@ function handleStationComplexClick(
       false,
       false,
       stationView,
-      setStationView
+      setStationView,
     );
   } else {
     // Accessible → fit bounds. true for popup flag (there's a popup)
@@ -423,7 +423,7 @@ function handleStationComplexClick(
       true,
       true,
       stationView,
-      setStationView
+      setStationView,
     );
   }
   // Popup render
@@ -449,7 +449,7 @@ function handleStationComplexClick(
       isOut={isOut}
       isProblem={isProblem}
       complexAlert={complexAlert}
-    />
+    />,
   );
 
   getAreaOfComplex(complex_id, mapRef, true); // true shows the complex boundary highlight, false does not
@@ -477,13 +477,13 @@ function handleStationClick(feature: any) {
   if (!complex_id) {
     console.warn(
       "No complex_id found or inferred from station feature:",
-      feature
+      feature,
     );
     return;
   }
 
   const matchingComplex = mtaComplexesDataset.features.find(
-    (f: any) => f.properties?.complex_id === complex_id
+    (f: any) => f.properties?.complex_id === complex_id,
   );
 
   if (!matchingComplex) {
@@ -496,7 +496,7 @@ function handleStationClick(feature: any) {
   const route = concatenateRoutes(stationIDs, mtaStationsDataset); // concatenate route info for complex
   const inaccessibleRoutes = concatenateInaccessibleRoutes(
     stationIDs,
-    mtaStationsDataset
+    mtaStationsDataset,
   );
   const ada = concatenateADA(stationIDs, mtaStationsDataset); // concatenate ADA info for complex
   const ada_notes = feature.properties.ada_notes;
@@ -530,7 +530,7 @@ export function handleSearchPopup(
   setElevatorView,
   show3DToggle,
   setShow3DToggle,
-  lastUpdated
+  lastUpdated,
 ) {
   if (!feature || feature.length === 0) return;
 
@@ -553,7 +553,7 @@ export function handleSearchPopup(
   const root = createRoot(popupDiv);
 
   const matchingComplex = mtaComplexesDataset.features.find(
-    (f: any) => f.properties?.complex_id === complex_id
+    (f: any) => f.properties?.complex_id === complex_id,
   );
 
   if (!matchingComplex) {
@@ -566,7 +566,7 @@ export function handleSearchPopup(
   const route = concatenateRoutes(stationIDs, mtaStationsDataset); // add concatenated route info for complex
   const inaccessibleRoutes = concatenateInaccessibleRoutes(
     stationIDs,
-    mtaStationsDataset
+    mtaStationsDataset,
   );
   const ada = concatenateADA(stationIDs, mtaStationsDataset); // add concatenated ADA info for complex
   const ada_notes = feature.properties.ada_notes;
@@ -574,7 +574,7 @@ export function handleSearchPopup(
   const complexFeature = handleStationClick(feature);
   const dynamicComplexFeature = addDynamicProperties(
     complexFeature,
-    stationData
+    stationData,
   );
 
   handleStationComplexClick(
@@ -589,7 +589,7 @@ export function handleSearchPopup(
     setElevatorView,
     show3DToggle,
     setShow3DToggle,
-    lastUpdated
+    lastUpdated,
   );
 
   showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
@@ -611,7 +611,7 @@ export function handleOnClick(
   setElevatorView,
   show3DToggle,
   setShow3DToggle,
-  lastUpdated
+  lastUpdated,
 ) {
   if (!e.features || e.features.length === 0) return;
 
@@ -636,7 +636,7 @@ export function handleOnClick(
       feature,
       elevatorData,
       upcomingElevatorData,
-      lastUpdated
+      lastUpdated,
     );
     showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
   }
@@ -649,14 +649,14 @@ export function handleOnClick(
     const matchingElevator = customElevatorDataset.features.find(
       (f: any) =>
         f.properties.elevatorno?.toLowerCase() ===
-        outageElevatorNo?.toLowerCase()
+        outageElevatorNo?.toLowerCase(),
     );
 
     if (!matchingElevator) {
       console.warn(
         "No matching elevator found for",
         outageElevatorNo,
-        "in dataset"
+        "in dataset",
       );
       return;
     }
@@ -672,14 +672,14 @@ export function handleOnClick(
       elevatorFeature,
       elevatorData,
       upcomingElevatorData,
-      lastUpdated
+      lastUpdated,
     );
     showPopup(
       matchingElevator.geometry.coordinates as [number, number],
       mapRef,
       onClickPopupRef,
       popupDiv,
-      root
+      root,
     );
   }
 
@@ -696,14 +696,14 @@ export function handleOnClick(
 
     // Try to find the matching elevator feature from mtaStationsDataset
     const matchingStation = mtaStationsDataset.features.find(
-      (f: any) => f.properties.station_id === station_id
+      (f: any) => f.properties.station_id === station_id,
     );
 
     if (!matchingStation) {
       console.warn(
         "No matching station found for",
         matchingStation,
-        "in MTA dataset"
+        "in MTA dataset",
       );
       return;
     }
@@ -717,7 +717,7 @@ export function handleOnClick(
     const complexFeature = handleStationClick(feature);
     const dynamicComplexFeature = addDynamicProperties(
       complexFeature,
-      stationData
+      stationData,
     );
 
     handleStationComplexClick(
@@ -732,14 +732,14 @@ export function handleOnClick(
       setElevatorView,
       show3DToggle,
       setShow3DToggle,
-      lastUpdated
+      lastUpdated,
     );
     showPopup(
       complexFeature.geometry.coordinates as [number, number],
       mapRef,
       onClickPopupRef,
       popupDiv,
-      root
+      root,
     );
   }
 
@@ -756,7 +756,7 @@ export function handleOnClick(
     const complexFeature = handleStationClick(feature);
     const dynamicComplexFeature = addDynamicProperties(
       complexFeature,
-      stationData
+      stationData,
     );
     handleStationComplexClick(
       root,
@@ -770,7 +770,7 @@ export function handleOnClick(
       setElevatorView,
       show3DToggle,
       setShow3DToggle,
-      lastUpdated
+      lastUpdated,
     );
     showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
   }
@@ -788,7 +788,7 @@ export function handleOnClick(
       setElevatorView,
       show3DToggle,
       setShow3DToggle,
-      lastUpdated
+      lastUpdated,
     );
     showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
   }
@@ -800,7 +800,7 @@ export function handleOnClick(
     const complexFeature = handleStationClick(feature);
     const dynamicComplexFeature = addDynamicProperties(
       complexFeature,
-      stationData
+      stationData,
     );
     handleStationComplexClick(
       root,
@@ -814,7 +814,7 @@ export function handleOnClick(
       setElevatorView,
       show3DToggle,
       setShow3DToggle,
-      lastUpdated
+      lastUpdated,
     );
     showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
   }
@@ -838,7 +838,7 @@ let popupTimeout: NodeJS.Timeout | null = null;
 export function handleMouseLeave(
   hoveredFeatureId: any,
   mapRef: any,
-  onHoverPopupRef: any
+  onHoverPopupRef: any,
 ) {
   if (hoveredFeatureId !== null) {
     mapRef.setFeatureState(
@@ -846,7 +846,7 @@ export function handleMouseLeave(
         source: "upcoming-outage-data",
         id: hoveredFeatureId,
       },
-      { hover: false }
+      { hover: false },
     );
   }
   hoveredFeatureId = null;
@@ -869,7 +869,7 @@ export function handlePopupEvent(
   hoveredFeatureId: any,
   mapRef: any,
   onHoverPopupRef: any,
-  isClick: boolean = false
+  isClick: boolean = false,
 ) {
   if (popupTimeout) {
     clearTimeout(popupTimeout);
@@ -880,7 +880,7 @@ export function handlePopupEvent(
     if (hoveredFeatureId !== null) {
       mapRef.setFeatureState(
         { source: "upcoming-outage-data", id: hoveredFeatureId },
-        { hover: false }
+        { hover: false },
       );
     }
 
@@ -888,7 +888,7 @@ export function handlePopupEvent(
 
     mapRef.setFeatureState(
       { source: "upcoming-outage-data", id: hoveredFeatureId },
-      { hover: true }
+      { hover: true },
     );
 
     const props = e.features[0].properties;
@@ -907,7 +907,7 @@ export function handlePopupEvent(
         reason={props.reason}
         isStreet={matchingElevatorFeature.properties.isStreet}
         station={matchingElevatorFeature.properties.title}
-      />
+      />,
     );
 
     const showPopup = () => {

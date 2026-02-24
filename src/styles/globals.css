@@ -1,10 +1,13 @@
 html,
 body,
-body>div:first-child,
+body > div:first-child,
 div#__next,
-div#__next>div {
+div#__next > div {
   height: 100%;
   margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
 
 #root {
@@ -15,27 +18,34 @@ div#__next>div {
   left: 0;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 #map-container {
   height: 100%;
-  width: 100%;
+  width: 100%;  
 }
 
-.onclick-popup .mapboxgl-popup-tip, .onhover-popup .mapboxgl-popup-tip {
+.onclick-popup .mapboxgl-popup-tip,
+.onhover-popup .mapboxgl-popup-tip {
   display: none !important;
   background: transparent !important;
 }
 
 /* Custom styles for the click popup */
 .onclick-popup.mapboxgl-popup.mapboxgl-popup-anchor-bottom {
-  z-index: 999;
-  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+  z-index: 1100;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
   width: 100dvw !important;
   max-width: 100dvw !important;
   position: fixed !important;
@@ -50,6 +60,7 @@ div#__next>div {
   backdrop-filter: blur(50px);
   border-radius: 0.4rem 0.4rem 0rem 0rem;
   color: #333;
+  box-sizing: border-box;
 }
 
 @media (min-width: 768px) {
@@ -58,14 +69,11 @@ div#__next>div {
     background-color: #edededb3;
     backdrop-filter: blur(3px);
     box-shadow: -4px 0px 12px rgba(0, 0, 0, 0.7);
-    border-radius: 0.0rem 0.4rem 0.4rem 0rem;
+    border-radius: 0rem 0.4rem 0.4rem 0rem;
     left: 0% !important;
     top: 120px !important;
     transform: translateX(0) !important;
-    /* height: fit-content;
-    max-height: 80vh; */
     width: max-content !important;
-
   }
 
   .show-3d-button-wrapper {
@@ -74,13 +82,12 @@ div#__next>div {
   }
 }
 
-@media (max-width: 768px)  {
-    .searchBar{
-            width: 100vw !important;
+@media (max-width: 768px), (max-device-width: 768px) {
+  .searchBar {
+    width: 100vw !important; 
 
-    }
   }
- 
+}
 
 /* Ensure image spans full width */
 .onclick-popup img {
@@ -104,6 +111,7 @@ div#__next>div {
   height: 100%;
   overflow-y: auto;
   overflow: visible !important;
+  box-sizing: border-box;
 }
 
 @media (min-width: 768px) {
@@ -144,7 +152,6 @@ div#__next>div {
   box-shadow: none;
 }
 
-
 .onclick-popup .mapboxgl-popup-close-button:hover {
   transform: scale(1.15);
   color: #636363;
@@ -153,7 +160,13 @@ div#__next>div {
 }
 
 .onclick-popup p {
-  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
   margin: 5px 0;
   font-size: 14px;
   line-height: 1.5;
@@ -177,7 +190,13 @@ div#__next>div {
 }
 
 .last-updated {
-  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
   color: #707070;
   position: fixed;
   top: 50px;
@@ -203,15 +222,23 @@ div#__next>div {
   border-radius: 4px;
   border-style: solid;
   border-width: 1px;
-  padding:6px 16px;
-  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+  padding: 6px 16px;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
   font-weight: 600;
   font-size: 16px;
   color: #303030;
   cursor: pointer;
   gap: 0.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.0);
-  transition: background-color 0.2s, transform 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
 }
 
 .map-reset-button:hover {
@@ -229,7 +256,13 @@ div#__next>div {
   background-color: #fff;
   border-radius: 4px;
   padding: 4px 8px 4px 0px;
-  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
   font-size: 12px;
   color: #333;
   gap: 8px;
@@ -241,7 +274,7 @@ div#__next>div {
 }
 
 .mapboxgl-ctrl.popup {
-position: relative;
+  position: relative;
   bottom: 300px;
 }
 
@@ -252,7 +285,6 @@ position: relative;
 .mapboxgl-ctrl-bottom-right {
   z-index: 1; /* keep it behind popup */
 }
-
 
 @layer base {
   :root {
@@ -310,8 +342,6 @@ position: relative;
     --chart-5: 340 75% 55%;
   }
 }
-
-
 
 @layer base {
   * {

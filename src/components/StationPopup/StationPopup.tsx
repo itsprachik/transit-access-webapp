@@ -33,7 +33,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
   lastUpdated,
   isOut,
   isProblem,
-  complexAlert
+  complexAlert,
 }) => {
   const [showOOS, setShowOOS] = useState(false);
   const [isAnimatingOOSOpen, setIsAnimatingOOSOpen] = useState(false);
@@ -169,7 +169,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
   const oosCount = elevators.filter(
     (e) =>
       e.estimatedreturntoservice !== "null" &&
-      e.estimatedreturntoservice?.trim().length > 0
+      e.estimatedreturntoservice?.trim().length > 0,
   ).length;
 
   // Helper functions for accessibility announcements
@@ -200,7 +200,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
 
     if (totalElevators > 0) {
       srParts.push(
-        `${totalElevators} ${totalElevators > 1 ? "elevators" : "elevator"}`
+        `${totalElevators} ${totalElevators > 1 ? "elevators" : "elevator"}`,
       );
 
       visualParts.push(
@@ -211,7 +211,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
         >
           <ElevatorIcon size={15} />
           {totalElevators} {totalElevators > 1 ? "elevators" : "elevator"}
-        </span>
+        </span>,
       );
     }
 
@@ -231,7 +231,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
         >
           <Ramp size={15} />
           {totalRamps} {totalRamps > 1 ? "ramps" : "ramp"}
-        </span>
+        </span>,
       );
     }
 
@@ -263,7 +263,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
     isProblemBool: boolean,
     isOutBool: boolean,
     isPlain: boolean,
-    totalElevators?: number
+    totalElevators?: number,
   ) => {
     if (totalElevators === 0) return styles.colorNeutral;
     if (isOutBool && !isPlain) return styles.colorBad; // outage (red)
@@ -286,14 +286,14 @@ const StationPopup: React.FC<StationPopupProps> = ({
   const renderAlertWithLinks = (alert: string) => {
     const urlRegex = /(https?:\/\/[^\s]+)/g;
     const parts = alert.split(urlRegex);
-    
+
     return parts.map((part, index) => {
       if (part.match(urlRegex)) {
         return (
-          <a 
-            key={index} 
-            href={part} 
-            target="_blank" 
+          <a
+            key={index}
+            href={part}
+            target="_blank"
             rel="noopener noreferrer"
             className={styles.url}
           >
@@ -312,7 +312,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
     isProblemBool,
     isOutBool,
     false, // light yellow background, dark yellow text
-    totalElevators
+    totalElevators,
   );
   const adaStatus = getADAStatus(ada);
   const adaStatusPlain = getADAStatus(ada, true);
@@ -320,15 +320,15 @@ const StationPopup: React.FC<StationPopupProps> = ({
   const complexStatusPlain = getStationComplexStatus(
     isProblemBool,
     isOutBool,
-    true // bright yellow color, no background
+    true, // bright yellow color, no background
   );
 
   useEffect(() => {
-  // Focus the title when a new station is selected
-  if (complexName && titleRef.current) {
-    titleRef.current.focus();
-  }
-}, [complexName]);
+    // Focus the title when a new station is selected
+    if (complexName && titleRef.current) {
+      titleRef.current.focus();
+    }
+  }, [complexName]);
 
   // Close OOS if clicked outside
   useEffect(() => {
@@ -372,11 +372,6 @@ const StationPopup: React.FC<StationPopupProps> = ({
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
       >
-        {/* announcement for future sr version, don't delete yet */}
-        {/* <div id="station-summary" className="sr-only">
-        {getAccessibilityStatus()}. {getElevatorStatusText()}.
-        {route && ` Subway lines: ${getSubwayLinesText(route)}.`}
-      </div> */}
         {isMobile && (
           <div aria-hidden="true" className="flex justify-center p-2">
             <div className="h-1 w-12 rounded-full bg-muted-foreground/30" />
@@ -418,7 +413,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
                   "big",
                   ada,
                   true,
-                  styles
+                  styles,
                 )}
           </h2>
 
@@ -432,7 +427,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
                     "small",
                     "0",
                     true,
-                    styles
+                    styles,
                   )}{" "}
                   {/* // true/false indicates isTitle */}
                   <div className={styles.adaNotesWrapper} aria-hidden="true">
@@ -450,17 +445,17 @@ const StationPopup: React.FC<StationPopupProps> = ({
             </h2>
           )}
           {complexAlert.length > 0 && (
-  <div className={styles.alertHeader}>
-    <div>{complexAlert.length>1 ? `Alerts:`: `Alert:`}</div>
-    <div className={styles.alert}>
-      {complexAlert.map((alert: string, index: number) => (
-        <div key={index} aria-label={`Station alert: ${alert}`}>
-          {renderAlertWithLinks(alert)}
-        </div>
-      ))}
-    </div>
-  </div>
-)}
+            <div className={styles.alertHeader}>
+              <div>{complexAlert.length > 1 ? `Alerts:` : `Alert:`}</div>
+              <div className={styles.alert}>
+                {complexAlert.map((alert: string, index: number) => (
+                  <div key={index} aria-label={`Station alert: ${alert}`}>
+                    {renderAlertWithLinks(alert)}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* ADA Notes */}
           {ada_notes && (

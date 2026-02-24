@@ -12,6 +12,7 @@ import { getOptions } from "./handlerFunctions";
 import styles from "@/components/SearchBar/searchbar.module.css";
 interface SearchBarProps {
   data: MtaStationData;
+  $hasAlert: boolean;
   map: mapboxgl.Map | null;
   onStationSelect?: (feature: MtaStationFeature) => void;
 }
@@ -60,7 +61,7 @@ const CustomClear = (props) => {
   const focusInput = () => {
     // Use the instanceId to find the input
     const input = document.querySelector(
-      '[id^="react-select-"][id$="-input"]'
+      '[id^="react-select-"][id$="-input"]',
     ) as HTMLInputElement;
     if (input) {
       input.focus();
@@ -130,9 +131,9 @@ const CustomSingleValue = (props) => {
   );
 };
 
-const StyledSelect = styled(Select)`
+const StyledSelect = styled(Select)<{ $hasAlert?: boolean }>`
   position: absolute !important;
-  top: 10px;
+  top: ${(props) => (props.$hasAlert ? "55px" : "10px")};
   padding: 0px 5px 0px 5px;
   width: 400px;
   z-index: 1000;
@@ -147,12 +148,14 @@ const StyledSelect = styled(Select)`
   // Figure out why this isnt being applied anymore, had to add to global.css
   @media (max-width: 768px)  {
         width: 100vw !important;
+       
   }
 `;
 
 const SearchBar: React.FC<SearchBarProps> = ({
   data,
   map,
+  $hasAlert,
   onStationSelect,
 }) => {
   const [options, setOptions] = useState<
@@ -169,7 +172,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
     // Find all elevators at the selected station
     const selectedStation = data.features.filter(
-      (feature) => feature.properties.station_id === selected.value
+      (feature) => feature.properties.station_id === selected.value,
     );
 
     // callback to allow popup without passsing RT data into search
@@ -188,7 +191,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
     if (isAccessible !== "0") {
       const coords = getAverageElevatorCoordinates(
         customElevatorDataset.features,
-        complex_id
+        complex_id,
       );
 
       if (
@@ -224,7 +227,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
       setOptions(
         matchSorter(defaultOptions, inputValue, {
           keys: [(item) => item.label.replace(/-/g, " ")],
-        })
+        }),
       );
     }
     return inputValue; // important so react-select updates its input
@@ -233,6 +236,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
   return (
     <StyledSelect
       className="searchBar"
+      $hasAlert={$hasAlert}
       instanceId="select-box"
       options={options}
       aria-label="Search for a station"
