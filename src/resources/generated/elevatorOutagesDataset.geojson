@@ -3701,7 +3701,7 @@
       "geometry": {
         "coordinates": [
           -73.904046,
-          40.688764
+          40.688724
         ],
         "type": "Point"
       }
@@ -6147,6 +6147,36 @@
         "coordinates": [
           -73.86105555555555,
           40.83316666666667
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "EL794",
+      "properties": {
+        "elevatorno": "EL794",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.954155,
+          40.586935
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "EL793",
+      "properties": {
+        "elevatorno": "EL793",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.954155,
+          40.586855
         ],
         "type": "Point"
       }

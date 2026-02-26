@@ -1,6 +1,7 @@
 [{
+    "_comment": "This file is currently updated manually // SEVERITY LEVELS: ✅ 'success' | ⚠️ 'warning' | ℹ️ 'info' | ❗️'error'",
     "severity": "success",
-    "text": "125th uptown elevator (A/C/B/D trains) now back in service!",
+    "text": "Sheepshead Bay (B/Q) now ADA accessible!",
     "color": "color",
     "type": ""
 }

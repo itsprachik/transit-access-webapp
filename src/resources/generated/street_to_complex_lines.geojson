@@ -2746,7 +2746,7 @@
         "coordinates": [
           [
             -73.904046,
-            40.688764
+            40.688724
           ],
           [
             -73.904046,
@@ -4692,6 +4692,52 @@
         "station_name": "Parkchester",
         "ada": "1",
         "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.954155,
+            40.586935
+          ],
+          [
+            -73.954155,
+            40.586896
+          ]
+        ]
+      },
+      "properties": {
+        "complex_id": "54",
+        "elevator_no": "EL794",
+        "station_name": "Sheepshead Bay",
+        "ada": "1",
+        "side": "right"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.954155,
+            40.586855
+          ],
+          [
+            -73.954155,
+            40.586896
+          ]
+        ]
+      },
+      "properties": {
+        "complex_id": "54",
+        "elevator_no": "EL793",
+        "station_name": "Sheepshead Bay",
+        "ada": "1",
+        "side": "right"
       }
     }
   ]

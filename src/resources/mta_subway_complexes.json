@@ -7122,7 +7122,7 @@
         "station_ids": "54",
         "gtfs_stop_ids": "D39",
         "stop_name": "Sheepshead Bay",
-        "ada": "0",
+        "ada": "1",
         "borough": "Bk",
         "num_stations_in_complex": "1"
       }
