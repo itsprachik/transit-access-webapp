@@ -239,6 +239,19 @@
     {
       "type": "Feature",
       "properties": {
+        "station_id": "54"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.954155,
+          40.586896
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "station_id": "58"
       },
       "geometry": {

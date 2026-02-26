@@ -7526,12 +7526,13 @@
         "ada": "2",
         "isBroken": "",
         "shortdescription": "Manhattan-bound",
-        "description_custom": "This ramp gets you from the street directly to Manhatan-bound L trains. Ramp at main entrance"
+        "description_custom": "This ramp gets you from the street directly to Manhatan-bound L trains",
+        "access_note": "Exact ramp location has been shifted slightly for this map. It is located at the main station entrance"
       },
       "geometry": {
         "coordinates": [
           -73.904046,
-          40.688764
+          40.688744
         ],
         "type": "Point"
       },
@@ -12496,6 +12497,68 @@
         ]
       },
       "id": "b87cd74a36ecddf6ad72bc2e9c1ca613"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "D39",
+        "route": "B/Q",
+        "complexID": "54",
+        "stationID": "54",
+        "system": "nyc_mta",
+        "elevatorno": "EL794",
+        "linesServed": "B/Q",
+        "directionLabel": "Coney Island-Stillwell Av-bound",
+        "title": "Sheepshead Bay",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Sheepshead-Bay_EL794.jpg",
+        "access_note": "Exact elevator location has been shifted slightly for this map. It is located inside the main station",
+        "alternativeRoute": "If you are on the street/in the station house: \nTake a Manhattan-bound B or Q to Kings Hwy and transfer to a Coney Island-Stillwell Av-bound Q.\n\nIf you are on the platform: \nTake a Coney Island-Stillwell Av-bound Q to Coney Island-Stillwell Av and transfer to a Manhattan-bound Q to Sheepshead Bay. \n",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "true",
+        "shortdescription": "South side of Sheepshead Bay Rd at 15 St to Brighton & Stillwell-bound platform.",
+        "description_custom": "This elevator gets you from the main station mezzanine to Av-bound B/Q trains"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.954155,
+          40.586935
+        ]
+      },
+      "id": "80437f4c6949519e54142717832fb051"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "D39",
+        "route": "B/Q",
+        "complexID": "54",
+        "stationID": "54",
+        "system": "nyc_mta",
+        "elevatorno": "EL793",
+        "linesServed": "B/Q",
+        "directionLabel": "Manhattan-bound",
+        "title": "Sheepshead Bay",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Sheepshead-Bay_EL793.jpg",
+        "alternativeRoute": "If you are on the street: \nTake a Coney Island-Stillwell Av-bound Q to Coney Island-Stillwell Av and transfer to a Manhattan-bound Q. \n\nIf you are on the platform: \nTake a Manhattan-bound B or Q to Kings Hwy and transfer to a Brighton Beach-bound B or a Coney Island-Stillwell Av-bound Q to Sheepshead Bay. ",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "true",
+        "shortdescription": "Street (south side of Sheepshead Bay Rd at 15 St) to Manhattan-bound platform.",
+        "access_note": "Exact elevator location has been shifted slightly for this map. It is located inside the main station",
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.954155,
+          40.586855
+        ]
+      },
+      "id": "879b1dfb6deab6e3a0391176ae719a7a"
     }
   ],
   "type": "FeatureCollection"
