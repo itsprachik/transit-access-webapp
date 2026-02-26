@@ -7526,13 +7526,13 @@
         "ada": "2",
         "isBroken": "",
         "shortdescription": "Manhattan-bound",
-        "description_custom": "This ramp gets you from the street directly to Manhatan-bound L trains",
+        "description_custom": "This ramp gets you from the street directly to Manhattan-bound L trains",
         "access_note": "Exact ramp location has been shifted slightly for this map. It is located at the main station entrance"
       },
       "geometry": {
         "coordinates": [
           -73.904046,
-          40.688744
+          40.688724
         ],
         "type": "Point"
       },
