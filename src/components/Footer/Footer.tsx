@@ -8,7 +8,7 @@ import styled from "styled-components";
 const FooterContainer = styled.footer`
   position: fixed;
   bottom: 45px;
-  left: 6px;
+  left: 10px;
   display: flex;
   gap: 0.3rem;
   z-index: 998;

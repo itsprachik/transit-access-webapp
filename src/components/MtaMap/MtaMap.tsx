@@ -509,7 +509,7 @@ const MtaMap = () => {
         <div
           className="last-updated"
           style={{
-            top: hasAlert ? "93px" : "50px",
+            top: hasAlert ? "calc(var(--alert-height, 0px) - 16px)": "2px",
             transition: "top 0.3s ease",
           }}
         >
@@ -524,7 +524,7 @@ const MtaMap = () => {
       <button
         className="map-reset-button"
         style={{
-          top: hasAlert ? "110px" : "70px",
+          top: hasAlert? "calc(45px + var(--alert-height, 0px))" : "65px",
           transition: "top 0.3s ease",
           position: "absolute",
         }}
@@ -555,12 +555,18 @@ const MtaMap = () => {
           }
         }}
       >
-        <IoEarthSharp size={20} /> Center Map
+        <IoEarthSharp size={16} /> Center Map
       </button>
       <>
         {/* Toggle floating on top of map, outside popup */}
         {show3DToggle && elevatorView && (
-          <div className="show-3d-button-wrapper">
+          <div
+          className="show-3d-button-wrapper"
+          style={{
+            top: hasAlert? "calc(45px + var(--alert-height, 0px))" : "65px",
+            transition: "top 0.3s ease",
+          }}
+          >
             <Switch
               defaultChecked
               onCheckedChange={(checked) => {
