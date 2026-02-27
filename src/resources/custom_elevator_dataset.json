@@ -12518,7 +12518,7 @@
         "isBroken": "",
         "isStreet": "true",
         "shortdescription": "South side of Sheepshead Bay Rd at 15 St to Brighton & Stillwell-bound platform.",
-        "description_custom": "This elevator gets you from the main station mezzanine to Av-bound B/Q trains"
+        "description_custom": "This elevator gets you from the street directly to Coney Island-Stillwell Av-bound B/Q trains"
       },
       "geometry": {
         "type": "Point",
@@ -12549,7 +12549,7 @@
         "isStreet": "true",
         "shortdescription": "Street (south side of Sheepshead Bay Rd at 15 St) to Manhattan-bound platform.",
         "access_note": "Exact elevator location has been shifted slightly for this map. It is located inside the main station",
-        "description_custom": "This elevator gets you from the street to the main station mezzanine"
+        "description_custom": "This elevator gets you from the street directly to Manhattan-bound B/Q trains"
       },
       "geometry": {
         "type": "Point",
