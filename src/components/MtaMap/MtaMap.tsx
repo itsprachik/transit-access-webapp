@@ -509,7 +509,7 @@ const MtaMap = () => {
         <div
           className="last-updated"
           style={{
-            top: hasAlert ? "-5px" : "-57px",
+            top: hasAlert ? "52px" : "4px",
             transition: "top 0.3s ease",
           }}
         >
@@ -524,7 +524,7 @@ const MtaMap = () => {
       <button
         className="map-reset-button"
         style={{
-          top: hasAlert ? "116px" : "64px",
+          top: hasAlert ? "108px" : "60px",
           transition: "top 0.3s ease",
           position: "absolute",
         }}
@@ -563,7 +563,7 @@ const MtaMap = () => {
           <div
           className="show-3d-button-wrapper"
           style={{
-            top: hasAlert ? "116px" : "64px",
+            top: hasAlert ? "108px" : "60px",
             transition: "top 0.3s ease",
           }}
           >

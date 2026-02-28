@@ -201,18 +201,24 @@ div#__next > div {
     padding: 4px 0 0 4px !important;
 }
 
+.css-zioonp-MuiAlert-message {
+    font-size: 12px !important;
+}
+
+.css-1ckov0h-MuiSvgIcon-root {
+    width: 0.8em !important;
+    height: 0.8em !important;
+}
+
 .last-updated {
     font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.6rem;
     color: #707070;
     position: fixed;
-    left: 0;
+    left: 6px;
     right: 0;
-    display: block;
+    display: inline-block;
     z-index: 999;
-    padding: 60px 8px 0px 8px;
-    backdrop-filter: blur(8px);
-    background-color: #fdfdfde1;
 }
 
 .map-top-wrapper {
