@@ -133,7 +133,7 @@ const CustomSingleValue = (props) => {
 
 const StyledSelect = styled(Select)<{ $hasAlert?: boolean }>`
   position: absolute !important;
-  top:${(props) => (props.$hasAlert ? "calc(var(--alert-height, 0px))" : "20px")};
+  top: calc(var(--alert-height, 0px));
   transition: top 0.3s ease;
   padding: 0px 5px 0px 5px;
   width: 400px;
