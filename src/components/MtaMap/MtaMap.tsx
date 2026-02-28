@@ -509,7 +509,7 @@ const MtaMap = () => {
         <div
           className="last-updated"
           style={{
-            top: hasAlert ? "calc(var(--alert-height, 0px) - 16px)": "2px",
+            top: hasAlert ? "-5px" : "-57px",
             transition: "top 0.3s ease",
           }}
         >
@@ -524,7 +524,7 @@ const MtaMap = () => {
       <button
         className="map-reset-button"
         style={{
-          top: hasAlert? "calc(45px + var(--alert-height, 0px))" : "65px",
+          top: hasAlert ? "116px" : "64px",
           transition: "top 0.3s ease",
           position: "absolute",
         }}
@@ -563,11 +563,12 @@ const MtaMap = () => {
           <div
           className="show-3d-button-wrapper"
           style={{
-            top: hasAlert? "calc(45px + var(--alert-height, 0px))" : "65px",
+            top: hasAlert ? "116px" : "64px",
             transition: "top 0.3s ease",
           }}
           >
             <Switch
+            className="scale-75"
               defaultChecked
               onCheckedChange={(checked) => {
                 if (!mapRef.current) return;

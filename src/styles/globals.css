@@ -72,7 +72,7 @@ div#__next > div {
     border-radius: 0rem 0.4rem 0.4rem 0rem;
     left: 0% !important;
     bottom: auto !important;
-    top: 100px;
+    top: 150px;
     transform: translateX(0) !important;
     width: max-content !important;
   }
@@ -82,8 +82,7 @@ div#__next > div {
   }
 
   .show-3d-button-wrapper {
-    top: 60px !important;
-    left: 235px !important;
+    left: 223px !important;
   }
 
   html.alert-open .show-3d-button-wrapper {
@@ -198,20 +197,22 @@ div#__next > div {
   background-color: #f6dcda;
 }
 
+.css-rgppqo-MuiAlert-action {
+    padding: 4px 0 0 4px !important;
+}
+
 .last-updated {
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
-  color: #707070;
-  position: fixed;
-  top: 50px;
-  left: 11px;
-  font-size: 0.75rem;
-  z-index: 999;
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 0.75rem;
+    color: #707070;
+    position: fixed;
+    left: 0;
+    right: 0;
+    display: block;
+    z-index: 999;
+    padding: 60px 8px 0px 8px;
+    backdrop-filter: blur(8px);
+    background-color: #fdfdfde1;
 }
 
 .map-top-wrapper {
@@ -223,15 +224,15 @@ div#__next > div {
   display: flex;
   align-items: center;
   top: 60px;
-  left: 10px;
+  left: 6px;
   z-index: 998;
-  background-color: #f0f0f0b3;
+  background-color: #fefefed6;
   backdrop-filter: blur(3px);
   border: 2px solid #e5e5e5;
   border-radius: 4px;
   border-style: solid;
   border-width: 1px;
-  padding: 4px 10px;
+  padding: 4px 8px;
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -266,7 +267,7 @@ div#__next > div {
   border-radius: 4px;
   border-style: solid;
   border-width: 1px;
-  padding: 4px 8px 4px 0px;
+  padding: 2px 8px 2px 6px;
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -275,8 +276,9 @@ div#__next > div {
     Arial,
     sans-serif;
   font-size: 12px;
+  font-weight: 600;
   color: #333;
-  gap: 8px;
+  gap: 2px;
 }
 
 @media (max-width: 768px) {
