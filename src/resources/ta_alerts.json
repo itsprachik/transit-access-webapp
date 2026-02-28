@@ -1,7 +1,7 @@
 [{
     "_comment": "This file is currently updated manually // SEVERITY LEVELS: ✅ 'success' | ⚠️ 'warning' | ℹ️ 'info' | ❗️'error'",
-    "severity": "warning",
-    "text": "The following elevators will be taken out of service overnight (2/27-28): Times Sq NQRW downtown, 14 St ACE uptown, Coney Island D platform, & Woodhaven J/Z (both dirs.)",
+    "severity": "success",
+    "text": "Sheepshead Bay (B/Q) now ADA accessible!",
     "color": "color",
     "type": ""
 }

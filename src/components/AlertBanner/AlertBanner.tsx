@@ -19,10 +19,14 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
       return;
     }
     observerRef.current = new ResizeObserver(([entry]) => {
-    const height = entry.contentRect.height;
-    document.documentElement.style.setProperty("--alert-height", `${height}px`);
-    document.documentElement.classList.toggle("alert-open", height > 0);
-  });
+      const height = entry.contentRect.height;
+      const current = parseFloat(
+        document.documentElement.style.getPropertyValue("--alert-height") || "0"
+      );
+      if (Math.abs(height - current) < 1) return; // ignore sub-pixel changes
+      document.documentElement.style.setProperty("--alert-height", `${height}px`);
+      document.documentElement.classList.toggle("alert-open", height > 0);
+    });
     observerRef.current.observe(el);
   };
 
