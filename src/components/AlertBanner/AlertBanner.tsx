@@ -13,7 +13,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
       if (openStates[index] !== false) {
         return setTimeout(() => {
           onClose(index);
-        }, 5000); 
+        }, 10000); 
       }
       return null;
     });
