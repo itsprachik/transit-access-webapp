@@ -81,7 +81,7 @@ export default function Map() {
       mapRef.current = new mapboxgl.Map({
         container: mapContainer.current,
         style: "mapbox://styles/joelaaron/clndls6cm07rp01mae34gd2oo",
-        center: [-73.98365318925187, 40.7583063693059], // NYC
+        center: [-73.98465318925187, 40.7564263693059], // NYC
         zoom: 13,
       });
 

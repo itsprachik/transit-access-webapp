@@ -1,42 +1,18 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Alert, Collapse } from "@mui/material";
 import { AlertBannerProps } from "@/types/alerts";
+
 const AlertBanner: React.FC<AlertBannerProps> = ({
   alertData,
   openStates,
   onClose,
 }) => {
-  const observerRef = useRef<ResizeObserver | null>(null);
-
-  const callbackRef = (el: HTMLDivElement | null) => {
-    if (observerRef.current) {
-      observerRef.current.disconnect();
-      observerRef.current = null;
-    }
-    if (!el) {
-      document.documentElement.style.setProperty("--alert-height", "0px");
-      document.documentElement.classList.remove("alert-open");
-      return;
-    }
-    observerRef.current = new ResizeObserver(([entry]) => {
-      const height = entry.contentRect.height;
-      const current = parseFloat(
-        document.documentElement.style.getPropertyValue("--alert-height") || "0"
-      );
-      if (Math.abs(height - current) < 1) return; // ignore sub-pixel changes
-      document.documentElement.style.setProperty("--alert-height", `${height}px`);
-      document.documentElement.classList.toggle("alert-open", height > 0);
-    });
-    observerRef.current.observe(el);
-  };
-
   if (!alertData || alertData.length === 0) {
     return null;
   }
 
   return (
     <div
-      ref={callbackRef}
       style={{
         position: "fixed",
         top: 0,
@@ -60,6 +36,19 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
                   pointerEvents: "auto",
                   maxWidth: "100%",
                   boxSizing: "border-box",
+                  // formerly .css-zioonp-MuiAlert-message
+                  "& .MuiAlert-message": {
+                    fontSize: "12px",
+                  },
+                  // formerly .css-rgppqo-MuiAlert-action
+                  "& .MuiAlert-action": {
+                    padding: "4px 0 0 4px",
+                  },
+                  // formerly .css-1ckov0h-MuiSvgIcon-root
+                  "& .MuiSvgIcon-root": {
+                    width: "0.8em",
+                    height: "0.8em",
+                  },
                 }}
               >
                 {alert.text}

@@ -7,7 +7,7 @@ export function setManhattanTilt() {
 }
 
 export function setMapCenter(): [number, number] {
-  return [-73.98265318925187, 40.7583063693059];
+  return [-73.98465318925187, 40.7564263693059];
 }
 
 export function setMaxBounds() : mapboxgl.LngLatBounds {
