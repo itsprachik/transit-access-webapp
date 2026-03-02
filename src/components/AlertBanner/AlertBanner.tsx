@@ -1,6 +1,7 @@
 import React from "react";
 import { Alert, Collapse } from "@mui/material";
 import { AlertBannerProps } from "@/types/alerts";
+
 const AlertBanner: React.FC<AlertBannerProps> = ({
   alertData,
   openStates,
@@ -33,8 +34,21 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
                 sx={{
                   mb: 2,
                   pointerEvents: "auto",
-                  maxWidth: "100%", 
-                  boxSizing: "border-box", 
+                  maxWidth: "100%",
+                  boxSizing: "border-box",
+                  // formerly .css-zioonp-MuiAlert-message
+                  "& .MuiAlert-message": {
+                    fontSize: "12px",
+                  },
+                  // formerly .css-rgppqo-MuiAlert-action
+                  "& .MuiAlert-action": {
+                    padding: "4px 0 0 4px",
+                  },
+                  // formerly .css-1ckov0h-MuiSvgIcon-root
+                  "& .MuiSvgIcon-root": {
+                    width: "0.8em",
+                    height: "0.8em",
+                  },
                 }}
               >
                 {alert.text}
