@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Alert, Collapse } from "@mui/material";
 import { AlertBannerProps } from "@/types/alerts";
 
@@ -7,6 +7,23 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
   openStates,
   onClose,
 }) => {
+  useEffect(() => {
+    if (!alertData || alertData.length === 0) return;
+    const timers = alertData.map((_, index) => {
+      if (openStates[index] !== false) {
+        return setTimeout(() => {
+          onClose(index);
+        }, 5000); 
+      }
+      return null;
+    });
+
+    return () => {
+      timers.forEach((timer) => {
+        if (timer) clearTimeout(timer);
+      });
+    };
+  }, [alertData, openStates, onClose]);
   if (!alertData || alertData.length === 0) {
     return null;
   }
@@ -36,15 +53,12 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
                   pointerEvents: "auto",
                   maxWidth: "100%",
                   boxSizing: "border-box",
-                  // formerly .css-zioonp-MuiAlert-message
                   "& .MuiAlert-message": {
                     fontSize: "12px",
                   },
-                  // formerly .css-rgppqo-MuiAlert-action
                   "& .MuiAlert-action": {
                     padding: "4px 0 0 4px",
                   },
-                  // formerly .css-1ckov0h-MuiSvgIcon-root
                   "& .MuiSvgIcon-root": {
                     width: "0.8em",
                     height: "0.8em",
