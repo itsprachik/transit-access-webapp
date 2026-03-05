@@ -7,23 +7,6 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
   openStates,
   onClose,
 }) => {
-  useEffect(() => {
-    if (!alertData || alertData.length === 0) return;
-    const timers = alertData.map((_, index) => {
-      if (openStates[index] !== false) {
-        return setTimeout(() => {
-          onClose(index);
-        }, 10000); 
-      }
-      return null;
-    });
-
-    return () => {
-      timers.forEach((timer) => {
-        if (timer) clearTimeout(timer);
-      });
-    };
-  }, [alertData, openStates, onClose]);
   if (!alertData || alertData.length === 0) {
     return null;
   }
