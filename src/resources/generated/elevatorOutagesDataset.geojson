@@ -6180,6 +6180,21 @@
         ],
         "type": "Point"
       }
+    },
+    {
+      "type": "Feature",
+      "id": "EL622",
+      "properties": {
+        "elevatorno": "EL622",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.981736,
+          40.768195999999996
+        ],
+        "type": "Point"
+      }
     }
   ],
   "type": "FeatureCollection"

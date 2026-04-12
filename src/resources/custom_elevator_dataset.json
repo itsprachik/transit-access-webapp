@@ -10774,7 +10774,7 @@
       "type": "Feature",
       "properties": {
         "notes": "elevatorgtfsstopid was A24",
-        "isRedundant": "0",
+        "isRedundant": "1",
         "elevatorgtfsstopid": "125/A24",
         "route": "A C B D 1",
         "complexID": "614",
@@ -12559,6 +12559,36 @@
         ]
       },
       "id": "879b1dfb6deab6e3a0391176ae719a7a"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "1",
+        "elevatorgtfsstopid": "125/A24",
+        "route": "A/C/B/D/1",
+        "complexID": "614",
+        "stationID": "161",
+        "system": "nyc_mta",
+        "elevatorno": "EL622",
+        "linesServed": "A/C/B/D/1",
+        "directionLabel": "uptown 1, downtown A/C/B/D",
+        "title": "59 St-Columbus Circle",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/59-St-Columbus-Circle_EL622.jpg",
+        "alternativeRoute": "If you are on the mezzanine: For downtown 1, proceed to the elevator at the other side of the mezzanine to reach the platform and use the elevator at the other end of platform. Take an uptown 1 to 72 St and use elevators to transfer to a downtown 1. For downtown A, B, C or D, proceed to the elevator at the side of the mezzanine and take an uptown A, C, B or D to 125 St. Use elevators to transfer to downtown service.  Or, take a southbound M104 bus (Columbus Circle and 8 Av) to 41 St and 8 Av and proceed to Times Sq-42 St for downtown 1 or to 42 St/Port Authority Bus Terminal for A, C. If you are on the downtown A/B/C/D platform: Take a downtown A or C to 42 St/Port Authority Bus Terminal and use ramps to transfer to an uptown A or C to 59 St-Columbus Circle. Or, take a downtown C to 50 St. Exit station and take a northbound M20 or M104 bus (49 St and 8 Av) to 59 St-Columbus Circle. If you are on the downtown 1 platform: Take a downtown 1 to Times Sq-42 St then either: Use elevators to transfer to an uptown 1 to 59 St-Columbus Circle. Or, take a northbound M20 or M104 bus (8 Av and 43 St) to 59 St-Columbus Circle.",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "",
+        "shortdescription": "Mezzanine to downtown A/B/C/D & 1 platforms",
+        "description_custom": "This elevator gets you from uptown 1 trains to downtown A/C/B/D trains. Also lesads to downtown 1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.981736,
+          40.768195999999996
+        ]
+      },
+      "id": "1eafc417b60a1ba8b2a2315b6ed6aaee"
     }
   ],
   "type": "FeatureCollection"
