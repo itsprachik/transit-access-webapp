@@ -4,14 +4,14 @@ import { MTA_SUBWAY_LINE_ICONS_SMALL } from "@/utils/constants";
 import { AccessibleIconWhite } from "../icons";
 import styled from "styled-components";
 import { getAverageElevatorCoordinates } from "@/utils/dataUtils";
-import customElevatorDataset from "@/resources/custom_elevator_dataset.json";
+import { getElevatorsDataset } from "@/lib/dataStore";
 import { MtaStationFeature, MtaStationData } from "@/utils/types";
 import { setManhattanTilt } from "../MtaMap/mtaMapOptions";
 import { matchSorter } from "match-sorter";
 import { getOptions } from "./handlerFunctions";
 import styles from "@/components/SearchBar/searchbar.module.css";
 interface SearchBarProps {
-  data: MtaStationData;
+  data: MtaStationData | null;
   $hasAlert: boolean;
   map: mapboxgl.Map | null;
   onStationSelect?: (feature: MtaStationFeature) => void;
@@ -162,14 +162,14 @@ const SearchBar: React.FC<SearchBarProps> = ({
   const [options, setOptions] = useState<
     { label: string; value: string; icon: ReactElement }[]
   >([]);
-  const defaultOptions = getOptions(data);
+  const defaultOptions = getOptions(data ?? { type: "FeatureCollection", features: [] } as MtaStationData);
 
   useEffect(() => {
     setOptions(defaultOptions);
   }, [data]);
 
   const handleSelect = (selected: { label: string; value: string } | null) => {
-    if (!selected || !map) return;
+    if (!selected || !map || !data) return;
 
     // Find all elevators at the selected station
     const selectedStation = data.features.filter(
@@ -191,7 +191,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
     if (isAccessible !== "0") {
       const coords = getAverageElevatorCoordinates(
-        customElevatorDataset.features,
+        getElevatorsDataset().features,
         complex_id,
       );
 

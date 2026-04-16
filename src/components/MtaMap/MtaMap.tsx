@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Switch } from "@/components/ui/switch";
 import mapboxgl from "mapbox-gl";
-import { fetchOutages } from "@/api/fetchOutages";
-import dotenv from "dotenv";
 import {
   getOutElevatorData,
   updateUpcomingOutagesLayer,
@@ -41,18 +39,12 @@ import {
 import SearchBar from "../SearchBar/SearchBar";
 import { MtaStationData } from "@/utils/types";
 import { IoEarthSharp } from "react-icons/io5";
-import rawData from "@/resources/mta_subway_stations_all.json";
-import alertData from "@/resources/ta_alerts.json";
 import AlertBanner from "../AlertBanner/AlertBanner";
 import {handleAlertClose} from "../AlertBanner/handlerFunctions"
 import { AlertData } from "@/types/alerts";
-const stationData = rawData as MtaStationData;
-
-// Load environment variables
-dotenv.config();
+import { initializeStore } from "@/lib/dataStore";
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
-const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
 const MtaMap = () => {
   const mapRef = useRef(null);
@@ -81,20 +73,23 @@ const MtaMap = () => {
 
   const [show3DToggle, setShow3DToggle] = React.useState(false);
 
+  const [stationData, setStationData] = useState<MtaStationData | null>(null);
+  const [systemAlerts, setSystemAlerts] = useState<AlertData[]>([]);
+
   const [openStates, setOpenStates] = useState({});
   const hasAlert =
-    alertData?.length > 0 && alertData.some((_, i) => openStates[i] !== false);
+    systemAlerts?.length > 0 && systemAlerts.some((_, i) => openStates[i] !== false);
 
-  // Initialize open states when alertData changes
+  // Initialize open states when systemAlerts changes
   useEffect(() => {
-    if (alertData && alertData.length > 0) {
+    if (systemAlerts && systemAlerts.length > 0) {
       const initialStates = {};
-      alertData.forEach((_, index) => {
+      systemAlerts.forEach((_, index) => {
         initialStates[index] = true;
       });
       setOpenStates(initialStates);
     }
-  }, [alertData]);
+  }, [systemAlerts]);
 
   // track elevator data state change
   useEffect(() => {
@@ -181,8 +176,26 @@ const MtaMap = () => {
   };
 
   useEffect(() => {
+    async function loadDatasets() {
+      const [elevatorsRes, stationsRes, alertsRes] = await Promise.all([
+        fetch("/api/elevators"),
+        fetch("/api/stations"),
+        fetch("/api/alerts"),
+      ]);
+
+      const elevatorsGeoJSON = await elevatorsRes.json();
+      const { complexes, stations } = await stationsRes.json();
+      const alertsData = await alertsRes.json();
+
+      initializeStore(elevatorsGeoJSON, complexes, stations, alertsData.station);
+      setStationData(stations as MtaStationData);
+      setSystemAlerts(alertsData.system as AlertData[]);
+    }
+
     async function getOutages() {
-      const data = await fetchOutages(apiKey);
+      const response = await fetch("/api/outages");
+      if (!response.ok) throw new Error(`Outage fetch failed: ${response.status}`);
+      const data = await response.json();
       const currentData = data.filter((el) => el.isupcomingoutage === "N");
       const upcomingData = data.filter((el) => el.isupcomingoutage === "Y");
       setElevatorRawData(currentData);
@@ -236,8 +249,12 @@ const MtaMap = () => {
         );
       }
     }
-    // Fetch outages on component mount
-    getOutages();
+    // Load static datasets first, then fetch outages
+    async function initialize() {
+      await loadDatasets();
+      getOutages();
+    }
+    initialize();
 
     //Initialize Map
     initializeMtaMap(mapRef, mapContainer);
@@ -477,7 +494,7 @@ const MtaMap = () => {
   return (
     <>
       <AlertBanner
-        alertData={alertData as AlertData[]}
+        alertData={systemAlerts}
         openStates={openStates}
         onClose={(index) => handleAlertClose(index, setOpenStates)}
       />

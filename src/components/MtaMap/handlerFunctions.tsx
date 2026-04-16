@@ -6,10 +6,12 @@ import { createRoot, type Root } from "react-dom/client";
 import { createFocusTrap } from "focus-trap";
 
 // DATASETS
-import customElevatorDataset from "@/resources/custom_elevator_dataset.json";
-import mtaStationsDataset from "@/resources/mta_subway_stations_all.json";
-import mtaComplexesDataset from "@/resources/mta_subway_complexes.json";
-import taAlerts from "@/resources/station_alerts.json";
+import { getElevatorsDataset, getComplexesDataset, getStationsDataset, getStationAlertsDataset } from "@/lib/dataStore";
+
+const customElevatorDataset = { get features() { return getElevatorsDataset().features; } };
+const mtaStationsDataset = { get features() { return getStationsDataset().features; } };
+const mtaComplexesDataset = { get features() { return getComplexesDataset().features; } };
+const taAlerts = { get features() { return getStationAlertsDataset().features; } };
 
 // FUNCTIONS
 import {
