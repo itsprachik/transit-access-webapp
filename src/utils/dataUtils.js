@@ -12,9 +12,12 @@ import { complexCoordinates } from "./ComplexGeometry";
 import { getComplexBoundaryGeoJSON } from "@/components/MtaMap/layers/StationComplexes/complexBoundaries";
 import { parse, isToday, isTomorrow, isThisWeek, format, formatDistanceToNow, formatDistance } from "date-fns";
 
-import customElevatorDataset from "@/resources/custom_elevator_dataset.json";
-import complexesDataset from "@/resources/mta_subway_complexes.json";
-import stationsDataset from "@/resources/mta_subway_stations_all.json";
+import { getElevatorsDataset, getComplexesDataset, getStationsDataset } from "@/lib/dataStore";
+
+// Getter shims — existing function bodies read these as if they were the original JSON imports
+const customElevatorDataset = { get features() { return getElevatorsDataset().features; } };
+const complexesDataset = { get features() { return getComplexesDataset().features; } };
+const stationsDataset = { get features() { return getStationsDataset().features; } };
 import { setManhattanTilt } from "@/components/MtaMap/mtaMapOptions";
 import { ROUTE_ORDER, MTA_SUBWAY_LINE_ICONS, MTA_SUBWAY_LINE_ICONS_SMALL } from "./constants";
 
@@ -106,8 +109,8 @@ export function getOutageLayerFeatures(outElevatorData) {
 }
 
 export function getUpcomingOutageLayerFeatures(upcomingOutElevatorData) {
+  if (!Array.isArray(upcomingOutElevatorData)) return [];
   const features = [];
-//TO DO: temp fix for coordsList being undefined. Check what is causing it do be undefined
   for (const elevator of upcomingOutElevatorData) {
     const cleanElevatorNo = elevator?.equipment.trim();
     const outageDate = elevator?.outagedate;
@@ -168,25 +171,23 @@ export function makeElevatorMap() {
 }
 
 export function getElevatorByNo(elevatorNo) {
-  return elevatorIndex.elevatorByNo.get(elevatorNo);
+  return elevatorIndex?.elevatorByNo?.get(elevatorNo);
 }
 
 export function getElevatorsByComplexId(complexId) {
-  return elevatorIndex.elevatorByComplexId.get(complexId) || [];
+  return elevatorIndex?.elevatorByComplexId?.get(complexId) || [];
 }
 
 export function getElevatorsByStationId(stationId) {
-  return elevatorIndex.elevatorByStationId.get(stationId) || [];
+  return elevatorIndex?.elevatorByStationId?.get(stationId) || [];
 }
 
 export function getComplexIDByElevatorNo(elevatorNo) {
-  const elevator = elevatorIndex.elevatorByNo.get(elevatorNo);
-  return elevator?.properties?.complexID;
+  return elevatorIndex?.elevatorByNo?.get(elevatorNo)?.properties?.complexID;
 }
 
 export function getStationIDByElevatorNo(elevatorNo) {
-  const elevator = elevatorIndex.elevatorByNo.get(elevatorNo);
-  return elevator?.properties?.stationID;
+  return elevatorIndex?.elevatorByNo?.get(elevatorNo)?.properties?.stationID;
 }
 
 /* ************************************************************************** */
