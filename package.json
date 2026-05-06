@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint"
   },
@@ -30,6 +31,7 @@
     "material-icons": "^1.13.14",
     "mta-subway-bullets": "^0.5.1",
     "next": "^15.0.3",
+    "next-sitemap": "^4.2.3",
     "number-to-words": "^1.2.4",
     "react": "^18",
     "react-dom": "^18",

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://transitaccess.org
+
+# Sitemaps
+Sitemap: https://transitaccess.org/sitemap.xml
