@@ -6195,6 +6195,36 @@
         ],
         "type": "Point"
       }
+    },
+    {
+      "type": "Feature",
+      "id": "EL519",
+      "properties": {
+        "elevatorno": "EL519",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.95381,
+          40.821575
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "RA115",
+      "properties": {
+        "elevatorno": "RA115",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.93647,
+          40.82388
+        ],
+        "type": "Point"
+      }
     }
   ],
   "type": "FeatureCollection"
