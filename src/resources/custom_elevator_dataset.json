@@ -9045,7 +9045,7 @@
         "ada": "1",
         "isBroken": "",
         "shortdescription": "St. George-bound",
-        "description_custom": "Ramp to St. George-bound trains",
+        "description_custom": "This elevator gets you from the street to St. George-bound trains",
         "access_note": "Customers using wheelchairs board trains near the Off-Hour Waiting Area"
       },
       "geometry": {
@@ -10820,7 +10820,7 @@
         "ada": "1",
         "isBroken": "",
         "shortdescription": "Tottenville-bound",
-        "description_custom": "Ramp to Tottenville-bound trains",
+        "description_custom": "This elevator gets you from the street to Tottenville-bound trains",
         "access_note": "Customers using wheelchairs board trains near the Off-Hour Waiting Area"
       },
       "geometry": {
@@ -12589,6 +12589,67 @@
         ]
       },
       "id": "1eafc417b60a1ba8b2a2315b6ed6aaee"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "115",
+        "route": "1",
+        "complexID": "305",
+        "stationID": "305",
+        "system": "nyc_mta",
+        "elevatorno": "EL519",
+        "linesServed": "1",
+        "directionLabel": "uptown",
+        "title": "137 St-City College",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/137-St-City-College_EL519.jpg",
+        "alternativeRoute": "If you are on the platform: Take an uptown 1 to Dyckman St. Transfer to a Manhattanville-bound M100 bus (Dyckman St / Nagle Av) to Amsterdam Av / 138 St. Proceed west along 138 St to Broadway for the 137 St \u2013 City College 1 station.  \n\nIf you are on the street: Proceed east along 138 St to Amsterdam Av and take an Inwood-bound M100 bus (Amsterdam Av / 138 St) to Dyckman St / Nagle Av for the Dyckman St 1 station.  ",
+        "ada": "2",
+        "isBroken": "",
+        "isStreet": "true",
+        "shortdescription": "Street (NE corner of Broadway and W 137 St) to uptown 1 platform.",
+        "description_custom": "This elevator gets you from the street directly to uptown 1 trains"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.95381,
+          40.821575
+        ]
+      },
+      "id": "9c5878f47db130837782c620f7534672"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "301",
+        "route": "3",
+        "complexID": "436",
+        "isStreet": "",
+        "stationID": "436",
+        "system": "nyc_mta",
+        "elevatorno": "RA115",
+        "linesServed": "3",
+        "title": "Harlem-148 St",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Harlem-148 St_RA115.jpg",
+        "alternativeRoute": "Ramp won't go out of service.",
+        "ada": "1",
+        "isBroken": "",
+        "lastStop": "true",
+        "directionLabel": "both directions",
+        "shortdescription": "",
+        "description_custom": "Ramp from station leads to platform in both directions. No elevators required."
+      },
+      "geometry": {
+        "coordinates": [
+          -73.93647,
+          40.82388
+        ],
+        "type": "Point"
+      },
+      "id": "d96f028eae4084ac1f73b497d321a472"
     }
   ],
   "type": "FeatureCollection"

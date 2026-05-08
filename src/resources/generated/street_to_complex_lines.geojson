@@ -4739,6 +4739,29 @@
         "ada": "1",
         "side": "right"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.95381,
+            40.821575
+          ],
+          [
+            -73.953676,
+            40.822008
+          ]
+        ]
+      },
+      "properties": {
+        "complex_id": "305",
+        "elevator_no": "EL519",
+        "station_name": "137 St-City College",
+        "ada": "2",
+        "side": "left"
+      }
     }
   ]
 }

@@ -17,7 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
         {/* Open Graph (for link previews on social/Slack/etc) */}
-        <meta property="og:title" content="NYC Subway Elevator Outages" />
+        <meta property="og:title" content="NYC Subway Elevator Outages & Live Accessibility Map" />
         <meta
           property="og:description"
           content="Live MTA elevator outage map for NYC subway accessibility"

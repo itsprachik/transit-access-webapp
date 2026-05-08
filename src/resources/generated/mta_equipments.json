@@ -229,7 +229,7 @@
     "nextadasouth": "310, 2",
     "redundant": 0,
     "busconnections": "M7, M102, Bx33",
-    "alternativeroute": "If you are on the street: Take an uptown 2 to 3 Av-149 St and use elevators to transfer to a downtown 2. Or, take a 14 St-bound M7 bus (Malcolm X Blvd and 135 St) to Columbus Av and 97 St, and transfer to a West Side-bound M96 or M106 bus to Broadway for 96 St 1/2/3. If you are on the platform: See a station agent to re-enter through the faregate and take a downtown 2 or 3 to 96 St, then either: Use elevators to transfer to an uptown 2 or 3 to 135 St. Or, use elevators to exit the station and take a Harlem-bound M7 bus (Amsterdam Av and 96 St) to 135 St."
+    "alternativeroute": "If you are on the street: Take an uptown 3 to Harlem-148 St and transfer to a downtown 3. Or, take a 14 St-bound M7 bus (Malcolm X Blvd and 135 St) to Columbus Av and 97 St, and transfer to a West Side-bound M96 or M106 bus to Broadway for 96 St 1/2/3. \n\nIf you are on the platform: See a station agent to re-enter through the faregate and take a downtown 2 or 3 to 96 St, then either: Use elevators to transfer to an uptown 2 or 3 to 135 St. Or, exit the station and take a Harlem-bound M7 bus (Amsterdam Av and 96 St) to 135 St."
   },
   {
     "station": "135 St",
@@ -250,7 +250,28 @@
     "nextadasouth": "310, 2",
     "redundant": 0,
     "busconnections": "M7, M102, Bx33",
-    "alternativeroute": "If you are on the street: Take a downtown 2 or 3 to 96 St and use elevators to transfer to an uptown 2 or 3. Or, take a Harlem-bound M7 or M102 bus (Lenox Av and 135 St) to 145 St. Then transfer to a Botanic Garden-bound Bx19 bus to E 149 St and Bergen Av for 3 Av-149 St 2/5. If you are on the platform: Contact a station agent to re-enter through the faregate and take an uptown 2 to 3 Av-149 St, then either: Use elevators to transfer to a downtown 2 to 135 St.  Or, use elevators to exit the station and take a Riverbank Park-bound Bx19 bus (E 149 St and Melrose Av) to W 145 St and Malcolm X Blvd (Lenox Av). Then transfer to a 14 St-bound M7 or East Village-bound M102 bus to 135 St. Or, contact a station agent to re-enter through the faregate and take an uptown 3 to Harlem-148 St. Then remain on the train or wait at the platform for downtown service to 135 St."
+    "alternativeroute": "If you are on the street: Take a downtown 2 or 3 to 96 St and use elevators to transfer to an uptown 2 or 3. Or, take a Harlem-bound M7 or M102 bus (Lenox Av and 135 St) to 147 St/Adam C Powell Blvd. Proceed 2 blocks north to 149 St for the Harlem-148 St station.\n\nIf you are on the platform: Contact a station agent to re-enter through the faregate and take an uptown 3 to Harlem-148 St. Transfer to a downtown 3 to 135 St. "
+  },
+  {
+    "station": "137 St-City College",
+    "borough": "",
+    "trainno": "1",
+    "equipmentno": "EL519",
+    "equipmenttype": "EL",
+    "serving": "Street (NE corner of Broadway and W 137 St) to uptown 1 platform.",
+    "ADA": "Y",
+    "isactive": "Y",
+    "nonNYCT": "N",
+    "shortdescription": "Street (NE corner of Broadway and W 137 St) to uptown 1 platform.",
+    "linesservedbyelevator": "1",
+    "elevatorsgtfsstopid": "115",
+    "elevatormrn": "305",
+    "stationcomplexid": "305",
+    "nextadanorth": "",
+    "nextadasouth": "",
+    "redundant": 0,
+    "busconnections": "",
+    "alternativeroute": "If you are on the platform: Take an uptown 1 to Dyckman St. Transfer to a Manhattanville-bound M100 bus (Dyckman St / Nagle Av) to Amsterdam Av / 138 St. Proceed west along 138 St to Broadway for the 137 St \u2013 City College 1 station.  \n\nIf you are on the street: Proceed east along 138 St to Amsterdam Av and take an Inwood-bound M100 bus (Amsterdam Av / 138 St) to Dyckman St / Nagle Av for the Dyckman St 1 station.  "
   },
   {
     "station": "14 St",
@@ -470,7 +491,7 @@
     "equipmenttype": "EL",
     "serving": "mezzanine to L platform for service in both directions",
     "ADA": "Y",
-    "isactive": "N",
+    "isactive": "Y",
     "nonNYCT": "N",
     "shortdescription": "Mezzanine to L platform",
     "linesservedbyelevator": "L",
@@ -691,7 +712,7 @@
     "nextadasouth": "392, 4",
     "redundant": 0,
     "busconnections": "Bx6, Bx6 SBS, Bx13",
-    "alternativeroute": "All elevators in this station are out of service for replacement. \nRead on for travel alternatives:\n\nFor easiest Manhattan-bound service, use nearby Metro-North station. Present Reduced-Fare MetroCard or OMNY card to conductors at Metro-North station Yankees-East 153 St for free out of system transfer. Travel south on River Av to 157 St, walk west on 157 St to the Metro North station. Travel to 125 St or Grand Central and continue your journey. \n\nFor Bedford Park Blvd-bound B/D, take a Hunts Pt-bound Bx6 Local bus (161 St and River Av) to Concourse Village E (Morris Av). Transfer to a Kingsbridge-bound Bx32 bus and take it to Jerome Av and Kingsbridge Rd for B or D.\n\nFor Woodlawn-bound 4, elevators are also out of service at Fordham Rd 4 station. Instead, take a Riverdale-bound Bx1 or Bx1 LTD, or a Kingsbridge-bound Bx2 from Grand Concourse/E 170 St to your destination. You can also transfer to the Bx32, which runs on Jerome Av, at 175 St and Walton Av (just west of Grand Concourse)."
+    "alternativeroute": "To access street level: Take a Manhattan-bound 4 to 125 St. Use elevators to transfer to a Bronx-bound 6. Exit at Hunts Point Av and transfer to a Washington Heights-bound Bx6-SBS bus to E 161 St and River Av.\n\nTo access B/D service: Take a Manhattan-bound 4 to 125 St. Use elevators to transfer to a Bronx-bound 4. Exit at 170 St and then proceed east to Grand Concourse. Take a Riverdale-bound Bx1 or Kingsbridge Heights-bound Bx2 to Tremont Av for access to BD service."
   },
   {
     "station": "161 St-Yankee Stadium",
@@ -712,7 +733,7 @@
     "nextadasouth": "392, 4",
     "redundant": 0,
     "busconnections": "Bx6, Bx6 SBS, Bx13",
-    "alternativeroute": "All elevators in this station are out of service for replacement. \nRead on for travel alternatives:\n\nFor easiest Manhattan-bound service, use nearby Metro-North station. Present Reduced-Fare MetroCard or OMNY card to conductors at Metro-North station Yankees-East 153 St for free out of system transfer. Travel south on River Av to 157 St, walk west on 157 St to the Metro North station. Travel to 125 St or Grand Central and continue your journey. \n\nFor Bedford Park Blvd-bound B/D, take a Hunts Pt-bound Bx6 Local bus (161 St and River Av) to Concourse Village E (Morris Av). Transfer to a Kingsbridge-bound Bx32 bus and take it to Jerome Av and Kingsbridge Rd for B or D.\n\nFor Woodlawn-bound 4, elevators are also out of service at Fordham Rd 4 station. Instead, take a Riverdale-bound Bx1 or Bx1 LTD, or a Kingsbridge-bound Bx2 from Grand Concourse/E 170 St to your destination. You can also transfer to the Bx32, which runs on Jerome Av, at 175 St and Walton Av (just west of Grand Concourse)."
+    "alternativeroute": "To access street level: Take a Woodlawn-bound 4 to 170 St. Exit station and proceed east to Grand Concourse. Then, take a Mott Haven-bound Bx1 or Bx2 bus to Grand Concourse and E 161 St.\n\nTo access B/D service: Take a Woodlawn-bound 4 to 170 St. Exit station and proceed east to Grand Concourse. Then, take a Riverdale-bound Bx1 or Kingsbridge Heights-bound Bx2 to Tremont Av for access to BD service."
   },
   {
     "station": "161 St-Yankee Stadium",
@@ -1478,7 +1499,7 @@
     "equipmenttype": "ES",
     "serving": "mezzanine to Manhattan-bound platform",
     "ADA": "N",
-    "isactive": "N",
+    "isactive": "Y",
     "nonNYCT": "N",
     "shortdescription": "Mezzanine to Manhattan-bound platform.",
     "linesservedbyelevator": "F/M",
@@ -1520,7 +1541,7 @@
     "equipmenttype": "ES",
     "serving": "Jamaica 179 St-bound platform to mezzanine",
     "ADA": "N",
-    "isactive": "N",
+    "isactive": "Y",
     "nonNYCT": "N",
     "shortdescription": "Queens-bound platform to mezzanine.",
     "linesservedbyelevator": "F/M",
@@ -1541,7 +1562,7 @@
     "equipmenttype": "ES",
     "serving": "Manhattan-bound platform to mezzanine",
     "ADA": "N",
-    "isactive": "N",
+    "isactive": "Y",
     "nonNYCT": "N",
     "shortdescription": "Manhattan-bound platform to mezzanine.",
     "linesservedbyelevator": "F/M",
@@ -1562,7 +1583,7 @@
     "equipmenttype": "ES",
     "serving": "mezzanine to Jamaica 179 St-bound platform",
     "ADA": "N",
-    "isactive": "N",
+    "isactive": "Y",
     "nonNYCT": "N",
     "shortdescription": "Mezzanine to Queens-bound platform.",
     "linesservedbyelevator": "F/M",
@@ -3116,7 +3137,7 @@
     "equipmenttype": "ES",
     "serving": "downtown platform to mezzanine for Madison Ave & 53 St exit",
     "ADA": "N",
-    "isactive": "Y",
+    "isactive": "N",
     "nonNYCT": "N",
     "shortdescription": "Downtown platform to mezzanine for 53 St & Madison Ave exit.",
     "linesservedbyelevator": "E/F",
@@ -5370,7 +5391,7 @@
     "elevatorsgtfsstopid": "120",
     "elevatormrn": "310",
     "stationcomplexid": "310",
-    "nextadanorth": "299, 1 / 438, 2, 3",
+    "nextadanorth": "305, 1 / 438, 2, 3",
     "nextadasouth": "313, 1, 2, 3",
     "redundant": 0,
     "busconnections": "M96, M104, M106",
@@ -5391,7 +5412,7 @@
     "elevatorsgtfsstopid": "120",
     "elevatormrn": "310",
     "stationcomplexid": "310",
-    "nextadanorth": "299, 1 / 438, 2, 3",
+    "nextadanorth": "305, 1 / 438, 2, 3",
     "nextadasouth": "313, 1, 2, 3",
     "redundant": 0,
     "busconnections": "M96, M104, M106",
@@ -5647,7 +5668,7 @@
     "nextadasouth": "42, B, Q",
     "redundant": 0,
     "busconnections": "B37, B41, B45, B63, B65, B67, B103 (eastbound only); LIRR",
-    "alternativeroute": "If you are on the mezzanine: \nFor service to Brighton Beach and Coney Island, exit station via passageway and take a Kings Plaza bound B41 bus (Flatbush Av and Atlantic Av) to Flatbush Av and Ocean Av. Transfer to a B or Q at Prospect Park. \nFor service to Manhattan, use the elevator at the far end of the passageway toward the Flatbush Av-bound 2/New Lots Av-bound 3. Then use the ramp to the elevator for a Manhattan-bound R to DeKalb Av and transfer across the platform to the B or Q. \n\nIf you are on the platform: \nTake a Manhattan-bound B or Q to DeKalb Av. \nThen either: Use elevators to transfer to a 95 St-bound R to Atlantic Av-Barclays Ctr. \nOr, exit station and take a Canarsie-bound B103 bus (Livingston St and Nevins St) to 4 Av and Pacific St, or a B41, B45, B67 or B103 LTD bus to Atlantic Av-Barclays Ctr."
+    "alternativeroute": "To exit the platform: Take a Manhattan-bound B or Q to DeKalb Av. Transfer to a 95 St-bound R to Atlantic Av-Barclays Ctr where stair-free transfers are available to D, N, Flatbush Av-bound 2, New Lots Av-bound 3, and 4/5. For Manhattan-bound 2/3, take a Manhattan-bound 4/5 to Borough Hall and transfer for 2/3. \n\nIf you are in the mezzanine: For B/Q, take a Manhattan-bound R to DeKalb Av and transfer to B/Q. "
   },
   {
     "station": "Atlantic Av-Barclays Ctr",
@@ -5668,7 +5689,7 @@
     "nextadasouth": "341, 2, 3 / 345, 4 / 356, 5 / 42, B, Q",
     "redundant": 1,
     "busconnections": "B37, B41, B45, B63, B65, B67, B103 (eastbound only); LIRR",
-    "alternativeroute": "If you are on the platform: \nExit station into the LIRR concourse and take the elevator to street. Then proceed to the SE corner of Pacific St and 4th Ave to re-enter station and see a station agent to enter through the faregate. \nOr, take a Manhattan-bound 2 or 3 to Fulton St and transfer across the platform to a Brooklyn-bound 2 or 3 to Atlantic Av-Barclays Ctr. \n\nIf you are on the mezzanine: \nTo exit to street, proceed to elevators toward Flatbush Av-bound 2 and New Lots Av bound 3. Follow signs to exit at Pacific St and 4 Av. \nTo transfer to a Manhattan-bound 2 or 3, take a Manhattan-bound 4 or 5 to Borough Hall and transfer to the 2 or 3 via passageway."
+    "alternativeroute": "If you are on the platform: Exit station into the LIRR concourse and take the elevator to street. Then proceed to the SE corner of Pacific St and 4th Ave to re-enter station and see a station agent to enter through the faregate if you wish to transfer to D/N/R/4/5. \n\nOr, take a Manhattan-bound 2 or 3 to Fulton St and transfer across the platform to a Brooklyn-bound 2 or 3 to Atlantic Av-Barclays Ctr. \n\nIf you are on the mezzanine: \nTo exit to street, proceed to elevators toward Flatbush Av-bound 2 and New Lots Av bound 3. Follow signs to exit at Pacific St and 4 Av. \nTo transfer to a Manhattan-bound 2 or 3, take a Manhattan-bound 4 or 5 to Borough Hall and transfer to the 2 or 3 via passageway."
   },
   {
     "station": "Atlantic Av-Barclays Ctr",
@@ -6961,7 +6982,7 @@
     "ADA": "Y",
     "isactive": "Y",
     "nonNYCT": "N",
-    "shortdescription": "Street (18 St between Church Av & Caton Av) to Manhattan-bound platform. ",
+    "shortdescription": "Street (18 St between Church Av & Caton Av) to Manhattan-bound platform.",
     "linesservedbyelevator": "B/Q",
     "elevatorsgtfsstopid": "D28",
     "elevatormrn": "044",
@@ -7831,7 +7852,7 @@
     "nextadasouth": "27, B, Q, R",
     "redundant": 0,
     "busconnections": "B25, B26, B38, B52",
-    "alternativeroute": "All elevators at this station are out of service for replacement. Read on for alternatives: \nTo exit from Bay Ridge/Coney Island-bound platform:\nTake a Bay Ridge-95 St-bound R to Atlantic Av. Proceed to the NE corner of Flatbush Av and Atlantic Av and take a Brookyln Navy Yard-bound B67 to Livingston St/Nevins St. \n\n"
+    "alternativeroute": "To exit from Bay Ridge/Coney Island-bound platform:\nTake a Bay Ridge-95 St-bound R to Atlantic Av-Barclays Ctr and transfer to a Manhattan-bound R to DeKalb Av. \n\nIf you are on the mezzanine: Take a Manhattan-bound R to Jay St-MetroTech and transfer to a Bay Ridge-bound R. "
   },
   {
     "station": "DeKalb Av",
@@ -7852,7 +7873,7 @@
     "nextadasouth": "27, B, Q, R",
     "redundant": 0,
     "busconnections": "B25, B26, B38, B52",
-    "alternativeroute": "All elevators at this station are out of service for replacement. Read on for alternatives:\nTo exit the Manhattan-bound platform, take a Manhattan-bound R to Jay St \u2013 MetroTech. Exit the station and proceed south to the SW corner of Fulton St and Jay St. Take a Ridgewood-bound B38 or B52 to Fulton St/Bond St. \nAlternatively, take a Manhattan-bound B to Broadway-Lafayette and transfer to a Brooklyn-bound D to Atlantic Av-Barclays Center. Exit the station and take a downtown Brooklyn/Cadman Plaza-bound B41 bus to Livingston St/Nevins St. "
+    "alternativeroute": "To exit the Manhattan-bound platform, take a Manhattan-bound R to Jay St \u2013 MetroTech. Exit the station and proceed south to the SW corner of Fulton St and Jay St. Take a Ridgewood-bound B38 or B52 to Fulton St/Bond St. \nAlternatively, take a Manhattan-bound B to Broadway-Lafayette and transfer to a Brooklyn-bound D to Atlantic Av-Barclays Center. Exit the station and take a downtown Brooklyn/Cadman Plaza-bound B41 bus to Livingston St/Nevins St. \n\nIf you are on the mezzanine: Take a Bay Ridge-bound R to Atlantic Av-Barclays Ctr and then transfer to a Manhattan-bound R. "
   },
   {
     "station": "DeKalb Av",
@@ -7873,7 +7894,7 @@
     "nextadasouth": "27, B, Q, R",
     "redundant": 0,
     "busconnections": "B25, B26, B38, B52",
-    "alternativeroute": "All elevators at this station are out of service for replacement. Read on for alternatives: \nFor southbound service:\nFor Bay Ridge-95 St-bound R service:\nTake a Downtown Brooklyn-bound B41, B45, B67 bus to Livingston St & Jay St. Proceed north along Jay St and enter the Jay St \u2013 MetroTech station for Bay Ridge-95 St-bound R.\nAlternatively, proceed to Nevins St and Livingston St and take a Canarsie-bound B103 bus to 4 Av / Dean St. Enter the Atlantic Av-Barclays Center station via EL301 and take a Bay Ridge-95 St-bound R. \nFor Brighton Beach/Coney Island B/Q service: \nTake a Downtown Brooklyn-bound B41, B45, B67 bus to Livingston St & Jay St. Proceed north along Jay St and enter the Jay St \u2013 MetroTech station. Take a Bay Ridge \u2013 95 St-bound R to DeKalb Av and transfer cross platform for onward B, Q service.\nAlternatively, proceed south along Flatbush Av to Hanson Pl and enter the Atlantic Av station via the LIRR concourse for access to B/Q. \n\nFor northbound service:\nFor Manhattan-bound B: \nProceed south along Flatbush Av to Hanson Pl and enter the Atlantic Av station via the LIRR concourse for access to B/Q. \nAlternatively, take a Downtown Brooklyn-bound B41, B45, B67 bus to Livingston St & Jay St. Proceed north along Jay St and enter the Jay St \u2013 MetroTech station. Take a Bay Ridge \u2013 95 St-bound R to DeKalb Av and transfer to a Brighton Beach-bound B or Coney Island-bound Q. Transfer at Atlantic Av to a Manhattan-bound B. \nFor Manhattan-bound R,Q: \nTake a Downtown Brooklyn-bound B41, B45, B67 bus to Livingston St & Jay St. Proceed north along Jay St and enter the Jay St \u2013 MetroTech station for Manhattan-bound R. Transfer at 14 St \u2013 Union Sq for onward Q service. \nAlternatively, proceed south along Flatbush Av to Hanson Pl and enter the Atlantic Av station via the LIRR concourse for access to B/Q. "
+    "alternativeroute": "If you are on the street: \nFor Bay Ridge-95 St-bound R service:\nTake a Downtown Brooklyn-bound B41, B45, B67 bus to Livingston St & Jay St. Proceed north along Jay St and enter the Jay St \u2013 MetroTech station for Bay Ridge-95 St-bound R.\nAlternatively, proceed to Nevins St and Livingston St and take a Canarsie-bound B103 bus to 4 Av / Dean St. Enter the Atlantic Av-Barclays Center station via EL301 and take a Bay Ridge-95 St-bound R. \nFor Brighton Beach/Coney Island B/Q service: \nTake a Downtown Brooklyn-bound B41, B45, B67 bus to Livingston St & Jay St. Proceed north along Jay St and enter the Jay St \u2013 MetroTech station. Take a Bay Ridge \u2013 95 St-bound R to DeKalb Av and transfer cross platform for onward B, Q service.\n\nFor northbound service:\nFor Manhattan-bound B: \nTake a Downtown Brooklyn-bound B41, B45, B67 bus to Livingston St & Jay St. Proceed north along Jay St and enter the Jay St \u2013 MetroTech station. Take a Bay Ridge \u2013 95 St-bound R to DeKalb Av and transfer to a Brighton Beach-bound B or Coney Island-bound Q. Transfer at Atlantic Av to a Manhattan-bound B or Q. \n\nFor Manhattan-bound R/Q: \nTake a Downtown Brooklyn-bound B41, B45, B67 bus to Livingston St & Jay St. Proceed north along Jay St and enter the Jay St \u2013 MetroTech station for Manhattan-bound R. Transfer at 14 St \u2013 Union Sq for onward Q service. \n\nIf you are on the mezzanine: Take a Bay Riddge-95 St-bound R to Atlantic Av-Barclays Ctr. Exit the station and proceed north along 4 Av and then north along Flatbush Av to DeKalb Av. "
   },
   {
     "station": "Delancey St-Essex St",
@@ -8923,7 +8944,7 @@
     "nextadasouth": "25, A, C / 414, 4, 5",
     "redundant": 1,
     "busconnections": "M55 (southbound; northbound on Church St), SIM1/1c, SIM3c, SIM4/4c/4x, SIM33c, BxM18",
-    "alternativeroute": "If you are on the street: Use another elevator on this level for uptown 4 5.  If on the uptwon 4/5 platform: Use another elevator on this level to street level.  If you are on the lower concourse: For uptown 4/5, take elevator at the opposite end of the corridor to Broadway and Dey St. Cross Broadway into Fulton Center and take another elevator down to uptown 4/5."
+    "alternativeroute": "If you are on the street: Use another elevator on this level for uptown 4 5.  If on the uptown 4/5 platform: Use another elevator on this level to street level.  If you are on the lower concourse: For uptown 4/5, take elevator at the opposite end of the corridor to Broadway and Dey St. Cross Broadway into Fulton Center and take another elevator down to uptown 4/5."
   },
   {
     "station": "Fulton St",
@@ -12545,7 +12566,7 @@
     "equipmenttype": "ES",
     "serving": "Westchester Ave entrance to Manhattan-bound platform",
     "ADA": "N",
-    "isactive": "N",
+    "isactive": "Y",
     "nonNYCT": "N",
     "shortdescription": "Street to Manhattan-bound platform",
     "linesservedbyelevator": "6",
@@ -12808,7 +12829,7 @@
     "nextadasouth": "48, Q / 51, B",
     "redundant": 0,
     "busconnections": "B16, B41, B43, B48",
-    "alternativeroute": "If you are on the street: Take a Bay Ridge-bound B16 bus to Caton Av/St. Pauls Pl. Proceed south along E 18 St for the Church Av B/Q station. For S, take a Manhattan-bound B or Q and transfer at Prospect Park.\n\n\nIf you are on the platform: Take a Manhattan-bound B or Q to Atlantic Av-Barclays Center and then either: \nTransfer across the platform to a Brighton Beach-bound B or Coney Island-bound Q to Church Av. Exit the station and proceed north along E 18 St to Caton Av/St. Pauls Pl. Take a Lefferts Gardens-bound B16 bus to Ocean Av/Lincoln Rd. \n\nOr exit the station and take a southbound B41 or B41LTD bus (Flatbush Av and Atlantic Av) to Lincoln Rd."
+    "alternativeroute": "If you are on the street: Take a Bay Ridge-bound B16 bus to Caton Av/St. Pauls Pl. Proceed south along E 18 St for the Church Av B/Q station. For S, take a Manhattan-bound B or Q and transfer at Prospect Park.\n\n\nIf you are on the platform: Take a Manhattan-bound B or Q to Atlantic Av-Barclays Center and then transfer to a Brighton Beach-bound B or Coney Island-bound Q to Church Av. Exit the station and proceed north along E 18 St to Caton Av/St. Pauls Pl. Take a Lefferts Gardens-bound B16 bus to Ocean Av/Lincoln Rd."
   },
   {
     "station": "Queens Plaza",
@@ -14236,7 +14257,7 @@
     "nextadasouth": "171, E / 172, A, C / 230, B, D, F, M",
     "redundant": 0,
     "busconnections": "M5 (northbound)",
-    "alternativeroute": "If you are on the uptown A/C/E platform: For B, D, F or M, use ramps to access downtown A, C, E platform. Then take the elevator to the lower level to take a downtown B, D, F or M to Broadway-Lafayette St. For uptown B, D, F or M, use elevators at B\u2019way-Lafayette St to transfer for uptown service.  If you are on the transfer mezzanine: For uptown B, D, F, M, take a downtown B, D, F or M to B\u2019way-Lafayette St and use elevators to transfer to an uptown B, D, F or M. For uptown A, C, take a downtown A or C to Fulton St, cross platform, and transfer to an uptown A or C. For uptown E, take a downtown E to World Trade Center, cross platform, and transfer to an uptown E. If you are on the uptown B/D/F/M platform: To exit to street, take an uptown B, D, F or M to 34 St-Herald Sq. Use elevators to transfer to a downtown B, D, F or M to W 4 St or exit station and take a downtown M1, M2, M3, M5, or M55 bus (33 St and 5 Av) to 8 St and 5 Av. To transfer to A or C, take an uptown B or D to 59 St-Columbus Circle."
+    "alternativeroute": "If you are on the uptown A/C/E platform: For B, D, F or M, use ramps to access downtown A, C, E platform. Then take the elevator to the lower level to take a downtown B, D, F or M to Broadway-Lafayette St. For uptown B, D, F or M, use elevators at B\u2019way-Lafayette St to transfer for uptown service.  If you are on the transfer mezzanine: For uptown B, D, F, M, take a downtown B, D, F or M to B\u2019way-Lafayette St and use elevators to transfer to an uptown B, D, F or M. For uptown A, C, take a downtown A or C to Fulton St, cross platform, and transfer to an uptown A or C. For uptown E, take a downtown E to World Trade Center, cross platform, and transfer to an uptown E. If you are on the uptown B/D/F/M platform: To exit to street, take an uptown B, D, F or M to 34 St-Herald Sq. Use elevators to transfer to a downtown B, D, F or M to W 4 St or exit station and take a downtown M1, M2, M3, or M55 bus (33 St and 5 Av) to 8 St and 5 Av. To transfer to A or C, take an uptown B or D to 59 St-Columbus Circle."
   },
   {
     "station": "W 4 St-Wash Sq",
@@ -14550,7 +14571,7 @@
     "nextadanorth": "98, J, Z",
     "nextadasouth": "279, J, Z",
     "redundant": 0,
-    "busconnections": " Q11, Q21, Q52-SBS, Q53-SBS, Q56, QM15.",
+    "busconnections": " Q11, Q52-SBS, Q53-SBS, Q56, QM15.",
     "alternativeroute": "If you are on the street: proceed east on Jamaica Av and board a Jamaica-170 St-bound Q56 bus. \nThen either:\nFor Sutphin Blvd-Archer Av-JFK Airport, exit the bus at Jamaica Av and 147 Place.\nFor Jamaica Center-Parsons/ Archer, exit the bus at Jamaica Av and Parsons Blvd.\n\nIf you are on the platform: Take a Jamaica Center-bound J or Z to Sutphin Blvd-Archer Av. Then, transfer to a Manhattan-bound J or Z to Woodhaven Blvd."
   },
   {
@@ -14571,7 +14592,7 @@
     "nextadanorth": "98, J, Z",
     "nextadasouth": "279, J, Z",
     "redundant": 0,
-    "busconnections": " Q11, Q21, Q52-SBS, Q53-SBS, Q56, QM15.",
+    "busconnections": " Q11, Q52-SBS, Q53-SBS, Q56, QM15.",
     "alternativeroute": "If you are on the street: Cross Jamaica Av and take a Jamaica Center-bound J or Z to Sutphin Blvd-Archer Av. Then, transfer to a Manhattan-bound J or Z.\n\nIf you are on the platform: Take a Manhattan-bound J or Z to Flushing Av (or to Marcy Av if AM rush hour). Then, transfer to a Jamaica Center-Parsons/Archer-bound J or Z to Woodhaven Blvd."
   },
   {
