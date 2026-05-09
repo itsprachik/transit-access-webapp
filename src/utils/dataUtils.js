@@ -235,6 +235,71 @@ export function convertDateDistance(outageDate, estimatedReturn) {
   return `In ${formatDistanceToNow(parsedDate)}`;
 }
 
+export const getADAPctByStation = () => {
+  const adaScore = { 0: 0, 1: 1, 2: 0.5 };
+
+  const stations = stationsDataset.features.map((f) => f.properties);
+
+  let totalScore = 0;
+  let maxScore = stations.length;
+
+  for (const s of stations) {
+    const val = String(s.ada ?? "0");
+    totalScore += adaScore[val] ?? 0;
+  }
+
+  const pct = Math.round((totalScore / maxScore) * 100); ;
+
+  // console.log(`Total stations:       ${maxScore}`);
+  // console.log(`Weighted ADA score:   ${totalScore}`);
+  // console.log(`ADA accessibility:    ${pct}%`);
+
+  // Breakdown by category
+  const counts = { 0: 0, 1: 0, 2: 0 };
+  for (const s of stations) counts[String(s.ada ?? "0")]++;
+
+  // console.log(`\nBreakdown:`);
+  // console.log(`${counts["1"]} fully ADA, ${counts["2"]} half ADA, ${counts["0"]} not ADA`);
+
+  return pct;
+}
+
+
+export const getADAPctByComplex = () => {
+  const adaScore = { 0: 0, 1: 1, 2: 0.5 };
+
+  const stations = stationsDataset.features.map((f) => f.properties);
+
+  // Group stations by complex_id
+  const complexMap = new Map();
+  for (const s of stations) {
+    const id = s.complex_id ?? s.station_id;
+    if (!complexMap.has(id)) complexMap.set(id, []);
+    complexMap.get(id).push(Number(s.ada ?? 0));
+  }
+
+  // Each complex contributes (sum of station scores) / (number of stations in complex)
+  let totalScore = 0;
+  const maxScore = complexMap.size;
+  for (const stationVals of complexMap.values()) {
+    const complexScore = stationVals.reduce((sum, val) => sum + (adaScore[val] ?? 0), 0);
+    totalScore += complexScore / stationVals.length;
+  }
+
+  const pct = Math.round((totalScore / maxScore) * 100);  // 0 decimals
+
+  // console.log(`Total complexes:      ${maxScore}`);
+  // console.log(`Weighted ADA score:   ${totalScore.toFixed(2)}`);
+  // console.log(`ADA accessibility:    ${pct}%`);
+
+  return pct;
+}
+
+export const getCurrentElevatorCount = () => {
+  const currentElevatorCount = customElevatorDataset.features.length;
+  return currentElevatorCount;
+}
+
 
 // when going between stations and complexes, the complex has to inherit a concatenated version of routes and ADA
 export function concatenateRoutes(stationIDs, stationsDataset) {

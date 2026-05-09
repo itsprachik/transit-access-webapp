@@ -1,6 +1,7 @@
 export { default as ElevatorIcon } from './ElevatorIcon';
 export { default as ElevatorInvertedIcon } from './ElevatorInvertedIcon';
 export { default as Ramp } from './Ramp'; 
+export { default as RedX } from './RedX'; 
 
 export { default as AccessibleIcon } from './AccessibleIcon';
 export { default as AccessibleIconFalse } from './AccessibleIconFalse';

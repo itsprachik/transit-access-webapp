@@ -245,8 +245,7 @@ div#__next > div {
 }
 
 .map-reset-button:hover {
-  background-color: rgb(252, 252, 252);
-  transform: translateY(-1px) scale(0.95);
+  background-color: #f5f5f5;
 }
 
 .show-3d-button-wrapper {
