@@ -63,7 +63,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
                     width: "0.8em",
                     height: "0.8em",
                   },
-                   ...severityStyles[alert.severity ?? ""],
+                 //  ...severityStyles[alert.severity ?? ""],
                 }}
               >
                 {alert.text}

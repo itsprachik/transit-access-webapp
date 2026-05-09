@@ -14,6 +14,7 @@ import {
   ElevatorInvertedIcon,
   AccessibleIconWhite,
   RedX,
+  Ramp,
 } from "../icons";
 
 import { getADAPctByStation, getADAPctByComplex } from "@/utils/dataUtils";
@@ -222,6 +223,10 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
             {
               icon: <ElevatorInvertedIcon />,
               label: "Platform elevator (not shown on map)",
+            },
+            {
+              icon: <Ramp />,
+              label: "Ramp",
             },
           ].map(({ icon, label }) => (
             <Box
