@@ -135,15 +135,14 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
           </Box>
 
           <Typography variant="body2" color="text.secondary" mb={1}>
-            This map shows live elevator status in the NYC subway system.{" "}
-            <br />
+            This map shows live elevator status in the NYC subway system. <br />
             <br />
             Tap on a station for more info!
           </Typography>
           <Divider sx={{ my: 2 }} />
 
           <Typography variant="h6" mb={2}>
-            Accessibility Summary
+            Live Summary
           </Typography>
 
           <Typography variant="body2" color="text.secondary" mb={2}>
@@ -159,7 +158,20 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
               {numOutElevators}
             </span>{" "}
             elevators out of service at this time {"("}
-            {pctInService}% in service{")"}
+            {100 - pctInService}% of the system{")"}
+            <br />
+            <br />
+            <span
+              style={{
+                fontWeight: 900,
+                fontStyle: "italic",
+                fontSize: "16px",
+                WebkitTextStroke: "0.5px currentColor",
+              }}
+            >
+              {totalElevators - numOutElevators}
+            </span>{" "}
+            elevators available for use
             <br />
             <br />
             <span
