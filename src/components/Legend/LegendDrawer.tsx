@@ -135,7 +135,7 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
           </Box>
 
           <Typography variant="body2" color="text.secondary" mb={1}>
-            This map shows live elevator service in the NYC subway system.{" "}
+            This map shows live elevator status in the NYC subway system.{" "}
             <br />
             <br />
             Tap on a station for more info!
