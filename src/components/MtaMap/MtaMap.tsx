@@ -114,7 +114,7 @@ const MtaMap = () => {
     const numOutElevators = elevatorDataState?.length ?? 0;
     const totalElevators = getCurrentElevatorCount();
     const pctInService = Math.round(
-      (1 - numOutElevators / totalElevators) * 100,
+      (1 - (numOutElevators / totalElevators)) * 100,
     );
 
     setElevatorStats({ numOutElevators, totalElevators, pctInService });
