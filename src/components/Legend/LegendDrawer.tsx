@@ -32,8 +32,6 @@ interface LegendDrawerProps {
   lastUpdated?: Date;
 }
 
-
-
 const LegendDrawer: React.FC<LegendDrawerProps> = ({
   numOutElevators,
   totalElevators,
@@ -53,10 +51,27 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
   });
 
   const mapLegendItems = [
-    { icon: <LiftGood />, iconLabel: "Blue checkmark", label: "All elevators in service" },
-    { icon: <WarnIcon />, iconLabel: "Yellow exclamation mark", label: "At least one elevator out of service" },
-    { icon: <LiftBad />, iconLabel: "Red exclamation mark", label: "All elevators out of service" },
-    { icon: <RedX size={20} />, iconLabel: "Red X", label: "Station not ADA accessible", srLabel: "Station not A.D.A. accessible" },
+    {
+      icon: <LiftGood />,
+      iconLabel: "Blue checkmark",
+      label: "All elevators in service",
+    },
+    {
+      icon: <WarnIcon />,
+      iconLabel: "Yellow exclamation mark",
+      label: "At least one elevator out of service",
+    },
+    {
+      icon: <LiftBad />,
+      iconLabel: "Red exclamation mark",
+      label: "All elevators out of service",
+    },
+    {
+      icon: <RedX size={20} />,
+      iconLabel: "Red X",
+      label: "Station not ADA accessible",
+      srLabel: "Station not A.D.A. accessible",
+    },
   ];
 
   const stationLegendItems = [
@@ -104,7 +119,7 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
         aria-controls={drawerId}
         sx={{
           position: "fixed",
-          top: hasAlert ? 140 : 97,
+          top: hasAlert ? 150 : 107,
           left: 6,
           zIndex: 999,
           backgroundColor: "#fefefed6",
@@ -112,7 +127,7 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
           padding: "6px",
           backdropFilter: "blur(3px)",
           WebkitBackdropFilter: "blur(3px)",
-          transition: "top 0.2s",
+          transition: "top 0.3s ease",
           "&:hover": { backgroundColor: "#f5f5f5" },
         }}
       >
@@ -128,19 +143,21 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
         swipeAreaWidth={20}
         // MUI's SwipeableDrawer renders a <div role="presentation"> wrapper;
         // the inner Paper needs the dialog semantics via PaperProps.
-        PaperProps={{
-          id: drawerId,
-          role: "dialog",
-          "aria-modal": true,
-          "aria-label": "Map legend and about Transit Access",
-          component: "div",
+        slotProps={{
+          paper: {
+            id: drawerId,
+            role: "dialog",
+            "aria-modal": true,
+            "aria-label": "Map legend and about Transit Access",
+            component: "div",
+          },
         }}
       >
         <Box
           sx={{
             width: 300,
             p: 3,
-            backgroundColor: "#fdfdfdff",
+            background: "linear-gradient(170deg, #fafbf8d1 0%, #fefefe 60%)",
           }}
         >
           {/* ── Header ── */}
@@ -230,43 +247,43 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
               Live Summary
             </Typography>
 
-              <Typography variant="body2" color="text.secondary" mb={1}>
-                There are{" "}
-                <span
-                  style={{
-                    fontWeight: 900,
-                    fontStyle: "italic",
-                    fontSize: "16px",
-                    WebkitTextStroke: "0.5px currentColor",
-                  }}
-                >
-                  {numOutElevators}
-                </span>{" "}
-                elevators out of service at this time ({pctOut}% of the system).
+            <Typography variant="body2" color="text.secondary" mb={1}>
+              There are{" "}
+              <span
+                style={{
+                  fontWeight: 900,
+                  fontStyle: "italic",
+                  fontSize: "16px",
+                  WebkitTextStroke: "0.5px currentColor",
+                }}
+              >
+                {numOutElevators}
+              </span>{" "}
+              elevators out of service at this time ({pctOut}% of the system).
+            </Typography>
+            <Typography variant="body2" color="text.secondary" mb={1}>
+              <span
+                style={{
+                  fontWeight: 900,
+                  fontStyle: "italic",
+                  fontSize: "16px",
+                  WebkitTextStroke: "0.5px currentColor",
+                }}
+              >
+                {numInService}
+              </span>{" "}
+              elevators available for use.
+            </Typography>
+            {formattedTime && (
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                mb={2}
+                sx={{ fontSize: "11px" }}
+              >
+                {`Last updated: ${formattedTime}`}
               </Typography>
-              <Typography variant="body2" color="text.secondary" mb={1}>
-                <span
-                  style={{
-                    fontWeight: 900,
-                    fontStyle: "italic",
-                    fontSize: "16px",
-                    WebkitTextStroke: "0.5px currentColor",
-                  }}
-                >
-                  {numInService}
-                </span>{" "}
-                elevators available for use.
-              </Typography>
-              {formattedTime && (
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  mb={2}
-                  sx={{ fontSize: "11px" }}
-                >
-                  {`Last updated: ${formattedTime}`}
-                </Typography>
-              )}
+            )}
           </section>
 
           <Divider aria-hidden="true" sx={{ my: 2 }} />
@@ -295,10 +312,22 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
                   aria-label={`${iconLabel}, ${srLabel ?? label}`}
                   sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}
                 >
-                  <Box aria-hidden="true" sx={{ width: 24, height: 24, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <Box
+                    aria-hidden="true"
+                    sx={{
+                      width: 24,
+                      height: 24,
+                      flexShrink: 0,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
                     {icon}
                   </Box>
-                  <Typography aria-hidden="true" variant="body2">{label}</Typography>
+                  <Typography aria-hidden="true" variant="body2">
+                    {label}
+                  </Typography>
                 </Box>
               ))}
             </Box>
@@ -329,10 +358,21 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
                   aria-label={`${iconLabel}, ${label}`}
                   sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}
                 >
-                  <Box aria-hidden="true" sx={{ width: 24, height: 24, flexShrink: 0, display: "flex", alignItems: "center" }}>
+                  <Box
+                    aria-hidden="true"
+                    sx={{
+                      width: 24,
+                      height: 24,
+                      flexShrink: 0,
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
                     {icon}
                   </Box>
-                  <Typography aria-hidden="true" variant="body2">{label}</Typography>
+                  <Typography aria-hidden="true" variant="body2">
+                    {label}
+                  </Typography>
                 </Box>
               ))}
             </Box>
@@ -365,11 +405,22 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
                 >
                   <Box
                     aria-hidden="true"
-                    sx={{ width: 24, height: 24, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "50%", backgroundColor: bg }}
+                    sx={{
+                      width: 24,
+                      height: 24,
+                      flexShrink: 0,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      borderRadius: "50%",
+                      backgroundColor: bg,
+                    }}
                   >
                     {icon}
                   </Box>
-                  <Typography aria-hidden="true" variant="body2">{label}</Typography>
+                  <Typography aria-hidden="true" variant="body2">
+                    {label}
+                  </Typography>
                 </Box>
               ))}
             </Box>
@@ -389,15 +440,17 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
             </Typography>
 
             {/* Use a list so AT can navigate items */}
-            <Box
-              component="ul"
-              sx={{ listStyle: "none", p: 0, m: 0 }}
-            >
+            <Box component="ul" sx={{ listStyle: "none", p: 0, m: 0 }}>
               <Box
                 component="li"
                 aria-label={`${getADAPctByComplex() < 75 ? "Only " : ""}${getADAPctByComplex()}% of stations in the MTA are A.D.A. accessible. Use Transit Access to check if your accessible station is in service.`}
               >
-                <Typography aria-hidden="true" variant="body2" color="text.secondary" mb={2}>
+                <Typography
+                  aria-hidden="true"
+                  variant="body2"
+                  color="text.secondary"
+                  mb={2}
+                >
                   {getADAPctByComplex() < 75 ? "Only " : ""}
                   <span
                     style={{
