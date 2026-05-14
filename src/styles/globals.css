@@ -225,7 +225,7 @@ div#__next > div {
   border-radius: 4px;
   border-style: solid;
   border-width: 1px;
-  padding: 4px 8px;
+  padding: 6px 8px;
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -245,8 +245,7 @@ div#__next > div {
 }
 
 .map-reset-button:hover {
-  background-color: rgb(252, 252, 252);
-  transform: translateY(-1px) scale(0.95);
+  background-color: #f5f5f5;
 }
 
 .show-3d-button-wrapper {

@@ -37,6 +37,9 @@ import {
   getStationOutageArray,
   dealWithMapboxIconOverlap,
   makeElevatorMap,
+  getADAPctByStation,
+  getADAPctByComplex,
+  getCurrentElevatorCount,
 } from "@/utils/dataUtils";
 import SearchBar from "../SearchBar/SearchBar";
 import { MtaStationData } from "@/utils/types";
@@ -44,8 +47,9 @@ import { IoEarthSharp } from "react-icons/io5";
 import rawData from "@/resources/mta_subway_stations_all.json";
 import alertData from "@/resources/ta_alerts.json";
 import AlertBanner from "../AlertBanner/AlertBanner";
-import {handleAlertClose} from "../AlertBanner/handlerFunctions"
+import { handleAlertClose } from "../AlertBanner/handlerFunctions";
 import { AlertData } from "@/types/alerts";
+import LegendDrawer from "../Legend/LegendDrawer";
 const stationData = rawData as MtaStationData;
 
 // Load environment variables
@@ -85,6 +89,13 @@ const MtaMap = () => {
   const hasAlert =
     alertData?.length > 0 && alertData.some((_, i) => openStates[i] !== false);
 
+  // Set elevator operational stats in a state
+  const [elevatorStats, setElevatorStats] = useState({
+    numOutElevators: 0,
+    totalElevators: getCurrentElevatorCount(),
+    pctInService: 100,
+  });
+
   // Initialize open states when alertData changes
   useEffect(() => {
     if (alertData && alertData.length > 0) {
@@ -99,6 +110,14 @@ const MtaMap = () => {
   // track elevator data state change
   useEffect(() => {
     elevatorDataRef.current = elevatorDataState;
+
+    const numOutElevators = elevatorDataState?.length ?? 0;
+    const totalElevators = getCurrentElevatorCount();
+    const pctInService = Math.round(
+      (1 - (numOutElevators / totalElevators)) * 100,
+    );
+
+    setElevatorStats({ numOutElevators, totalElevators, pctInService });
   }, [elevatorDataState]);
 
   // track elevator raw data state change
@@ -190,6 +209,7 @@ const MtaMap = () => {
 
       const elevData = getOutElevatorData(currentData);
       const upcomingElevData = getOutElevatorData(upcomingData);
+
       setElevatorDataState(elevData); // triggers rerender
       setUpcomingElevatorDataState(upcomingElevData);
       elevatorDataRef.current = elevData;
@@ -326,6 +346,8 @@ const MtaMap = () => {
         "outages",
         "mta-subway-stations-inaccessible",
       ];
+
+      getADAPctByComplex();
 
       // One click listener for all interactive layers
       mapRef.current?.on("click", (e) => {
@@ -482,6 +504,8 @@ const MtaMap = () => {
         onClose={(index) => handleAlertClose(index, setOpenStates)}
       />
 
+      <LegendDrawer {...elevatorStats} hasAlert={hasAlert} lastUpdated={lastUpdatedRef.current} />
+
       <SearchBar
         data={stationData}
         $hasAlert={hasAlert}
@@ -561,14 +585,14 @@ const MtaMap = () => {
         {/* Toggle floating on top of map, outside popup */}
         {show3DToggle && elevatorView && (
           <div
-          className="show-3d-button-wrapper"
-          style={{
-            top: hasAlert ? "103px" : "60px",
-            transition: "top 0.3s ease",
-          }}
+            className="show-3d-button-wrapper"
+            style={{
+              top: hasAlert ? "103px" : "60px",
+              transition: "top 0.3s ease",
+            }}
           >
             <Switch
-            className="scale-75"
+              className="scale-75"
               defaultChecked
               onCheckedChange={(checked) => {
                 if (!mapRef.current) return;

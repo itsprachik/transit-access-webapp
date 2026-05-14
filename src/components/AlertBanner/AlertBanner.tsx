@@ -2,6 +2,23 @@ import React, { useEffect } from "react";
 import { Alert, Collapse } from "@mui/material";
 import { AlertBannerProps } from "@/types/alerts";
 
+const severityStyles: Record<string, object> = {
+  success: {
+    backgroundColor: "var(--mui-palette-info-light, #e5f6fd)",
+    color: "var(--mui-palette-info-dark, #014361)",
+    "& .MuiAlert-icon": {
+      color: "var(--mui-palette-info-main, #0288d1)",
+    },
+  },
+  info: {
+    backgroundColor: "#f5f5f5",
+    color: "#333",
+    "& .MuiAlert-icon": {
+      color: "#757575",
+    },
+  },
+};
+
 const AlertBanner: React.FC<AlertBannerProps> = ({
   alertData,
   openStates,
