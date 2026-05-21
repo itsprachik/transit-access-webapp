@@ -4,7 +4,7 @@ import re
 import requests
 
 # === CONFIG ===
-API_KEY = "ASkxmeY00iaYfGsMHzoQM33a1QFLyX3V3g43xV6E"
+API_KEY = os.environ["MTA_API_KEY"]
 API_URL = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fnyct_ene_equipments.json"
 
 # Get directory where this script is located
@@ -223,3 +223,19 @@ if new_features:
         print(f"  {feat['properties']['elevatorno']} - {feat['properties']['title']}")
 else:
     print(f"\n✅ Transit Access has all accessible elevators in MTA. No new elevators were added.")
+
+# Write diff report section
+report_path = os.path.join(THIS_DIR, "..", "..", "generated", "diff_report.json")
+report = {}
+if os.path.exists(report_path):
+    with open(report_path) as f:
+        report = json.load(f)
+report["elevators"] = {
+    "added": [
+        f"{feat['properties']['elevatorno']} - {feat['properties']['title']}"
+        for feat in new_features
+    ]
+}
+os.makedirs(os.path.dirname(report_path), exist_ok=True)
+with open(report_path, "w") as f:
+    json.dump(report, f, indent=2)

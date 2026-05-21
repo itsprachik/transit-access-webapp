@@ -1,9 +1,9 @@
 import subprocess
 
-subprocess.run(["python3", "individual_scripts/updateMTAStations.py"])
-subprocess.run(["python3", "individual_scripts/updateMTAComplexes.py"])
-subprocess.run(["python3", "individual_scripts/updateElevators.py"])
-subprocess.run(["python3", "individual_scripts/outageGeojsonParser.py"])
-subprocess.run(["python3", "individual_scripts/writeStationCoords.py"])
-subprocess.run(["python3", "individual_scripts/writeComplexCoords.py"])
-subprocess.run(["python3", "individual_scripts/elevatorToComplexConnector.py"])
+subprocess.run(["python3", "individual_scripts/updateMTAStations.py"], check=True)
+subprocess.run(["python3", "individual_scripts/updateMTAComplexes.py"], check=True)
+subprocess.run(["python3", "individual_scripts/updateElevators.py"], check=True)
+subprocess.run(["python3", "individual_scripts/outageGeojsonParser.py"], check=True)
+subprocess.run(["python3", "individual_scripts/writeStationCoords.py"], check=True)
+subprocess.run(["python3", "individual_scripts/writeComplexCoords.py"], check=True)
+subprocess.run(["python3", "individual_scripts/elevatorToComplexConnector.py"], check=True)
