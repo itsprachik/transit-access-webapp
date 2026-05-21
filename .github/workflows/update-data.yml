@@ -1,0 +1,141 @@
+name: Daily Transit Data Update
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout dev branch
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: pip install requests
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Clear previous diff report
+        run: rm -f src/resources/generated/diff_report.json
+
+      - name: Run data update pipeline
+        working-directory: src/resources/python
+        env:
+          MTA_API_KEY: ${{ secrets.MTA_API_KEY }}
+        run: python3 updateData.py
+
+      - name: Write job summary
+        run: |
+          python3 - <<'EOF'
+          import json, os, sys
+
+          report_path = "src/resources/generated/diff_report.json"
+          if not os.path.exists(report_path):
+              print("No diff report found — skipping summary.")
+              sys.exit(0)
+
+          with open(report_path) as f:
+              d = json.load(f)
+
+          summary_path = os.environ["GITHUB_STEP_SUMMARY"]
+          with open(summary_path, "a") as f:
+              f.write("## Transit Data Update Summary\n\n")
+              sections = [
+                  ("stations",  "Stations",  True),
+                  ("complexes", "Complexes", True),
+                  ("elevators", "Elevators", False),
+              ]
+              for key, label, has_removed in sections:
+                  section = d.get(key, {})
+                  added    = section.get("added", [])
+                  removed  = section.get("removed", []) if has_removed else []
+                  modified = section.get("modified", []) if has_removed else []
+                  if not added and not removed and not modified:
+                      f.write(f"### {label}\nNo changes.\n\n")
+                      continue
+                  f.write(f"### {label}\n")
+                  if added:
+                      f.write(f"**Added ({len(added)})**\n")
+                      for item in added:
+                          f.write(f"- {item}\n")
+                      f.write("\n")
+                  if removed:
+                      f.write(f"**Removed ({len(removed)})**\n")
+                      for item in removed:
+                          f.write(f"- {item}\n")
+                      f.write("\n")
+                  if modified:
+                      f.write(f"**Modified ({len(modified)})**\n")
+                      for item in modified:
+                          f.write(f"- {item}\n")
+                      f.write("\n")
+          EOF
+
+      - name: Seed Supabase database
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: npx tsx src/db/seed.ts
+
+      - name: Commit updated data files
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add \
+            src/resources/mta_subway_stations_all.json \
+            src/resources/mta_subway_complexes.json \
+            src/resources/custom_elevator_dataset.json \
+            src/resources/generated/mta_equipments.json \
+            src/resources/generated/diff_report.json \
+            src/resources/generated/elevatorOutagesDataset.geojson \
+            src/resources/generated/elevatorOutageGeometry.json \
+            src/resources/generated/accessibleStationGeometry.geojson \
+            src/resources/generated/accessibleStationGeometry.json \
+            src/resources/generated/ComplexGeometry.geojson \
+            src/resources/generated/ComplexGeometry.json \
+            src/resources/generated/street_to_complex_lines.geojson \
+            src/utils/elevatorOutageGeometry.ts \
+            src/utils/accessibleStationGeometry.ts \
+            src/utils/ComplexGeometry.ts
+
+          if git diff --cached --quiet; then
+            echo "No data changes detected — skipping commit."
+          else
+            COUNTS=$(python3 -c "
+          import json
+          with open('src/resources/generated/diff_report.json') as f:
+              d = json.load(f)
+          s = d.get('stations', {}); c = d.get('complexes', {}); e = d.get('elevators', {})
+          added    = len(s.get('added',[])) + len(c.get('added',[])) + len(e.get('added',[]))
+          removed  = len(s.get('removed',[])) + len(c.get('removed',[]))
+          modified = len(s.get('modified',[])) + len(c.get('modified',[]))
+          parts = []
+          if added:    parts.append(f'+{added} added')
+          if removed:  parts.append(f'-{removed} removed')
+          if modified: parts.append(f'~{modified} modified')
+          print(', '.join(parts) if parts else 'minor changes')
+          ")
+            git commit -m "chore(data): automated daily data refresh ($COUNTS) [skip ci]"
+            git push origin dev
+          fi
