@@ -3261,7 +3261,7 @@
     "trainno": "E/F/6",
     "equipmentno": "EL202",
     "equipmenttype": "EL",
-    "serving": "downtown 6 platform to underpass for access to uptown 6 and E/F service in both directions",
+    "serving": "Downtown 6 platform to underpass for access to uptown 6 and E/F service in both directions",
     "ADA": "Y",
     "isactive": "Y",
     "nonNYCT": "N",
@@ -3282,7 +3282,7 @@
     "trainno": "E/F/6",
     "equipmentno": "EL201",
     "equipmenttype": "EL",
-    "serving": "Mezzanine to underpass for access to downtown 6.",
+    "serving": "Uptown 6 platform to underpass downtown 6",
     "ADA": "Y",
     "isactive": "Y",
     "nonNYCT": "N",
@@ -14246,7 +14246,7 @@
     "equipmenttype": "EL",
     "serving": "uptown A/C/E platform to transfer mezzanine and uptown B/D/F/M platform",
     "ADA": "Y",
-    "isactive": "N",
+    "isactive": "Y",
     "nonNYCT": "N",
     "shortdescription": "Uptown A/C/E to mezzanine & uptown B/D/F/M",
     "linesservedbyelevator": "B/D/F/M",
@@ -14257,7 +14257,7 @@
     "nextadasouth": "171, E / 172, A, C / 230, B, D, F, M",
     "redundant": 0,
     "busconnections": "M5 (northbound)",
-    "alternativeroute": "If you are on the uptown A/C/E platform: For B, D, F or M, use ramps to access downtown A, C, E platform. Then take the elevator to the lower level to take a downtown B, D, F or M to Broadway-Lafayette St. For uptown B, D, F or M, use elevators at B\u2019way-Lafayette St to transfer for uptown service.  If you are on the transfer mezzanine: For uptown B, D, F, M, take a downtown B, D, F or M to B\u2019way-Lafayette St and use elevators to transfer to an uptown B, D, F or M. For uptown A, C, take a downtown A or C to Fulton St, cross platform, and transfer to an uptown A or C. For uptown E, take a downtown E to World Trade Center, cross platform, and transfer to an uptown E. If you are on the uptown B/D/F/M platform: To exit to street, take an uptown B, D, F or M to 34 St-Herald Sq. Use elevators to transfer to a downtown B, D, F or M to W 4 St or exit station and take a downtown M1, M2, M3, or M55 bus (33 St and 5 Av) to 8 St and 5 Av. To transfer to A or C, take an uptown B or D to 59 St-Columbus Circle."
+    "alternativeroute": "If you are on the uptown A/C/E platform: For B, D, F or M, use ramps to access downtown A, C, E platform. Then take the elevator to the lower level to take a downtown B, D, F or M to Broadway-Lafayette St. For uptown B, D, F or M, use elevators at B\u2019way-Lafayette St to transfer for uptown service.  \n\nIf you are on the transfer mezzanine: For uptown B, D, F, M, take a downtown B, D, F or M to B\u2019way-Lafayette St and use elevators to transfer to an uptown B, D, F or M. For uptown A, C, take a downtown A or C to Fulton St, cross platform, and transfer to an uptown A or C. For uptown E, take a downtown E to World Trade Center, cross platform, and transfer to an uptown E. \n\nIf you are on the uptown B/D/F/M platform: To exit to street, take an uptown B, D, F or M to 34 St-Herald Sq. Use elevators to transfer to a downtown B, D, F or M to W 4 St or exit station and take a downtown M1, M2, M3, or M55 bus (33 St and 5 Av) to 8 St and 5 Av. To transfer to A or C, take an uptown B or D to 59 St-Columbus Circle."
   },
   {
     "station": "W 4 St-Wash Sq",
