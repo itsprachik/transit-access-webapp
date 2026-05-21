@@ -1,5 +1,5 @@
 import { complexCoordinates } from "@/utils/ComplexGeometry";
-import customDataset from "@/resources/custom_elevator_dataset.json";
+import { getElevatorsDataset } from "@/lib/dataStore";
 import mapboxgl from "mapbox-gl";
 
 // allows for a larger bounding box at big complexes, and a smaller one at small stations
@@ -30,7 +30,7 @@ export function getComplexBoundaryGeoJSON(zoom: number) {
   const complexGroups: Record<string, [number, number][]> = {};
 
   // First pass: group street elevators by complexID
-  customDataset.features.forEach((feature) => {
+  getElevatorsDataset().features.forEach((feature) => {
     const { isStreet, complexID } = feature.properties || {};
     if (!complexID) return;
 

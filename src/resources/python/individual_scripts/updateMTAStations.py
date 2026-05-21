@@ -82,6 +82,22 @@ def fetch_latest_station_data():
         json.dump(feature_collection, f, indent=2)
 
     print(f"✅ Saved latest MTA station data to {STATIONS_FILE}")
+
+    # Write diff report section
+    report_path = os.path.join(THIS_DIR, "..", "..", "generated", "diff_report.json")
+    report = {}
+    if os.path.exists(report_path):
+        with open(report_path) as f:
+            report = json.load(f)
+    report["stations"] = {
+        "added":    [feat["properties"]["stop_name"] for feat in added],
+        "removed":  [feat["properties"]["stop_name"] for feat in removed],
+        "modified": [m["stop_name"] for m in modified],
+    }
+    os.makedirs(os.path.dirname(report_path), exist_ok=True)
+    with open(report_path, "w") as f:
+        json.dump(report, f, indent=2)
+
     return new_data
 
 
