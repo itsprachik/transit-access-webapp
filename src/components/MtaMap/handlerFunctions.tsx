@@ -1,17 +1,42 @@
 // LIBRARIES & MAPBOX
 import mapboxgl from "mapbox-gl";
-import { getMtaMapOptions } from "./mtaMapOptions";
+import {
+  getMtaMapOptions,
+  setMapCenter
+} from "./mtaMapOptions";
 import React from "react";
 import { createRoot, type Root } from "react-dom/client";
-import { createFocusTrap } from "focus-trap";
 
 // DATASETS
-import { getElevatorsDataset, getComplexesDataset, getStationsDataset, getStationAlertsDataset } from "@/lib/dataStore";
+import {
+  getElevatorsDataset,
+  getComplexesDataset,
+  getStationsDataset,
+  getStationAlertsDataset,
+} from "@/lib/dataStore";
 
-const customElevatorDataset = { get features() { return getElevatorsDataset().features; } };
-const mtaStationsDataset = { get features() { return getStationsDataset().features; } };
-const mtaComplexesDataset = { get features() { return getComplexesDataset().features; } };
-const taAlerts = { get features() { return getStationAlertsDataset().features; } };
+const customElevatorDataset = {
+  get features() {
+    return getElevatorsDataset().features;
+  },
+};
+const mtaStationsDataset = {
+  get features() {
+    return getStationsDataset().features;
+  },
+};
+const mtaComplexesDataset = {
+  get features() {
+    return getComplexesDataset().features;
+  },
+};
+const taAlerts = {
+  get features() {
+    return getStationAlertsDataset().features;
+  },
+};
+
+import { Borough, BoroughCollection } from "@/utils/types";
 
 // FUNCTIONS
 import {
@@ -41,6 +66,7 @@ import { formatDate } from "date-fns";
 
 let currentPopup: mapboxgl.Popup | null = null;
 let currentPopupRoot: Root | null = null;
+let manhattanPolygon: number[][][][] | null = null;
 
 export function setMapPitch(pitch: any) {
   return pitch as number;
@@ -51,23 +77,19 @@ export const initializeMtaMap = (mapRef, mapContainer) => {
   const mtaMapOptions = getMtaMapOptions(mapContainer.current, mapRefPitch);
 
   mapRef.current = new mapboxgl.Map(mtaMapOptions);
-  // Add navigation controls
-  // Zoom and bearing control
-  const zoomControl = new mapboxgl.NavigationControl({
-    visualizePitch: true,
-    showZoom: false,
+
+  mapRef.current.on("load", async () => {
+    const { center, bearing } = await setMapCenter();
+    mapRef.current.flyTo({ center, bearing, zoom: 13, duration: 500, essential: true });
   });
 
+  const zoomControl = new mapboxgl.NavigationControl({ visualizePitch: true, showZoom: false });
   mapRef.current.dragRotate.enable();
   mapRef.current.touchZoomRotate.enable();
-
   mapRef.current.addControl(zoomControl, "bottom-right");
 
-  // GeoLocate
   const geolocateControl = new mapboxgl.GeolocateControl({
-    positionOptions: {
-      enableHighAccuracy: true,
-    },
+    positionOptions: { enableHighAccuracy: true },
     trackUserLocation: true,
     showUserHeading: true,
   });

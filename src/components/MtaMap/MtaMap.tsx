@@ -14,6 +14,7 @@ import {
   complexBoundarySourceOptions,
   setMapCenter,
   setManhattanTilt,
+  DEFAULT_CENTER
 } from "./mtaMapOptions";
 import {
   currentOutageProps,
@@ -586,7 +587,7 @@ const MtaMap = () => {
           setElevatorView(null);
 
           map.flyTo({
-            center: center,
+            center: DEFAULT_CENTER,
             zoom: 13,
             pitch: 0,
             bearing: bearing,

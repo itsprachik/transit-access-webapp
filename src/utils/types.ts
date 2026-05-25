@@ -108,3 +108,22 @@ export interface MtaStationProperties {
 export type MtaStationFeature = Feature<Point, MtaStationProperties>;
 
 export type MtaStationData = FeatureCollection<Point, MtaStationProperties>;
+
+export interface Borough {
+  type: string;
+  properties: {
+    borocode: string;
+    boroname: string;
+    shape_area: string;
+    shape_leng: string;
+  };
+  geometry: {
+    type: "MultiPolygon";
+    coordinates: number[][][][];
+  };
+}
+
+export interface BoroughCollection {
+  type: string;
+  features: Borough[];
+}

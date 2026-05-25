@@ -1,13 +1,79 @@
 import mapStyle from "@/styles/mapbox-style.json"; 
 import { LngLatBounds, StyleSpecification } from "mapbox-gl";
 
+import boroughData from "@/resources/nyc_boroughs.json";
+import type { BoroughCollection } from "@/utils/types";
+
 export function setManhattanTilt() { 
   const manhattanTilt = 29;
   return manhattanTilt;
 }
 
-export function setMapCenter(): [number, number] {
-  return [-73.98465318925187, 40.7564263693059];
+const data = boroughData as unknown as BoroughCollection;
+let manhattanPolygon: number[][][][] | null = null;
+
+function getManhattanPolygon(): number[][][][] {
+  if (manhattanPolygon) return manhattanPolygon;
+  const manhattan = data.features.find((f) => f.properties.borocode === "1");
+  if (!manhattan) throw new Error("Manhattan not found in borough data");
+  manhattanPolygon = manhattan.geometry.coordinates;
+  return manhattanPolygon;
+}
+
+function pointInPolygon(lng: number, lat: number, polygon: number[][]): boolean {
+  let inside = false;
+  for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+    const [xi, yi] = polygon[i];
+    const [xj, yj] = polygon[j];
+    const intersect =
+      yi > lat !== yj > lat &&
+      lng < ((xj - xi) * (lat - yi)) / (yj - yi) + xi;
+    if (intersect) inside = !inside;
+  }
+  return inside;
+}
+
+function isInManhattan(lng: number, lat: number): boolean {
+  return getManhattanPolygon().some((polygon) =>
+    pointInPolygon(lng, lat, polygon[0])
+  );
+}
+
+export function userIsInBounds(lng: number, lat: number): boolean {
+  const bounds = setMaxBounds();
+  return (
+    lng >= bounds.getWest() &&
+    lng <= bounds.getEast() &&
+    lat >= bounds.getSouth() &&
+    lat <= bounds.getNorth()
+  );
+}
+
+export const DEFAULT_CENTER: [number, number] = [-73.98465318925187, 40.7564263693059];
+const DEFAULT_BEARING = setManhattanTilt();
+
+export async function setMapCenter(): Promise<{ center: [number, number]; bearing: number }> {
+  return new Promise((resolve) => {
+    if (!navigator.geolocation) {
+      resolve({ center: DEFAULT_CENTER, bearing: DEFAULT_BEARING });
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      ({ coords: { longitude: lng, latitude: lat } }) => {
+        if (!userIsInBounds(lng, lat)) {
+          resolve({ center: DEFAULT_CENTER, bearing: DEFAULT_BEARING });
+          return;
+        }
+        resolve({
+          center: [lng, lat],
+          bearing: isInManhattan(lng, lat) ? setManhattanTilt() : 0,
+        });
+      },
+      () => resolve({ center: DEFAULT_CENTER, bearing: DEFAULT_BEARING }),
+      { maximumAge: 60000, timeout: 5000, enableHighAccuracy: false }
+    );
+  });
 }
 
 export function setMaxBounds() : mapboxgl.LngLatBounds {
@@ -19,26 +85,24 @@ export function setMaxBounds() : mapboxgl.LngLatBounds {
 
 export const getMtaMapOptions = (container, pitch) => {
   let mapPitch = null;
-  const mapCenter = setMapCenter();
   const bearing = setManhattanTilt();
-
   const bounds = setMaxBounds();
 
-  if (pitch > 0){ 
+  if (pitch > 0) {
     mapPitch = 0;
   } else mapPitch = 0;
 
-   return ({
-    container: container,
+  return {
+    container,
     style: mapStyle as unknown as StyleSpecification,
-    center: mapCenter, // NYC
+    center: DEFAULT_CENTER,  // ← not setMapCenter()
     zoom: 13,
-    bearing: bearing,
+    bearing,
     pitch: mapPitch,
-    minZoom: 9, // enough to see entire system, but no more
-    maxBounds: bounds || null
-   })
-}
+    minZoom: 9,
+    maxBounds: bounds || null,
+  };
+};
 
 export const outageSourceOptions = {
   type: "geojson",
