@@ -2,7 +2,9 @@
 // import runs into ts type problems when they're the same (unconfirmed but suspected)
 
 export const elevatorView = 16;
+export const dotView = 11;
 export const offsetDistance = -22;
+export const circleOffsetDistance = -10;
 
 export const currentOutageProps = {
   id: "outages",
@@ -25,8 +27,10 @@ export const currentOutageProps = {
     "icon-allow-overlap": ["step", ["zoom"], false, elevatorView, true],
     "icon-ignore-placement": true,
     "icon-padding": 2,
-    "symbol-z-order": "source",
-    "symbol-sort-key": 2,
+    // "auto" respects symbol-sort-key for collision resolution; "source" ignores it.
+    "symbol-z-order": "auto",
+    // Broken elevators win over working ones when icons would overlap.
+    "symbol-sort-key": ["case", ["==", ["get", "isBroken"], true], 2, 1],
 
     "text-size": ["interpolate", ["linear"], ["zoom"], 0, 10, 22, 10],
     "text-radial-offset": ["interpolate", ["linear"], ["zoom"], 0, 1.2, 17, 2],
@@ -59,8 +63,16 @@ export const stationOutageProps = {
     "icon-offset": [0, offsetDistance],
     "icon-allow-overlap": ["step", ["zoom"], true, elevatorView, false],
     "icon-padding": 0,
-    "symbol-z-order": "source",
-    "symbol-sort-key": 3,
+    // "auto" respects symbol-sort-key for collision resolution; "source" ignores it.
+    "symbol-z-order": "auto",
+    // isOut (all elevators down) > isProblem (partial) > working — station problems
+    // remain visible when stations are close together, example at 74 Broadway or Columbus Circle.
+    "symbol-sort-key": [
+      "case",
+      ["==", ["get", "isOut"], true], 3,
+      ["==", ["get", "isProblem"], true], 2,
+      1,
+    ],
 
     "text-size": ["interpolate", ["linear"], ["zoom"], 0, 10, 22, 10],
     "text-radial-offset": ["interpolate", ["linear"], ["zoom"], 0, 1.2, 17, 2],
@@ -69,7 +81,39 @@ export const stationOutageProps = {
     "text-offset": [1.5, 0],
   },
   paint: {
-    "icon-opacity": ["step", ["zoom"], 1, elevatorView, 0],
+    // Hidden below zoom 11 (dots take over); disappear again at elevatorView.
+    "icon-opacity": ["step", ["zoom"], 0, dotView, 1, elevatorView, 0],
+  },
+};
+
+// Low-zoom dots replace stationOutageProps icons below zoom 10.
+export const stationDotProps = {
+  id: "stationDots",
+  source: "station-outage-data",
+  type: "circle",
+  layout: {
+    // Higher sort key renders on top — makes sure red/yellow dots are never
+    // covered by a blue dot at the same location.
+    "circle-sort-key": [
+      "case",
+      ["==", ["get", "isOut"], true], 3,
+      ["==", ["get", "isProblem"], true], 2,
+      1,
+    ],
+  },
+  paint: {
+    "circle-radius": ["interpolate", ["linear"], ["zoom"], 9, 2.5, 10, 3.5],
+    "circle-color": [
+      "case",
+      ["==", ["get", "isOut"], true],     "#e53935", // red   — all elevators out
+      ["==", ["get", "isProblem"], true], "#f59e0b", // yellow — partial outage
+      "#2bb7ce",                                     // teal  — all working
+    ],
+    "circle-translate-anchor": "viewport",
+    "circle-stroke-width": 1,
+    "circle-stroke-color": "#111",
+    "circle-opacity": ["step", ["zoom"], 1, dotView, 0],
+    "circle-stroke-opacity": ["step", ["zoom"], 0.5, dotView, 0],
   },
 };
 

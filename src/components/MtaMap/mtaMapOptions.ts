@@ -95,7 +95,7 @@ export const getMtaMapOptions = (container, pitch) => {
   return {
     container,
     style: mapStyle as unknown as StyleSpecification,
-    center: DEFAULT_CENTER,  // ← not setMapCenter()
+    center: DEFAULT_CENTER,
     zoom: 13,
     bearing,
     pitch: mapPitch,

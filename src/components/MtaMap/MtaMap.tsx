@@ -19,7 +19,9 @@ import {
 import {
   currentOutageProps,
   stationOutageProps,
+  stationDotProps,
   animationProps,
+  dotView,
 } from "./layers/CurrentOutages/currentOutagesProps";
 import { stationComplexProps } from "./layers/StationComplexes/stationComplexesProps";
 import { complexBoundaryProps } from "./layers/StationComplexes/complexBoundariesProps";
@@ -49,8 +51,6 @@ import { handleAlertClose } from "../AlertBanner/handlerFunctions";
 import { AlertData } from "@/types/alerts";
 import LegendDrawer from "../Legend/LegendDrawer";
 import { initializeStore } from "@/lib/dataStore";
-import rawData from "@/resources/mta_subway_stations_all.json";
-const stationData = rawData as MtaStationData;
 
 // Load environment variables
 dotenv.config();
@@ -210,17 +210,23 @@ const MtaMap = () => {
         fetch("/api/alerts"),
       ]);
 
-      const elevatorsGeoJSON = await elevatorsRes.json();
-      const { complexes, stations } = await stationsRes.json();
-      const alertsData = await alertsRes.json();
+      const [elevatorsGeoJSON, { complexes, stations }, alertsData] =
+        await Promise.all([
+          elevatorsRes.json(),
+          stationsRes.json(),
+          alertsRes.json(),
+        ]);
 
       initializeStore(elevatorsGeoJSON, complexes, stations, alertsData.station);
       setStationData(stations as MtaStationData);
       setSystemAlerts(alertsData.system as AlertData[]);
     }
 
-    async function getOutages() {
-      const response = await fetch("/api/outages");
+    // Accepts an already-in-flight fetch promise so the network request can
+    // run in parallel with loadDatasets() — we only process the response after
+    // initializeStore() has been called and the store is ready.
+    async function getOutages(responseProm?: Promise<Response>) {
+      const response = await (responseProm ?? fetch("/api/outages"));
       if (!response.ok) throw new Error(`Outage fetch failed: ${response.status}`);
       const data = await response.json();
       const currentData = data.filter((el) => el.isupcomingoutage === "N");
@@ -277,15 +283,23 @@ const MtaMap = () => {
         );
       }
     }
-    // Load static datasets first, then fetch outages
+    // Start geolocation immediately — runs in parallel with map loading so the
+    // location is (often) already resolved by the time the map "load" event fires.
+    const locationPromise = setMapCenter();
+
+    // Kick off both pipelines in parallel:
+    //   • outagesFetch — network request starts immediately
+    //   • loadDatasets — populates the store (must complete first)
+    // Then process the outage response once the store is ready.
     async function initialize() {
-      await loadDatasets();
-      getOutages();
+      const outagesFetch = fetch("/api/outages"); // start now, don't await
+      await loadDatasets();                        // store must be ready first
+      getOutages(outagesFetch);                    // pass the in-flight promise
     }
     initialize();
 
     //Initialize Map
-    initializeMtaMap(mapRef, mapContainer);
+    initializeMtaMap(mapRef, mapContainer, locationPromise);
 
     mapRef.current?.on("load", () => {
       mapRef.current.setLayoutProperty(
@@ -328,7 +342,11 @@ const MtaMap = () => {
       // Add outage layer with icons based on isBroken property
 
       mapRef.current.addLayer(currentOutageProps);
-      mapRef.current.addLayer(stationOutageProps);
+
+
+      mapRef.current.addLayer(stationDotProps);
+
+      mapRef.current.addLayer(stationOutageProps); // icons (comes in at zoom 10)
       mapRef.current.addLayer(stationComplexProps);
       mapRef.current.addLayer(upcomingOutageProps);
 
@@ -364,6 +382,7 @@ const MtaMap = () => {
 
       const priority = [
         "upcoming-outages",
+        "stationDots",      // low-zoom dot layer — same click behaviour as stationOutages
         "stationOutages",
         "mta-subway-stations-accessible",
         "mta-subway-complexes-accessible2",
@@ -376,9 +395,30 @@ const MtaMap = () => {
 
       // One click listener for all interactive layers
       mapRef.current?.on("click", (e) => {
-        const features = mapRef.current?.queryRenderedFeatures(e.point, {
-          layers: priority,
-        });
+        const zoom = mapRef.current?.getZoom() ?? 0;
+        let features;
+
+        if (zoom < dotView) {
+          // Dots are tiny circles — give them a slightly expanded tap area
+          const buf = 6;
+          const dotHits = mapRef.current?.queryRenderedFeatures(
+            [
+              [e.point.x - buf, e.point.y - buf],
+              [e.point.x + buf, e.point.y + buf],
+            ],
+            { layers: ["stationDots"] },
+          );
+          features = dotHits?.length
+            ? dotHits
+            : mapRef.current?.queryRenderedFeatures(e.point, {
+                layers: priority.filter((l) => l !== "stationDots"),
+              });
+        } else {
+          // Dots are gone at zoom ≥ 10; use the full priority list minus dots.
+          features = mapRef.current?.queryRenderedFeatures(e.point, {
+            layers: priority.filter((l) => l !== "stationDots"),
+          });
+        }
 
         // choose the highest priority feature
         function pickTopFeature(features) {
@@ -402,6 +442,7 @@ const MtaMap = () => {
         const layerId = prioritizedFeature.layer.id;
 
         switch (layerId) {
+          case "stationDots":
           case "stationOutages":
           case "mta-subway-stations-accessible":
           case "mta-subway-stations-inaccessible":
@@ -487,6 +528,7 @@ const MtaMap = () => {
       mapRef.current?.on("zoom", () => {
         setZoomLevel(mapRef.current?.getZoom() ?? 0);
       });
+
 
       const isTouch = navigator.maxTouchPoints > 0;
 
@@ -581,7 +623,6 @@ const MtaMap = () => {
           const map = mapRef.current as mapboxgl.Map;
           if (!map) return;
           cleanUpPopups();
-          const center = setMapCenter();
           const bearing = setManhattanTilt();
           setStationView(null);
           setElevatorView(null);

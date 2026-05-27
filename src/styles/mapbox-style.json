@@ -15044,7 +15044,7 @@
             "layout": {
                 "text-optional": true,
                 "text-size": 10,
-                "text-radial-offset": 1,
+                "text-radial-offset": ["interpolate", ["linear"], ["zoom"], 9, 0.6, 13, 1.2],
                 "icon-image": [
                     "step",
                     ["zoom"],
@@ -15057,21 +15057,7 @@
                     "Arial Unicode MS Regular"
                 ],
                 "text-justify": "left",
-                "icon-size": [
-                    "step",
-                    ["zoom"],
-                    0.5,
-                    10,
-                    0.5,
-                    11,
-                    0.6,
-                    12,
-                    0.6,
-                    15,
-                    0.7,
-                    16,
-                    1.5
-                ],
+                "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.5, 15, 0.7, 16, 1.5],
                 "text-anchor": ["step", ["zoom"], "left", 17, "top"],
                 "text-field": ["to-string", ["get", "stop_name"]]
             },
@@ -15087,7 +15073,7 @@
                     ["literal", [0, 5]]
                 ],
                 "text-opacity": ["step", ["zoom"], 1, 15, 0],
-                "icon-opacity": ["step", ["zoom"], 1, 15, 0]
+                "icon-opacity": ["step", ["zoom"], 0, 11, 1, 15, 0]
             }
         },
         {

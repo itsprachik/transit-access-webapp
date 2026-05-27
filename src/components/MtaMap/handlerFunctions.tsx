@@ -72,15 +72,21 @@ export function setMapPitch(pitch: any) {
   return pitch as number;
 }
 
-export const initializeMtaMap = (mapRef, mapContainer) => {
+export const initializeMtaMap = (
+  mapRef,
+  mapContainer,
+  locationPromise?: Promise<{ center: [number, number]; bearing: number }>,
+) => {
   const mapRefPitch = setMapPitch(0);
   const mtaMapOptions = getMtaMapOptions(mapContainer.current, mapRefPitch);
 
   mapRef.current = new mapboxgl.Map(mtaMapOptions);
 
   mapRef.current.on("load", async () => {
-    const { center, bearing } = await setMapCenter();
-    mapRef.current.flyTo({ center, bearing, zoom: 13, duration: 500, essential: true });
+    // Use the pre-fetched location promise (already in-flight) or fall back to a fresh request.
+    // This prevents geolocation from starting only after the map loads (sequential → parallel).
+    const { center, bearing } = await (locationPromise ?? setMapCenter());
+    mapRef.current.flyTo({ center, bearing, zoom: 13, duration: 200, essential: true });
   });
 
   const zoomControl = new mapboxgl.NavigationControl({ visualizePitch: true, showZoom: false });
@@ -707,8 +713,8 @@ export function handleOnClick(
     );
   }
 
-  // if it's the station-outage symbol that was clicked, also show the station popup (makes it all more clickable)
-  if (layerId === "stationOutages") {
+  // if it's the station-outage symbol OR the low-zoom dot that was clicked, show the station popup
+  if (layerId === "stationOutages" || layerId === "stationDots") {
     const station_id = feature.properties.station_id;
 
     setStationView((prev) => {
