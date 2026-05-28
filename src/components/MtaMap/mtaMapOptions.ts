@@ -4,6 +4,10 @@ import { LngLatBounds, StyleSpecification } from "mapbox-gl";
 import boroughData from "@/resources/nyc_boroughs.json";
 import type { BoroughCollection } from "@/utils/types";
 
+export const DEFAULT_ZOOM = 13;
+export const DEFAULT_CENTER: [number, number] = [-73.98465318925187, 40.7564263693059];
+const DEFAULT_BEARING = setManhattanTilt();
+
 export function setManhattanTilt() { 
   const manhattanTilt = 29;
   return manhattanTilt;
@@ -39,6 +43,10 @@ function isInManhattan(lng: number, lat: number): boolean {
   );
 }
 
+export function getBearingByLocation(lng: number, lat: number): number {
+  return isInManhattan(lng, lat) ? setManhattanTilt() : 0;
+}
+
 export function userIsInBounds(lng: number, lat: number): boolean {
   const bounds = setMaxBounds();
   return (
@@ -48,9 +56,6 @@ export function userIsInBounds(lng: number, lat: number): boolean {
     lat <= bounds.getNorth()
   );
 }
-
-export const DEFAULT_CENTER: [number, number] = [-73.98465318925187, 40.7564263693059];
-const DEFAULT_BEARING = setManhattanTilt();
 
 export async function setMapCenter(): Promise<{ center: [number, number]; bearing: number }> {
   return new Promise((resolve) => {
@@ -71,7 +76,7 @@ export async function setMapCenter(): Promise<{ center: [number, number]; bearin
         });
       },
       () => resolve({ center: DEFAULT_CENTER, bearing: DEFAULT_BEARING }),
-      { maximumAge: 60000, timeout: 5000, enableHighAccuracy: false }
+      { maximumAge: 60000, timeout: 5000, enableHighAccuracy: false } // false for a faster load
     );
   });
 }
@@ -96,7 +101,7 @@ export const getMtaMapOptions = (container, pitch) => {
     container,
     style: mapStyle as unknown as StyleSpecification,
     center: DEFAULT_CENTER,
-    zoom: 13,
+    zoom: DEFAULT_ZOOM,
     bearing,
     pitch: mapPitch,
     minZoom: 9,

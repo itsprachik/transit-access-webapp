@@ -14,7 +14,8 @@ import {
   complexBoundarySourceOptions,
   setMapCenter,
   setManhattanTilt,
-  DEFAULT_CENTER
+  DEFAULT_CENTER,
+  DEFAULT_ZOOM,
 } from "./mtaMapOptions";
 import {
   currentOutageProps,
@@ -38,6 +39,7 @@ import {
 import {
   getStationOutageArray,
   dealWithMapboxIconOverlap,
+  pickTopFeature,
   makeElevatorMap,
   getADAPctByStation,
   getADAPctByComplex,
@@ -80,7 +82,7 @@ const MtaMap = () => {
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
   const lastUpdatedRef = useRef<Date | null>(null);
 
-  const [zoomLevel, setZoomLevel] = useState(13);
+  const [zoomLevel, setZoomLevel] = useState(DEFAULT_ZOOM);
 
   const [show3DToggle, setShow3DToggle] = React.useState(false);
 
@@ -222,9 +224,9 @@ const MtaMap = () => {
       setSystemAlerts(alertsData.system as AlertData[]);
     }
 
-    // Accepts an already-in-flight fetch promise so the network request can
-    // run in parallel with loadDatasets() — we only process the response after
-    // initializeStore() has been called and the store is ready.
+    // Accepts an already running fetch promise so the outage request can
+    // run in parallel with loadDatasets() — process the response after
+    // initializeStore() has been called.
     async function getOutages(responseProm?: Promise<Response>) {
       const response = await (responseProm ?? fetch("/api/outages"));
       if (!response.ok) throw new Error(`Outage fetch failed: ${response.status}`);
@@ -284,17 +286,16 @@ const MtaMap = () => {
       }
     }
     // Start geolocation immediately — runs in parallel with map loading so the
-    // location is (often) already resolved by the time the map "load" event fires.
+    // location is resolved by the time the map loads.
     const locationPromise = setMapCenter();
 
-    // Kick off both pipelines in parallel:
     //   • outagesFetch — network request starts immediately
     //   • loadDatasets — populates the store (must complete first)
     // Then process the outage response once the store is ready.
     async function initialize() {
-      const outagesFetch = fetch("/api/outages"); // start now, don't await
-      await loadDatasets();                        // store must be ready first
-      getOutages(outagesFetch);                    // pass the in-flight promise
+      const outagesFetch = fetch("/api/outages"); 
+      await loadDatasets();                        
+      getOutages(outagesFetch);                   
     }
     initialize();
 
@@ -346,7 +347,7 @@ const MtaMap = () => {
 
       mapRef.current.addLayer(stationDotProps);
 
-      mapRef.current.addLayer(stationOutageProps); // icons (comes in at zoom 10)
+      mapRef.current.addLayer(stationOutageProps); // icons (comes in at zooms higher than dotLevel)
       mapRef.current.addLayer(stationComplexProps);
       mapRef.current.addLayer(upcomingOutageProps);
 
@@ -382,7 +383,7 @@ const MtaMap = () => {
 
       const priority = [
         "upcoming-outages",
-        "stationDots",      // low-zoom dot layer — same click behaviour as stationOutages
+        "stationDots",      // low-zoom level dot layer
         "stationOutages",
         "mta-subway-stations-accessible",
         "mta-subway-complexes-accessible2",
@@ -399,41 +400,32 @@ const MtaMap = () => {
         let features;
 
         if (zoom < dotView) {
-          // Dots are tiny circles — give them a slightly expanded tap area
+          // Give dots a slightly expanded tap area
           const buf = 6;
-          const dotHits = mapRef.current?.queryRenderedFeatures(
+          const dotTap = mapRef.current?.queryRenderedFeatures(
             [
               [e.point.x - buf, e.point.y - buf],
               [e.point.x + buf, e.point.y + buf],
             ],
             { layers: ["stationDots"] },
           );
-          features = dotHits?.length
-            ? dotHits
+          features = dotTap?.length
+            ? dotTap
             : mapRef.current?.queryRenderedFeatures(e.point, {
                 layers: priority.filter((l) => l !== "stationDots"),
               });
         } else {
-          // Dots are gone at zoom ≥ 10; use the full priority list minus dots.
+          // Dots are gone at zoom ≥ dotLevel; use the full priority list minus dots.
           features = mapRef.current?.queryRenderedFeatures(e.point, {
             layers: priority.filter((l) => l !== "stationDots"),
           });
         }
 
-        // choose the highest priority feature
-        function pickTopFeature(features) {
-          return features.sort((a, b) => {
-            const aIdx = priority.indexOf(a.layer.id);
-            const bIdx = priority.indexOf(b.layer.id);
-            return aIdx - bIdx; // lower index = higher priority
-          })[0];
-        }
-
-        const prioritizedFeature = pickTopFeature(features);
+        const prioritizedFeature = pickTopFeature(features, priority, e.lngLat);
 
         if (!features || !features.length) return;
 
-        // Mutate the event object to look like a layer-specific event
+        // Augment the event object to look like a layer-specific event
         const augmentedEvent = {
           ...e,
           features: [prioritizedFeature],
@@ -629,7 +621,7 @@ const MtaMap = () => {
 
           map.flyTo({
             center: DEFAULT_CENTER,
-            zoom: 13,
+            zoom: DEFAULT_ZOOM,
             pitch: 0,
             bearing: bearing,
             speed: 1.8,

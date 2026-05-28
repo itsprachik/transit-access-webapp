@@ -2,7 +2,10 @@
 import mapboxgl from "mapbox-gl";
 import {
   getMtaMapOptions,
-  setMapCenter
+  setMapCenter,
+  setManhattanTilt,
+  getBearingByLocation,
+  DEFAULT_ZOOM,
 } from "./mtaMapOptions";
 import React from "react";
 import { createRoot, type Root } from "react-dom/client";
@@ -82,24 +85,39 @@ export const initializeMtaMap = (
 
   mapRef.current = new mapboxgl.Map(mtaMapOptions);
 
-  mapRef.current.on("load", async () => {
-    // Use the pre-fetched location promise (already in-flight) or fall back to a fresh request.
-    // This prevents geolocation from starting only after the map loads (sequential → parallel).
-    const { center, bearing } = await (locationPromise ?? setMapCenter());
-    mapRef.current.flyTo({ center, bearing, zoom: 13, duration: 200, essential: true });
-  });
-
   const zoomControl = new mapboxgl.NavigationControl({ visualizePitch: true, showZoom: false });
   mapRef.current.dragRotate.enable();
   mapRef.current.touchZoomRotate.enable();
   mapRef.current.addControl(zoomControl, "bottom-right");
 
+  // Seed with the default tilt so the first geolocate is bearing 29.
+  // Updated on every geolocate event.
+  let nextBearing = setManhattanTilt();
+
   const geolocateControl = new mapboxgl.GeolocateControl({
     positionOptions: { enableHighAccuracy: true },
     trackUserLocation: true,
     showUserHeading: true,
+    fitBoundsOptions: {
+      get bearing() { return nextBearing; },
+      get zoom() { return DEFAULT_ZOOM; },
+      get maxZoom() { return mapRef.current?.getZoom() ?? DEFAULT_ZOOM; },
+    },
   });
   mapRef.current.addControl(geolocateControl, "bottom-right");
+
+  // Keep nextBearing current so the get above always has the right value
+  geolocateControl.on("geolocate", (e: GeolocationPosition) => {
+    const { longitude: lng, latitude: lat } = e.coords;
+    nextBearing = getBearingByLocation(lng, lat);
+  });
+
+  mapRef.current.on("load", async () => {
+    const { center, bearing } = await (locationPromise ?? setMapCenter());
+    nextBearing = bearing; // seed before geolocate trigger reads it
+    mapRef.current.flyTo({ center, bearing, zoom: DEFAULT_ZOOM, duration: 200, essential: true });
+    mapRef.current.once("moveend", () => geolocateControl.trigger());
+  });
 };
 
 let lastFocusedElementBeforePopup: HTMLElement | null = null;

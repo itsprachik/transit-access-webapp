@@ -870,7 +870,43 @@ export function flyIn(
   console.warn("flyIn: Invalid bounds format for accessible station");
 }
 
-/* A thoroughly annoying function to need, which solves accidentally clicking on 
+// Handles overlapping icons. A thoroghly annoying function needed for overlapping STATIONS (not complexes)
+// Exception: if the user clicked on text from a
+// *different* station than the highest-priority icon, the text wins
+export function pickTopFeature(features, priority, lngLat) {
+  const sorted = [...features].sort((a, b) => {
+    const aPriority = priority.indexOf(a.layer.id);
+    const bPriority = priority.indexOf(b.layer.id);
+    if (aPriority !== bPriority) return aPriority - bPriority;
+    const distA = Math.hypot(
+      (a.geometry?.coordinates?.[0] ?? 0) - lngLat.lng,
+      (a.geometry?.coordinates?.[1] ?? 0) - lngLat.lat,
+    );
+    const distB = Math.hypot(
+      (b.geometry?.coordinates?.[0] ?? 0) - lngLat.lng,
+      (b.geometry?.coordinates?.[1] ?? 0) - lngLat.lat,
+    );
+    return distA - distB;
+  });
+
+  const top = sorted[0];
+
+  // prioritize the text — the user clicked on a visible label and not necessarily
+  // the closest point to the station
+  const iconLayers = new Set(["stationOutages", "stationDots"]);
+  if (top && iconLayers.has(top.layer.id)) {
+    const textFeature = sorted.find(
+      (f) =>
+        f.layer.id === "mta-subway-stations-accessible" &&
+        f.properties?.station_id !== top.properties?.station_id,
+    );
+    if (textFeature) return textFeature;
+  }
+
+  return top;
+}
+
+/* A thoroughly annoying function to need for COMPLEXES, which solves accidentally clicking on
 hidden mapbox text instead of the icon you actually clicked on */
 export function dealWithMapboxIconOverlap(e) {
   if (!e.features || e.features.length === 0) return e;
