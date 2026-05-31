@@ -6917,7 +6917,7 @@
     "equipmenttype": "EL",
     "serving": "Nostrand Ave & Church Ave (SW corner) to Flatbush Av Brooklyn College-bound platform",
     "ADA": "Y",
-    "isactive": "N",
+    "isactive": "Y",
     "nonNYCT": "N",
     "shortdescription": "Street to Brooklyn-bound platform",
     "linesservedbyelevator": "2/5",
