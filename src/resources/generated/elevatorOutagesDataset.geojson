@@ -6225,6 +6225,36 @@
         ],
         "type": "Point"
       }
+    },
+    {
+      "type": "Feature",
+      "id": "EL488",
+      "properties": {
+        "elevatorno": "EL488",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.843853,
+          40.68032899999999
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "EL487",
+      "properties": {
+        "elevatorno": "EL487",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.843953,
+          40.680429
+        ],
+        "type": "Point"
+      }
     }
   ],
   "type": "FeatureCollection"

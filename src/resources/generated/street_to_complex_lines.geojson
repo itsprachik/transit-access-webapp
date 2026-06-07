@@ -4762,6 +4762,29 @@
         "ada": "2",
         "side": "left"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.843953,
+            40.680429
+          ],
+          [
+            -73.843853,
+            40.680429
+          ]
+        ]
+      },
+      "properties": {
+        "complex_id": "192",
+        "elevator_no": "EL487",
+        "station_name": "Rockaway Blvd",
+        "ada": "0",
+        "side": "left"
+      }
     }
   ]
 }
