@@ -12987,7 +12987,7 @@
     "serving": "Street (NW corner of Liberty Av and Cross Bay Blvd) to Manhattan-bound A platform and transfer mezzanine to Lefferts Blvd and Far Rockaway-bound A.",
     "ADA": "Y",
     "isactive": "Y",
-    "nonNYCT": "-",
+    "nonNYCT": "N",
     "shortdescription": "Street (NW corner of Liberty Av and Cross Bay Blvd) to Manhattan-bound A",
     "linesservedbyelevator": "A",
     "elevatorsgtfsstopid": "A61",

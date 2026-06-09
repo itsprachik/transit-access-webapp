@@ -5013,7 +5013,7 @@
         "station_ids": "192",
         "gtfs_stop_ids": "A61",
         "stop_name": "Rockaway Blvd",
-        "ada": "0",
+        "ada": "1",
         "borough": "Q",
         "num_stations_in_complex": "1"
       }
