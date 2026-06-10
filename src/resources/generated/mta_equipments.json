@@ -12966,7 +12966,7 @@
     "serving": "Transfer mezzanine to Lefferts Blvd, Far Rockaway, and Rockaway Park-bound A platform",
     "ADA": "Y",
     "isactive": "Y",
-    "nonNYCT": "-",
+    "nonNYCT": "N",
     "shortdescription": "Mezzanine to Lefferts/Far Rockaway-bound platform",
     "linesservedbyelevator": "A",
     "elevatorsgtfsstopid": "A61",
