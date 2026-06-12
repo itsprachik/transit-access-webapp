@@ -12710,6 +12710,66 @@
         ]
       },
       "id": "043352e8cd44497a36991e4a24376078"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "B10",
+        "route": "F/M",
+        "complexID": "224",
+        "stationID": "224",
+        "system": "nyc_mta",
+        "elevatorno": "EL621",
+        "linesServed": "F/M",
+        "directionLabel": "",
+        "title": "57 St",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/57-St_EL621.jpg",
+        "alternativeRoute": "If you are on the platform: Take a downtown M (F nights and weekends) to 47-50 Sts/Rockefeller Ctr. Then take a Washington Heights-bound M5 or a Harlem-bound M7 bus to 56 St.  \n\nIf you are on the mezzanine level: Exit the station and proceed south along 6 Av to 49 St for the 47-50 Sts/Rockefeller Ctr B/D/F/M station for service in both directions. ",
+        "ada": "0",
+        "isBroken": "",
+        "isStreet": "",
+        "shortdescription": "Mezzanine to M (F nights, weekends) platform.",
+        "description_custom": "This elevator gets you from the main station mezzanine to F/M trains"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97745,
+          40.763872
+        ]
+      },
+      "id": "568a620bdbb87d501bce9460ec23da89"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "B10",
+        "route": "F/M",
+        "complexID": "224",
+        "stationID": "224",
+        "system": "nyc_mta",
+        "elevatorno": "EL620",
+        "linesServed": "F/M",
+        "directionLabel": "",
+        "title": "57 St",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/57-St_EL620.jpg",
+        "alternativeRoute": "If you are on the mezzanine level: Take a downtown M (F nights and weekends) to 47-50 Sts/Rockefeller Ctr. Then take a Washington Heights-bound M5 or a Harlem-bound M7 bus to 56 St. \n\nIf you are at street level: Proceed south along 6 Av to 49 St for the 47-50 Sts/Rockefeller Ctr B/D/F/M station for service in both directions. ",
+        "ada": "0",
+        "isBroken": "",
+        "isStreet": "true",
+        "shortdescription": "Street (SW corner of 56 St and 6 Av) to mezzanine.",
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97755000000001,
+          40.763972
+        ]
+      },
+      "id": "6a4cac2b49025ae4c45f603fa1deedbf"
     }
   ],
   "type": "FeatureCollection"
