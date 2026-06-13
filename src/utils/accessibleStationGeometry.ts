@@ -304,6 +304,10 @@ export const stationCoordinates: Record<string, [number, number]> = {
     -73.966113,
     40.764629
   ],
+  "224": [
+    -73.97745,
+    40.763972
+  ],
   "225": [
     -73.981329,
     40.758663
