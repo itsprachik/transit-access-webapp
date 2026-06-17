@@ -516,6 +516,7 @@ export function getComplexOutageLayerFeatures(outStationArray) {
     });
 
     const totalAdaStations = adaStationIDs.length;
+    const totalStations = stationIDs.length;
 
     const geometry = complexCoordinates[complexID];
     if (!geometry) {
@@ -530,7 +531,8 @@ export function getComplexOutageLayerFeatures(outStationArray) {
     let outCount = 0;
     let hasProblemStation = false;
 
-    for (const stationID of adaStationIDs) {
+    // use const stationID of adaStationIDs for outage calculating ADA only
+    for (const stationID of stationIDs) {
       const outage = stationOutageMap.get(stationID) || {
         isOut: false,
         isProblem: false,
@@ -539,8 +541,8 @@ export function getComplexOutageLayerFeatures(outStationArray) {
       if (outage.isOut) outCount++;
       if (outage.isProblem) hasProblemStation = true;
     }
-
-    const isOut = outCount === totalAdaStations && totalAdaStations > 0;
+    // change totalStations to totalAdaStations for ADA only calc
+    const isOut = outCount === totalStations && totalStations > 0;
     const isProblem = isOut || hasProblemStation || outCount > 0; // Partial ADA outage/problem
 
     features.push({
