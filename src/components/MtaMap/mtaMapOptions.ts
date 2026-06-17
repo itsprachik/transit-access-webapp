@@ -6,6 +6,10 @@ import type { BoroughCollection } from "@/utils/types";
 
 export const DEFAULT_ZOOM = 13;
 export const DEFAULT_CENTER: [number, number] = [-73.98465318925187, 40.7564263693059];
+export const BIRDSEYE_CENTER: [number, number] = [-73.83498613423828, 40.804639553395816];
+export const BIRDSEYE_CENTER_DESKTOP: [number, number] = [-73.925, 40.755]; // slightly NE for desktop (panel on left shifts view)
+export const BIRDSEYE_ZOOM = 10.009972810309067;
+
 const DEFAULT_BEARING = setManhattanTilt();
 
 export function setManhattanTilt() { 
@@ -106,6 +110,7 @@ export const getMtaMapOptions = (container, pitch) => {
     pitch: mapPitch,
     minZoom: 9,
     maxBounds: bounds || null,
+    attributionControl: false,
   };
 };
 

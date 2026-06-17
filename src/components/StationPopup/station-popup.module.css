@@ -14,8 +14,40 @@
   transition: max-height 0.5s ease;
 }
 
+.stationPopup.minimized {
+  max-height: 3.5rem;
+  overflow: hidden;
+}
+
 .stationPopup.expanded {
   max-height: 80dvh;
+}
+
+.backToNearby {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  position: absolute;
+  top: 10px;
+  left:10px;
+  background: #DEDEDE;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 100%;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #111;
+  padding: 0.2rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.backToNearby:hover {
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
 }
 
 .stationPopup.mini {
@@ -41,7 +73,7 @@
 .popupHeader {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: var(--z-index-popup-access-note);
   flex-shrink: 0;
 }
 
@@ -65,6 +97,7 @@
 }
 
 .alertHeader {
+  font-size: 0.75rem;
   font-weight: 600;
   padding-left: 0.5rem;
   padding-bottom: 0.5rem;
@@ -89,10 +122,10 @@
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: #111111 !important;
-  padding: 0rem 0.5rem;
+  padding: 0rem 0rem 0rem 3.5rem;
   border-radius: 0.3rem;
   max-width: 90%;
   word-wrap: break-word;
@@ -211,6 +244,7 @@
 }
 
 .adaNotesWrapper {
+  font-size: 0.75rem;
   display: flex;
   align-items: center;
   color: #111111 !important;
@@ -305,6 +339,10 @@
   vertical-align: middle;
 }
 
+.cardWrapperPlatform .titleWrapper {
+  max-width: 80%;
+}
+
 .titleWrapper {
   max-width: 60%;
   word-wrap: break-word;
@@ -312,7 +350,9 @@
   font-size: 0.75rem;
   text-align: left;
   padding: 0.2rem 0rem 0.2rem 3rem;
-  display: -webkit-inline-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   flex: 1 1 auto;
   gap: 0.15rem;
 }
@@ -453,9 +493,51 @@
   font-variant: small-caps;
 }
 
+.redundantRow {
+  padding: 0.1rem 0.5rem 0.1rem 3rem;
+}
+
+.streetElevatorDistRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.5rem 0.15rem 3rem;
+}
+
+.streetElevatorDist {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.55rem;
+  font-weight: 500;
+  color: #555;
+  font-variant: small-caps;
+}
+
+.googleMapsLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.55rem;
+  font-weight: 600;
+  font-variant: small-caps;
+  color: #555;
+  text-decoration: none;
+  padding: 0rem 0.4rem 0rem 0.4rem;
+  border-radius: 0.3rem;
+  border: 1px solid #1a6fbd44;
+  background: #AFAFAF3F;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.googleMapsLink:hover {
+  background: #1a6fbd1a;
+}
+
 .statusBadSmall {
   color: #4d0404;
-  background-color: #c8000026;
+  background-color: #c800001A;
   display: flex;
   width: fit-content;
   align-items: center;
@@ -503,7 +585,7 @@
   @media (min-width: 768px) {
     .stationPopup {
       left: 0% !important;
-      top: 120px !important;
+      top: 140px !important;
       transform: translateX(0) !important;
       width: -moz-max-content !important;
       width: max-content !important;
@@ -568,7 +650,7 @@
   bottom: 1%;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
+  z-index: var(--z-index-popup-base);
   font-size: 0.7rem;
   color: #111;
   border-radius: 0.3rem;
@@ -591,7 +673,7 @@
   border-radius: 100%;
   color: #111;
   position: absolute;
-  z-index: 2;
+  z-index: var(--z-index-popup-base);
   cursor: pointer;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
   transition: opacity 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
@@ -606,14 +688,7 @@
   padding: 0.2rem;
   margin-left: 1.6rem;
   justify-content: center;
-  z-index: inherit;
-}
-
-.redundancyNoteIconButton {
-  background-color: #f99a9a;
-  display: inline-flex;
-  top: -0.5rem;
-  align-items: start;
+  z-index: calc(var(--z-index-popup-fly-button) + 1);
 }
 
 .iconButtonVisible {
@@ -634,7 +709,7 @@
   bottom: -0.7rem;
   transform: translateX(-50%) scaleX(0);
   transform-origin: center center;
-  z-index: 5;
+  z-index: var(--z-index-popup-fly-button);
   width: 90%;
   max-width: 90%;
   background-color: #f4c6fbe6;
@@ -673,7 +748,7 @@
   left: 50%;                 /* center anchor */
   bottom: 0.2rem;
   transform: translateX(-50%); /* actually centers it */
-  z-index: 9;
+  z-index: var(--z-index-popup-close-button);
 }
 
 
@@ -704,56 +779,18 @@
   justify-content: center;
 }
 
-
-.redundancyNote {
-  position: absolute;
-  bottom: 18%;
-  left: 100%;
-  display: inline-block;
-  width: -moz-max-content;
-  width: max-content;
-  min-width: 120px;
-  max-width: 140px;
-  padding: 0.2rem 0.4rem;
-  background-color: #f99a9a;
-  color: #111;
-  border-radius: 0.3rem;
-  text-align: left;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease;
-  transform: translateX(-50%) scaleX(0);
-  transform-origin: center center;
-  z-index: 5;
-}
-
-
-.redundantYes {
-  background-color: #a7d3f6;
-  color: #111;
-}
-
-.redundantNo {
-  background-color: #f99a9a;
-  color: #111;
-}
-
-
-.redundancyNoteContent {
+.redundantBadge {
   display: inline-flex;
   align-items: center;
-  font-size: 0.6rem;
-  font-weight: 500;
-  text-transform: initial;
-  font-variant: normal;
-  line-height: 0.9rem;
-  padding-top: 0.1rem;
-  gap: 0.3rem;
-}
-
-
-/**** Redundancy note ****/
-.redundancyNote.accessNote {
-  z-index: 10; /* higher than access note */
+  gap: 0.2rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  font-variant: small-caps;
+  color: #2a6fa8;
+  background: #a7d3f633;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.3rem 0.0rem;
+  flex-shrink: 0;
 }
 
 .accessNoteHeader {
@@ -775,7 +812,7 @@
   cursor: pointer;
   color: #333;
   padding: 0 0.2rem;
-  z-index: 3;
+  z-index: var(--z-index-popup-note);
 }
 
 .OOSNote {
@@ -798,7 +835,7 @@
   font-weight: 500;
   line-height: 0.9rem;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-  z-index: 10;
+  z-index: var(--z-index-popup-access-note);
 
   opacity: 0;
   pointer-events: none;
@@ -841,7 +878,7 @@
   cursor: pointer;
   color: #333;
   padding: 0 0.3rem;
-  z-index: 3;
+  z-index: var(--z-index-popup-note);
 }
 
 .OOSIconButton {
@@ -879,7 +916,7 @@
 }
 
 .stationRouteWrapper {
-  padding: 0.0rem 0.5rem 0.5rem 0.5rem;
+  padding: 0.0rem 0.5rem 0.5rem 3.5rem;
   display: flex;
   align-items: center;
   transition: opacity 0.2s ease, transform 0.2s ease;
@@ -952,7 +989,7 @@
 
 .colorBadFaint {
   color: #4d0404;
-  background-color: #c8000016 !important;
+  background-color: #F9E7E7 !important;
 
 }
 
@@ -961,7 +998,7 @@
 }
 
 .colorBadPlain {
-  color: #c80000;
+  color: #4d0404;
 }
 
 .colorWarning {
@@ -1081,7 +1118,7 @@
   border-radius: 0.25rem;
   color: #2c2c2c;
   font-weight: 600;
-  z-index: 2;
+  z-index: var(--z-index-popup-base);
 }
 
 
@@ -1103,4 +1140,19 @@
 
 .activeDot {
   background-color: #333;
+}
+
+.maintenanceBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  flex-shrink: 0;
+  font-size: 0.65rem;
+  font-weight: 600;
+  font-variant: small-caps;
+  color: #604604;
+  background: rgba(255, 183, 0, 0.18);
+  border: 1px solid #d8bc86;
+  padding: 0rem 0.4rem;
+  border-radius: 4px;
 }

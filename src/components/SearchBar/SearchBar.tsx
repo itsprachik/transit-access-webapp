@@ -137,7 +137,7 @@ const StyledSelect = styled(Select)<{ $hasAlert?: boolean }>`
   transition: top 0.3s ease;
   padding: 0px 5px 0px 5px;
   width: 400px;
-  z-index: 1000;
+  z-index: var(--z-index-search-bar);
   border-color:  #595959;
   font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica,
     Arial, sans-serif;

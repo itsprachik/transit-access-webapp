@@ -1,3 +1,30 @@
+/* ─── Z-index custom properties (mirrors zIndex.ts) ──────────────────────────
+   Defined here so they are present in the SSR stylesheet before any JS runs.
+   applyZIndexVars() in MtaMap overwrites these with the same values at runtime. */
+:root {
+  --z-index-mapbox-bottom-right: 1;
+  --z-index-center-dot: 995;
+  --z-index-footer: 996;
+  --z-index-map-controls: 997;
+  --z-index-nearby-popup: 999;
+  --z-index-station-popup: 1000;
+  --z-index-alert-banner: 1000;
+  --z-index-last-updated: 1000;
+  --z-index-mapbox-popup-close-button: 20;
+  --z-index-search-bar: 1001;
+  --z-index-popup-base: 2;
+  --z-index-popup-note: 3;
+  --z-index-popup-fly-button: 5;
+  --z-index-popup-close-button: 9;
+  --z-index-popup-access-note: 10;
+  --z-index-popup-upcoming-note: 10;
+
+  /* Map-center shift constants (mirrors MtaMap.tsx constants) */
+  --mobile-shift-dvh: 30dvh;
+  --desktop-shift-left: 100px;
+  --desktop-shift-top: -30px;
+}
+
 html,
 body,
 body > div:first-child,
@@ -38,7 +65,7 @@ div#__next > div {
 
 /* Custom styles for the click popup */
 .onclick-popup.mapboxgl-popup.mapboxgl-popup-anchor-bottom {
-  z-index: 999;
+  z-index: var(--z-index-station-popup);
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -58,7 +85,7 @@ div#__next > div {
   background: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(50px);
-  border-radius: 0.4rem 0.4rem 0rem 0rem;
+  border-radius: 0.8rem 0.8rem 0rem 0rem;
   color: #333;
   box-sizing: border-box;
 }
@@ -69,7 +96,7 @@ div#__next > div {
     background-color: #edededb3;
     backdrop-filter: blur(3px);
     box-shadow: -4px 0px 12px rgba(0, 0, 0, 0.7);
-    border-radius: 0rem 0.4rem 0.4rem 0rem;
+    border-radius: 0rem 0.8rem 0.8rem 0rem;
     left: 0% !important;
     bottom: auto !important;
     top: 150px;
@@ -82,7 +109,7 @@ div#__next > div {
   }
 
   .show-3d-button-wrapper {
-    left: 223px !important;
+    left: 266px !important;
   }
 
   html.alert-open .show-3d-button-wrapper {
@@ -130,18 +157,22 @@ div#__next > div {
 }
 
 .onclick-popup .mapboxgl-popup-close-button {
-  position: absolute; /* Position relative to .stationPopup */
-  z-index: 20;
-  color: #939393;
+  position: absolute;
+  z-index: var(--z-index-mapbox-popup-close-button);
   right: 10px;
-  top: 10px; /* These will now work relative to .stationPopup */
-  padding: 0.2rem 0.4rem 0.4rem 0.4rem;
-  font-size: x-large;
+  top: 10px;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  font-size: 0;
   background-color: #dedede;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111111' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'/%3E%3Cline x1='6' y1='6' x2='18' y2='18'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 16px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, background 0.15s ease;
 }
 
 .onhover-popup .mapboxgl-popup-close-button {
@@ -161,10 +192,8 @@ div#__next > div {
 }
 
 .onclick-popup .mapboxgl-popup-close-button:hover {
-  transform: scale(1.15);
-  color: #636363;
-  background-color: #dedede !important;
-  border-radius: 100%;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.97);
 }
 
 .onclick-popup p {
@@ -205,61 +234,80 @@ div#__next > div {
     left: 6px;
     right: 0;
     display: inline-block;
-    z-index: 999;
+    z-index: var(--z-index-last-updated);
 }
 
 .map-top-wrapper {
   display: block;
 }
 
-.map-reset-button {
-  position: absolute;
+/*
+ * Bottom-right stack (bottom → top): geolocate (Mapbox) → map-reset → compass (Mapbox, fixed)
+ * --bottom-popup-h: 3rem (minimized) | 40dvh (collapsed, default)
+ * Heights: panel(h) + gap(8) + geolocate(29) + gap(8) = h+45 for map-reset
+ *          h+45 + map-reset(29) + gap(8) = h+82 for compass
+ */
+.map-zoom-out {
+  position: fixed;
+  right: 10px;
+  bottom: calc(var(--bottom-popup-h, 40dvh) + 55px);
+  transition: bottom 0.05s ease;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  top: 60px;
-  left: 6px;
-  z-index: 998;
-  background-color: #fefefed6;
-  backdrop-filter: blur(3px);
-  border: 2px solid #e5e5e5;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  padding: 6px 8px;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
-  font-weight: 600;
-  font-size: 12px;
-  color: #303030;
-  cursor: pointer;
-  gap: 0.3rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
-  transition:
-    background-color 0.2s,
-    transform 0.2s;
+  gap: 8px;
+  z-index: var(--z-index-map-controls);
 }
 
-.map-reset-button:hover {
-  background-color: #f5f5f5;
+@media (min-width: 768px) {
+  /* Desktop: horizontal row under the search bar — geolocate(6) → map-reset(43) → compass(81) */
+  .map-zoom-out {
+    top: var(--nav-ctrl-top, 62px);
+    bottom: auto;
+    left: 43px; /* geolocate(29) + gap(8) + left-offset(6) = 43 */
+    right: auto;
+    flex-direction: row;
+    transition: top 0.3s ease;
+  }
 }
+
+.map-zoom-out-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 29px;
+  height: 29px;
+  background-color: #fefefe;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  border: none;
+  border-radius: 0.4rem;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  color: #303030;
+  cursor: pointer;
+}
+
+.map-zoom-out-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.css-1i69s7c-MuiButtonBase-root-MuiIconButton-root {
+  z-index: var(--z-index-map-controls);
+}
+
 
 .show-3d-button-wrapper {
   position: absolute;
   top: 65px;
-  z-index: 998;
+  z-index: var(--z-index-map-controls);
   display: flex;
   align-items: center;
   background-color: #fff;
   border: 2px solid #e5e5e5;
   border-radius: 4px;
   border-style: solid;
-  border-width: 1px;
-  padding: 2px 8px 2px 6px;
+  border: 2px solid hsl(0deg 0% 88.63%);
+  padding: 4px 8px 4px 6px;
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -275,7 +323,7 @@ div#__next > div {
 
 @media (max-width: 768px) {
   .show-3d-button-wrapper {
-    right: 6px !important;
+    right: 45px !important;
   }
 }
 
@@ -289,13 +337,58 @@ div#__next > div {
   bottom: 300px;
 }
 
-.mapboxgl-ctrl-geolocate {
-  transform: scale(1.5); /* Increase size of geolocate */
+.mapboxgl-ctrl-bottom-right {
+  z-index: var(--z-index-mapbox-bottom-right); /* keep it behind popup */
 }
 
-.mapboxgl-ctrl-bottom-right {
-  z-index: 1; /* keep it behind popup */
+/* Compass: pulled out of Mapbox ctrl flow, positioned independently above map-reset */
+.mapboxgl-ctrl-bottom-right .mapboxgl-ctrl-group:has(.mapboxgl-ctrl-compass) {
+  position: fixed !important;
+  right: 0px;
+  bottom: calc(var(--bottom-popup-h, 40dvh) + 82px);
+  transition: bottom 0.05s ease, opacity 0.5s ease 0s, visibility 0s 0s;
+  opacity: 1;
+  visibility: visible;
 }
+
+@media (min-width: 768px) {
+  .mapboxgl-ctrl-bottom-right .mapboxgl-ctrl-group:has(.mapboxgl-ctrl-compass) {
+    top: calc(var(--nav-ctrl-top, 62px));
+    bottom: auto;
+    left: 81px; /* left-offset(6) + geolocate(29) + gap(8) + map-reset(30) + gap(8) = 81 */
+    right: auto;
+    transition: top 0.3s ease, opacity 0.5s ease 0s, visibility 0s 0s;
+  }
+}
+
+/* Bearing at north: fade out over last 0.5s of a 2s window */
+[data-bearing-zero="true"] .mapboxgl-ctrl-bottom-right .mapboxgl-ctrl-group:has(.mapboxgl-ctrl-compass) {
+  opacity: 0;
+  visibility: hidden;
+  transition: bottom 0.05s ease, opacity 0.5s ease 1.5s, visibility 0s 2s;
+}
+
+@media (max-width: 767px) {
+  /* Mobile: geolocate floats above the active popup */
+  .mapboxgl-ctrl-bottom-right {
+    bottom: calc(var(--bottom-popup-h, 40dvh) + 8px) !important;
+    transition: bottom 0.05s ease;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Desktop: geolocate sits at left of the horizontal nav row, under the search bar */
+  .mapboxgl-ctrl-bottom-right {
+    position: fixed !important;
+    top: var(--nav-ctrl-top, 62px) !important;
+    left: 6px !important;
+    bottom: auto !important;
+    right: auto !important;
+    transition: top 0.3s ease;
+  }
+}
+
+
 
 @layer base {
   :root {
@@ -361,5 +454,48 @@ div#__next > div {
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Map-center locator dot (shown when user drags the map).
+   Positioned via CSS vars set by MtaMap — change the constants there, not here. */
+@keyframes centerDotDrop {
+  0%   { box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.35); }
+  40%  { box-shadow: none; width: 16px; height: 16px; }
+  100% { box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15); width: 18px; height: 18px; }
+}
+
+/* settled — drop animation retriggers each time .floating is removed */
+.map-center-dot {
+  position: fixed;
+  left: 50%;
+  /* dot sits at the center of the visible area above the panel.
+     --mobile-shift-dvh is the panel height; 0 = no panel = dot at 50dvh. */
+  top: calc((100dvh - var(--mobile-shift-dvh, 40dvh)) / 2);
+  transform: translate(-50%, -50%) scaleY(cos(var(--map-pitch-deg, 0deg)));
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #9b5514;
+  border: 2.5px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  z-index: var(--z-index-center-dot);
+  animation: centerDotDrop 0.25s ease-out forwards, box-shadow 0.2s ease;
+}
+
+/* floating/dragging — animation: none lets the drop animation retrigger on release */
+.map-center-dot.floating {
+  background:#834a1580;
+  backdrop-filter: blur(1px);
+  border: 2.5px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  animation: none;
+}
+
+@media (min-width: 768px) {
+  .map-center-dot {
+    left: calc(50vw + var(--desktop-shift-left, 200px));
+    top: calc(50vh + var(--desktop-shift-top, 0px));
   }
 }

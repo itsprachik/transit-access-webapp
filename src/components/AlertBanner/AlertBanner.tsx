@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Alert, Collapse } from "@mui/material";
 import { AlertBannerProps } from "@/types/alerts";
+import { Z } from "@/styles/zIndex";
 
 const severityStyles: Record<string, object> = {
   success: {
@@ -35,7 +36,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
         top: 0,
         left: 0,
         right: 0,
-        zIndex: 1000,
+        zIndex: Z.alertBanner,
         pointerEvents: "none",
         maxWidth: "100vw",
         boxSizing: "border-box",

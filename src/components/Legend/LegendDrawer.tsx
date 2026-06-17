@@ -1,4 +1,5 @@
 import React, { useState, useId } from "react";
+import styles from "./legend-drawer.module.css";
 import {
   SwipeableDrawer,
   IconButton,
@@ -19,10 +20,11 @@ import {
 
 import { getADAPctByStation, getADAPctByComplex } from "@/utils/dataUtils";
 
-import MenuIcon from "@mui/icons-material/Menu";
+import HelpOutlined from "@mui/icons-material/HelpOutlineOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 import pkg from "../../../package.json";
-import { FaWrench } from "react-icons/fa";
+import { FaStar, FaWrench } from "react-icons/fa";
+import Footer from "../Footer/Footer";
 
 interface LegendDrawerProps {
   numOutElevators: number;
@@ -40,7 +42,7 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
   lastUpdated,
 }) => {
   const [open, setOpen] = useState(false);
-  const drawerId = useId(); // stable ID for aria-controls / aria-labelledby
+  const drawerId = useId(); // ID for aria-controls / aria-labelledby
 
   const numInService = totalElevators - numOutElevators;
   const pctOut = 100 - pctInService;
@@ -96,6 +98,12 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
       label: "Access tip from the community",
     },
     {
+      icon: <FaStar color="#2a6fa8" size="12" />,
+      iconLabel: "Star",
+      bg: "#a7d3f653",
+      label: "Redundant elevator (if out of service, another path is possible)",
+    },
+    {
       icon: <FaWrench color="#c80000" size="12" />,
       iconLabel: "Red wrench",
       bg: "#fff",
@@ -117,21 +125,10 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
         aria-label="Open map legend and about"
         aria-expanded={open}
         aria-controls={drawerId}
-        sx={{
-          position: "fixed",
-          top: hasAlert ? 150 : 107,
-          left: 6,
-          zIndex: 999,
-          backgroundColor: "#fefefed6",
-          boxShadow: 2,
-          padding: "6px",
-          backdropFilter: "blur(3px)",
-          WebkitBackdropFilter: "blur(3px)",
-          transition: "top 0.3s ease",
-          "&:hover": { backgroundColor: "#f5f5f5" },
-        }}
+        title="See legend"
+        className={`${styles.iconButton}${hasAlert ? ` ${styles.iconButtonAlertShown}` : ""}`}
       >
-        <MenuIcon sx={{ fontSize: 20 }} aria-hidden="true" />
+        <HelpOutlined sx={{ fontSize: 20 }} aria-hidden="true" />
       </IconButton>
 
       {/* Drawer — role="dialog" with accessible name comes from aria-labelledby */}
@@ -153,13 +150,7 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
           },
         }}
       >
-        <Box
-          sx={{
-            width: 300,
-            p: 3,
-            background: "linear-gradient(170deg, #fafbf8d1 0%, #fefefe 60%)",
-          }}
-        >
+        <Box className={styles.drawerBox}>
           {/* ── Header ── */}
           <Box
             sx={{
@@ -249,37 +240,25 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
 
             <Typography variant="body2" color="text.secondary" mb={1}>
               There are{" "}
+              <span className={`${styles.stat}`}>{numOutElevators}</span>{" "}
+              elevators out of service at this time (
               <span
-                style={{
-                  fontWeight: 900,
-                  fontStyle: "italic",
-                  fontSize: "16px",
-                  WebkitTextStroke: "0.5px currentColor",
-                }}
+                className={`${styles.bold} ${pctOut <= 5 ? styles.colorGood : pctOut < 8 ? styles.colorOk : styles.colorBad}`}
               >
-                {numOutElevators}
+                {pctOut}%{" "}
               </span>{" "}
-              elevators out of service at this time ({pctOut}% of the system).
+              of the system).
             </Typography>
             <Typography variant="body2" color="text.secondary" mb={1}>
-              <span
-                style={{
-                  fontWeight: 900,
-                  fontStyle: "italic",
-                  fontSize: "16px",
-                  WebkitTextStroke: "0.5px currentColor",
-                }}
-              >
-                {numInService}
-              </span>{" "}
-              elevators available for use.
+              <span className={styles.stat}>{numInService}</span> elevators
+              available for use.
             </Typography>
             {formattedTime && (
               <Typography
                 variant="body2"
                 color="text.secondary"
                 mb={2}
-                sx={{ fontSize: "11px" }}
+                className={styles.lastUpdatedText}
               >
                 {`Last updated: ${formattedTime}`}
               </Typography>
@@ -312,17 +291,7 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
                   aria-label={`${iconLabel}, ${srLabel ?? label}`}
                   sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}
                 >
-                  <Box
-                    aria-hidden="true"
-                    sx={{
-                      width: 24,
-                      height: 24,
-                      flexShrink: 0,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
+                  <Box aria-hidden="true" className={styles.legendIconBox}>
                     {icon}
                   </Box>
                   <Typography aria-hidden="true" variant="body2">
@@ -358,16 +327,7 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
                   aria-label={`${iconLabel}, ${label}`}
                   sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}
                 >
-                  <Box
-                    aria-hidden="true"
-                    sx={{
-                      width: 24,
-                      height: 24,
-                      flexShrink: 0,
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                  >
+                  <Box aria-hidden="true" className={styles.legendIconBoxLeft}>
                     {icon}
                   </Box>
                   <Typography aria-hidden="true" variant="body2">
@@ -405,16 +365,8 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
                 >
                   <Box
                     aria-hidden="true"
-                    sx={{
-                      width: 24,
-                      height: 24,
-                      flexShrink: 0,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderRadius: "50%",
-                      backgroundColor: bg,
-                    }}
+                    className={styles.legendIconBox}
+                    sx={{ borderRadius: "50%", backgroundColor: bg }}
                   >
                     {icon}
                   </Box>
@@ -534,7 +486,7 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
             <Typography
               variant="body2"
               color="text.secondary"
-              sx={{ fontSize: "11px" }}
+              className={styles.disclaimerText}
             >
               Disclaimer: App data pulled from MTA's GTFS-realtime feed and Open
               Data NY (
@@ -562,6 +514,8 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
           </section>
 
           <Divider aria-hidden="true" sx={{ my: 2 }} />
+
+          <Footer inline />
         </Box>
       </SwipeableDrawer>
     </>

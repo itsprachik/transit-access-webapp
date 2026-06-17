@@ -57,6 +57,8 @@ import {
   getComplexOutageLayerFeatures,
   convertDateDistance,
   easyToReadDate,
+  getOutageDurationDays,
+  getElevatorMaintenanceToday,
 } from "@/utils/dataUtils";
 import { stationIDToComplexID } from "@/utils/elevatorIndexUtils";
 
@@ -79,16 +81,34 @@ export const initializeMtaMap = (
   mapRef,
   mapContainer,
   locationPromise?: Promise<{ center: [number, number]; bearing: number }>,
+  onGeolocate?: (coords: [number, number]) => void,
+  onLocate?: () => void,
+  geolocationPadding?: {
+    top: number;
+    bottom: number;
+    left: number;
+    right: number;
+  },
 ) => {
   const mapRefPitch = setMapPitch(0);
   const mtaMapOptions = getMtaMapOptions(mapContainer.current, mapRefPitch);
 
   mapRef.current = new mapboxgl.Map(mtaMapOptions);
 
-  const zoomControl = new mapboxgl.NavigationControl({ visualizePitch: true, showZoom: false });
+  const zoomControl = new mapboxgl.NavigationControl({
+    visualizePitch: true,
+    showZoom: false,
+  });
   mapRef.current.dragRotate.enable();
   mapRef.current.touchZoomRotate.enable();
-  mapRef.current.addControl(zoomControl, "bottom-right");
+
+  mapRef.current.dragPan.disable();
+  mapRef.current.dragPan.enable({
+    linearity: 0.2,
+    easing: (t) => Math.sin((t * Math.PI) / 2), // sine ease out
+    maxSpeed: 1600,
+    deceleration: 3500,
+  });
 
   // Seed with the default tilt so the first geolocate is bearing 29.
   // Updated on every geolocate event.
@@ -99,23 +119,46 @@ export const initializeMtaMap = (
     trackUserLocation: true,
     showUserHeading: true,
     fitBoundsOptions: {
-      get bearing() { return nextBearing; },
-      get zoom() { return DEFAULT_ZOOM; },
-      get maxZoom() { return mapRef.current?.getZoom() ?? DEFAULT_ZOOM; },
+      get bearing() {
+        return nextBearing;
+      },
+      get zoom() {
+        return DEFAULT_ZOOM;
+      },
+      get maxZoom() {
+        return mapRef.current?.getZoom() ?? DEFAULT_ZOOM;
+      },
+      ...(geolocationPadding ? { padding: geolocationPadding } : {}),
     },
   });
-  mapRef.current.addControl(geolocateControl, "bottom-right");
+  mapRef.current.addControl(geolocateControl, "bottom-right"); // geolocate: first → lowest (closest to panel)
+  mapRef.current.addControl(zoomControl, "bottom-right"); // compass: second → above geolocate
+  mapRef.current.addControl(
+    new mapboxgl.AttributionControl({ compact: true }),
+    "bottom-left",
+  );
 
   // Keep nextBearing current so the get above always has the right value
   geolocateControl.on("geolocate", (e: GeolocationPosition) => {
     const { longitude: lng, latitude: lat } = e.coords;
     nextBearing = getBearingByLocation(lng, lat);
+    onGeolocate?.([lng, lat]);
+  });
+
+  geolocateControl.on("trackuserlocationstart", () => {
+    onLocate?.();
   });
 
   mapRef.current.on("load", async () => {
     const { center, bearing } = await (locationPromise ?? setMapCenter());
     nextBearing = bearing; // seed before geolocate trigger reads it
-    mapRef.current.flyTo({ center, bearing, zoom: DEFAULT_ZOOM, duration: 200, essential: true });
+    mapRef.current.flyTo({
+      center,
+      bearing,
+      zoom: DEFAULT_ZOOM,
+      duration: 200,
+      essential: true,
+    });
     mapRef.current.once("moveend", () => geolocateControl.trigger());
   });
 };
@@ -270,6 +313,10 @@ function handleElevatorClick(
         outageDate: o.outagedate,
         estimatedreturntoservice: o.estimatedreturntoservice?.trim() || null,
         outageDuration: o.outageDuration || null,
+        outageDurationDays: getOutageDurationDays(
+          o.outagedate,
+          o.estimatedreturntoservice?.trim(),
+        ),
       }))
     : upcomingOutage
       ? [
@@ -279,6 +326,10 @@ function handleElevatorClick(
             estimatedreturntoservice:
               upcomingOutage.estimatedreturntoservice?.trim() || null,
             outageDuration: upcomingOutage.outageDuration || null,
+            outageDurationDays: getOutageDurationDays(
+              upcomingOutage.outagedate,
+              upcomingOutage.estimatedreturntoservice?.trim(),
+            ),
           },
         ]
       : [];
@@ -317,6 +368,9 @@ function handleStationComplexClick(
   show3DToggle,
   setShow3DToggle,
   lastUpdated,
+  onBack?: () => void,
+  userLocation?: [number, number] | null,
+  walkingToleranceMiles?: number | null,
 ) {
   mapRef.setLayoutProperty("building-extrusion", "visibility", "visible");
 
@@ -392,6 +446,10 @@ function handleStationComplexClick(
               upcomingOutage?.outagedate,
               upcomingOutage?.estimatedreturntoservice,
             ) || "null",
+          outageDurationDays: getOutageDurationDays(
+            upcomingOutage?.outagedate,
+            upcomingOutage?.estimatedreturntoservice,
+          ),
         }
       : null;
 
@@ -413,6 +471,10 @@ function handleStationComplexClick(
       totalElevators: totalElevators,
       totalRamps: totalRamps,
       isUpcomingOutage: filteredOutage || [],
+      maintenanceLabel: getElevatorMaintenanceToday(
+        elevatorno,
+        upcomingElevatorData,
+      ),
       complexAlert: complexAlert,
     };
   });
@@ -497,6 +559,9 @@ function handleStationComplexClick(
       isOut={isOut}
       isProblem={isProblem}
       complexAlert={complexAlert}
+      onBack={onBack}
+      userLocation={userLocation}
+      walkingToleranceMiles={walkingToleranceMiles}
     />,
   );
 
@@ -579,6 +644,9 @@ export function handleSearchPopup(
   show3DToggle,
   setShow3DToggle,
   lastUpdated,
+  onBack?: () => void,
+  userLocation?: [number, number] | null,
+  walkingToleranceMiles?: number | null,
 ) {
   if (!feature || feature.length === 0) return;
 
@@ -638,6 +706,9 @@ export function handleSearchPopup(
     show3DToggle,
     setShow3DToggle,
     lastUpdated,
+    onBack,
+    userLocation,
+    walkingToleranceMiles,
   );
 
   showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
@@ -660,6 +731,8 @@ export function handleOnClick(
   show3DToggle,
   setShow3DToggle,
   lastUpdated,
+  onBack?: () => void,
+  userLocation?: [number, number] | null,
 ) {
   if (!e.features || e.features.length === 0) return;
 
@@ -781,6 +854,8 @@ export function handleOnClick(
       show3DToggle,
       setShow3DToggle,
       lastUpdated,
+      onBack,
+      userLocation,
     );
     showPopup(
       complexFeature.geometry.coordinates as [number, number],
@@ -819,6 +894,8 @@ export function handleOnClick(
       show3DToggle,
       setShow3DToggle,
       lastUpdated,
+      onBack,
+      userLocation,
     );
     showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
   }
@@ -837,6 +914,8 @@ export function handleOnClick(
       show3DToggle,
       setShow3DToggle,
       lastUpdated,
+      onBack,
+      userLocation,
     );
     showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
   }
@@ -863,6 +942,8 @@ export function handleOnClick(
       show3DToggle,
       setShow3DToggle,
       lastUpdated,
+      onBack,
+      userLocation,
     );
     showPopup(coordinates, mapRef, onClickPopupRef, popupDiv, root);
   }

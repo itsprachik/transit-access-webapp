@@ -5,20 +5,33 @@ import { RiSurveyLine } from "react-icons/ri";
 import { SiBuymeacoffee } from "react-icons/si";
 import styled from "styled-components";
 
-const FooterContainer = styled.footer`
-  position: fixed;
-  bottom: 45px;
-  left: 10px;
+const FooterContainer = styled.footer<{ $inline?: boolean }>`
+  ${({ $inline }) =>
+    $inline
+      ? `
+    position: sticky;
+    bottom: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 0;
+    background: #fff;
+  `
+      : `
+    position: fixed;
+    bottom: 45px;
+    left: 10px;
+    flex-direction: column;
+    z-index: var(--z-index-footer);
+
+    @media (max-width: 768px) {
+      bottom: 263px;
+      left: 6px;
+    }
+  `}
   display: flex;
   gap: 0.3rem;
-  z-index: 998;
-  flex-direction: column;
-
-  @media (max-width: 768px) {
-    bottom: 45px;
-    left: 6px;
-    gap: 0.3rem;
-  }
 `;
 
 const SocialLink = styled.a`
@@ -51,9 +64,9 @@ const SocialLink = styled.a`
   }
 `;
 
-const Footer = () => {
+const Footer = ({ inline }: { inline?: boolean }) => {
   return (
-    <FooterContainer>
+    <FooterContainer $inline={inline}>
       <SocialLink
         href="https://discord.gg/HgZVSJ9SE8"
         aria-label="Join our Discord!"

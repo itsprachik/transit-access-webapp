@@ -13,6 +13,7 @@ import {
 } from "../icons";
 import { StationPopupProps } from "@/utils/types";
 import { generateSubwayLines } from "@/utils/dataUtils";
+import { FiChevronLeft } from "react-icons/fi";
 
 const StationPopup: React.FC<StationPopupProps> = ({
   complexName,
@@ -28,14 +29,16 @@ const StationPopup: React.FC<StationPopupProps> = ({
   setStationView,
   elevatorView,
   setElevatorView,
-  show3DToggle,
-  setShow3DToggle,
   lastUpdated,
   isOut,
   isProblem,
   complexAlert,
+  onBack,
+  userLocation,
+  walkingToleranceMiles,
 }) => {
   const [showOOS, setShowOOS] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
   const [isAnimatingOOSOpen, setIsAnimatingOOSOpen] = useState(false);
   const wrapperRef = useRef<HTMLSpanElement>(null);
   const oosButtonRef = useRef<HTMLButtonElement>(null);
@@ -77,19 +80,24 @@ const StationPopup: React.FC<StationPopupProps> = ({
     if (!touchStart || !touchEnd) return;
 
     const distance = touchStart - touchEnd;
-    const isDownSwipe = distance < -minSwipeDistance;
-    const isUpSwipe = distance > minSwipeDistance;
 
-    if (isUpSwipe && !isExpanded) {
-      setIsExpanded(true);
-      setActiveFlyButton(null);
-    }
-
-    // Only collapse on downward swipe if we're expanded
-    if (isDownSwipe && isExpanded) {
-      setIsExpanded(false);
-      setIsScrolled(false);
-      if (activeFlyButton) setActiveFlyButton(null);
+    if (distance > minSwipeDistance) {
+      // swipe up
+      if (isMinimized) {
+        setIsMinimized(false);
+      } else if (!isExpanded) {
+        setIsExpanded(true);
+        setActiveFlyButton(null);
+      }
+    } else if (distance < -minSwipeDistance) {
+      // swipe down
+      if (isExpanded) {
+        setIsExpanded(false);
+        setIsScrolled(false);
+        if (activeFlyButton) setActiveFlyButton(null);
+      } else if (!isMinimized) {
+        setIsMinimized(true);
+      }
     }
   };
 
@@ -98,9 +106,12 @@ const StationPopup: React.FC<StationPopupProps> = ({
       touchEnd !== null && Math.abs(touchStart - touchEnd) > 10; // e.g., 10px
 
     if (!wasSwipeOrDrag && touchStart !== null) {
-      // This was a tap - toggle the expanded state
-      setIsExpanded(!isExpanded);
-      if (!isExpanded) setActiveFlyButton(null);
+      if (isMinimized) {
+        setIsMinimized(false);
+      } else {
+        setIsExpanded(!isExpanded);
+        if (!isExpanded) setActiveFlyButton(null);
+      }
     }
     // Clean up touch tracking
     setTouchStart(null);
@@ -360,7 +371,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
     <section
       ref={dialogRef}
       id="station-popup"
-      className={`${styles.stationPopup} ${isExpanded ? styles.expanded : ""}`}
+      className={`${styles.stationPopup} ${isMinimized ? styles.minimized : isExpanded ? styles.expanded : ""}`}
       role="dialog"
       aria-modal="true"
       aria-labelledby="station-popup-title"
@@ -376,6 +387,15 @@ const StationPopup: React.FC<StationPopupProps> = ({
           <div aria-hidden="true" className="flex justify-center p-2">
             <div className="h-1 w-12 rounded-full bg-muted-foreground/30" />
           </div>
+        )}
+        {onBack && (
+          <button
+            className={styles.backToNearby}
+            onClick={onBack}
+            aria-label="Back to nearby stations"
+          >
+            <FiChevronLeft size={23}/>
+          </button>
         )}
         <h1
           ref={titleRef}
@@ -560,9 +580,10 @@ const StationPopup: React.FC<StationPopupProps> = ({
                   setStationView={setStationView}
                   elevatorView={elevatorView}
                   setElevatorView={setElevatorView}
-                  setShow3DToggle={setShow3DToggle}
                   activeFlyButton={activeFlyButton}
                   setActiveFlyButton={setActiveFlyButton}
+                  userLocation={userLocation}
+                  walkingToleranceMiles={walkingToleranceMiles}
                 />
               </div>
             ))}
@@ -600,9 +621,10 @@ const StationPopup: React.FC<StationPopupProps> = ({
                   setStationView={setStationView}
                   elevatorView={elevatorView}
                   setElevatorView={setElevatorView}
-                  setShow3DToggle={setShow3DToggle}
                   activeFlyButton={activeFlyButton}
                   setActiveFlyButton={setActiveFlyButton}
+                  userLocation={userLocation}
+                  walkingToleranceMiles={walkingToleranceMiles}
                 />
               </div>
             ))}

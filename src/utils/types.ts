@@ -5,6 +5,7 @@ export type UpcomingOutage = {
   outageDate?: string | null;
   estimatedReturn?: string | null;
   outageDuration?: string | null;
+  outageDurationDays?: number | null;
 };
 
 export type ElevatorPopupProps = {
@@ -25,6 +26,7 @@ export type ElevatorPopupProps = {
   isMezzTransferOnly?: string;
   isRedundant?: boolean | string;
   isUpcomingOutage?: UpcomingOutage[] | null;
+  maintenanceLabel?: string | null;
   lastUpdated?: string,
 };
 
@@ -49,6 +51,9 @@ export type StationPopupProps = {
   isOut?: boolean | string;
   isProblem?: boolean | string;
   complexAlert?: string[];
+  onBack?: () => void;
+  userLocation?: [number, number] | null;
+  walkingToleranceMiles?: number | null;
 };
 
 type ElevatorFeature = {

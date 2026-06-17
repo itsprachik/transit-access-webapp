@@ -1,0 +1,92 @@
+/* ── Floating trigger button ── */
+
+.iconButton {
+  position: fixed !important;
+  top: 66px !important;
+  right: 6px !important;
+  z-index: var(--z-index-map-controls) !important;
+  background-color: #fefefe !important;
+  border: none !important;
+  border-radius: 4px !important;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1) !important;
+  padding: 5px 6px !important;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  transition: top 0.3s ease !important;
+}
+
+.iconButton:hover {
+  background-color: #f0f0f0 !important;
+}
+
+.iconButtonAlertShown {
+  top: 109px !important;
+}
+
+@media (min-width: 768px) {
+  .iconButton {
+    right: auto !important;
+    left: 361px !important;
+  }
+}
+
+/* ── Drawer content ── */
+
+.drawerBox {
+  width: 300px;
+  padding: 1.4rem 1.4rem 0rem;
+  background: linear-gradient(170deg, #fafbf8d1 0%, #fefefe 60%);
+}
+
+.stat {
+  font-weight: 900;
+  font-style: italic;
+  font-size: 16px;
+  -webkit-text-stroke: 0.5px currentColor;
+}
+
+.lastUpdatedText {
+  font-size: 11px !important;
+}
+
+.legendIconBox {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.legendIconBoxLeft {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.disclaimerText {
+  font-size: 11px !important;
+}
+
+.bold {
+  font-weight: 900 !important;
+  -webkit-text-stroke: 0.3px currentColor;
+}
+
+.colorGood {
+  color: #257d05;
+}
+
+.colorBad {
+  color: #c30303;
+}
+
+.colorOk {
+  color: #d89b00;
+}
+
+.colorNeutral {
+  color: #323131;
+}

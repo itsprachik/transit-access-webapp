@@ -10,7 +10,7 @@ import { stationCoordinates } from "./accessibleStationGeometry";
 import { stationGeometry } from "./stationGeometry";
 import { complexCoordinates } from "./ComplexGeometry";
 import { getComplexBoundaryGeoJSON } from "@/components/MtaMap/layers/StationComplexes/complexBoundaries";
-import { parse, isToday, isTomorrow, isThisWeek, format, formatDistanceToNow, formatDistance } from "date-fns";
+import { parse, isToday, isTomorrow, isThisWeek, format, formatDistanceToNow, formatDistance, differenceInDays } from "date-fns";
 
 import { getElevatorsDataset, getComplexesDataset, getStationsDataset } from "@/lib/dataStore";
 
@@ -29,6 +29,15 @@ import {
   stationIDToComplexID,
 } from "@/utils/elevatorIndexUtils";
 let elevatorIndex = [];
+
+// NYC's street grid makes actual walking ~30% longer than straight-line Haversine
+export const WALKING_DISTANCE_FACTOR = 1.3;
+
+// the walking distance users are expected to tolerate (in walking miles)
+export const WALKING_TOLERANCE_MILES = 1;
+
+// crow-flies equivalent of the walking tolerance
+export const radiusTolerance = WALKING_TOLERANCE_MILES / WALKING_DISTANCE_FACTOR;
 
 // Function to highlight all upcoming outages
 export function getUpcomingOutages(outageArray) {
@@ -149,6 +158,7 @@ export function getUpcomingOutageLayerFeatures(upcomingOutElevatorData) {
         station: station?.properties.stop_name,
         isUpcoming: true,
         reason: elevator.reason,
+        outageDurationDays: getOutageDurationDays(outageDate, estimatedreturntoservice),
       },
       geometry: coords
         ? {
@@ -234,6 +244,117 @@ export function convertDateDistance(outageDate, estimatedReturn) {
 
   // fallback: generic relative time
   return `In ${formatDistanceToNow(parsedDate)}`;
+}
+
+// Returns "tonight" (start >= 6pm today), "today" (any other time today), or null.
+function maintenanceTodayLabel(outageStrings) {
+  const rank = { tonight: 3, overnight: 2, today: 1 };
+  let label = null;
+  for (const dateStr of outageStrings) {
+    const parsed = parse(dateStr, "MM/dd/yyyy hh:mm:ss a", new Date());
+    let candidate = null;
+    if (isToday(parsed)) {
+      candidate = parsed.getHours() >= 18 ? "tonight" : "today";
+    } else if (isTomorrow(parsed) && parsed.getHours() < 4) {
+      candidate = "overnight";
+    }
+    if (candidate && (label === null || rank[candidate] > rank[label])) {
+      label = candidate;
+    }
+  }
+  return label;
+}
+
+export function getElevatorMaintenanceToday(elevatorno, upcomingElevatorData) {
+  if (!upcomingElevatorData || !elevatorno) return null;
+  const dates = upcomingElevatorData
+    .filter((u) => u.equipment?.trim().toLowerCase() === elevatorno.trim().toLowerCase())
+    .map((u) => u.outagedate);
+  return maintenanceTodayLabel(dates);
+}
+
+export function getComplexMaintenanceToday(complexId, upcomingElevatorData) {
+  if (!upcomingElevatorData) return null;
+  const elevators = getElevatorsByComplexId(complexId);
+  const complexElevNos = new Set(
+    elevators.map((el) => el.properties.elevatorno?.trim().toLowerCase())
+  );
+  const dates = upcomingElevatorData
+    .filter((u) => u.equipmenttype === "EL" && complexElevNos.has(u.equipment?.trim().toLowerCase()))
+    .map((u) => u.outagedate);
+  return maintenanceTodayLabel(dates);
+}
+
+// Great-circle (haversine) distance between two points, in miles
+export function distanceMiles(lng1, lat1, lng2, lat2) {
+  const R = 3958.8;
+  const dLat = (lat2 - lat1) * (Math.PI / 180);
+  const dLng = (lng2 - lng1) * (Math.PI / 180);
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) * Math.sin(dLng / 2) ** 2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+export function walkingDistanceMiles(lng1, lat1, lng2, lat2) {
+  return distanceMiles(lng1, lat1, lng2, lat2) * WALKING_DISTANCE_FACTOR;
+}
+
+export function getNearbyStations(userLng, userLat, radiusMiles = radiusTolerance) {
+  if (!stationsDataset.features) return [];
+  return stationsDataset.features
+    .map((f) => {
+      const [lng, lat] = f.geometry.coordinates;
+      return { ...f, distance: distanceMiles(userLng, userLat, lng, lat) };
+    })
+    .filter((f) => f.distance <= radiusMiles && f.properties.ada !== "0")
+    .sort((a, b) => a.distance - b.distance);
+}
+
+export function getNearbyComplexes(userLng, userLat, radiusMiles = radiusTolerance) {
+  if (!complexesDataset.features) return [];
+  return complexesDataset.features
+    .map((f) => {
+      const [lng, lat] = f.geometry.coordinates;
+      const distance = distanceMiles(userLng, userLat, lng, lat);
+      const stationIDs = (f.properties.station_ids || "")
+        .split("/")
+        .map((id) => id.trim())
+        .filter(Boolean);
+      const route = concatenateRoutes(stationIDs, stationsDataset);
+      const ada_notes = stationIDs
+        .map((stationID) => {
+          const station = stationsDataset.features.find(
+            (s) => s.properties.station_id === stationID,
+          );
+          if (!station || !station.properties.ada_notes) return null;
+          let routes = "";
+          if (stationIDs.length > 1) routes = station.properties.daytime_routes || "";
+          return `${routes} ${station.properties.ada_notes.trim()}`.trim();
+        })
+        .filter(Boolean)
+        .join(", ");
+      return { ...f, distance, properties: { ...f.properties, route, ada_notes } };
+    })
+    .filter((f) => f.distance <= radiusMiles && f.properties.ada !== "0")
+    .sort((a, b) => a.distance - b.distance);
+}
+
+function parseOutageDate(dateStr) {
+  if (!dateStr) return null;
+  const ref = new Date();
+  const parsed12Hour = parse(dateStr, "MM/dd/yyyy hh:mm:ss a", ref);
+  if (!isNaN(parsed12Hour.getTime())) return parsed12Hour;
+  const parsed24Hour = parse(dateStr, "MM/dd/yyyy HH:mm:ss", ref);
+  if (!isNaN(parsed24Hour.getTime())) return parsed24Hour;
+  return null;
+}
+
+export function getOutageDurationDays(outagedate, estimatedreturntoservice) {
+  const start = parseOutageDate(outagedate);
+  const end = parseOutageDate(estimatedreturntoservice);
+  if (!start || !end) return NaN;
+  return differenceInDays(end, start);
 }
 
 export const getADAPctByStation = () => {
@@ -825,6 +946,7 @@ export function flyIn(
       pitch: 0,
       bearing: borough == "M"? setManhattanTilt(): 0,
       speed: 0.8,
+      offset: [window.innerWidth >= 768 ? 90 : 0, 0], // shift a little right on desktop to accommodate popup
     });
     return;
   }
@@ -857,7 +979,7 @@ export function flyIn(
 
     map.fitBounds(adjustedBounds, {
       padding: dynamicPadding,
-      offset: [0, -map.getCanvas().height * 0.01],
+      offset: [window.innerWidth >= 768 ? 90 : 0, -map.getCanvas().height * 0.01], // shift a little right on desktop to accommodate popup
       maxZoom: maxZoomLevel,
       pitch: 0,
       bearing: borough == "M"? setManhattanTilt(): 0,

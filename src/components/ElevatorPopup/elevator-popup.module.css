@@ -3,9 +3,9 @@
   max-height: 70dvh !important;
   background: linear-gradient(to top, #2c2c34, #26262e);
   border-radius: 0.4rem;
-  padding: 0.75rem;
+  padding: 3rem 0.75rem 2rem;
   font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
-  z-index: 1000;
+  z-index: var(--z-index-station-popup);
 }
 
 @media (min-width: 768px) {
@@ -144,7 +144,7 @@
   padding: 0.5rem 0.7rem;
   border-radius: 0.5rem;
   max-width: 100%;
-  z-index: 9;
+  z-index: var(--z-index-popup-close-button);
 }
 
 .popupSubtitle {

@@ -2,7 +2,7 @@
 // import runs into ts type problems when they're the same (unconfirmed but suspected)
 
 export const elevatorView = 16;
-export const dotView = 11;
+export const dotView = 12;
 export const offsetDistance = -22;
 export const circleOffsetDistance = -10;
 
@@ -65,12 +65,13 @@ export const stationOutageProps = {
     "icon-padding": 0,
     // "auto" respects symbol-sort-key for collision resolution; "source" ignores it.
     "symbol-z-order": "auto",
-    // isOut (all elevators down) > isProblem (partial) > working — station problems
+    // isProblem (partial) > isOut (all elevators down) >  working — station problems
     // remain visible when stations are close together, example at 74 Broadway or Columbus Circle.
+    // isProblem on top for case where a complex has options even if one of its stations is out
     "symbol-sort-key": [
       "case",
-      ["==", ["get", "isOut"], true], 3,
-      ["==", ["get", "isProblem"], true], 2,
+      ["==", ["get", "isOut"], true], 2,
+      ["==", ["get", "isProblem"], true], 3,
       1,
     ],
 
@@ -81,7 +82,7 @@ export const stationOutageProps = {
     "text-offset": [1.5, 0],
   },
   paint: {
-    // Hidden below zoom 11 (dots take over); disappear again at elevatorView.
+    // Hidden below zoom dotiew (dots take over); disappear again at elevatorView.
     "icon-opacity": ["step", ["zoom"], 0, dotView, 1, elevatorView, 0],
   },
 };

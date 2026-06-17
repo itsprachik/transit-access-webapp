@@ -22,6 +22,10 @@ function toElevatorFeature(row: any) {
       redundantIndex: row.redundant_index,
       image: row.image,
       access_note: row.access_note,
+      isBridge: row.is_bridge,
+      isMezzTransferOnly: row.is_mezz_transfer_only,
+      isLastAccessibleStop: row.is_last_accessible_stop,
+      isLastStop: row.is_last_stop,
     },
     geometry: row.geometry,
   };
