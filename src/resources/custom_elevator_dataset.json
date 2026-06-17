@@ -12662,21 +12662,21 @@
         "system": "nyc_mta",
         "elevatorno": "EL488",
         "linesServed": "A",
-        "directionLabel": "Park-bound",
+        "directionLabel": "Lefferts/Far Rockaway-bound",
         "title": "Rockaway Blvd",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Rockaway-Blvd_EL488.jpg",
         "alternativeRoute": "If you are on the mezzanine: For Ozone Park-Lefferts Blvd, exit the station and proceed east to the SW corner of Liberty Av & 95 St. Then, take a Jamaica Parsons-Hillside-bound Q112 bus to Lefferts Blvd.  For The Rockaways and Howard Beach-JFK Airport, take a Manhattan-bound A to Euclid Av and transfer to a Far Rockaway-Mott Av or Rockaway Park-Beach 116 St-bound A.  \n\nIf you are on the platform: Take an Ozone Park-Lefferts Blvd-bound A to Ozone Park-Lefferts Blvd. Then, transfer to an East New York-bound Q112 bus to Cross Bay Blvd/Liberty Av.",
-        "ada": "0",
+        "ada": "1",
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Lefferts/Far Rockaway-bound platform",
-        "description_custom": "This elevator gets you from the main station mezzanine to Park-bound A trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to Lefferts/Far Rockaway-bound A trains"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.843853,
-          40.68032899999999
+          -73.844778,
+          40.680167
         ]
       },
       "id": "a8dd8deb6dcdde8e9dab422f89d4520b"
@@ -12696,17 +12696,17 @@
         "title": "Rockaway Blvd",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Rockaway-Blvd_EL487.jpg",
         "alternativeRoute": "If you are on the street: Proceed east to the SW corner of Liberty Av & 95 St and take a Jamaica Parsons-Hillside-bound Q112 bus to Lefferts Blvd for the Ozone Park-Lefferts Blvd A station. Then, take a Manhattan-bound A. For The Rockaways and Howard Beach-JFK Airport, transfer at Euclid Av for a Far Rockaway-Mott Av or Rockaway Park-Beach 116 St-bound A.  \n\nIf you are on the mezzanine: Take an Ozone Park-Lefferts Blvd A to Ozone Park-Lefferts Blvd. Then, transfer to an East New York-bound Q112 bus to Cross Bay Blvd/Liberty Av.  \n\nIf you are on the platform:  To exit the station, take a Manhattan-bound A to Euclid Av and transfer to an Ozone Park-Lefferts Blvd-bound A to Ozone Park-Lefferts Blvd. Then, transfer to an East New York-bound Q112 bus to Cross Bay Blvd/Liberty Av.  For The Rockaways and Howard Beach-JFK Airport, transfer at Euclid Av A/C to a Far Rockaway-Mott Av or Rockaway Park-Beach 116 St-bound A.  ",
-        "ada": "0",
+        "ada": "1",
         "isBroken": "",
         "isStreet": "true",
         "shortdescription": "Street (NW corner of Liberty Av and Cross Bay Blvd) to Manhattan-bound A",
-        "description_custom": "This elevator gets you from the street to the main station mezzanine"
+        "description_custom": "This elevator gets you from the street directly to Manhattan-bound A trains, and access to Lefferts/Far Rockaway-bound A trains"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.843953,
-          40.680429
+          -73.844889,
+          40.680389
         ]
       },
       "id": "043352e8cd44497a36991e4a24376078"
