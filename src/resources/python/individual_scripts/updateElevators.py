@@ -4,7 +4,7 @@ import re
 import requests
 
 # === CONFIG ===
-API_KEY = os.environ["MTA_API_KEY"]
+API_KEY = os.environ["API_KEY"]
 API_URL = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fnyct_ene_equipments.json"
 
 # Get directory where this script is located
