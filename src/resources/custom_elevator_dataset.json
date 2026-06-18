@@ -12699,6 +12699,7 @@
         "ada": "1",
         "isBroken": "",
         "isStreet": "true",
+        "access_note": "Mezzanine for Rockaway-bound trains, Platform for Manhattan-bound trains (top level)",
         "shortdescription": "Street (NW corner of Liberty Av and Cross Bay Blvd) to Manhattan-bound A",
         "description_custom": "This elevator gets you from the street directly to Manhattan-bound A trains, and access to Lefferts/Far Rockaway-bound A trains"
       },
@@ -12722,15 +12723,15 @@
         "system": "nyc_mta",
         "elevatorno": "EL621",
         "linesServed": "F/M",
-        "directionLabel": "",
+        "directionLabel": "both directions",
         "title": "57 St",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/57-St_EL621.jpg",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/57-St_EL621.jpg",
         "alternativeRoute": "If you are on the platform: Take a downtown M (F nights and weekends) to 47-50 Sts/Rockefeller Ctr. Then take a Washington Heights-bound M5 or a Harlem-bound M7 bus to 56 St.  \n\nIf you are on the mezzanine level: Exit the station and proceed south along 6 Av to 49 St for the 47-50 Sts/Rockefeller Ctr B/D/F/M station for service in both directions. ",
-        "ada": "0",
+        "ada": "1",
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to M (F nights, weekends) platform.",
-        "description_custom": "This elevator gets you from the main station mezzanine to F/M trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to M trains in both directions (F trains nights & weekends)"
       },
       "geometry": {
         "type": "Point",
@@ -12756,7 +12757,7 @@
         "title": "57 St",
         "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/57-St_EL620.jpg",
         "alternativeRoute": "If you are on the mezzanine level: Take a downtown M (F nights and weekends) to 47-50 Sts/Rockefeller Ctr. Then take a Washington Heights-bound M5 or a Harlem-bound M7 bus to 56 St. \n\nIf you are at street level: Proceed south along 6 Av to 49 St for the 47-50 Sts/Rockefeller Ctr B/D/F/M station for service in both directions. ",
-        "ada": "0",
+        "ada": "1",
         "isBroken": "",
         "isStreet": "true",
         "shortdescription": "Street (SW corner of 56 St and 6 Av) to mezzanine.",
@@ -12765,8 +12766,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.97755000000001,
-          40.763972
+          -73.977861,
+          40.763556
         ]
       },
       "id": "6a4cac2b49025ae4c45f603fa1deedbf"

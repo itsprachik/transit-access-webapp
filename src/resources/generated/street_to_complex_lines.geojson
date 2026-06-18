@@ -4792,8 +4792,8 @@
         "type": "LineString",
         "coordinates": [
           [
-            -73.97755000000001,
-            40.763972
+            -73.977861,
+            40.763556
           ],
           [
             -73.97745,
@@ -4805,7 +4805,7 @@
         "complex_id": "224",
         "elevator_no": "EL620",
         "station_name": "57 St",
-        "ada": "0",
+        "ada": "1",
         "side": "left"
       }
     }
