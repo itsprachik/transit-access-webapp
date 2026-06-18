@@ -111,6 +111,22 @@ def fetch_latest_complex_data():
         json.dump(new_feature_collection, f, indent=2)
 
     print(f"✅ Saved {len(new_features)} complexes to {COMPLEXES_FILE}")
+
+    # Write diff report section
+    report_path = os.path.join(THIS_DIR, "..", "..", "generated", "diff_report.json")
+    report = {}
+    if os.path.exists(report_path):
+        with open(report_path) as f:
+            report = json.load(f)
+    report["complexes"] = {
+        "added":    [p["stop_name"] for p in added],
+        "removed":  [p["stop_name"] for p in removed],
+        "modified": [m["stop_name"] for m in modified],
+    }
+    os.makedirs(os.path.dirname(report_path), exist_ok=True)
+    with open(report_path, "w") as f:
+        json.dump(report, f, indent=2)
+
     return new_feature_collection
 
 if __name__ == "__main__":

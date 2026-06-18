@@ -4762,6 +4762,52 @@
         "ada": "2",
         "side": "left"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.844889,
+            40.680389
+          ],
+          [
+            -73.843853,
+            40.680429
+          ]
+        ]
+      },
+      "properties": {
+        "complex_id": "192",
+        "elevator_no": "EL487",
+        "station_name": "Rockaway Blvd",
+        "ada": "1",
+        "side": "left"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.977861,
+            40.763556
+          ],
+          [
+            -73.97745,
+            40.763972
+          ]
+        ]
+      },
+      "properties": {
+        "complex_id": "224",
+        "elevator_no": "EL620",
+        "station_name": "57 St",
+        "ada": "1",
+        "side": "left"
+      }
     }
   ]
 }

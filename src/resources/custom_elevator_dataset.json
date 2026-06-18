@@ -12650,6 +12650,129 @@
         "type": "Point"
       },
       "id": "d96f028eae4084ac1f73b497d321a472"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "A61",
+        "route": "A",
+        "complexID": "192",
+        "stationID": "192",
+        "system": "nyc_mta",
+        "elevatorno": "EL488",
+        "linesServed": "A",
+        "directionLabel": "Lefferts/Far Rockaway-bound",
+        "title": "Rockaway Blvd",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/Rockaway-Blvd_EL488.jpg",
+        "alternativeRoute": "If you are on the mezzanine: For Ozone Park-Lefferts Blvd, exit the station and proceed east to the SW corner of Liberty Av & 95 St. Then, take a Jamaica Parsons-Hillside-bound Q112 bus to Lefferts Blvd.  For The Rockaways and Howard Beach-JFK Airport, take a Manhattan-bound A to Euclid Av and transfer to a Far Rockaway-Mott Av or Rockaway Park-Beach 116 St-bound A.  \n\nIf you are on the platform: Take an Ozone Park-Lefferts Blvd-bound A to Ozone Park-Lefferts Blvd. Then, transfer to an East New York-bound Q112 bus to Cross Bay Blvd/Liberty Av.",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "",
+        "shortdescription": "Mezzanine to Lefferts/Far Rockaway-bound platform",
+        "description_custom": "This elevator gets you from the main station mezzanine to Lefferts/Far Rockaway-bound A trains"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.844778,
+          40.680167
+        ]
+      },
+      "id": "a8dd8deb6dcdde8e9dab422f89d4520b"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "A61",
+        "route": "A",
+        "complexID": "192",
+        "stationID": "192",
+        "system": "nyc_mta",
+        "elevatorno": "EL487",
+        "linesServed": "A",
+        "directionLabel": "",
+        "title": "Rockaway Blvd",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Rockaway-Blvd_EL487.jpg",
+        "alternativeRoute": "If you are on the street: Proceed east to the SW corner of Liberty Av & 95 St and take a Jamaica Parsons-Hillside-bound Q112 bus to Lefferts Blvd for the Ozone Park-Lefferts Blvd A station. Then, take a Manhattan-bound A. For The Rockaways and Howard Beach-JFK Airport, transfer at Euclid Av for a Far Rockaway-Mott Av or Rockaway Park-Beach 116 St-bound A.  \n\nIf you are on the mezzanine: Take an Ozone Park-Lefferts Blvd A to Ozone Park-Lefferts Blvd. Then, transfer to an East New York-bound Q112 bus to Cross Bay Blvd/Liberty Av.  \n\nIf you are on the platform:  To exit the station, take a Manhattan-bound A to Euclid Av and transfer to an Ozone Park-Lefferts Blvd-bound A to Ozone Park-Lefferts Blvd. Then, transfer to an East New York-bound Q112 bus to Cross Bay Blvd/Liberty Av.  For The Rockaways and Howard Beach-JFK Airport, transfer at Euclid Av A/C to a Far Rockaway-Mott Av or Rockaway Park-Beach 116 St-bound A.  ",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "true",
+        "access_note": "Mezzanine Level for Rockaway-bound trains (middle), Platform Level for Manhattan-bound trains (top)",
+        "shortdescription": "Street (NW corner of Liberty Av and Cross Bay Blvd) to Manhattan-bound A",
+        "description_custom": "This elevator gets you from the street directly to Manhattan-bound A trains, and access to Lefferts/Far Rockaway-bound A trains"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.844889,
+          40.680389
+        ]
+      },
+      "id": "043352e8cd44497a36991e4a24376078"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "B10",
+        "route": "F/M",
+        "complexID": "224",
+        "stationID": "224",
+        "system": "nyc_mta",
+        "elevatorno": "EL621",
+        "linesServed": "F/M",
+        "directionLabel": "both directions",
+        "title": "57 St",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/57-St_EL621.jpg",
+        "alternativeRoute": "If you are on the platform: Take a downtown M (F nights and weekends) to 47-50 Sts/Rockefeller Ctr. Then take a Washington Heights-bound M5 or a Harlem-bound M7 bus to 56 St.  \n\nIf you are on the mezzanine level: Exit the station and proceed south along 6 Av to 49 St for the 47-50 Sts/Rockefeller Ctr B/D/F/M station for service in both directions. ",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "",
+        "access_note": "This stop served by M train, not F train, weekdays 6am-9:30pm. This stop served by F train nights and weekends only.",
+        "shortdescription": "Mezzanine to M (F nights, weekends) platform.",
+        "description_custom": "This elevator gets you from the main station mezzanine to M trains in both directions (F trains nights & weekends)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97745,
+          40.763872
+        ]
+      },
+      "id": "568a620bdbb87d501bce9460ec23da89"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "B10",
+        "route": "F/M",
+        "complexID": "224",
+        "stationID": "224",
+        "system": "nyc_mta",
+        "elevatorno": "EL620",
+        "linesServed": "F/M",
+        "directionLabel": "",
+        "title": "57 St",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/57-St_EL620.jpg",
+        "alternativeRoute": "If you are on the mezzanine level: Take a downtown M (F nights and weekends) to 47-50 Sts/Rockefeller Ctr. Then take a Washington Heights-bound M5 or a Harlem-bound M7 bus to 56 St. \n\nIf you are at street level: Proceed south along 6 Av to 49 St for the 47-50 Sts/Rockefeller Ctr B/D/F/M station for service in both directions. ",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "true",
+        "access_note": "This stop served by M train, not F train, weekdays 6am-9:30pm. This stop served by F train nights and weekends only.",
+        "shortdescription": "Street (SW corner of 56 St and 6 Av) to mezzanine.",
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.977861,
+          40.763556
+        ]
+      },
+      "id": "6a4cac2b49025ae4c45f603fa1deedbf"
     }
   ],
   "type": "FeatureCollection"
