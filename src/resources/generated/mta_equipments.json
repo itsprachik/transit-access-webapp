@@ -12545,7 +12545,7 @@
     "equipmenttype": "ES",
     "serving": "mezzanine (Park Pl & Broadway) to 2/3 platform for service in both directions",
     "ADA": "N",
-    "isactive": "N",
+    "isactive": "Y",
     "nonNYCT": "N",
     "shortdescription": "Mezzanine to 2/3 platform",
     "linesservedbyelevator": "2/3",
