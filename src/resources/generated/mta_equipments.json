@@ -10435,7 +10435,7 @@
     "nextadasouth": "221, F / 273, E, M, R",
     "redundant": 0,
     "busconnections": "Q18, Q47, Q60 (Q47 goes to LaGuardia Airport)/Q18, Q47, Q60 (Q47 goes to LaGuardia Airport)./Q18, Q47, Q60 (Q47 goes to LaGuardia Airport),",
-    "alternativeroute": "The elevators serving the E/F/M/R platforms are out of service for replacement. \n\nFor E/F/M/R service from the mezzanine: Take a Manhattan-bound 7 to Queensboro Plaza and proceed east along Queens Plaza S to the Queens Plaza E/F/R station.\n\nTo exit: Take an E/F/M/R to Forest Hills-71 Av and exit the station. Take a Manhattan-bound Q60 bus (108 St/Queens Blvd) to 59 St/Queens Blvd and then transfer to a Woodside-bound Q53 SBS to 75 St/Broadway. Jackson Heights-Roosevelt Av is one block north. "
+    "alternativeroute": "For Queens-bound E/F/M/R service from the mezzanine: Take a Manhattan-bound E, F or R to Queens Plaza and then transfer to a Queens-bound E, F, or R. \n\nTo exit: Take an E/F/M/R to Forest Hills-71 Av and transfer to a Manhattan-bound E/F/M/R to Jackson Hts-Roosevelt Av. "
   },
   {
     "station": "Jackson Hts-Roosevelt Av",
@@ -10456,7 +10456,7 @@
     "nextadasouth": "221, F / 273, E, M, R",
     "redundant": 0,
     "busconnections": "Q18, Q47, Q60 (Q47 goes to LaGuardia Airport)/Q18, Q47, Q60 (Q47 goes to LaGuardia Airport)./Q18, Q47, Q60 (Q47 goes to LaGuardia Airport),",
-    "alternativeroute": "The elevators serving the E/F/M/R platforms are out of service for replacement. \n\nFor E/F/M/R service from the mezzanine: Take a Manhattan-bound 7 to Queensboro Plaza and proceed east along Queens Plaza S to the Queens Plaza E/F/R station. For M to Roosevelt Island, take a Forest Hills-bound R to Northern Blvd and transfer to a Manhattan-bound M. \n\nTo exit: Take a Manhattan-bound E/F/R to Queens Plaza. Proceed west along Queens Plaza S to the Queensboro Plaza 7 station. Take a Flushing-bound 7 local train to 74 St-Broadway or take a Jackson Heights-bound Q32 bus (from Queens Plaza S/28 St) to Roosevelt Av/75 St."
+    "alternativeroute": "For Manhattan-bound E/F/M/R service from the mezzanine: Take a Queens-bound E/F/M/R to Forest Hills-71 Av and then transfer to a Manhattan-bound E/F/M/R. \n\nOr, take a Manhattan-bound 7 to Queensboro Plaza and proceed east along Queens Plaza S to the Queens Plaza E/F/R station. \n\nTo exit the platform: Take a Manhattan-bound E/F/R to Queens Plaza and then transfer to a Queens-bound E/F/R to Jackson Hts-Roosevelt Av. "
   },
   {
     "station": "Jamaica Center-Parsons/Archer",
