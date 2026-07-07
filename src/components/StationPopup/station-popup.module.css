@@ -709,7 +709,7 @@
   bottom: -0.7rem;
   transform: translateX(-50%) scaleX(0);
   transform-origin: center center;
-  z-index: var(--z-index-popup-fly-button);
+  z-index: var(--z-index-popup-access-note);
   width: 90%;
   max-width: 90%;
   background-color: #f4c6fbe6;
@@ -736,6 +736,7 @@
   display: flex;
   justify-content: center;
   width: 100%; /* let children center within wrapper */
+  z-index: var(--z-index-popup-close-button);
 }
 
 .upcomingNote {

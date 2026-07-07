@@ -243,7 +243,7 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
               <span className={`${styles.stat}`}>{numOutElevators}</span>{" "}
               elevators out of service at this time (
               <span
-                className={`${styles.bold} ${pctOut <= 5 ? styles.colorGood : pctOut < 8 ? styles.colorOk : styles.colorBad}`}
+                className={`${styles.bold} ${pctOut <= 5 ? styles.colorGood : pctOut <= 8 ? styles.colorOk : styles.colorBad}`}
               >
                 {pctOut}%{" "}
               </span>{" "}

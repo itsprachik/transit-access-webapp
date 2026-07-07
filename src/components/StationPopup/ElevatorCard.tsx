@@ -324,13 +324,14 @@ const ElevatorCard: React.FC<{
             )}
           </div>
           {maintenanceLabel && (
-            <span
+            <button
               className={styles.maintenanceBadge}
-              aria-label={`Maintenance ${maintenanceLabel}`}
+              aria-label={`Maintenance ${maintenanceLabel}. Tap for details.`}
+              onClick={(e) => { e.stopPropagation(); handleToggleUpcomingNote(!showUpcomingNote); }}
             >
               <FaWrench size={9} aria-hidden="true" />
               <span aria-hidden="true">maintenance {maintenanceLabel}</span>
-            </span>
+            </button>
           )}
         </h3>
         {/* Distance + Walk here row — street elevators only, when user is in bounds */}
@@ -624,7 +625,7 @@ const ElevatorCard: React.FC<{
                   showUpcomingNote
                     ? `${styles.pressed} ${styles.upcomingAnimate}`
                     : ""
-                } ${showUpcomingIcon ? styles.iconButtonVisible : ""}
+                } ${showUpcomingIcon ? styles.iconButtonVisible : ""} ${showAccessNote ? styles.thumbnailRowBlur : ""}
         `}
                 aria-label="Show upcoming outage information"
                 aria-expanded={showUpcomingNote}

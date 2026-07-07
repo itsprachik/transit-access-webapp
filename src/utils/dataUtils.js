@@ -811,8 +811,8 @@ export function getAverageElevatorCoordinates(datasetArray, complexID) {
   return { average, bounds };
 }
 
-export function getAreaOfComplex(complexID, map, showBoundary) {
-  const zoomLevel = map.getZoom();
+export function getAreaOfComplex(complexID, map, showBoundary, referenceZoom) {
+  const zoomLevel = referenceZoom ?? map.getZoom();
   const boundaryData = getComplexBoundaryGeoJSON(zoomLevel);
   const feature = boundaryData.features.find(
     (f) => f.properties.complexID === complexID
@@ -968,11 +968,11 @@ export function flyIn(
         ? { top: 100, bottom: 200, left: 0, right: 0 }
         : { top: 80, bottom: 220, left: 30, right: 30 };
 
-    const area = getAreaOfComplex(complex_id, map, false);
+    const area = getAreaOfComplex(complex_id, map, false, 15); // fixed zoom so area is consistent regardless of current zoom (prevents double-tap drift)
 
     // fit bounds almost does the job, but we still need to adjust the zoom a little higher for small stations
-    if (area > MIN_AREA && area < MID_AREA) { 
-      maxZoomLevel += 1; 
+    if (area > MIN_AREA && area < MID_AREA) {
+      maxZoomLevel += 1;
     }
 
     if (area < MIN_AREA) { 

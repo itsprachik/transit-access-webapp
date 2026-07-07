@@ -47,7 +47,7 @@ export const ZPopup = {
   flyButton: 5,
   closeButton: 9,
   accessNote: 10,
-  upcomingNote: 10,
+  upcomingNote: 11,
 } as const;
 
 // ─── Publish as CSS custom properties ────────────────────────────────────────
