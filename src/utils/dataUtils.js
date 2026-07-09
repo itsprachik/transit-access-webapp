@@ -1011,7 +1011,7 @@ export const generateSubwayLines = (
 ) => {
   if (!routeLines) return null;
 
-  const lines = routeLines.split(" ").filter(Boolean);
+  const lines = routeLines.split(" ").filter(Boolean).sort((a, b) => ROUTE_ORDER.indexOf(a) - ROUTE_ORDER.indexOf(b));
   const linesText = lines.join(", ");
 
   return (
