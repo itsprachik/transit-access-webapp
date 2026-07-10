@@ -14,7 +14,6 @@ import {
   complexBoundarySourceOptions,
   setMapCenter,
   setManhattanTilt,
-  getBearingByLocation,
   DEFAULT_CENTER,
   DEFAULT_ZOOM,
   BIRDSEYE_CENTER,
@@ -52,6 +51,7 @@ import {
 import SearchBar from "../SearchBar/SearchBar";
 import { MtaStationData } from "@/utils/types";
 import { IoEarthSharp } from "react-icons/io5";
+import { LocationPin } from "../icons";
 import AlertBanner from "../AlertBanner/AlertBanner";
 import { handleAlertClose } from "../AlertBanner/handlerFunctions";
 import { AlertData } from "@/types/alerts";
@@ -460,12 +460,17 @@ const MtaMap = () => {
     );
 
     // Read the bearing the map was constructed with (Manhattan tilt is non-zero by design)
+    const initialBearing = mapRef.current?.getBearing() ?? 0;
     document.documentElement.dataset.bearingZero =
-      Math.abs(mapRef.current?.getBearing() ?? 0) < 0.5 ? "true" : "false";
+      Math.abs(initialBearing) < 0.5 ? "true" : "false";
+    document.documentElement.dataset.bearingManhattan =
+      Math.abs(initialBearing - setManhattanTilt()) < 0.5 ? "true" : "false";
     mapRef.current?.on("rotate", () => {
       const b = mapRef.current.getBearing();
       document.documentElement.dataset.bearingZero =
         Math.abs(b) < 0.5 ? "true" : "false";
+      document.documentElement.dataset.bearingManhattan =
+        Math.abs(b - setManhattanTilt()) < 0.5 ? "true" : "false";
     });
 
     // Shift the map's visual center into the visible area above (mobile) or beside (desktop) the panel.
@@ -480,8 +485,11 @@ const MtaMap = () => {
       );
 
       // Set correct initial compass visibility based on the map's starting bearing
+      const loadBearing = mapRef.current.getBearing();
       document.documentElement.dataset.bearingZero =
-        Math.abs(mapRef.current.getBearing()) < 0.5 ? "true" : "false";
+        Math.abs(loadBearing) < 0.5 ? "true" : "false";
+      document.documentElement.dataset.bearingManhattan =
+        Math.abs(loadBearing - setManhattanTilt()) < 0.5 ? "true" : "false";
 
       mapRef.current.addSource("station-complexes", outageSourceOptions);
       mapRef.current.addSource("outage-data", outageSourceOptions);
@@ -604,27 +612,10 @@ const MtaMap = () => {
         // Wait for inertia to finish before bearing shift and dot drop.
         mapRef.current.once("moveend", () => {
           setDotDrop(false);
-          if (
-            mapRef.current.getPitch() === 0 &&
-            mapRef.current.getZoom() > dotView
-          ) {
-            const { lng, lat } = mapRef.current.unproject(dotPixel);
-            const bearing = getBearingByLocation(lng, lat);
-            mapRef.current.easeTo({
-              bearing,
-              duration: 400,
-              around: [lng, lat],
-            });
-            // Unproject after rotation so the padded-center pixel resolves correctly.
-            mapRef.current.once("moveend", () => {
-              const { lng: dLng, lat: dLat } =
-                mapRef.current.unproject(dotPixel);
-              setMapCenterLocation([dLng, dLat]);
-            });
-          } else {
-            const { lng: dLng, lat: dLat } = mapRef.current.unproject(dotPixel);
-            setMapCenterLocation([dLng, dLat]);
-          }
+          // Auto-tilt disabled — bearing is now user-controlled via compass toggle
+          // (future: re-enable as optional user setting via getBearingByLocation)
+          const { lng: dLng, lat: dLat } = mapRef.current.unproject(dotPixel);
+          setMapCenterLocation([dLng, dLat]);
         });
       });
 
@@ -905,9 +896,11 @@ const MtaMap = () => {
 
       {showCenterDot && !stationPopupOpen && (
         <div
-          className={`map-center-dot${dotDrop ? " floating" : ""}`}
+          className={`map-center-pin${dotDrop ? " floating" : ""}`}
           aria-hidden="true"
-        />
+        >
+          <LocationPin size="1.5rem"/>
+        </div>
       )}
 
       <NearbyStationsPopup
@@ -962,7 +955,7 @@ const MtaMap = () => {
 
       <div className="map-zoom-out">
         <button
-          className="map-zoom-out-btn"
+          className={`map-zoom-out-btn${isZoomedOut ? " map-zoom-out-btn--active" : ""}`}
           aria-label={
             isZoomedOut
               ? "Return to previous view"
@@ -1015,7 +1008,6 @@ const MtaMap = () => {
             };
 
             cleanUpPopups();
-            const bearing = setManhattanTilt();
             setStationView(null);
             setElevatorView(null);
             setIsZoomedOut(true);
@@ -1026,7 +1018,7 @@ const MtaMap = () => {
               center: isDesktop ? BIRDSEYE_CENTER_DESKTOP : BIRDSEYE_CENTER,
               zoom: BIRDSEYE_ZOOM,
               pitch: 0,
-              bearing: bearing,
+              bearing: map.getBearing(),
               speed: 3.2,
               curve: 1.5,
               easing: (t: number) => Math.sin((t * Math.PI) / 2),

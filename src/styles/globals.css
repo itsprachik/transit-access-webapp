@@ -3,7 +3,7 @@
    applyZIndexVars() in MtaMap overwrites these with the same values at runtime. */
 :root {
   --z-index-mapbox-bottom-right: 1;
-  --z-index-center-dot: 995;
+  --z-index-center-pin: 995;
   --z-index-footer: 996;
   --z-index-map-controls: 997;
   --z-index-nearby-popup: 999;
@@ -23,6 +23,11 @@
   --mobile-shift-dvh: 30dvh;
   --desktop-shift-left: 100px;
   --desktop-shift-top: -30px;
+
+  /* Active/selected color for map control buttons */
+  --button-select-color: #33b5e5;
+  /* Color for the map-center pin and inline distance-source pin */
+  --map-pin-color: #fb2828b7;
 }
 
 html,
@@ -99,7 +104,7 @@ div#__next > div {
     border-radius: 0rem 0.8rem 0.8rem 0rem;
     left: 0% !important;
     bottom: auto !important;
-    top: 150px;
+    top: 160px;
     transform: translateX(0) !important;
     width: max-content !important;
   }
@@ -291,6 +296,10 @@ div#__next > div {
   background-color: #f0f0f0;
 }
 
+.map-zoom-out-btn--active {
+  color: var(--button-select-color);
+}
+
 .css-1i69s7c-MuiButtonBase-root-MuiIconButton-root {
   z-index: var(--z-index-map-controls);
 }
@@ -361,11 +370,43 @@ div#__next > div {
   }
 }
 
-/* Bearing at north: fade out over last 0.5s of a 2s window */
-[data-bearing-zero="true"] .mapboxgl-ctrl-bottom-right .mapboxgl-ctrl-group:has(.mapboxgl-ctrl-compass) {
-  opacity: 0;
-  visibility: hidden;
-  transition: bottom 0.05s ease, opacity 0.5s ease 1.5s, visibility 0s 2s;
+
+/* Manhattan tilt: blue compass icon */
+[data-bearing-manhattan="true"] .mapboxgl-ctrl button.mapboxgl-ctrl-compass .mapboxgl-ctrl-icon {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2333b5e5' viewBox='0 0 29 29'%3E%3Cpath d='M10.5 14l4-8 4 8h-8z'/%3E%3Cpath d='M10.5 16l4 8 4-8h-8z' fill='%23b3e6f5'/%3E%3C/svg%3E") !important;
+}
+
+/* Manhattan label — always present so color can transition; invisible until bearing matches */
+.mapboxgl-ctrl-bottom-right .mapboxgl-ctrl-group:has(.mapboxgl-ctrl-compass) {
+  overflow: visible;
+}
+.mapboxgl-ctrl-bottom-right .mapboxgl-ctrl-group:has(.mapboxgl-ctrl-compass)::after {
+  content: "MAN";
+  position: absolute;
+  bottom: auto;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: transparent;
+  white-space: nowrap;
+  pointer-events: none;
+}
+[data-bearing-manhattan="true"] .mapboxgl-ctrl-bottom-right .mapboxgl-ctrl-group:has(.mapboxgl-ctrl-compass)::after {
+  color: #1991bd;
+}
+
+/* Manhattan label — mobile: above the icon */
+@media (max-width: 767px) {
+  .mapboxgl-ctrl-bottom-right .mapboxgl-ctrl-group:has(.mapboxgl-ctrl-compass)::after {
+    top: auto;
+    left: 50%;
+    bottom: 100%;
+    transform: translateX(-50%);
+    margin-left: 0;
+    font-size: 0.5rem;
+  }
 }
 
 @media (max-width: 767px) {
@@ -457,44 +498,38 @@ div#__next > div {
   }
 }
 
-/* Map-center locator dot (shown when user drags the map).
+/* Map-center locator pin (shown when user drags the map).
    Positioned via CSS vars set by MtaMap — change the constants there, not here. */
-@keyframes centerDotDrop {
-  0%   { box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.35); }
-  40%  { box-shadow: none; width: 16px; height: 16px; }
-  100% { box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15); width: 18px; height: 18px; }
+@keyframes centerPinDrop {
+  0%   { transform: translate(-50%, calc(-100% - 12px)); filter: drop-shadow(0 8px 10px rgba(0,0,0,0.4)); }
+  70%  { transform: translate(-50%, calc(-100% + 3px)); }
+  100% { transform: translate(-50%, -100%); filter: drop-shadow(0 2px 3px rgba(0,0,0,0.25)); }
 }
 
-/* settled — drop animation retriggers each time .floating is removed */
-.map-center-dot {
+/* settled — pin tip sits exactly at the map center point */
+.map-center-pin {
   position: fixed;
   left: 50%;
-  /* dot sits at the center of the visible area above the panel.
-     --mobile-shift-dvh is the panel height; 0 = no panel = dot at 50dvh. */
   top: calc((100dvh - var(--mobile-shift-dvh, 40dvh)) / 2);
-  transform: translate(-50%, -50%) scaleY(cos(var(--map-pitch-deg, 0deg)));
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #9b5514;
-  border: 2.5px solid #fff;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  transform: translate(-50%, -100%);
+  font-size: 28px;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.05));
   pointer-events: none;
-  z-index: var(--z-index-center-dot);
-  animation: centerDotDrop 0.25s ease-out forwards, box-shadow 0.2s ease;
+  z-index: var(--z-index-center-pin);
+  display: flex;
+  opacity: 0.8;
+  animation: centerPinDrop 0.25s ease-out forwards;
 }
 
-/* floating/dragging — animation: none lets the drop animation retrigger on release */
-.map-center-dot.floating {
-  background:#834a1580;
-  backdrop-filter: blur(1px);
-  border: 2.5px solid rgba(255, 255, 255, 0.85);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+/* floating/dragging — animation: none lets the drop retrigger on release */
+.map-center-pin.floating {
+  opacity: 0.55;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.5));
   animation: none;
 }
 
 @media (min-width: 768px) {
-  .map-center-dot {
+  .map-center-pin {
     left: calc(50vw + var(--desktop-shift-left, 200px));
     top: calc(50vh + var(--desktop-shift-top, 0px));
   }

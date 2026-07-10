@@ -13,4 +13,5 @@ export { default as AccessibleIconBW } from './AccessibleIconBW';
 export { default as LiftBad } from './LiftBad';
 export { default as LiftBadInverted } from './LiftBadInverted';
 export { default as LiftGood } from './LiftGood';
-export { default as StationComplexDot } from './StationComplexDot'
+export { default as StationComplexDot } from './StationComplexDot';
+export { default as LocationPin } from './LocationPin';

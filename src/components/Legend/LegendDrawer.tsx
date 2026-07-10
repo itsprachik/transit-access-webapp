@@ -126,7 +126,7 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
         aria-expanded={open}
         aria-controls={drawerId}
         title="See legend"
-        className={`${styles.iconButton}${hasAlert ? ` ${styles.iconButtonAlertShown}` : ""}`}
+        className={`${styles.iconButton}${open ? ` ${styles.iconButtonActive}` : ""}${hasAlert ? ` ${styles.iconButtonAlertShown}` : ""}`}
       >
         <HelpOutlined sx={{ fontSize: 20 }} aria-hidden="true" />
       </IconButton>

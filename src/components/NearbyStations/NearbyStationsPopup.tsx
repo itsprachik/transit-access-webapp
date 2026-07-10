@@ -15,6 +15,7 @@ import {
   ElevatorIcon,
   ElevatorInvertedIcon,
   Ramp,
+  LocationPin,
 } from "../icons";
 import { FaPersonWalking } from "react-icons/fa6";
 import { FaStar, FaWrench } from "react-icons/fa";
@@ -652,9 +653,8 @@ const NearbyStationsPopup: React.FC<Props> = ({
                             {!!overrideLocation &&
                               (!userInBounds ||
                                 distanceSource === "override") && (
-                                <span
-                                  className={`${styles.distanceSourceDot} ${styles.dotBrown}`}
-                                  aria-hidden="true"
+                                <LocationPin
+                                  className={styles.distanceSourcePin}
                                 />
                               )}
                             <span

@@ -133,6 +133,43 @@ export const initializeMtaMap = (
   });
   mapRef.current.addControl(geolocateControl, "bottom-right"); // geolocate: first → lowest (closest to panel)
   mapRef.current.addControl(zoomControl, "bottom-right"); // compass: second → above geolocate
+
+  // Override compass button: toggle between true north (0°) and Manhattan tilt (29°)
+  const customBearing = mapRef.current
+    .getContainer()
+    .querySelector(".mapboxgl-ctrl-compass") as HTMLButtonElement | null;
+  if (customBearing) {
+    const manhattanBearing = setManhattanTilt();
+    const getTargetBearing = () => {
+      const b = mapRef.current.getBearing();
+      if (Math.abs(b - manhattanBearing) < 0.5) return 0;  // at Manhattan → toggle to north
+      if (Math.abs(b) < 0.5) return manhattanBearing;       // at north → toggle to Manhattan
+      // dragged to some other bearing → reset to location-appropriate default
+      const { lng, lat } = mapRef.current.getCenter();
+      return getBearingByLocation(lng, lat);
+    };
+    const updateCompassLabel = () => {
+      const target = getTargetBearing();
+      const label =
+        target === manhattanBearing
+          ? "Set bearing to Manhattan north"
+          : "Reset bearing to true north";
+      customBearing.setAttribute("aria-label", label);
+      // Mapbox puts the hover tooltip on the inner <span>, not the button
+      customBearing.firstElementChild?.setAttribute("title", label);
+    };
+    updateCompassLabel();
+    mapRef.current.on("rotate", updateCompassLabel);
+    mapRef.current.on("moveend", updateCompassLabel); // update label when map pans in/out of Manhattan
+    customBearing.addEventListener(
+      "click",
+      (e) => {
+        e.stopImmediatePropagation();
+        mapRef.current.easeTo({ bearing: getTargetBearing(), pitch: 0, duration: 300 });
+      },
+      true, // capture phase — runs before Mapbox's bubble-phase reset-to-north handler
+    );
+  }
   mapRef.current.addControl(
     new mapboxgl.AttributionControl({ compact: true }),
     "bottom-left",

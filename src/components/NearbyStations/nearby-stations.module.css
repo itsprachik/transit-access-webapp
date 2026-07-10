@@ -48,9 +48,9 @@
     left: 0;
     right: auto;
     bottom: auto;
-    top: 150px;
+    top: 160px;
     width: 400px;
-    max-height: calc(100dvh - 150px);
+    max-height: calc(100dvh - 160px);
     border-radius: 0rem 0.8rem 0rem 0rem;
     box-shadow: -4px 0px 12px rgba(0, 0, 0, 0.7);
     transition: max-height 0.5s ease, transform 0.3s ease;
@@ -497,20 +497,9 @@
   outline: none;
 }
 
-.distanceSourceDot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
+.distanceSourcePin {
+  font-size: 12px;
   flex-shrink: 0;
-  border: 1.5px solid #fff;
-}
-
-.dotBlue {
-  background: #1da1f3;
-}
-
-.dotBrown {
-  background: #9b5514;
 }
 
 .rowRight {
