@@ -9941,7 +9941,7 @@
     "equipmenttype": "ES",
     "serving": "lower mezzanine to upper mezzanine for Cadman Plaza West & Middagh St exit",
     "ADA": "N",
-    "isactive": "N",
+    "isactive": "Y",
     "nonNYCT": "N",
     "shortdescription": "Lower mezzanine to upper mezzanine",
     "linesservedbyelevator": "A/C",
