@@ -113,8 +113,9 @@ const MtaMap = () => {
   const [mapCenterLocation, setMapCenterLocation] = useState<
     [number, number] | null
   >(null);
-  const [showCenterDot, setShowCenterDot] = useState(false);
-  const [dotDrop, setDotDrop] = useState(false);
+  const [showCenterPin, setShowCenterPin] = useState(false);
+  const showCenterPinRef = useRef(false);
+  const [pinDrop, setPinDrop] = useState(false);
   const [nearbyPanelState, setNearbyPanelState] = useState<
     "minimized" | "collapsed" | "expanded"
   >("collapsed");
@@ -122,12 +123,6 @@ const MtaMap = () => {
   const nearbyMinimizedRef = useRef(false);
   const [isZoomedOut, setIsZoomedOut] = useState(false);
   const isZoomedOutRef = useRef(false);
-  const preZoomOutPositionRef = useRef<{
-    center: [number, number];
-    zoom: number;
-    bearing: number;
-    pitch: number;
-  } | null>(null);
 
   const [stationData, setStationData] = useState<MtaStationData | null>(null);
   const [systemAlerts, setSystemAlerts] = useState<AlertData[]>([]);
@@ -457,6 +452,9 @@ const MtaMap = () => {
       setUserLocation,
       () => setLocateSignal((n) => n + 1),
       panelShiftPadding,
+      (center) => {
+        if (showCenterPinRef.current) setMapCenterLocation(center);
+      },
     );
 
     // Read the bearing the map was constructed with (Manhattan tilt is non-zero by design)
@@ -562,23 +560,17 @@ const MtaMap = () => {
       mapRef.current.on("zoomstart", (e) => {
         removeHoverPopup(onHoverPopupRef.current);
         if (!isZoomedOutRef.current) {
-          const { lng, lat } = mapRef.current.getCenter();
-          preZoomOutPositionRef.current = {
-            center: [lng, lat],
-            zoom: mapRef.current.getZoom(),
-            bearing: mapRef.current.getBearing(),
-            pitch: mapRef.current.getPitch(),
-          };
           if (e.originalEvent) {
             userZoom = true;
-            setShowCenterDot(true);
-            setDotDrop(true);
+            showCenterPinRef.current = true;
+            setShowCenterPin(true);
+            setPinDrop(true);
           }
         }
       });
       mapRef.current.on("zoomend", () => {
         if (userZoom) {
-          setDotDrop(false);
+          setPinDrop(false);
           userZoom = false;
         }
       });
@@ -593,13 +585,14 @@ const MtaMap = () => {
       });
 
       mapRef.current.on("dragstart", () => {
-        setShowCenterDot(true);
-        setDotDrop(true);
+        showCenterPinRef.current = true;
+        setShowCenterPin(true);
+        setPinDrop(true);
       });
 
       mapRef.current.on("dragend", () => {
         const isMobile = window.innerWidth < 768;
-        const dotPixel: [number, number] = isMobile
+        const pinPixel: [number, number] = isMobile
           ? [
               window.innerWidth / 2,
               (window.innerHeight * (1 - MOBILE_POPUPSHIFT_DVH / 100)) / 2,
@@ -611,10 +604,10 @@ const MtaMap = () => {
 
         // Wait for inertia to finish before bearing shift and dot drop.
         mapRef.current.once("moveend", () => {
-          setDotDrop(false);
+          setPinDrop(false);
           // Auto-tilt disabled — bearing is now user-controlled via compass toggle
           // (future: re-enable as optional user setting via getBearingByLocation)
-          const { lng: dLng, lat: dLat } = mapRef.current.unproject(dotPixel);
+          const { lng: dLng, lat: dLat } = mapRef.current.unproject(pinPixel);
           setMapCenterLocation([dLng, dLat]);
         });
       });
@@ -816,7 +809,8 @@ const MtaMap = () => {
   useEffect(() => {
     if (locateSignal > 0) {
       setMapCenterLocation(null);
-      setShowCenterDot(false);
+      showCenterPinRef.current = false;
+      setShowCenterPin(false);
     }
   }, [locateSignal]);
 
@@ -894,9 +888,9 @@ const MtaMap = () => {
         className={`map-container${hasAlert ? " has-alert" : ""}`}
       />
 
-      {showCenterDot && !stationPopupOpen && (
+      {showCenterPin && !stationPopupOpen && (
         <div
-          className={`map-center-pin${dotDrop ? " floating" : ""}`}
+          className={`map-center-pin${pinDrop ? " floating" : ""}`}
           aria-hidden="true"
         >
           <LocationPin size="1.5rem"/>
@@ -958,54 +952,32 @@ const MtaMap = () => {
           className={`map-zoom-out-btn${isZoomedOut ? " map-zoom-out-btn--active" : ""}`}
           aria-label={
             isZoomedOut
-              ? "Return to previous view"
+              ? "Zoom in"
               : "Zoom out to see entire system"
           }
-          title={isZoomedOut ? "Zoom back in" : "Zoom out"}
+          title={isZoomedOut ? "Zoom in" : "Zoom out"}
           onClick={() => {
             const map = mapRef.current as mapboxgl.Map;
             if (!map) return;
 
             if (isZoomedOutRef.current) {
-              const pos = preZoomOutPositionRef.current;
-              if (pos) {
+              const target = (showCenterPinRef.current && mapCenterLocation)
+                ? mapCenterLocation
+                : userLocation ?? null;
+              if (target) {
                 map.flyTo({
-                  center: pos.center,
-                  zoom: pos.zoom,
-                  bearing: pos.bearing,
-                  pitch: pos.pitch,
+                  center: target,
+                  zoom: DEFAULT_ZOOM,
+                  bearing: map.getBearing(),
+                  pitch: 0,
                   duration: 800,
                   essential: true,
-                });
-                map.once("moveend", () => {
-                  const isMobile = window.innerWidth < 768;
-                  const dotPixel: [number, number] = isMobile
-                    ? [
-                        window.innerWidth / 2,
-                        (window.innerHeight *
-                          (1 - MOBILE_POPUPSHIFT_DVH / 100)) /
-                          2,
-                      ]
-                    : [
-                        window.innerWidth / 2 + DESKTOP_POPUPSHIFT_LEFT,
-                        window.innerHeight / 2 + DESKTOP_POPUPSHIFT_TOP,
-                      ];
-                  const { lng: dLng, lat: dLat } = map.unproject(dotPixel);
-                  setMapCenterLocation([dLng, dLat]);
                 });
               }
               setIsZoomedOut(false);
               isZoomedOutRef.current = false;
               return;
             }
-
-            const { lng, lat } = map.getCenter();
-            preZoomOutPositionRef.current = {
-              center: [lng, lat],
-              zoom: map.getZoom(),
-              bearing: map.getBearing(),
-              pitch: map.getPitch(),
-            };
 
             cleanUpPopups();
             setStationView(null);

@@ -89,6 +89,7 @@ export const initializeMtaMap = (
     left: number;
     right: number;
   },
+  onPinSettle?: (center: [number, number]) => void,
 ) => {
   const mapRefPitch = setMapPitch(0);
   const mtaMapOptions = getMtaMapOptions(mapContainer.current, mapRefPitch);
@@ -165,7 +166,19 @@ export const initializeMtaMap = (
       "click",
       (e) => {
         e.stopImmediatePropagation();
-        mapRef.current.easeTo({ bearing: getTargetBearing(), pitch: 0, duration: 300 });
+        mapRef.current.easeTo({
+          center: mapRef.current.getCenter(),
+          bearing: getTargetBearing(),
+          pitch: 0,
+          duration: 300,
+        });
+        if (onPinSettle) {
+          mapRef.current.once("moveend", () => {
+            const screenPt = mapRef.current.project(mapRef.current.getCenter());
+            const { lng, lat } = mapRef.current.unproject(screenPt);
+            onPinSettle([lng, lat]);
+          });
+        }
       },
       true, // capture phase — runs before Mapbox's bubble-phase reset-to-north handler
     );

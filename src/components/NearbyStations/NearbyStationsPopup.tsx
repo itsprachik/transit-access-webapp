@@ -653,9 +653,7 @@ const NearbyStationsPopup: React.FC<Props> = ({
                             {!!overrideLocation &&
                               (!userInBounds ||
                                 distanceSource === "override") && (
-                                <LocationPin
-                                  className={styles.distanceSourcePin}
-                                />
+                                <LocationPin size="12px" />
                               )}
                             <span
                               className={styles.inlineDistance}
