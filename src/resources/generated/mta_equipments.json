@@ -3095,7 +3095,7 @@
     "equipmenttype": "ES",
     "serving": "mezzanine (Madison Ave & 53 St) to downtown platform",
     "ADA": "N",
-    "isactive": "N",
+    "isactive": "Y",
     "nonNYCT": "N",
     "shortdescription": "Mezzanine (53 St & Madison Ave) to downtown platform.",
     "linesservedbyelevator": "E/F",
