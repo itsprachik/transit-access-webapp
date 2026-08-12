@@ -353,7 +353,7 @@ const ElevatorCard: React.FC<{
             return (
               <div className={styles.streetElevatorDistRow}>
                 <a
-                  href={`https://www.google.com/maps/dir/?api=1&destination=${elevator.coordinates[1]},${elevator.coordinates[0]}&travelmode=walking`}
+                  href={`https://www.google.com/maps/dir/?api=1&origin=${userLocation[1]},${userLocation[0]}&destination=${elevator.coordinates[1]},${elevator.coordinates[0]}&travelmode=walking`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.googleMapsLink}
