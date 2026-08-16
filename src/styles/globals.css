@@ -381,7 +381,7 @@ div#__next > div {
   overflow: visible;
 }
 .mapboxgl-ctrl-bottom-right .mapboxgl-ctrl-group:has(.mapboxgl-ctrl-compass)::after {
-  content: "MAN";
+  content: "29°";
   position: absolute;
   bottom: auto;
   left: 50%;
