@@ -5982,7 +5982,7 @@
         "station_ids": "250",
         "gtfs_stop_ids": "F35",
         "stop_name": "Kings Hwy",
-        "ada": "0",
+        "ada": "1",
         "borough": "Bk",
         "num_stations_in_complex": "1"
       }

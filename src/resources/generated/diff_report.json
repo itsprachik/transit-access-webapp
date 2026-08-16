@@ -2,18 +2,18 @@
   "stations": {
     "added": [],
     "removed": [],
-    "modified": []
+    "modified": [
+      "Kings Hwy"
+    ]
   },
   "complexes": {
     "added": [],
     "removed": [],
-    "modified": []
+    "modified": [
+      "Kings Hwy"
+    ]
   },
   "elevators": {
-    "added": [
-      "EL797 - Kings Hwy",
-      "EL796 - Kings Hwy",
-      "EL795 - Kings Hwy"
-    ]
+    "added": []
   }
 }
