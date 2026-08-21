@@ -1685,7 +1685,7 @@ export const elevatorCoordinates: Record<string, [number, number]> = {
     40.603017
   ],
   "EL795": [
-    -73.97246100000001,
-    40.603217
+    -73.97214960969359,
+    40.604134561395625
   ]
 }
