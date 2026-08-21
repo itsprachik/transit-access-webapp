@@ -4815,8 +4815,8 @@
         "type": "LineString",
         "coordinates": [
           [
-            -73.97246100000001,
-            40.603217
+            -73.97214960969359,
+            40.604134561395625
           ],
           [
             -73.972361,
@@ -4828,8 +4828,8 @@
         "complex_id": "250",
         "elevator_no": "EL795",
         "station_name": "Kings Hwy",
-        "ada": "0",
-        "side": "left"
+        "ada": "1",
+        "side": "right"
       }
     }
   ]
