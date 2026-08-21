@@ -4154,7 +4154,7 @@
         "isRedundant": "1",
         "elevatorgtfsstopid": "138",
         "route": "A C E R W 2 3",
-        "complexID": "624",
+        "complexID": "328",
         "isStreet": "true",
         "stationID": "328",
         "system": "nyc_mta",
@@ -4274,7 +4274,7 @@
         "isRedundant": "1",
         "elevatorgtfsstopid": "138",
         "route": "A C E R W 2 3",
-        "complexID": "624",
+        "complexID": "328",
         "stationID": "328",
         "system": "nyc_mta",
         "elevatorno": "EL13X",
@@ -4304,7 +4304,7 @@
         "isRedundant": "1",
         "elevatorgtfsstopid": "138",
         "route": "A C E R W 2 3",
-        "complexID": "624",
+        "complexID": "328",
         "stationID": "328",
         "system": "nyc_mta",
         "elevatorno": "EL12X",
@@ -12773,6 +12773,93 @@
         ]
       },
       "id": "6a4cac2b49025ae4c45f603fa1deedbf"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "F35",
+        "route": "F",
+        "complexID": "250",
+        "stationID": "250",
+        "system": "nyc_mta",
+        "elevatorno": "EL797",
+        "linesServed": "F",
+        "directionLabel": "Coney Island-bound",
+        "title": "Kings Hwy",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/Kings-Hwy_EL797.jpg",
+        "alternativeRoute": "If you are in the mezzanine: Exit the station and transfer to a Coney Island-Stillwell Av-bound B82 bus to Mermaid Av/Stillwell Av for the Coney Island-Stillwell Av D/F/N/Q station.  \n\nIf you are on the platform: Take a Coney Island-Stillwell Av-bound F to Coney Island-Stillwell Av and then transfer to a Manhattan-bound F to Kings Highway.",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "",
+        "shortdescription": "Mezzanine to Coney Island-bound platform.",
+        "description_custom": "This elevator gets you from the main station mezzanine to Coney Island-bound F trains"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.972361,
+          40.603117
+        ]
+      },
+      "id": "fbe219e3506485f80e30108ee5bde6c2"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "F35",
+        "route": "F",
+        "complexID": "250",
+        "stationID": "250",
+        "system": "nyc_mta",
+        "elevatorno": "EL796",
+        "linesServed": "F",
+        "directionLabel": "Manhattan-bound",
+        "title": "Kings Hwy",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/Kings-Hwy_EL796.jpg",
+        "alternativeRoute": "If you are in the mezzanine: Take a Coney Island-Stillwell Av-bound F to Coney Island-Stillwell Av and transfer to a Manhattan-bound F.  \n\nIf you are on the platform: Take a Manhattan-bound F to Church Av and then transfer to a Coney Island-Stillwell Av-bound F to Kings Highway.",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "",
+        "shortdescription": "Mezzanine to Manhattan-bound platform.",
+        "description_custom": "This elevator gets you from the main station mezzanine to Manhattan-bound F trains"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.972361,
+          40.603017
+        ]
+      },
+      "id": "cb6c81265d7e4fa598d9c91dc17dc03a"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "F35",
+        "route": "F",
+        "complexID": "250",
+        "stationID": "250",
+        "system": "nyc_mta",
+        "elevatorno": "EL795",
+        "linesServed": "F",
+        "directionLabel": "",
+        "title": "Kings Hwy",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/Kings-Hwy_EL795.jpg",
+        "alternativeRoute": "If you are on the street: Take a Coney Island-Stillwell Av-bound B82 bus to Mermaid Av/Stillwell Av for the Coney Island-Stillwell Av D/F/N/Q station.  \n\nIf you are in the mezzanine: See agent to re-enter the station and take a Coney Island-Stillwell Av-bound F to Coney Island-Stillwell Av. Then, transfer to a Spring Creek Towers-bound B82 bus to Kings Highway/McDonald Av.",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "true",
+        "shortdescription": "Street (SE corner of Kings Highway and McDonald Av) to mezzanine.",
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.97214960969359, 40.604134561395625]
+      },
+      "id": "1239216058cf00827b0d56b4ae32930f"
     }
   ],
   "type": "FeatureCollection"

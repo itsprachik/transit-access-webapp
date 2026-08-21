@@ -6285,6 +6285,51 @@
         ],
         "type": "Point"
       }
+    },
+    {
+      "type": "Feature",
+      "id": "EL797",
+      "properties": {
+        "elevatorno": "EL797",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.972361,
+          40.603117
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "EL796",
+      "properties": {
+        "elevatorno": "EL796",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.972361,
+          40.603017
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "EL795",
+      "properties": {
+        "elevatorno": "EL795",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.97214960969359,
+          40.604134561395625
+        ],
+        "type": "Point"
+      }
     }
   ],
   "type": "FeatureCollection"
