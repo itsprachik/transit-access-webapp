@@ -288,17 +288,21 @@ function handleStationComplexClick(
   const stationIDs = stationIDsRaw.split("/").map((id: string) => id.trim());
 
   // custom ada note based off of all the station ada notes
+  // (a station_id can have more than one physical stop, e.g. Queensboro Plaza,
+  // 145 St, W 4 St-Wash Sq, so every matching row needs to be included)
   const ada_notes = stationIDs
-    .map((stationID) => {
-      const station = mtaStationsDataset.features.find(
+    .flatMap((stationID) => {
+      const stations = mtaStationsDataset.features.filter(
         (f: any) => f.properties.station_id === stationID,
       );
-      if (!station || !station.properties.ada_notes) return null;
-      let routes = "";
-      if (stationIDs.length > 1)
-        routes = station.properties.daytime_routes || "";
-      const note = station.properties.ada_notes.trim();
-      return `${routes} ${note}`;
+      return stations.map((station) => {
+        if (!station.properties.ada_notes) return null;
+        let routes = "";
+        if (stationIDs.length > 1 || stations.length > 1)
+          routes = station.properties.daytime_routes || "";
+        const note = station.properties.ada_notes.trim();
+        return `${routes} ${note}`;
+      });
     })
 
     .filter((entry) => entry) // remove null or empty

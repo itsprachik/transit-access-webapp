@@ -2,7 +2,7 @@
  * One-time seed script — populates Supabase tables from local JSON files.
  * Run after executing migration.sql in the Supabase SQL editor.
  *
- * Usage: npx ts-node --skip-project src/db/seed.ts
+ * Usage: npx tsx src/db/seed.ts
  * Requires SUPABASE_SERVICE_ROLE_KEY to be set in .env
  */
 
@@ -39,9 +39,12 @@ async function seedComplexes() {
 }
 
 async function seedStationDetails() {
+  // gtfs_stop_id is the true unique key — station_id is shared by a few stations
+  // with multiple physical stops (Queensboro Plaza, 145 St, W 4 St-Wash Sq).
   const rowMap = new Map<string, any>();
   for (const f of stationsJson.features as any[]) {
-    rowMap.set(f.properties.station_id, {
+    rowMap.set(f.properties.gtfs_stop_id, {
+      gtfs_stop_id: f.properties.gtfs_stop_id,
       station_id: f.properties.station_id,
       complex_id: f.properties.complex_id,
       stop_name: f.properties.stop_name,
@@ -55,14 +58,13 @@ async function seedStationDetails() {
       ada_notes: f.properties.ada_notes,
       north_direction_label: f.properties.north_direction_label,
       south_direction_label: f.properties.south_direction_label,
-      gtfs_stop_id: f.properties.gtfs_stop_id,
       borough: f.properties.borough,
       geometry: f.geometry,
     });
   }
   const rows = Array.from(rowMap.values());
 
-  const { error } = await supabase.from("station_details").upsert(rows, { onConflict: "station_id" });
+  const { error } = await supabase.from("station_details").upsert(rows, { onConflict: "gtfs_stop_id" });
   if (error) throw new Error(`station_details seed failed: ${error.message}`);
   console.log(`✓ station_details: ${rows.length} rows`);
 }
