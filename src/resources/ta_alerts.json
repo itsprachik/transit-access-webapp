@@ -1,7 +1,7 @@
 [{
     "_comment": "This file is currently updated manually // SEVERITY LEVELS: ✅ 'success' | ⚠️ 'warning' | ℹ️ 'info' | ❗️'error'",
     "severity": "success",
-    "text": "Rockaway Blvd (A train) now ADA accessible!",
+    "text": "Kings Hwy (F train) now ADA accessible!",
     "color": "color",
     "type": ""
 }

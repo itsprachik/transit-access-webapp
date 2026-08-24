@@ -11,8 +11,12 @@ CREATE TABLE complexes (
   geometry      JSONB
 );
 
+-- gtfs_stop_id (not station_id) is the true unique key: some stations, e.g.
+-- Queensboro Plaza, 145 St, and W 4 St-Wash Sq, have two physical stops that
+-- share a station_id/complex_id but have distinct gtfs_stop_id values.
 CREATE TABLE station_details (
-  station_id            TEXT PRIMARY KEY,
+  gtfs_stop_id          TEXT PRIMARY KEY,
+  station_id            TEXT NOT NULL,
   complex_id            TEXT REFERENCES complexes(complex_id),
   stop_name             TEXT,
   line                  TEXT,
@@ -25,7 +29,6 @@ CREATE TABLE station_details (
   ada_notes             TEXT,
   north_direction_label TEXT,
   south_direction_label TEXT,
-  gtfs_stop_id          TEXT,
   borough               TEXT,
   geometry              JSONB
 );
