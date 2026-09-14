@@ -246,17 +246,23 @@ export function convertDateDistance(outageDate, estimatedReturn) {
   return `In ${formatDistanceToNow(parsedDate)}`;
 }
 
-// Returns "tonight" (start >= 6pm today), "today" (any other time today), or null.
+// Returns "tonight" (start >= 6pm today), "today" (any other time today),
+// "overnight" (start < 6am tomorrow), "tomorrow" (any other time tomorrow), or null.
+// Outages whose scheduled start time has already passed are ignored, since the
+// MTA feed sometimes leaves stale entries in "upcoming" past their start time.
 function maintenanceTodayLabel(outageStrings) {
-  const rank = { tonight: 3, overnight: 2, today: 1 };
+  const rank = { tonight: 4, overnight: 3, today: 2, tomorrow: 1 };
+  const now = new Date();
   let label = null;
   for (const dateStr of outageStrings) {
     const parsed = parse(dateStr, "MM/dd/yyyy hh:mm:ss a", new Date());
+    if (parsed < now) continue;
+
     let candidate = null;
     if (isToday(parsed)) {
       candidate = parsed.getHours() >= 18 ? "tonight" : "today";
-    } else if (isTomorrow(parsed) && parsed.getHours() < 4) {
-      candidate = "overnight";
+    } else if (isTomorrow(parsed)) {
+      candidate = parsed.getHours() < 6 ? "overnight" : "tomorrow";
     }
     if (candidate && (label === null || rank[candidate] > rank[label])) {
       label = candidate;
