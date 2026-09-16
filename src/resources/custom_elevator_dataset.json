@@ -12876,14 +12876,14 @@
         "elevatorno": "EL102",
         "linesServed": "2/4/5",
         "directionLabel": "Manhattan-bound",
-        "title": "149 St-Grand Concourse",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/149-St-Grand-Concourse_EL102.jpg",
+        "title": "149 St-Hostos",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/149-St-Hostos_EL102.jpg",
         "alternativeRoute": "If you are on the transfer mezzanine:  \n\nFor Manhattan-bound 4/5, take a Woodlawn-bound 4 to 161 St \u2013 Yankee Stadium and transfer to a Manhattan-bound 4. Transfer at 125 St for 5.  \n\nFor Manhattan-bound 2, take an Eastchester-Dyre Av-bound 5 or a Wakefield-241 St-bound 2 to 3 Av \u2013 149 St. See agent to transfer to a Manhattan-bound 2.  \n\nIf you are on the Manhattan-bound 4 platform: Take a Manhattan-bound 4 to 125 St and transfer to a Bronx-bound 4 or 5 to 149 St \u2013 Grand Concourse. For 2, take a Bronx-bound 5 and transfer at 149 St \u2013 Grand Concourse.  \n\nIf you are on the Manhattan-bound 2/5 platform: Take a Manhattan-bound 5 to 125 St and transfer to a Bronx-bound 4 or 5 to 149 St \u2013 Grand Concourse.",
-        "ada": "0",
+        "ada": "1",
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Manhattan-bound 4 platform and Manhattan-bound 2/5 platform.",
-        "description_custom": "This elevator gets you from the main station mezzanine to Manhattan-bound 2/4/5 trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to Manhattan-bound 4 trains and 2/5 trains"
       },
       "geometry": {
         "type": "Point",
@@ -12906,14 +12906,14 @@
         "elevatorno": "EL101",
         "linesServed": "2/4/5",
         "directionLabel": "Woodlawn-bound",
-        "title": "149 St-Grand Concourse",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/149-St-Grand-Concourse_EL101.jpg",
+        "title": "149 St-Hostos",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/platform_elevators/149-St-Hostos_EL101.jpg",
         "alternativeRoute": "If you are in the transfer mezzanine:  \n\nFor Woodlawn-bound 4 and Eastchester-Dyre Av-bound 5, take a Manhattan-bound 4 or 5 to 125 St and transfer to a Bronx-bound 4 or 5.  \n\nFor Wakefield-241 St-bound 2, take a Manhattan-bound 4 or 5 to 125 St and take a Bronx-bound 5. Transfer to 2 at 149 St \u2013 Grand Concourse. \n\nIf you are on the Woodlawn-bound 4 platform:  \n\nTo exit, take a Woodlawn-bound 4 to 161 St \u2013 Yankee Stadium and transfer to a Manhattan-bound 4 to 149 St \u2013 Grand Concourse.  \n\nFor 2/5, take a Woodlawn-bound 4 to 161 St \u2013 Yankee Stadium. Then, transfer to a Manhattan-bound 4 to 125 St. Then, transfer to a Bronx-bound 5.  \n\nIf you are on the Eastchester-Dyre Av/Wakefield-241 St-bound 2/5 platform:  \n\nTo exit, take an Eastchester-Dyre Av-bound 5 or a Wakefield-241 St-bound 2 to 3 Av \u2013 149 St. Transfer to a Riverbank Park-bound Bx19 bus to E 149 St / Grand Concourse.  \n\nFor 4, take a Wakefield-241 St-bound 2 or an Eastchester-Dyre Av-bound 5 to 3 Av \u2013 149 St. See agent to transfer to a Manhattan-bound 5 and take it to 125 St. Then, transfer to a Bronx-bound 4.",
-        "ada": "0",
+        "ada": "1",
         "isBroken": "",
         "isStreet": "",
         "shortdescription": "Mezzanine to Woodlawn-bound 4 platform and Bronx-bound 2/5 platform.",
-        "description_custom": "This elevator gets you from the main station mezzanine to Woodlawn-bound 2/4/5 trains"
+        "description_custom": "This elevator gets you from the main station mezzanine to Woodlawn-bound 4 trains and 2/5 trains"
       },
       "geometry": {
         "type": "Point",
@@ -12936,20 +12936,20 @@
         "elevatorno": "EL100",
         "linesServed": "2/4/5",
         "directionLabel": "",
-        "title": "149 St-Grand Concourse",
-        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/149-St-Grand-Concourse_EL100.jpg",
+        "title": "149 St-Hostos",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/149-St-Hostos_EL100.jpg",
         "alternativeRoute": "If you are on the street: For 2/5, take a Bronx Park-bound Bx19 bus to 3 Av - 149 St 2/5 station. For 4, take a Riverdale-bound Bx1 LTD bus or Kingsbridge Hts-bound Bx2 bus to Grand Concourse / E 161 St. Proceed west along E 161 St to River Av for the 161 St \u2013 Yankee Stadium station.  \n\nIf you are in the transfer mezzanine: Take a Wakefield-241 St-bound 2 or an Eastchester-Dyre Av-bound 5 to 3 Av \u2013 149 St. Transfer to a Riverbank Park-bound Bx19 bus to E 149 St / Grand Concourse.",
-        "ada": "0",
+        "ada": "1",
         "isBroken": "",
-        "isStreet": "",
+        "isStreet": "true",
         "shortdescription": "149 St & Grand Concourse (SW corner) to mezzanine for 2, 4, and 5 service.",
-        "description_custom": "This elevator gets you from the main station mezzanine to 2/4/5 trains"
+        "description_custom": "This elevator gets you from the street to the main station mezzanine"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.927351,
-          40.818075
+          -73.92735,
+          40.818375
         ]
       },
       "id": "8f09e0f2f4b2b55791470109f227232a"
