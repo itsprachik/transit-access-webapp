@@ -4681,7 +4681,7 @@
     "nextadasouth": "314, 1 / 317, 2, 3",
     "redundant": 0,
     "busconnections": "M5, M7 (northbound), M11 (northbound), M57, M72, M104, BxM2 (northbound: southbound at Columbus Av)",
-    "alternativeroute": "If you are on the street: Proceed south along Broadway to 66 St \u2013 Lincoln Center for uptown 1 service. Transfer at 72 St for 2/3.\n\nIf you are on the platform: Take an uptown 1/2/3 to 96 St and take a downtown 1 to 66 St \u2013 Lincoln Center. Exit the station and proceed north along Broadway to 72 St. \n"
+    "alternativeroute": "If you are on the street: Proceed south along Broadway to 66 St \u2013 Lincoln Center for downtown 1 service. Transfer at Times Sq \u2013 42 St for 2/3. \n\nIf you are on the platform: Take a downtown 1 to 66 St \u2013 Lincoln Center. Exit the station and proceed north along Broadway to 72 St."
   },
   {
     "station": "72 St",
@@ -4702,7 +4702,7 @@
     "nextadasouth": "314, 1 / 317, 2, 3",
     "redundant": 0,
     "busconnections": "M5, M7 (northbound), M11 (northbound), M57, M72, M104, BxM2 (northbound: southbound at Columbus Av)",
-    "alternativeroute": "If you are on the street: Proceed south along Broadway to 66 St \u2013 Lincoln Center for downtown 1 service. Transfer at Times Sq \u2013 42 St for 2/3. \n\nIf you are on the platform: Take a downtown 1 to 66 St \u2013 Lincoln Center. Exit the station and proceed north along Broadway to 72 St."
+    "alternativeroute": "If you are on the street: Proceed south along Broadway to 66 St \u2013 Lincoln Center for uptown 1 service. Transfer at 72 St for 2/3.\n\nIf you are on the platform: Take an uptown 1/2/3 to 96 St and take a downtown 1 to 66 St \u2013 Lincoln Center. Exit the station and proceed north along Broadway to 72 St. "
   },
   {
     "station": "74 St-Broadway",
