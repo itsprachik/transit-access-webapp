@@ -1,4 +1,5 @@
 import json
+import math
 import os
 import re
 import requests
@@ -7,9 +8,7 @@ import requests
 API_KEY = os.environ["MTA_API_KEY"]
 API_URL = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fnyct_ene_equipments.json"
 
-# NY Open Data's elevator/escalator inventory carries a real per-equipment
-# georeference, keyed by equipment_code (matches the MTA feed's equipmentno) —
-# used to place new elevators at their actual location instead of guessing.
+# NY Open Data's new elevator/escalator assets has the geocode, keyed by equipment_code —
 NY_OPEN_DATA_URL = "https://data.ny.gov/api/v3/views/94fv-bak7/query.json"
 NY_OPEN_DATA_QUERY = (
     "SELECT equipment_code, elevator_or_escalator, georeference "
@@ -115,13 +114,24 @@ def load_complex_lookup(json_path):
 # Track placement counts so we know how to offset each new one
 complex_placement_counter = {}
 
-def get_coordinates_for_elevator(equip, station_lookup, complex_lookup, is_street, geo_lookup):
-    """Return coordinates for elevator: real NY Open Data coordinates when available,
-    otherwise station/complex placement with offset rules for street/non-street."""
-    elev_no = str(equip.get("equipmentno", "")).strip().upper()
-    if elev_no in geo_lookup:
-        return list(geo_lookup[elev_no])
+# The MTA occasionally mis-geocodes an elevator. Sanity check within 500m.
+# The largest distance between street elevator & complex, to date, in EL773 (Borough Hall)
+GEO_SANITY_THRESHOLD_M = 500
 
+def haversine_m(coord1, coord2):
+    """Great-circle distance between two [lon, lat] points, in meters."""
+    lon1, lat1 = coord1
+    lon2, lat2 = coord2
+    R = 6371000
+    p1, p2 = math.radians(lat1), math.radians(lat2)
+    dphi = math.radians(lat2 - lat1)
+    dlambda = math.radians(lon2 - lon1)
+    a = math.sin(dphi / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(dlambda / 2) ** 2
+    return 2 * R * math.asin(math.sqrt(a))
+
+def get_coordinates_for_elevator(equip, station_lookup, complex_lookup, is_street, geo_lookup):
+    """Return coordinates for elevator: real NY Open Data coordinates when available
+    and plausible, otherwise station/complex placement with offset rules."""
     # Determine base coordinates (station → complex → None)
     station_ids = str(equip.get("elevatormrn", "")).split("/")
     coords = None
@@ -130,6 +140,17 @@ def get_coordinates_for_elevator(equip, station_lookup, complex_lookup, is_stree
         sid = str(int(station_ids[0].strip()))
         if sid in station_lookup:
             coords = station_lookup[sid]["coordinates"]
+
+    elev_no = str(equip.get("equipmentno", "")).strip().upper()
+    if elev_no in geo_lookup:
+        ny_coords = list(geo_lookup[elev_no])
+        if not coords or None in coords or haversine_m(ny_coords, coords) <= GEO_SANITY_THRESHOLD_M:
+            return ny_coords
+        print(
+            f"⚠️  Ignoring implausible NY Open Data coordinate for {elev_no} "
+            f"({equip.get('station', '')}): {haversine_m(ny_coords, coords):.0f}m "
+            f"from its station — falling back to inferred placement"
+        )
 
     if not coords or None in coords:
         complex_id = str(equip.get("stationcomplexid", ""))
