@@ -185,7 +185,6 @@ def get_coordinates_for_elevator(equip, station_lookup, complex_lookup, is_stree
 # Create quick lookup for stations
 station_lookup = {
     str(int(station["properties"]["station_id"])): {  # normalize to no leading zeros
-        "ada": station["properties"].get("ada", ""),
         "coordinates": station.get("geometry", {}).get("coordinates")
     }
     for station in mta_stations_data["features"]
@@ -262,7 +261,12 @@ for equip in mta_equipment_data:
             "title": equip.get("station", ""),
             "image": image_url,
             "alternativeRoute": equip.get("alternativeroute", ""),
-            "ada": station_lookup.get(station_id, {}).get("ada", ""),
+            # Derived from this elevator's OWN equipment-feed ADA flag, not the
+            # station's — the station's can still be "0"/stale if its dataset
+            # hasn't caught up yet (see accessibilityDataSyncPatch.py). Deriving
+            # from equip["ADA"] directly (rather than hardcoding "1") also keeps
+            # this correct once non-ADA elevators start getting added too.
+            "ada": "1" if equip.get("ADA", "").upper() == "Y" else "0",
             "isBroken": "",
             "isStreet": "true" if is_street else "",
             "shortdescription": short_desc,

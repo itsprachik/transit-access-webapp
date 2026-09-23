@@ -1,5 +1,5 @@
 {
-  "_comment": "Manually curated, except features with \"auto\": true, which are added/removed by individual_scripts/syncAccessibilityAlerts.py",
+  "_comment": "Manually edited, except features with \"auto\": true, which are added/removed by individual_scripts/accessibilityDataSyncPatch.py",
   "type": "FeatureCollection",
   "features": [
     {
