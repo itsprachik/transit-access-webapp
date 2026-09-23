@@ -37,7 +37,7 @@ def fetch_latest_equipment():
     with open(MTA_EQUIP_FILE, "w", encoding="utf-8") as f:
         f.write("// 🚨 This file is auto-generated. Do not edit manually.\n")
         json.dump(data, f, indent=2)
-    print(f"Saved latest equipment data to {MTA_EQUIP_FILE}")
+    print(f"Saved latest equipment data to {os.path.basename(MTA_EQUIP_FILE)}")
     return data
 
 def fetch_elevator_geocoordinates():

@@ -1,5 +1,5 @@
 {
-  "_comment": "This file is currently updated manually",
+  "_comment": "Manually curated, except features with \"auto\": true, which are added/removed by individual_scripts/syncAccessibilityAlerts.py",
   "type": "FeatureCollection",
   "features": [
     {
@@ -15,8 +15,9 @@
       "properties": {
         "complex_id": "603",
         "stop_name": "149 St-Hostos",
-        "alert": "This station was just made accessible. Station ADA flags may come after elevators are put into the system. Please be patient while data updates."
+        "alert": "This station was just made accessible. Station ADA flags may come after elevators are put into the system. Please be patient while data updates.",
+        "auto": true
       }
     }
- ]
+  ]
 }

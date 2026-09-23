@@ -110,7 +110,7 @@ def fetch_latest_complex_data():
     with open(COMPLEXES_FILE, "w", encoding="utf-8") as f:
         json.dump(new_feature_collection, f, indent=2)
 
-    print(f"✅ Saved {len(new_features)} complexes to {COMPLEXES_FILE}")
+    print(f"✅ Saved {len(new_features)} complexes to {os.path.basename(COMPLEXES_FILE)}")
 
     # Write diff report section
     report_path = os.path.join(THIS_DIR, "..", "..", "generated", "diff_report.json")
