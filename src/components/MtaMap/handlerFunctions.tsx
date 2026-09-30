@@ -296,7 +296,7 @@ function handleStationComplexClick(
         (f: any) => f.properties.station_id === stationID,
       );
       return stations.map((station) => {
-        if (!station.properties.ada_notes) return null;
+        if (!station.properties.ada_notes || station.properties.ada_notes==="NaN") return null;
         let routes = "";
         if (stationIDs.length > 1 || stations.length > 1)
           routes = station.properties.daytime_routes || "";
