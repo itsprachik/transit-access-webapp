@@ -9,15 +9,6 @@
         "stop_name": "Queens Plaza,Court Sq-23 St,Lexington Av/51-53 Sts,5 Av/53 St,21 St-Queensbridge,Roosevelt Island,Lexington Av/63 St,57 St",
         "alert": "This stop affected by recent F/M switch https://www.mta.info/article/f-m-swap"
       }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "complex_id": "603",
-        "stop_name": "149 St-Hostos",
-        "alert": "This station was just made accessible. Station ADA flags may come after elevators are put into the system. Please be patient while data updates.",
-        "auto": true
-      }
     }
   ]
 }
