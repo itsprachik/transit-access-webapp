@@ -1,4 +1,5 @@
 import json
+import math
 import os
 import re
 import requests
@@ -7,11 +8,20 @@ import requests
 API_KEY = os.environ["MTA_API_KEY"]
 API_URL = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fnyct_ene_equipments.json"
 
+# NY Open Data's new elevator/escalator assets has the geocode, keyed by equipment_code —
+NY_OPEN_DATA_URL = "https://data.ny.gov/api/v3/views/94fv-bak7/query.json"
+NY_OPEN_DATA_QUERY = (
+    "SELECT equipment_code, elevator_or_escalator, georeference "
+    "WHERE elevator_or_escalator = 'Elevator' "
+    "LIMIT 5000"
+)
+
 # Get directory where this script is located
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # File paths
 MTA_EQUIP_FILE = os.path.join(THIS_DIR, "..", "..", "generated", "mta_equipments.json")
+MTA_EQUIP_GEO_FILE = os.path.join(THIS_DIR, "..", "..", "generated", "mta_equipments_geo.json")
 STATIONS_FILE = os.path.join(THIS_DIR, "..", "..", "mta_subway_stations_all.json")
 CUSTOM_ELEVATOR_FILE = os.path.join(THIS_DIR, "..", "..", "custom_elevator_dataset.json")
 
@@ -27,11 +37,42 @@ def fetch_latest_equipment():
     with open(MTA_EQUIP_FILE, "w", encoding="utf-8") as f:
         f.write("// 🚨 This file is auto-generated. Do not edit manually.\n")
         json.dump(data, f, indent=2)
-    print(f"Saved latest equipment data to {MTA_EQUIP_FILE}")
+    print(f"Saved latest equipment data to {os.path.basename(MTA_EQUIP_FILE)}")
     return data
+
+def fetch_elevator_geocoordinates():
+    """Fetch real per-elevator coordinates from NY Open Data, keyed by equipment_code."""
+    print("Fetching elevator coordinates from NY Open Data...")
+    response = requests.get(NY_OPEN_DATA_URL, params={"query": NY_OPEN_DATA_QUERY})
+    response.raise_for_status()
+    rows = response.json()
+
+    simplified = []
+    geo_lookup = {}
+    for row in rows:
+        code = row.get("equipment_code", "").strip().upper()
+        equip_type = row.get("elevator_or_escalator", "")
+        coords = row.get("georeference", {}).get("coordinates")
+        if not code or not coords or None in coords:
+            continue
+        simplified.append({
+            "equipment_code": code,
+            "elevator_or_escalator": equip_type,
+            "coords": coords,
+        })
+        geo_lookup[code] = coords
+
+    os.makedirs(os.path.dirname(MTA_EQUIP_GEO_FILE), exist_ok=True)
+    with open(MTA_EQUIP_GEO_FILE, "w", encoding="utf-8") as f:
+        f.write("// 🚨 This file is auto-generated. Do not edit manually.\n")
+        json.dump(simplified, f, indent=2)
+
+    print(f"Loaded {len(geo_lookup)} elevator coordinates from NY Open Data")
+    return geo_lookup
 
 # === LOAD MTA EQUIPMENT ===
 mta_equipment_data = fetch_latest_equipment()
+elevator_geo_lookup = fetch_elevator_geocoordinates()
 
 # Load stations and existing elevators as before
 with open(STATIONS_FILE, "r", encoding="utf-8") as f:
@@ -73,8 +114,24 @@ def load_complex_lookup(json_path):
 # Track placement counts so we know how to offset each new one
 complex_placement_counter = {}
 
-def get_coordinates_for_elevator(equip, station_lookup, complex_lookup, is_street):
-    """Return coordinates for elevator, applying offset rules for street/non-street."""
+# The MTA occasionally mis-geocodes an elevator. Sanity check within 500m.
+# The largest distance between street elevator & complex, to date, in EL773 (Borough Hall)
+GEO_SANITY_THRESHOLD_M = 500
+
+def haversine_m(coord1, coord2):
+    """Great-circle distance between two [lon, lat] points, in meters."""
+    lon1, lat1 = coord1
+    lon2, lat2 = coord2
+    R = 6371000
+    p1, p2 = math.radians(lat1), math.radians(lat2)
+    dphi = math.radians(lat2 - lat1)
+    dlambda = math.radians(lon2 - lon1)
+    a = math.sin(dphi / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(dlambda / 2) ** 2
+    return 2 * R * math.asin(math.sqrt(a))
+
+def get_coordinates_for_elevator(equip, station_lookup, complex_lookup, is_street, geo_lookup):
+    """Return coordinates for elevator: real NY Open Data coordinates when available
+    and plausible, otherwise station/complex placement with offset rules."""
     # Determine base coordinates (station → complex → None)
     station_ids = str(equip.get("elevatormrn", "")).split("/")
     coords = None
@@ -83,6 +140,17 @@ def get_coordinates_for_elevator(equip, station_lookup, complex_lookup, is_stree
         sid = str(int(station_ids[0].strip()))
         if sid in station_lookup:
             coords = station_lookup[sid]["coordinates"]
+
+    elev_no = str(equip.get("equipmentno", "")).strip().upper()
+    if elev_no in geo_lookup:
+        ny_coords = list(geo_lookup[elev_no])
+        if not coords or None in coords or haversine_m(ny_coords, coords) <= GEO_SANITY_THRESHOLD_M:
+            return ny_coords
+        print(
+            f"⚠️  Ignoring implausible NY Open Data coordinate for {elev_no} "
+            f"({equip.get('station', '')}): {haversine_m(ny_coords, coords):.0f}m "
+            f"from its station — falling back to inferred placement"
+        )
 
     if not coords or None in coords:
         complex_id = str(equip.get("stationcomplexid", ""))
@@ -117,7 +185,6 @@ def get_coordinates_for_elevator(equip, station_lookup, complex_lookup, is_stree
 # Create quick lookup for stations
 station_lookup = {
     str(int(station["properties"]["station_id"])): {  # normalize to no leading zeros
-        "ada": station["properties"].get("ada", ""),
         "coordinates": station.get("geometry", {}).get("coordinates")
     }
     for station in mta_stations_data["features"]
@@ -151,7 +218,7 @@ for equip in mta_equipment_data:
     is_street = "street" in short_desc.lower()
 
     # Coordinates
-    coords = get_coordinates_for_elevator(equip, station_lookup, complex_lookup, is_street)
+    coords = get_coordinates_for_elevator(equip, station_lookup, complex_lookup, is_street, elevator_geo_lookup)
 
     # Station ID for output
     station_id = str(int(str(equip.get("elevatormrn", "")).split("/")[0].strip()))
@@ -194,7 +261,12 @@ for equip in mta_equipment_data:
             "title": equip.get("station", ""),
             "image": image_url,
             "alternativeRoute": equip.get("alternativeroute", ""),
-            "ada": station_lookup.get(station_id, {}).get("ada", ""),
+            # Derived from this elevator's OWN equipment-feed ADA flag, not the
+            # station's — the station's can still be "0"/stale if its dataset
+            # hasn't caught up yet (see accessibilityDataSyncPatch.py). Deriving
+            # from equip["ADA"] directly (rather than hardcoding "1") also keeps
+            # this correct once non-ADA elevators start getting added too.
+            "ada": "1" if equip.get("ADA", "").upper() == "Y" else "0",
             "isBroken": "",
             "isStreet": "true" if is_street else "",
             "shortdescription": short_desc,

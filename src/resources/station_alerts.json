@@ -1,5 +1,5 @@
 {
-  "_comment": "This file is currently updated manually",
+  "_comment": "Manually edited, except features with \"auto\": true, which are added/removed by individual_scripts/accessibilityDataSyncPatch.py",
   "type": "FeatureCollection",
   "features": [
     {
@@ -10,5 +10,5 @@
         "alert": "This stop affected by recent F/M switch https://www.mta.info/article/f-m-swap"
       }
     }
- ]   
+  ]
 }

@@ -25,7 +25,7 @@ def fetch_latest_station_data():
                 if isinstance(loaded, dict) and "features" in loaded:
                     old_data = loaded["features"]
         except (json.JSONDecodeError, FileNotFoundError):
-            print(f"⚠️ Warning: {STATIONS_FILE} is empty or invalid. Starting fresh.")
+            print(f"⚠️ Warning: {os.path.basename(STATIONS_FILE)} is empty or invalid. Starting fresh.")
             old_data = []
 
     # Convert to dict keyed by gtfs_stop_id for diffing
@@ -81,7 +81,7 @@ def fetch_latest_station_data():
     with open(STATIONS_FILE, "w", encoding="utf-8") as f:
         json.dump(feature_collection, f, indent=2)
 
-    print(f"✅ Saved latest MTA station data to {STATIONS_FILE}")
+    print(f"✅ Saved latest MTA station data to {os.path.basename(STATIONS_FILE)}")
 
     # Write diff report section
     report_path = os.path.join(THIS_DIR, "..", "..", "generated", "diff_report.json")

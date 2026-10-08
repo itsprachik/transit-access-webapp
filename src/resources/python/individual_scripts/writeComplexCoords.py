@@ -60,6 +60,6 @@ with open(output_js, "w") as f:
     f.write(js_content)
 
 # Print confirmation
-print(f"\n** 📍 [2c] COMPLEX COORDINATES: 📍 **\n✅ Generated {len (filtered_features)} features and saved GEOJSON to {output_geojson}")
-print(f"JSON saved to {output_json}")
-print(f"JavaScript file saved to {output_js}")
+print(f"\n** 📍 [2c] COMPLEX COORDINATES: 📍 **\n✅ Generated {len (filtered_features)} features and saved GEOJSON to {os.path.basename(output_geojson)}")
+print(f"JSON saved to {os.path.basename(output_json)}")
+print(f"JavaScript file saved to {os.path.basename(output_js)}")

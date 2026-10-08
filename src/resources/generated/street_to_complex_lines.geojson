@@ -4831,6 +4831,29 @@
         "ada": "1",
         "side": "right"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -73.92735,
+            40.818375
+          ],
+          [
+            -73.9270345,
+            40.8183925
+          ]
+        ]
+      },
+      "properties": {
+        "complex_id": "603",
+        "elevator_no": "EL100",
+        "station_name": "149 St-Hostos",
+        "ada": "1",
+        "side": "left"
+      }
     }
   ]
 }
