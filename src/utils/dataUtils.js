@@ -519,7 +519,19 @@ export const getStationsWithOutages = (elevatorOutages) => {
   const stationsWithOutages = {};
   const complexMap = {};
 
-  // Build a map keeping track of stationIDs and their complexes (in a complex, each line gets a station separated by a slash)
+  // Build a map keeping track of stationIDs and their complexes
+  complexesDataset.features.forEach((feature) => {
+    const complexID = feature.properties?.complex_id;
+    const stationIDs = String(feature.properties?.station_ids || "").split("/");
+
+    if (complexID) {
+      if (!complexMap[complexID]) complexMap[complexID] = new Set();
+      stationIDs.forEach((id) => id.trim() && complexMap[complexID].add(id.trim()));
+    }
+  });
+
+  // Also fold in stationIDs found directly on elevator records, in case one
+  // references a station not listed under its complex.
   elevatorFeatures.forEach((feature) => {
     const complexID = feature.properties?.complexID;
     const stationIDs = String(feature.properties?.stationID || "").split("/");
@@ -527,7 +539,7 @@ export const getStationsWithOutages = (elevatorOutages) => {
     if (complexID) {
       // add complex if it's not there yet
       if (!complexMap[complexID]) complexMap[complexID] = new Set();
-      stationIDs.forEach((id) => complexMap[complexID].add(id.trim()));
+      stationIDs.forEach((id) => id.trim() && complexMap[complexID].add(id.trim()));
     }
   });
 

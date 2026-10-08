@@ -106,7 +106,9 @@ jobs:
             src/resources/mta_subway_stations_all.json \
             src/resources/mta_subway_complexes.json \
             src/resources/custom_elevator_dataset.json \
+            src/resources/station_alerts.json \
             src/resources/generated/mta_equipments.json \
+            src/resources/generated/mta_equipments_geo.json \
             src/resources/generated/diff_report.json \
             src/resources/generated/elevatorOutagesDataset.geojson \
             src/resources/generated/elevatorOutageGeometry.json \
