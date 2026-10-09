@@ -328,15 +328,20 @@ export function getNearbyComplexes(userLng, userLat, radiusMiles = radiusToleran
         .map((id) => id.trim())
         .filter(Boolean);
       const route = concatenateRoutes(stationIDs, stationsDataset);
+      // a station_id can have more than one physical stop (e.g. Queensboro
+      // Plaza, 145 St, W 4 St-Wash Sq), so every matching row needs to be
+      // included, not just the first one .find() would return.
       const ada_notes = stationIDs
-        .map((stationID) => {
-          const station = stationsDataset.features.find(
+        .flatMap((stationID) => {
+          const stations = stationsDataset.features.filter(
             (s) => s.properties.station_id === stationID,
           );
-          if (!station || !station.properties.ada_notes) return null;
-          let routes = "";
-          if (stationIDs.length > 1) routes = station.properties.daytime_routes || "";
-          return `${routes} ${station.properties.ada_notes.trim()}`.trim();
+          return stations.map((station) => {
+            if (!station.properties.ada_notes || station.properties.ada_notes === "NaN") return null;
+            let routes = "";
+            if (stationIDs.length > 1 || stations.length > 1) routes = station.properties.daytime_routes || "";
+            return `${routes} ${station.properties.ada_notes.trim()}`.trim();
+          });
         })
         .filter(Boolean)
         .join(", ");
