@@ -1,14 +1,6 @@
 // 🚨 This file is auto-generated. Do not edit manually.
 [
   {
-    "equipment_code": "EL12X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -74.01219,
-      40.711834
-    ]
-  },
-  {
     "equipment_code": "EL790X",
     "elevator_or_escalator": "Elevator",
     "coords": [
@@ -17,19 +9,27 @@
     ]
   },
   {
-    "equipment_code": "EL355",
+    "equipment_code": "EL458",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.97596,
-      40.58879
+      -73.907196,
+      40.75159
     ]
   },
   {
-    "equipment_code": "EL267",
+    "equipment_code": "EL498",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.95861,
-      40.7687
+      -73.75409,
+      40.604652
+    ]
+  },
+  {
+    "equipment_code": "EL360",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.97509,
+      40.588806
     ]
   },
   {
@@ -41,11 +41,43 @@
     ]
   },
   {
-    "equipment_code": "EL203X",
+    "equipment_code": "EL156",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.97097,
-      40.758823
+      -73.92624,
+      40.859974
+    ]
+  },
+  {
+    "equipment_code": "EL193",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.85747,
+      40.893284
+    ]
+  },
+  {
+    "equipment_code": "EL152",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.91528,
+      40.868145
+    ]
+  },
+  {
+    "equipment_code": "EL256X",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.84382,
+      40.75401
+    ]
+  },
+  {
+    "equipment_code": "EL366",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.9836,
+      40.5949
     ]
   },
   {
@@ -57,91 +89,99 @@
     ]
   },
   {
-    "equipment_code": "EL173",
+    "equipment_code": "EL147",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.87414,
-      40.841682
+      -73.91642,
+      40.864727
     ]
   },
   {
-    "equipment_code": "EL231X",
+    "equipment_code": "EL354",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.98677,
-      40.75599
+      -73.97484,
+      40.58863
     ]
   },
   {
-    "equipment_code": "EL155",
+    "equipment_code": "EL414",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.915596,
-      40.867073
+      -73.82893,
+      40.759884
     ]
   },
   {
-    "equipment_code": "EL405",
+    "equipment_code": "EL237",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.94231,
-      40.754337
+      -73.98194,
+      40.773727
     ]
   },
   {
-    "equipment_code": "EL606X",
+    "equipment_code": "EL141",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.978516,
-      40.75276
+      -73.939415,
+      40.84096
     ]
   },
   {
-    "equipment_code": "EL264",
+    "equipment_code": "EL286",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.95872,
-      40.76855
+      -73.96379,
+      40.767822
     ]
   },
   {
-    "equipment_code": "EL122",
+    "equipment_code": "EL249",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.82736,
-      40.852676
+      -73.951805,
+      40.777287
     ]
   },
   {
-    "equipment_code": "EL301",
+    "equipment_code": "EL1106",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.97839,
-      40.684143
+      -74.00397,
+      40.725517
     ]
   },
   {
-    "equipment_code": "EL752",
+    "equipment_code": "EL195",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.01102,
-      40.634666
+      -73.891,
+      40.82057
     ]
   },
   {
-    "equipment_code": "EL708",
+    "equipment_code": "EL782",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.98722,
-      40.692314
+      -73.976326,
+      40.683334
     ]
   },
   {
-    "equipment_code": "EL299",
+    "equipment_code": "EL329",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.98688,
-      40.740536
+      -73.99562,
+      40.72508
+    ]
+  },
+  {
+    "equipment_code": "EL760",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.976326,
+      40.683334
     ]
   },
   {
@@ -169,27 +209,27 @@
     ]
   },
   {
-    "equipment_code": "EL427",
+    "equipment_code": "EL227",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.86935,
-      40.74918
+      -73.99343,
+      40.752125
     ]
   },
   {
-    "equipment_code": "EL780",
+    "equipment_code": "EL338",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.95027,
-      40.71406
+      -74.009315,
+      40.71555
     ]
   },
   {
-    "equipment_code": "EL518",
+    "equipment_code": "EL480",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.938576,
-      40.84984
+      -73.79664,
+      40.591118
     ]
   },
   {
@@ -201,11 +241,11 @@
     ]
   },
   {
-    "equipment_code": "EL424",
+    "equipment_code": "EL222",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.81967,
-      40.70977
+      -74.002655,
+      40.739822
     ]
   },
   {
@@ -217,371 +257,19 @@
     ]
   },
   {
-    "equipment_code": "EL318",
+    "equipment_code": "EL391",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.990555,
-      40.69366
+      -73.95794,
+      40.708466
     ]
   },
   {
-    "equipment_code": "EL230",
+    "equipment_code": "EL402",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.98662,
-      40.756004
-    ]
-  },
-  {
-    "equipment_code": "EL466",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.917786,
-      40.770275
-    ]
-  },
-  {
-    "equipment_code": "EL621",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.97745,
-      40.763973
-    ]
-  },
-  {
-    "equipment_code": "EL208X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.98592,
-      40.762287
-    ]
-  },
-  {
-    "equipment_code": "EL415X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.903114,
-      40.74572
-    ]
-  },
-  {
-    "equipment_code": "EL404",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.95339,
-      40.75922
-    ]
-  },
-  {
-    "equipment_code": "EL350",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.906334,
-      40.65449
-    ]
-  },
-  {
-    "equipment_code": "EL212",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.98799,
-      40.749912
-    ]
-  },
-  {
-    "equipment_code": "EL131",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.925674,
-      40.827908
-    ]
-  },
-  {
-    "equipment_code": "EL774",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.99035,
-      40.69254
-    ]
-  },
-  {
-    "equipment_code": "EL793",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.954155,
-      40.586895
-    ]
-  },
-  {
-    "equipment_code": "EL112",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.94012,
-      40.84097
-    ]
-  },
-  {
-    "equipment_code": "EL341",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.87193,
-      40.675644
-    ]
-  },
-  {
-    "equipment_code": "EL395",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.94176,
-      40.7008
-    ]
-  },
-  {
-    "equipment_code": "EL200X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.988686,
-      40.74874
-    ]
-  },
-  {
-    "equipment_code": "EL509",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.90557,
-      40.849712
-    ]
-  },
-  {
-    "equipment_code": "EL795",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.972305,
-      40.603733
-    ]
-  },
-  {
-    "equipment_code": "EL495X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.83056,
-      40.66037
-    ]
-  },
-  {
-    "equipment_code": "EL295X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.984024,
-      40.755028
-    ]
-  },
-  {
-    "equipment_code": "EL396",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.91194,
-      40.699646
-    ]
-  },
-  {
-    "equipment_code": "EL388",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -74.01768,
-      40.641582
-    ]
-  },
-  {
-    "equipment_code": "EL373",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.97948,
-      40.643017
-    ]
-  },
-  {
-    "equipment_code": "EL462",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.82424,
-      40.686245
-    ]
-  },
-  {
-    "equipment_code": "EL757",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.96423,
-      40.672066
-    ]
-  },
-  {
-    "equipment_code": "EL779",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.95027,
-      40.71406
-    ]
-  },
-  {
-    "equipment_code": "EL378",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.9937,
-      40.601833
-    ]
-  },
-  {
-    "equipment_code": "EL205",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.97704,
-      40.751995
-    ]
-  },
-  {
-    "equipment_code": "EL619",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.986565,
-      40.755985
-    ]
-  },
-  {
-    "equipment_code": "EL449X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.80773,
-      40.70025
-    ]
-  },
-  {
-    "equipment_code": "EL282",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.98102,
-      40.7643
-    ]
-  },
-  {
-    "equipment_code": "EL753",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -74.010826,
-      40.63477
-    ]
-  },
-  {
-    "equipment_code": "EL18X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -74.01103,
-      40.710667
-    ]
-  },
-  {
-    "equipment_code": "EL252",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.983696,
-      40.763702
-    ]
-  },
-  {
-    "equipment_code": "EL183",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.86654,
-      40.877625
-    ]
-  },
-  {
-    "equipment_code": "EL763",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.954414,
-      40.730682
-    ]
-  },
-  {
-    "equipment_code": "EL510",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.9058,
-      40.849926
-    ]
-  },
-  {
-    "equipment_code": "EL372",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.98136,
-      40.689777
-    ]
-  },
-  {
-    "equipment_code": "EL612",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.99723,
-      40.737556
-    ]
-  },
-  {
-    "equipment_code": "EL478",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.94023,
-      40.750668
-    ]
-  },
-  {
-    "equipment_code": "EL284",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.964096,
-      40.76786
-    ]
-  },
-  {
-    "equipment_code": "EL309",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.99279,
-      40.69441
-    ]
-  },
-  {
-    "equipment_code": "EL389",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -74.01773,
-      40.641563
-    ]
-  },
-  {
-    "equipment_code": "EL118",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.93748,
-      40.853024
-    ]
-  },
-  {
-    "equipment_code": "EL140",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.93929,
-      40.8409
-    ]
-  },
-  {
-    "equipment_code": "EL494X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.830574,
-      40.66036
+      -73.96655,
+      40.76476
     ]
   },
   {
@@ -593,51 +281,347 @@
     ]
   },
   {
-    "equipment_code": "EL199",
+    "equipment_code": "EL283",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.84598,
-      40.870033
+      -73.98101,
+      40.7643
     ]
   },
   {
-    "equipment_code": "EL213",
+    "equipment_code": "EL188",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.98813,
-      40.749603
+      -73.901115,
+      40.862667
     ]
   },
   {
-    "equipment_code": "EL610",
+    "equipment_code": "EL112",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.9974,
-      40.737495
+      -73.94012,
+      40.84097
     ]
   },
   {
-    "equipment_code": "EL421",
+    "equipment_code": "EL707",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.89112,
-      40.74666
+      -73.987236,
+      40.69217
     ]
   },
   {
-    "equipment_code": "EL438",
+    "equipment_code": "EL362",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.84432,
-      40.721664
+      -73.97453,
+      40.59
     ]
   },
   {
-    "equipment_code": "EL222",
+    "equipment_code": "EL115",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.002655,
-      40.739822
+      -73.93324,
+      40.858562
+    ]
+  },
+  {
+    "equipment_code": "EL442",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.96482,
+      40.76391
+    ]
+  },
+  {
+    "equipment_code": "EL202",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.97097,
+      40.758823
+    ]
+  },
+  {
+    "equipment_code": "EL157X",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.8937,
+      40.706905
+    ]
+  },
+  {
+    "equipment_code": "EL774",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.99035,
+      40.69254
+    ]
+  },
+  {
+    "equipment_code": "EL497",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.754074,
+      40.60464
+    ]
+  },
+  {
+    "equipment_code": "EL622",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.97877,
+      40.76253
+    ]
+  },
+  {
+    "equipment_code": "EL307",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.97692,
+      40.68441
+    ]
+  },
+  {
+    "equipment_code": "EL279X",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.98439,
+      40.7433
+    ]
+  },
+  {
+    "equipment_code": "EL295X",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.984024,
+      40.755028
+    ]
+  },
+  {
+    "equipment_code": "EL205",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.97704,
+      40.751995
+    ]
+  },
+  {
+    "equipment_code": "EL462",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.82424,
+      40.686245
+    ]
+  },
+  {
+    "equipment_code": "EL320",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.95015,
+      40.650864
+    ]
+  },
+  {
+    "equipment_code": "EL611",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.997215,
+      40.737564
+    ]
+  },
+  {
+    "equipment_code": "EL796",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.97227,
+      40.603916
+    ]
+  },
+  {
+    "equipment_code": "EL267",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.95861,
+      40.7687
+    ]
+  },
+  {
+    "equipment_code": "EL350",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.906334,
+      40.65449
+    ]
+  },
+  {
+    "equipment_code": "EL393",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.94221,
+      40.70063
+    ]
+  },
+  {
+    "equipment_code": "EL720",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -74.00855,
+      40.710487
+    ]
+  },
+  {
+    "equipment_code": "EL753",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -74.010826,
+      40.63477
+    ]
+  },
+  {
+    "equipment_code": "EL785",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.94056,
+      40.712048
+    ]
+  },
+  {
+    "equipment_code": "EL291X",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.98904,
+      40.758553
+    ]
+  },
+  {
+    "equipment_code": "EL371",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.981285,
+      40.68977
+    ]
+  },
+  {
+    "equipment_code": "EL190",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.894104,
+      40.866096
+    ]
+  },
+  {
+    "equipment_code": "EL280",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.981804,
+      40.76873
+    ]
+  },
+  {
+    "equipment_code": "EL746",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -74.02848,
+      40.622566
+    ]
+  },
+  {
+    "equipment_code": "EL326",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -74.00911,
+      40.71331
+    ]
+  },
+  {
+    "equipment_code": "EL416X",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.90263,
+      40.745693
+    ]
+  },
+  {
+    "equipment_code": "EL284",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.964096,
+      40.76786
+    ]
+  },
+  {
+    "equipment_code": "EL508",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.917915,
+      40.84004
+    ]
+  },
+  {
+    "equipment_code": "EL486",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.90516,
+      40.75254
+    ]
+  },
+  {
+    "equipment_code": "EL268X",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.98342,
+      40.76051
+    ]
+  },
+  {
+    "equipment_code": "EL245",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.96953,
+      40.757294
+    ]
+  },
+  {
+    "equipment_code": "EL435",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.83038,
+      40.714073
+    ]
+  },
+  {
+    "equipment_code": "EL333",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -74.00115,
+      40.73138
+    ]
+  },
+  {
+    "equipment_code": "EL776",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.95027,
+      40.71406
+    ]
+  },
+  {
+    "equipment_code": "EL206",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.97704,
+      40.751995
+    ]
+  },
+  {
+    "equipment_code": "EL439",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.84436,
+      40.721687
     ]
   },
   {
@@ -649,43 +633,35 @@
     ]
   },
   {
-    "equipment_code": "EL148",
+    "equipment_code": "EL353",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.92123,
-      40.86791
+      -73.906334,
+      40.65449
     ]
   },
   {
-    "equipment_code": "EL198",
+    "equipment_code": "EL197",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.84603,
-      40.86987
+      -73.89082,
+      40.820705
     ]
   },
   {
-    "equipment_code": "EL775",
+    "equipment_code": "EL610",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.990456,
-      40.69254
+      -73.9974,
+      40.737495
     ]
   },
   {
-    "equipment_code": "EL156",
+    "equipment_code": "EL772",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.92624,
-      40.859974
-    ]
-  },
-  {
-    "equipment_code": "EL401",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.96526,
-      40.764324
+      -73.90051,
+      40.66398
     ]
   },
   {
@@ -697,215 +673,71 @@
     ]
   },
   {
-    "equipment_code": "EL484",
+    "equipment_code": "EL604",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.85216,
-      40.69379
+      -73.98103,
+      40.764313
     ]
   },
   {
-    "equipment_code": "EL237X",
+    "equipment_code": "EL375",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.984566,
-      40.754223
+      -73.97948,
+      40.643017
     ]
   },
   {
-    "equipment_code": "EL741",
+    "equipment_code": "EL792",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.99721,
-      40.625923
+      -73.96328,
+      40.6496
     ]
   },
   {
-    "equipment_code": "EL138",
+    "equipment_code": "EL165",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.8675,
-      40.85658
+      -73.85059,
+      40.90165
     ]
   },
   {
-    "equipment_code": "EL392",
+    "equipment_code": "EL240",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.95789,
-      40.70839
+      -73.98182,
+      40.779045
     ]
   },
   {
-    "equipment_code": "EL451",
+    "equipment_code": "EL441",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.828964,
-      40.720554
+      -73.96482,
+      40.76391
     ]
   },
   {
-    "equipment_code": "EL469",
+    "equipment_code": "EL300X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.945595,
-      40.74641
+      -73.97759,
+      40.685207
     ]
   },
   {
-    "equipment_code": "EL221",
+    "equipment_code": "EL173",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.00265,
-      40.73993
-    ]
-  },
-  {
-    "equipment_code": "EL524",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.8846,
-      40.880104
-    ]
-  },
-  {
-    "equipment_code": "EL756",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.96422,
-      40.67207
-    ]
-  },
-  {
-    "equipment_code": "EL426",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.869385,
-      40.749187
+      -73.87414,
+      40.841682
     ]
   },
   {
     "equipment_code": "EL761",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.976326,
-      40.683334
-    ]
-  },
-  {
-    "equipment_code": "EL164",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.8438,
-      40.84587
-    ]
-  },
-  {
-    "equipment_code": "EL755",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.96454,
-      40.672054
-    ]
-  },
-  {
-    "equipment_code": "EL382",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.96213,
-      40.661278
-    ]
-  },
-  {
-    "equipment_code": "EL273",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.95517,
-      40.779564
-    ]
-  },
-  {
-    "equipment_code": "EL334",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -74.001144,
-      40.73121
-    ]
-  },
-  {
-    "equipment_code": "EL764",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.95437,
-      40.730305
-    ]
-  },
-  {
-    "equipment_code": "EL228",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.993454,
-      40.752247
-    ]
-  },
-  {
-    "equipment_code": "EL620",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.97745,
-      40.763973
-    ]
-  },
-  {
-    "equipment_code": "EL742",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -74.00391,
-      40.712627
-    ]
-  },
-  {
-    "equipment_code": "EL407",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.942215,
-      40.75408
-    ]
-  },
-  {
-    "equipment_code": "EL725X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -74.00914,
-      40.71002
-    ]
-  },
-  {
-    "equipment_code": "EL433",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.78333,
-      40.712826
-    ]
-  },
-  {
-    "equipment_code": "EL391",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.95794,
-      40.708466
-    ]
-  },
-  {
-    "equipment_code": "EL239",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.98187,
-      40.779037
-    ]
-  },
-  {
-    "equipment_code": "EL782",
     "elevator_or_escalator": "Elevator",
     "coords": [
       -73.976326,
@@ -921,6 +753,102 @@
     ]
   },
   {
+    "equipment_code": "EL276X",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.982475,
+      40.767563
+    ]
+  },
+  {
+    "equipment_code": "EL447",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.94564,
+      40.746338
+    ]
+  },
+  {
+    "equipment_code": "EL194",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.85761,
+      40.893387
+    ]
+  },
+  {
+    "equipment_code": "EL273",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.95517,
+      40.779564
+    ]
+  },
+  {
+    "equipment_code": "EL236",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.96984,
+      40.75776
+    ]
+  },
+  {
+    "equipment_code": "EL765",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.95437,
+      40.730312
+    ]
+  },
+  {
+    "equipment_code": "EL113",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.94012,
+      40.84097
+    ]
+  },
+  {
+    "equipment_code": "EL502",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.88787,
+      40.872414
+    ]
+  },
+  {
+    "equipment_code": "EL282",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.98102,
+      40.7643
+    ]
+  },
+  {
+    "equipment_code": "EL731",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -74.01289,
+      40.70186
+    ]
+  },
+  {
+    "equipment_code": "EL450X",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.80767,
+      40.700294
+    ]
+  },
+  {
+    "equipment_code": "EL296",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.975746,
+      40.751743
+    ]
+  },
+  {
     "equipment_code": "EL601",
     "elevator_or_escalator": "Elevator",
     "coords": [
@@ -929,19 +857,19 @@
     ]
   },
   {
-    "equipment_code": "EL435",
+    "equipment_code": "EL621",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.83038,
-      40.714073
+      -73.97745,
+      40.763973
     ]
   },
   {
-    "equipment_code": "EL442",
+    "equipment_code": "EL616",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.96482,
-      40.76391
+      -74.00013,
+      40.73872
     ]
   },
   {
@@ -953,27 +881,19 @@
     ]
   },
   {
-    "equipment_code": "EL609",
+    "equipment_code": "EL398",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.99713,
-      40.737656
+      -73.91206,
+      40.69952
     ]
   },
   {
-    "equipment_code": "EL724X",
+    "equipment_code": "EL415X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.009155,
-      40.710026
-    ]
-  },
-  {
-    "equipment_code": "EL512",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.84324,
-      40.839962
+      -73.903114,
+      40.74572
     ]
   },
   {
@@ -985,11 +905,19 @@
     ]
   },
   {
-    "equipment_code": "EL267X",
+    "equipment_code": "EL264",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.984566,
-      40.754223
+      -73.95872,
+      40.76855
+    ]
+  },
+  {
+    "equipment_code": "EL127",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.89301,
+      40.82389
     ]
   },
   {
@@ -1001,19 +929,27 @@
     ]
   },
   {
-    "equipment_code": "EL249",
+    "equipment_code": "EL145",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.951805,
-      40.777287
+      -73.97244,
+      40.794357
     ]
   },
   {
-    "equipment_code": "EL497",
+    "equipment_code": "EL431",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.754074,
-      40.60464
+      -73.78338,
+      40.712627
+    ]
+  },
+  {
+    "equipment_code": "EL218",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.99024,
+      40.73498
     ]
   },
   {
@@ -1025,43 +961,59 @@
     ]
   },
   {
-    "equipment_code": "EL482X",
+    "equipment_code": "EL279",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.94467,
-      40.74768
+      -73.98183,
+      40.768726
     ]
   },
   {
-    "equipment_code": "EL298",
+    "equipment_code": "EL784",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.98599,
-      40.740086
+      -73.976326,
+      40.683334
     ]
   },
   {
-    "equipment_code": "EL186",
+    "equipment_code": "EL600",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.90113,
-      40.862556
+      -74.000114,
+      40.755524
     ]
   },
   {
-    "equipment_code": "EL796",
+    "equipment_code": "EL356",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.97227,
-      40.603916
+      -73.97759,
+      40.58838
     ]
   },
   {
-    "equipment_code": "EL513",
+    "equipment_code": "EL438",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.84296,
-      40.83999
+      -73.84432,
+      40.721664
+    ]
+  },
+  {
+    "equipment_code": "EL429",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.93754,
+      40.748844
+    ]
+  },
+  {
+    "equipment_code": "EL404",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.95339,
+      40.75922
     ]
   },
   {
@@ -1081,107 +1033,107 @@
     ]
   },
   {
-    "equipment_code": "EL120",
+    "equipment_code": "EL377",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.93395,
-      40.858868
+      -73.993614,
+      40.60182
     ]
   },
   {
-    "equipment_code": "EL104",
+    "equipment_code": "EL764",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.92964,
-      40.85539
+      -73.95437,
+      40.730305
     ]
   },
   {
-    "equipment_code": "EL492X",
+    "equipment_code": "EL226",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.83037,
-      40.660336
+      -73.99354,
+      40.752056
     ]
   },
   {
-    "equipment_code": "EL326",
+    "equipment_code": "EL342",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.00911,
-      40.71331
+      -73.871864,
+      40.67544
     ]
   },
   {
-    "equipment_code": "EL317",
+    "equipment_code": "EL607X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.99036,
-      40.693592
+      -73.9786,
+      40.752666
     ]
   },
   {
-    "equipment_code": "EL311",
+    "equipment_code": "EL343",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.993164,
-      40.697628
+      -73.87186,
+      40.675446
     ]
   },
   {
-    "equipment_code": "EL248",
+    "equipment_code": "EL717X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.94739,
-      40.78414
+      -74.00655,
+      40.719215
     ]
   },
   {
-    "equipment_code": "EL604",
+    "equipment_code": "EL763",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.98103,
-      40.764313
+      -73.954414,
+      40.730682
     ]
   },
   {
-    "equipment_code": "EL777",
+    "equipment_code": "EL149",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.95027,
-      40.71406
+      -73.9211,
+      40.867714
     ]
   },
   {
-    "equipment_code": "EL611",
+    "equipment_code": "EL23X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.997215,
-      40.737564
+      -74.00978,
+      40.71258
     ]
   },
   {
-    "equipment_code": "EL723",
+    "equipment_code": "EL744X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.00653,
-      40.70952
+      -73.98577,
+      40.690807
     ]
   },
   {
-    "equipment_code": "EL106",
+    "equipment_code": "EL506",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.9296,
-      40.855404
+      -73.91759,
+      40.839996
     ]
   },
   {
-    "equipment_code": "EL227",
+    "equipment_code": "EL361",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.99343,
-      40.752125
+      -73.97447,
+      40.589268
     ]
   },
   {
@@ -1193,27 +1145,11 @@
     ]
   },
   {
-    "equipment_code": "EL791X",
+    "equipment_code": "EL715X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.939865,
-      40.7507
-    ]
-  },
-  {
-    "equipment_code": "EL480",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.79664,
-      40.591118
-    ]
-  },
-  {
-    "equipment_code": "EL743",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -74.0039,
-      40.712627
+      -74.009155,
+      40.710606
     ]
   },
   {
@@ -1241,43 +1177,43 @@
     ]
   },
   {
-    "equipment_code": "EL277",
+    "equipment_code": "EL756",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.98249,
-      40.767624
+      -73.96422,
+      40.67207
     ]
   },
   {
-    "equipment_code": "EL345",
+    "equipment_code": "EL739",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.929855,
-      40.679478
+      -73.9971,
+      40.625744
     ]
   },
   {
-    "equipment_code": "EL129",
+    "equipment_code": "EL708",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.91804,
-      40.815845
+      -73.98722,
+      40.692314
     ]
   },
   {
-    "equipment_code": "EL292",
+    "equipment_code": "EL230",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.98084,
-      40.730625
+      -73.98662,
+      40.756004
     ]
   },
   {
-    "equipment_code": "EL715X",
+    "equipment_code": "EL432",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.009155,
-      40.710606
+      -73.78338,
+      40.712814
     ]
   },
   {
@@ -1289,51 +1225,27 @@
     ]
   },
   {
-    "equipment_code": "EL280",
+    "equipment_code": "EL726X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.981804,
-      40.76873
+      -74.01131,
+      40.71265
     ]
   },
   {
-    "equipment_code": "EL430",
+    "equipment_code": "EL208X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.93782,
-      40.748775
+      -73.98592,
+      40.762287
     ]
   },
   {
-    "equipment_code": "EL713",
+    "equipment_code": "EL378",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.011765,
-      40.71189
-    ]
-  },
-  {
-    "equipment_code": "EL307",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.97692,
-      40.68441
-    ]
-  },
-  {
-    "equipment_code": "EL791",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.96328,
-      40.6496
-    ]
-  },
-  {
-    "equipment_code": "EL387",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -74.01767,
-      40.64158
+      -73.9937,
+      40.601833
     ]
   },
   {
@@ -1345,43 +1257,27 @@
     ]
   },
   {
-    "equipment_code": "EL324",
+    "equipment_code": "EL148",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.00021,
-      40.718124
+      -73.92123,
+      40.86791
     ]
   },
   {
-    "equipment_code": "EL491X",
+    "equipment_code": "EL17X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.830795,
-      40.660427
+      -74.01103,
+      40.710667
     ]
   },
   {
-    "equipment_code": "EL180",
+    "equipment_code": "EL110",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.9407,
-      40.814243
-    ]
-  },
-  {
-    "equipment_code": "EL727X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -74.00901,
-      40.715504
-    ]
-  },
-  {
-    "equipment_code": "EL778",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.95027,
-      40.71406
+      -73.93347,
+      40.84944
     ]
   },
   {
@@ -1393,43 +1289,43 @@
     ]
   },
   {
-    "equipment_code": "EL247",
+    "equipment_code": "EL106",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.94747,
-      40.783855
+      -73.9296,
+      40.855404
     ]
   },
   {
-    "equipment_code": "EL196",
+    "equipment_code": "EL330",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.89084,
-      40.8207
+      -73.99568,
+      40.725082
     ]
   },
   {
-    "equipment_code": "EL600",
+    "equipment_code": "EL417X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.000114,
-      40.755524
+      -73.90256,
+      40.745613
     ]
   },
   {
-    "equipment_code": "EL422",
+    "equipment_code": "EL267X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.80767,
-      40.7004
+      -73.984566,
+      40.754223
     ]
   },
   {
-    "equipment_code": "EL434",
+    "equipment_code": "EL421",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.83103,
-      40.714073
+      -73.89112,
+      40.74666
     ]
   },
   {
@@ -1449,11 +1345,11 @@
     ]
   },
   {
-    "equipment_code": "EL771",
+    "equipment_code": "EL383",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.89905,
-      40.664864
+      -73.96228,
+      40.661263
     ]
   },
   {
@@ -1465,43 +1361,75 @@
     ]
   },
   {
-    "equipment_code": "EL11X",
+    "equipment_code": "EL184",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.01219,
-      40.711834
+      -73.90508,
+      40.87898
     ]
   },
   {
-    "equipment_code": "EL731",
+    "equipment_code": "EL454",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.01289,
-      40.70186
+      -73.80949,
+      40.700092
     ]
   },
   {
-    "equipment_code": "EL746",
+    "equipment_code": "EL422",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.02848,
-      40.622566
+      -73.80767,
+      40.7004
     ]
   },
   {
-    "equipment_code": "EL107",
+    "equipment_code": "EL380",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.93353,
-      40.849453
+      -74.03131,
+      40.616093
     ]
   },
   {
-    "equipment_code": "EL207X",
+    "equipment_code": "EL424",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.98609,
-      40.762257
+      -73.81967,
+      40.70977
+    ]
+  },
+  {
+    "equipment_code": "EL514",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.842926,
+      40.8403
+    ]
+  },
+  {
+    "equipment_code": "EL723",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -74.00653,
+      40.70952
+    ]
+  },
+  {
+    "equipment_code": "EL310",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.993095,
+      40.69764
+    ]
+  },
+  {
+    "equipment_code": "EL214",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.991325,
+      40.750404
     ]
   },
   {
@@ -1513,11 +1441,11 @@
     ]
   },
   {
-    "equipment_code": "EL195",
+    "equipment_code": "EL220",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.891,
-      40.82057
+      -73.99018,
+      40.734646
     ]
   },
   {
@@ -1529,27 +1457,51 @@
     ]
   },
   {
-    "equipment_code": "EL188",
+    "equipment_code": "EL123",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.901115,
-      40.862667
+      -73.93942,
+      40.847973
     ]
   },
   {
-    "equipment_code": "EL788",
+    "equipment_code": "EL22X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.1167,
-      40.573746
+      -74.01103,
+      40.710667
     ]
   },
   {
-    "equipment_code": "EL115",
+    "equipment_code": "EL244",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.93324,
-      40.858562
+      -73.97704,
+      40.751995
+    ]
+  },
+  {
+    "equipment_code": "EL278",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.9825,
+      40.767635
+    ]
+  },
+  {
+    "equipment_code": "EL485",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.90657,
+      40.75329
+    ]
+  },
+  {
+    "equipment_code": "EL619",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.986565,
+      40.755985
     ]
   },
   {
@@ -1561,59 +1513,75 @@
     ]
   },
   {
-    "equipment_code": "EL720",
+    "equipment_code": "EL135",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.00855,
-      40.710487
+      -73.925545,
+      40.82793
     ]
   },
   {
-    "equipment_code": "EL486",
+    "equipment_code": "EL178",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.90516,
-      40.75254
+      -73.925285,
+      40.86114
     ]
   },
   {
-    "equipment_code": "EL290X",
+    "equipment_code": "EL133",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.98893,
-      40.758503
+      -73.926025,
+      40.827763
     ]
   },
   {
-    "equipment_code": "EL371",
+    "equipment_code": "EL395",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.981285,
-      40.68977
+      -73.94176,
+      40.7008
     ]
   },
   {
-    "equipment_code": "EL288X",
+    "equipment_code": "EL304",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.99056,
-      40.757107
+      -73.97801,
+      40.684475
     ]
   },
   {
-    "equipment_code": "EL366",
+    "equipment_code": "EL237X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.9836,
-      40.5949
+      -73.984566,
+      40.754223
     ]
   },
   {
-    "equipment_code": "EL329",
+    "equipment_code": "EL334",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.99562,
-      40.72508
+      -74.001144,
+      40.73121
+    ]
+  },
+  {
+    "equipment_code": "EL228",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.993454,
+      40.752247
+    ]
+  },
+  {
+    "equipment_code": "EL620",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.97745,
+      40.763973
     ]
   },
   {
@@ -1625,115 +1593,139 @@
     ]
   },
   {
-    "equipment_code": "EL360",
+    "equipment_code": "EL483",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.97509,
-      40.588806
+      -73.8519,
+      40.693993
     ]
   },
   {
-    "equipment_code": "EL204",
+    "equipment_code": "EL433",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.97725,
-      40.751644
+      -73.78333,
+      40.712826
     ]
   },
   {
-    "equipment_code": "EL240",
+    "equipment_code": "EL34X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.98182,
-      40.779045
+      -73.991165,
+      40.75095
     ]
   },
   {
-    "equipment_code": "EL100",
+    "equipment_code": "EL722",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.98929,
-      40.69082
+      -74.00741,
+      40.710083
     ]
   },
   {
-    "equipment_code": "EL130",
+    "equipment_code": "EL143",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.91776,
-      40.81625
+      -73.95262,
+      40.810757
     ]
   },
   {
-    "equipment_code": "EL276X",
+    "equipment_code": "EL490X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.982475,
-      40.767563
+      -73.830795,
+      40.660427
     ]
   },
   {
-    "equipment_code": "EL440",
+    "equipment_code": "EL516",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.96482,
-      40.76391
+      -73.90375,
+      40.81231
     ]
   },
   {
-    "equipment_code": "EL367",
+    "equipment_code": "EL259",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.97454,
-      40.58976
+      -73.95856,
+      40.76849
     ]
   },
   {
-    "equipment_code": "EL153",
+    "equipment_code": "EL724X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.91567,
-      40.868076
+      -74.009155,
+      40.710026
     ]
   },
   {
-    "equipment_code": "EL354",
+    "equipment_code": "EL185",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.97484,
-      40.58863
+      -73.90462,
+      40.878815
     ]
   },
   {
-    "equipment_code": "EL785",
+    "equipment_code": "EL332",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.94056,
-      40.712048
+      -73.9962,
+      40.725296
     ]
   },
   {
-    "equipment_code": "EL167X",
+    "equipment_code": "EL120",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.957184,
-      40.819
+      -73.93395,
+      40.858868
     ]
   },
   {
-    "equipment_code": "EL792",
+    "equipment_code": "EL382",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.96328,
-      40.6496
+      -73.96213,
+      40.661278
     ]
   },
   {
-    "equipment_code": "EL459",
+    "equipment_code": "EL714X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.84262,
-      40.75391
+      -74.00919,
+      40.71018
+    ]
+  },
+  {
+    "equipment_code": "EL179",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.9252,
+      40.861153
+    ]
+  },
+  {
+    "equipment_code": "EL104",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.92964,
+      40.85539
+    ]
+  },
+  {
+    "equipment_code": "EL609",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.99713,
+      40.737656
     ]
   },
   {
@@ -1769,59 +1761,51 @@
     ]
   },
   {
-    "equipment_code": "EL300X",
+    "equipment_code": "EL779",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.97759,
-      40.685207
+      -73.95027,
+      40.71406
     ]
   },
   {
-    "equipment_code": "EL336",
+    "equipment_code": "EL618",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.00932,
-      40.715588
+      -73.99145,
+      40.750553
     ]
   },
   {
-    "equipment_code": "EL182",
+    "equipment_code": "EL201",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.86649,
-      40.877518
+      -73.970924,
+      40.75833
     ]
   },
   {
-    "equipment_code": "EL614",
+    "equipment_code": "EL102",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.998886,
-      40.73824
+      -73.92722,
+      40.818394
     ]
   },
   {
-    "equipment_code": "EL166X",
+    "equipment_code": "EL719",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.957184,
-      40.819
+      -74.00781,
+      40.71021
     ]
   },
   {
-    "equipment_code": "EL162",
+    "equipment_code": "EL449X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.87409,
-      40.84173
-    ]
-  },
-  {
-    "equipment_code": "EL283",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.98101,
-      40.7643
+      -73.80773,
+      40.70025
     ]
   },
   {
@@ -1833,51 +1817,11 @@
     ]
   },
   {
-    "equipment_code": "EL446",
+    "equipment_code": "EL469",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.94529,
-      40.746006
-    ]
-  },
-  {
-    "equipment_code": "EL211",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.988014,
-      40.749912
-    ]
-  },
-  {
-    "equipment_code": "EL377",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.993614,
-      40.60182
-    ]
-  },
-  {
-    "equipment_code": "EL139",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.93922,
-      40.840828
-    ]
-  },
-  {
-    "equipment_code": "EL342",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.871864,
-      40.67544
-    ]
-  },
-  {
-    "equipment_code": "EL245",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.96953,
-      40.757294
+      -73.945595,
+      40.74641
     ]
   },
   {
@@ -1889,19 +1833,99 @@
     ]
   },
   {
-    "equipment_code": "EL202",
+    "equipment_code": "EL182",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.97097,
-      40.758823
+      -73.86649,
+      40.877518
     ]
   },
   {
-    "equipment_code": "EL338",
+    "equipment_code": "EL478",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.009315,
-      40.71555
+      -73.94023,
+      40.750668
+    ]
+  },
+  {
+    "equipment_code": "EL139",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.93922,
+      40.840828
+    ]
+  },
+  {
+    "equipment_code": "EL515",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.90404,
+      40.81206
+    ]
+  },
+  {
+    "equipment_code": "EL12X",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -74.01219,
+      40.711834
+    ]
+  },
+  {
+    "equipment_code": "EL786",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.94087,
+      40.71213
+    ]
+  },
+  {
+    "equipment_code": "EL396",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.91194,
+      40.699646
+    ]
+  },
+  {
+    "equipment_code": "EL511",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.9058,
+      40.849926
+    ]
+  },
+  {
+    "equipment_code": "EL239",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.98187,
+      40.779037
+    ]
+  },
+  {
+    "equipment_code": "EL213",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.98813,
+      40.749603
+    ]
+  },
+  {
+    "equipment_code": "EL364",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.99593,
+      40.647514
+    ]
+  },
+  {
+    "equipment_code": "EL489X",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.83546,
+      40.67204
     ]
   },
   {
@@ -1913,11 +1937,11 @@
     ]
   },
   {
-    "equipment_code": "EL13X",
+    "equipment_code": "EL510",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.01219,
-      40.711834
+      -73.9058,
+      40.849926
     ]
   },
   {
@@ -1929,35 +1953,35 @@
     ]
   },
   {
-    "equipment_code": "EL352",
+    "equipment_code": "EL186",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.906334,
-      40.65449
+      -73.90113,
+      40.862556
     ]
   },
   {
-    "equipment_code": "EL184",
+    "equipment_code": "EL223",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.90508,
-      40.87898
+      -74.002655,
+      40.739887
     ]
   },
   {
-    "equipment_code": "EL414",
+    "equipment_code": "EL777",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.82893,
-      40.759884
+      -73.95027,
+      40.71406
     ]
   },
   {
-    "equipment_code": "EL745",
+    "equipment_code": "EL443",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.02847,
-      40.622566
+      -73.96482,
+      40.76391
     ]
   },
   {
@@ -1969,11 +1993,11 @@
     ]
   },
   {
-    "equipment_code": "EL719",
+    "equipment_code": "EL150",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.00781,
-      40.71021
+      -73.91614,
+      40.867645
     ]
   },
   {
@@ -1993,19 +2017,19 @@
     ]
   },
   {
-    "equipment_code": "EL163",
+    "equipment_code": "EL138",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.887566,
-      40.87826
+      -73.8675,
+      40.85658
     ]
   },
   {
-    "equipment_code": "EL748",
+    "equipment_code": "EL407",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.983986,
-      40.688126
+      -73.942215,
+      40.75408
     ]
   },
   {
@@ -2017,67 +2041,59 @@
     ]
   },
   {
-    "equipment_code": "EL431",
+    "equipment_code": "EL613",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.78338,
-      40.712627
+      -73.99886,
+      40.73823
     ]
   },
   {
-    "equipment_code": "EL110",
+    "equipment_code": "EL734X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.93347,
-      40.84944
+      -74.0097,
+      40.710484
     ]
   },
   {
-    "equipment_code": "EL458",
+    "equipment_code": "EL409",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.907196,
-      40.75159
+      -73.816444,
+      40.701427
     ]
   },
   {
-    "equipment_code": "EL101",
+    "equipment_code": "EL509",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.92735,
-      40.818375
+      -73.90557,
+      40.849712
     ]
   },
   {
-    "equipment_code": "EL304",
+    "equipment_code": "EL18X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.97801,
-      40.684475
+      -74.01103,
+      40.710667
     ]
   },
   {
-    "equipment_code": "EL197",
+    "equipment_code": "EL298",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.89082,
-      40.820705
+      -73.98599,
+      40.740086
     ]
   },
   {
-    "equipment_code": "EL501",
+    "equipment_code": "EL740",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.88787,
-      40.872395
-    ]
-  },
-  {
-    "equipment_code": "EL445X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.9454,
-      40.74615
+      -73.99702,
+      40.62571
     ]
   },
   {
@@ -2089,43 +2105,67 @@
     ]
   },
   {
-    "equipment_code": "EL490X",
+    "equipment_code": "EL781",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.830795,
-      40.660427
+      -73.95027,
+      40.71406
     ]
   },
   {
-    "equipment_code": "EL178",
+    "equipment_code": "EL294X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.925285,
-      40.86114
+      -73.984886,
+      40.75503
     ]
   },
   {
-    "equipment_code": "EL225",
+    "equipment_code": "EL602",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.99354,
-      40.752056
+      -74.000885,
+      40.754982
     ]
   },
   {
-    "equipment_code": "EL16X",
+    "equipment_code": "EL495X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.01103,
-      40.710667
+      -73.83056,
+      40.66037
     ]
   },
   {
-    "equipment_code": "EL608X",
+    "equipment_code": "EL281",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.97864,
-      40.75265
+      -73.98027,
+      40.765453
+    ]
+  },
+  {
+    "equipment_code": "EL522",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.86072,
+      40.833374
+    ]
+  },
+  {
+    "equipment_code": "EL517",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.938576,
+      40.84984
+    ]
+  },
+  {
+    "equipment_code": "EL331",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.9962,
+      40.725296
     ]
   },
   {
@@ -2137,15 +2177,7 @@
     ]
   },
   {
-    "equipment_code": "EL181",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.94095,
-      40.813908
-    ]
-  },
-  {
-    "equipment_code": "EL232",
+    "equipment_code": "EL233",
     "elevator_or_escalator": "Elevator",
     "coords": [
       -73.98769,
@@ -2153,35 +2185,19 @@
     ]
   },
   {
-    "equipment_code": "EL320",
+    "equipment_code": "EL381",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.95015,
-      40.650864
+      -74.03127,
+      40.61607
     ]
   },
   {
-    "equipment_code": "EL147",
+    "equipment_code": "EL459",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.91642,
-      40.864727
-    ]
-  },
-  {
-    "equipment_code": "EL429",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.93754,
-      40.748844
-    ]
-  },
-  {
-    "equipment_code": "EL327X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.98543,
-      40.69209
+      -73.84262,
+      40.75391
     ]
   },
   {
@@ -2193,11 +2209,11 @@
     ]
   },
   {
-    "equipment_code": "EL235",
+    "equipment_code": "EL430",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.97014,
-      40.757866
+      -73.93782,
+      40.748775
     ]
   },
   {
@@ -2217,75 +2233,99 @@
     ]
   },
   {
-    "equipment_code": "EL783",
+    "equipment_code": "EL513",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.976326,
-      40.683334
+      -73.84296,
+      40.83999
     ]
   },
   {
-    "equipment_code": "EL701",
+    "equipment_code": "EL387",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.98077,
-      40.577663
+      -74.01767,
+      40.64158
     ]
   },
   {
-    "equipment_code": "EL165",
+    "equipment_code": "EL363",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.85059,
-      40.90165
+      -73.99553,
+      40.647842
     ]
   },
   {
-    "equipment_code": "EL516",
+    "equipment_code": "EL791X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.90375,
-      40.81231
+      -73.939865,
+      40.7507
     ]
   },
   {
-    "equipment_code": "EL145",
+    "equipment_code": "EL606X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.97244,
-      40.794357
+      -73.978516,
+      40.75276
     ]
   },
   {
-    "equipment_code": "EL141",
+    "equipment_code": "EL13X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.939415,
-      40.84096
+      -74.01219,
+      40.711834
     ]
   },
   {
-    "equipment_code": "EL738",
+    "equipment_code": "EL400",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.99688,
-      40.62579
+      -73.848885,
+      40.75242
     ]
   },
   {
-    "equipment_code": "EL310",
+    "equipment_code": "EL180",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.993095,
-      40.69764
+      -73.9407,
+      40.814243
     ]
   },
   {
-    "equipment_code": "EL289X",
+    "equipment_code": "EL355",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.9908,
-      40.757114
+      -73.97596,
+      40.58879
+    ]
+  },
+  {
+    "equipment_code": "EL713",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -74.011765,
+      40.71189
+    ]
+  },
+  {
+    "equipment_code": "EL423",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.8916,
+      40.74699
+    ]
+  },
+  {
+    "equipment_code": "EL451",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.828964,
+      40.720554
     ]
   },
   {
@@ -2305,11 +2345,11 @@
     ]
   },
   {
-    "equipment_code": "EL359X",
+    "equipment_code": "EL339",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.002075,
-      40.65187
+      -73.95577,
+      40.681118
     ]
   },
   {
@@ -2321,19 +2361,19 @@
     ]
   },
   {
-    "equipment_code": "EL603",
+    "equipment_code": "EL299",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.000854,
-      40.754997
+      -73.98688,
+      40.740536
     ]
   },
   {
-    "equipment_code": "EL726X",
+    "equipment_code": "EL372",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.01131,
-      40.71265
+      -73.98136,
+      40.689777
     ]
   },
   {
@@ -2345,14 +2385,6 @@
     ]
   },
   {
-    "equipment_code": "EL506",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.91759,
-      40.839996
-    ]
-  },
-  {
     "equipment_code": "EL464",
     "elevator_or_escalator": "Elevator",
     "coords": [
@@ -2361,75 +2393,83 @@
     ]
   },
   {
-    "equipment_code": "EL441",
+    "equipment_code": "EL174",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.96482,
-      40.76391
+      -73.87424,
+      40.84163
     ]
   },
   {
-    "equipment_code": "EL133",
+    "equipment_code": "EL129",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.926025,
-      40.827763
+      -73.91804,
+      40.815845
     ]
   },
   {
-    "equipment_code": "EL244",
+    "equipment_code": "EL317",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.97704,
-      40.751995
+      -73.99036,
+      40.693592
     ]
   },
   {
-    "equipment_code": "EL223",
+    "equipment_code": "EL144",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.002655,
-      40.739887
+      -73.95262,
+      40.810772
     ]
   },
   {
-    "equipment_code": "EL432",
+    "equipment_code": "EL189",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.78338,
-      40.712814
+      -73.894035,
+      40.86623
     ]
   },
   {
-    "equipment_code": "EL22X",
+    "equipment_code": "EL199",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.01103,
-      40.710667
+      -73.84598,
+      40.870033
     ]
   },
   {
-    "equipment_code": "EL487",
+    "equipment_code": "EL292",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.84492,
-      40.680405
+      -73.98084,
+      40.730625
     ]
   },
   {
-    "equipment_code": "EL359",
+    "equipment_code": "EL225",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.95769,
-      40.717854
+      -73.99354,
+      40.752056
     ]
   },
   {
-    "equipment_code": "EL287X",
+    "equipment_code": "EL745",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.984314,
-      40.755013
+      -74.02847,
+      40.622566
+    ]
+  },
+  {
+    "equipment_code": "EL235",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.97014,
+      40.757866
     ]
   },
   {
@@ -2441,11 +2481,11 @@
     ]
   },
   {
-    "equipment_code": "EL113",
+    "equipment_code": "EL434",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.94012,
-      40.84097
+      -73.83103,
+      40.714073
     ]
   },
   {
@@ -2457,22 +2497,6 @@
     ]
   },
   {
-    "equipment_code": "EL34X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.991165,
-      40.75095
-    ]
-  },
-  {
-    "equipment_code": "EL339",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.95577,
-      40.681118
-    ]
-  },
-  {
     "equipment_code": "EL521",
     "elevator_or_escalator": "Elevator",
     "coords": [
@@ -2481,19 +2505,11 @@
     ]
   },
   {
-    "equipment_code": "EL123",
+    "equipment_code": "EL204",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.93942,
-      40.847973
-    ]
-  },
-  {
-    "equipment_code": "EL717X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -74.00655,
-      40.719215
+      -73.97725,
+      40.751644
     ]
   },
   {
@@ -2505,35 +2521,35 @@
     ]
   },
   {
-    "equipment_code": "EL370",
+    "equipment_code": "EL107",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.98115,
-      40.688667
+      -73.93353,
+      40.849453
     ]
   },
   {
-    "equipment_code": "EL797",
+    "equipment_code": "EL100",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.9723,
-      40.603798
+      -73.98929,
+      40.69082
     ]
   },
   {
-    "equipment_code": "EL765",
+    "equipment_code": "EL167X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.95437,
-      40.730312
+      -73.957184,
+      40.819
     ]
   },
   {
-    "equipment_code": "EL380",
+    "equipment_code": "EL440",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.03131,
-      40.616093
+      -73.96482,
+      40.76391
     ]
   },
   {
@@ -2545,6 +2561,14 @@
     ]
   },
   {
+    "equipment_code": "EL742",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -74.00391,
+      40.712627
+    ]
+  },
+  {
     "equipment_code": "EL467",
     "elevator_or_escalator": "Elevator",
     "coords": [
@@ -2553,19 +2577,19 @@
     ]
   },
   {
-    "equipment_code": "EL185",
+    "equipment_code": "EL512",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.90462,
-      40.878815
+      -73.84324,
+      40.839962
     ]
   },
   {
-    "equipment_code": "EL157X",
+    "equipment_code": "EL131",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.8937,
-      40.706905
+      -73.925674,
+      40.827908
     ]
   },
   {
@@ -2577,27 +2601,27 @@
     ]
   },
   {
-    "equipment_code": "EL381",
+    "equipment_code": "EL11X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.03127,
-      40.61607
+      -74.01219,
+      40.711834
     ]
   },
   {
-    "equipment_code": "EL772",
+    "equipment_code": "EL116",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.90051,
-      40.66398
+      -73.93392,
+      40.858845
     ]
   },
   {
-    "equipment_code": "EL417X",
+    "equipment_code": "EL794",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.90256,
-      40.745613
+      -73.954155,
+      40.586895
     ]
   },
   {
@@ -2609,27 +2633,27 @@
     ]
   },
   {
-    "equipment_code": "EL714X",
+    "equipment_code": "EL507",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.00919,
-      40.71018
+      -73.91757,
+      40.839973
     ]
   },
   {
-    "equipment_code": "EL179",
+    "equipment_code": "EL14X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.9252,
-      40.861153
+      -74.01103,
+      40.710667
     ]
   },
   {
-    "equipment_code": "EL220",
+    "equipment_code": "EL437",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.99018,
-      40.734646
+      -73.84475,
+      40.72146
     ]
   },
   {
@@ -2641,11 +2665,11 @@
     ]
   },
   {
-    "equipment_code": "EL291X",
+    "equipment_code": "EL114",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.98904,
-      40.758553
+      -73.9401,
+      40.840942
     ]
   },
   {
@@ -2665,35 +2689,11 @@
     ]
   },
   {
-    "equipment_code": "EL399",
+    "equipment_code": "EL788",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.980965,
-      40.5759
-    ]
-  },
-  {
-    "equipment_code": "EL500",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.88775,
-      40.872414
-    ]
-  },
-  {
-    "equipment_code": "EL760",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.976326,
-      40.683334
-    ]
-  },
-  {
-    "equipment_code": "EL737X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.97763,
-      40.68517
+      -74.1167,
+      40.573746
     ]
   },
   {
@@ -2705,14 +2705,6 @@
     ]
   },
   {
-    "equipment_code": "EL613",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.99886,
-      40.73823
-    ]
-  },
-  {
     "equipment_code": "EL721",
     "elevator_or_escalator": "Elevator",
     "coords": [
@@ -2721,11 +2713,11 @@
     ]
   },
   {
-    "equipment_code": "EL616",
+    "equipment_code": "EL614",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.00013,
-      40.73872
+      -73.998886,
+      40.73824
     ]
   },
   {
@@ -2737,35 +2729,27 @@
     ]
   },
   {
-    "equipment_code": "EL102",
+    "equipment_code": "EL501",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.92722,
-      40.818394
+      -73.88787,
+      40.872395
     ]
   },
   {
-    "equipment_code": "EL718X",
+    "equipment_code": "EL162",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.0097,
-      40.710484
+      -73.87409,
+      40.84173
     ]
   },
   {
-    "equipment_code": "EL268X",
+    "equipment_code": "EL153",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.98342,
-      40.76051
-    ]
-  },
-  {
-    "equipment_code": "EL744X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.98577,
-      40.690807
+      -73.91567,
+      40.868076
     ]
   },
   {
@@ -2777,27 +2761,35 @@
     ]
   },
   {
-    "equipment_code": "EL193",
+    "equipment_code": "EL321",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.85747,
-      40.893284
+      -73.95032,
+      40.650806
     ]
   },
   {
-    "equipment_code": "EL502",
+    "equipment_code": "EL736",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.88787,
-      40.872414
+      -74.01175,
+      40.71187
     ]
   },
   {
-    "equipment_code": "EL722",
+    "equipment_code": "EL748",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.00741,
-      40.710083
+      -73.983986,
+      40.688126
+    ]
+  },
+  {
+    "equipment_code": "EL405",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.94231,
+      40.754337
     ]
   },
   {
@@ -2809,19 +2801,19 @@
     ]
   },
   {
-    "equipment_code": "EL259",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.95856,
-      40.76849
-    ]
-  },
-  {
     "equipment_code": "EL285",
     "elevator_or_escalator": "Elevator",
     "coords": [
       -73.96411,
       40.767857
+    ]
+  },
+  {
+    "equipment_code": "EL196",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.89084,
+      40.8207
     ]
   },
   {
@@ -2849,35 +2841,35 @@
     ]
   },
   {
-    "equipment_code": "EL332",
+    "equipment_code": "EL499",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.9962,
-      40.725296
+      -73.83764,
+      40.580795
     ]
   },
   {
-    "equipment_code": "EL152",
+    "equipment_code": "EL406",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.91528,
-      40.868145
+      -73.942215,
+      40.75408
     ]
   },
   {
-    "equipment_code": "EL409",
+    "equipment_code": "EL399",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.816444,
-      40.701427
+      -73.980965,
+      40.5759
     ]
   },
   {
-    "equipment_code": "EL479",
+    "equipment_code": "EL101",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.93971,
-      40.75093
+      -73.92735,
+      40.818375
     ]
   },
   {
@@ -2889,11 +2881,11 @@
     ]
   },
   {
-    "equipment_code": "EL483",
+    "equipment_code": "EL169X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.8519,
-      40.693993
+      -73.957184,
+      40.819
     ]
   },
   {
@@ -2905,19 +2897,35 @@
     ]
   },
   {
-    "equipment_code": "EL143",
+    "equipment_code": "EL301",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.95262,
-      40.810757
+      -73.97839,
+      40.684143
     ]
   },
   {
-    "equipment_code": "EL14X",
+    "equipment_code": "EL718X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.01103,
-      40.710667
+      -74.0097,
+      40.710484
+    ]
+  },
+  {
+    "equipment_code": "EL200X",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.988686,
+      40.74874
+    ]
+  },
+  {
+    "equipment_code": "EL783",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.976326,
+      40.683334
     ]
   },
   {
@@ -2929,67 +2937,91 @@
     ]
   },
   {
-    "equipment_code": "EL622",
+    "equipment_code": "EL738",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.97877,
-      40.76253
+      -73.99688,
+      40.62579
     ]
   },
   {
-    "equipment_code": "EL150",
+    "equipment_code": "EL737X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.91614,
-      40.867645
+      -73.97763,
+      40.68517
     ]
   },
   {
-    "equipment_code": "EL498",
+    "equipment_code": "EL701",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.75409,
-      40.604652
+      -73.98077,
+      40.577663
     ]
   },
   {
-    "equipment_code": "EL393",
+    "equipment_code": "EL198",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.94221,
-      40.70063
+      -73.84603,
+      40.86987
     ]
   },
   {
-    "equipment_code": "EL328",
+    "equipment_code": "EL336",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.99566,
-      40.72509
+      -74.00932,
+      40.715588
     ]
   },
   {
-    "equipment_code": "EL734X",
+    "equipment_code": "EL743",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.0097,
-      40.710484
+      -74.0039,
+      40.712627
     ]
   },
   {
-    "equipment_code": "EL786",
+    "equipment_code": "EL727X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.94087,
-      40.71213
+      -74.00901,
+      40.715504
     ]
   },
   {
-    "equipment_code": "EL238",
+    "equipment_code": "EL729X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.982376,
-      40.773724
+      -74.00655,
+      40.719204
+    ]
+  },
+  {
+    "equipment_code": "EL752",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -74.01102,
+      40.634666
+    ]
+  },
+  {
+    "equipment_code": "EL711",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -74.01428,
+      40.70428
+    ]
+  },
+  {
+    "equipment_code": "EL603",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -74.000854,
+      40.754997
     ]
   },
   {
@@ -3033,59 +3065,35 @@
     ]
   },
   {
-    "equipment_code": "EL781",
+    "equipment_code": "EL771",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.95027,
-      40.71406
+      -73.89905,
+      40.664864
     ]
   },
   {
-    "equipment_code": "EL201",
+    "equipment_code": "EL524",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.970924,
-      40.75833
+      -73.8846,
+      40.880104
     ]
   },
   {
-    "equipment_code": "EL454",
+    "equipment_code": "EL427",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.80949,
-      40.700092
+      -73.86935,
+      40.74918
     ]
   },
   {
-    "equipment_code": "EL361",
+    "equipment_code": "EL118",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.97447,
-      40.589268
-    ]
-  },
-  {
-    "equipment_code": "EL286",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.96379,
-      40.767822
-    ]
-  },
-  {
-    "equipment_code": "EL739",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.9971,
-      40.625744
-    ]
-  },
-  {
-    "equipment_code": "EL135",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.925545,
-      40.82793
+      -73.93748,
+      40.853024
     ]
   },
   {
@@ -3097,43 +3105,19 @@
     ]
   },
   {
-    "equipment_code": "EL514",
+    "equipment_code": "EL787",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.842926,
-      40.8403
+      -74.116806,
+      40.573936
     ]
   },
   {
-    "equipment_code": "EL437",
+    "equipment_code": "EL341",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.84475,
-      40.72146
-    ]
-  },
-  {
-    "equipment_code": "EL507",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.91757,
-      40.839973
-    ]
-  },
-  {
-    "equipment_code": "EL233",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.98769,
-      40.755478
-    ]
-  },
-  {
-    "equipment_code": "EL450X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.80767,
-      40.700294
+      -73.87193,
+      40.675644
     ]
   },
   {
@@ -3145,6 +3129,14 @@
     ]
   },
   {
+    "equipment_code": "EL388",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -74.01768,
+      40.641582
+    ]
+  },
+  {
     "equipment_code": "EL132",
     "elevator_or_escalator": "Elevator",
     "coords": [
@@ -3153,147 +3145,19 @@
     ]
   },
   {
-    "equipment_code": "EL443",
+    "equipment_code": "EL277",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.96482,
-      40.76391
+      -73.98249,
+      40.767624
     ]
   },
   {
-    "equipment_code": "EL279X",
+    "equipment_code": "EL247",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.98439,
-      40.7433
-    ]
-  },
-  {
-    "equipment_code": "EL364",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.99593,
-      40.647514
-    ]
-  },
-  {
-    "equipment_code": "EL278",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.9825,
-      40.767635
-    ]
-  },
-  {
-    "equipment_code": "EL17X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -74.01103,
-      40.710667
-    ]
-  },
-  {
-    "equipment_code": "EL515",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.90404,
-      40.81206
-    ]
-  },
-  {
-    "equipment_code": "EL517",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.938576,
-      40.84984
-    ]
-  },
-  {
-    "equipment_code": "EL485",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.90657,
-      40.75329
-    ]
-  },
-  {
-    "equipment_code": "EL206",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.97704,
-      40.751995
-    ]
-  },
-  {
-    "equipment_code": "EL618",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.99145,
-      40.750553
-    ]
-  },
-  {
-    "equipment_code": "EL209",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.987785,
-      40.750057
-    ]
-  },
-  {
-    "equipment_code": "EL23X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -74.00978,
-      40.71258
-    ]
-  },
-  {
-    "equipment_code": "EL707",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.987236,
-      40.69217
-    ]
-  },
-  {
-    "equipment_code": "EL294X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.984886,
-      40.75503
-    ]
-  },
-  {
-    "equipment_code": "EL448X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.80774,
-      40.700195
-    ]
-  },
-  {
-    "equipment_code": "EL174",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.87424,
-      40.84163
-    ]
-  },
-  {
-    "equipment_code": "EL356",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.97759,
-      40.58838
-    ]
-  },
-  {
-    "equipment_code": "EL499",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.83764,
-      40.580795
+      -73.94747,
+      40.783855
     ]
   },
   {
@@ -3305,19 +3169,123 @@
     ]
   },
   {
-    "equipment_code": "EL784",
+    "equipment_code": "EL791",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.976326,
-      40.683334
+      -73.96328,
+      40.6496
     ]
   },
   {
-    "equipment_code": "EL423",
+    "equipment_code": "EL725X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.8916,
-      40.74699
+      -74.00914,
+      40.71002
+    ]
+  },
+  {
+    "equipment_code": "EL757",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.96423,
+      40.672066
+    ]
+  },
+  {
+    "equipment_code": "EL209",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.987785,
+      40.750057
+    ]
+  },
+  {
+    "equipment_code": "EL212",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.98799,
+      40.749912
+    ]
+  },
+  {
+    "equipment_code": "EL181",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.94095,
+      40.813908
+    ]
+  },
+  {
+    "equipment_code": "EL327X",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.98543,
+      40.69209
+    ]
+  },
+  {
+    "equipment_code": "EL520",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.95452,
+      40.82141
+    ]
+  },
+  {
+    "equipment_code": "EL122",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.82736,
+      40.852676
+    ]
+  },
+  {
+    "equipment_code": "EL780",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.95027,
+      40.71406
+    ]
+  },
+  {
+    "equipment_code": "EL448X",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.80774,
+      40.700195
+    ]
+  },
+  {
+    "equipment_code": "EL518",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.938576,
+      40.84984
+    ]
+  },
+  {
+    "equipment_code": "EL231X",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.98677,
+      40.75599
+    ]
+  },
+  {
+    "equipment_code": "EL608X",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.97864,
+      40.75265
+    ]
+  },
+  {
+    "equipment_code": "EL373",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.97948,
+      40.643017
     ]
   },
   {
@@ -3345,11 +3313,11 @@
     ]
   },
   {
-    "equipment_code": "EL321",
+    "equipment_code": "EL492X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.95032,
-      40.650806
+      -73.83037,
+      40.660336
     ]
   },
   {
@@ -3361,19 +3329,51 @@
     ]
   },
   {
-    "equipment_code": "EL736",
+    "equipment_code": "EL324",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.01175,
-      40.71187
+      -74.00021,
+      40.718124
     ]
   },
   {
-    "equipment_code": "EL522",
+    "equipment_code": "EL482X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.86072,
-      40.833374
+      -73.94467,
+      40.74768
+    ]
+  },
+  {
+    "equipment_code": "EL445X",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.9454,
+      40.74615
+    ]
+  },
+  {
+    "equipment_code": "EL352",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.906334,
+      40.65449
+    ]
+  },
+  {
+    "equipment_code": "EL795",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.972305,
+      40.603733
+    ]
+  },
+  {
+    "equipment_code": "EL612",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.99723,
+      40.737556
     ]
   },
   {
@@ -3385,75 +3385,99 @@
     ]
   },
   {
-    "equipment_code": "EL416X",
+    "equipment_code": "EL166X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.90263,
-      40.745693
+      -73.957184,
+      40.819
     ]
   },
   {
-    "equipment_code": "EL226",
+    "equipment_code": "EL778",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.99354,
-      40.752056
+      -73.95027,
+      40.71406
     ]
   },
   {
-    "equipment_code": "EL602",
+    "equipment_code": "EL155",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.000885,
-      40.754982
+      -73.915596,
+      40.867073
     ]
   },
   {
-    "equipment_code": "EL281",
+    "equipment_code": "EL287X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.98027,
-      40.765453
+      -73.984314,
+      40.755013
     ]
   },
   {
-    "equipment_code": "EL116",
+    "equipment_code": "EL446",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.93392,
-      40.858845
+      -73.94529,
+      40.746006
     ]
   },
   {
-    "equipment_code": "EL375",
+    "equipment_code": "EL426",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.97948,
-      40.643017
+      -73.869385,
+      40.749187
     ]
   },
   {
-    "equipment_code": "EL236",
+    "equipment_code": "EL211",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.96984,
-      40.75776
+      -73.988014,
+      40.749912
     ]
   },
   {
-    "equipment_code": "EL402",
+    "equipment_code": "EL359",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.96655,
-      40.76476
+      -73.95769,
+      40.717854
     ]
   },
   {
-    "equipment_code": "EL607X",
+    "equipment_code": "EL288X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.9786,
-      40.752666
+      -73.99056,
+      40.757107
+    ]
+  },
+  {
+    "equipment_code": "EL741",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.99721,
+      40.625923
+    ]
+  },
+  {
+    "equipment_code": "EL359X",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -74.002075,
+      40.65187
+    ]
+  },
+  {
+    "equipment_code": "EL466",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.917786,
+      40.770275
     ]
   },
   {
@@ -3473,22 +3497,6 @@
     ]
   },
   {
-    "equipment_code": "EL362",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.97453,
-      40.59
-    ]
-  },
-  {
-    "equipment_code": "EL169X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.957184,
-      40.819
-    ]
-  },
-  {
     "equipment_code": "EL615",
     "elevator_or_escalator": "Elevator",
     "coords": [
@@ -3497,35 +3505,51 @@
     ]
   },
   {
-    "equipment_code": "EL383",
+    "equipment_code": "EL500",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.96228,
-      40.661263
+      -73.88775,
+      40.872414
     ]
   },
   {
-    "equipment_code": "EL398",
+    "equipment_code": "EL203X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.91206,
-      40.69952
+      -73.97097,
+      40.758823
     ]
   },
   {
-    "equipment_code": "EL189",
+    "equipment_code": "EL479",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.894035,
-      40.86623
+      -73.93971,
+      40.75093
     ]
   },
   {
-    "equipment_code": "EL144",
+    "equipment_code": "EL221",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.95262,
-      40.810772
+      -74.00265,
+      40.73993
+    ]
+  },
+  {
+    "equipment_code": "EL367",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.97454,
+      40.58976
+    ]
+  },
+  {
+    "equipment_code": "EL164",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.8438,
+      40.84587
     ]
   },
   {
@@ -3537,75 +3561,67 @@
     ]
   },
   {
-    "equipment_code": "EL256X",
+    "equipment_code": "EL232",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.84382,
-      40.75401
+      -73.98769,
+      40.755478
     ]
   },
   {
-    "equipment_code": "EL787",
+    "equipment_code": "EL289X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.116806,
-      40.573936
+      -73.9908,
+      40.757114
     ]
   },
   {
-    "equipment_code": "EL331",
+    "equipment_code": "EL389",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.9962,
-      40.725296
+      -74.01773,
+      40.641563
     ]
   },
   {
-    "equipment_code": "EL508",
+    "equipment_code": "EL140",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.917915,
-      40.84004
+      -73.93929,
+      40.8409
     ]
   },
   {
-    "equipment_code": "EL489X",
+    "equipment_code": "EL487",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.83546,
-      40.67204
+      -73.84492,
+      40.680405
     ]
   },
   {
-    "equipment_code": "EL447",
+    "equipment_code": "EL401",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.94564,
-      40.746338
+      -73.96526,
+      40.764324
     ]
   },
   {
-    "equipment_code": "EL343",
+    "equipment_code": "EL311",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.87186,
-      40.675446
+      -73.993164,
+      40.697628
     ]
   },
   {
-    "equipment_code": "EL218",
+    "equipment_code": "EL163",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.99024,
-      40.73498
-    ]
-  },
-  {
-    "equipment_code": "EL511",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.9058,
-      40.849926
+      -73.887566,
+      40.87826
     ]
   },
   {
@@ -3617,19 +3633,27 @@
     ]
   },
   {
-    "equipment_code": "EL214",
+    "equipment_code": "EL328",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.991325,
-      40.750404
+      -73.99566,
+      40.72509
     ]
   },
   {
-    "equipment_code": "EL190",
+    "equipment_code": "EL130",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.894104,
-      40.866096
+      -73.91776,
+      40.81625
+    ]
+  },
+  {
+    "equipment_code": "EL290X",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.98893,
+      40.758503
     ]
   },
   {
@@ -3649,11 +3673,11 @@
     ]
   },
   {
-    "equipment_code": "EL149",
+    "equipment_code": "EL16X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.9211,
-      40.867714
+      -74.01103,
+      40.710667
     ]
   },
   {
@@ -3665,27 +3689,27 @@
     ]
   },
   {
-    "equipment_code": "EL406",
+    "equipment_code": "EL793",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.942215,
-      40.75408
+      -73.954155,
+      40.586895
     ]
   },
   {
-    "equipment_code": "EL400",
+    "equipment_code": "EL309",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.848885,
-      40.75242
+      -73.99279,
+      40.69441
     ]
   },
   {
-    "equipment_code": "EL194",
+    "equipment_code": "EL755",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.85761,
-      40.893387
+      -73.96454,
+      40.672054
     ]
   },
   {
@@ -3697,139 +3721,115 @@
     ]
   },
   {
-    "equipment_code": "EL330",
+    "equipment_code": "EL248",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.99568,
-      40.725082
+      -73.94739,
+      40.78414
     ]
   },
   {
-    "equipment_code": "EL296",
+    "equipment_code": "EL775",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.975746,
-      40.751743
+      -73.990456,
+      40.69254
     ]
   },
   {
-    "equipment_code": "EL794",
+    "equipment_code": "EL484",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.954155,
-      40.586895
+      -73.85216,
+      40.69379
     ]
   },
   {
-    "equipment_code": "EL1106",
+    "equipment_code": "EL183",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.00397,
-      40.725517
+      -73.86654,
+      40.877625
     ]
   },
   {
-    "equipment_code": "EL114",
+    "equipment_code": "EL392",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.9401,
-      40.840942
+      -73.95789,
+      40.70839
     ]
   },
   {
-    "equipment_code": "EL740",
+    "equipment_code": "EL318",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.99702,
-      40.62571
+      -73.990555,
+      40.69366
     ]
   },
   {
-    "equipment_code": "EL776",
+    "equipment_code": "EL207X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.95027,
-      40.71406
+      -73.98609,
+      40.762257
     ]
   },
   {
-    "equipment_code": "EL439",
+    "equipment_code": "EL252",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.84436,
-      40.721687
+      -73.983696,
+      40.763702
     ]
   },
   {
-    "equipment_code": "EL353",
+    "equipment_code": "EL797",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.906334,
-      40.65449
+      -73.9723,
+      40.603798
     ]
   },
   {
-    "equipment_code": "EL363",
+    "equipment_code": "EL370",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.99553,
-      40.647842
+      -73.98115,
+      40.688667
     ]
   },
   {
-    "equipment_code": "EL127",
+    "equipment_code": "EL345",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.89301,
-      40.82389
+      -73.929855,
+      40.679478
     ]
   },
   {
-    "equipment_code": "EL333",
+    "equipment_code": "EL491X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.00115,
-      40.73138
+      -73.830795,
+      40.660427
     ]
   },
   {
-    "equipment_code": "EL729X",
+    "equipment_code": "EL238",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -74.00655,
-      40.719204
+      -73.982376,
+      40.773724
     ]
   },
   {
-    "equipment_code": "EL237",
+    "equipment_code": "EL494X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.98194,
-      40.773727
-    ]
-  },
-  {
-    "equipment_code": "EL711",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -74.01428,
-      40.70428
-    ]
-  },
-  {
-    "equipment_code": "EL728X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -74.00655,
-      40.719215
-    ]
-  },
-  {
-    "equipment_code": "EL229",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.986755,
-      40.754673
+      -73.830574,
+      40.66036
     ]
   },
   {
@@ -3841,11 +3841,19 @@
     ]
   },
   {
-    "equipment_code": "EL279",
+    "equipment_code": "EL229",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.98183,
-      40.768726
+      -73.986755,
+      40.754673
+    ]
+  },
+  {
+    "equipment_code": "EL728X",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -74.00655,
+      40.719215
     ]
   }
 ]
