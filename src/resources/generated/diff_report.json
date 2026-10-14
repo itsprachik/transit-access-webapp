@@ -2,16 +2,18 @@
   "stations": {
     "added": [],
     "removed": [],
-    "modified": []
+    "modified": [
+      "137 St-City College"
+    ]
   },
   "complexes": {
     "added": [],
     "removed": [],
-    "modified": []
+    "modified": [
+      "137 St-City College"
+    ]
   },
   "elevators": {
-    "added": [
-      "EL520 - 137 St-City College"
-    ]
+    "added": []
   }
 }

@@ -2695,7 +2695,7 @@
         "station_ids": "305",
         "gtfs_stop_ids": "115",
         "stop_name": "137 St-City College",
-        "ada": "2",
+        "ada": "1",
         "borough": "M",
         "num_stations_in_complex": "1"
       }
