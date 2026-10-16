@@ -14596,27 +14596,6 @@
     "alternativeroute": ""
   },
   {
-    "station": "Wall St",
-    "borough": "",
-    "trainno": "2/3",
-    "equipmentno": "ES378X",
-    "equipmenttype": "ES",
-    "serving": "mezzanine-level passageway to 60 Wall St atrium (between William St & Pearl St)",
-    "ADA": "N",
-    "isactive": "Y",
-    "nonNYCT": "Y",
-    "shortdescription": "Mezzanine to street",
-    "linesservedbyelevator": "2/3",
-    "elevatorsgtfsstopid": "230",
-    "elevatormrn": "333",
-    "stationcomplexid": "333",
-    "nextadanorth": "",
-    "nextadasouth": "",
-    "redundant": 0,
-    "busconnections": "",
-    "alternativeroute": ""
-  },
-  {
     "station": "West 8 St-NY Aquarium",
     "borough": "",
     "trainno": "F/Q",
