@@ -6375,6 +6375,21 @@
         ],
         "type": "Point"
       }
+    },
+    {
+      "type": "Feature",
+      "id": "EL520",
+      "properties": {
+        "elevatorno": "EL520",
+        "isBroken": false
+      },
+      "geometry": {
+        "coordinates": [
+          -73.95452,
+          40.82141
+        ],
+        "type": "Point"
+      }
     }
   ],
   "type": "FeatureCollection"

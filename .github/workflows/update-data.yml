@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      issues: write
 
     steps:
       - name: Checkout dev branch
@@ -141,3 +142,47 @@ jobs:
             git commit -m "chore(data): automated daily data refresh ($COUNTS) [skip ci]"
             git push origin dev
           fi
+
+      - name: Notify on modified stations/complexes or new elevators
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const reportPath = 'src/resources/generated/diff_report.json';
+            if (!fs.existsSync(reportPath)) {
+              console.log('No diff report found — skipping notification.');
+              return;
+            }
+
+            const d = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+            const stationsModified = d.stations?.modified || [];
+            const complexesModified = d.complexes?.modified || [];
+            const elevatorsAdded = d.elevators?.added || [];
+
+            if (!stationsModified.length && !complexesModified.length && !elevatorsAdded.length) {
+              console.log('No modified stations/complexes or new elevators — skipping notification.');
+              return;
+            }
+
+            const section = (label, items) => {
+              if (!items.length) return '';
+              return `**${label} (${items.length})**\n` + items.map((i) => `- ${i}`).join('\n') + '\n\n';
+            };
+
+            const body =
+              section('Modified stations', stationsModified) +
+              section('Modified complexes', complexesModified) +
+              section('Newly added elevators', elevatorsAdded);
+
+            const counts = [];
+            if (stationsModified.length) counts.push(`${stationsModified.length} station(s)`);
+            if (complexesModified.length) counts.push(`${complexesModified.length} complex(es)`);
+            if (elevatorsAdded.length) counts.push(`${elevatorsAdded.length} elevator(s)`);
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Daily data update: ${counts.join(', ')}`,
+              body,
+              assignees: ['joelchapman'],
+            });
