@@ -12083,7 +12083,7 @@
     "equipmenttype": "ES",
     "serving": "lower mezzanine (Lexington Ave & 63 St) to uptown Q and Queens-bound M platform",
     "ADA": "N",
-    "isactive": "N",
+    "isactive": "Y",
     "nonNYCT": "N",
     "shortdescription": "Lower mezzanine (63 St & Lexington Av) to uptown Q and Queens-bound M platform.",
     "linesservedbyelevator": "F/M",
