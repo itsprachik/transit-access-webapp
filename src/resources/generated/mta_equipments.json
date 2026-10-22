@@ -292,7 +292,7 @@
     "nextadasouth": "310, 1",
     "redundant": 0,
     "busconnections": "M4, M5",
-    "alternativeroute": "If you are on the platform: Take an uptown 1 to Dyckman St. Transfer to a Manhattanville-bound M100 bus (Dyckman St / Nagle Av) to Amsterdam Av / 138 St. Proceed west along 138 St to Broadway for the 137 St \u2013 City College 1 station.  \n\nIf you are on the street: Proceed east along 138 St to Amsterdam Av and take an Inwood-bound M100 bus (Amsterdam Av / 138 St) to Dyckman St / Nagle Av for the Dyckman St 1 station.  "
+    "alternativeroute": "If you are on the platform: Take an uptown 1 to Dyckman St and transfer to a downtown 1 to 137 St-City College. \n\nIf you are on the street: Take a downtown 1 to 96 St and transfer to an uptown 1. "
   },
   {
     "station": "14 St",
@@ -12083,7 +12083,7 @@
     "equipmenttype": "ES",
     "serving": "lower mezzanine (Lexington Ave & 63 St) to uptown Q and Queens-bound M platform",
     "ADA": "N",
-    "isactive": "N",
+    "isactive": "Y",
     "nonNYCT": "N",
     "shortdescription": "Lower mezzanine (63 St & Lexington Av) to uptown Q and Queens-bound M platform.",
     "linesservedbyelevator": "F/M",
