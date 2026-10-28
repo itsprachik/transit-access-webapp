@@ -15,6 +15,10 @@ NY_OPEN_DATA_QUERY = (
     "WHERE elevator_or_escalator = 'Elevator' "
     "LIMIT 5000"
 )
+# Socrata now requires authentication for this endpoint (previously worked anonymously).
+# Non-interactive scripts use HTTP Basic Auth with an API Key ID + Secret pair.
+NY_OPEN_DATA_API_KEY = os.environ.get("NY_OPEN_DATA_API_KEY")
+NY_OPEN_DATA_API_SECRET = os.environ.get("NY_OPEN_DATA_API_SECRET")
 
 # Get directory where this script is located
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -41,11 +45,23 @@ def fetch_latest_equipment():
     return data
 
 def fetch_elevator_geocoordinates():
-    """Fetch real per-elevator coordinates from NY Open Data, keyed by equipment_code."""
+    """Fetch real per-elevator coordinates from NY Open Data, keyed by equipment_code.
+
+    This is a supplementary enrichment (precise coordinates for new elevators,
+    falling back to station/complex-offset placement otherwise) — never let a
+    hiccup here (API down, token missing/revoked, etc.) take down the whole
+    daily pipeline. On any failure, log a warning and return an empty lookup.
+    """
     print("Fetching elevator coordinates from NY Open Data...")
-    response = requests.get(NY_OPEN_DATA_URL, params={"query": NY_OPEN_DATA_QUERY})
-    response.raise_for_status()
-    rows = response.json()
+    try:
+        auth = (NY_OPEN_DATA_API_KEY, NY_OPEN_DATA_API_SECRET) if NY_OPEN_DATA_API_KEY and NY_OPEN_DATA_API_SECRET else None
+        response = requests.get(NY_OPEN_DATA_URL, params={"query": NY_OPEN_DATA_QUERY}, auth=auth)
+        response.raise_for_status()
+        rows = response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"⚠️  Failed to fetch NY Open Data elevator coordinates ({e}). "
+              f"Falling back to station/complex-offset placement for all new elevators.")
+        return {}
 
     simplified = []
     geo_lookup = {}

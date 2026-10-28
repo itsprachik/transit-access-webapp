@@ -42,6 +42,8 @@ jobs:
         working-directory: src/resources/python
         env:
           MTA_API_KEY: ${{ secrets.MTA_API_KEY }}
+          NY_OPEN_DATA_API_KEY: ${{ secrets.NY_OPEN_DATA_API_KEY }}
+          NY_OPEN_DATA_API_SECRET: ${{ secrets.NY_OPEN_DATA_API_SECRET }}
         run: python3 updateData.py
 
       - name: Write job summary
