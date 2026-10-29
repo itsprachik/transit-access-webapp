@@ -220,8 +220,12 @@ for equip in mta_equipment_data:
     # Coordinates
     coords = get_coordinates_for_elevator(equip, station_lookup, complex_lookup, is_street, elevator_geo_lookup)
 
-    # Station ID for output
-    station_id = str(int(str(equip.get("elevatormrn", "")).split("/")[0].strip()))
+    # Station ID for output — elevatormrn can list multiple stations (e.g. a
+    # platform-to-platform transfer elevator serving both), keep all of them
+    # rather than just the first (that truncation caused EL622's missing 315).
+    station_id = "/".join(
+        str(int(s.strip())) for s in str(equip.get("elevatormrn", "")).split("/") if s.strip()
+    )
 
 
     # Title and image
