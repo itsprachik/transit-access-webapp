@@ -3,6 +3,7 @@ import { X } from "lucide-react";
 import { StatusIcon } from "@/components/StatusIcon/StatusIcon";
 import { AlertData } from "@/types/alerts";
 import { cn } from "@/lib/utils";
+import { BUTTON_PRESS } from "@/lib/interaction";
 
 const DISMISSED_KEY = "dismissed-system-alerts";
 
@@ -60,7 +61,7 @@ const AlertBanner: React.FC<{ alerts: AlertData[] }> = ({ alerts }) => {
               type="button"
               onClick={() => dismiss(alert.text)}
               aria-label="Dismiss alert"
-              className="-my-2.5 grid size-11 shrink-0 place-items-center rounded-full text-foreground/60 active:bg-foreground/10"
+              className={cn("-my-2.5 grid size-11 shrink-0 place-items-center rounded-full text-foreground/60", BUTTON_PRESS)}
             >
               <X className="size-4" />
             </button>

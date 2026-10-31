@@ -56,7 +56,7 @@ import HomeSheet from "../HomeSheet/HomeSheet";
 import AlertBanner from "../AlertBanner/AlertBanner";
 import { initializeStore } from "@/lib/dataStore";
 import { applyZIndexVars } from "@/styles/zIndex";
-import { FiZoomIn, FiMaximize2, FiMinimize2 } from "react-icons/fi";
+import { Maximize2, Minimize2 } from "lucide-react";
 
 // Load environment variables
 dotenv.config();
@@ -927,7 +927,7 @@ const MtaMap = () => {
             });
           }}
         >
-          {isZoomedOut ? <FiMinimize2 size={16} /> : <FiMaximize2 size={16} />}
+          {isZoomedOut ? <Minimize2 className="size-4" /> : <Maximize2 className="size-4" />}
         </button>
       </div>
 
@@ -951,15 +951,15 @@ const MtaMap = () => {
       <>
         {/* Toggle floating on top of map, outside popup */}
         {show3DToggle && elevatorView && (
-          <div
-            className="show-3d-button-wrapper"
-            style={{
-              top: "max(0.75rem, env(safe-area-inset-top))",
-              transition: "top 0.3s ease",
-            }}
+          // The whole pill is the tap target (44px tall), not just the switch inside it
+          <label
+            htmlFor="toggle-3d-buildings"
+            className="show-3d-button-wrapper flex min-h-11 cursor-pointer items-center gap-2.5 rounded-full bg-background py-1.5 pl-4 pr-2 text-footnote font-semibold text-foreground shadow-[0_1px_2px_oklch(0_0_0/0.08),0_4px_12px_oklch(0_0_0/0.1)]"
+            style={{ top: "max(0.75rem, env(safe-area-inset-top))" }}
           >
+            3D buildings
             <Switch
-              className="scale-75"
+              id="toggle-3d-buildings"
               defaultChecked
               onCheckedChange={(checked) => {
                 if (!mapRef.current) return;
@@ -973,8 +973,7 @@ const MtaMap = () => {
                 }
               }}
             />
-            <span className="show-3d-button-label">3D Buildings</span>
-          </div>
+          </label>
         )}
       </>
     </>

@@ -2,16 +2,18 @@ import React from "react";
 import { MTA_SUBWAY_LINE_ICONS_SMALL } from "@/utils/constants";
 import { cn } from "@/lib/utils";
 
+// --fan is how far each bullet slides to undo its overlap (overlap + a 2px gap)
 const SIZES = {
-  sm: "size-[22px] [&:not(:first-child)]:-ml-[7px]",
-  md: "size-6 [&:not(:first-child)]:-ml-2",
-  lg: "size-8 [&:not(:first-child)]:-ml-2.5",
+  sm: "size-[22px] [&:not(:first-child)]:-ml-[7px] [--fan:9px]",
+  md: "size-6 [&:not(:first-child)]:-ml-2 [--fan:10px]",
+  lg: "size-8 [&:not(:first-child)]:-ml-2.5 [--fan:12px]",
 };
 
-// Bullets overlap like a stack and fan out when the stack (or a parent
-// `group/row`) is hovered. Hover-capable pointers only, so taps don't jitter.
+// Bullets overlap like a stack and fan out when the stack (or a parent `group/row`) is hovered.
+// Each slides by its index × --fan with transform, so nothing around it reflows.
+// Hover-capable pointers only, so taps don't jitter.
 const FAN_OUT =
-  "[@media(hover:hover)]:group-hover/lines:[&:not(:first-child)]:ml-0.5 [@media(hover:hover)]:group-hover/row:[&:not(:first-child)]:ml-0.5";
+  "[@media(hover:hover)]:group-hover/lines:translate-x-[calc(var(--i)*var(--fan))] [@media(hover:hover)]:group-hover/row:translate-x-[calc(var(--i)*var(--fan))]";
 
 interface LineBulletsProps {
   routes: string[];
@@ -25,11 +27,12 @@ export function LineBullets({ routes, size = "md", className }: LineBulletsProps
       className={cn("group/lines inline-flex shrink-0 items-center align-middle", className)}
       aria-hidden="true"
     >
-      {routes.map((route) => (
+      {routes.map((route, i) => (
         <span
           key={route}
+          style={{ "--i": i } as React.CSSProperties}
           className={cn(
-            "relative grid shrink-0 place-items-center rounded-full bg-white ring-[1.5px] ring-white transition-[margin] duration-200 ease-out motion-reduce:transition-none [&_svg]:size-full",
+            "relative grid shrink-0 place-items-center rounded-full bg-white ring-[1.5px] ring-white transition-transform duration-200 ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none [&_svg]:size-full",
             SIZES[size],
             FAN_OUT,
           )}

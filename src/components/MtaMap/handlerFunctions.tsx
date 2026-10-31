@@ -279,6 +279,8 @@ function handleElevatorClick(
     elevatorno,
     directionLabel,
     isStreet,
+    shortdescription,
+    access_note,
   } = feature.properties;
 
   const popupKey = lastUpdated?.toISOString() || ""; // triggers re-render of the popup
@@ -297,32 +299,22 @@ function handleElevatorClick(
     (el) => el.equipment === elevatorno,
   );
 
-  const filteredOutage = Array.isArray(upcomingOutage)
-    ? upcomingOutage.map((o) => ({
-        reason: o.reason,
-        outageDate: o.outagedate,
-        estimatedreturntoservice: o.estimatedreturntoservice?.trim() || null,
-        outageDuration: o.outageDuration || null,
-        outageDurationDays: getOutageDurationDays(
-          o.outagedate,
-          o.estimatedreturntoservice?.trim(),
-        ),
-      }))
-    : upcomingOutage
-      ? [
-          {
-            reason: upcomingOutage.reason,
-            outageDate: upcomingOutage.outagedate,
-            estimatedreturntoservice:
-              upcomingOutage.estimatedreturntoservice?.trim() || null,
-            outageDuration: upcomingOutage.outageDuration || null,
-            outageDurationDays: getOutageDurationDays(
-              upcomingOutage.outagedate,
-              upcomingOutage.estimatedreturntoservice?.trim(),
-            ),
-          },
-        ]
-      : [];
+  // Same shape and wording as the station list builds, so the opened views read identically
+  const filteredOutage = upcomingOutage
+    ? [
+        {
+          reason: upcomingOutage.reason,
+          outageDate: convertDate(upcomingOutage.outagedate),
+          estimatedreturntoservice: convertDate(upcomingOutage.estimatedreturntoservice?.trim()) || null,
+          outageDuration:
+            convertDateDistance(upcomingOutage.outagedate, upcomingOutage.estimatedreturntoservice) || "null",
+          outageDurationDays: getOutageDurationDays(
+            upcomingOutage.outagedate,
+            upcomingOutage.estimatedreturntoservice?.trim(),
+          ),
+        },
+      ]
+    : [];
 
   root.render(
     <ElevatorPopup
@@ -338,6 +330,10 @@ function handleElevatorClick(
       isStreet={isStreet}
       lastUpdated={lastUpdated}
       isUpcomingOutage={filteredOutage}
+      shortdescription={shortdescription}
+      access_note={access_note}
+      isOut={Boolean(outage)}
+      maintenanceLabel={getElevatorMaintenanceToday(elevatorno, upcomingElevatorData)}
     />,
   );
 }

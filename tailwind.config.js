@@ -20,6 +20,8 @@ module.exports = {
   		// iOS-style type scale; display/title are for large figures and headings
   		fontSize: {
   			display: ['2.75rem', { lineHeight: '1', letterSpacing: '-0.03em', fontWeight: '700' }],
+  			// Large figures set beside each other, e.g. the legend's live counts
+  			stat: ['2rem', { lineHeight: '1', letterSpacing: '-0.02em', fontWeight: '600' }],
   			title: ['1.375rem', { lineHeight: '1.2', letterSpacing: '-0.015em', fontWeight: '700' }],
   			headline: ['1.0625rem', { lineHeight: '1.3', letterSpacing: '-0.01em', fontWeight: '600' }],
   			body: ['1rem', { lineHeight: '1.4' }],

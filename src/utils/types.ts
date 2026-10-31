@@ -14,6 +14,7 @@ export type ElevatorPopupProps = {
   directionLabel: string;
   elevatorno: string;
   description_custom?: string;
+  shortdescription?: string;
   imageURL?: string;
   linesServed?: string;
   isOut?: boolean | string;

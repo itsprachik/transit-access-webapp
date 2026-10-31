@@ -1,18 +1,19 @@
 import React from "react";
-import { FaStar, FaWrench } from "react-icons/fa";
+import { Wrench } from "lucide-react";
+import { LiftGood, WarnIcon, LiftBad, ElevatorIcon, RedX } from "../icons";
 import {
-  LiftGood,
-  WarnIcon,
-  LiftBad,
-  ElevatorIcon,
-  ElevatorInvertedIcon,
-  AccessibleIconWhite,
-  RedX,
-  Ramp,
-} from "../icons";
-import { StatusIcon } from "@/components/StatusIcon/StatusIcon";
+  InServicePill,
+  OutOfServicePill,
+  AccessTipBadge,
+  OutagePlannedBadge,
+  MaintenanceBadge,
+} from "@/components/StationPopup/StatusBadges";
 import { getADAPctByComplex } from "@/utils/dataUtils";
+import { longtermOutageThreshold } from "@/components/MtaMap/layers/UpcomingOutages/upcomingOutagesProps";
 import pkg from "../../../package.json";
+
+// Reads as a short article: what the live numbers mean, how to read the map and a station's page,
+// then practical notes. Symbols are the real map icons and the same badges the station page renders.
 
 interface LegendPageProps {
   numOutElevators: number;
@@ -20,154 +21,166 @@ interface LegendPageProps {
   lastUpdated: Date | null;
 }
 
-const MAP_ITEMS = [
-  { icon: <LiftGood />, label: "All elevators in service" },
-  { icon: <WarnIcon />, label: "At least one elevator out of service" },
-  { icon: <LiftBad />, label: "All elevators out of service" },
-  { icon: <RedX size={20} />, label: "Station not ADA accessible" },
-];
-
-const STATION_ITEMS = [
-  { icon: <ElevatorIcon />, label: "Street elevator, exact location shown on map" },
-  { icon: <ElevatorInvertedIcon />, label: "Platform elevator, not shown on map" },
-  { icon: <Ramp />, label: "Ramp" },
-];
-
-const ELEVATOR_ITEMS = [
-  {
-    icon: <AccessibleIconWhite fill="#501759e6" size={16} />,
-    bg: "#f4c6fbe6",
-    label: "Access tip from the community",
-  },
-  {
-    icon: <FaStar color="#2a6fa8" size="12" />,
-    bg: "#a7d3f653",
-    label: "Redundant elevator: if it’s out, there’s another way",
-  },
-  { icon: <FaWrench color="#c80000" size="12" />, bg: "#fff", label: "Upcoming short-term outage" },
-  { icon: <FaWrench color="#fff" size="12" />, bg: "#c80000", label: "Upcoming long-term outage" },
-];
-
-// Same outlined group as the station lists, so the legend reads as part of the sheet
-function Group({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="px-4 pt-6">
-      <h3 className="px-4 pb-2 text-caption font-semibold uppercase tracking-[0.06em] text-muted-foreground">{title}</h3>
-      <div className="overflow-hidden rounded-xl border border-border [&>*+*]:border-t [&>*+*]:border-border">
-        {children}
-      </div>
+    <section className="flex flex-col gap-3 px-4 pt-8">
+      <h2 className="text-headline font-semibold">{title}</h2>
+      {children}
     </section>
   );
 }
 
-function Row({ icon, children }: { icon?: React.ReactNode; children: React.ReactNode }) {
+function Prose({ children }: { children: React.ReactNode }) {
+  return <p className="max-w-[65ch] text-body leading-relaxed text-pretty">{children}</p>;
+}
+
+// A symbol beside its meaning, in a fixed 24px column so the text lines up down the list
+function SymbolList({ items }: { items: { symbol: React.ReactNode; text: React.ReactNode }[] }) {
   return (
-    <div className="flex min-h-12 items-center gap-3 px-4 py-3 text-body">
-      {icon && (
-        // The legacy icon components ignore size props, so cap the SVGs here
-        <span
-          className="grid size-7 shrink-0 place-items-center [&>svg]:max-h-6 [&>svg]:max-w-7 [&>svg]:h-auto [&>svg]:w-auto"
-          aria-hidden="true"
-        >
-          {icon}
-        </span>
-      )}
-      {children}
-    </div>
+    <dl className="flex flex-col gap-3">
+      {items.map(({ symbol, text }, i) => (
+        <div key={i} className="flex items-start gap-3">
+          <dt className="grid size-6 shrink-0 place-items-center" aria-hidden="true">
+            {symbol}
+          </dt>
+          <dd className="pt-0.5 text-subhead text-pretty">{text}</dd>
+        </div>
+      ))}
+    </dl>
   );
 }
 
-function IconList({ title, items }: { title: string; items: { icon: React.ReactNode; label: string; bg?: string }[] }) {
+// Badges are wider than a symbol column, so each sits above its explanation
+function BadgeList({ items }: { items: { badge: React.ReactNode; text: React.ReactNode }[] }) {
   return (
-    <Group title={title}>
-      {items.map(({ icon, label, bg }) => (
-        <Row
-          key={label}
-          icon={
-            bg ? (
-              <span className="grid size-6 place-items-center rounded-md" style={{ backgroundColor: bg }}>
-                {icon}
-              </span>
-            ) : (
-              icon
-            )
-          }
-        >
-          {label}
-        </Row>
+    <dl className="flex flex-col gap-4">
+      {items.map(({ badge, text }, i) => (
+        <div key={i} className="flex flex-col items-start gap-1.5">
+          <dt>{badge}</dt>
+          <dd className="text-subhead text-pretty">{text}</dd>
+        </div>
       ))}
-    </Group>
+    </dl>
   );
 }
 
 const LegendPage: React.FC<LegendPageProps> = ({ numOutElevators, totalElevators, lastUpdated }) => {
   const numInService = totalElevators - numOutElevators;
-  const pctOut = Math.round((numOutElevators / totalElevators) * 100);
   const pctAccessible = getADAPctByComplex();
   const updatedAt = lastUpdated?.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
 
   return (
-    <div>
+    <article className="pb-2">
       <header className="px-4">
-        <h2 className="text-title">Legend</h2>
+        <h1 className="text-title">Legend</h1>
         <p className="mt-1 text-subhead text-muted-foreground">
-          Live elevator status for the NYC subway. Tap a station for details.
+          Live elevator status for the NYC subway, and how to read it.
         </p>
       </header>
 
-      {/* aria-live so screen readers hear refreshed counts without being interrupted */}
-      <section className="px-4 pt-6" aria-labelledby="live-status-heading" aria-live="polite" aria-atomic="true">
-        <h3 id="live-status-heading" className="px-4 pb-2 text-caption font-semibold uppercase tracking-[0.06em] text-muted-foreground">
-          Live status
-        </h3>
-        <div className="overflow-hidden rounded-xl border border-border [&>*+*]:border-t [&>*+*]:border-border">
-          <Row icon={<StatusIcon glyph="warning" className="size-[18px] text-status-partial" />}>
-            <span className="flex-1">Out of service</span>
-            <span className="font-semibold tabular-nums text-status-partial-foreground">
+      <Section title="Live status">
+        {/* aria-live so screen readers hear refreshed counts without being interrupted */}
+        <div className="grid grid-cols-2 gap-4" aria-live="polite" aria-atomic="true">
+          <div>
+            <div className="text-stat tabular-nums text-status-partial-foreground">
               {lastUpdated ? numOutElevators : "–"}
-            </span>
-          </Row>
-          <Row icon={<StatusIcon glyph="check" className="size-[18px] text-status-ok" />}>
-            <span className="flex-1">In service</span>
-            <span className="font-semibold tabular-nums">{lastUpdated ? numInService : "–"}</span>
-          </Row>
+            </div>
+            <div className="mt-1.5 text-subhead text-muted-foreground">Out of service</div>
+          </div>
+          <div>
+            <div className="text-stat tabular-nums">
+              {lastUpdated ? numInService : "–"}
+            </div>
+            <div className="mt-1.5 text-subhead text-muted-foreground">In service</div>
+          </div>
         </div>
-        <p className="px-4 pt-2 text-footnote tabular-nums text-muted-foreground">
-          {lastUpdated
-            ? `${pctOut}% of ${totalElevators} elevators are out · Updated ${updatedAt}`
-            : "Loading live status…"}
+        <p className="text-footnote tabular-nums text-muted-foreground">
+          {lastUpdated ? `Across ${totalElevators} elevators. Updated ${updatedAt}.` : "Loading live status…"}
         </p>
-      </section>
+      </Section>
 
-      <IconList title="On the map" items={MAP_ITEMS} />
-      <IconList title="At a station" items={STATION_ITEMS} />
-      <IconList title="On an elevator" items={ELEVATOR_ITEMS} />
+      <Section title="Reading the map">
+        <Prose>Each station shows how its elevators are doing right now.</Prose>
+        <SymbolList
+          items={[
+            { symbol: <LiftGood size={24} />, text: "Every elevator is working." },
+            { symbol: <WarnIcon size={20} />, text: "At least one elevator is out of service." },
+            { symbol: <LiftBad size={24} />, text: "Every elevator is out of service." },
+            { symbol: <RedX size={24} />, text: "The station isn’t ADA accessible." },
+          ]}
+        />
+        <Prose>Zoom in and the map adds more detail.</Prose>
+        <SymbolList
+          items={[
+            { symbol: <ElevatorIcon size={24} />, text: "A street elevator, drawn where its entrance is." },
+            {
+              symbol: (
+                <span className="grid size-6 place-items-center rounded-full bg-status-out text-white">
+                  <Wrench className="size-3.5" strokeWidth={2.5} aria-hidden="true" />
+                </span>
+              ),
+              text: `A long-term outage is coming up, more than ${longtermOutageThreshold} days.`,
+            },
+          ]}
+        />
+      </Section>
 
-      <Group title="Getting around">
-        <p className="px-4 py-3 text-subhead text-pretty">
+      <Section title="On a station’s page">
+        <Prose>
+          Elevators are grouped by where they start: at street level or inside the station. Tap one to see
+          its photo, where it goes, and any notes.
+        </Prose>
+        <BadgeList
+          items={[
+            { badge: <InServicePill />, text: "Working now. Ramps always show as in service." },
+            {
+              badge: <OutOfServicePill />,
+              text: "Not working. When the MTA gives a return time, it shows beside this. If another elevator covers the same route, the row says so.",
+            },
+            {
+              badge: <AccessTipBadge />,
+              text: "A note from the Transit Access community, like a steep ramp to avoid or which entrance is closest.",
+            },
+            {
+              badge: <OutagePlannedBadge />,
+              text: "The MTA has scheduled work on this elevator. Open it to see the dates.",
+            },
+            {
+              badge: <MaintenanceBadge when="today" />,
+              text: "Maintenance starts soon: today, tonight, overnight or tomorrow. Expect the elevator to be out for part of that time.",
+            },
+          ]}
+        />
+      </Section>
+
+      <Section title="Getting around">
+        <Prose>
           {pctAccessible < 75 ? "Only " : ""}
           <span className="font-semibold tabular-nums">{pctAccessible}%</span> of subway stations are ADA
-          accessible. Check here that yours is in service before you go.
-        </p>
-        <p className="px-4 py-3 text-subhead text-pretty">
+          accessible, so check that yours is in service before you go.
+        </Prose>
+        <Prose>
           The MTA takes elevators out for replacement for 8–12 months at a time. Upcoming outages show on
           each station’s page.
-        </p>
-        <div className="flex flex-col gap-3 px-4 py-3">
-          <p className="text-subhead text-pretty">
-            Mobility devices board in the middle of the platform. Look for the conductor and the blue Boarding
-            Area sign.
-          </p>
+        </Prose>
+        <Prose>
+          Mobility devices board in the middle of the platform. Look for the conductor and the blue Boarding
+          Area sign.
+        </Prose>
+        <figure className="flex flex-col gap-2">
           <img
             src="/boardingarea.png"
-            alt="A blue Boarding Area sign on a subway platform ceiling, marking where mobility device users wait to board"
+            alt="A blue Boarding Area sign hanging from a subway platform ceiling"
             className="w-full rounded-lg"
           />
-        </div>
-      </Group>
+          <figcaption className="text-footnote text-muted-foreground">
+            The Boarding Area sign marks where to wait.
+          </figcaption>
+        </figure>
+      </Section>
 
-      <section className="px-8 pb-2 pt-6 text-footnote text-muted-foreground" aria-label="About">
-        <p className="text-pretty">
+      <footer className="mx-4 mt-8 border-t border-border pt-4 text-footnote text-muted-foreground">
+        <p className="max-w-[65ch] text-pretty">
           Data comes from the MTA’s real-time feed and{" "}
           <a href="https://data.ny.gov" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-foreground">
             Open Data NY
@@ -183,8 +196,8 @@ const LegendPage: React.FC<LegendPageProps> = ({ numOutElevators, totalElevators
           <br />
           Built by Joel Chapman &amp; Prachi Kulkarni
         </p>
-      </section>
-    </div>
+      </footer>
+    </article>
   );
 };
 

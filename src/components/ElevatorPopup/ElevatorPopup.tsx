@@ -1,72 +1,72 @@
 import React from "react";
-import {
-  AccessibleIcon,
-  ElevatorOutIcon,
-  WarnIcon,
-  LiftBad,
-  LiftGood,
-} from "../icons";
-import { LineBullets } from "@/components/LineBullets/LineBullets";
+import { Wrench } from "lucide-react";
 import styles from "./elevator-popup.module.css";
 import { ElevatorPopupProps } from "@/utils/types";
-import { LuClock2 } from "react-icons/lu";
+import {
+  InServicePill,
+  OutOfServicePill,
+  AccessTipBadge,
+  OutagePlannedBadge,
+  MaintenanceBadge,
+} from "@/components/StationPopup/StatusBadges";
+import {
+  AccessTipNote,
+  PlannedOutageNotes,
+  ElevatorFooter,
+  splitShortDescription,
+} from "@/components/StationPopup/ElevatorNotes";
+
+// Opens when an elevator is tapped on the map: the same elevator as a station-list row, opened,
+// so it uses the row's title rule, pills, badges and detail blocks.
+
+const toBool = (v: unknown) => v === true || v === "true" || v === "1";
 
 const ElevatorPopup: React.FC<ElevatorPopupProps> = ({
-  title,
+  title: stationName,
+  shortdescription,
   elevatorno,
   imageURL,
   description_custom,
   linesServed,
   estimatedreturntoservice,
-  directionLabel,
   isStreet,
-  lastUpdated,
-  isUpcomingOutage
+  isOut,
+  access_note,
+  isUpcomingOutage,
+  maintenanceLabel,
+  ada,
 }) => {
-  const lines = linesServed.split("/").map(line => line.replace(/-/g, ""));;
+  const lines = (linesServed || "").replace(/-/g, "").replaceAll("/", " ");
+  const isRamp = elevatorno.toLowerCase().includes("ra");
+  const out = toBool(isOut) && !isRamp;
+  const upcoming = isUpcomingOutage ?? [];
+  const eta = estimatedreturntoservice?.replace(/^(Today|Tomorrow)\b/, (w) => w.toLowerCase());
+  const { title, caveat } = splitShortDescription(
+    shortdescription || (isRamp ? "Ramp" : toBool(isStreet) ? "Street elevator" : "Platform elevator"),
+  );
 
   return (
-    
-      <section className={styles["elevator-popup"]}>
-        <div className={styles.header}>
-          <div className={styles.headerText}>
-      <h1 className={styles.title}>Street Elevator {" "} </h1>
-      <h2 className={styles.subtitle}>{title} {directionLabel && ` (${directionLabel})`}</h2>
-      <h3 className={styles["gray-text"]}>{elevatorno}</h3>
-      </div>
-    <section id="elevator-service">
-      {estimatedreturntoservice ? (
-  <div className={`${styles["elevator-service"]} ${styles["elevator-service-bad"]}`}>
-    <LiftBad fill="#111" />
-    <span className={styles.statusText}>
-      <span>Back in service</span>
-      <span className={styles.eta}>{estimatedreturntoservice}</span>
-    </span>
-  </div>
-      ) : (
-        <div
-          className={`${styles["elevator-service"]} ${styles["elevator-service-good"]}`}
-        >
-          <LiftGood fill="#111" />
-          <span>In service</span>
+    <section className="flex flex-col gap-3 px-4 pb-4" aria-labelledby="elevator-popup-title">
+      <header className="flex flex-col gap-1">
+        <p className="text-subhead text-muted-foreground">{stationName}</p>
+        <h1 id="elevator-popup-title" className="text-title text-balance">
+          {title}
+        </h1>
+        {caveat && <p className="text-footnote text-muted-foreground text-pretty">{caveat}</p>}
+        <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
+          {out ? <OutOfServicePill /> : <InServicePill label={isRamp ? "Always in service" : "In service"} />}
+          {out && eta && <span className="text-footnote text-status-out-foreground">Back {eta}</span>}
+          {access_note && <AccessTipBadge />}
+          {upcoming.length > 0 && <OutagePlannedBadge />}
+          {maintenanceLabel && <MaintenanceBadge when={maintenanceLabel} />}
         </div>
-      )}
-      </section>
-      </div>
+      </header>
 
-      <section id="description" className={styles["description"]}>
-        <span>{description_custom}</span>
-      </section>
-
-      <img src={imageURL} alt="Elevator at station" className="w-full rounded-xl object-cover" />
-
-<section id="lines-served">
-        <div className={styles["subtitle"]}>Lines Served</div>
-      <div className={styles.linesServed}>
-        <span className="sr-only">{lines.join(", ")}</span>
-        <LineBullets routes={lines} size="lg" />
-      </div>
-      </section>
+      {imageURL && <img src={imageURL} alt="" className="aspect-[4/3] w-full rounded-lg object-cover" />}
+      {access_note && <AccessTipNote note={access_note} />}
+      <PlannedOutageNotes outages={upcoming} />
+      {description_custom && <p className="text-subhead text-pretty">{description_custom}</p>}
+      <ElevatorFooter elevatorno={elevatorno} lines={lines} ada={ada} />
     </section>
   );
 };
@@ -87,7 +87,7 @@ export const OnHoverElevatorPopup: React.FC<OnHoverElevatorPopupProps> = ({
   return (
     <>
     <div className={styles.upcoming}>
-        <div className={styles.upcomingHeader}><LuClock2 size={25}/><strong>Upcoming Long-Term Outage</strong></div>
+        <div className={styles.upcomingHeader}><Wrench className="size-5" strokeWidth={2.25} aria-hidden="true" /><strong>Long-term outage coming up</strong></div>
         {isStreet ? "Street Elevator" : "Platform Elevator"} at <div className={styles.popupSubtitle}>{station}</div>
       <div className={styles.date}>Starting {date}</div>
       </div>

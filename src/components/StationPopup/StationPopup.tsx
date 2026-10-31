@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import ElevatorCard from "./ElevatorCard";
+import { StatusPill, StatusTone } from "./StatusBadges";
 import styles from "@/components/StationPopup/station-popup.module.css";
 import {
   AccessibleIconWhite,
@@ -45,6 +46,22 @@ const StationPopup: React.FC<StationPopupProps> = ({
 
   // flyButtonState
   const [activeFlyButton, setActiveFlyButton] = useState<string | null>(null);
+  const [openElevator, setOpenElevator] = useState<string | null>(null);
+
+  // The header stays pinned while the station scrolls; once anything has slid under it,
+  // a hairline and soft shadow mark the edge. The sheet owns the scroller, so listen for any scroll.
+  const headerRef = useRef<HTMLDivElement>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = (e: Event) => {
+      const el = e.target as HTMLElement;
+      if (el instanceof HTMLElement && headerRef.current && el.contains(headerRef.current)) {
+        setIsScrolled(el.scrollTop > 0);
+      }
+    };
+    document.addEventListener("scroll", onScroll, true);
+    return () => document.removeEventListener("scroll", onScroll, true);
+  }, []);
 
   const toBool = (v?: boolean | string | null) =>
     typeof v === "string" ? v === "true" : Boolean(v);
@@ -78,30 +95,12 @@ const StationPopup: React.FC<StationPopupProps> = ({
     return `${oosCount} of ${totalElevators} elevators are out of service`;
   };
 
-  const pillClass =
-    "inline-flex items-center gap-1.5 rounded-full py-1.5 pl-2 pr-3 text-footnote font-semibold";
-
-  const elevatorStatus =
+  const elevatorStatus: { tone: StatusTone; label: string } =
     oosCount === 0
-      ? {
-          glyph: "check" as const,
-          label: "All elevators in service",
-          surface: "bg-status-ok-muted text-status-ok-foreground",
-          icon: "text-status-ok",
-        }
+      ? { tone: "ok", label: "All elevators in service" }
       : oosCount === totalElevators
-        ? {
-            glyph: "alert" as const,
-            label: "All elevators out of service",
-            surface: "bg-status-out-muted text-status-out-foreground",
-            icon: "text-status-out",
-          }
-        : {
-            glyph: "alert" as const,
-            label: `${oosCount} of ${totalElevators} elevators out`,
-            surface: "bg-status-partial-muted text-status-partial-foreground",
-            icon: "text-status-partial",
-          };
+        ? { tone: "out", label: "All elevators out of service" }
+        : { tone: "partial", label: `${oosCount} of ${totalElevators} elevators out` };
 
   const getSubwayLinesText = (lines: string) => {
     return lines.split(" ").filter(Boolean).join(", ");
@@ -239,14 +238,21 @@ const StationPopup: React.FC<StationPopupProps> = ({
       aria-describedby="station-summary"
     >
       <div
-        className={styles.popupHeader}
+        ref={headerRef}
+        className={cn(
+          styles.popupHeader,
+          "border-b transition-[border-color,box-shadow] duration-150 motion-reduce:transition-none",
+          isScrolled
+            ? "border-border shadow-[0_6px_12px_-8px_oklch(0_0_0/0.18)]"
+            : "border-transparent",
+        )}
       >
         <h1
           ref={titleRef}
           tabIndex={-1}
           id="station-popup-title"
           className={cn(
-            "flex items-center gap-2 px-4 pb-2 text-title text-foreground outline-none",
+            "flex items-center gap-2 px-4 pb-4 text-title text-foreground outline-none",
           )}
         >
           {/* Station title text */}
@@ -346,20 +352,18 @@ const StationPopup: React.FC<StationPopupProps> = ({
         {/* Equipment summary */}
         <section className="mx-4 flex flex-wrap gap-2 pb-1">
           {ada === "0" && (
-            <span className={cn(pillClass, "bg-status-out-muted text-status-out-foreground")}>
-              <StatusIcon glyph="alert" className="text-status-out" />
+            <StatusPill tone="out" size="summary">
               Not ADA accessible
-            </span>
+            </StatusPill>
           )}
           {totalElevators > 0 && (
-            <span className={cn(pillClass, elevatorStatus.surface)}>
-              <StatusIcon glyph={elevatorStatus.glyph} className={elevatorStatus.icon} />
+            <StatusPill tone={elevatorStatus.tone} size="summary">
               {elevatorStatus.label}
-            </span>
+            </StatusPill>
           )}
-          <span className={cn(pillClass, "bg-foreground/[0.06] text-foreground")}>
+          <StatusPill tone="neutral" size="summary">
             {buildEquipmentText(totalElevators, totalRamps)}
-          </span>
+          </StatusPill>
         </section>
 
         <section
@@ -378,6 +382,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
             </>
           )}
 
+          <div className={styles.elevatorGroup}>
           {elevators
             .filter((e) => toBool(e.isStreet))
             .sort((a, b) => {
@@ -388,11 +393,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
               <div
                 key={e.elevatorno ?? `st-${idx}`}
                 className={`${styles.cardWrapperStreet} ${
-                  e.isOut
-                    ? `${styles.colorBadFaint} ${
-                        e.isRedundant == "0" ? styles.colorBadPlain : ""
-                      }`
-                    : ""
+                  e.isOut ? styles.colorBadFaint : ""
                 }`}
               >
                 <ElevatorCard
@@ -406,9 +407,12 @@ const StationPopup: React.FC<StationPopupProps> = ({
                   setActiveFlyButton={setActiveFlyButton}
                   userLocation={userLocation}
                   walkingToleranceMiles={walkingToleranceMiles}
+                  isOpen={openElevator === e.elevatorno}
+                  onToggle={(open) => setOpenElevator(open ? e.elevatorno : null)}
                 />
               </div>
             ))}
+          </div>
 
           {elevators.some((e) => !toBool(e.isStreet)) && (
             <>
@@ -419,6 +423,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
             </>
           )}
           {/* In-station elevators */}
+          <div className={styles.elevatorGroup}>
           {elevators
             .filter((e) => !toBool(e.isStreet))
             .sort((a, b) => {
@@ -429,11 +434,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
               <div
                 key={e.elevatorno ?? `in-${idx}`}
                 className={`${styles.cardWrapperPlatform} ${
-                  e.isOut
-                    ? `${styles.colorBadFaint} ${
-                        e.isRedundant == "0" ? styles.colorBadPlain : ""
-                      }`
-                    : ""
+                  e.isOut ? styles.colorBadFaint : ""
                 }`}
               >
                 <ElevatorCard
@@ -447,9 +448,12 @@ const StationPopup: React.FC<StationPopupProps> = ({
                   setActiveFlyButton={setActiveFlyButton}
                   userLocation={userLocation}
                   walkingToleranceMiles={walkingToleranceMiles}
+                  isOpen={openElevator === e.elevatorno}
+                  onToggle={(open) => setOpenElevator(open ? e.elevatorno : null)}
                 />
               </div>
             ))}
+          </div>
         </section>
       </div>
       {lastUpdated && (

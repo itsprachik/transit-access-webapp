@@ -2,7 +2,9 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Drawer as DrawerPrimitive } from "vaul";
 import { Command as CommandPrimitive } from "cmdk";
 import { matchSorter } from "match-sorter";
-import { Info, Search, X, ChevronLeft, ChevronRight, Wrench } from "lucide-react";
+import { Info, Search, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { StatusPill, StatusTone, MaintenanceBadge } from "@/components/StationPopup/StatusBadges";
+import { ROW_PRESS, BUTTON_PRESS } from "@/lib/interaction";
 import { Drawer, DrawerPortal, DrawerTitle } from "@/components/ui/drawer";
 import { Command, CommandGroup, CommandItem, CommandList } from "@/components/ui/command";
 import { Button } from "@/components/ui/button";
@@ -66,31 +68,21 @@ const COMMUNITY_LINKS = [
 function StationLabel({ name, routes }: { name: string; routes: string[] }) {
   return (
     <span className="flex min-w-0 flex-1 flex-col items-start gap-1.5">
-      <span className="max-w-full truncate text-headline">{name}</span>
+      <span className="max-w-full truncate text-headline font-semibold">{name}</span>
       <LineBullets routes={routes} size="sm" />
     </span>
   );
 }
 
-const STATUS_CHIPS = {
-  ok: { label: "Working", glyph: "check", chip: "bg-status-ok-muted text-status-ok-foreground", icon: "text-status-ok" },
-  partial: { label: "Some out", glyph: "alert", chip: "bg-status-partial-muted text-status-partial-foreground", icon: "text-status-partial" },
-  out: { label: "All out", glyph: "alert", chip: "bg-status-out-muted text-status-out-foreground", icon: "text-status-out" },
-} as const;
+const STATUS_CHIPS: Record<ComplexStatus, { tone: StatusTone; label: string }> = {
+  ok: { tone: "ok", label: "Working" },
+  partial: { tone: "partial", label: "Some out" },
+  out: { tone: "out", label: "All out" },
+};
 
 function StatusChip({ status, label }: { status: ComplexStatus; label?: string }) {
   const chip = STATUS_CHIPS[status];
-  return (
-    <span
-      className={cn(
-        "inline-flex shrink-0 items-center gap-1.5 rounded-full py-1 pl-1.5 pr-2.5 text-caption font-semibold",
-        chip.chip,
-      )}
-    >
-      <StatusIcon glyph={chip.glyph} className={chip.icon} />
-      {label ?? chip.label}
-    </span>
-  );
+  return <StatusPill tone={chip.tone}>{label ?? chip.label}</StatusPill>;
 }
 
 // Inset grouped list: outlined card on the white sheet, rows split by dividers
@@ -123,11 +115,13 @@ function SubPage({
   label,
   onBack,
   scrollable,
+  endPadding,
   children,
 }: {
   label: string;
   onBack: () => void;
   scrollable: boolean;
+  endPadding: React.CSSProperties;
   children: React.ReactNode;
 }) {
   return (
@@ -137,7 +131,7 @@ function SubPage({
         <Button
           variant="ghost"
           onClick={onBack}
-          className="h-11 gap-0.5 rounded-full pl-1.5 pr-3 text-body font-normal text-foreground transition-colors hover:bg-foreground/[0.08]"
+          className={cn("h-11 gap-0.5 rounded-full pl-1.5 pr-3 text-body font-normal text-foreground hover:bg-transparent", BUTTON_PRESS)}
         >
           <ChevronLeft className="size-6" />
           Stations
@@ -145,9 +139,10 @@ function SubPage({
       </div>
       <div
         className={cn(
-          "min-h-0 flex-1 overscroll-contain pb-[calc(6dvh+max(1.5rem,env(safe-area-inset-bottom)))]",
+          "min-h-0 flex-1 overscroll-contain",
           scrollable ? "overflow-y-auto" : "overflow-hidden",
         )}
+        style={endPadding}
       >
         {children}
       </div>
@@ -169,7 +164,7 @@ function AdoptedNode({ node }: { node: HTMLElement }) {
 
 // Highlight only while the sheet has focus, so touch users don't see a phantom selection
 const itemClass =
-  "group/row flex min-h-14 cursor-pointer items-center gap-3 rounded-none px-4 py-3 text-body transition-colors data-[selected=true]:bg-transparent hover:!bg-foreground/[0.04] active:!bg-accent group-focus-within:data-[selected=true]:bg-accent";
+  "group/row flex min-h-14 cursor-pointer items-center gap-3 rounded-none px-4 py-3 text-body transition-colors duration-150 data-[selected=true]:bg-transparent hover:!bg-foreground/[0.04] active:!bg-foreground/[0.08] group-focus-within:data-[selected=true]:bg-foreground/[0.04]";
 
 const HomeSheet: React.FC<HomeSheetProps> = ({
   open,
@@ -298,6 +293,13 @@ const HomeSheet: React.FC<HomeSheetProps> = ({
 
   const isSearching = query.trim().length > 0;
   const isScrollable = snap !== SNAP_PEEK;
+  // The sheet is always full height and slides down to each snap point, so the part below the
+  // screen edge is (1 - snap) of the viewport. Pad by that plus 32px so the last row can always
+  // scroll clear of the edge, with visible empty space to show it's the end.
+  const hiddenDvh = typeof snap === "number" ? (1 - snap) * 100 : 0;
+  const endPadding = {
+    paddingBottom: `calc(${hiddenDvh.toFixed(1)}dvh + 32px + env(safe-area-inset-bottom))`,
+  };
 
   return (
     <Drawer
@@ -318,11 +320,11 @@ const HomeSheet: React.FC<HomeSheetProps> = ({
           <div className="mx-auto mt-2 h-[5px] w-9 shrink-0 rounded-full bg-foreground/20" aria-hidden="true" />
 
           {page ? (
-            <SubPage label="Station details" onBack={onBack} scrollable={isScrollable}>
+            <SubPage label="Station details" onBack={onBack} scrollable={isScrollable} endPadding={endPadding}>
               <AdoptedNode node={page} />
             </SubPage>
           ) : isLegendOpen ? (
-            <SubPage label="Legend" onBack={closeLegend} scrollable={isScrollable}>
+            <SubPage label="Legend" onBack={closeLegend} scrollable={isScrollable} endPadding={endPadding}>
               <LegendPage
                 numOutElevators={numOutElevators}
                 totalElevators={totalElevators}
@@ -336,7 +338,7 @@ const HomeSheet: React.FC<HomeSheetProps> = ({
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="-mr-2 size-11 shrink-0 rounded-full text-muted-foreground transition-colors hover:bg-foreground/[0.08] hover:text-foreground"
+                  className={cn("-mr-2 size-11 shrink-0 rounded-full text-muted-foreground hover:bg-transparent hover:text-foreground", BUTTON_PRESS)}
                   aria-label="Legend and about"
                   onClick={openLegend}
                 >
@@ -371,7 +373,7 @@ const HomeSheet: React.FC<HomeSheetProps> = ({
                         setQuery("");
                         inputRef.current?.focus();
                       }}
-                      className="-mr-1 grid size-8 shrink-0 place-items-center rounded-full text-muted-foreground"
+                      className={cn("-mr-3 grid size-11 shrink-0 place-items-center rounded-full text-muted-foreground", BUTTON_PRESS)}
                       aria-label="Clear search"
                     >
                       <X className="size-4" />
@@ -382,10 +384,10 @@ const HomeSheet: React.FC<HomeSheetProps> = ({
 
               <CommandList
                 className={cn(
-                  // At the top snap the sheet sits 6% down, so pad its offscreen bottom
-                  "max-h-none flex-1 overscroll-contain pb-[calc(6dvh+max(1.5rem,env(safe-area-inset-bottom)))]",
+                  "max-h-none flex-1 overscroll-contain",
                   isScrollable ? "overflow-y-auto" : "overflow-hidden",
                 )}
+                style={endPadding}
               >
                 {isSearching ? (
                   results.length > 0 ? (
@@ -423,7 +425,7 @@ const HomeSheet: React.FC<HomeSheetProps> = ({
                       <div
                         role="radiogroup"
                         aria-label="Walking distance"
-                        className="flex gap-2 overflow-x-auto px-4 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                        className="-mt-1.5 flex gap-2 overflow-x-auto px-4 pb-3 pt-1.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                       >
                         {WALKING_RADII.map(({ label, value }) => {
                           const active =
@@ -436,10 +438,11 @@ const HomeSheet: React.FC<HomeSheetProps> = ({
                               aria-checked={active}
                               onClick={() => nearby.setRadius(value)}
                               className={cn(
-                                "h-8 shrink-0 rounded-full border px-3 text-footnote font-semibold tabular-nums transition-colors",
+                                // 32px pill, 44px tap area: the ::before extends the hit box without changing the look
+                                "relative h-8 shrink-0 rounded-full border px-3 text-footnote font-semibold tabular-nums transition-colors duration-150 before:absolute before:inset-x-0 before:-inset-y-1.5",
                                 active
                                   ? "border-foreground bg-foreground text-background"
-                                  : "border-border text-foreground hover:bg-foreground/[0.04]",
+                                  : "border-border text-foreground hover:bg-foreground/[0.04] active:bg-foreground/[0.08]",
                               )}
                             >
                               {label}
@@ -469,14 +472,9 @@ const HomeSheet: React.FC<HomeSheetProps> = ({
                                 className={cn(itemClass, "items-start")}
                               >
                                 <span className="flex min-w-0 flex-1 flex-col items-start gap-1.5">
-                                  <span className="max-w-full truncate text-headline">{station.name}</span>
+                                  <span className="max-w-full truncate text-headline font-semibold">{station.name}</span>
                                   <LineBullets routes={station.routes} size="sm" />
-                                  {station.maintenanceLabel && (
-                                    <span className="flex items-center gap-1 text-caption font-semibold text-status-partial-foreground">
-                                      <Wrench className="size-3" aria-hidden="true" />
-                                      Maintenance {station.maintenanceLabel}
-                                    </span>
-                                  )}
+                                  {station.maintenanceLabel && <MaintenanceBadge when={station.maintenanceLabel} />}
                                   {station.adaNotes && (
                                     <span className="flex items-start gap-1 text-caption text-muted-foreground">
                                       <span className="mt-px shrink-0" aria-hidden="true">
@@ -537,7 +535,7 @@ const HomeSheet: React.FC<HomeSheetProps> = ({
                           href={link.href}
                           target={link.href.startsWith("mailto:") ? undefined : "_blank"}
                           rel="noreferrer"
-                          className="flex min-h-12 items-center justify-between px-4 py-3 text-body transition-colors hover:bg-foreground/[0.04] active:bg-accent"
+                          className={cn("flex min-h-12 items-center justify-between px-4 py-3 text-body", ROW_PRESS)}
                         >
                           {link.label}
                           <ChevronRight className="size-4 text-muted-foreground" aria-hidden="true" />

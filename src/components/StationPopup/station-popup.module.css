@@ -27,7 +27,9 @@
 
 .popupHeader {
   position: sticky;
-  top: 0;
+  /* Overlap the scroller's top edge by a pixel so fractional scroll positions can't open a sliver above it */
+  top: -1px;
+  padding-top: 1px;
   z-index: var(--z-index-popup-access-note);
   flex-shrink: 0;
   background-color: oklch(var(--background));
@@ -210,24 +212,32 @@
 
 /**** ELEVATOR CARD ****/
 
+ /* One outlined group per level, rows split by hairlines, like the station lists on the home sheet */
+.elevatorGroup {
+  margin: 0 1rem;
+  overflow: hidden;
+  border: 1px solid oklch(var(--border));
+  border-radius: calc(var(--radius) + 4px);
+}
+
+.elevatorGroup:empty {
+  display: none;
+}
+
+.elevatorGroup > * + * {
+  border-top: 1px solid oklch(var(--border));
+}
+
 .cardWrapperPlatform {
   display: flex;
   flex-direction: column;
   position: relative;
-  margin: 0 1rem 0.5rem;
-  padding: 0.75rem 1rem;
-  border: 1px solid oklch(var(--border));
-  border-radius: calc(var(--radius) + 4px);
 }
 
 .cardWrapperStreet {
   display: flex;
   flex-direction: column;
   position: relative;
-  margin: 0 1rem 0.5rem;
-  padding: 0.75rem 1rem;
-  border: 1px solid oklch(var(--border));
-  border-radius: calc(var(--radius) + 4px);
 }
 
 .lastUpdated {
