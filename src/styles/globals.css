@@ -354,7 +354,7 @@ div#__next > div {
     --status-out-muted: 0.95 0.03 25;
 
     /* Height of the collapsed home sheet; map controls sit above it */
-    --sheet-peek: 168px;
+    --sheet-peek: 136px;
   }
 
   .dark {

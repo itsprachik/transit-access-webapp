@@ -31,6 +31,7 @@ import {
   initializeMtaMap,
   cleanUpPopups,
   removeHoverPopup,
+  setSheetHost,
 } from "./handlerFunctions";
 import {
   getStationOutageArray,
@@ -43,8 +44,8 @@ import {
 import { MtaStationData, MtaStationFeature } from "@/utils/types";
 import { LocateFixed } from "lucide-react";
 import { AlertData } from "@/types/alerts";
-import LegendDrawer from "../Legend/LegendDrawer";
 import HomeSheet from "../HomeSheet/HomeSheet";
+import AlertBanner from "../AlertBanner/AlertBanner";
 import { Button } from "@/components/ui/button";
 import { initializeStore } from "@/lib/dataStore";
 import rawData from "@/resources/mta_subway_stations_all.json";
@@ -85,8 +86,8 @@ const MtaMap = () => {
   const [stationData, setStationData] = useState<MtaStationData | null>(null);
   const [systemAlerts, setSystemAlerts] = useState<AlertData[]>([]);
 
-  const [isLegendOpen, setIsLegendOpen] = useState(false);
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [sheetPage, setSheetPage] = useState<HTMLElement | null>(null);
+  const [viewCenter, setViewCenter] = useState<[number, number] | null>(null);
 
   // Set elevator operational stats in a state
   const [elevatorStats, setElevatorStats] = useState({
@@ -157,16 +158,10 @@ const MtaMap = () => {
     }),
   );
 
-  // The home sheet steps aside while a station or elevator popup is showing
+  // Station and elevator details open as a page inside the home sheet
   useEffect(() => {
-    const popup = onClickPopupRef.current;
-    const sync = () => queueMicrotask(() => setIsPopupOpen(popup.isOpen()));
-    popup.on("open", sync);
-    popup.on("close", sync);
-    return () => {
-      popup.off("open", sync);
-      popup.off("close", sync);
-    };
+    setSheetHost({ show: setSheetPage, hide: () => setSheetPage(null) });
+    return () => setSheetHost(null);
   }, []);
 
   const handleStationSearchSelect = (
@@ -283,6 +278,14 @@ const MtaMap = () => {
 
     //Initialize Map
     initializeMtaMap(mapRef, mapContainer);
+
+    // Nearby stations fall back to the middle of the view when location is off
+    const trackCenter = () => {
+      const { lng, lat } = mapRef.current.getCenter();
+      setViewCenter([lng, lat]);
+    };
+    trackCenter();
+    mapRef.current?.on("moveend", trackCenter);
 
     mapRef.current?.on("load", () => {
       mapRef.current.setLayoutProperty(
@@ -518,12 +521,24 @@ const MtaMap = () => {
     };
   }, []);
 
-  const resetView = () => {
-    const map = mapRef.current as mapboxgl.Map;
-    if (!map) return;
+  const hideComplexBoundary = (map: mapboxgl.Map) => {
+    if (map.getLayer("active-complex-boundary-layer")) {
+      map.setLayoutProperty("active-complex-boundary-layer", "visibility", "none");
+    }
+  };
+
+  const closeStation = () => {
     cleanUpPopups();
     setStationView(null);
     setElevatorView(null);
+    const map = mapRef.current as mapboxgl.Map;
+    if (map) hideComplexBoundary(map);
+  };
+
+  const resetView = () => {
+    const map = mapRef.current as mapboxgl.Map;
+    if (!map) return;
+    closeStation();
 
     map.flyTo({
       center: setMapCenter(),
@@ -533,10 +548,6 @@ const MtaMap = () => {
       speed: 1.8,
       curve: 1,
     });
-
-    if (map.getLayer("active-complex-boundary-layer")) {
-      map.setLayoutProperty("active-complex-boundary-layer", "visibility", "none");
-    }
   };
 
   const selectStation = (feature: MtaStationFeature) => {
@@ -573,34 +584,33 @@ const MtaMap = () => {
     <>
       <div ref={mapContainer} id="map-container" className="map-container" />
 
-      <Button
-        variant="outline"
-        size="icon"
-        onClick={resetView}
-        aria-label="Re-center map"
-        className="fixed right-3 top-[max(0.75rem,env(safe-area-inset-top))] z-[800] size-11 rounded-full border-foreground/10 bg-background/90 shadow-[0_1px_2px_oklch(0_0_0/0.08),0_4px_12px_oklch(0_0_0/0.1)] backdrop-blur-md active:scale-95"
-      >
-        <LocateFixed className="size-5" />
-      </Button>
+      {/* Map-top overlay: alerts first, the re-center button flows beneath them */}
+      <div className="pointer-events-none fixed inset-x-0 top-0 z-[800] mx-auto flex max-w-lg flex-col items-end gap-2 px-3 pt-[max(0.75rem,env(safe-area-inset-top))]">
+        <AlertBanner alerts={systemAlerts ?? []} />
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={resetView}
+          aria-label="Re-center map"
+          className="pointer-events-auto size-11 rounded-full border-foreground/10 bg-background/90 shadow-[0_1px_2px_oklch(0_0_0/0.08),0_4px_12px_oklch(0_0_0/0.1)] backdrop-blur-md active:scale-95"
+        >
+          <LocateFixed className="size-5" />
+        </Button>
+      </div>
 
       <HomeSheet
-        open={!isPopupOpen && !isLegendOpen}
+        open
+        page={sheetPage}
+        onBack={closeStation}
+        viewCenter={viewCenter}
         numOutElevators={elevatorStats.numOutElevators}
         totalElevators={elevatorStats.totalElevators}
         lastUpdated={lastUpdated}
         stationData={stationData}
         stationOutages={stationDataState}
-        systemAlerts={systemAlerts ?? []}
         onSelectStation={selectStation}
-        onOpenLegend={() => setIsLegendOpen(true)}
       />
 
-      <LegendDrawer
-        {...elevatorStats}
-        lastUpdated={lastUpdatedRef.current}
-        open={isLegendOpen}
-        onOpenChange={setIsLegendOpen}
-      />
       <>
         {/* Toggle floating on top of map, outside popup */}
         {show3DToggle && elevatorView && (

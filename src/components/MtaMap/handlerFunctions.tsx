@@ -39,8 +39,8 @@ import ElevatorPopup, {
 import StationComplexPopup from "../StationPopup/StationPopup";
 import { formatDate } from "date-fns";
 
-let currentPopup: mapboxgl.Popup | null = null;
 let currentPopupRoot: Root | null = null;
+let currentPopupDiv: HTMLElement | null = null;
 
 export function setMapPitch(pitch: any) {
   return pitch as number;
@@ -74,100 +74,40 @@ export const initializeMtaMap = (mapRef, mapContainer) => {
   mapRef.current.addControl(geolocateControl, "bottom-right");
 };
 
-let lastFocusedElementBeforePopup: HTMLElement | null = null;
+// Station and elevator details render as a page inside the home sheet. The
+// sheet registers itself here; handlers keep building their own React root.
+type SheetHost = { show: (content: HTMLElement) => void; hide: () => void };
+let sheetHost: SheetHost | null = null;
+
+export function setSheetHost(host: SheetHost | null) {
+  sheetHost = host;
+}
 
 export function showPopup(
-  coordinates: mapboxgl.LngLatLike,
-  mapRef: mapboxgl.Map,
-  popupRef: React.RefObject<mapboxgl.Popup>,
+  _coordinates: mapboxgl.LngLatLike,
+  _mapRef: mapboxgl.Map,
+  _popupRef: React.RefObject<mapboxgl.Popup>,
   popupDiv: HTMLElement,
-  root: { unmount: () => void },
+  root: Root,
 ) {
-  // Store what had focus before opening
-  lastFocusedElementBeforePopup =
-    document.activeElement instanceof HTMLElement
-      ? document.activeElement
-      : null;
+  if (currentPopupRoot && currentPopupRoot !== root) currentPopupRoot.unmount();
+  if (currentPopupDiv && currentPopupDiv !== popupDiv) currentPopupDiv.remove();
 
-  // Make popup accessible
-  popupDiv.setAttribute("role", "dialog");
-  popupDiv.setAttribute("aria-modal", "true");
-  popupDiv.tabIndex = -1; // Make the container focusable
-
-  // Add popup to map
-  if (!popupRef.current) return;
-  popupRef.current.setLngLat(coordinates).setDOMContent(popupDiv).addTo(mapRef);
-
-  // Remove previous popup
-  if (currentPopup) currentPopup.remove();
-  if (currentPopupRoot) currentPopupRoot.unmount();
-
-  currentPopup = popupRef.current;
   currentPopupRoot = root;
-
-  // Focus trap setup
-  const focusableSelectors =
-    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-  const focusableEls: HTMLElement[] = Array.from(
-    popupDiv.querySelectorAll<HTMLElement>(focusableSelectors),
-  );
-
-  function trapFocus(e: KeyboardEvent) {
-    if (e.key !== "Tab") return;
-
-    // Only include elements that can be focused
-    const focusable = focusableEls.filter(
-      (el) => !("disabled" in el && (el as HTMLButtonElement).disabled),
-    );
-    if (!focusable.length) return;
-
-    const firstEl = focusable[0];
-    const lastEl = focusable[focusable.length - 1];
-
-    if (e.shiftKey) {
-      // Shift + Tab
-      if (document.activeElement === firstEl) {
-        e.preventDefault();
-        lastEl.focus();
-      }
-    } else {
-      // Tab
-      if (document.activeElement === lastEl) {
-        e.preventDefault();
-        firstEl.focus();
-      }
-    }
-  }
-
-  popupDiv.addEventListener("keydown", trapFocus);
-
-  // Move focus into popup
-  if (focusableEls.length) {
-    focusableEls[0].focus();
-  } else {
-    popupDiv.focus();
-  }
-
-  // Cleanup function when popup closes
-  function cleanup() {
-    popupDiv.removeEventListener("keydown", trapFocus);
-    if (lastFocusedElementBeforePopup) lastFocusedElementBeforePopup.focus();
-  }
-
-  // Listen for close event from Mapbox popup
-  popupRef.current.on("close", cleanup);
+  currentPopupDiv = popupDiv;
+  sheetHost?.show(popupDiv);
 }
 
 export function cleanUpPopups() {
-  // clean up any old popups
-  if (currentPopup) {
-    currentPopup.remove();
-    currentPopup = null;
-  }
   if (currentPopupRoot) {
     currentPopupRoot.unmount();
     currentPopupRoot = null;
   }
+  if (currentPopupDiv) {
+    currentPopupDiv.remove();
+    currentPopupDiv = null;
+  }
+  sheetHost?.hide();
 }
 
 function addDynamicProperties(complexFeature, stationData) {

@@ -43,120 +43,13 @@ const StationPopup: React.FC<StationPopupProps> = ({
   const headerAreaRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
 
-  // popup expansion states
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  // Touch handling for swipe down
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = useState<number | null>(null);
-
   // flyButtonState
   const [activeFlyButton, setActiveFlyButton] = useState<string | null>(null);
-
-  const isMobile = navigator.maxTouchPoints > 0;
 
   const toBool = (v?: boolean | string | null) =>
     typeof v === "string" ? v === "true" : Boolean(v);
 
   const isAccessible = ada !== "0";
-
-  // Minimum swipe distance (in px)
-  const minSwipeDistance = 50;
-
-  const onTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientY);
-  };
-
-  const onTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientY);
-
-    if (!touchStart || !touchEnd) return;
-
-    const distance = touchStart - touchEnd;
-    const isDownSwipe = distance < -minSwipeDistance;
-    const isUpSwipe = distance > minSwipeDistance;
-
-    if (isUpSwipe && !isExpanded) {
-      setIsExpanded(true);
-      setActiveFlyButton(null);
-    }
-
-    // Only collapse on downward swipe if we're expanded
-    if (isDownSwipe && isExpanded) {
-      setIsExpanded(false);
-      setIsScrolled(false);
-      if (activeFlyButton) setActiveFlyButton(null);
-    }
-  };
-
-  const onTouchEnd = () => {
-    const wasSwipeOrDrag =
-      touchEnd !== null && Math.abs(touchStart - touchEnd) > 10; // e.g., 10px
-
-    if (!wasSwipeOrDrag && touchStart !== null) {
-      // This was a tap - toggle the expanded state
-      setIsExpanded(!isExpanded);
-      if (!isExpanded) setActiveFlyButton(null);
-    }
-    // Clean up touch tracking
-    setTouchStart(null);
-    setTouchEnd(null);
-  };
-
-  // SCROLL USE EFFECT
-  useEffect(() => {
-    const contentArea = contentAreaRef.current;
-    if (!contentArea) return;
-
-    const checkContentOverflow = () => {
-      const hasOverflow = contentArea.scrollHeight > contentArea.clientHeight;
-
-      if (!hasOverflow) {
-        if (isExpanded) {
-          if (isScrolled) {
-            setIsScrolled(false);
-          }
-        }
-        return;
-      }
-
-      const scrollTop = contentArea.scrollTop;
-
-      // Use different thresholds to prevent oscillation
-      const shouldCollapse = scrollTop > 45; // Higher threshold to collapse
-      const shouldExpand = scrollTop < 15; // Lower threshold to expand
-
-      if (shouldCollapse && !isScrolled) {
-        setTimeout(() => {
-          setIsScrolled(true);
-        }, 10);
-      } else if (shouldExpand && isScrolled) {
-        setTimeout(() => setIsScrolled(false), 10);
-      }
-      // Do nothing in the middle zone (15-35px) to prevent oscillation
-    };
-
-    checkContentOverflow();
-
-    const resizeObserver = new ResizeObserver(checkContentOverflow);
-    resizeObserver.observe(contentArea);
-
-    contentArea.addEventListener("scroll", checkContentOverflow);
-
-    return () => {
-      resizeObserver.disconnect();
-      contentArea.removeEventListener("scroll", checkContentOverflow);
-    };
-  }, [isScrolled, isExpanded, activeFlyButton]);
-
-  useEffect(() => {
-    if (activeFlyButton) {
-      setIsExpanded(false);
-      setIsScrolled(false);
-    }
-  }, [activeFlyButton]);
 
   const AccessibleIconComponent = (fill?: string, size?: number) => {
     const Icon = isAccessible ? AccessibleIconWhite : AccessibleIconFalse;
@@ -340,31 +233,20 @@ const StationPopup: React.FC<StationPopupProps> = ({
     <section
       ref={dialogRef}
       id="station-popup"
-      className={`${styles.stationPopup} ${isExpanded ? styles.expanded : ""}`}
-      role="dialog"
-      aria-modal="true"
+      className={styles.stationPopup}
+      role="region"
       aria-labelledby="station-popup-title"
       aria-describedby="station-summary"
     >
       <div
-        className={`${styles.popupHeader} ${isScrolled ? styles.scrolled : ""}`}
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
+        className={styles.popupHeader}
       >
-        {isMobile && (
-          <div aria-hidden="true" className="flex justify-center pb-1 pt-2">
-            <div className="h-[5px] w-9 rounded-full bg-foreground/20" />
-          </div>
-        )}
         <h1
           ref={titleRef}
           tabIndex={-1}
           id="station-popup-title"
           className={cn(
-            "flex items-center gap-2 pl-4 pr-14 text-foreground outline-none transition-[font-size] duration-200 motion-reduce:transition-none",
-            isScrolled ? "pb-2 text-headline" : "pb-1 text-title",
-            !isMobile && "pt-4",
+            "flex items-center gap-2 px-4 pb-2 text-title text-foreground outline-none",
           )}
         >
           {/* Station title text */}
@@ -378,7 +260,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
             )}
             aria-hidden="true"
           >
-            {AccessibleIconComponent(adaColor, isScrolled ? 16 : 20)}
+            {AccessibleIconComponent(adaColor, 20)}
           </span>
           <span className="sr-only">
             {isAccessible
