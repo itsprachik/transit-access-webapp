@@ -431,10 +431,10 @@ useEffect(() => {
               >
                 <div aria-hidden="true">
                 {isRamp
-                  ? "always in service"
+                  ? "Always in service"
                   : elevator.isOut
-                  ? "out of service"
-                  : "in service"}
+                  ? "Out of service"
+                  : "In service"}
                   </div>
 
                 {/* Redundancy note toggle and content */}
@@ -583,7 +583,7 @@ useEffect(() => {
             setShow3DToggle(true);
           }}
         >
-          <span className={styles.flyButtonLabel}>see on map</span>
+          <span className={styles.flyButtonLabel}>See on map</span>
         </button>
       )}
 
@@ -729,7 +729,7 @@ useEffect(() => {
                       </div>
 
                       <span className={styles["gray-text"]}>
-                        {isRamp ? "ramp" : "elevator"} number:{" "}
+                        {isRamp ? "Ramp" : "Elevator"} number:{" "}
                         {elevator.elevatorno}
                       </span>
 

@@ -30,6 +30,9 @@ interface LegendDrawerProps {
   pctInService: number;
   hasAlert?: boolean;
   lastUpdated?: Date;
+  // When controlled, the parent supplies its own trigger
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
 }
 
 const LegendDrawer: React.FC<LegendDrawerProps> = ({
@@ -38,8 +41,13 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
   pctInService,
   hasAlert,
   lastUpdated,
+  open: controlledOpen,
+  onOpenChange,
 }) => {
-  const [open, setOpen] = useState(false);
+  const [uncontrolledOpen, setUncontrolledOpen] = useState(false);
+  const isControlled = controlledOpen !== undefined;
+  const open = isControlled ? controlledOpen : uncontrolledOpen;
+  const setOpen = isControlled ? onOpenChange : setUncontrolledOpen;
   const drawerId = useId(); // stable ID for aria-controls / aria-labelledby
 
   const numInService = totalElevators - numOutElevators;
@@ -112,6 +120,7 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
   return (
     <>
       {/* Floating trigger button */}
+      {!isControlled && (
       <IconButton
         onClick={() => setOpen(true)}
         aria-label="Open map legend and about"
@@ -133,6 +142,7 @@ const LegendDrawer: React.FC<LegendDrawerProps> = ({
       >
         <MenuIcon sx={{ fontSize: 20 }} aria-hidden="true" />
       </IconButton>
+      )}
 
       {/* Drawer — role="dialog" with accessible name comes from aria-labelledby */}
       <SwipeableDrawer

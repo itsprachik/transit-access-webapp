@@ -19,7 +19,8 @@ const customElevatorDataset = { get features() { return getElevatorsDataset().fe
 const complexesDataset = { get features() { return getComplexesDataset().features; } };
 const stationsDataset = { get features() { return getStationsDataset().features; } };
 import { setManhattanTilt } from "@/components/MtaMap/mtaMapOptions";
-import { ROUTE_ORDER, MTA_SUBWAY_LINE_ICONS, MTA_SUBWAY_LINE_ICONS_SMALL } from "./constants";
+import { ROUTE_ORDER } from "./constants";
+import { LineBullets } from "@/components/LineBullets/LineBullets";
 
 import { elevatorHighlightProps, elevatorToComplexHighlightProps } from "@/components/MtaMap/layers/StationComplexes/elevatorHighlightsProps";
 
@@ -1039,20 +1040,7 @@ export const generateSubwayLines = (
       </span> */}
 
       {/* Visual icons hidden from screen readers */}
-      <div aria-hidden="true">
-        {lines.map((line) => (
-          <span
-            key={line}
-            className={`${styles.lineIcon} ${
-              size === "big" ? styles.lineIconLarge : styles.lineIconSmall
-            }`}
-          >
-            {size === "small"
-              ? MTA_SUBWAY_LINE_ICONS_SMALL[line] ?? line
-              : MTA_SUBWAY_LINE_ICONS[line] ?? line}
-          </span>
-        ))}
-      </div>
+      <LineBullets routes={lines} size={size === "big" ? "lg" : "sm"} />
     </>
   );
 };

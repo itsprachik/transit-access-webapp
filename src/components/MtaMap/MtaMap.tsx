@@ -40,13 +40,12 @@ import {
   getADAPctByComplex,
   getCurrentElevatorCount,
 } from "@/utils/dataUtils";
-import SearchBar from "../SearchBar/SearchBar";
-import { MtaStationData } from "@/utils/types";
-import { IoEarthSharp } from "react-icons/io5";
-import AlertBanner from "../AlertBanner/AlertBanner";
-import { handleAlertClose } from "../AlertBanner/handlerFunctions";
+import { MtaStationData, MtaStationFeature } from "@/utils/types";
+import { LocateFixed } from "lucide-react";
 import { AlertData } from "@/types/alerts";
 import LegendDrawer from "../Legend/LegendDrawer";
+import HomeSheet from "../HomeSheet/HomeSheet";
+import { Button } from "@/components/ui/button";
 import { initializeStore } from "@/lib/dataStore";
 import rawData from "@/resources/mta_subway_stations_all.json";
 const stationData = rawData as MtaStationData;
@@ -86,9 +85,8 @@ const MtaMap = () => {
   const [stationData, setStationData] = useState<MtaStationData | null>(null);
   const [systemAlerts, setSystemAlerts] = useState<AlertData[]>([]);
 
-  const [openStates, setOpenStates] = useState({});
-  const hasAlert =
-    systemAlerts?.length > 0 && systemAlerts.some((_, i) => openStates[i] !== false);
+  const [isLegendOpen, setIsLegendOpen] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   // Set elevator operational stats in a state
   const [elevatorStats, setElevatorStats] = useState({
@@ -96,18 +94,6 @@ const MtaMap = () => {
     totalElevators: getCurrentElevatorCount(),
     pctInService: 100,
   });
-
-  // Initialize open states when alertData changes
-  // Initialize open states when systemAlerts changes
-  useEffect(() => {
-    if (systemAlerts && systemAlerts.length > 0) {
-      const initialStates = {};
-      systemAlerts.forEach((_, index) => {
-        initialStates[index] = true;
-      });
-      setOpenStates(initialStates);
-    }
-  }, [systemAlerts]);
 
   // track elevator data state change
   useEffect(() => {
@@ -170,6 +156,18 @@ const MtaMap = () => {
       closeOnClick: true,
     }),
   );
+
+  // The home sheet steps aside while a station or elevator popup is showing
+  useEffect(() => {
+    const popup = onClickPopupRef.current;
+    const sync = () => queueMicrotask(() => setIsPopupOpen(popup.isOpen()));
+    popup.on("open", sync);
+    popup.on("close", sync);
+    return () => {
+      popup.off("open", sync);
+      popup.off("close", sync);
+    };
+  }, []);
 
   const handleStationSearchSelect = (
     feature,
@@ -520,98 +518,96 @@ const MtaMap = () => {
     };
   }, []);
 
+  const resetView = () => {
+    const map = mapRef.current as mapboxgl.Map;
+    if (!map) return;
+    cleanUpPopups();
+    setStationView(null);
+    setElevatorView(null);
+
+    map.flyTo({
+      center: setMapCenter(),
+      zoom: 13,
+      pitch: 0,
+      bearing: setManhattanTilt(),
+      speed: 1.8,
+      curve: 1,
+    });
+
+    if (map.getLayer("active-complex-boundary-layer")) {
+      map.setLayoutProperty("active-complex-boundary-layer", "visibility", "none");
+    }
+  };
+
+  const selectStation = (feature: MtaStationFeature) => {
+    const map = mapRef.current as mapboxgl.Map;
+    if (!map) return;
+
+    handleStationSearchSelect(
+      { ...feature, layer: { id: "mta-subway-stations-all" } },
+      getLatestElevatorData(),
+      upcomingElevatorDataRef.current,
+      stationDataRef.current,
+      stationView,
+      setStationView,
+      elevatorView,
+      setElevatorView,
+      show3DToggle,
+      setShow3DToggle,
+      lastUpdatedRef.current,
+    );
+
+    // Accessible stations are framed by the popup; inaccessible ones need a fly-to
+    if (feature.properties.ada === "0") {
+      map.flyTo({
+        center: feature.geometry.coordinates as [number, number],
+        zoom: 15,
+        pitch: 0,
+        bearing: feature.properties.borough === "M" ? setManhattanTilt() : 0,
+        speed: 1.8,
+      });
+    }
+  };
+
   return (
     <>
-      <AlertBanner
-        alertData={systemAlerts}
-        openStates={openStates}
-        onClose={(index) => handleAlertClose(index, setOpenStates)}
-      />
-
-      <LegendDrawer {...elevatorStats} hasAlert={hasAlert} lastUpdated={lastUpdatedRef.current} />
-
-      <SearchBar
-        data={stationData}
-        $hasAlert={hasAlert}
-        map={mapRef.current}
-        onStationSelect={(feature) => {
-          handleStationSearchSelect(
-            feature,
-            getLatestElevatorData(),
-            upcomingElevatorDataRef.current,
-            stationDataRef.current,
-            stationView,
-            setStationView,
-            elevatorView,
-            setElevatorView,
-            show3DToggle,
-            setShow3DToggle,
-            lastUpdatedRef.current,
-          );
-        }}
-      />
-
       <div ref={mapContainer} id="map-container" className="map-container" />
 
-      {lastUpdated && (
-        <div
-          className="last-updated"
-          style={{
-            top: hasAlert ? "47px" : "4px",
-            transition: "top 0.3s ease",
-          }}
-        >
-          Last updated:{" "}
-          {lastUpdated.toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit",
-          })}
-        </div>
-      )}
-
-      <button
-        className="map-reset-button"
-        style={{
-          top: hasAlert ? "103px" : "60px",
-          transition: "top 0.3s ease",
-          position: "absolute",
-        }}
-        onClick={() => {
-          const map = mapRef.current as mapboxgl.Map;
-          if (!map) return;
-          cleanUpPopups();
-          const center = setMapCenter();
-          const bearing = setManhattanTilt();
-          setStationView(null);
-          setElevatorView(null);
-
-          map.flyTo({
-            center: center,
-            zoom: 13,
-            pitch: 0,
-            bearing: bearing,
-            speed: 1.8,
-            curve: 1,
-          });
-
-          if (map.getLayer("active-complex-boundary-layer")) {
-            map.setLayoutProperty(
-              "active-complex-boundary-layer",
-              "visibility",
-              "none",
-            );
-          }
-        }}
+      <Button
+        variant="outline"
+        size="icon"
+        onClick={resetView}
+        aria-label="Re-center map"
+        className="fixed right-3 top-[max(0.75rem,env(safe-area-inset-top))] z-[800] size-11 rounded-full border-foreground/10 bg-background/90 shadow-[0_1px_2px_oklch(0_0_0/0.08),0_4px_12px_oklch(0_0_0/0.1)] backdrop-blur-md active:scale-95"
       >
-        <IoEarthSharp size={16} /> Center Map
-      </button>
+        <LocateFixed className="size-5" />
+      </Button>
+
+      <HomeSheet
+        open={!isPopupOpen && !isLegendOpen}
+        numOutElevators={elevatorStats.numOutElevators}
+        totalElevators={elevatorStats.totalElevators}
+        lastUpdated={lastUpdated}
+        stationData={stationData}
+        stationOutages={stationDataState}
+        systemAlerts={systemAlerts ?? []}
+        onSelectStation={selectStation}
+        onOpenLegend={() => setIsLegendOpen(true)}
+      />
+
+      <LegendDrawer
+        {...elevatorStats}
+        lastUpdated={lastUpdatedRef.current}
+        open={isLegendOpen}
+        onOpenChange={setIsLegendOpen}
+      />
       <>
         {/* Toggle floating on top of map, outside popup */}
         {show3DToggle && elevatorView && (
           <div
             className="show-3d-button-wrapper"
             style={{
-              top: hasAlert ? "103px" : "60px",
+              top: "max(0.75rem, env(safe-area-inset-top))",
               transition: "top 0.3s ease",
             }}
           >
