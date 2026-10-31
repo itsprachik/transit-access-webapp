@@ -5,11 +5,6 @@ export interface AlertData {
   type: string;
 }
 
-export interface AlertBannerProps {
-  alertData: AlertData[];
-  openStates: Record<number, boolean>;
-  onClose: (index: number) => void;
-}
 
 export type AlertSeverity = 'error' | 'warning' | 'info' | 'success';
 

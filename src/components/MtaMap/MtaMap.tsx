@@ -38,6 +38,7 @@ import {
   initializeMtaMap,
   cleanUpPopups,
   removeHoverPopup,
+  setSheetHost,
 } from "./handlerFunctions";
 import {
   getStationOutageArray,
@@ -48,20 +49,12 @@ import {
   getADAPctByComplex,
   getCurrentElevatorCount,
 } from "@/utils/dataUtils";
-import SearchBar from "../SearchBar/SearchBar";
-import { MtaStationData } from "@/utils/types";
-import { IoEarthSharp } from "react-icons/io5";
+import { MtaStationData, MtaStationFeature } from "@/utils/types";
 import { LocationPin } from "../icons";
-import AlertBanner from "../AlertBanner/AlertBanner";
-import { handleAlertClose } from "../AlertBanner/handlerFunctions";
 import { AlertData } from "@/types/alerts";
-import LegendDrawer from "../Legend/LegendDrawer";
+import HomeSheet from "../HomeSheet/HomeSheet";
+import AlertBanner from "../AlertBanner/AlertBanner";
 import { initializeStore } from "@/lib/dataStore";
-import dynamic from "next/dynamic";
-const NearbyStationsPopup = dynamic(
-  () => import("../NearbyStations/NearbyStationsPopup"),
-  { ssr: false },
-);
 import { applyZIndexVars } from "@/styles/zIndex";
 import { FiZoomIn, FiMaximize2, FiMinimize2 } from "react-icons/fi";
 
@@ -108,7 +101,6 @@ const MtaMap = () => {
   const [userLocation, setUserLocation] = useState<[number, number] | null>(
     null,
   );
-  const [stationPopupOpen, setStationPopupOpen] = useState(false);
   const [locateSignal, setLocateSignal] = useState(0);
   const [mapCenterLocation, setMapCenterLocation] = useState<
     [number, number] | null
@@ -116,21 +108,14 @@ const MtaMap = () => {
   const [showCenterPin, setShowCenterPin] = useState(false);
   const showCenterPinRef = useRef(false);
   const [pinDrop, setPinDrop] = useState(false);
-  const [nearbyPanelState, setNearbyPanelState] = useState<
-    "minimized" | "collapsed" | "expanded"
-  >("collapsed");
-  const [nearbyPanelEl, setNearbyPanelEl] = useState<HTMLElement | null>(null);
-  const nearbyMinimizedRef = useRef(false);
   const [isZoomedOut, setIsZoomedOut] = useState(false);
   const isZoomedOutRef = useRef(false);
 
   const [stationData, setStationData] = useState<MtaStationData | null>(null);
   const [systemAlerts, setSystemAlerts] = useState<AlertData[]>([]);
 
-  const [openStates, setOpenStates] = useState({});
-  const hasAlert =
-    systemAlerts?.length > 0 &&
-    systemAlerts.some((_, i) => openStates[i] !== false);
+  const [sheetPage, setSheetPage] = useState<HTMLElement | null>(null);
+  const stationPopupOpen = sheetPage !== null;
 
   // Set elevator operational stats in a state
   const [elevatorStats, setElevatorStats] = useState({
@@ -138,18 +123,6 @@ const MtaMap = () => {
     totalElevators: getCurrentElevatorCount(),
     pctInService: 100,
   });
-
-  // Initialize open states when alertData changes
-  // Initialize open states when systemAlerts changes
-  useEffect(() => {
-    if (systemAlerts && systemAlerts.length > 0) {
-      const initialStates = {};
-      systemAlerts.forEach((_, index) => {
-        initialStates[index] = true;
-      });
-      setOpenStates(initialStates);
-    }
-  }, [systemAlerts]);
 
   // track elevator data state change
   useEffect(() => {
@@ -212,16 +185,10 @@ const MtaMap = () => {
     }),
   );
 
+  // Station and elevator details open as a page inside the home sheet
   useEffect(() => {
-    const popup = onClickPopupRef.current;
-    const onOpen = () => setStationPopupOpen(true);
-    const onClose = () => setStationPopupOpen(false);
-    popup.on("open", onOpen);
-    popup.on("close", onClose);
-    return () => {
-      popup.off("open", onOpen);
-      popup.off("close", onClose);
-    };
+    setSheetHost({ show: setSheetPage, hide: () => setSheetPage(null) });
+    return () => setSheetHost(null);
   }, []);
 
   const lastMapPositionRef = useRef<{
@@ -294,14 +261,6 @@ const MtaMap = () => {
       walkingToleranceMiles,
     );
   };
-
-  // Keep desktop nav controls aligned with the legend drawer (shifts down when alert is open)
-  useEffect(() => {
-    document.documentElement.style.setProperty(
-      "--nav-ctrl-top",
-      hasAlert ? "109px" : "66px",
-    );
-  }, [hasAlert]);
 
   // Run before first paint so z-index vars and shift constants are set
   // before the browser lays out fixed-position elements.
@@ -814,79 +773,57 @@ const MtaMap = () => {
     }
   }, [locateSignal]);
 
-  // Drive --bottom-popup-h from actual rendered heights of both bottom popups.
-  // ResizeObserver fires during CSS transitions so controls follow the panel smoothly.
-  useEffect(() => {
-    if (window.innerWidth >= 768) return;
+  const hideComplexBoundary = (map: mapboxgl.Map) => {
+    if (map.getLayer("active-complex-boundary-layer")) {
+      map.setLayoutProperty("active-complex-boundary-layer", "visibility", "none");
+    }
+  };
 
-    const cap = window.innerHeight * 0.4;
-    const update = () => {
-      const nearbyH = nearbyPanelEl?.getBoundingClientRect().height ?? 0;
-      const onclickEl = document.querySelector(
-        ".onclick-popup",
-      ) as HTMLElement | null;
-      const onclickH = onclickEl?.getBoundingClientRect().height ?? 0;
-      const h = Math.min(Math.max(nearbyH, onclickH), cap);
-      if (h > 0)
-        document.documentElement.style.setProperty(
-          "--bottom-popup-h",
-          `${h}px`,
-        );
-    };
+  // Sheet back button: close the station page and fly back to where the user was
+  const closeStation = () => {
+    handleBack();
+    setStationView(null);
+    setElevatorView(null);
+    const map = mapRef.current as mapboxgl.Map;
+    if (map) hideComplexBoundary(map);
+  };
 
-    const obs = new ResizeObserver(update);
-    if (nearbyPanelEl) obs.observe(nearbyPanelEl);
-    const onclickEl = document.querySelector(
-      ".onclick-popup",
-    ) as HTMLElement | null;
-    if (onclickEl) obs.observe(onclickEl);
+  const selectStation = (feature: MtaStationFeature, walkingToleranceMiles?: number | null) => {
+    const map = mapRef.current as mapboxgl.Map;
+    if (!map) return;
 
-    update();
-    return () => obs.disconnect();
-  }, [stationPopupOpen, nearbyPanelState, nearbyPanelEl]);
+    captureMapPosition();
+    handleStationSearchSelect(
+      { ...feature, layer: { id: "mta-subway-stations-all" } },
+      getLatestElevatorData(),
+      upcomingElevatorDataRef.current,
+      stationDataRef.current,
+      stationView,
+      setStationView,
+      elevatorView,
+      setElevatorView,
+      show3DToggle,
+      setShow3DToggle,
+      lastUpdatedRef.current,
+      handleBack,
+      walkingToleranceMiles,
+    );
+
+    // Accessible stations are framed by the station view; inaccessible ones need a fly-to
+    if (feature.properties.ada === "0") {
+      map.flyTo({
+        center: feature.geometry.coordinates as [number, number],
+        zoom: 15,
+        pitch: 0,
+        bearing: feature.properties.borough === "M" ? setManhattanTilt() : 0,
+        speed: 1.8,
+      });
+    }
+  };
 
   return (
     <>
-      <AlertBanner
-        alertData={systemAlerts}
-        openStates={openStates}
-        onClose={(index) => handleAlertClose(index, setOpenStates)}
-      />
-
-      <LegendDrawer
-        {...elevatorStats}
-        hasAlert={hasAlert}
-        lastUpdated={lastUpdatedRef.current}
-      />
-
-      <SearchBar
-        data={stationData}
-        $hasAlert={hasAlert}
-        map={mapRef.current}
-        onStationSelect={(feature) => {
-          captureMapPosition();
-          handleStationSearchSelect(
-            feature,
-            getLatestElevatorData(),
-            upcomingElevatorDataRef.current,
-            stationDataRef.current,
-            stationView,
-            setStationView,
-            elevatorView,
-            setElevatorView,
-            show3DToggle,
-            setShow3DToggle,
-            lastUpdatedRef.current,
-            handleBack,
-          );
-        }}
-      />
-
-      <div
-        ref={mapContainer}
-        id="map-container"
-        className={`map-container${hasAlert ? " has-alert" : ""}`}
-      />
+      <div ref={mapContainer} id="map-container" className="map-container" />
 
       {showCenterPin && !stationPopupOpen && (
         <div
@@ -897,55 +834,9 @@ const MtaMap = () => {
         </div>
       )}
 
-      <NearbyStationsPopup
-        userLocation={userLocation}
-        overrideLocation={mapCenterLocation}
-        elevatorData={elevatorDataState}
-        stationData={stationDataState}
-        upcomingElevatorData={upcomingRawData}
-        stationPopupOpen={stationPopupOpen}
-        locateSignal={locateSignal}
-        onMinimizedChange={(v) => {
-          nearbyMinimizedRef.current = v;
-        }}
-        onPanelStateChange={(s) => setNearbyPanelState(s)}
-        onRef={(el) => setNearbyPanelEl(el)}
-        onStationSelect={(feature, walkingToleranceMiles) => {
-          captureMapPosition();
-          handleStationSearchSelect(
-            feature,
-            getLatestElevatorData(),
-            upcomingElevatorDataRef.current,
-            stationDataRef.current,
-            stationView,
-            setStationView,
-            elevatorView,
-            setElevatorView,
-            show3DToggle,
-            setShow3DToggle,
-            lastUpdatedRef.current,
-            handleBack,
-            walkingToleranceMiles,
-          );
-        }}
-        lastUpdated={lastUpdated}
-      />
-
-      {lastUpdated && (
-        <div
-          className="last-updated"
-          style={{
-            top: hasAlert ? "47px" : "4px",
-            transition: "top 0.3s ease",
-          }}
-        >
-          Last updated:{" "}
-          {lastUpdated.toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit",
-          })}
-        </div>
-      )}
+      <div className="pointer-events-none fixed inset-x-0 top-0 z-[996] mx-auto flex max-w-lg flex-col gap-2 px-3 pt-[max(0.75rem,env(safe-area-inset-top))]">
+        <AlertBanner alerts={systemAlerts ?? []} />
+      </div>
 
       <div className="map-zoom-out">
         <button
@@ -1039,13 +930,31 @@ const MtaMap = () => {
           {isZoomedOut ? <FiMinimize2 size={16} /> : <FiMaximize2 size={16} />}
         </button>
       </div>
+
+      <HomeSheet
+        open
+        page={sheetPage}
+        onBack={closeStation}
+        userLocation={userLocation}
+        overrideLocation={mapCenterLocation}
+        locateSignal={locateSignal}
+        elevatorData={elevatorDataState}
+        upcomingElevatorData={upcomingRawData}
+        numOutElevators={elevatorStats.numOutElevators}
+        totalElevators={elevatorStats.totalElevators}
+        lastUpdated={lastUpdated}
+        stationData={stationData}
+        stationOutages={stationDataState}
+        onSelectStation={selectStation}
+      />
+
       <>
         {/* Toggle floating on top of map, outside popup */}
         {show3DToggle && elevatorView && (
           <div
             className="show-3d-button-wrapper"
             style={{
-              top: hasAlert ? "103px" : "60px",
+              top: "max(0.75rem, env(safe-area-inset-top))",
               transition: "top 0.3s ease",
             }}
           >

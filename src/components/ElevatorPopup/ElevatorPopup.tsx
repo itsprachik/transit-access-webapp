@@ -6,7 +6,7 @@ import {
   LiftBad,
   LiftGood,
 } from "../icons";
-import { MTA_SUBWAY_LINE_ICONS } from "@/utils/constants";
+import { LineBullets } from "@/components/LineBullets/LineBullets";
 import styles from "./elevator-popup.module.css";
 import { ElevatorPopupProps } from "@/utils/types";
 import { LuClock2 } from "react-icons/lu";
@@ -58,16 +58,13 @@ const ElevatorPopup: React.FC<ElevatorPopupProps> = ({
         <span>{description_custom}</span>
       </section>
 
-      <img src={imageURL} alt="Elevator at station" />
+      <img src={imageURL} alt="Elevator at station" className="w-full rounded-xl object-cover" />
 
 <section id="lines-served">
         <div className={styles["subtitle"]}>Lines Served</div>
       <div className={styles.linesServed}>
-        {lines.map((line, index) => (
-          <span key={index} title={line}>
-            {MTA_SUBWAY_LINE_ICONS[line]}
-          </span>
-        ))}
+        <span className="sr-only">{lines.join(", ")}</span>
+        <LineBullets routes={lines} size="lg" />
       </div>
       </section>
     </section>

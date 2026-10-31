@@ -12953,6 +12953,36 @@
         ]
       },
       "id": "8f09e0f2f4b2b55791470109f227232a"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isRedundant": "0",
+        "elevatorgtfsstopid": "115",
+        "route": "1",
+        "complexID": "305",
+        "stationID": "305",
+        "system": "nyc_mta",
+        "elevatorno": "EL520",
+        "linesServed": "1",
+        "directionLabel": "downtown",
+        "title": "137 St-City College",
+        "image": "https://wheresthedamnelevator.com/assets/images/newyork/mta/137-St-City-College_EL520.jpg",
+        "alternativeRoute": "If you are on the platform: Take a downtown 1 to 96 St and transfer to an uptown 1 to 137 St \u2013 City College.  \n\nIf you are on the street: Take an uptown 1 to Dyckman St and transfer to a downtown 1.",
+        "ada": "1",
+        "isBroken": "",
+        "isStreet": "true",
+        "shortdescription": "Street (SW corner of Broadway and W 137 St) to downtown 1 platform.",
+        "description_custom": "This elevator gets you from the street directly to downtown 1 trains"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.95452,
+          40.82141
+        ]
+      },
+      "id": "425354e37fb666087e70947f72e05751"
     }
   ],
   "type": "FeatureCollection"

@@ -5,15 +5,12 @@ import {
   AccessibleIconWhite,
   AccessibleIconFalse,
   StationComplexDot,
-  ElevatorIcon,
-  Ramp,
-  LiftBad,
-  LiftGood,
   WarnIcon,
 } from "../icons";
 import { StationPopupProps } from "@/utils/types";
 import { generateSubwayLines } from "@/utils/dataUtils";
-import { FiChevronLeft } from "react-icons/fi";
+import { StatusIcon } from "@/components/StatusIcon/StatusIcon";
+import { cn } from "@/lib/utils";
 
 const StationPopup: React.FC<StationPopupProps> = ({
   complexName,
@@ -33,12 +30,10 @@ const StationPopup: React.FC<StationPopupProps> = ({
   isOut,
   isProblem,
   complexAlert,
-  onBack,
   userLocation,
   walkingToleranceMiles,
 }) => {
   const [showOOS, setShowOOS] = useState(false);
-  const [isMinimized, setIsMinimized] = useState(false);
   const [isAnimatingOOSOpen, setIsAnimatingOOSOpen] = useState(false);
   const wrapperRef = useRef<HTMLSpanElement>(null);
   const oosButtonRef = useRef<HTMLButtonElement>(null);
@@ -48,128 +43,13 @@ const StationPopup: React.FC<StationPopupProps> = ({
   const headerAreaRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
 
-  // popup expansion states
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  // Touch handling for swipe down
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = useState<number | null>(null);
-
   // flyButtonState
   const [activeFlyButton, setActiveFlyButton] = useState<string | null>(null);
-
-  const isMobile = navigator.maxTouchPoints > 0;
 
   const toBool = (v?: boolean | string | null) =>
     typeof v === "string" ? v === "true" : Boolean(v);
 
   const isAccessible = ada !== "0";
-
-  // Minimum swipe distance (in px)
-  const minSwipeDistance = 50;
-
-  const onTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientY);
-  };
-
-  const onTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientY);
-
-    if (!touchStart || !touchEnd) return;
-
-    const distance = touchStart - touchEnd;
-
-    if (distance > minSwipeDistance) {
-      // swipe up
-      if (isMinimized) {
-        setIsMinimized(false);
-      } else if (!isExpanded) {
-        setIsExpanded(true);
-        setActiveFlyButton(null);
-      }
-    } else if (distance < -minSwipeDistance) {
-      // swipe down
-      if (isExpanded) {
-        setIsExpanded(false);
-        setIsScrolled(false);
-        if (activeFlyButton) setActiveFlyButton(null);
-      } else if (!isMinimized) {
-        setIsMinimized(true);
-      }
-    }
-  };
-
-  const onTouchEnd = () => {
-    const wasSwipeOrDrag =
-      touchEnd !== null && Math.abs(touchStart - touchEnd) > 10; // e.g., 10px
-
-    if (!wasSwipeOrDrag && touchStart !== null) {
-      if (isMinimized) {
-        setIsMinimized(false);
-      } else {
-        setIsExpanded(!isExpanded);
-        if (!isExpanded) setActiveFlyButton(null);
-      }
-    }
-    // Clean up touch tracking
-    setTouchStart(null);
-    setTouchEnd(null);
-  };
-
-  // SCROLL USE EFFECT
-  useEffect(() => {
-    const contentArea = contentAreaRef.current;
-    if (!contentArea) return;
-
-    const checkContentOverflow = () => {
-      const hasOverflow = contentArea.scrollHeight > contentArea.clientHeight;
-
-      if (!hasOverflow) {
-        if (isExpanded) {
-          if (isScrolled) {
-            setIsScrolled(false);
-          }
-        }
-        return;
-      }
-
-      const scrollTop = contentArea.scrollTop;
-
-      // Use different thresholds to prevent oscillation
-      const shouldCollapse = scrollTop > 45; // Higher threshold to collapse
-      const shouldExpand = scrollTop < 15; // Lower threshold to expand
-
-      if (shouldCollapse && !isScrolled) {
-        setTimeout(() => {
-          setIsScrolled(true);
-        }, 10);
-      } else if (shouldExpand && isScrolled) {
-        setTimeout(() => setIsScrolled(false), 10);
-      }
-      // Do nothing in the middle zone (15-35px) to prevent oscillation
-    };
-
-    checkContentOverflow();
-
-    const resizeObserver = new ResizeObserver(checkContentOverflow);
-    resizeObserver.observe(contentArea);
-
-    contentArea.addEventListener("scroll", checkContentOverflow);
-
-    return () => {
-      resizeObserver.disconnect();
-      contentArea.removeEventListener("scroll", checkContentOverflow);
-    };
-  }, [isScrolled, isExpanded, activeFlyButton]);
-
-  useEffect(() => {
-    if (activeFlyButton) {
-      setIsExpanded(false);
-      setIsScrolled(false);
-    }
-  }, [activeFlyButton]);
 
   const AccessibleIconComponent = (fill?: string, size?: number) => {
     const Icon = isAccessible ? AccessibleIconWhite : AccessibleIconFalse;
@@ -198,6 +78,31 @@ const StationPopup: React.FC<StationPopupProps> = ({
     return `${oosCount} of ${totalElevators} elevators are out of service`;
   };
 
+  const pillClass =
+    "inline-flex items-center gap-1.5 rounded-full py-1.5 pl-2 pr-3 text-footnote font-semibold";
+
+  const elevatorStatus =
+    oosCount === 0
+      ? {
+          glyph: "check" as const,
+          label: "All elevators in service",
+          surface: "bg-status-ok-muted text-status-ok-foreground",
+          icon: "text-status-ok",
+        }
+      : oosCount === totalElevators
+        ? {
+            glyph: "alert" as const,
+            label: "All elevators out of service",
+            surface: "bg-status-out-muted text-status-out-foreground",
+            icon: "text-status-out",
+          }
+        : {
+            glyph: "alert" as const,
+            label: `${oosCount} of ${totalElevators} elevators out`,
+            surface: "bg-status-partial-muted text-status-partial-foreground",
+            icon: "text-status-partial",
+          };
+
   const getSubwayLinesText = (lines: string) => {
     return lines.split(" ").filter(Boolean).join(", ");
   };
@@ -220,7 +125,6 @@ const StationPopup: React.FC<StationPopupProps> = ({
           style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}
           aria-hidden="true"
         >
-          <ElevatorIcon size={15} />
           {totalElevators} {totalElevators > 1 ? "elevators" : "elevator"}
         </span>,
       );
@@ -240,7 +144,6 @@ const StationPopup: React.FC<StationPopupProps> = ({
           }}
           aria-hidden="true"
         >
-          <Ramp size={15} />
           {totalRamps} {totalRamps > 1 ? "ramps" : "ramp"}
         </span>,
       );
@@ -260,38 +163,13 @@ const StationPopup: React.FC<StationPopupProps> = ({
         >
           {visualParts.map((part, i) => (
             <React.Fragment key={i}>
+              {i > 0 && <span aria-hidden="true">·</span>}
               {part}
-              {i < visualParts.length - 1 && " "}
             </React.Fragment>
           ))}
-          {" at station"}
         </div>
       </>
     );
-  };
-
-  const getStationComplexStatus = (
-    isProblemBool: boolean,
-    isOutBool: boolean,
-    isPlain: boolean,
-    totalElevators?: number,
-  ) => {
-    if (totalElevators === 0) return styles.colorNeutral;
-    if (isOutBool && !isPlain) return styles.colorBad; // outage (red)
-    if (isOutBool && isPlain) return styles.colorBadPlain; // outage plain
-    if (isProblemBool && !isPlain) return styles.colorWarning; // warning (yellow)
-    if (isProblemBool && isPlain) return styles.colorWarningPlain; // warning plain
-    if (!isProblemBool && !isOutBool && isPlain) return styles.colorGoodPlain;
-    return styles.colorGood; // good (blue)
-  };
-
-  const getADAStatus = (ada: string, isPlain?: boolean) => {
-    if (isPlain === true) {
-      if (ada === "0") return styles.colorBadPlain;
-      else return styles.colorGoodPlain;
-    }
-    if (ada === "0") return styles.colorBad;
-    return styles.colorGood;
   };
 
   const renderAlertWithLinks = (alert: string) => {
@@ -316,23 +194,7 @@ const StationPopup: React.FC<StationPopupProps> = ({
     });
   };
 
-  const isProblemBool = toBool(isProblem);
-  const isOutBool = toBool(isOut);
-
-  const complexStatus = getStationComplexStatus(
-    isProblemBool,
-    isOutBool,
-    false, // light yellow background, dark yellow text
-    totalElevators,
-  );
-  const adaStatus = getADAStatus(ada);
-  const adaStatusPlain = getADAStatus(ada, true);
   const adaColor = ada === "0" ? "#c80000" : "#055765";
-  const complexStatusPlain = getStationComplexStatus(
-    isProblemBool,
-    isOutBool,
-    true, // bright yellow color, no background
-  );
 
   useEffect(() => {
     // Focus the title when a new station is selected
@@ -371,50 +233,35 @@ const StationPopup: React.FC<StationPopupProps> = ({
     <section
       ref={dialogRef}
       id="station-popup"
-      className={`${styles.stationPopup} ${isMinimized ? styles.minimized : isExpanded ? styles.expanded : ""}`}
-      role="dialog"
-      aria-modal="true"
+      className={styles.stationPopup}
+      role="region"
       aria-labelledby="station-popup-title"
       aria-describedby="station-summary"
     >
       <div
-        className={`${styles.popupHeader} ${isScrolled ? styles.scrolled : ""}`}
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
+        className={styles.popupHeader}
       >
-        {isMobile && (
-          <div aria-hidden="true" className="flex justify-center p-2">
-            <div className="h-1 w-12 rounded-full bg-muted-foreground/30" />
-          </div>
-        )}
-        {onBack && (
-          <button
-            className={styles.backToNearby}
-            onClick={onBack}
-            aria-label="Back to nearby stations"
-          >
-            <FiChevronLeft size={23}/>
-          </button>
-        )}
         <h1
           ref={titleRef}
           tabIndex={-1}
           id="station-popup-title"
-          className={`${styles.title} ${isMobile ? "" : styles.desktop} ${
-            isScrolled ? styles.scrolled : ""
-          }`}
+          className={cn(
+            "flex items-center gap-2 px-4 pb-2 text-title text-foreground outline-none",
+          )}
         >
           {/* Station title text */}
-          {complexName}
+          <span className="min-w-0 text-balance">{complexName}</span>
 
           {/* Accessibility icon */}
-          <div
-            className={`${styles.iconWrapper} ${adaStatus}`}
+          <span
+            className={cn(
+              "grid shrink-0 place-items-center rounded-lg p-1",
+              isAccessible ? "bg-status-ok-muted" : "bg-status-out-muted",
+            )}
             aria-hidden="true"
           >
-            {AccessibleIconComponent(adaColor, isScrolled ? 16 : 24)}
-          </div>
+            {AccessibleIconComponent(adaColor, 20)}
+          </span>
           <span className="sr-only">
             {isAccessible
               ? "station is accessible"
@@ -465,26 +312,31 @@ const StationPopup: React.FC<StationPopupProps> = ({
             </h2>
           )}
           {complexAlert.length > 0 && (
-            <div className={styles.alertHeader}>
-              <div>{complexAlert.length > 1 ? `Alerts:` : `Alert:`}</div>
-              <div className={styles.alert}>
-                {complexAlert.map((alert: string, index: number) => (
-                  <div key={index} aria-label={`Station alert: ${alert}`}>
+            <div className="mx-4 mb-3 flex flex-col gap-2">
+              {complexAlert.map((alert: string, index: number) => (
+                <div
+                  key={index}
+                  role="status"
+                  className="flex items-start gap-3 rounded-xl bg-status-partial-muted px-4 py-3"
+                >
+                  <StatusIcon glyph="alert" className="mt-0.5 size-[18px] text-status-partial" />
+                  <p className="min-w-0 text-subhead text-pretty">
+                    <span className="sr-only">Station alert: </span>
                     {renderAlertWithLinks(alert)}
-                  </div>
-                ))}
-              </div>
+                  </p>
+                </div>
+              ))}
             </div>
           )}
 
           {/* ADA Notes */}
           {ada_notes && (
             <div
-              className={`${styles.adaNotesWrapper}`}
+              className="mx-4 mb-3 flex items-start gap-2 text-footnote text-muted-foreground"
               aria-label={`Station accessibility notes: Accessible ${ada_notes}`}
             >
-              <span aria-hidden="true">
-                <AccessibleIconWhite size={18} fill="currentColor" />
+              <span aria-hidden="true" className="shrink-0">
+                <AccessibleIconWhite size={16} fill="currentColor" />
               </span>
               <span aria-hidden="true">{ada_notes}</span>
             </div>
@@ -492,52 +344,22 @@ const StationPopup: React.FC<StationPopupProps> = ({
         </section>
 
         {/* Equipment summary */}
-        <section className={`${styles.equipmentWrapper}`}>
+        <section className="mx-4 flex flex-wrap gap-2 pb-1">
           {ada === "0" && (
-            <div className={`${styles.equipmentRowOneWrapper} ${adaStatus}`}>
-              This station is not ADA accessible
-            </div>
+            <span className={cn(pillClass, "bg-status-out-muted text-status-out-foreground")}>
+              <StatusIcon glyph="alert" className="text-status-out" />
+              Not ADA accessible
+            </span>
           )}
-          <div className={styles.equipmentRowTwoWrapper}>
-            {totalElevators > 0 && (
-              <div className={`${styles.equipmentStatus} ${complexStatus}`}>
-                {totalElevators === 0 && totalRamps === 0 ? (
-                  <span>No elevators at station</span>
-                ) : oosCount === totalElevators ? (
-                  <>
-                    <span aria-hidden="true">
-                      <LiftBad size={20} />
-                    </span>
-                    <span>All elevators out of service</span>
-                  </>
-                ) : oosCount === 0 ? (
-                  <>
-                    <span aria-hidden="true">
-                      <LiftGood size={20} />
-                    </span>
-                    <span>All elevators in service</span>
-                  </>
-                ) : (
-                  <>
-                    <span aria-hidden="true">
-                      <LiftBad size={20} aria-hidden="true" />
-                    </span>
-                    <span>
-                      {oosCount} {oosCount > 1 ? "elevators" : "elevator"} out
-                      of service
-                    </span>
-                  </>
-                )}
-              </div>
-            )}
-            <div className={`${styles.equipmentCount} ${styles.colorNeutral}`}>
-              {totalElevators > 0 || totalRamps > 0 ? (
-                <>{buildEquipmentText(totalElevators, totalRamps)}</>
-              ) : (
-                "No elevators or ramps"
-              )}
-            </div>
-          </div>
+          {totalElevators > 0 && (
+            <span className={cn(pillClass, elevatorStatus.surface)}>
+              <StatusIcon glyph={elevatorStatus.glyph} className={elevatorStatus.icon} />
+              {elevatorStatus.label}
+            </span>
+          )}
+          <span className={cn(pillClass, "bg-foreground/[0.06] text-foreground")}>
+            {buildEquipmentText(totalElevators, totalRamps)}
+          </span>
         </section>
 
         <section
