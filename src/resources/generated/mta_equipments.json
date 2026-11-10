@@ -754,7 +754,7 @@
     "nextadasouth": "153, B, D",
     "redundant": 0,
     "busconnections": "Bx1, Bx1 LTD, Bx2, BxM4, Bx6, Bx6 SBS, Bx13, Bx32.",
-    "alternativeroute": "All elevators in this station are out of service for replacement. \nRead on for travel alternatives:\n\nFor easiest Manhattan-bound service, use nearby Metro-North station. Present Reduced-Fare MetroCard or OMNY card to conductors at Metro-North station Yankees-East 153 St for free out of system transfer. Travel south on River Av to 157 St, walk west on 157 St to the Metro North station. Travel to 125 St or Grand Central and continue your journey. \n\nFor Bedford Park Blvd-bound B/D, take a Hunts Pt-bound Bx6 Local bus (161 St and River Av) to Concourse Village E (Morris Av). Transfer to a Kingsbridge-bound Bx32 bus and take it to Jerome Av and Kingsbridge Rd for B or D.\n\nFor Woodlawn-bound 4, elevators are also out of service at Fordham Rd 4 station. Instead, take a Riverdale-bound Bx1 or Bx1 LTD, or a Kingsbridge-bound Bx2 from Grand Concourse/E 170 St to your destination. You can also transfer to the Bx32, which runs on Jerome Av, at 175 St and Walton Av (just west of Grand Concourse)."
+    "alternativeroute": "For Norwood-bound B/D, take the Manhattan-bound B or D to 125 St, then transfer to the Norwood/Bronx-bound B or D.\n\nFor access to street from Norwood-bound B/D platform, take the Norwood-bound B or D to Tremont Av, then transfer to the Manhattan-bound B or D and get off at 161 St-Yankee Stadium."
   },
   {
     "station": "161 St-Yankee Stadium",
@@ -775,7 +775,7 @@
     "nextadasouth": "153, B, D",
     "redundant": 0,
     "busconnections": "Bx1, Bx1 LTD, Bx2, BxM4, Bx6, Bx6 SBS, Bx13, Bx32.",
-    "alternativeroute": "All elevators in this station are out of service for replacement. \nRead on for travel alternatives:\n\nFor easiest Manhattan-bound service, use nearby Metro-North station. Present Reduced-Fare MetroCard or OMNY card to conductors at Metro-North station Yankees-East 153 St for free out of system transfer. Travel south on River Av to 157 St, walk west on 157 St to the Metro North station. Travel to 125 St or Grand Central and continue your journey. \n\nFor Bedford Park Blvd-bound B/D, take a Hunts Pt-bound Bx6 Local bus (161 St and River Av) to Concourse Village E (Morris Av). Transfer to a Kingsbridge-bound Bx32 bus and take it to Jerome Av and Kingsbridge Rd for B or D.\n\nFor Woodlawn-bound 4, elevators are also out of service at Fordham Rd 4 station. Instead, take a Riverdale-bound Bx1 or Bx1 LTD, or a Kingsbridge-bound Bx2 from Grand Concourse/E 170 St to your destination. You can also transfer to the Bx32, which runs on Jerome Av, at 175 St and Walton Av (just west of Grand Concourse)."
+    "alternativeroute": "For Manhattan-bound B/D, take the Norwood-bound B or D to Tremont Av, then transfer to the Manhattan-bound B or D.\n \nFor street access from the Manhattan-bound B/D platform, take the Manhattan-bound B/D to 125 St, then transfer to the Bronx-bound B or D and get off at 161 St-Yankee Stadium."
   },
   {
     "station": "161 St-Yankee Stadium",
@@ -796,7 +796,7 @@
     "nextadasouth": "390, 4",
     "redundant": 0,
     "busconnections": "Bx6, Bx6 SBS, Bx13",
-    "alternativeroute": "To access street level: Take a Manhattan-bound 4 to 125 St. Use elevators to transfer to a Bronx-bound 6. Exit at Hunts Point Av and transfer to a Washington Heights-bound Bx6-SBS bus to E 161 St and River Av.\n\nTo access B/D service: Take a Manhattan-bound 4 to 125 St. Use elevators to transfer to a Bronx-bound 4. Exit at 170 St and then proceed east to Grand Concourse. Take a Riverdale-bound Bx1 or Kingsbridge Heights-bound Bx2 to Tremont Av for access to BD service."
+    "alternativeroute": "To access street level: Take a Manhattan-bound 4 to 149 St-Hostos. Exit the station and go to the Grand Concourse/149 St bus stop (in front of USPS), then take a Riverdale-bound Bx1 or Kingsbridge-bound Bx2 to Grand Concourse/161 St. Go 3 blocks west on 161 St for River Av.\n\nTo access B/D service: Follow directions to access street level, then go to lower level of 161 St-Yankee Stadium for B/D service.\n\nTo access Manhattan-bound 4 service: Take a Woodlawn-bound 4 to 170 St, then transfer to a Manhattan-bound 4."
   },
   {
     "station": "161 St-Yankee Stadium",
@@ -817,7 +817,7 @@
     "nextadasouth": "390, 4",
     "redundant": 0,
     "busconnections": "Bx6, Bx6 SBS, Bx13",
-    "alternativeroute": "To access street level: Take a Woodlawn-bound 4 to 170 St. Exit station and proceed east to Grand Concourse. Then, take a Mott Haven-bound Bx1 or Bx2 bus to Grand Concourse and E 161 St.\n\nTo access B/D service: Take a Woodlawn-bound 4 to 170 St. Exit station and proceed east to Grand Concourse. Then, take a Riverdale-bound Bx1 or Kingsbridge Heights-bound Bx2 to Tremont Av for access to BD service."
+    "alternativeroute": "To access street level: Take a Woodlawn-bound 4 to 170 St. Exit station and proceed east to Grand Concourse. Then, take a Mott Haven-bound Bx1 or Bx2 bus to Grand Concourse and E 161 St.\n\nTo access B/D service: Take a Woodlawn-bound 4 to 170 St. Exit station and proceed east to Grand Concourse. Then, take a Riverdale-bound Bx1 or Kingsbridge Heights-bound Bx2 to Tremont Av for access to BD service.\n\nTo access 4 service: Go 3 blocks east along 161 St to Grand Concourse. Take a Mott Haven-bound Bx1 or Bx2 from Grand Concourse/E 161 St (in front of Bronx Borough Hall) to Grand Concourse/E 149 St. Then, take the 4 train at 149 St-Hostos station."
   },
   {
     "station": "161 St-Yankee Stadium",
@@ -838,7 +838,7 @@
     "nextadasouth": "153, B, D / 390, 4",
     "redundant": 0,
     "busconnections": "Bx6, Bx6 SBS, Bx13/Bx1, Bx1 LTD, Bx2, BxM4, Bx6, Bx6 SBS, Bx13, Bx32.",
-    "alternativeroute": "All elevators in this station are out of service for replacement. Read on for alternatives:\n\nFor Manhattan-bound service: Reduced-Fare MetroCard/OMNY holders may ride Metro-north between the nearby Yankees-E 153 St station and Grand Central at no additional charge. You must present your Reduced-Fare MetroCard or Reduced-Fare OMNY card to the conductor to use this service. To access the Yankees-E 153 St station, travel south on River Av to 157 St and proceed west to the station. Take a Grand Central-bound train and transfer at 125 St or Grand Central for onward subway service.\n\nFor B/D: Proceed east along 161 St to Grand Concourse. Take a Riverdale-bound Bx1 or Kingsbridge Heights-bound Bx2 bus to Tremont Av for B/D service in both directions.\n\nFor Woodlawn-bound 4 stations: Proceed east along 161 St to Grand Concourse and take a Riverdale-bound Bx1 or a Kingsbridge Heights-bound Bx2. Exit at 170 St for the 170 St 4 station, at Fordham Rd for the Fordham Rd 4 station (Note: all elevators at this station are also out of service for replacement), or at Jerome Av for the Mosholu Pkwy 4 station. Accessible Manhattan-bound 4 service is also available at 170 St and Mosholu Pkwy. "
+    "alternativeroute": "For Manhattan-bound service: Reduced-Fare MetroCard/OMNY holders may ride Metro-north between the nearby Yankees-E 153 St station and Grand Central at no additional charge. You must present your Reduced-Fare MetroCard or Reduced-Fare OMNY card to the conductor to use this service. To access the Yankees-E 153 St station, travel south on River Av to 157 St and proceed west to the station. Take a Grand Central-bound train and transfer at 125 St or Grand Central for onward subway service.\n\nFor B/D: Proceed east along 161 St to Grand Concourse. Take a Riverdale-bound Bx1 or Kingsbridge Heights-bound Bx2 bus to Tremont Av for B/D service in both directions.\n\nFor Woodlawn-bound 4 stations: Proceed east along 161 St to Grand Concourse and take a Riverdale-bound Bx1 or a Kingsbridge Heights-bound Bx2. Exit at 170 St for the 170 St 4 station, at Fordham Rd for the Fordham Rd 4 station, or at Jerome Av for the Mosholu Pkwy 4 station. Accessible Manhattan-bound 4 service is also available at 170 St and Mosholu Pkwy."
   },
   {
     "station": "168 St",
