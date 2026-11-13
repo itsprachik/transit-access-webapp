@@ -12104,7 +12104,7 @@
     "equipmenttype": "ES",
     "serving": "lower mezzanine to intermediate mezzanine for Lexington Ave & 63 St exit",
     "ADA": "N",
-    "isactive": "N",
+    "isactive": "Y",
     "nonNYCT": "N",
     "shortdescription": "Lower mezzanine to intermediate mezzanine for 63 St & Lexington Av exit.",
     "linesservedbyelevator": "F/M",
