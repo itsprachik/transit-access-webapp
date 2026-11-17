@@ -41,11 +41,11 @@
     ]
   },
   {
-    "equipment_code": "EL440",
+    "equipment_code": "EL256X",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.96482,
-      40.76391
+      -73.84382,
+      40.75401
     ]
   },
   {
@@ -54,6 +54,14 @@
     "coords": [
       -73.830795,
       40.660427
+    ]
+  },
+  {
+    "equipment_code": "EL440",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.96482,
+      40.76391
     ]
   },
   {
@@ -217,11 +225,11 @@
     ]
   },
   {
-    "equipment_code": "EL414",
+    "equipment_code": "EL373",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.82893,
-      40.759884
+      -73.97948,
+      40.643017
     ]
   },
   {
@@ -369,14 +377,6 @@
     ]
   },
   {
-    "equipment_code": "EL256X",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.84382,
-      40.75401
-    ]
-  },
-  {
     "equipment_code": "EL144",
     "elevator_or_escalator": "Elevator",
     "coords": [
@@ -390,14 +390,6 @@
     "coords": [
       -73.873375,
       40.841827
-    ]
-  },
-  {
-    "equipment_code": "EL399",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.980965,
-      40.5759
     ]
   },
   {
@@ -833,6 +825,14 @@
     ]
   },
   {
+    "equipment_code": "EL399",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.980965,
+      40.5759
+    ]
+  },
+  {
     "equipment_code": "EL143",
     "elevator_or_escalator": "Elevator",
     "coords": [
@@ -889,6 +889,14 @@
     ]
   },
   {
+    "equipment_code": "EL156",
+    "elevator_or_escalator": "Elevator",
+    "coords": [
+      -73.92624,
+      40.859974
+    ]
+  },
+  {
     "equipment_code": "EL359",
     "elevator_or_escalator": "Elevator",
     "coords": [
@@ -905,11 +913,11 @@
     ]
   },
   {
-    "equipment_code": "EL373",
+    "equipment_code": "EL414",
     "elevator_or_escalator": "Elevator",
     "coords": [
-      -73.97948,
-      40.643017
+      -73.82893,
+      40.759884
     ]
   },
   {
@@ -950,14 +958,6 @@
     "coords": [
       -73.75409,
       40.604652
-    ]
-  },
-  {
-    "equipment_code": "EL156",
-    "elevator_or_escalator": "Elevator",
-    "coords": [
-      -73.92624,
-      40.859974
     ]
   },
   {
