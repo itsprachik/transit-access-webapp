@@ -5783,7 +5783,7 @@
     "equipmenttype": "EL",
     "serving": "mezzanine to B/Q platform for service in both directions",
     "ADA": "Y",
-    "isactive": "N",
+    "isactive": "Y",
     "nonNYCT": "N",
     "shortdescription": "Mezzanine to B/Q platform",
     "linesservedbyelevator": "B/Q",
